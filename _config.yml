@@ -1,0 +1,69 @@
+#
+###################################
+# Site wide configuration
+####################################
+#
+title: HBC Digital
+email: pops@gilt.com
+description: We power the web and mobile experiences for Saks, Saks OFF Fifth, Gilt, Lord & Taylor and The Bay.
+url: # the base hostname & protocol for your site
+
+
+#
+###################################
+# Jekyll configuration
+####################################
+#
+timezone:          EST
+markdown:          kramdown
+highlighter:       rouge
+excerpt_separator: <!--more-->
+permalink:         /articles/:year-:month/:title
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  enable_coderay: false
+
+#
+###################################
+# Site Owner configuration
+####################################
+#
+owner:
+  name: HBC Digital
+  avatar: logo.jpg
+  job: "The Tech Team for Hudson's Bay Company."
+  bio: "Since 1670."
+  email: pops@gilt.com
+  disqus-shortname:
+  twitter: hbcdigital
+  facebook: hbcdigital
+  google:
+    plus: #username
+    analytics:
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
+  github: gilt
+  gitlab: #username
+  stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
+  linkedin: hbc_digital
+  skype: #username
+  xing: #username
+  instagram: hbcdigital
+  lastfm: #username
+  tumblr: #username
+  pinterest: #username
+  foursquare: #username
+  steam: #username
+  dribbble: #username
+  youtube: #username
+  soundcloud: #username
+  weibo: #username
+  flickr: #username
+  500px: #username
+  codepen: #username
