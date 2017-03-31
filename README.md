@@ -8,9 +8,9 @@ The blog of HBC Digital's Tech Team. We are reinventing retail through our work 
 
 ### Create a new post
 
-To create a new post, please create a new branch for your post, and save the **markdown** file in `_posts` of your branch. Use our naming convention for blog posts: YYYY-MM-DD-your-post-name.md
+To create a new post, please create a new branch for your post and save the **markdown** file in `_posts` of your branch. Use the following naming convention for blog posts: YYYY-MM-DD-your-post-name.md
 
-Note that the Markdown source file for each post has an header section with some auto-generated metadata (title, date). Please always add the metadata:
+Note that the Markdown source file for each post has an header section with some auto-generated metadata (layout, title, author, date, categories, tags). Please always add the metadata as follows:
 
 ```
 layout: post
@@ -24,7 +24,7 @@ tags:
 - here
 ```
 
-After uploading your _posts folder of the new branch, submit a pull request. After solicting feedback from your peers and editing the post, you're ready to merge. 
+After uploading your blog post to the _posts_ folder of the new branch, submit a pull request. After solicting feedback from your peers and editing the post, you're ready to merge. 
 
 ### Guest Posts
 
