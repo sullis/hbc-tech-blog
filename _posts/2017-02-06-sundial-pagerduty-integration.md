@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "Sundial PagerDuty Integration"
 author: Giovanni Gargiulo
 date: '2017-02-06'
@@ -12,6 +12,7 @@ tags:
 
 A few months ago, Gilt Tech announced [Sundial](https://github.com/gilt/sundial). Sundial is an open source batch job scheduler for Amazon ECS.
 Over the course of the last few months, Sundial has seen a significant adoption both inside and outside of Gilt.
+<!--more-->
 
 Until Sundial v0.0.10, emailing was the only way of notifying job failures.
 

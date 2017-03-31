@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: Codedeploy Notifications as a Service
 author: Emerson Loureiro
 date: '2016-02-10'

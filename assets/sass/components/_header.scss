@@ -1,0 +1,12 @@
+.site-header {
+	display: block;
+	background-color: $hbc-white;
+	color: $hbc-black;
+
+	&__logo {
+	    display: inline-flex;
+	    width: 280px;
+	    height: 100px;
+	    margin: 20px 0;
+	}
+}

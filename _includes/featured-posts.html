@@ -1,0 +1,21 @@
+<section class="inner-wrapper article-listing">
+	<!-- display the 1st post in a big way-->
+	{% for post in site.posts | limit: 1 %}
+    <div class="article article--featured">
+        {% include article-snippet.html %}
+    </div>
+	{% endfor %}
+	<!-- display the 2nd and 3rd posts in a smaller way-->
+	{% for post in site.posts | limit: 2 offset: 1 %}
+    <div class="article article--sub-featured">
+	    {% include article-snippet.html %}
+	</div>
+	{% endfor %}
+	<!-- this is the rest of the posts listed with no feature images-->
+	{% for post in site.posts offset: 3 %}
+	<div class="article article--remaining">
+        {% include article-snippet_no-images.html %}
+	</div>
+	{% endfor %}
+	<a class="more-link" href="/insights/" title="more articles">More Insights</a>
+</section>

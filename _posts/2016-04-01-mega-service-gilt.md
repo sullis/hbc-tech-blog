@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "Breaking the Mold: Megaservice Architecture at Gilt"
 author: Adrian Trenaman 
 date: '2016-04-01'
@@ -15,6 +15,8 @@ tags:
 
 
 Today we announce a novel approach to software and system architecture that we’ve been experimenting with for the last while at Gilt: internally, we’ve been referring to it ‘mega-service’ architecture, and, the name seems to have stuck. We’re pretty excited about it, as it represents a real paradigm shift for us.
+
+<!--more-->
 
 In a mega-service architecture, you take all your code and you put it in one single software repository, the mega-service. There are so many advantages to having a single repository: only one code-base; no confusion where anything is; you make a change - it's done, and will go out with the next deploy. It all compiles, from source, 100% of the time at least 50% of the time. Software ownership is a perpetual challenge for any tech organisation: in the mega-service model, there are many, many owners which means of course that the code is really, really well owned. 
 

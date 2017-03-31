@@ -1,19 +1,13 @@
-<img src="img/hbc-digital-logo-with-background.png" alt="logo" width="200" height="200">
+<img src="assets/images/hbc-digital-logo-with-background.png" alt="logo" width="200" height="200">
+
 # HBC Digital Tech Blog
-A simple [jekyll](https://jekyllrb.com/) based theme for rendering infinite technical knowledge.
 
-## Quick setup
+The blog of HBC Digital's Tech Team. We are reinventing retail through our work with Saks Fifth Avenue, Saks OFF 5TH, Lord & Taylor, Gilt and The Bay. This blog is built with Jekyll and Gulp.
 
-```
-git clone https://github.com/saksdirect/hbc-tech-blog
-cd hbc-tech-blog
-jekyll server
-```
+## [Contributing](./docs/contributing.md)
+## [Developers](./docs/developers.md)
 
-Open `http://localhost:4000` in your browser.
+## License
 
-## Running with Docker
-
-```
-docker run --rm -it --volume=$PWD:/srv/jekyll -p 4000:4000 jekyll/jekyll:pages jekyll serve --watch --force_polling
-```
+Code contained in this repository is licensed under the [MIT License](https://raw.githubusercontent.com/saksdirect/hbc-tech-blog/LICENSE)  
+Post content are copyright &copy; Hudson's Bay Company.

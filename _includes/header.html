@@ -1,0 +1,12 @@
+<header id="site-header" class="site-header" >
+	<div class="inner-wrapper">
+		<a class="site-header__logo" href="/">
+			<img src="{{ site.url }}/assets/images/hbc-tech-beta.svg"/>
+		</a>
+		<ul class="navigation">
+			{% for link in site.data.navigation.header-links %}
+			  <li class="navigation__link-item"><a href="{{ site.url }}{{ link.url }}" class="navigation__link">{{ link.title }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</header>

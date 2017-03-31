@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "OSX, Docker, NFS and packet filter firewall"
 author: Andrey Kartashov
 category: docker
@@ -11,6 +11,8 @@ tags:
 ---
 
 The Mobile Services team at Gilt uses Docker to both build and run software. In addition to the usual Docker benefits for software deployments moving toolchains to Docker has a few advantages:
+
+<!--more-->
 
 - it's easy to (re)create a development environment
 - the environment is preserved in a stable binary form (libs, configs, CLI tools, etc, etc don't bit rot as main OS packages or OS itself evolve)

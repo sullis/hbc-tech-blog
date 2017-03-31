@@ -1,0 +1,10 @@
+<!-- featured topics -->
+<ul>
+{% for topic in site.data.featured-topics %}
+  <li>
+    <a href="#" title="{{ topic.label }}">
+      {{ topic.label }}
+    </a>
+  </li>
+{% endfor %}
+</ul>

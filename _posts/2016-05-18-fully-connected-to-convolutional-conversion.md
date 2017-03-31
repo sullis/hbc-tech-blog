@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "How to convert fully connected layers into equivalent convolutional ones"
 author: Pau Carré Cardona
 date: '2016-05-18'

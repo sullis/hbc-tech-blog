@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: NYC Scrum User Group - January 19th
 author: 
 date: '2017-01-11'

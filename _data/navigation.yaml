@@ -1,0 +1,21 @@
+# Masthead navigation links
+header-links:
+  - title: "Insights"
+    url: /insights/
+  - title: "Code"
+    url: /code/
+  - title: "Culture"
+    url: /culture/
+  - title: "Work Here"
+    url: /jobs/
+
+# Footer navigation links
+footer-links:
+  - title: "Insights"
+    url: /insights/
+  - title: "Code"
+    url: /code/
+  - title: "Culture"
+    url: /culture/
+  - title: "Work Here"
+    url: /jobs/

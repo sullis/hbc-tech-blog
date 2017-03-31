@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "Voluntary Adoption in Action: HBC Digital Adopts Slack"
 author: Adrian Trenaman
 date: '2017-02-06'
@@ -15,6 +15,8 @@ tags:
 ---
 
 *Musings on Decentralised Control and Voluntary Adoption in Large Organisations.*
+
+<!--more-->
 
 When I think of Slack, I think first of the great [book](https://www.amazon.com
 /Slack-Getting-Burnout-Busywork-Efficiency/dp/0767907698) by Tom DeMarco on the

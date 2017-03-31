@@ -1,3 +1,8 @@
-<footer>
-  &copy; {{ site.time | date: '%Y' }} {{ site.owner.name }}.</i>
-</footer>
+<div class="footer">
+	<ul class="navigation navigation--footer">
+		{% for link in site.data.navigation.footer-links %}
+		  <li class="navigation__link-item"><a href="{{ site.url }}{{ link.url }}" class="navigation__link">{{ link.title }}</a></li>
+		{% endfor %}
+	</ul>
+  &copy; {{ site.time | date: '%Y' }} {{ site.title }}, {{ site.tagline }}</i>
+</div>

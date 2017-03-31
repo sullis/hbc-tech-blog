@@ -4,66 +4,73 @@
 ####################################
 #
 title: HBC Digital
+tagline: "Engineering the Retail Experience"
+tagline-2: "Since 1670"
 email: pops@gilt.com
-description: We power the web and mobile experiences for Saks, Saks OFF Fifth, Gilt, Lord & Taylor and The Bay.
-url: # the base hostname & protocol for your site
+avatar: hbc-digital-logo.svg
+description: > # this means to ignore newlines until "baseurl:"
+  We power the website and mobile experiences for Saks, 
+  Saks Off Fifth, Gilt, Lord & Taylor and The Bay.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
+twitter: hbcdigital
+facebook: hbcdigital
+github: gilt
+linkedin: hbc_digital
+instagram: hbcdigital
 
+#google analytics
+# google_analytics: UA-83021339-1
+google_analytics: UA-00000000-1
 
 #
 ###################################
 # Jekyll configuration
 ####################################
 #
-timezone:          EST
-markdown:          kramdown
-highlighter:       rouge
-excerpt_separator: <!--more-->
-permalink:         /articles/:year-:month/:title
+timezone: EST
+markdown: kramdown
+permalink: pretty
+# permalink: /:categories/:year/:month/:day/:title
+pagination:
+  enabled: true
+  per_page: 10
+  permalink: '/:num/'
+  title: ' - page :num'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
 
+autopages:
+  # Site-wide kill switch, disable here and it doesn't run at all 
+  enabled: false
+
+# Markdown settings
+markdown: kramdown
 kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  enable_coderay: false
+  input: GFM
+  syntax_highlighter: rouge
 
-#
-###################################
-# Site Owner configuration
-####################################
-#
-owner:
-  name: HBC Digital
-  avatar: logo.jpg
-  job: "The Tech Team for Hudson's Bay Company."
-  bio: "Since 1670."
-  email: pops@gilt.com
-  disqus-shortname:
-  twitter: hbcdigital
-  facebook: hbcdigital
-  google:
-    plus: #username
-    analytics:
-    verify:
-    ad-client:
-    ad-slot:
-  bing-verify:
-  github: gilt
-  gitlab: #username
-  stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
-  linkedin: hbc_digital
-  skype: #username
-  xing: #username
-  instagram: hbcdigital
-  lastfm: #username
-  tumblr: #username
-  pinterest: #username
-  foursquare: #username
-  steam: #username
-  dribbble: #username
-  youtube: #username
-  soundcloud: #username
-  weibo: #username
-  flickr: #username
-  500px: #username
-  codepen: #username
+# Sass settings
+sass:
+  add_charset: true
+  sass_dir: assets/sass
+  style: :compressed
+
+# Build settings
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - README.md
+  - CNAME
+  - docs
+  - node_modules
+  - gulpfile.js
+
+# Plugin settings
+plugins:
+  - jekyll-feed
+  - octopress-autoprefixer
+  - jekyll-sitemap
+  - jekyll-paginate-v2
