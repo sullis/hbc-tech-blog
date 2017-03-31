@@ -16,6 +16,8 @@ tags:
 
 *Musings on Decentralised Control and Voluntary Adoption in Large Organisations.*
 
+<!--more-->
+
 When I think of Slack, I think first of the great [book](https://www.amazon.com
 /Slack-Getting-Burnout-Busywork-Efficiency/dp/0767907698) by Tom DeMarco on the
 organisational "slack" we need to play, innovate, get big things done. It’s an

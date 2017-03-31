@@ -10,9 +10,10 @@ tags:
 - panic
 - shopping
 ---
-## Urgency vs. Panic
-
 My first initiative as a product manager at Gilt was something called “Urgency”. It was formed under the premise that Gilt customers had become numb to the flash model, and we in tech could find ways to reinvigorate the sense of urgency that once existed while shopping at Gilt; the noon rush wherein products were flying off the virtual shelves, and customers knew if they liked something they had precious few minutes to purchase it before it’d be gone forever.
+
+<!--more-->
+
 I came into this initiative not only new to Gilt but also new to e-commerce, and I felt an acute sensitivity towards the customer.At Gilt we walk a fine line between creating urgency and inciting panic, and it's something I personally grappled with continuously. The former’s outcome is positive, the shopping experience becomes gamified, and the customer’s win is also ours. The latter’s outcome is negative. The customer has a stressful and unsuccessful shopping experience, and then churns.
 This fine line meant that we as a team couldn’t just conceive of features, we also had to find the perfect logical balance as to when they should appear – and more importantly, when they shouldn’t.
 

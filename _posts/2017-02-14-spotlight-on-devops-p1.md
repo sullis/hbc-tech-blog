@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post 
 title: Don’t just read about DevOps culture, play-test it!
 author: Dana Pylayeva
 date: '2017-02-14'
@@ -8,9 +8,15 @@ tags:
 - culture
 - devops
 - Spotlight on DevOps
+image:
+  feature: taxi-cab-381233_1920.jpg
+  credit: This is just a placeholder credit
+  creditlink: google.com
 ---
 
 A lot of people talk about DevOps Culture. Yes, you can learn about a culture by reading a book or a blog post. A much more effective and fun way to learn about a culture is by experiencing it. This blog post is _**your**_ invitation to experience DevOps culture through a simulation game! 
+
+<!--more-->
 
 My interest in DevOps originated from a very unlikely turn that my career took 7 years ago. An opportunity came up to push myself completely out of my comfort zone in a developer’s world. I’d taken on a job of DBA Manager and found myself in a harsh, alerts-driven world of pagers, [disaster recoveries](https://en.wikipedia.org/wiki/Disaster_recovery) and escalation procedures. The sense of urgency and pressure was incredible and made me wonder why I never knew about it as a developer.
 

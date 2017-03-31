@@ -19,6 +19,9 @@ github: gilt
 linkedin: hbc_digital
 instagram: hbcdigital
 
+#google analytics
+#google_analytics: UA-83021339-1
+
 #
 ###################################
 # Jekyll configuration

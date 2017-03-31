@@ -14,6 +14,8 @@ tags:
 
 There's a lot going on in AWS; EC2 instances coming up, new releases being rolled out, services scaling up and down, new services and the underlying infrastructure being setup. If you own software running production, you probably know the drill; you need to ensure that the software and its supporting infrastructure are healthy and stable. You will also eventually need to diagnose production issues. In short, you need a way to keep an eye on your software. The scale at which we run things here at [Gilt](http://www.gilt.com), with over 300 services in production, each with multiple instances, means this is even more important.
 
+<!--more-->
+
 In AWS, [CloudWatch Events](http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html) is a powerful tool for monitoring your resources. In very simple terms, it allows you to receive notifications about some of your infrastructure in production, and then lets you decide what to do with it. This last part is where Lambdas come in, and I'll go into the details of how that's done in a minute. First, let's look at some of the events you can receive with CloudWatch.
 
 * **EC2**: instance state changes (*starting*, *running*, *stopping*, *stopped*, and *terminated*);
