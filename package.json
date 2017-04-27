@@ -1,0 +1,34 @@
+{
+  "name": "hbc-tech-blog",
+  "version": "1.0.0",
+  "description": "a jekyll based application for publishing content",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "jekyll serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saksdirect/hbc-tech-blog.git"
+  },
+  "keywords": [
+    "hbc",
+    "digital",
+    "ecommerce",
+    "retail",
+    "jekyll",
+    "blog"
+  ],
+  "author": "hbc-digital",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saksdirect/hbc-tech-blog/issues"
+  },
+  "homepage": "https://github.com/saksdirect/hbc-tech-blog#readme",
+  "devDependencies": {
+    "jekyll": "^3.0.0-beta1"
+  },
+  "dependencies": {
+    "simple-jekyll-search": "^1.2.0"
+  }
+}

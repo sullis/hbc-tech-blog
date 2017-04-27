@@ -37,18 +37,15 @@ We decided to use [Jekyll Bootstrap](http://jekyllbootstrap.com) to get our blog
 ## Quick setup
 
 ```
+gem install jekyll
 git clone https://github.com/saksdirect/hbc-tech-blog
 cd hbc-tech-blog
-jekyll server
+npm i
+npm start
 ```
 
 Open `http://localhost:4000` in your browser.
 
-## Running with Docker
-
-```
-docker run --rm -it --volume=$PWD:/srv/jekyll -p 4000:4000 jekyll/jekyll:pages jekyll serve --watch --force_polling
-```
 
 ## License
 
