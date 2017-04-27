@@ -34,8 +34,8 @@ kramdown:
 #
 owner:
   name: HBC Digital
-  avatar: logo.jpg
-  job: "The Tech Team for Hudson's Bay Company."
+  avatar: hbc-digital-logo.svg
+  job: "Engineering the Retail Experience"
   bio: "Since 1670."
   email: pops@gilt.com
   disqus-shortname:

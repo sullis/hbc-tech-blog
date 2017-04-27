@@ -37,6 +37,7 @@ We decided to use [Jekyll Bootstrap](http://jekyllbootstrap.com) to get our blog
 ## Quick setup
 
 ```
+gem install jekyll
 git clone https://github.com/saksdirect/hbc-tech-blog
 cd hbc-tech-blog
 npm i
