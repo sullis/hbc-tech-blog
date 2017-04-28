@@ -15,21 +15,14 @@ On what turned out to be an unseasonably warm and beautiful Monday, a bunch of u
 
 Here are some photos of the trip - can't wait for the next one.
 
-<table align="center" border="0" style="border:none">
-  <tr>
-    <td colspan="3"><img src="http://i.imgur.com/NVRAzDk.png" /></td>
-  </tr>
-  <tr>
-    <td><img src="http://i.imgur.com/9VSVsfX.png" width="300" /></td>
-    <td><img src="http://i.imgur.com/2KDXrle.png" width="300" /></td>
-    <td><img src="http://i.imgur.com/GACiB8p.png" width="300" /></td>
-  </tr>
-  <tr>
-    <td><img src="http://i.imgur.com/0b7cDa1.png" width="300" /></td>
-    <td><img src="http://i.imgur.com/SFIokOP.png" width="300" /></td>
-    <td>
-      <img src="http://i.imgur.com/zOb579Q.png" width="300" /><br/>
-      <img src="http://i.imgur.com/F4swKEJ.png" width="300" />
-    </td>
-  </tr>
-</table>
+![](http://i.imgur.com/NVRAzDk.png)
+
+![](http://i.imgur.com/9VSVsfX.png)
+![](http://i.imgur.com/2KDXrle.png)
+![](http://i.imgur.com/GACiB8p.png)
+
+![](http://i.imgur.com/0b7cDa1.png)
+![](http://i.imgur.com/SFIokOP.png)
+
+![](http://i.imgur.com/zOb579Q.png)
+![](http://i.imgur.com/F4swKEJ.png)

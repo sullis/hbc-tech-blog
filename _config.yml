@@ -5,9 +5,11 @@
 #
 title: HBC Digital
 email: pops@gilt.com
-description: We power the website and mobile experiences for Saks, Saks Off Fifth, Gilt, Lord & Taylor and The Bay.
+description: > # this means to ignore newlines until "baseurl:"
+  We power the website and mobile experiences for Saks, 
+  Saks Off Fifth, Gilt, Lord & Taylor and The Bay.
+baseurl: "" # the subpath of your site, e.g. /blog
 url: # the base hostname & protocol for your site
-
 
 #
 ###################################
@@ -20,12 +22,34 @@ highlighter:       rouge
 excerpt_separator: <!--more-->
 permalink:         /articles/:year-:month/:title
 
+# Markdown settings
+markdown: kramdown
 kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  enable_coderay: false
+  input: GFM
+  syntax_highlighter: rouge
+
+# Sass settings
+sass:
+  add_charset: true
+  sass_dir: assets/sass
+  style: :compressed
+
+# Build settings
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - README.md
+  - CNAME
+  - node_modules
+  - assets/sass
+
+# Plugin settings
+gems:
+  - jekyll-feed
+  - octopress-autoprefixer
+  - jekyll-feed
+  - jekyll-sitemap
 
 #
 ###################################
