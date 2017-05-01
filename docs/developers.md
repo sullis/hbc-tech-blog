@@ -4,8 +4,7 @@
 ```
 git clone https://github.com/saksdirect/hbc-tech-blog
 cd hbc-tech-blog
-bundle install
-npm install
+bundle && npm install
 gulp
 ```
 
