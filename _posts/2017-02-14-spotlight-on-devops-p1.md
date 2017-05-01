@@ -37,9 +37,10 @@ Here are just a few examples of the “A-ha!” moments highlighted by the parti
 
 > “Share skills! Bottleneck is formed when only one person knows it”
 
-<a href="https://www.amazon.com/Introduction-DevOps-Chocolate-LEGO-Scrum/dp/1484225643"><img src="http://i.imgur.com/vyB2Jzo.jpg" align="right" width="130"/></a>
-Curious about playing this game in your organization? 
+Curious about playing this game in your organization?
 
+
+[![Introduction to DevOps with Chocolate, LEGO](http://i.imgur.com/vyB2Jzo.jpg)](https://www.amazon.com/Introduction-DevOps-Chocolate-LEGO-Scrum/dp/1484225643){:.center}
 In a spirit of sharing skills and not being a bottleneck, I have documented detailed facilitation instructions, floor plans, facilitator scripts and the game cards in my new [“Introduction to DevOps with Chocolate, LEGO”](https://www.amazon.com/Introduction-DevOps-Chocolate-LEGO-Scrum/dp/1484225643) book recently published by Apress. Go ahead - develop your DevOps transformation muscle memory and experience teams’ behavioral patterns.  Feel the difference DevOps culture makes in establishing trust and [psychological safety](https://en.wikipedia.org/wiki/Psychological_safety) in your organization.
 Have fun facilitating the game with your teams and please share your learnings.
 

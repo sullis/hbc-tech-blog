@@ -6,3 +6,4 @@ _drafts
 node_modules/
 npm-debug.log
 .jekyll-metadata
+Gemfile.lock
