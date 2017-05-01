@@ -1,7 +1,6 @@
 ---
 ---
 @charset "utf-8";
-
-@import 'vendor/normalize';
-
-@import 'base/root';
+@import '../sass/vendor/normalize';
+@import '../sass/base/common';
+@import '../sass/components/header';

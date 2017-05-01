@@ -23,7 +23,3 @@ After uploading your blog post to the _posts_ folder of the new branch, submit a
 ### Guest Posts
 
 If you're an individual or organization and you'd like to contribute a guest post to our blog, please contact [jcoghlan@gilt.com](mailto:jcoghlan@gilt.com)
-
-## Jekyll Bootstrap
-
-We decided to use [Jekyll Bootstrap](http://jekyllbootstrap.com) to get our blog up and running quickly. It's a great project, check it out.

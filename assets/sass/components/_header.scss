@@ -1,0 +1,20 @@
+.site-header {
+	display: block;
+	// height: 10vh;
+	background-color: $hbc-black;
+	color: $hbc-white;
+
+	&--logo {
+		display: inline-block;
+		fill: $hbc-highlight;
+		width: 100px;
+	}
+	
+	.navigation {
+		list-style-type: none;
+
+		&--link {
+			display: inline-block;
+		}
+	}
+}
