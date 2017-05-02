@@ -1,8 +1,16 @@
+//colors
+$hbc-black: #000000;
+$hbc-white: #ffffff;
+$hbc-highlight: #E94F3D;
+
+
 /**
  * Set up a decent box model on the root element
  */
-html {
+html, body {
   box-sizing: border-box;
+  height: 100%;
+  width: 100%;
 }
 
 /**
@@ -19,8 +27,5 @@ img {
 	max-width: 100%;
 }
 
-
-//colors
-$hbc-black: #000000;
-$hbc-white: #ffffff;
-$hbc-highlight: #E94F3D;
+// Basic Layout
+$padding: 10px;

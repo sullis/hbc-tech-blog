@@ -1,3 +1,19 @@
 .navigation {
-	
+    float: right;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-right: 40px;
+    transform: translateY(150%);
+
+	&--link {
+		display: inline-block;
+		padding: 10px 20px;
+		transition: color 150ms ease-out;
+
+		&:hover {
+			color: $hbc-highlight;
+			cursor: pointer;
+		}
+	}
 }

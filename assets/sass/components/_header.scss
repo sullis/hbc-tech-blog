@@ -3,18 +3,25 @@
 	// height: 10vh;
 	background-color: $hbc-black;
 	color: $hbc-white;
+	overflow: visible;
+
+	&--link {
+	    display: inline-flex;
+	    background: url(/assets/images/hbc-digital-logo-white.svg) 0 0/ contain no-repeat;
+	    width: 180px;
+	    height: 120px;
+	    margin: 20px;
+	}
 
 	&--logo {
 		display: inline-block;
-		fill: $hbc-highlight;
-		width: 100px;
+		overflow: visible !important;
 	}
-	
-	.navigation {
-		list-style-type: none;
+	// .date {
+	// 	fill: $hbc-highlight;
+	// }
 
-		&--link {
-			display: inline-block;
-		}
-	}
+	// .text {
+	// 	fill: $hbc-white;
+	// }
 }
