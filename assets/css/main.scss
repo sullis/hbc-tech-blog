@@ -1,6 +1,16 @@
 ---
 ---
 @charset "utf-8";
+
+// Vendor styles
 @import '../sass/vendor/normalize';
+@import '../sass/vendor/syntax-highlighting';
+
+// Components
 @import '../sass/base/common';
+@import '../sass/base/layout';
 @import '../sass/components/header';
+@import '../sass/components/footer';
+@import '../sass/components/navigation';
+@import '../sass/components/post-listing';
+@import '../sass/components/post';

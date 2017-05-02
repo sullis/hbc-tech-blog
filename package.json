@@ -22,18 +22,18 @@
   "devDependencies": {
     "browser-sync": "2.12.8",
     "gulp": "3.9.1",
-    "gulp-autoprefixer": "3.1.0",
-    "gulp-clean-css": "2.0.8",
-    "gulp-concat": "2.6.0",
+    "gulp-autoprefixer": "3.1.1",
+    "gulp-clean-css": "3.0.4",
+    "gulp-concat": "2.6.1",
     "gulp-gh-pages": "0.5.4",
-    "gulp-html-extract": "0.1.0",
+    "gulp-html-extract": "0.3.0",
     "gulp-minify-html": "1.0.6",
-    "gulp-notify": "2.2.0",
+    "gulp-notify": "3.0.0",
     "gulp-rename": "1.2.2",
     "gulp-replace": "0.5.4",
-    "gulp-sass": "2.3.1",
-    "gulp-uglify": "1.5.3",
-    "gulp-uncss": "1.0.5"
+    "gulp-sass": "3.1.0",
+    "gulp-uglify": "2.1.2",
+    "gulp-uncss": "1.0.6"
   },
 
   "repository": {
@@ -46,7 +46,9 @@
     "gulp",
     "sass",
     "js",
-    "browsersync"
+    "blog",
+    "browsersync",
+    "hbc digital"
   ],
   
   "homepage": "https://github.com/saksdirect/hbc-tech-blog#readme"
