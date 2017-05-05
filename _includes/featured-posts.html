@@ -1,0 +1,134 @@
+<div class="posts-listing--featured">
+{% for post in site.posts | limit: 1 %}
+    <div class="post">
+	    {% if post.image.feature %}
+	        <div class="post__feature-image">
+	            <img src=
+	            {% if post.image.feature contains 'http' %}
+	            "{{ post.image.feature }}"
+	            {% else %}
+	            "{{ base.url }}/assets/images/{{ post.image.feature }}"
+	            {% endif %}
+	            alt="{{ post.title }} feature image">
+	        </div>
+        {% else %}
+
+	        <div class="post__feature-image">
+	            <img src="http://placehold.it/1920x800/" alt="{{ post.title }} feature image" >
+	        </div>
+        {% endif %}
+        <div class="post__details-container">
+	        {% if post.categories.size > 0 %}
+            <p class="post__topic">
+            {% for cat in post.categories | limit: 1 %}
+                <a class="post__topic--link" href="{{ site.url }}/categories/#{{ cat }}">{{ cat }}</a>
+            {% endfor %}
+            </p>
+	        {% endif %}
+
+	        <h1 class="post__title">
+	            <a class="post__title--link" href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+	        </h1>
+	        
+	        {% if post.excerpt %}
+		        <p class="post__excerpt">
+		            {{ post.excerpt | strip_html | truncatewords: 70 }}
+		        </p>
+	        {% endif %}
+
+	        <div class="post__author">
+	            {% if post.author %}
+	                <a class="post__author--link">{{ post.author }}</a>
+	            {% else %}
+	                <a class="post__author--link">{{ site.title }}</a>
+	            {% endif %}
+	        </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+<div class="posts-listing--sub-featured">
+	<!-- this is the 2nd and 3rd posts -->
+	{% for post in site.posts | limit: 2 offset: 1 %}
+	    <div class="post">
+		    {% if post.image.feature %}
+		        <div class="post__feature-image">
+		            <img src=
+		            {% if post.image.feature contains 'http' %}
+		            "{{ post.image.feature }}"
+		            {% else %}
+		            "{{ base.url }}/assets/images/{{ post.image.feature }}"
+		            {% endif %}
+		            alt="{{ post.title }} feature image">
+		        </div>
+		        {% else %}
+		        <div class="post__feature-image">
+		            <img src="http://placehold.it/1920x800/" alt="{{ post.title }} feature image" >
+		        </div>
+	        {% endif %}
+
+	        {% if post.categories.size > 0 %}
+	            <p class="post__topic">
+	            {% for cat in post.categories | limit: 1 %}
+	                <a class="post__topic--link" href="{{ site.url }}/categories/#{{ cat }}">{{ cat }}</a>
+	            {% endfor %}
+	            </p>
+	        {% endif %}
+
+	        <h1 class="post__title">
+	            <a class="post__title--link" href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+	        </h1>
+
+	        
+
+	        <p class="post__excerpt">
+	        {% if post.excerpt %}
+	            {{ post.excerpt | strip_html | truncatewords: 70 }}
+	        {% endif %}
+	        </p>
+
+	        <div class="post__author">
+
+	            {% if post.author %}
+	                <a class="post__author--link">{{ post.author }}</a>
+	            {% else %}
+	                <a class="post__author--link">{{ site.title }}</a>
+	            {% endif %}
+	        </div>
+	    </div>
+	{% endfor %}
+</div>
+
+<div class="posts-listing posts-listing--text-list">
+{% for post in site.posts offset: 3 %}
+    <div class="post">
+
+
+        {% if post.categories.size > 0 %}
+            <p class="post__topic">
+            {% for cat in post.categories | limit: 1 %}
+                <a class="post__topic--link" href="{{ site.url }}/categories/#{{ cat }}">{{ cat }}</a>
+            {% endfor %}
+            </p>
+        {% endif %}
+
+        <h1 class="post__title">
+            <a class="post__title--link" href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </h1>
+
+        <p class="post__excerpt">
+        {% if post.excerpt %}
+            {{ post.excerpt | strip_html | truncatewords: 70 }}
+        {% endif %}
+        </p>
+
+        <div class="post__author">
+            {% if post.author %}
+                <a class="post__author--link">{{ post.author }}</a>
+            {% else %}
+                <a class="post__author--link">{{ site.title }}</a>
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}
+</div>

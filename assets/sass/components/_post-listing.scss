@@ -1,10 +1,85 @@
-.post-listing {
+.posts-listing {
+	display: flex;
+	flex-wrap: wrap;
 
-	&--header {
+	// default post styles
+	&--featured,
+	&--sub-featured,
+	&--text-list {
 
+		.post {
+			margin-bottom: 30px;
+
+			&__title,
+			&__topic,
+			&__excerpt,
+			&__author {
+				padding: 0 30px;
+				margin: 0;
+				font-weight: 300;
+
+				&--link {
+					text-decoration: none;
+				}
+			}
+
+			&__title {
+				font-weight: 700;
+			}
+		}
 	}
 
-	&--title {
-		
+
+	&--featured {
+		position: relative;
+
+		.post {
+			flex: 0;
+			margin-bottom: 2px;
+
+			&__title,
+			&__topic,
+			&__excerpt {
+				color: white;
+
+				&--link {
+					color: white;
+					text-decoration: none;
+				}
+			}
+		}
+
+		.post__details-container {
+			position: absolute;
+			bottom: 0;
+			color: white;
+			background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(255, 255, 255, 0));
+			padding-bottom: 30px;
+		}
 	}
+
+	&--sub-featured {
+		display: flex;
+		flex-wrap: wrap;
+
+		.post {
+			flex: 1;
+
+			&:first-child {
+				padding-right: 1px;
+			}
+
+			&:last-child {
+				padding-left: 1px;
+			}
+		}
+	}
+
+	&--text-list {
+
+		.post {
+			flex: 100%;
+		}
+	}
+
 }

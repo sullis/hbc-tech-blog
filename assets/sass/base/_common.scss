@@ -2,15 +2,14 @@
 $hbc-black: #000000;
 $hbc-white: #ffffff;
 $hbc-highlight: #E94F3D;
+$hbc-gray: #ccc;
 
 
 /**
  * Set up a decent box model on the root element
  */
-html, body {
+html {
   box-sizing: border-box;
-  height: 100%;
-  width: 100%;
 }
 
 /**

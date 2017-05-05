@@ -29,10 +29,9 @@ instagram: hbcdigital
 #
 timezone: EST
 markdown: kramdown
-excerpt_separator: <!--more-->
 permalink: pretty
-paginate: 1
-paginate_path: "/posts/:num/"
+paginate: 10
+paginate_path: "blog/:num"
 
 # Markdown settings
 markdown: kramdown

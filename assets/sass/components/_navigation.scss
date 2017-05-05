@@ -6,9 +6,20 @@
     margin-right: 40px;
     transform: translateY(150%);
 
-	&--link {
+    &--footer {
+    	float: none;
+    	transform: translateY(0%);
+    	margin: 20px;
+    }
+
+    &__link-item {
 		display: inline-block;
 		padding: 10px 20px;
+    }
+
+	&__link {
+		color: $hbc-white;
+		text-decoration: none;
 		transition: color 150ms ease-out;
 
 		&:hover {
