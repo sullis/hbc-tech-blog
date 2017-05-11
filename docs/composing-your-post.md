@@ -1,7 +1,16 @@
 # Composing Your Post
 
+## The Art of the Headline
 
-## Working With Images
+
+## Perfect Images
+
+### Image Requirements
+- avoid using text/headlines in an image
+- use simple, high quality images
+- crop images at 4:3
+- use images with a central point of focus
+
 
 ### Linking An Image
 ```
