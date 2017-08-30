@@ -1,7 +1,7 @@
 # Composing Your Post
 
 ## The Art of the Headline
-
+Headlines, like poetry and songs, should have a rhythm about them. [Read these tips](http://web.ku.edu/~edit/heads.html) on writing good headlines before you start. Make sure they follow the ["dooh-dah"](http://web.ku.edu/~edit/heads.html) rule.
 
 ## Perfect Images
 
