@@ -1,0 +1,21 @@
+<!-- author bio -->
+<section>
+	{% assign author = site.data.contributors[page.author] %}
+	<div>
+		{% if author.avatar %}
+		<img src="{{ base.url }}/assets/images/{{author.avatar}}" height="24"/>
+		{% endif %}
+		
+		{% if author.website %}
+			<a href="{{ author.website }}">{{ author.name }}</a>
+		{% else %}
+			{{author.name}}
+		{% endif %}
+
+		{{author.job_title}}
+		
+		{% if author.mini_bio %}
+		<p>{{ author.mini_bio }}</p>
+		{% endif %}
+	</div>
+</section>
