@@ -1,9 +1,14 @@
 .site-header {
 	display: block;
-	// height: 10vh;
+	position: relative;
 	background-color: $hbc-black;
 	color: $hbc-white;
 	overflow: visible;
+
+	.inner-wrapper {
+		max-width: 1280px;
+		margin: auto;
+	}
 
 	&--link {
 	    display: inline-flex;
@@ -17,11 +22,4 @@
 		display: inline-block;
 		overflow: visible !important;
 	}
-	// .date {
-	// 	fill: $hbc-highlight;
-	// }
-
-	// .text {
-	// 	fill: $hbc-white;
-	// }
 }

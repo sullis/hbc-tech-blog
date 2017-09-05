@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: page.lang | default: 'en' }}">
-
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +11,7 @@
 
         <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
         <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-        <link href="https://fonts.googleapis.com/css?family=Rubik:300,500,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
 
         <!-- Icons -->
         <!-- 16x16 -->
@@ -21,16 +20,9 @@
         {% feed_meta %}
     </head>
 
-    <body>
-
+    <body class="container" aria-label="Content">
         {% include header.html %}
-
-        <div class="container" aria-label="Content">
-            
-            {{ content }}
-
-        </div>
-
+        {{ content }}
         {% include footer.html %}
         {% include js.html %}
     </body>
