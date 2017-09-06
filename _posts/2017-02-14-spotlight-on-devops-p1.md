@@ -1,9 +1,9 @@
 ---
-layout: post 
+layout: article 
 title: Don’t just read about DevOps culture, play-test it!
 author: Dana Pylayeva
 date: '2017-02-14'
-categories: 'DevOps'
+category: 'DevOps'
 tags:
 - culture
 - devops
@@ -46,7 +46,9 @@ Here are just a few examples of the “A-ha!” moments highlighted by the parti
 Curious about playing this game in your organization?
 
 
-[![Introduction to DevOps with Chocolate, LEGO](http://i.imgur.com/vyB2Jzo.jpg)](https://www.amazon.com/Introduction-DevOps-Chocolate-LEGO-Scrum/dp/1484225643){:.center}
+[![Introduction to DevOps with Chocolate, LEGO](http://i.imgur.com/vyB2Jzo.jpg)](https://www.amazon.com/Introduction-DevOps-Chocolate-LEGO-Scrum/dp/1484225643){:.center-image}
+
+[![insta-bears](http://i.imgur.com/vyB2Jzo.jpg)](https://www.amazon.com/Introduction-DevOps-Chocolate-LEGO-Scrum/dp/1484225643"){:.left-align .simple-border}
 In a spirit of sharing skills and not being a bottleneck, I have documented detailed facilitation instructions, floor plans, facilitator scripts and the game cards in my new [“Introduction to DevOps with Chocolate, LEGO”](https://www.amazon.com/Introduction-DevOps-Chocolate-LEGO-Scrum/dp/1484225643) book recently published by Apress. Go ahead - develop your DevOps transformation muscle memory and experience teams’ behavioral patterns.  Feel the difference DevOps culture makes in establishing trust and [psychological safety](https://en.wikipedia.org/wiki/Psychological_safety) in your organization.
 Have fun facilitating the game with your teams and please share your learnings.
 

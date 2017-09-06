@@ -26,3 +26,26 @@ html {
 img {
 	max-width: 100%;
 }
+
+.center-image {
+	display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.right-align {
+	float: right;
+	margin-left: 40px;
+}
+
+.left-align {
+	float: left;
+	margin-right: 40px;
+}
+
+.simple-border {
+	display: inline-block;
+	padding: 3px;
+	border: solid 1px #ccc;
+}

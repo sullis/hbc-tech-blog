@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "Where to find our team in October"
 author: John Coghlan
 date: '2016-10-07'

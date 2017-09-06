@@ -3,22 +3,39 @@
 ## The Art of the Headline
 Headlines, like poetry and songs, should have a rhythm about them. [Read these tips](http://web.ku.edu/~edit/heads.html) on writing good headlines before you start. Make sure they follow the ["dooh-dah"](http://web.ku.edu/~edit/heads.html) rule.
 
-## Perfect Images
+## Images
 
-### Image Requirements
+### Content Guidelines
 - avoid using text/headlines in an image
 - use simple, high quality images
 - crop images at 4:3
 - use images with a central point of focus
 
+### Adding Images
+Follow this format to add inline images to your article. By default, all images will be displayed at thei
+```
+![alt text](image url)
+```
 
 ### Linking An Image
 ```
-[![insta-bears](http://i.imgur.com/vyB2Jzo.jpg)](https://www.amazon.com/Introduction-DevOps-Chocolate-LEGO-Scrum/dp/1484225643")
+[![the image alt text](http://the-image.jpg)](https://the-link-to-wrap-around-the-image/")
 ```
 
 ### Styling Your Image with Classes
-Sometimes you may want to have more control over how your image is displayed on the page. CSS classes are available for 100%, 75%, 50%, 30%, 25% widths.  
+Sometimes you may want to have more control over how your image is displayed on the page. The following CSS classes are available:
+- **left-align** (floats the image to the left, wraps text around image)
+- **right-align** (floats the image to the right, wraps text around image)
+- **center-image** (centers the image and takes up the full width of the page, no text wrap)
+- **simple-border** (adds a simple border around an image, can be combined with above classes)
+
+#### Examples
+
 ```
-[![insta-bears](http://i.imgur.com/vyB2Jzo.jpg)](https://www.amazon.com/Introduction-DevOps-Chocolate-LEGO-Scrum/dp/1484225643"){:.left-align}
+![the image alt text](http://the-image.jpg){:.center-image}
+
+// or
+
+![the image alt text](http://the-image.jpg){:.left-align .simple-border}
+
 ```

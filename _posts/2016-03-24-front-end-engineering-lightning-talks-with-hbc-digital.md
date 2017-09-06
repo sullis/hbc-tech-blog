@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "Front End Engineering Lightning Talks with HBC Digital"
 category: meetups
 tags:

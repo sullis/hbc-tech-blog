@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "OSX, Docker, NFS and packet filter firewall"
 author: Andrey Kartashov
 category: docker

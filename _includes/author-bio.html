@@ -3,7 +3,7 @@
 	{% assign author = site.data.contributors[page.author] %}
 	<div>
 		{% if author.avatar %}
-		<img src="{{ base.url }}/assets/images/{{author.avatar}}" height="24"/>
+		<img src="{{ site.url }}/assets/images/{{author.avatar}}" height="24"/>
 		{% endif %}
 		
 		{% if author.website %}

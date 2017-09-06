@@ -25,4 +25,9 @@ h1 {
 p {
 	line-height: 140%;
 	font-size: 20px;
+	overflow: hidden;
+}
+
+a {
+	line-height: 0;
 }

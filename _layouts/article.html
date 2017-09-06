@@ -2,9 +2,23 @@
 layout: default
 ---
 <article class="article">
-    <div class="feature-image" style="background: url({{ site.url }}/assets/images/{{ page.image.feature }}) 50% 50% / cover no-repeat;"></div>
+    {% if page.image.feature %}
+    <div class="feature-image" style="background: url(
+        {% if page.image.feature contains 'https' or page.image.feature contains 'http' %}
+            {{ page.image.feature }}
+        {% else %}
+            {{ site.url }}/assets/images/{{ page.image.feature }}
+        {% endif %}) 50% 50% / cover no-repeat;"></div>
+    {% else %}
+        <div class="feature-image">
+            <img src="http://placehold.it/1920x800/" alt="{{ post.title }}" >
+        </div>        
+    {% endif %}
     <section class="article__content">
-        <a href="#" class="article-category">{{page.category}}</a> 
+<!--     {% if page.image.credit %}
+        <span>Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
+    {% endif %} -->
+        {% if page.categories.size > 0 %}<a href="#" class="article-category">{{ page.categories }}</a>{% endif %}
         <span class="article-date">
             {{ page.date | date: "%-d %b %Y" | upcase }}
         </span>

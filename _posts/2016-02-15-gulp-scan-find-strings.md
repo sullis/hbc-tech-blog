@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: gulp-scan &bull; Find Yourself Some Strings
 author: Andrew Powell
 date: '2016-02-15'

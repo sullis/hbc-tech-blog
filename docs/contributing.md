@@ -20,7 +20,7 @@ tags:
 ### Post Excerpts
 <!--more-->
 
-After uploading your blog post to the _posts_ folder of the new branch, submit a pull request. After solicting feedback from your peers and editing the post, you're ready to merge. 
+After uploading your blog post to the `_posts` folder of the new branch, submit a pull request. After solicting feedback from your peers and editing the post, you're ready to merge. 
 
 ### Guest Posts
 

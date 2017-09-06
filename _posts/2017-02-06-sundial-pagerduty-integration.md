@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "Sundial PagerDuty Integration"
 author: Giovanni Gargiulo
 date: '2017-02-06'

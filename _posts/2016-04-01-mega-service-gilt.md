@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "Breaking the Mold: Megaservice Architecture at Gilt"
 author: Adrian Trenaman 
 date: '2016-04-01'
