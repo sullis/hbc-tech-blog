@@ -1,21 +1,30 @@
 <!-- author bio -->
-<section>
-	{% assign author = site.data.contributors[page.author] %}
-	<div>
-		{% if author.avatar %}
-		<img src="{{ site.url }}/assets/images/{{author.avatar}}" height="24"/>
+<section class="author">
+<!-- need to support multiple authors, but only iterate through author object if author is a known contributor -->
+{% for author in page.author %}
+	{% if site.data.contributors[author] %}
+	<!-- author is a known contributor -->
+		{% assign author-bio = site.data.contributors[author] %}
+		{% if author-bio.avatar %}
+		<img class="author__avatar" src="{{ site.url }}/assets/images/{{author-bio.avatar}}" height="24"/>
 		{% endif %}
 		
-		{% if author.website %}
-			<a href="{{ author.website }}">{{ author.name }}</a>
+		{% if author-bio.website %}
+		<a class="author__link" href="{{ author-bio.website }}">{{ author-bio.name }}</a>
 		{% else %}
-			{{author.name}}
+		<span class="author__name">{{author-bio.name}}</span>
 		{% endif %}
 
-		{{author.job_title}}
+		<span class="author__job-title">{{author-bio.job_title}}</span>
 		
-		{% if author.mini_bio %}
-		<p>{{ author.mini_bio }}</p>
+		{% if author-bio.mini_bio %}
+		<p class="author__bio">{{ author-bio.mini_bio }}</p>
 		{% endif %}
-	</div>
+	{% else %}
+	<!-- author is a guest contributor -->
+	<img class="author__avatar" src="{{ site.url }}/assets/images/avatar-default.svg" height="24"/>
+	{{ author }}
+	{% endif %}
+{% endfor %}
+
 </section>
