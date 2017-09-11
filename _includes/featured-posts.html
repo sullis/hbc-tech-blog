@@ -1,132 +1,21 @@
-<div class="inner-wrapper">
-	<section class="article-listing__featured-article">
+<section class="inner-wrapper article-listing">
+	<!-- display the 1st post in a big way-->
 	{% for post in site.posts | limit: 1 %}
-	    {% if post.image.feature %}
-            <img class="article__feature-image" src=
-            {% if post.image.feature contains 'http' %}
-            "{{ post.image.feature }}"
-            {% else %}
-            "{{ site.url }}/assets/images/{{ post.image.feature }}"
-            {% endif %}
-            alt="{{ post.title }} feature image">
-        {% else %}
-            <img src="http://placehold.it/1920x800/" alt="{{ post.title }} feature image" >
-        {% if post.image.credit %}
-        <span class="article--image-credit">Photo Credit: <a href="{{ post.image.creditlink }}">{{ post.image.credit }}</a></span>
-        {% endif %}
-        {% else %}
-            <img class="article__feature-image" src="http://placehold.it/1920x800/" alt="{{ post.title }} feature image" >
-        {% endif %}
-	    <div class="article__details-container">
-	        {% if post.categories.size > 0 %}
-	        <p class="article__topic">
-	        {% for cat in post.categories | limit: 1 %}
-	            <a class="article__topic--link" href="{{ site.url }}/categories/#{{ cat }}">{{ cat }}</a>
-	        {% endfor %}
-	        </p>
-	        {% endif %}
-
-	        <h1 class="article__title">
-	            <a class="article__title--link" href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-	        </h1>
-	        
-	        {% if post.excerpt %}
-		        <p class="article__excerpt">
-		            {{ post.excerpt | strip_html | truncatewords: 70 }}
-		        </p>
-	        {% endif %}
-
-	        <div class="article__author">
-	            {% if post.author %}
-	                <a class="article__author--link">{{ post.author }}</a>
-	            {% else %}
-	                <a class="article__author--link">{{ site.title }}</a>
-	            {% endif %}
-	        </div>
-	    </div>
+    <div class="article article--featured">
+        {% include article-snippet.html %}
+    </div>
 	{% endfor %}
-	</section>
-	<section class="article-listing__sub-featured">
-		<!-- this is the 2nd and 3rd posts -->
-		{% for post in site.posts | limit: 2 offset: 1 %}
-		    <div class="post">
-			    {% if post.image.feature %}
-			        <div class="article__feature-image">
-			            <img src=
-			            {% if post.image.feature contains 'http' %}
-			            "{{ post.image.feature }}"
-			            {% else %}
-			            "{{ site.url }}/assets/images/{{ post.image.feature }}"
-			            {% endif %}
-			            alt="{{ post.title }} feature image">
-			        </div>
-			        {% else %}
-			        <div class="article__feature-image">
-			            <img src="http://placehold.it/1920x800/" alt="{{ post.title }} feature image" >
-			        </div>
-		        {% endif %}
-
-		        {% if post.categories.size > 0 %}
-		            <p class="article__topic">
-		            {% for cat in post.categories | limit: 1 %}
-		                <a class="article__topic--link" href="{{ site.url }}/categories/#{{ cat }}">{{ cat }}</a>
-		            {% endfor %}
-		            </p>
-		        {% endif %}
-
-		        <h1 class="article__title">
-		            <a class="article__title--link" href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-		        </h1>
-				<p class="article__excerpt">
-		        {% if post.excerpt %}
-		            {{ post.excerpt | strip_html | truncatewords: 70 }}
-		        {% endif %}
-		        </p>
-
-		        <div class="article__author">
-
-		            {% if post.author %}
-		                <a class="article__author--link">{{ post.author }}</a>
-		            {% else %}
-		                <a class="article__author--link">{{ site.title }}</a>
-		            {% endif %}
-		        </div>
-		    </div>
-		{% endfor %}
-	</section>
-
-	<section class="article-listing__remaining">
-	<!-- this is the rest of the posts -->
+	<!-- display the 2nd and 3rd posts in a smaller way-->
+	{% for post in site.posts | limit: 2 offset: 1 %}
+    <div class="article article--sub-featured">
+	    {% include article-snippet.html %}
+	</div>
+	{% endfor %}
+	<!-- this is the rest of the posts listed with no feature images-->
 	{% for post in site.posts offset: 3 %}
-	        {% if post.categories.size > 0 %}
-	            <p class="article__topic">
-	            {% for cat in post.categories | limit: 1 %}
-	                <a class="article__topic--link" href="{{ site.url }}/categories/#{{ cat }}">{{ cat }}</a>
-	            {% endfor %}
-	            </p>
-	        {% endif %}
-
-	        <h1 class="article__title">
-	            <a class="article__title--link" href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-	        </h1>
-
-	        <p class="article__excerpt">
-	        {% if post.excerpt %}
-	            {{ post.excerpt | strip_html | truncatewords: 70 }}
-	        {% endif %}
-	        </p>
-
-	        <div class="article__author">
-	            {% if post.author %}
-	                <a class="article__author--link">{{ post.author }}</a>
-	            {% else %}
-	                <a class="article__author--link">{{ site.title }}</a>
-	            {% endif %}
-	        </div>
+	<div class="article article--remaining">
+        {% include article-snippet_no-images.html %}
+	</div>
 	{% endfor %}
-	</section>
-
-	<section class="more-articles-divider">
-		<a href="/insights/" title="more articles">More Insights</a>
-	</section>
-</div>
+	<a class="more-link" href="/insights/" title="more articles">More Insights</a>
+</section>

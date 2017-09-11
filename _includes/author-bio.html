@@ -11,12 +11,8 @@
 		
 		{% if author-bio.website %}
 		<a class="author__link" href="{{ author-bio.website }}">{{ author-bio.name }}</a>
-		{% else %}
-		<span class="author__name">{{author-bio.name}}</span>
-		{% endif %}
-
-		<span class="author__job-title">{{author-bio.job_title}}</span>
-		
+		{%- else -%}
+		<span class="author__name">{{- author-bio.name -}}</span>{% endif %}{% if author-bio.job_title %}<span class="author__job-title">, {{ author-bio.job_title }}</span>{% endif %}
 		{% if author-bio.mini_bio %}
 		<p class="author__bio">{{ author-bio.mini_bio }}</p>
 		{% endif %}

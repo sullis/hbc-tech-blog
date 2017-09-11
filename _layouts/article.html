@@ -18,15 +18,17 @@ layout: default
 <!--     {% if page.image.credit %}
         <span>Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
     {% endif %} -->
-        {% if page.categories.size > 0 %}<a href="#" class="article-category">{{ page.categories }}</a>{% endif %}
+        {% if page.categories.size > 0 %}
+        <a href="#" class="article-category">{{ page.categories }}</a>{% endif %}
         <span class="article-date">
-            {{ page.date | date: "%-d %b %Y" | upcase }}
+            Published {{ page.date | date: "%-d %b %Y" | upcase }}
         </span>
         <h1 class="article-title" title="{{ page.title }}">{{ page.title }}</h1>
         {% include read_time.html %}
         {{ content }}
     </section>
     <footer class="article__footer">
+        {% include article-tags.html %}
         {% include author-bio.html %}
     </footer>
 </article>
