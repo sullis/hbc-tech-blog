@@ -1,0 +1,33 @@
+.categories {
+
+	&__title {
+		padding-bottom: 20px;
+		border-bottom: solid 1px $hbc-border;
+	}
+
+	&__category-list,
+	&__article-list {
+		list-style-type: none;
+		padding: 0;
+		text-indent: none;
+
+		.categories__list-item {
+			padding: 5px 0;
+		}
+
+		.categories__list-item__link {
+			text-decoration: none;
+			color: $hbc-gray;
+
+			&:hover {
+				text-decoration: underline;
+				color: $hbc-highlight;
+			}
+		}
+	}
+
+	&__list-header {
+		line-height: 100%;
+		margin: 20px 0 5px 0;
+	}
+}

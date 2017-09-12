@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: Perfect Overnight Cold Brew
 author: Evan Maloney
 date: '2017-01-25'

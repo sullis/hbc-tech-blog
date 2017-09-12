@@ -1,13 +1,12 @@
-<div id="site-header" class="site-header" >
-	<a class="site-header--link" href="{{ site.url }}">
-<!-- 		<svg class="site-header--logo">
-           <use class="date" xlink:href="assets/images/hbc-digital-logo-white.svg#logo-date"></use>
-           <use  class="text" xlink:href="assets/images/hbc-digital-logo-white.svg#logo-text"></use>
-       </svg> -->
-	</a>
-	<ul id="nav" class="navigation">
-		<li class="navigation--link"><a>Insights</a></li>
-		<li class="navigation--link"><a>About Us</a></li>
-		<li class="navigation--link"><a>Work Here</a></li>
-	</ul>
-</div>
+<header id="site-header" class="site-header" >
+	<div class="inner-wrapper">
+		<a class="site-header__logo" href="/">
+			<img src="{{ site.url }}/assets/images/hbc-tech-beta.svg"/>
+		</a>
+		<ul class="navigation">
+			{% for link in site.data.navigation.header-links %}
+			  <li class="navigation__link-item"><a href="{{ site.url }}{{ link.url }}" class="navigation__link">{{ link.title }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</header>

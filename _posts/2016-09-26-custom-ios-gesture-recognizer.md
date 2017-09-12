@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "iOS Custom Gesture Recognizer"
 author: Paul Lee
 date: '2016-9-26'

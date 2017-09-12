@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "Watch Gilt's QCon New York talks"
 author: John Coghlan
 date: '2016-10-24'

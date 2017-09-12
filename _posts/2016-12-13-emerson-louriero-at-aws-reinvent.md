@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "From Monolothic to Microservices - Gilt's Journey to Microservices on AWS"
 author: John Coghlan
 date: '2016-12-13'

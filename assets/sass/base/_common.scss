@@ -2,15 +2,16 @@
 $hbc-black: #000000;
 $hbc-white: #ffffff;
 $hbc-highlight: #E94F3D;
+$hbc-border: #ccc;
+$hbc-gray: #777;
+$hbc-gray-2: #999;
 
 
 /**
  * Set up a decent box model on the root element
  */
-html, body {
+html {
   box-sizing: border-box;
-  height: 100%;
-  width: 100%;
 }
 
 /**
@@ -25,4 +26,27 @@ html, body {
 
 img {
 	max-width: 100%;
+}
+
+.center-image {
+	display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.right-align {
+	float: right;
+	margin-left: 20px;
+}
+
+.left-align {
+	float: left;
+	margin-right: 20px;
+}
+
+.simple-border {
+	display: inline-block;
+	padding: 3px;
+	border: solid 1px #ccc;
 }

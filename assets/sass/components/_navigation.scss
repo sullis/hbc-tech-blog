@@ -1,19 +1,43 @@
 .navigation {
-    float: right;
-    list-style-type: none;
-    padding: 0;
     margin: 0;
-    margin-right: 40px;
-    transform: translateY(150%);
+    position: absolute;
+    right: 0px;
+    transform: translateY(-50%);
+    top: calc(50%);
 
-	&--link {
+    &__link-item {
 		display: inline-block;
 		padding: 10px 20px;
+    }
+
+	&__link {
+		color: $hbc-black;
+		text-decoration: none;
 		transition: color 150ms ease-out;
+        padding-bottom: 1px;
+        border-bottom: solid 0px $hbc-white;
 
 		&:hover {
 			color: $hbc-highlight;
 			cursor: pointer;
+            border-bottom: solid 2px $hbc-highlight;
 		}
 	}
+
+    &--footer {
+        position: relative;
+        float: none;
+        transform: translateY(0%);
+        margin: 20px;
+
+        .navigation__link {
+            color: white;
+
+            &:hover {
+                color: $hbc-highlight;
+                cursor: pointer;
+                border-bottom: solid 2px $hbc-highlight;
+            }
+        }
+    }
 }

@@ -7,7 +7,7 @@ To create a new post, please create a new branch for your post and save the **ma
 Note that the Markdown source file for each post has an header section with some auto-generated metadata (layout, title, author, date, categories, tags). Please always add the metadata as follows:
 
 ```
-layout: post
+layout: article
 title: "Enter Your Title Here"
 author: First Last
 date: 'YYYY-MM-DD'
@@ -20,7 +20,7 @@ tags:
 ### Post Excerpts
 <!--more-->
 
-After uploading your blog post to the _posts_ folder of the new branch, submit a pull request. After solicting feedback from your peers and editing the post, you're ready to merge. 
+After uploading your blog post to the `_posts` folder of the new branch, submit a pull request. After solicting feedback from your peers and editing the post, you're ready to merge. 
 
 ### Guest Posts
 

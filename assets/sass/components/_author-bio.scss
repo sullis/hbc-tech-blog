@@ -1,0 +1,29 @@
+.author {
+	vertical-align: top;
+	color: $hbc-gray-2;
+
+	&__avatar {
+		margin-right: 5px;
+	}
+
+	&__link {
+		color: $hbc-highlight;
+		font-size: 18px;
+		text-decoration: none;
+		vertical-align: super;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__job-title {
+		font-size: 18px;
+		vertical-align: super;
+	}
+
+	&__bio {
+		font-size: 16px;
+		color: $hbc-gray-2;
+	}
+}

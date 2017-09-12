@@ -1,27 +1,12 @@
 .site-header {
 	display: block;
-	// height: 10vh;
-	background-color: $hbc-black;
-	color: $hbc-white;
-	overflow: visible;
+	background-color: $hbc-white;
+	color: $hbc-black;
 
-	&--link {
+	&__logo {
 	    display: inline-flex;
-	    background: url(/assets/images/hbc-digital-logo-white.svg) 0 0/ contain no-repeat;
-	    width: 180px;
-	    height: 120px;
-	    margin: 20px;
+	    width: 280px;
+	    height: 100px;
+	    margin: 20px 0;
 	}
-
-	&--logo {
-		display: inline-block;
-		overflow: visible !important;
-	}
-	// .date {
-	// 	fill: $hbc-highlight;
-	// }
-
-	// .text {
-	// 	fill: $hbc-white;
-	// }
 }
