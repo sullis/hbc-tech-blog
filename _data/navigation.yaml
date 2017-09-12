@@ -2,8 +2,10 @@
 header-links:
   - title: "Insights"
     url: /insights/
-  - title: "About Us"
-    url: /about/
+  - title: "Code"
+    url: /code/
+  - title: "Culture"
+    url: /culture/
   - title: "Work Here"
     url: /jobs/
 
@@ -11,7 +13,9 @@ header-links:
 footer-links:
   - title: "Insights"
     url: /insights/
-  - title: "About Us"
-    url: /about/
+  - title: "Code"
+    url: /code/
+  - title: "Culture"
+    url: /culture/
   - title: "Work Here"
     url: /jobs/
