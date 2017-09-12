@@ -19,7 +19,7 @@ layout: default
         <span>Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
     {% endif %} -->
         {% if page.categories.size > 0 %}
-        <a href="#" class="article-category">{{ page.categories }}</a>{% endif %}
+        <a href="{{ site.url }}/categories/#{{ page.categories }}" class="article-category">{{ page.categories }}</a>{% endif %}
         <span class="article-date">
             Published {{ page.date | date: "%-d %b %Y" | upcase }}
         </span>
