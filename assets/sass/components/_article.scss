@@ -59,17 +59,10 @@
 
 	&__footer {
 		padding: 0 60px;
-
-		// adding this to prevent footer from wrapping around any potential floated elements at the end of the article
-		&:before {
-			content: "";
-			display: table;
-			clear: both;
-		}
 	}
 
 	&__tags {
-		margin: 40px 0;
+		padding: 0 0 20px 0;
 
 		&__link {
 			color: $hbc-gray;
