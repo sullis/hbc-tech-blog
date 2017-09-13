@@ -7,20 +7,34 @@
 
     &__link-item {
 		display: inline-block;
-		padding: 10px 20px;
     }
 
 	&__link {
+        display: block;
+        padding: 10px 20px 0 20px;
 		color: $hbc-black;
 		text-decoration: none;
-		transition: color 150ms ease-out;
-        padding-bottom: 1px;
-        border-bottom: solid 0px $hbc-white;
+		transition: color 0ms ease-out;
+
+        &:after {
+            content: "";
+            display: block;
+            margin-top: 14px;
+            border-bottom: solid 2px $hbc-highlight;
+            transform: scaleX(0);
+            transform-origin: 0 0;
+            transition: transform 150ms ease-out;
+        }
 
 		&:hover {
 			color: $hbc-highlight;
 			cursor: pointer;
-            border-bottom: solid 2px $hbc-highlight;
+
+            &:after {
+                content: "";
+                display: block;
+                transform: scaleX(1);
+            }
 		}
 	}
 
@@ -35,8 +49,6 @@
 
             &:hover {
                 color: $hbc-highlight;
-                cursor: pointer;
-                border-bottom: solid 2px $hbc-highlight;
             }
         }
     }

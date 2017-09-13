@@ -9,15 +9,13 @@
         </title>
         <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
-        <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+        <link rel="stylesheet" href="{{ site.url }}/assets/css/main.css">
         <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
 
         <!-- Icons -->
         <!-- 16x16 -->
         <link rel="shortcut icon" href="{{ site.url }}/assets/images/favicon.ico">
-
-        {% feed_meta %}
     </head>
 
     <body class="container" aria-label="Content">

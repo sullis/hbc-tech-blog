@@ -9,9 +9,11 @@ Note that the Markdown source file for each post has an header section with some
 ```
 layout: article
 title: "Enter Your Title Here"
+description: "Restrict your description to 160 characters or less"
 author: First Last
 date: 'YYYY-MM-DD'
-categories: 'just one'
+categories:
+- just one
 tags: 
 - your
 - tags

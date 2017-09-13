@@ -10,7 +10,7 @@
 		height: 413px;
 		margin-top: -200px;
 		z-index: -1;
-		clip-path: polygon(0% 75px, 100% 0%, 100% 100%, 0% 100%);
+		clip-path: polygon(0% 50px, 100% 0%, 100% 100%, 0% 100%);
 	}
 
 	.article-category {
@@ -50,7 +50,7 @@
 		padding: 60px;
 		margin-top: 200px;
 		background-color: $hbc-white;
-		clip-path: polygon(0% 0%, 100% 75px, 100% 100%, 0% 100%);
+		clip-path: polygon(0% 0%, 100% 50px, 100% 100%, 0% 100%);
 
 		p {
 			max-width: 820px;
