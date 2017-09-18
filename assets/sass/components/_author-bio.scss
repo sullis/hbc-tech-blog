@@ -1,6 +1,8 @@
 .author {
 	vertical-align: top;
 	color: $hbc-gray-2;
+	font-size: 18px;
+	text-decoration: none;
 
 	&__avatar {
 		margin-right: 5px;
@@ -8,8 +10,6 @@
 
 	&__link {
 		color: $hbc-highlight;
-		font-size: 18px;
-		text-decoration: none;
 		vertical-align: super;
 
 		&:hover {
@@ -17,6 +17,11 @@
 		}
 	}
 
+	&__name {
+		color: black;
+		vertical-align: super;
+	}
+	
 	&__job-title {
 		font-size: 18px;
 		vertical-align: super;
