@@ -1,6 +1,5 @@
 <!-- author bio -->
 <section class="author">
-<!-- need to support multiple authors, but only iterate through author object if author is a known contributor -->
 {% for author in page.author %}
 	{% if site.data.contributors[author] %}
 	<!-- author is a known contributor -->

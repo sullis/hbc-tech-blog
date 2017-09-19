@@ -1,12 +1,19 @@
 .site-header {
-	display: block;
+    grid-area: hd;
 	background-color: $hbc-white;
 	color: $hbc-black;
 
 	&__logo {
 	    display: inline-flex;
 	    width: 280px;
-	    height: 100px;
-	    margin: 20px 0;
+	    height: 60px;
+	    margin: 20px 0 20px 30px;
 	}
+
+    @media screen and (max-width: 1000px) {
+	    .site-header__logo {
+		    margin: 20px auto 20px auto;
+		    display: block;
+		}
+    }
 }

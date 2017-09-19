@@ -1,47 +1,68 @@
 .navigation {
-    margin: 0;
-    position: absolute;
-    right: 0px;
-    transform: translateY(-50%);
-    top: calc(50%);
-
+    display: flex;
+    float: right;
+    width: 350px;
+    margin-top: 30px;
+    margin-right: 30px;
+    padding: 0;
+    
+    
     &__link-item {
-		display: inline-block;
+	    flex-grow: 2;
+        list-style: none;
+        text-align: center;
+        height: 36px;
+
+        &:first-child {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        &:last-child {
+            flex-grow: 1;
+            text-align: right;
+        }
     }
 
-	&__link {
+    &__link {
         display: block;
-        padding: 10px 20px 0 20px;
+        line-height: 120%;
 		color: $hbc-black;
 		text-decoration: none;
+
+        &:hover {
+            color: $hbc-highlight;
+            cursor: pointer;
+            
+            .navigation__link-highlight {
+
+                &:after {
+                    transform: scaleX(1);
+                }
+            }
+
+        }
+    }
+
+    &__link-highlight {
+        display: inline-block;
+        height: 36px;
+        padding: 10px 0;
 		transition: color 0ms ease-out;
 
         &:after {
             content: "";
             display: block;
-            margin-top: 14px;
+            margin-top: 4px;
             border-bottom: solid 2px $hbc-highlight;
             transform: scaleX(0);
             transform-origin: 0 0;
             transition: transform 150ms ease-out;
         }
-
-		&:hover {
-			color: $hbc-highlight;
-			cursor: pointer;
-
-            &:after {
-                content: "";
-                display: block;
-                transform: scaleX(1);
-            }
-		}
 	}
 
     &--footer {
         position: relative;
-        float: none;
-        transform: translateY(0%);
         margin: 20px;
 
         .navigation__link {
@@ -49,7 +70,24 @@
 
             &:hover {
                 color: $hbc-highlight;
+                cursor: pointer;
+                
+                .navigation__link-highlight {
+
+                    &:after {
+                        transform: scaleX(1);
+                    }
+                }
             }
         }
     }
+
+    @media screen and (max-width: 1000px) {
+        float: none;
+        width: 95%;
+        margin: 0 auto 20px auto;
+
+    }
 }
+
+

@@ -1,9 +1,14 @@
 .footer {
-	display: block;
-	width: 100%;
+    grid-area: ft;
 	color: lighten($hbc-black, 50%);
 	background-color: $hbc-black;
-	text-align: center;
 	padding: 20px;
 	border-top: solid 1px lighten($hbc-black, 20%);
+
+	.copyright {
+		float: left;
+		margin: 20px;
+		padding: 10px;
+		font-size: 16px;
+	}
 }
