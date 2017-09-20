@@ -47,22 +47,23 @@ $breakpoint-large: 1024px;
 	// center images on mobile
 	@media screen and (max-width: $breakpoint-medium) {
 		display: inline-block;
+		float: none;
 	    position: relative;
-	    left: 50%;
-	    transform: translateX(-50%);
+	    // left: 50%;
+	    // transform: translateX(-50%);
 	}
 }
 
 .left-align {
 	float: left;
 	margin-right: 20px;
-	
+	margin-bottom: 20px;
+	text-align: center;
 	// center images on mobile
 	@media screen and (max-width: $breakpoint-medium) {
-		display: inline-block;
-	    position: relative;
-	    left: 50%;
-	    transform: translateX(-50%);
+		display: block;
+		float: none;
+		margin-right: 0;
 	}
 }
 
@@ -70,4 +71,9 @@ $breakpoint-large: 1024px;
 	display: inline-block;
 	padding: 3px;
 	border: solid 1px #ccc;
+	
+	// center images on mobile
+	@media screen and (max-width: $breakpoint-medium) {
+		display: block;
+	}
 }
