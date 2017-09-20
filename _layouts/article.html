@@ -11,7 +11,7 @@ layout: default
         {% endif %}) 50% 50% / cover no-repeat;">
     </section>
     {% else %}
-    <section class="article__feature-image" style="background: url(https://placehold.it/1920x800/) 50% 50% / cover no-repeat;">
+    <section class="article__feature-image" style="background: linear-gradient(to bottom right, #ffe29a, rgba(236, 233, 233, 0))">
     </section>
     {% endif %}
     <section class="article__content">
@@ -50,7 +50,7 @@ layout: default
         {% if counter < maxPosts and post.title != page.title %}
             {% assign counter=counter | plus:1 %}
         <article class="recirc__articles__item">
-            {% include article-snippet_no-images.html %}
+            {% include article-snippet.html excerpt=true %}
         </article>
         {% endif %}
     {% endfor %}

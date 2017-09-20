@@ -3,12 +3,7 @@ layout: default
 ---
 {% for post in paginator.posts %}
 <article class="article-listing">
-    {% include article-snippet.html %}
-    {% if post.excerpt %}
-    <p class="article-excerpt">
-        {{ post.excerpt | strip_html | truncatewords: 70 }}
-    </p>
-    {% endif %}
+    {% include article-snippet.html excerpt=true featureImage=true %}
 </article>
 {% endfor %}
 

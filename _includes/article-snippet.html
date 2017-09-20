@@ -1,17 +1,22 @@
+{% assign showExcerpt = include.excerpt %}
+{% assign showFeatureImage = include.featureImage %}
+
 <section class="snippet">
     <a href="{{ site.url }}{{ post.url }}">
-    {% if post.image.feature %}
-        <img class="snippet__feature-image" src=
-        {% if post.image.feature contains 'http' %}
-        "{{ post.image.feature }}"
+    {% if showFeatureImage == true  %}
+        {% if post.image.feature %}
+            <img class="snippet__feature-image" src=
+            {% if post.image.feature contains 'http' %}
+            "{{ post.image.feature }}"
+            {% else %}
+            "{{ site.url }}/assets/images/{{ post.image.feature }}"
+            {% endif %}
+            alt="{{ post.title }}">
         {% else %}
-        "{{ site.url }}/assets/images/{{ post.image.feature }}"
+            <img class="snippet__feature-image" src="http://placehold.it/1920x800/" alt="{{ post.title }}" >
+        {% else %}
+            <img class="snippet__feature-image" src="http://placehold.it/1920x800/" alt="{{ post.title }}" >
         {% endif %}
-        alt="{{ post.title }}">
-    {% else %}
-        <img src="http://placehold.it/1920x800/" alt="{{ post.title }}" >
-    {% else %}
-        <img class="snippet__feature-image" src="http://placehold.it/1920x800/" alt="{{ post.title }}" >
     {% endif %}
     </a>
     <h1 class="snippet__title">
@@ -39,4 +44,10 @@
             {{ site.title }}
         {% endif %}
     </div>
+    {% if post.excerpt and showExcerpt == true %}
+        <a href="{{ site.url }}{{ post.url }}" class="snippet__link" title="{{ post.title }}">
+        <p class="snippet__excerpt">
+        {{ post.excerpt | strip_html | truncatewords: 70 }}
+    {% endif %}
+    </p></a>
 </section>
