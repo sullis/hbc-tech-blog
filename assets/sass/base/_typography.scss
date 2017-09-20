@@ -24,10 +24,55 @@ h1 {
 
 p {
 	line-height: 140%;
-	font-size: 20px;
-	overflow: hidden;
+	// font-size: 20px !default;
+	// overflow: hidden;
+
+	// additional styles for post markdown elements
+	a {
+		line-height: 0;
+		color: inherit;
+	}
 }
 
-a {
-	line-height: 0;
+
+h1 {
+	color: $hbc-black;
 }
+
+ul {
+	margin-bottom: 40px;
+
+	li {
+		margin-bottom: 20px;
+	}
+}
+
+code {
+	font-size: inherit;
+}
+
+.highlight {
+	code {
+		line-height: 1.5;
+		font-size: 18px;
+	}
+}
+
+blockquote {
+	font-style: italic;
+	color: $hbc-gray;
+	padding: 0px 20px 0 20px;
+	margin: 0;
+
+	&:first-of-type {
+		margin: 20px 0 0 0;
+		border-top: dotted 1px $hbc-border;
+	}
+
+	&:last-of-type {
+		margin: 0 0 40px 0;
+		border-bottom: dotted 1px $hbc-border;
+	}
+}
+
+

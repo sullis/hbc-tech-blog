@@ -1,74 +1,162 @@
 .article {
-	// display: flex;
-	// grid-template-columns: minmax(auto, $content-width);
-	// margin: auto;
 
-	.feature-image {
+	&__feature-image {
+	    grid-area: article-image;
 		position: absolute;
 		left: 0;
 		width: 100vw;
 		height: 413px;
 		z-index: -1;
 		clip-path: polygon(0% 4vw, 100% 0%, 100% 100%, 0% 100%);
-	}
-
-	.article-category {
-		text-transform: uppercase;
-		text-decoration: none;
-		color: $hbc-highlight;
+		// opacity: 0.7;
 
 		&:after {
-			display: inline-block;
-			position: relative;
 			content: "";
-			height: 20px;
-			top: 5px;
-			border-right: solid 1px $hbc-border;
-			margin-left: 10px;
-			margin-right: 10px;
-		}
-
-		&:hover {
-			text-decoration: underline;
+			display: block;
+			height: 100%;
+			width: 100%;
+			// background: linear-gradient(to bottom right, rgba(189, 52, 52, 0.9), rgba(0,0,0, 0.5));
+			mix-blend-mode: soft-light;
+			background-color: rgba(201,0,56, 0.8);
 		}
 	}
 
-	.article-date {
-		color: $hbc-gray;
-	}
-
-	.article-title {
-		font-size: 72px;
-	    line-height: 120%;
-	    margin: 20px 0 0 -5px;
-	    pointer-events: none;
-	}
 	
-
 	&__content {
-		padding: 60px;
+		display: grid;
+		grid-template-columns: 90px 90px 1fr 90px ;
+	    grid-auto-rows: minmax(20px, auto);
+	    grid-template-areas:
+	    ". meta meta ."
+	    ". title title ."
+	    ". read-time body . "
+	    ". . footer . ";
+		padding: 60px 0 90px 0;
 		margin-top: 200px;
 		background-color: $hbc-white;
 		clip-path: polygon(0% 0%, 100% 4vw, 100% 100%, 0% 100%);
 
-		p {
+		.article-meta {
+			grid-area: meta;
+
+			&__category {
+				text-transform: uppercase;
+				text-decoration: none;
+				color: $hbc-highlight;
+
+				&:after {
+					display: inline-block;
+					position: relative;
+					content: "";
+					height: 20px;
+					top: 5px;
+					border-right: solid 1px $hbc-border;
+					margin-left: 10px;
+					margin-right: 10px;
+				}
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			&__date {
+				color: $hbc-gray;
+			}
+		}
+
+		&__title {
+			grid-area: title;
+			font-size: 72px;
+		    line-height: 120%;
+		    margin: 20px 0 0 -5px;
+		    pointer-events: none;
+		}
+
+		&__read-time {
+			grid-area: read-time;
+			margin-top: 32px;
+			color: $hbc-gray;
+
+			.read-time__text-1,
+			.read-time__text-2,
+			.read-time__text-3 {
+				display: block;
+				margin-bottom: 7px;
+			}
+		}
+
+		&__body {
+			grid-area: body;
 			max-width: 820px;
+			font-size: 24px;
+			color: $hbc-gray-3;
+		}
+
+		&__footer {
+		    grid-area: footer;
+		    margin-top: 40px;
+
+			.article-tags {
+				padding: 0 0 20px 0;
+				color: $hbc-gray-2;
+
+				&__link {
+					font-style: italic;
+					color: inherit;
+					
+					&:hover {
+						color: $hbc-highlight;
+					}
+				}
+			}
+
+			.author {
+
+				&__name {
+
+				}
+
+				&__job-title {
+					color: $hbc-gray;
+				}
+
+				&__bio {
+					margin: 0;
+				}
+			}
 		}
 	}
 
-	&__footer {
-		padding: 0 60px;
-	}
 
-	&__tags {
-		padding: 0 0 20px 0;
 
-		&__link {
-			color: $hbc-gray;
-			font-style: italic; 
-			
-			&:hover {
-				color: $hbc-highlight;
+	@media screen and (max-width: $breakpoint-medium) {
+		.article__content {
+			padding-top: 30px;
+			grid-template-columns: 10px 20px 1fr 10px;
+		    grid-template-areas:
+			    ". meta meta ."
+			    ". title title ."
+			    ". read-time read-time read-time"
+			    ". body body . "
+			    ". footer footer . ";
+
+		    &__title {
+				font-size: 36px;
+				margin-left: -3px;
+			}
+
+			&__read-time {
+				.read-time__text-1,
+				.read-time__text-2,
+				.read-time__text-3 {
+					display: inline-block;
+					margin: 0;
+				}
+			}
+
+			&__body {
+				font-size: 18px;
 			}
 		}
 	}

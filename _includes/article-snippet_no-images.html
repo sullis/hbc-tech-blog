@@ -1,31 +1,33 @@
-<h1 class="article__title">
-    <a href="{{ site.url }}{{ post.url }}" class="article__link" title="{{ post.title }}">{{ post.title }}</a>
-</h1>
-<div class="article__meta">
-    <span class="date-day">{{ post.date | date: "%-d" }}</span>
-    <span class="date-month">{{ post.date | date: "%b" | upcase }}</span>
-    <span class="date-year">{{ post.date | date: "%Y" }}</span>
+<section class="snippet">
+    <a href="{{ site.url }}{{ post.url }}" class="snippet__link" title="{{ post.title }}"><h1 class="snippet__title">
+        {{ post.title }}</a>
+    </h1>
+    <div class="snippet__meta">
+        <span class="meta__day">{{ post.date | date: "%-d" }}</span>
+        <span class="meta__month">{{ post.date | date: "%b" | upcase }}</span>
+        <span class="meta__year">{{ post.date | date: "%Y" }}</span>
 
-    {% if post.categories.size > 0 %}
-    {% for cat in post.categories %}
-        <a class="article__category" href="{{ site.url }}/categories/#{{ cat }}">{{cat}}</a>{% unless forloop.last %}<span>, </span>{% endunless %}{% endfor %}
-    {% endif %}
+        {% if post.categories.size > 0 %}
+        <a class="meta__category-link" href="{{ site.url }}/categories/#{{ post.categories.first }}">{{post.categories.first}}</a>
+        {% endif %}
 
-    {% if post.author %}
-        {% for author in post.author %}
-            <a class="article__author-link" href="{{ site.url }}/authors/{{- author -}}">
-            {{- author -}}
-            </a>
-            {%- unless forloop.last -%}
-            <span>,</span>
-            {% endunless %}
-        {% endfor %}
-    {% else %}
-        {{ site.title }}
+        {% if post.author %}
+            {% for author in post.author %}
+                <a class="meta__author-link" href="{{ site.url }}/authors/{{- author -}}">
+                {{- author -}}
+                </a>
+                {%- unless forloop.last -%}
+                <span>,</span>
+                {% endunless %}
+            {% endfor %}
+        {% else %}
+            {{ site.title }}
+        {% endif %}
+    </div>
+    <a href="{{ site.url }}{{ post.url }}" class="snippet__link" title="{{ post.title }}">
+        <p class="snippet__excerpt">
+    {% if post.excerpt %}
+        {{ post.excerpt | strip_html | truncatewords: 70 }}
     {% endif %}
-</div>
-<p class="article-excerpt">
-{% if post.excerpt %}
-    {{ post.excerpt | strip_html | truncatewords: 70 }}
-{% endif %}
-</p>
+    </p></a>
+</section>

@@ -3,33 +3,58 @@ layout: default
 ---
 <article class="article">
     {% if page.image.feature %}
-    <div class="feature-image" style="background: url(
+    <section class="article__feature-image" style="background: url(
         {% if page.image.feature contains 'https' or page.image.feature contains 'http' %}
             {{ page.image.feature }}
         {% else %}
             {{ site.url }}/assets/images/{{ page.image.feature }}
-        {% endif %}) 50% 50% / cover no-repeat;"></div>
+        {% endif %}) 50% 50% / cover no-repeat;">
+    </section>
     {% else %}
-    <div class="feature-image" style="background: url(https://placehold.it/1920x800/) 50% 50% / cover no-repeat;"></div>
+    <section class="article__feature-image" style="background: url(https://placehold.it/1920x800/) 50% 50% / cover no-repeat;">
+    </section>
     {% endif %}
     <section class="article__content">
 <!--     {% if page.image.credit %}
         <span>Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
     {% endif %} -->
         {% if page.categories.size > 0 %}
-        <a href="{{ site.url }}/categories/#{{ page.categories }}" class="article-category">{{ page.categories }}</a>{% endif %}
-        <span class="article-date">
-            Published {{ page.date | date: "%-d %b %Y" | upcase }}
-        </span>
-        <h1 class="article-title" title="{{ page.title }}">{{ page.title }}</h1>
-        {% include read_time.html %}
-        {{ content }}
+        <div class="article-meta">
+            <a href="{{ site.url }}/categories/#{{ page.categories }}" class="article-meta__category">{{ page.categories.first }}</a>{% endif %}
+            <span class="article-meta__date">
+                Published {{ page.date | date: "%-d %b %Y" | upcase }}
+            </span>
+        </div>
+        <h1 class="article__content__title" title="{{ page.title }}">{{ page.title }}</h1>
+        <div class="article__content__read-time">{% include read-time.html %}</div>
+        <div class="article__content__body">{{ content }}</div>
+        <footer class="article__content__footer">
+            {% include article-tags.html %}
+            {% include author-bio.html %}
+        </footer>
     </section>
-    <footer class="article__footer">
-        {% include article-tags.html %}
-        {% include author-bio.html %}
-    </footer>
 </article>
+<aside class="recirc">
+    <h2 class="header__title">More Insights</h2>
+    <a class="header__view-all-link" href="{{ site.url }}/insights/">Explore</a>
+    <div class="recirc__articles">
+    {% assign counter = 0 %}
+    {% assign maxPosts = 4 %}
+    {% assign authorPosts = site.posts | where: "author", page.author %}
+    {% assign relatedPosts = site.posts | where: "categories", page.categories.first %}
+    {% assign recentPosts = site.posts %}
+    {% assign recirc = authorPosts | concat: relatedPosts | concat: recentPosts %}
+
+    {% for post in recirc %}
+        {% if counter < maxPosts and post.title != page.title %}
+            {% assign counter=counter | plus:1 %}
+        <article class="recirc__articles__item">
+            {% include article-snippet_no-images.html %}
+        </article>
+        {% endif %}
+    {% endfor %}
+    </div>
+</aside>
 
 
 <!-- <div class="share-buttons">
