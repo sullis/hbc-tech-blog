@@ -6,6 +6,19 @@
 
 	&__avatar {
 		margin-right: 5px;
+		vertical-align: bottom;
+
+		.hbc-svg-icon {
+
+			&--avatar__circle {
+				fill: #ccc;
+			}
+
+			&--avatar__body,
+			&--avatar__head {
+				fill: #fff;
+			}
+		}
 	}
 
 	&__link {

@@ -1,0 +1,32 @@
+<section class="tags">
+	<h1 class="tags__title">Tags</h1>
+	<ul class="tags__tag-list">
+	{% assign tags_list = site.tags %}
+	  {% if tags_list.first[0] == null %}
+	    {% for tag in tags_list %}
+	      <li class="tags__list-item"><a class="tags__list-item__link" href="#{{ tag }}">{{ tag | capitalize }} ({{ site.tags[tag].size }})</a></li>
+	    {% endfor %}
+	  {% else %}
+	    {% for tag in tags_list %}
+	      <li class="tags__list-item"><a class="tags__list-item__link" href="#{{ tag[0] }}">{{ tag[0] | capitalize }} ({{ tag[1].size }})</a></li>
+	    {% endfor %}
+	  {% endif %}
+	{% assign tags_list = nil %}
+	</ul>
+
+	{% for tag in site.tags %}
+	  <a name="{{ tag[0] }}"><h2 class="tags__list-header">{{ tag[0] | capitalize }}</h2></a>
+	  <ul class="tags__article-list">
+	    {% assign pages_list = tag[1] %}
+	    {% for article in pages_list %}
+	      {% if article.title != null %}
+	      {% if group == null or group == article.group %}
+	      <li class="tags__list-item"><a class="tags__list-item__link"href="{{ site.url }}{{ article.url }}">{{ article.title }}<span class="entry-date"><time datetime="{{ article.date | date_to_xmlschema }}" itemprop="datePublished">{{ article.date | date: "%B %d, %Y" }}</time></span></a></li>
+	      {% endif %}
+	      {% endif %}
+	    {% endfor %}
+	    {% assign pages_list = nil %}
+	    {% assign group = nil %}
+	  </ul>
+	{% endfor %}
+</section>

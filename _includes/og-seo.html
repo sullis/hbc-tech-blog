@@ -1,0 +1,8 @@
+<meta property="og:title" content="{{ page.title }}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{{ site.url }}/{{ page.url }}" />
+<meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
+<meta property="og:image" content="{{ site.url }}/assets/images/{{ page.image.feature }}" />
+<meta property="og:image:secure_url" content="{{ site.url }}/assets/images/{{ page.image.feature }}" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:alt" content="{{ page.image.feature }}" />
