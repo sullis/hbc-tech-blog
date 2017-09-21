@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<section class="author-page">
+	<a href="/authors/">< All Authors</a>
+	<h1 class="author-page__title">{{page.name}}</h1>
+	<p>{{page.mini-bio}}</p>
+</section>
+{% assign currAuthor = page.name %}
+{% assign authorPosts = site.posts | where: "author", currAuthor %}
+
+{% for post in authorPosts %}
+    <article class="article-listing">
+    {% include article-snippet.html excerpt=true %}
+    </article>
+{% endfor %}

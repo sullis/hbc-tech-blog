@@ -40,6 +40,18 @@ autopages:
   # Site-wide kill switch, disable here and it doesn't run at all 
   enabled: false
 
+collections:
+  # relative_directory: "_data/authors/"
+  authors:
+    output: true
+    # permalink: /authors/:path/
+
+defaults:
+  - scope:
+      type: "authors"
+    values:
+      layout: "author"
+
 # Markdown settings
 markdown: kramdown
 kramdown:
@@ -69,3 +81,4 @@ plugins:
   - octopress-autoprefixer
   - jekyll-sitemap
   - jekyll-paginate
+  - jekyll-seo-tag
