@@ -1,5 +1,8 @@
 .snippet {
-	// display: inline-block;
+
+	&__feature-image {
+		margin-bottom: 20px;
+	}
 	
 	&__title {
 		margin: 0 0 10px 0;

@@ -80,7 +80,8 @@
 		&__read-time {
 			grid-area: read-time;
 			align-self: start;
-			margin-top: 32px;
+			margin-top: 24px;
+			font-size: 14px;
 			color: $hbc-gray;
 
 			.read-time__text-1,
@@ -95,7 +96,7 @@
 			grid-area: share;
 			align-self: start;
 			width: 36px;
-			padding-top: 30px;
+			padding-top: 20px;
 			position: sticky;
 			top: -1px;
 
@@ -134,7 +135,7 @@
 		&__body {
 			grid-area: body;
 			max-width: 820px;
-			font-size: 24px;
+			font-size: 18px;
 			color: $hbc-gray-3;
 		}
 
