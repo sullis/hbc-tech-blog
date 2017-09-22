@@ -31,11 +31,24 @@
             <a class="meta__category-link" href="{{ site.url }}/categories/#{{ post.categories.first }}">{{post.categories.first}}</a>
         {% endif %}
 
-        {% if post.author %}
-            {% for author in post.author %}
-                <a class="meta__author-link" href="{{ site.url }}/authors/{{- author -}}">
-                {{- author -}}
-                </a>
+        {% if post.author != '' %}
+            {% for authorName in post.author %}
+                {% assign authorLink = authorName | replace: ' ', '_' %}
+                <!-- if author exists in site.authors, send user to author's page -->
+                {% for a in site.authors %}
+                    {%if a.name == authorName %}
+                    <a class="meta__author-link" href="{{ site.url }}/authors/{{ authorLink }}">
+                    {% endif %}
+                {% endfor %}
+
+                {{authorName}}
+
+                {% for a in site.authors %}
+                    {%if a.name == authorName %}
+                    </a>
+                    {% endif %}
+                {% endfor %}
+
                 {%- unless forloop.last -%}
                 <span>,</span>
                 {% endunless %}
