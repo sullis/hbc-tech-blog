@@ -48,8 +48,15 @@ Follow this format to add additional images to your article. By default, all ima
 ```
 
 ### Linking An Image
+Follow the example below when you want to link an image in your post.
+
 ```
 [![the image alt text](http://the-image.jpg)](https://the-link-to-wrap-around-the-image/")
+```
+
+For links that navigate away from the site, target links in a new tab by adding `{:target="_blank"}` after the linked image.
+```
+[![the image alt text](http://the-image.jpg)](https://the-link-to-wrap-around-the-image/"){:target="_blank"}
 ```
 
 ### Styling Your Image with Classes
