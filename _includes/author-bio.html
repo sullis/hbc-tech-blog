@@ -20,7 +20,7 @@
 	    </svg>
 		{% endif %}
 
-		{% assign authorLink = author-bio.name | replace: ' ', '_' %}
+		{% assign authorLink = author-bio.name | replace: ' ', '-' %}
 		<a class="author__link" href="{{ site.url }}/authors/{{ authorLink }}">{{- author-bio.name -}}</a>
 		{%- if author-bio.job-title -%}
 		<span class="author__job-title">, {{ author-bio.job-title }}</span>

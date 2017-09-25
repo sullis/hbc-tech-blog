@@ -33,7 +33,7 @@
 
         {% if post.author != '' %}
             {% for authorName in post.author %}
-                {% assign authorLink = authorName | replace: ' ', '_' %}
+                {% assign authorLink = authorName | replace: ' ', '-' | downcase %}
                 <!-- if author exists in site.authors, send user to author's page -->
                 {% for a in site.authors %}
                     {%if a.name == authorName %}
