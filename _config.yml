@@ -41,16 +41,25 @@ autopages:
   enabled: false
 
 collections:
-  # relative_directory: "_data/authors/"
   authors:
     output: true
-    # permalink: /authors/:path/
+  category:
+    permalink: "/category/:path/"
+    output: true
 
 defaults:
   - scope:
-      type: "authors"
+      type: posts
     values:
-      layout: "author"
+      author: HBC Tech
+  - scope:
+      type: authors
+    values:
+      layout: author
+  - scope:
+      type: category
+    values:
+      layout: category
 
 # Markdown settings
 markdown: kramdown

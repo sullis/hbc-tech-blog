@@ -28,7 +28,17 @@
         <span class="meta__year">{{ post.date | date: "%Y" }}</span>
 
         {% if post.categories.size > 0 %}
-            <a class="meta__category-link" href="{{ site.url }}/categories/#{{ post.categories.first }}">{{post.categories.first}}</a>
+            {% for cat in site.category %}
+                {%if cat.name == post.categories.first %}
+                    {% assign featureCategory = cat %}
+                {% endif %}
+            {% endfor %}
+
+            {% if featureCategory != nil %}
+                <a class="meta__category-link" href="{{ site.url }}/category/{{ post.categories.first }}">{{post.categories.first}}</a>
+            {% else %}
+                <a class="meta__category-link" href="{{ site.url }}/categories/#{{ post.categories.first }}">{{post.categories.first}}</a>
+            {% endif %}
         {% endif %}
 
         {% if post.author != '' %}

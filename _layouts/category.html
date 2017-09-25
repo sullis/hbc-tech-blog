@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<section class="category-page">
+    <h1>{{ page.name | capitalize }}</h1>
+	{% for post in site.categories[page.name] %}
+		{% include article-snippet.html excerpt=true featureImage=false %}
+	{% endfor %}
+</section>
+
+<!-- Pagination links -->
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+{% if paginator.previous_page %}
+    <a rel="prev" href="{{ paginator.previous_page_path | prepend: site.url | replace: '//', '/' }}">&laquo; Prev</a>
+{% endif %}
+
+{% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+    <em>{{ page }}</em>
+    {% elsif page == 1 %}
+    <a href="{{ '/insights' | prepend: site.url | replace: '//', '/' }}">{{ page }}</a>
+    {% else %}
+    <a href="{{ '/insights/' | prepend: site.url | replace: '//', '/' | append: page }}">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+    <a rel="next" href="{{ paginator.next_page_path | prepend: site.url | replace: '//', '/' }}">Next &raquo;</a>
+  {% endif %}
+</div>
+{% endif %}
