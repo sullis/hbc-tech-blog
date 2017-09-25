@@ -1,1 +1,2 @@
 /* scripts */
+console.log("cool!");

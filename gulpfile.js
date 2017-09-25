@@ -10,6 +10,7 @@ var rename       = require('gulp-rename');
 var replace      = require('gulp-replace');
 var notify       = require('gulp-notify');
 var prefix       = require('gulp-autoprefixer');
+var pump         = require('pump');
 var cp           = require('child_process');
 var fs           = require('fs');
 var ghPages      = require('gulp-gh-pages');
@@ -24,7 +25,7 @@ var messages     = {
  */
 gulp.task('jekyll-build', function (done) {
     browserSync.notify(messages.jekyllBuild);
-    return cp.spawn( jekyll , ['build', '--config', '_config.yml'], {stdio: 'inherit'})
+    return cp.spawn( jekyll , ['build', '--config', '_config.yml,_config.dev.yml'], {stdio: 'inherit'})
         .on('close', done);
 });
 
@@ -96,7 +97,7 @@ gulp.task('default', ['browser-sync', 'watch']);
 */
 gulp.task('jekyll-build-prod', function (done) {
     browserSync.notify(messages.jekyllBuild);
-    return cp.spawn( jekyll , ['build', '--config', '_config.yml,_config.prod.yml'], {stdio: 'inherit'})
+    return cp.spawn( jekyll , ['build', '--config', '_config.yml,_config.dev.yml'], {stdio: 'inherit'})
         .on('close', done);
 });
 gulp.task('optimize-css-prod', ['jekyll-build-prod'], function () {
@@ -113,13 +114,14 @@ gulp.task('optimize-css-prod', ['jekyll-build-prod'], function () {
         .pipe(notify({ message: 'CSS-PROD task complete' }));
 });
 gulp.task('optimize-js-prod', ['optimize-css-prod'], function() {
-  return gulp
-            .src("_site/index.html")
-            .pipe(extract())
-            .pipe(concat('all.min.js'))
-            .pipe(uglify())
-            .pipe(gulp.dest('_site/public/js'))
-            .pipe(notify({ message: 'JS-PROD task complete' }));
+    pump([
+        gulp.src("_site/index.html"),
+        extract(),
+        concat('all.min.js'),
+        uglify(),
+        gulp.dest('_site/public/js'),
+        notify({ message: 'JS-PROD task complete' })
+        ]);
 });
 gulp.task('optimize-html-prod', ['optimize-js-prod'], function() {
 	return gulp.src('_site/**/*.html')
