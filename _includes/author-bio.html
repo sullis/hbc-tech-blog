@@ -11,17 +11,17 @@
 	{% if author-bio.name %}
 	<!-- author is a known contributor -->
 		{% if author-bio.avatar %}
-		<img class="author__avatar" src="{{ site.url }}/assets/images/{{author-bio.avatar}}" height="24"/>
+		<img class="author__avatar" src="{{ site.url }}{{ site.baseurl }}/assets/images/{{author-bio.avatar}}" height="24"/>
 		{% else %}
 		<svg class="author__avatar" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
-	        <use class="hbc-svg-icon hbc-svg-icon--avatar__circle" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}/assets/images/hbc-icons.svg#circle" ></use>
-	        <use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}/assets/images/hbc-icons.svg#head" ></use>
-	        <use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}/assets/images/hbc-icons.svg#body" ></use>
+	        <use class="hbc-svg-icon hbc-svg-icon--avatar__circle" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#circle" ></use>
+	        <use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#head" ></use>
+	        <use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#body" ></use>
 	    </svg>
 		{% endif %}
 
-		{% assign authorLink = author-bio.name | replace: ' ', '-' %}
-		<a class="author__link" href="{{ site.url }}/authors/{{ authorLink }}">{{- author-bio.name -}}</a>
+		{% assign authorLink = author-bio.name | replace: ' ', '-' | downcase %}
+		<a class="author__link" href="{{ site.url }}{{ site.baseurl }}/authors/{{ authorLink }}">{{- author-bio.name -}}</a>
 		{%- if author-bio.job-title -%}
 		<span class="author__job-title">, {{ author-bio.job-title }}</span>
 		{% endif %}
@@ -33,9 +33,9 @@
 	{% else %}
 	<!-- author is a guest contributor -->
 	<svg class="author__avatar" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
-        <use class="hbc-svg-icon hbc-svg-icon--avatar__circle" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}/assets/images/hbc-icons.svg#circle" ></use>
-        <use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}/assets/images/hbc-icons.svg#head" ></use>
-        <use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}/assets/images/hbc-icons.svg#body" ></use>
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__circle" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#circle" ></use>
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#head" ></use>
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#body" ></use>
     </svg>
 	<span class="author__name">{{ author }}</span>
 	{% endif %}

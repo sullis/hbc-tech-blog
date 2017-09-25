@@ -1,21 +1,21 @@
 # Masthead navigation links
 header-links:
   - title: "Insights"
-    url: /insights/
+    url: insights
   - title: "Code"
-    url: /code/
+    url: code
   - title: "Culture"
-    url: /culture/
+    url: culture
   - title: "Work Here"
-    url: /jobs/
+    url: jobs
 
 # Footer navigation links
 footer-links:
   - title: "Insights"
-    url: /insights/
+    url: insights
   - title: "Code"
-    url: /code/
+    url: code
   - title: "Culture"
-    url: /culture/
+    url: culture
   - title: "Work Here"
-    url: /jobs/
+    url: jobs

@@ -4,7 +4,8 @@ title: Don’t just read about DevOps culture, play-test it!
 author:
 - Dana Pylayeva
 date: '2017-02-14'
-category: 'DevOps'
+category: 
+- DevOps
 tags:
 - culture
 - devops

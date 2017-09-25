@@ -7,7 +7,7 @@ layout: default
         {% if page.image.feature contains 'https' or page.image.feature contains 'http' %}
             {{ page.image.feature }}
         {% else %}
-            {{ site.url }}/assets/images/{{ page.image.feature }}
+            {{ site.url }}{{ site.baseurl }}/assets/images/{{ page.image.feature }}
         {% endif %}) 50% 50% / cover no-repeat;">
     </section>
     {% else %}
@@ -20,7 +20,7 @@ layout: default
     {% endif %} -->
         {% if page.categories.size > 0 %}
         <div class="article-meta">
-            <a href="{{ site.url }}/categories/#{{ page.categories }}" class="article-meta__category">{{ page.categories.first }}</a>{% endif %}
+            <a href="{{ site.url }}{{ site.baseurl }}/categories/#{{ page.categories }}" class="article-meta__category">{{ page.categories.first }}</a>{% endif %}
             <span class="article-meta__date">
                 Published {{ page.date | date: "%-d %b %Y" | upcase }}
             </span>
@@ -37,7 +37,7 @@ layout: default
 </article>
 <aside class="recirc">
     <h2 class="header__title">More Insights</h2>
-    <a class="header__view-all-link" href="{{ site.url }}/insights/">Explore</a>
+    <a class="header__view-all-link" href="{{ site.url }}{{ site.baseurl }}/insights/index.html">Explore</a>
     <div class="recirc__articles">
     {% assign counter = 0 %}
     {% assign maxPosts = 4 %}
