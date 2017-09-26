@@ -30,13 +30,27 @@
 		color: $hbc-black;
 		text-decoration: none;
 
-        &:hover {
+        &:hover,
+        &--current:hover {
             color: $hbc-highlight;
             cursor: pointer;
             
             .navigation__link-highlight {
 
                 &:after {
+                    border-bottom: solid 2px $hbc-highlight;
+                    transform: scaleX(1);
+                }
+            }
+        }
+
+        &--current {
+            color: $hbc-black;
+            
+            .navigation__link-highlight {
+
+                &:after {
+                    border-bottom: solid 2px $hbc-black;
                     transform: scaleX(1);
                 }
             }
