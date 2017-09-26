@@ -1,7 +1,7 @@
 {% if page.tags.size > 0 %}
 <div class="article-tags">
 {% for tag in page.tags %}
-    <span class="article-tags__link">{{ tag }}</span>
+    <span class="article-tags__tag">{{ tag }}</span>
     {%- unless forloop.last -%}
     <span>,</span>
     {% endunless %}

@@ -147,13 +147,9 @@
 				padding: 0 0 20px 0;
 				color: $hbc-gray-2;
 
-				&__link {
+				&__tag {
 					font-style: italic;
 					color: inherit;
-					
-					&:hover {
-						color: $hbc-highlight;
-					}
 				}
 			}
 
