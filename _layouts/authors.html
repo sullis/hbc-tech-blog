@@ -7,7 +7,7 @@ title: Authors
 	<h1 class="authors-page__title">Featured Authors</h1>
 
 {% for author in site.authors %}
-	<h3><a href="{{ author.url }}">{{author.name}}</a></h3>
+	<h3><a href="{{ site.url }}{{ site.baseurl }}{{ author.url }}">{{author.name}}</a></h3>
 {% endfor %}
 
 </section>
