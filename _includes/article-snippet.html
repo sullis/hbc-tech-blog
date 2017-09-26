@@ -29,12 +29,12 @@
 
         {% if post.categories.size > 0 %}
             {% for cat in site.category %}
-                {%if cat.name == post.categories %}
-                    {% assign featureCategory = cat %}
+                {% if cat.name == post.categories.first %}
+                    {% assign featureCategory = cat.name %}
                 {% endif %}
             {% endfor %}
 
-            {% if featureCategory != nil and featureCategory != '' %}
+            {% if post.categories.first == featureCategory %}
                 <a class="meta__category-link" href="{{ site.url }}{{ site.baseurl }}/category/{{ post.categories.first }}">{{post.categories.first}}</a>
             {% else %}
                 <a class="meta__category-link" href="{{ site.url }}{{ site.baseurl }}/categories/#{{ post.categories.first }}">{{post.categories.first}}</a>

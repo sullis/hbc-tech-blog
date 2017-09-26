@@ -19,8 +19,21 @@ layout: default
         <span>Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
     {% endif %} -->
         {% if page.categories.size > 0 %}
+            {% for cat in site.category %}
+                {% if cat.name == page.categories.first %}
+                    {% assign featureCategory = cat.name %}
+                {% endif %}
+            {% endfor %}
+
+            
+
         <div class="article-meta">
-            <a href="{{ site.url }}{{ site.baseurl }}/categories/#{{ page.categories }}" class="article-meta__category">{{ page.categories.first }}</a>{% endif %}
+            {% if page.categories.first == featureCategory %}
+            <a href="{{ site.url }}{{ site.baseurl }}/category/{{ featureCategory }}" class="article-meta__category">{{ featureCategory }}</a>
+            {% else %}
+            <a href="{{ site.url }}{{ site.baseurl }}/categories/#{{ page.categories }}" class="article-meta__category">{{ page.categories.first }}</a>
+            {% endif %}
+        {% endif %}
             <span class="article-meta__date">
                 Published {{ page.date | date: "%-d %b %Y" | upcase }}
             </span>
