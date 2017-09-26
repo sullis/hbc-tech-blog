@@ -10,7 +10,7 @@ layout: default
 {% assign authorPosts = site.posts | where: "author", currAuthor %}
 
 {% for post in authorPosts %}
-    <article class="article-listing">
+    <article class="author-article-listing">
     {% include article-snippet.html excerpt=true %}
     </article>
 {% endfor %}

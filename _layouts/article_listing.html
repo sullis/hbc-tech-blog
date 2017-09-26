@@ -1,31 +1,47 @@
 ---
 layout: default
 ---
-{% for post in paginator.posts %}
-<article class="article-listing">
-    {% include article-snippet.html excerpt=true featureImage=true %}
-</article>
-{% endfor %}
+<section class="article-listing">
+  {% for post in paginator.posts limit:1 %}
+  <div class="article-listing__featured">
+      {% include article-snippet.html excerpt=true featureImage=true %}
+  </div>
+  {% endfor %}
+  <!-- display the 2nd and 3rd posts in a smaller way-->
+  <div class="article-listing__sub-featured">
+  {% for post in paginator.posts limit:2 offset:1 %}
+      {% include article-snippet.html excerpt=true featureImage=false %}
+  {% endfor %}
+  </div>
+  <!-- this is the rest of the posts listed with no feature images-->
+  <div class="article-listing__remaining">
+    <aside class="featured-topics"><h3 class="featured-topics__title">Featured Topics</h3></aside>
+    {% for post in paginator.posts offset:3 limit:8 %}
+        {% include article-snippet.html excerpt=true featureImage=false %}
+    {% endfor %}
+  </div>
+</section>
+
 
 <!-- Pagination links -->
 {% if paginator.total_pages > 1 %}
-<div class="pagination">
+<section class="pagination">
 {% if paginator.previous_page %}
-    <a rel="prev" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+    <a class="pagination__link pagination__link--prev" rel="prev" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
 {% endif %}
 
 {% for page in (1..paginator.total_pages) %}
     {% if page == paginator.page %}
-    <em>{{ page }}</em>
+    <em class="pagination__link pagination__link--current">{{ page }}</em>
     {% elsif page == 1 %}
-    <a href="{{ '/insights' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+    <a class="pagination__link pagination__link--current" href="{{ '/insights' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
     {% else %}
-    <a href="{{ '/insights/' | prepend: site.baseurl | replace: '//', '/' | append: page }}">{{ page }}</a>
+    <a class="pagination__link pagination__link--current" href="{{ '/insights/' | prepend: site.baseurl | replace: '//', '/' | append: page }}">{{ page }}</a>
     {% endif %}
   {% endfor %}
 
   {% if paginator.next_page %}
-    <a rel="next" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+    <a class="pagination__link pagination__link--next" rel="next" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
   {% endif %}
-</div>
+</section>
 {% endif %}
