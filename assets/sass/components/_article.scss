@@ -7,8 +7,14 @@
 		width: 100vw;
 		height: 413px;
 		z-index: -1;
-		clip-path: polygon(0% 4vw, 100% 0%, 100% 100%, 0% 100%);
-		// opacity: 0.7;
+		clip-path: polygon(0% 4vw, 0% 4vw, 0% 100%, 0% 100%);
+        animation-name: reveal-feature-image;
+        animation-duration: .2s;
+        animation-delay: .5s;
+        animation-timing-function: cubic-bezier(0.000, 0.980, 0.655, 0.995); 
+        animation-direction: normal;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;	
 
 		&:after {
 			content: "";
@@ -37,8 +43,17 @@
 		align-items: start;
 		padding: 60px 0 90px 0;
 		margin-top: 200px;
+		opacity: 0;
+		transform: translateY(200px);
 		background-color: $hbc-white;
 		clip-path: polygon(0% 0%, 100% 4vw, 100% 100%, 0% 100%);
+        animation-name: reveal-article;
+        animation-duration: .2s;
+        animation-delay: .8s;
+        animation-timing-function: cubic-bezier(0.000, 0.980, 0.655, 0.995); 
+        animation-direction: normal;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;	
 
 		.article-meta {
 			grid-area: meta;
@@ -98,6 +113,7 @@
 			width: 36px;
 			padding-top: 20px;
 			position: sticky;
+			transform: translateY(0);
 			top: -1px;
 
 			.share-buttons {
@@ -223,4 +239,17 @@
 			}
 		}
 	}
+}
+
+@keyframes reveal-article {
+    to {
+		opacity: 1;
+		transform: translateY(0);
+    }
+}
+
+@keyframes reveal-feature-image {
+    to { 
+        clip-path: polygon(0% 4vw, 100% 0%, 100% 100%, 0% 100%);
+    }
 }
