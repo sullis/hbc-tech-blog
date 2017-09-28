@@ -1,13 +1,27 @@
 .site-header {
     grid-area: hd;
+    height: 125px;
 	background-color: $hbc-off-white;
 	color: $hbc-black;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 
 	&__logo {
 	    display: inline-flex;
 	    width: 280px;
 	    height: 60px;
 	    margin: 20px 0 20px 30px;
+	    transform-origin: 0 0;
+	    transition: all 200ms ease-out;
+		-webkit-backface-visibility: hidden; /* add to fix webkit bug jitter */
+		-webkit-transform: perspective(1000px); /* add to fix webkit bug jitter */
+
+		&--scale {
+			margin: 10px 0 10px 20px;
+			width: 196px;
+			height: 42px;
+		}
 	}
 
     @media screen and (max-width: 1000px) {
