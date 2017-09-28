@@ -14,7 +14,7 @@
         animation-timing-function: cubic-bezier(0.000, 0.980, 0.655, 0.995); 
         animation-direction: normal;
         animation-iteration-count: 1;
-        animation-fill-mode: forwards;	
+        animation-fill-mode: forwards;
 
 		&:after {
 			content: "";
@@ -113,11 +113,11 @@
 			width: 36px;
 			padding-top: 20px;
 			position: sticky;
+			top: 60vh;
 			transform: translateY(0);
-			top: -1px;
 
 			.share-buttons {
-				border-top: solid 1px $hbc-border;
+				// border-top: solid 1px $hbc-border;
 				list-style-type: none;
 				padding: 20px 0 0 0;
 				margin: 0;
@@ -127,6 +127,7 @@
 					padding: 0;
 					margin: 0 0 10px 0;
 					display: inline-block;
+					opacity: 0;
 
 						&:hover {
 							.hbc-svg-icon {
@@ -138,8 +139,14 @@
 						fill: $hbc-gray-2;
 					}
 
-					&__link {
-
+					&--reveal {
+				        animation-name: fade-in-and-up;
+				        animation-duration: 200ms;
+				        animation-delay: 0;
+				        animation-timing-function: ease-out; 
+				        animation-direction: normal;
+				        animation-iteration-count: 1;
+				        animation-fill-mode: forwards;
 					}
 
 				}
@@ -229,6 +236,7 @@
 					&__link-item {
 						margin: 0 10px 10px 0;
 						float: left;
+						opacity: 1;
 					}
 
 				}
@@ -239,17 +247,4 @@
 			}
 		}
 	}
-}
-
-@keyframes reveal-article {
-    to {
-		opacity: 1;
-		transform: translateY(0);
-    }
-}
-
-@keyframes reveal-feature-image {
-    to { 
-        clip-path: polygon(0% 4vw, 100% 0%, 100% 100%, 0% 100%);
-    }
 }

@@ -1,0 +1,25 @@
+
+
+@keyframes reveal-article {
+    to {
+		opacity: 1;
+		transform: translateY(0);
+    }
+}
+
+@keyframes reveal-feature-image {
+    to { 
+        clip-path: polygon(0% 4vw, 100% 0%, 100% 100%, 0% 100%);
+    }
+}
+
+@keyframes fade-in-and-up {
+    from { 
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
