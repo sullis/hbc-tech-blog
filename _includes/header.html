@@ -1,6 +1,11 @@
 <header id="site-header" class="site-header" >
 	<a class="site-header__logo" href="{{ site.url }}{{ site.baseurl }}/">
-		<img src="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-beta.svg"/>
+		<svg class="hbc-tech-logo" xmlns="http://www.w3.org/2000/svg">
+	        <use class="hbc-tech-logo__hbc" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-beta.svg#hbc" ></use>
+	        <use class="hbc-tech-logo__beaver" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-beta.svg#beaver" ></use>
+	        <use class="hbc-tech-logo__tech" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-beta.svg#tech" ></use>
+	        <use class="hbc-tech-logo__beta" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-beta.svg#beta" ></use>
+	    </svg>
 	</a>
 	<ul class="navigation">
 		{% assign currentPage = page.url | replace: "/", "" %}

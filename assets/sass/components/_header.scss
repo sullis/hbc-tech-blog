@@ -17,10 +17,14 @@
 		-webkit-backface-visibility: hidden; /* add to fix webkit bug jitter */
 		-webkit-transform: perspective(1000px); /* add to fix webkit bug jitter */
 
-		&--scale {
-			margin: 10px 0 10px 20px;
-			width: 196px;
-			height: 42px;
+		&--scaled {
+			margin: 10px 0 10px -40px;
+			// transform: scale(0.8);
+
+			.hbc-tech-logo__hbc,
+			.hbc-tech-logo__tech {
+				display: none;
+			}
 		}
 	}
 

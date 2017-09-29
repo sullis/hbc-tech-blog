@@ -41,12 +41,14 @@
 	    ". . body . "
 	    ". . footer . ";
 		align-items: start;
+		position: relative;
 		padding: 60px 0 90px 0;
 		margin-top: 200px;
 		opacity: 0;
-		transform: translateY(200px);
+        top: 200px;
 		background-color: $hbc-white;
 		clip-path: polygon(0% 0%, 100% 4vw, 100% 100%, 0% 100%);
+
         animation-name: reveal-article;
         animation-duration: .2s;
         animation-delay: .8s;
@@ -62,6 +64,7 @@
 				text-transform: uppercase;
 				text-decoration: none;
 				color: $hbc-highlight;
+			    font-size: 15px;
 
 				&:after {
 					display: inline-block;
@@ -87,7 +90,7 @@
 		&__title {
 			grid-area: title;
 			font-size: 72px;
-		    line-height: 120%;
+		    line-height: 110%;
 		    margin: 20px 0 0 -5px;
 		    pointer-events: none;
 		}
@@ -114,7 +117,6 @@
 			padding-top: 20px;
 			position: sticky;
 			top: 60vh;
-			transform: translateY(0);
 
 			.share-buttons {
 				// border-top: solid 1px $hbc-border;

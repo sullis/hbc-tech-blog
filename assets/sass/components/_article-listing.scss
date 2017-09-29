@@ -1,11 +1,28 @@
 // insights page
 .article-listing {
 
+	.snippet {
+		top: 200px;
+
+		&--reveal {
+			animation-name: reveal-article;
+	        animation-duration: .8s;
+	        animation-timing-function: cubic-bezier(0.000, 0.980, 0.655, 0.995); 
+	        animation-direction: normal;
+	        animation-iteration-count: 1;
+	        animation-fill-mode: forwards;
+		}
+	}
+
+	&__featured {
+		border-bottom: solid 1px #ccc;
+		padding: 0 0 40px 0;
+	}
+
 	&__sub-featured {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		grid-auto-rows: minmax(100px, auto);
-		border-top: solid 1px #ccc;
 		border-bottom: solid 1px #ccc;
 		padding: 40px 0;
 		margin-bottom: 40px;
@@ -42,6 +59,8 @@
 			height: 100%;
 			border-right: solid 1px #ccc;
 			margin-right: 40px;
+			position: sticky;
+			top: 100px;
 
 			&__title {
 				padding: 0;
