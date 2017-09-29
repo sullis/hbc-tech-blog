@@ -39,18 +39,18 @@ $(document).ready(function() {
                 .addTo(controller);
 
             // Scale sticky header
-            new ScrollMagic.Scene({triggerElement: ".content", duration: 200, offset: 630, refreshInterval: 0})
+            new ScrollMagic.Scene({triggerElement: ".content", duration: 200, offset: 350, refreshInterval: 0})
                 .setTween(".site-header", {height: "65px", boxShadow: "rgb(204, 204, 204) 0px 1px 3px;"},)
                 // .addIndicators({name: "1 (duration: 200)"})
                 .addTo(controller);
 
-            new ScrollMagic.Scene({triggerElement: ".content", duration: 1, offset: 550, refreshInterval: 0})
+            new ScrollMagic.Scene({triggerElement: ".content", duration: 100, offset: 300, refreshInterval: 0})
                 .setTween(".site-header__logo", {scale: 0.7, margin: "10px 0 10px 20px"})
                 // .setClassToggle(".site-header__logo", "site-header__logo--scale")
                 // .addIndicators({name: "2 (duration: 200)"})
                 .addTo(controller);
 
-            new ScrollMagic.Scene({triggerElement: ".content", duration: 200, offset: 500, refreshInterval: 0})
+            new ScrollMagic.Scene({triggerElement: ".content", duration: 200, offset: 400, refreshInterval: 0})
                 .setTween(".navigation", {margin: "10px 30px 0 0"})
                 // .addIndicators({name: "3 (duration: 200)"})
                 .addTo(controller);
