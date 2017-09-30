@@ -1,5 +1,17 @@
 .snippet {
 	position: relative;
+	top: 200px;
+	opacity: 0;
+
+	&--reveal {
+		animation-name: reveal-article;
+		animation-duration: .8s;
+		animation-timing-function: cubic-bezier(0.000, 0.980, 0.655, 0.995); 
+		animation-direction: normal;
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards;
+	}
+	
 
 	&__feature-image {
 		margin-bottom: 20px;
@@ -55,7 +67,7 @@
 
 			&__author-link {
 				text-decoration: none;
-				color: $hbc-black;
+				color: $hbc-highlight;
 
 				&:hover {
 					text-decoration: underline;

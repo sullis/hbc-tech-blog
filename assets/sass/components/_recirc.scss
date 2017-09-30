@@ -41,9 +41,8 @@
 		grid-auto-rows: minmax(100px, auto);
 
 		&__item {
-			padding: 40px 40px 40px 0;
-
-	        opacity: 0;
+			padding: 60px 40px 60px 0;
+			position: relative;
 
 			&:first-child {
 				border-right: solid 1px #ccc;
@@ -65,7 +64,7 @@
 
 
 	    .reveal {
-	        animation-name: fade-in-and-up;
+	        animation-name: reveal-article;
 	        animation-duration: 200ms;
 	        animation-delay: 0;
 	        animation-timing-function: ease-out; 
