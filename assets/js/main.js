@@ -48,7 +48,7 @@ $(document).ready(function() {
                 .addTo(controller);
 
             // Scale sticky header
-            new ScrollMagic.Scene({triggerHook: 0, duration: 100, offset: 100, reverse: true})
+            new ScrollMagic.Scene({triggerHook: 0, duration: 100, offset: 50, reverse: true})
                 .setTween(".site-header", {height: "65px", boxShadow: "rgb(204, 204, 204) 0px 1px 3px;"})
                 // .addIndicators({name: "header (duration: 100)"})
                 .addTo(controller);
