@@ -75,8 +75,6 @@ $(document).ready(function() {
         },
 
         staggerAnimationDelay: function($elmements) {
-            console.log("staggerAnimation");
-
             var delay = 0;
             var offset = 100;
 
