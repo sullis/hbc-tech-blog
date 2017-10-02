@@ -7,7 +7,7 @@
 
 		// these are overrides. defaults are set in _article-snippet.scss
 		.snippet {
-			min-height: 60vh;
+			min-height: 45vh;
 			padding: 40px 40px 0 40px;
 			display: flex;
 			flex-direction: column;
@@ -21,7 +21,7 @@
 			}
 
 			&__link {
-				padding: 5px 10px 5px 10px;
+				padding: 0 10px 0 10px;
 			    box-decoration-break: clone;
 			    background-color: white;
 			}

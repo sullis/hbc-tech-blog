@@ -52,12 +52,16 @@ $(document).ready(function() {
                 .setTween(".site-header", {height: "65px", boxShadow: "rgb(204, 204, 204) 0px 1px 3px;"})
                 // .addIndicators({name: "header (duration: 100)"})
                 .addTo(controller);
-            new ScrollMagic.Scene({triggerHook: 0, duration: 0, offset: 50, reverse: true})
+            new ScrollMagic.Scene({triggerHook: 0, offset: 50, reverse: true})
                 .setClassToggle(".site-header__logo", "site-header__logo--scaled")
                 // .addIndicators({name: "header__logo (duration: 0)"})
                 .addTo(controller);
             new ScrollMagic.Scene({triggerHook: 0, duration: 100, offset: 50, reverse: true})
-                .setTween(".navigation", {margin: "10px 30px 0 0"})
+                .setTween(".navigation", {margin: "13px 30px 0 0"})
+                // .addIndicators({name: "navigation (duration: 100)"})
+                .addTo(controller);
+            new ScrollMagic.Scene({triggerHook: 0, triggerElement: ".article__content__title", offset: 50, reverse: true})
+                .setClassToggle(".sticky-nav-title", "sticky-nav-title--show")
                 // .addIndicators({name: "navigation (duration: 100)"})
                 .addTo(controller);
         },

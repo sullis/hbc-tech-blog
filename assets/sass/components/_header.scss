@@ -6,8 +6,8 @@
     position: sticky;
     top: 0;
     z-index: 100;
-	// -webkit-backface-visibility: hidden; /* add to fix webkit bug jitter */
-	// -webkit-transform: perspective(1000px); /* add to fix webkit bug jitter */
+	-webkit-backface-visibility: hidden; /* add to fix webkit bug jitter */
+	-webkit-transform: perspective(1000px); /* add to fix webkit bug jitter */
     transition: all 200ms ease-out;
 
 	&__logo {
@@ -28,6 +28,7 @@
 
 		&--scaled {
 			margin: 10px 0 10px -50px;
+		    width: 160px;
 			// transform: scale(0.8);
 
 			.hbc-tech-logo__hbc,
@@ -43,7 +44,14 @@
 
 	.sticky-nav-title {
 		display: inline-block;
-	    margin: 20px 0 20px 30px;
+	    position: relative;
+	    top: -20px;
+	    opacity: 0;
+		transition: opacity 200ms ease-in;
+
+	    &--show {
+	    	opacity: 1;
+	    }
 	}
 
     @media screen and (max-width: 1000px) {
