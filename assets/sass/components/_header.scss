@@ -6,32 +6,50 @@
     position: sticky;
     top: 0;
     z-index: 100;
+	// -webkit-backface-visibility: hidden; /* add to fix webkit bug jitter */
+	// -webkit-transform: perspective(1000px); /* add to fix webkit bug jitter */
+    transition: all 200ms ease-out;
 
 	&__logo {
-	    display: inline-flex;
-	    width: 280px;
-	    height: 60px;
+	    display: inline-block;
 	    margin: 20px 0 20px 30px;
-	    transform-origin: 0 0;
 	    transition: all 200ms ease-out;
-		-webkit-backface-visibility: hidden; /* add to fix webkit bug jitter */
-		-webkit-transform: perspective(1000px); /* add to fix webkit bug jitter */
+
+		.hbc-tech-logo {
+		    width: 210px;
+		    height: 50px;
+		}
+
+		.hbc-tech-logo__hbc,
+		.hbc-tech-logo__tech {
+		    transition: transform 200ms ease-out;
+		    transform-origin: 0% 60%;
+		}
 
 		&--scaled {
-			margin: 10px 0 10px -40px;
+			margin: 10px 0 10px -50px;
 			// transform: scale(0.8);
 
 			.hbc-tech-logo__hbc,
 			.hbc-tech-logo__tech {
-				display: none;
+				transform: scale(0);
+			}
+
+			.hbc-tech-logo__hbc {
+			    transform-origin: 100% 60%;
 			}
 		}
 	}
 
+	.sticky-nav-title {
+		display: inline-block;
+	    margin: 20px 0 20px 30px;
+	}
+
     @media screen and (max-width: 1000px) {
-	    .site-header__logo {
-		    margin: 20px auto 20px auto;
-		    display: block;
+		.hbc-tech-logo {
+		    width: 140px;
+		    height: 50px;
 		}
     }
 }

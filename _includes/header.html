@@ -7,6 +7,7 @@
 	        <use class="hbc-tech-logo__beta" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-beta.svg#beta" ></use>
 	    </svg>
 	</a>
+	<p class="sticky-nav-title">{{ page.title }}</p>
 	<ul class="navigation">
 		{% assign currentPage = page.url | replace: "/", "" %}
 		{% for link in site.data.navigation.header-links %}
