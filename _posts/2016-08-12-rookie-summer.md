@@ -3,7 +3,8 @@ layout: article
 title: "Rookie Summer"
 author: Team Rookie
 date: '2016-8-12'
-categories: 'internship'
+categories: 
+- internship
 tags:
 - internship
 - mobile

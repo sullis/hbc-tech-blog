@@ -1,7 +1,8 @@
 ---
 layout: article
 title: "Front End Engineering Lightning Talks with HBC Digital"
-category: meetups
+category:
+- meetups
 tags:
 - meetup
 - hbc digital

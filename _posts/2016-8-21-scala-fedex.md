@@ -3,7 +3,8 @@ layout: article
 title: "New open source project: scala-fedex"
 author: Ryan Caloras
 date: '2016-8-21'
-categories: 'open source'
+categories: 
+- open source
 tags:
 - scala
 - fedex
@@ -15,7 +16,7 @@ tags:
 <p align="center">
   <img src="http://code.scottshipp.com/wp-content/uploads/2016/05/scala-logo-small.png"/>
   <img src="http://south15airportcenter.com/wp-content/uploads/2015/10/FedEx_Logo1.png"/>
-</p>
+</p>{:.center-image}
 
 We recently made the decision to switch from Newgistics to FedEx SmartPost for customer returns at Gilt. A couple of factors contributed to the decision, but the prettiness of FedEx's API was not one of them - it's not exactly the most developer friendly API you can find.
 

@@ -3,7 +3,8 @@ layout: article
 title: Perfect Overnight Cold Brew
 author: Evan Maloney
 date: '2017-01-25'
-categories: 'coffee'
+categories: 
+- coffee
 tags:
 - iced coffee
 - cold brew
@@ -14,13 +15,13 @@ tags:
 
 When Gilt’s Mobile team worked at [1 Madison Avenue](https://www.emporis.com/buildings/115458/metropolitan-life-tower-new-york-city-ny-usa), my morning coffee ritual involved getting a large black iced coffee from [myWayCup](https://www.yelp.com/biz/mywaycup-coffee-new-york) as I exited the 6 train at 23rd Street. What they served at myWayCup—a private-label version of [Intelligentsia Coffee’s](https://www.intelligentsiacoffee.com) House Blend—was *so* good that I switched to iced coffee year-round—even through brutal New York winters—a trait that often earned me quizzical looks when ordering my preferred drink during a snowstorm.
 
-<img src="/assets/images/intelligentsia-house-blend.png" align="right" width="236"/>About a year later when the Mobile team moved back to the [2 Park Avenue](https://www.emporis.com/buildings/115237/2-park-avenue-new-york-city-ny-usa) office, I searched the neighborhood for iced coffee I liked as much, but came up empty. The cold brews I tried tended to be syrupy and super-concentrated, while the ones made with a hot brew process had all the subtlety scorched out of the beans, leaving a jagged, edgy texture. And too often, stores didn’t turn over iced coffee frequently enough in the winter, so you’d end up with something that had become stale after days of storage.
+<img src="/assets/images/cold-brew/intelligentsia-house-blend.png" align="right" width="236"/>About a year later when the Mobile team moved back to the [2 Park Avenue](https://www.emporis.com/buildings/115237/2-park-avenue-new-york-city-ny-usa) office, I searched the neighborhood for iced coffee I liked as much, but came up empty. The cold brews I tried tended to be syrupy and super-concentrated, while the ones made with a hot brew process had all the subtlety scorched out of the beans, leaving a jagged, edgy texture. And too often, stores didn’t turn over iced coffee frequently enough in the winter, so you’d end up with something that had become stale after days of storage.
 
 Without a local favorite, I started experimenting with making my own iced coffee. At times, there were catastrophic failures. At least two glass carafes gave their lives in pursuit of coffee perfection, and an otherwise white wall at the office somehow acquired a coffee streak arcing towards the floor. I even managed to melt one of my coffee grinders on top of a stove I didn’t realize was still hot.
 
 Despite these embarrassing setbacks, the technique continued to evolve and improve, and I eventually switched from the laborious process of rapid cooling a hot brew to the simpler—but far lengthier—process of an overnight cold brew. True, there’s no instant gratification: my coffee intake now requires preparing a day in advance, but the result is a well-balanced brew. It’s not the thick, need-to-dilute-it-with-water cold brew that used to get delivered to our office in metal kegs. (A co-worker once posted notices warning of the jitters that ensue when forgetting to water it down.) Nor does it have the unrefined taste of beans that have had great violence done to them by exposure to extreme heat followed by cooling.
 
-<img src="/assets/images/bodum-conical-burr-grinder.png" align="left" width="250"/>To me, this technique yields the _perfect_ iced coffee.
+<img src="/assets/images/cold-brew/bodum-conical-burr-grinder.png" align="left" width="250"/>To me, this technique yields the _perfect_ iced coffee.
 
 **What I use to brew:**
 
@@ -32,7 +33,7 @@ Despite these embarrassing setbacks, the technique continued to evolve and impro
 
 - A pitcher of [NYC tap water](https://www.nytimes.com/interactive/2016/03/24/nyregion/how-nyc-gets-its-water-new-york-101.html) filtered through a [Brita](http://amzn.to/2jSjKVN).
 
-<img src="/assets/images/bodum-french-press.png" align="right" width="285"/>I start the brewing process in the morning, and I keep the French press on the counter until nighttime so I can stir periodically when I get the chance. Then, when I go to bed, I put the carafe in the fridge so it’s cold and ready to drink when I get up in the morning.
+<img src="/assets/images/cold-brew/bodum-french-press.png" align="right" width="285"/>I start the brewing process in the morning, and I keep the French press on the counter until nighttime so I can stir periodically when I get the chance. Then, when I go to bed, I put the carafe in the fridge so it’s cold and ready to drink when I get up in the morning.
 
 **The brewing steps I follow:**
 
