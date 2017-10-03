@@ -28,12 +28,19 @@ p {
 	// overflow: hidden;
 
 	// additional styles for post markdown elements
-	a {
+	a, li > a {
 		line-height: 0;
 		color: inherit;
 	}
 }
 
+a {
+	color: inherit;
+
+	&:hover {
+		color: $hbc-highlight;
+	}
+}
 
 h1 {
 	color: $hbc-black;
