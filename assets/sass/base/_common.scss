@@ -8,6 +8,14 @@ $hbc-gray: #777;
 $hbc-gray-2: #999;
 $hbc-gray-3: #4A4A4A;
 
+// hbc-stripes
+$hbc-green: #00704a;
+$hbc-red: #b30838;
+$hbc-yellow: #eeb211;
+$hbc-blue: #00274c;
+
+$hbc-colors: $hbc-green, $hbc-red, $hbc-yellow, $hbc-blue;
+
 
 /**
  * Set up a decent box model on the root element

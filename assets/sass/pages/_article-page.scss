@@ -1,6 +1,7 @@
 .article {
 
-	&__feature-image {
+	&__feature-image,
+	&__no-feature-image {
 	    grid-area: article-image;
 		position: absolute;
 		left: 0;
@@ -15,6 +16,9 @@
         animation-direction: normal;
         animation-iteration-count: 1;
         animation-fill-mode: forwards;
+	}
+
+	&__feature-image {
 
 		&:after {
 			content: "";

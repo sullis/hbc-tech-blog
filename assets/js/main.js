@@ -18,8 +18,8 @@ $(document).ready(function() {
 
 	    init: function() {
 	    	this.setupScenes();
-            this.updateArticleCSS();
-	    	this.updateShareButtonsCSS();
+            this.articleAnimationTiming();
+	    	this.randomizeArticleHeaderColors();
 	    },
 
 	    setupScenes: function() {
@@ -66,12 +66,34 @@ $(document).ready(function() {
                 .addTo(controller);
         },
 
-        updateArticleCSS: function() {
-            this.staggerAnimationDelay($(".recirc__articles__item"));
+        randomizeArticleHeaderColors: function() {
+            var $headerBackgroundElm = $(".article__no-feature-image");
+            var colorsArray = [
+                "#00704a",
+                "#b30838",
+                "#eeb211",
+                "#00274c",
+                "#00704a",
+                "#b30838",
+                "#eeb211",
+                "#00274c"
+            ];
+
+            function getRandomInt(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min)) + min;
+            }
+
+            var randomBrandColor1 = colorsArray[getRandomInt(0, 8)];
+            var randomBrandColor2 = colorsArray[getRandomInt(0, 8)];
+
+            $($headerBackgroundElm).css({background: "linear-gradient(to bottom right, " + randomBrandColor1 + ", " + randomBrandColor2});
         },
 
-        updateShareButtonsCSS: function() {            
+        articleAnimationTiming: function() {            
             this.staggerAnimationDelay($(".share-buttons__link-item"));
+            this.staggerAnimationDelay($(".recirc__articles__item"));
         },
 
         staggerAnimationDelay: function($elmements) {
