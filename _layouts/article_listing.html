@@ -17,7 +17,8 @@ layout: default
 <!-- page 1 template -->
 <!-- display the 1st article in a big way-->
 <section class="article-listing">
-    {% for post in paginator.posts limit:1 %}
+{% for post in paginator.posts limit:1 %}
+<a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">
     <div class="article-listing__featured">        
         <section class="snippet" {% if post.image.feature %} style="background: url(
                 {% if post.image.feature contains 'https' or post.image.feature contains 'http' %}{{ post.image.feature }}
@@ -71,7 +72,8 @@ layout: default
             </div>
         </section>
     </div>
-    {% endfor %}
+</a>
+{% endfor %}
     <!-- display the 2nd and 3rd posts in a smaller way-->
     <div class="article-listing__sub-featured">
     {% for post in paginator.posts limit:2 offset:1 %}

@@ -7,7 +7,9 @@
 
 		// these are overrides. defaults are set in _article-snippet.scss
 		.snippet {
-			min-height: 45vh;
+		    min-height: 45vh;
+		    height: 75vh;
+		    max-height: 589px;
 			padding: 40px 40px 0 40px;
 			display: flex;
 			flex-direction: column;
@@ -102,28 +104,92 @@
 	}
 
 	@media screen and (max-width: $breakpoint-medium) {
-		padding: 10px;
+		max-width: 100vw;
 
-		&__sub-featured {
-			grid-template-columns: 1fr;
-			padding: 0;
+		&__featured,
+		&__sub-featured,
+		&__remaining {
+		    display: flex;
+		    flex-direction: column;
+			border: 0;
+			margin-bottom: 0;
+		}
+
+		&__featured {
+	        padding: 0 0 20px 0;
 
 			.snippet {
-				border: solid 0px #ccc;
-				border-bottom: solid 1px #ccc;
-				padding: 40px 0;
+				border: 0;
+			    height: 40vh;
+			    min-height: 25vh;
+			    max-height: 50vh;
+			    padding: 0;
+			    margin-top: 0;
+			    margin-bottom: 20px;
 
-				&:first-child {
-					border-right: solid 0px #ccc;
-				}	
+				&__title {
+					margin: 0px 0 20px 20px;
+				    font-size: 35px;
+				}
 
-				&:last-child {
-					border: 0px;
-					margin-left: 0px;
-					margin-top: 0px;
-					padding-left: 0px;
+				&__meta {
+					margin-left: 20px;
 				}
 			}
-		}		
+		}
+
+		&__sub-featured {
+		    padding: 0 20px;
+
+			.snippet {
+				padding: 20px 0;
+			    margin-bottom: 20px;
+			    border-bottom: solid 1px #ccc;
+
+			    &:first-child {
+					padding-top: 40px;
+				    border-top: solid 1px #ccc;
+			    }
+
+				&:first-child,
+				&:last-child {
+				    border-right: 0;
+				    margin-left: 0px;
+				    margin-top: 0px;
+				    padding-left: 0px;
+				}
+			}
+
+			&__excerpt {
+				display: none;
+			}
+		}
+
+		&__remaining  {
+		    padding: 0 20px;
+
+			.snippet {
+				padding: 20px 0;
+			    margin-bottom: 20px;
+
+			    &:first-of-type {
+					padding-top: 20px;
+			    }
+				
+				&:last-child {
+					padding-bottom: 0;
+				}
+			}
+
+		    .featured-topics {
+				order: 2;
+				width: 100%;
+				padding: 0 0 20px 0;
+				border-right: solid 0 #ccc;
+				border-top: solid 1px #ccc;
+				margin: 0;
+		    }
+		}	
 	}
 }
+
