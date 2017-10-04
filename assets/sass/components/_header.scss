@@ -1,6 +1,6 @@
 .site-header {
     grid-area: hd;
-    height: 125px;
+    max-height: 125px;
 	background-color: $hbc-off-white;
 	color: $hbc-black;
     position: sticky;
@@ -9,6 +9,11 @@
 	-webkit-backface-visibility: hidden; /* add to fix webkit bug jitter */
 	-webkit-transform: perspective(1000px); /* add to fix webkit bug jitter */
     transition: all 200ms ease-out;
+
+    &--scaled {
+    	max-height: 65px;
+    	box-shadow: rgb(204, 204, 204) 0px 1px 3px;
+    }
 
 	&__logo {
 	    display: inline-block;
