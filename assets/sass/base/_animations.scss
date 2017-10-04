@@ -1,5 +1,3 @@
-
-
 @keyframes reveal-article {
     from {
         opacity: 0;
@@ -28,4 +26,16 @@
     }
 }
 
+@keyframes animate-stroke {
+    from {
+        stroke-dasharray: 116px;
+        stroke-dashoffset: 116px;
+        stroke-width: 1;
+    }
+    to {
+        stroke-dasharray: 116px;
+        stroke-dashoffset: 0px;
+        stroke-width: 1px;
+    }
+}
 
