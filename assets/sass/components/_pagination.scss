@@ -26,7 +26,8 @@
 	    	padding-right: 0;
 	    }
 
-	    &:visited {
+	    &:visited,
+	    &:-webkit-any-link {
 	    	color: inherit;
 	    }
 
