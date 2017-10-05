@@ -1,35 +1,75 @@
 .categories-page {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	grid-auto-rows: minmax(100px, auto);
+	grid-template-areas:
+    "title title"
+    "cats arts"
+    "cats arts"
+	;
 
 	&__title {
+		grid-area: title;
 		padding-bottom: 20px;
 		border-bottom: solid 1px $hbc-border;
+		margin-bottom: 0;
 	}
 
-	&__category-list,
-	&__article-list {
+	.categories {
+		grid-area: cats;
+		padding-top: 28px;
+		position: sticky;
+		top: 100px;
+	}
+
+	.articles {
+		grid-area: arts;
+		border-left: solid 1px $hbc-border;
+		padding: 20px 0 80px 40px;
+	}
+
+	.categories__list {
+
+		position: sticky;
+		top: 100px;
+	}
+	
+	.categories__list,
+	.articles__list {
 		list-style-type: none;
 		padding: 0;
 		margin-bottom: 40px;
 		text-indent: none;
 	}
 
-	&__list-item {
-		padding: 0;
-		margin-bottom: 10px;
-	}
+	.categories,
+	.articles {
+		&__list-item {
+			padding: 0;
+			margin-bottom: 10px;
+		}
 
-	&__list-item__link {
-		text-decoration: none;
-		color: $hbc-black;
+		&__list-item__link {
+			text-decoration: none;
+			color: $hbc-black;
 
-		&:hover {
-			text-decoration: underline;
-			color: $hbc-highlight;
+			&:hover {
+				text-decoration: underline;
+				color: $hbc-highlight;
+			}
+		}
+
+		&__list-header {
+			line-height: 100%;
+			margin: 20px 0 5px 0;
 		}
 	}
+}
 
-	&__list-header {
-		line-height: 100%;
-		margin: 20px 0 5px 0;
-	}
+// prevent anchor liks from being hidden behind sticky nav ;)
+:target:before {
+content:"";
+display:block;
+height:90px; /* fixed header height*/
+margin:-90px 0 0; /* negative fixed header height */
 }
