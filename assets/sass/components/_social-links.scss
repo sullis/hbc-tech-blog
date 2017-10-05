@@ -12,13 +12,11 @@
 	&__list-item {
 		display: inline-block;
 
-
 		&:last-of-type {
 			.social-links__link {
 				margin-right: 0;
 			}	
 		}
-
 	}
 
 	&__link {
@@ -33,5 +31,14 @@
 	    &:hover {
 	    	fill: $hbc-highlight;
 	    }
+	}
+
+
+	@media screen and (max-width: $breakpoint-small) {
+		float: none;
+
+		&__list {
+			margin: 26px 0 20px 0;
+		}
 	}
 }

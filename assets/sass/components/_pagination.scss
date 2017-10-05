@@ -6,6 +6,10 @@
     font-weight: 500;
     min-height: 100px;
 
+    @media screen and (max-width: $breakpoint-medium) {
+    	text-align: center;
+    }
+
 	&__label {
 		position: relative;
 		top: -10px;
@@ -21,6 +25,10 @@
 
 	    &:last-child {
 	    	padding-right: 0;
+	    }
+
+	    &:visited {
+	    	color: inherit;
 	    }
 
 		.arrow-box {
@@ -44,6 +52,7 @@
 		&:hover {
 			padding-bottom: 5px;
 			border-bottom: solid 3px $hbc-highlight;
+			color: $hbc-highlight;
 		}
 
 		&--prev {
@@ -90,6 +99,7 @@
 
 			&:hover {
 				border-bottom: solid 3px $hbc-black;
+				color: $hbc-black;
 			}
 		}
 	}

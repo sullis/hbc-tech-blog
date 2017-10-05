@@ -80,10 +80,6 @@ document.addEventListener('DOMContentLoaded',function() {
                 .setClassToggle(".site-header", "site-header--scaled")
                 // .addIndicators({name: "header (duration: 100)"})
                 .addTo(controller);
-            new ScrollMagic.Scene({triggerHook: 0, offset: 10, reverse: true})
-                .setClassToggle(".site-header__logo", "site-header__logo--scaled")
-                // .addIndicators({name: "header__logo (duration: 0)"})
-                .addTo(controller);
             new ScrollMagic.Scene({triggerHook: 0, duration: 100, offset: 50, reverse: true})
                 // .setTween(".navigation", {margin: "13px 30px 0 0"})
                 // .addIndicators({name: "navigation (duration: 100)"})
