@@ -1,10 +1,8 @@
 <!-- featured topics -->
-<ul>
-{% for topic in site.data.featured-topics %}
-  <li>
-    <a href="#" title="{{ topic.label }}">
-      {{ topic.label }}
-    </a>
-  </li>
-{% endfor %}
-</ul>
+<aside class="featured-topics"><h3 class="featured-topics__title">Featured Topics</h3>
+    <ul class="featured-topics__list">
+        {% for cat in site.category %}
+        	<li class="featured-topics__list-item"><a class="featured-topics__list-item__link" href="{{ cat.name }}">{{ cat.name | capitalize }}</a></li>
+        {% endfor %}
+    </ul>
+</aside>
