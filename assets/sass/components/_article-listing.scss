@@ -60,7 +60,7 @@
 
 	&__remaining  {
 		display: grid;
-		grid-template-columns: 25% 75%;
+		grid-template-columns: 30% 70%;
 		grid-auto-rows: minmax(100px, auto);
 	    grid-template-areas:
 	    "ft art"
@@ -77,22 +77,50 @@
 			margin-left: 40px;
 			position: sticky;
 			top: 100px;
+			display: flex;
+		    flex-direction: column;
+		    height: 100%;
 
 			&__title {
 				padding-right: 20px;
 				margin: 0 0 15px 0;
 			}
+
+			&__list {
+				list-style: none;
+			    padding: 0 20px 0 0;
+			    margin: 0;
+			}
+
+			&__list-item {
+			    margin: 10px 0 20px 0;
+			}
+
+			&__list-item__link {
+				text-decoration: none;
+				text-transform: capitalize;
+				padding-left: 3px;
+				color: $hbc-highlight;
+				transition: padding-left 200ms ease-out;
+
+				&:hover {
+					padding-left: 0;
+					text-decoration: underline;
+				}
+
+			}
 		}
 
 		.snippet {
 			grid-area: art;
-			padding: 10px 0 40px 20px;
+			padding: 10px 0 40px 0px;
 			grid-row: auto;
 			border-bottom: solid 1px #ccc;
 			margin-bottom: 40px;	
 
 			&:first-of-type {	
 				padding-top: 0;
+				margin-top: -5px;
 			}
 
 			&:last-child {

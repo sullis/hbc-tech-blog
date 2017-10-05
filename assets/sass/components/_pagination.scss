@@ -1,7 +1,6 @@
 .pagination {
     padding: 20px 0;
     text-align: right;
-    border-top: solid 1px #ccc;
     margin-bottom: 40px;
     font-weight: 500;
     min-height: 100px;
@@ -81,7 +80,6 @@
 			    	stroke: $hbc-highlight;
 				    animation-name: animate-stroke;
 			    	animation-duration: 300ms;
-			        // animation-timing-function: cubic-bezier(0.010, 1.000, 1.000, 1.000); 
 			        animation-timing-function: none; 
 					animation-direction: normal;
 					animation-iteration-count: 1;

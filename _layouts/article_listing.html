@@ -82,7 +82,13 @@ layout: default
     </div>
     <!-- this is the rest of the posts listed with no feature images-->
     <div class="article-listing__remaining">
-    <aside class="featured-topics"><h3 class="featured-topics__title">Featured Topics</h3></aside>
+    <aside class="featured-topics"><h3 class="featured-topics__title">Featured Topics</h3>
+        <ul class="featured-topics__list">
+            {% for cat in site.category %}
+              <li class="featured-topics__list-item"><a class="featured-topics__list-item__link" href="{{ cat.name }}">{{ cat.name | capitalize }}</a></li>
+            {% endfor %}
+        </ul>
+    </aside>
     {% for post in paginator.posts offset:3 limit:8 %}
           {% include article-snippet.html excerpt=true featureImage=false %}
     {% endfor %}
