@@ -9,20 +9,22 @@
 	&__article-list {
 		list-style-type: none;
 		padding: 0;
+		margin-bottom: 40px;
 		text-indent: none;
+	}
 
-		.categories__list-item {
-			padding: 5px 0;
-		}
+	&__list-item {
+		padding: 0;
+		margin-bottom: 10px;
+	}
 
-		.categories__list-item__link {
-			text-decoration: none;
-			color: $hbc-gray;
+	&__list-item__link {
+		text-decoration: none;
+		color: $hbc-black;
 
-			&:hover {
-				text-decoration: underline;
-				color: $hbc-highlight;
-			}
+		&:hover {
+			text-decoration: underline;
+			color: $hbc-highlight;
 		}
 	}
 
