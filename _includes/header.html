@@ -13,7 +13,7 @@
         {% else %}
         <a href="{{ site.url }}{{ site.baseurl }}/categories/#{{ page.categories }}" class="meta__category">{{ page.categories.first }}</a>
         {% endif %}
-        {% if page.title %}<span class="meta__title">{{ page.title }}</span>{% endif %}
+        {% if page.layout == 'article' %}<span class="meta__title">{{ page.title }}</span>{% endif %}
     </p>
 	<ul class="navigation">
 		{% assign currentPage = page.url | replace: "/", "" %}

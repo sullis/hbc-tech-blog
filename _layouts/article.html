@@ -24,9 +24,6 @@ layout: default
                     {% assign featureCategory = cat.name %}
                 {% endif %}
             {% endfor %}
-
-            
-
         <div class="article-meta">
             {% if page.categories.first == featureCategory %}
             <a href="{{ site.url }}{{ site.baseurl }}/category/{{ featureCategory }}" class="article-meta__category">{{ featureCategory }}</a>
