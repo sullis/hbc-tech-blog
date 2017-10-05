@@ -1,13 +1,20 @@
 <header id="site-header" class="site-header" >
 	<a class="site-header__logo" href="{{ site.url }}{{ site.baseurl }}/">
 		<svg class="hbc-tech-logo" xmlns="http://www.w3.org/2000/svg">
-	        <use class="hbc-tech-logo__hbc" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-beta.svg#hbc" ></use>
-	        <use class="hbc-tech-logo__beaver" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-beta.svg#beaver" ></use>
-	        <use class="hbc-tech-logo__tech" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-beta.svg#tech" ></use>
-	        <use class="hbc-tech-logo__beta" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-beta.svg#beta" ></use>
+	        <use class="hbc-tech-logo__hbc" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#hbc" ></use>
+	        <use class="hbc-tech-logo__beaver" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#beaver" ></use>
+	        <use class="hbc-tech-logo__tech" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#tech" ></use>
+	        <use class="hbc-tech-logo__beta" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#beta" ></use>
 	    </svg>
 	</a>
-	<p class="sticky-nav-title">{{ page.title }}</p>
+	<p class="sticky-nav-meta">
+        {% if page.categories.first == featureCategory %}
+        <a href="{{ site.url }}{{ site.baseurl }}/category/{{ featureCategory }}" class="meta__category">{{ featureCategory }}</a>
+        {% else %}
+        <a href="{{ site.url }}{{ site.baseurl }}/categories/#{{ page.categories }}" class="meta__category">{{ page.categories.first }}</a>
+        {% endif %}
+        {% if page.title %}<span class="meta__title">{{ page.title }}</span>{% endif %}
+    </p>
 	<ul class="navigation">
 		{% assign currentPage = page.url | replace: "/", "" %}
 		{% for link in site.data.navigation.header-links %}

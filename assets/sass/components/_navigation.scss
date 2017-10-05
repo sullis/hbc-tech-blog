@@ -77,24 +77,7 @@
 	}
 
     &--footer {
-        position: relative;
         margin: 20px;
-
-        .navigation__link {
-            color: white;
-
-            &:hover {
-                color: $hbc-highlight;
-                cursor: pointer;
-                
-                .navigation__link-highlight {
-
-                    &:after {
-                        transform: scaleX(1);
-                    }
-                }
-            }
-        }
     }
 
     @media screen and (max-width: $breakpoint-medium) {

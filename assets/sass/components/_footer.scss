@@ -1,14 +1,16 @@
 .footer {
     grid-area: ft;
 	color: lighten($hbc-black, 50%);
-	background-color: $hbc-black;
-	padding: 20px;
-	border-top: solid 1px lighten($hbc-black, 20%);
+	padding: 40px 40px 80px 40px;
+	border-top: solid 1px $hbc-border;
 
 	.copyright {
-		float: left;
-		margin: 20px;
-		padding: 10px;
+		text-align: right;
 		font-size: 16px;
+	}
+
+	&__links {
+	    display: flex;
+	    flex-direction: row-reverse;
 	}
 }

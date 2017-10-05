@@ -47,17 +47,48 @@
 		}
 	}
 
-	.sticky-nav-title {
+	.sticky-nav-meta {
 		display: inline-block;
 	    position: relative;
 	    top: -20px;
 	    opacity: 0;
-		transition: opacity 200ms ease-in;
+		transition: opacity 200ms ease-in, transform 200ms ease-out;
+    	transform: translateX(20px);
 
 	    &--show {
 	    	opacity: 1;
+	    	transform: translateX(0);
 	    }
+
+	    .meta {
+	    	&__category {
+				text-transform: uppercase;
+				text-decoration: none;
+				color: $hbc-highlight;
+			    font-size: 15px;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			&__title {
+
+				&:before {
+					display: inline-block;
+					position: relative;
+					content: "";
+					height: 20px;
+					top: 5px;
+					border-right: solid 1px $hbc-border;
+					margin-left: 10px;
+					margin-right: 17px;
+				}
+			}
+		}
 	}
+
+	
 
     @media screen and (max-width: 1000px) {
 		.hbc-tech-logo {

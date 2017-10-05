@@ -12,8 +12,41 @@ document.addEventListener('DOMContentLoaded',function() {
 
         bindEvents: function() {
             // set listeners for mouse events
+            // document.body.onscroll = ScrollEvents.toggleClass();
+            // document.querySelector('.container').onscroll = function() {
+            //     ScrollEvents.toggleClass();
+            // }
         }
     }
+
+    // replacing scrollmagic with the following
+    // var ScrollEvents = {
+
+    //     // listen for watched elements to move off the screen and toggle a class
+    //     toggleClass: function() {
+
+    //         var scrollTop = document.body.scrollTop;
+
+    //         // watched elements
+    //         var articleTitle = document.querySelector('.article__content__title');
+    //         var siteHeader = document.querySelector('.site-header');
+
+    //         var watchedElements = [
+    //             articleTitle,
+    //             siteHeader
+    //         ];
+
+    //         var targetElement = watchedElements[0].getBoundingClientRect();
+
+    //         // console.log("scrollTop: " + scrollTop + " articleTitlePosition: " + articleTitlePosition.top);
+
+    //         if (scrollTop > targetElement.top) {
+    //             console.log("the " + watchedElements[0].className + " is off the screen");
+    //         } else {
+    //             console.log("we can see the " + watchedElements[0].className);
+    //         }
+    //     }
+    // }
 
     var LazyLoadRecircArticles = {
 
@@ -55,8 +88,8 @@ document.addEventListener('DOMContentLoaded',function() {
                 // .setTween(".navigation", {margin: "13px 30px 0 0"})
                 // .addIndicators({name: "navigation (duration: 100)"})
                 .addTo(controller);
-            new ScrollMagic.Scene({triggerHook: 0, triggerElement: ".article__content__title", offset: 50, reverse: true})
-                .setClassToggle(".sticky-nav-title", "sticky-nav-title--show")
+            new ScrollMagic.Scene({triggerHook: 0, triggerElement: ".article__content__title", offset: -50, reverse: true})
+                .setClassToggle(".sticky-nav-meta", "sticky-nav-meta--show")
                 // .addIndicators({name: "navigation (duration: 100)"})
                 .addTo(controller);
         },
