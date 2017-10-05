@@ -1,0 +1,1179 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.0">Jekyll</generator><link href="https://saksdirect.github.io/hbc-tech-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://saksdirect.github.io/hbc-tech-blog/" rel="alternate" type="text/html" /><updated>2017-10-05T11:40:52-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+</subtitle><entry><title>Dublin Scala Spree</title><link href="https://saksdirect.github.io/hbc-tech-blog/open%20source/2017/09/11/dublin-scala-spree/" rel="alternate" type="text/html" title="Dublin Scala Spree" /><published>2017-09-11T00:00:00-05:00</published><updated>2017-09-11T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/open%20source/2017/09/11/dublin-scala-spree</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/open%20source/2017/09/11/dublin-scala-spree/">&lt;h3 id=&quot;dublin-scala-spree&quot;&gt;Dublin Scala Spree&lt;/h3&gt;
+&lt;p&gt;This Friday the Gilt/HBC Digital Dublin office will be hosting the first ever Dublin Scala Spree, a day-long Scala Open Source Hackathon. 
+The event is organized by the Dublin Scala Usergroup in cooperation with Dublin Functional Kubs and the Scala Center at EPFL in Lausanne, Switzerland.
+&lt;!--more--&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Date &amp;amp; Time:&lt;/strong&gt; Friday, 15th September, 10am - 4pm&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Location:&lt;/strong&gt; Gilt/HBC Digital Office, Shelbourne Rd., Dublin 4, Ireland&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Sign-Up:&lt;/strong&gt; Please register for the event via the &lt;a href=&quot;https://www.meetup.com/Dublin-Scala-users-group/events/242952081&quot;&gt;Dublin Scala Users Group&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Organizers:&lt;/strong&gt; Dublin Scala Meetup and Dublin Functional Kubs in cooperation with the Scala Center @ EPFL in Lausanne&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img class=&quot;center&quot; src=&quot;https://pbs.twimg.com/media/DEIosBJWAAAj87h.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-a-scala-spree&quot;&gt;What is a Scala Spree?&lt;/h3&gt;
+&lt;p&gt;Scala Spree is a free community event aiming to popularize Open Source Software. It brings together Open Source authors, 
+maintainers and software engineers willing to contribute to OSS projects. Under the guidance of seasoned experts, newcomers learn about the inner 
+working of some popular tools and Scala libraries, and contribute to make them even better. For library authors, it’s an opportunity to improve 
+their tools and get fresh feedback. For attendees it is a unique opportunity to lean more about Scala, contribute to Open Source Software and 
+expand their skills. And for everyone it’s a great opportunity to meet and have fun!&lt;/p&gt;
+
+&lt;h3 id=&quot;featured-projects&quot;&gt;Featured Projects&lt;/h3&gt;
+&lt;p&gt;For this week’s Spree we have the following special guests and their OSS projects:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.scala-sbt.org&quot;&gt;sbt and zinc&lt;/a&gt; - Jorge Vicente Cantero &lt;a href=&quot;https://twitter.com/jvican&quot;&gt;@jvican&lt;/a&gt; (&lt;a href=&quot;https://scala.epfl.ch&quot;&gt;Scala Center&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.apibuilder.io&quot;&gt;API Builder&lt;/a&gt; - Michael Bryzek &lt;a href=&quot;https://twitter.com/mbryzek&quot;&gt;@mbryzek&lt;/a&gt; (&lt;a href=&quot;https://www.flow.io&quot;&gt;Flow.io&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/gilt?q=gfc&quot;&gt;Gilt Foundation Classes&lt;/a&gt; - Gregor Heine &lt;a href=&quot;https://twitter.com/greheine&quot;&gt;@greheine&lt;/a&gt; (&lt;a href=&quot;http://tech.gilt.com&quot;&gt;HBC Digital&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you have a Scala open source project that you would like to feature at the Spree, please get in touch with the &lt;a href=&quot;https://www.meetup.com/Dublin-Scala-users-group&quot;&gt;Dublin Scala Users Group organizers&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Like all Dublin Scala Community events, Scala Spree is free of charge and the only real requirement is an open mind and the will to contribute! 
+– Apart from bringing your own computer to use, but chances are you figured that out already.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;duration-and-pace&quot;&gt;Duration and pace&lt;/h3&gt;
+&lt;p&gt;To begin with, maintainers gather together in front of all the contributors to briefly explain their projects and tickets in one minute. 
+The idea is to give a good high-level explanation to motivate participants without going into too much detail. When they are done, participants 
+approach the projects they are most interested in and get it contact with the maintainers. At this point, maintainers usually listen to the 
+participants’ experience and provide personal guidance on tickets that would suit them. 
+Then, the fun begins! Participants start hacking on their projects and maintainers review PRs as they come, assisting participants when they ask 
+for help. We encourage maintainers to merge as many PRs as possible in the place, for two reasons: 
+Participants get a small token of appreciation from the Scala Center. It increases the motivation of the participants. If participants get the 
+first PR merged, they are invited to continue solving issues until they are happy with their work! 
+At the middle of the spree, we will provide free lunch and refreshments. 
+Participants can leave the event at any time they want. When the time approaches the end, everyone starts to wrap up: participants finish their 
+PRs while maintainers finish their reviews, and organizers of the spree give away swag.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Places will be strictly limited and will be allocated on a first come first served basis. 
+Registration through the &lt;a href=&quot;https://www.meetup.com/Dublin-Scala-users-group/events/242952081&quot;&gt;Dublin Scala Users Group&lt;/a&gt; is required and only successfull RSVPs can attend.&lt;/strong&gt;&lt;/p&gt;</content><author><name>Gregor Heine</name></author><category term="open source" /><category term="hackathon" /><category term="culture" /><category term="community" /><category term="meetups" /><summary>Dublin Scala Spree
+This Friday the Gilt/HBC Digital Dublin office will be hosting the first ever Dublin Scala Spree, a day-long Scala Open Source Hackathon. 
+The event is organized by the Dublin Scala Usergroup in cooperation with Dublin Functional Kubs and the Scala Center at EPFL in Lausanne, Switzerland.
+
+
+  Date &amp;amp; Time: Friday, 15th September, 10am - 4pm
+  Location: Gilt/HBC Digital Office, Shelbourne Rd., Dublin 4, Ireland
+  Sign-Up: Please register for the event via the Dublin Scala Users Group
+  Organizers: Dublin Scala Meetup and Dublin Functional Kubs in cooperation with the Scala Center @ EPFL in Lausanne</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://saksdirect.github.io/hbc-tech-blog{&quot;feature&quot;=&gt;&quot;https://pbs.twimg.com/media/DEIosBJWAAAj87h.jpg&quot;, &quot;credit&quot;=&gt;nil, &quot;creditlink&quot;=&gt;nil}" /></entry><entry><title>HBC Tech Talks: February 2017 through July 2017</title><link href="https://saksdirect.github.io/hbc-tech-blog/conferences/2017/08/10/midyear-recap/" rel="alternate" type="text/html" title="HBC Tech Talks: February 2017 through July 2017" /><published>2017-08-10T00:00:00-05:00</published><updated>2017-08-10T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/conferences/2017/08/10/midyear-recap</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/conferences/2017/08/10/midyear-recap/">&lt;p&gt;We’ve had a busy 2017 at HBC. The great work of our teams has created opportunities to share what we’ve learned with audiences around the world. This year our folks have been on stage in Austin, Sydney, Portland, Seattle, San Diego, Boston, London, Israel and on our home turf in NYC and Dublin. The talks have covered deep learning, design thinking, data streaming and developer experience to name just a few.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/zkRer6r.png&quot; alt=&quot;Sera Chin and Yi Cao spoke at the NYC Scrum User Group about HBC's Design Sprints&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lucky for you, if you haven’t been able to check out our talks in person, we’ve compiled the decks and videos from a bunch of our talks right here. Enjoy!&lt;/p&gt;
+
+&lt;h3 id=&quot;february&quot;&gt;February&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Sean Sullivan spoke at the Portland Java User Group about &lt;a href=&quot;https://speakerdeck.com/sullis/e-commerce-under-the-hood&quot;&gt;Gilt’s E-Commerce Platform&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Mikhail Girkin spoke at the Reactive Systems Meetup in Dublin about &lt;a href=&quot;https://www.slideshare.net/MikhailGirkin/streaming-data-to-s3-using-akka-streams&quot;&gt;Streaming Data to s3 Using Akka Streams&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;march&quot;&gt;March&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Ryan Martin spoke at AWS Architecture Week in NYC.&lt;/li&gt;
+  &lt;li&gt;Ugo Mantrangalo presented at the Microservices Meetup in Dublin about &lt;a href=&quot;https://umatrangolo.github.io/go-microservices-deck/&quot;&gt;Writing Microservices in Go&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Dana Pylayeva lead a workshop entitled &lt;a href=&quot;https://www.slideshare.net/danapylayeva/growing-by-sharing-workshop-at-sgcal&quot;&gt;Growing by Sharing: Transitioning a Group to a Self-Directed Model&lt;/a&gt; at the NYC Scrum User Group in March and the Scrum Gathering in San Diego in April.&lt;/li&gt;
+  &lt;li&gt;Jose Martinez and Ed Perry spoke at the Elastic NYC User Group Meetup.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;april&quot;&gt;April&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Adrian Trenaman spoke at the AWS Dublin User Group about &lt;a href=&quot;https://www.slideshare.net/trenaman/serverless-hbc-digital-real-world-explorations-of-lambda-aws-meetup-april-4th-2017&quot;&gt;Serverless Architectures&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Dana Pylayeva lead a workshop on &lt;a href=&quot;https://www.slideshare.net/danapylayeva/aatc-gamifying-devops-with-lego-and-chocolate-game&quot;&gt;Gamifying DevOps with Chocolate and Legos&lt;/a&gt; at the Agile Alliance Technical Conference in Boston.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;may&quot;&gt;May&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Sean Sullivan spoke at the Portland Java User Group about &lt;a href=&quot;https://speakerdeck.com/sullis/payment-processing-at-gilt-dot-com&quot;&gt;Payment Processing at Gilt&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Evan Maloney spoke at the Brooklyn Swift Meetup about &lt;a href=&quot;https://vimeo.com/217236459&quot;&gt;Gilt’s 8 Year Codebase Evolution&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;june&quot;&gt;June&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Mike Hansen spoke at QCon about &lt;a href=&quot;https://www.infoq.com/presentations/hbc-digital-streaming&quot;&gt;Streaming Architectures&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Adrian Trenaman spoke at QCon about &lt;a href=&quot;https://www.infoq.com/news/2017/07/remove-friction-dev-ex&quot;&gt;Removing Friction in the Developer Experience&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Gregor Heine spoke at the Dublin Microservices Meetup about &lt;a href=&quot;https://www.youtube.com/watch?v=Sx_0HlJPTVQ&quot;&gt;Making Microservice deployments to AWS a breeze with Nova&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Pau Carré Cardona spoke a the O’Reilly AI Conference in NYC and the Deep Learning in Retail Summit in London about &lt;a href=&quot;https://cdn.oreillystatic.com/en/assets/1/event/258/Deep%20learning%20in%20the%20fashion%20industry%20Presentation.pdf&quot;&gt;Deep Learning in the Fashion Industry&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;july&quot;&gt;July&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Sean Sullivan spoke at &lt;a href=&quot;https://speakerdeck.com/sullis/api-builder-scala-up-north-2017&quot;&gt;Scala Up North&lt;/a&gt; and the &lt;a href=&quot;https://speakerdeck.com/sullis/apibuilder&quot;&gt;Portland Java User Group&lt;/a&gt; about ApiBuilder.&lt;/li&gt;
+  &lt;li&gt;Sophie Huang spoke at the Customer Love Summit in Seattle.&lt;/li&gt;
+  &lt;li&gt;Kyla Robinson gave a keynote on Key to Success: Creating A Mobile–First Mentality.&lt;/li&gt;
+  &lt;li&gt;Sera Chin and Yi Cao spoke at the NYC Scrum User Group about HBC’s Design Sprints.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>HBC Tech</name></author><category term="meetups" /><category term="conferences" /><category term="evangelism" /><summary>We’ve had a busy 2017 at HBC. The great work of our teams has created opportunities to share what we’ve learned with audiences around the world. This year our folks have been on stage in Austin, Sydney, Portland, Seattle, San Diego, Boston, London, Israel and on our home turf in NYC and Dublin. The talks have covered deep learning, design thinking, data streaming and developer experience to name just a few.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://saksdirect.github.io/hbc-tech-blog{&quot;feature&quot;=&gt;&quot;http://i.imgur.com/zkRer6r.png&quot;, &quot;credit&quot;=&gt;nil, &quot;creditlink&quot;=&gt;nil}" /></entry><entry><title>Sundial or AWS Batch, Why not both?</title><link href="https://saksdirect.github.io/hbc-tech-blog/data/2017/08/04/sundial-batch/" rel="alternate" type="text/html" title="Sundial or AWS Batch, Why not both?" /><published>2017-08-04T00:00:00-05:00</published><updated>2017-08-04T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/data/2017/08/04/sundial-batch</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/data/2017/08/04/sundial-batch/">&lt;p&gt;About a year ago, we (the Gilt/HBC personalization team) open sourced Sundial &lt;img src=&quot;https://github.com/gilt/sundial&quot; alt=&quot;&quot; /&gt;, a batch job orchestration system leveraging &lt;a href=&quot;https://aws.amazon.com/ecs/&quot;&gt;Amazon EC2 Container Service&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;We built Sundial to provide the following features on top of the standard ECS setup:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Streaming Logs (to Cloudwatch and S3 and live in Sundial UI)&lt;/li&gt;
+  &lt;li&gt;Metadata collection (through Graphite and displayed live in Sundial UI)&lt;/li&gt;
+  &lt;li&gt;Dependency management between jobs&lt;/li&gt;
+  &lt;li&gt;Retry strategies for failed jobs&lt;/li&gt;
+  &lt;li&gt;Cron style scheduling for jobs&lt;/li&gt;
+  &lt;li&gt;Email status reporting for jobs&lt;/li&gt;
+  &lt;li&gt;Pagerduty integration for notifying team members about failing critical jobs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://i.imgur.com/RUZHLdI.png&quot; title=&quot;Sundial DAG&quot;&gt;Sundial DAG&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Other solutions available at the time didn’t suit our needs. Solutions we considered included &lt;a href=&quot;https://mesos.github.io/chronos/&quot;&gt;Chronos&lt;/a&gt; which lacked the features we needed and required a Mesos cluster, &lt;a href=&quot;https://github.com/spotify/luigi&quot;&gt;Spotify Luigi&lt;/a&gt; and &lt;a href=&quot;http://airbnb.io/projects/airflow/&quot;&gt;Airbnb Airflow&lt;/a&gt;, which was immature at the time.&lt;/p&gt;
+
+&lt;p&gt;At the time, we chose ECS because we hoped to take advantages of AWS features such as autoscaling in order to save costs
+ by scaling the cluster up and down by demand. In practice, this required too much manual effort and moving parts so we lived with a long running cluster
+ scaled to handle peak load.&lt;/p&gt;
+
+&lt;p&gt;Since then, our needs have grown and we have jobs ranging in size from a couple of hundred MB of memory to 60GB of memory. Having a cluster scaled
+ to handle peak load with all these job sizes had become too expensive. Most job failure noise has been due to cluster resources not being available or smaller jobs taking up space on instances meant to be dedicated to bigger jobs. (ECS is weak when it comes to task placement strategies).&lt;/p&gt;
+
+&lt;p&gt;Thankfully AWS have come along with their own enhancements on top of ECS in the form of &lt;a href=&quot;https://aws.amazon.com/batch/&quot;&gt;AWS Batch&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-we-love-about-batch&quot;&gt;What we love about Batch&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Managed compute environment. This means AWS handles scaling up and down the cluster in response to workload.&lt;/li&gt;
+  &lt;li&gt;Heterogenous instance types (useful when we have outlier jobs taking large amounts of CPU/memory resources)&lt;/li&gt;
+  &lt;li&gt;Spot instances (save over half on on-demand instance costs)&lt;/li&gt;
+  &lt;li&gt;Easy integration with Cloudwatch Logs (stdout and stderr captured automatically)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;what-sucks&quot;&gt;What sucks&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Not being able to run “linked” containers (We relied on this for metadata service and log upload to S3)&lt;/li&gt;
+  &lt;li&gt;Needing a custom AMI to configure extra disk space on the instances.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;what-wed-love-for-batch-to-do-better&quot;&gt;What we’d love for Batch to do better&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Make disk space on managed instances configurable.
+   Currently the workaround is to create a custom AMI with the disk space you need if you have jobs that store a lot of data on disk (Not uncommon in a data processing environment). 
+   Gilt has a feature request open with Amazon on this issue.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;why-not-dump-sundial-in-favour-of-using-batch-directly&quot;&gt;Why not dump Sundial in favour of using Batch directly?&lt;/h3&gt;
+
+&lt;p&gt;Sundial still provides features that Batch doesn’t provide:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Email reporting&lt;/li&gt;
+  &lt;li&gt;Pagerduty integration&lt;/li&gt;
+  &lt;li&gt;Easy transition, processes can be a mixed workload of jobs running on ECS and Batch.&lt;/li&gt;
+  &lt;li&gt;Configurable backoff strategy for job retries.&lt;/li&gt;
+  &lt;li&gt;Time limits for jobs. If a job hangs, we can kill and retry after a certain period of time&lt;/li&gt;
+  &lt;li&gt;Nice dashboard of processes (At a glance see what’s green and what’s red)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/PAeqBJH.png&quot; alt=&quot;alt text&quot; title=&quot;Sundial dashboard&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Sure enough, some of the above can be configured through hooking up lambdas/SNS messages etc. but Sundial gives it to you out of the box.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-next&quot;&gt;What next?&lt;/h3&gt;
+
+&lt;p&gt;Sundial with AWS Batch backend now works great for the use cases we encounter doing personalization. We may consider enhancements such as Prometheus push gateway integration (to replace the Graphite service we had with ECS and to keep track of metrics over time) and UI enhancements to Sundial.&lt;/p&gt;
+
+&lt;p&gt;In the long term we may consider other open source solutions as maintaining a job system counts as technical debt that
+ is a distraction from product focused tasks. The HBC data team, who have very similar requirements to us, have started adopting Airflow (by Airbnb). As part of their adoption, they have contributed to an open source effort to make Airflow support Batch as a backend: &lt;a href=&quot;https://github.com/gilt/incubator-airflow/tree/aws_batch&quot;&gt;https://github.com/gilt/incubator-airflow/tree/aws_batch&lt;/a&gt;. If it works well, this is a solution we may adopt in the future.&lt;/p&gt;</content><author><name>Kevin O'Riordan</name></author><category term="batch" /><category term="aws" /><category term="tech" /><category term="personalization" /><summary>About a year ago, we (the Gilt/HBC personalization team) open sourced Sundial , a batch job orchestration system leveraging Amazon EC2 Container Service.</summary></entry><entry><title>Visually Similar Recommendations</title><link href="https://saksdirect.github.io/hbc-tech-blog/personalization/2017/07/31/tiefvision-2/" rel="alternate" type="text/html" title="Visually Similar Recommendations" /><published>2017-07-31T00:00:00-05:00</published><updated>2017-07-31T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/personalization/2017/07/31/tiefvision-2</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/personalization/2017/07/31/tiefvision-2/">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Previously we’ve written about about &lt;a href=&quot;http://tech.gilt.com/machine/learning,/deep/learning/2016/12/22/deep-learning-at-gilt&quot;&gt;Tiefvision
+&lt;/a&gt;,
+a technical demo showcasing the ability to automatically find similar
+dresses to a particular one of interest. For example:&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;display: block; margin: auto; width: 80%;&quot; src=&quot;/assets/images/tiefvision-2/example.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Since then, we’ve worked on taking the ideas at play in Tiefvision, and
+making them usable in a production scalable way, that allows us to
+roll out to new product categories besides dresses quickly and
+efficiently. Today, we’re excited to announce that we’ve rolled out
+visually similar recommendations on Gilt for all dresses, t-shirts, and handbags,
+as well as to women’s shoes, women’s denim, women’s pants, and men’s
+outerwear.&lt;/p&gt;
+
+&lt;p&gt;Let’s start with a brief overview. Consider the general task at
+hand. We have a landing page for every product on our online
+stores. For the Gilt store, we refer to this as the product detail
+page (PDP). On the PDP we would like to offer the user a variety of
+alternatives to the product they are looking at, so that they can
+best make a purchasing decision. There exist a variety of approaches
+to selecting other products to display as alternatives; a particularly
+popular approach is called collaborative filtering which leverages
+purchase history across users to make recommendations. However this
+approach is what we call content-agnostic – it has no knowledge of
+what a particular garment looks like. Instead, we’d like to look at the
+photographs of garments and recommend similar looking garments within
+the same category.&lt;/p&gt;
+
+&lt;p&gt;Narrowing our focus a little bit, our task is to take a photograph of a
+garment and find similar looking photographs. First, we need to come up
+with some similarity measure for photographs, then we will need to be able
+to quickly query for the most similar photographs from our large
+catalog.&lt;/p&gt;
+
+&lt;p&gt;This is something we need to do numerically. Recall that we can
+represent a photograph as some tensor &lt;script type=&quot;math/tex&quot;&gt;P \in [0,1]^{H \times W \times 3}&lt;/script&gt; (in other words a three dimensional array with entries in between 0
+and 1). Given that we have a numerical representation for an photograph, you
+might think we could so something simple to the measure the similarity
+between two photographs. Consider:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\text{sim} (P, P^\prime) =
+\sqrt{\sum\limits_{h=0}^{H-1}\sum\limits_{w=0}^{W-1}\sum\limits_{c=0}^{2}
+\left(P_{h,w,c} - P^\prime_{h,w,c}\right)^2}&lt;/script&gt;
+
+&lt;p&gt;which we’d refer to as the Frobenius norm of the difference between the
+two photographs. The problem with this, although it is simple, is that
+we’re not measuring the difference between semantically meaningful
+features. Consider these three dresses: a red floral print, pink stripes, and
+a blue floral print.&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;display: block; margin: auto; width: 60%;&quot; src=&quot;/assets/images/tiefvision-2/pixel-space-example.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;With this “pixel-space” approach the red floral print and the pink stripes are
+more likely to be recognized as similar than the red floral print and the
+blue floral print, because they have pixels of similar colors at similar
+locations. The “pixel-space” approach ignores locality and global
+reasoning, and has no insight into semantic concepts.&lt;/p&gt;
+
+&lt;p&gt;What we’d like to do is find some function &lt;script type=&quot;math/tex&quot;&gt;\phi(\cdot)&lt;/script&gt; that extracts
+semantically meaningful features. We can then compute our similarity
+metric in the feature-space rather than the pixel-space. Where do we
+get this &lt;script type=&quot;math/tex&quot;&gt;\phi(\cdot)&lt;/script&gt;? In our case, we leverage deep neural networks
+(deep learning) for this function. Neural networks are hierarchical
+functions composed of typically sequential connections of simple
+building blocks. This structure allows us take a neural network
+trained for a specific task, like arbitrary object recognition and
+pull from some intermediate point in the network. For example say we
+take a network, trained to recognize objects in the ImageNet dataset,
+composed of building blocks &lt;script type=&quot;math/tex&quot;&gt;f_1, f_2, \dots, f_M&lt;/script&gt;:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f\left(P\right) = f_M(f_{M-1}(\cdots f_2(f_1(P))\cdots)&lt;/script&gt;
+
+&lt;p&gt;We might take the output of &lt;script type=&quot;math/tex&quot;&gt;f_3&lt;/script&gt; and call those our features:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\phi(P) = f_3(f_2(f_1(P)))&lt;/script&gt;
+
+&lt;p&gt;In the case of convolutional networks like the VGG, Inception, or
+Resnet families our output features would lie in some
+vector space &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^{H^\prime \times W^\prime \times C}&lt;/script&gt;. The
+first two dimensions correspond to the original spatial dimensions (at
+some reduced resolution) while the
+third dimension corresponds to some set of &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; feature types. So in
+other words, if one of our &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; feature types detects a human face,
+we might see a high numerical value in spatial position near where a
+person’s face is in the photograph. In our use cases, we’ve determined that
+this spatial information isn’t nearly as important as the feature types
+that we detect, so at this point we aggregate over the spatial
+dimensions to get a vector in &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^C&lt;/script&gt;. A simple way to do
+this aggregation is with a simple arithmetic mean but other methods
+work as well.&lt;/p&gt;
+
+&lt;p&gt;From there we could build up some matrix &lt;script type=&quot;math/tex&quot;&gt;\Phi \in \mathbb{R}^{N
+\times C}&lt;/script&gt; where &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; is the number of items in a category of
+interest. We could then construct an &lt;script type=&quot;math/tex&quot;&gt;N \times N&lt;/script&gt; similarity matrix
+&lt;script type=&quot;math/tex&quot;&gt;S&lt;/script&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;S_{ij} = \sqrt{\sum\limits_{k=0}^{C-1} \left(\Phi_{ik} - \Phi_{jk}\right)^2}&lt;/script&gt;
+
+&lt;p&gt;Then to find the most similar items to a query &lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt;, we look at the
+locations of the highest values in row &lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt; of the matrix.&lt;/p&gt;
+
+&lt;p&gt;This approach is infeasible as &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; becomes large, as it has computational complexity
+&lt;script type=&quot;math/tex&quot;&gt;O(N^2C)&lt;/script&gt; and space complexity &lt;script type=&quot;math/tex&quot;&gt;O(N^2)&lt;/script&gt;. To alleviate this issue,
+we can leverage a variety of approximate nearest neighbor methods. We
+empirically find that approximate neighbors are sufficient. Also
+when we consider that our feature space represents some arbitrary
+embedding with no guarantees of any particular notion of optimality,
+it becomes clear there’s no grounded reason to warrant exact nearest
+neighbor searches.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-do-we-do-it&quot;&gt;How do we do it?&lt;/h2&gt;
+
+&lt;p&gt;We leverage several open source technologies, as well as established
+results from published research to serve visually similar garments. As
+far as open source technology is concerned, we use
+&lt;a href=&quot;https://www.tensorflow.org/&quot;&gt;Tensorflow&lt;/a&gt;, and (our
+very own) &lt;a href=&quot;https://github.com/gilt/sundial&quot;&gt;Sundial&lt;/a&gt;. Below you can
+see a block diagram of our implementation:&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;display: block; margin: auto; width: 60%;&quot; src=&quot;/assets/images/tiefvision-2/block_diagram.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s walk through this process. First, we have a Sundial job that
+accomplishes two tasks. We check for new products, and then we compute
+embeddings using Tensorflow and a pretrained network of a particular type for
+particular categories of products. We persist the embeddings on AWS
+S3. Second, we have another Sundial job, again with two tasks. This job
+filters the set of products to ones of some particular interest and
+generates a nearest neighbors index for fast nearest neighbor look-ups. The job
+completes, persisting the index on AWS S3. Finally, we wrap a
+cluster of servers in a load balancer. Our product recommendation
+service can query these nodes to get visually similar recommendations
+as desired.&lt;/p&gt;
+
+&lt;p&gt;Now, we can take a bit of a deeper dive into the thought process
+behind some of the decisions we make as we roll out to new
+categories. First, and perhaps the most important, is what network
+type and where to tap it off so that we can compute embeddings. If we
+recall that neural networks produce hierarchical representations, we
+can deduce (and notice empirically) that deeper tap-points (more steps
+removed from the input) produce embeddings that pick up on “higher
+level” concepts rather than “low level” textures. So, for example, if
+we wish to pick up on basic fabric textures we might pull from near
+the input, and if we wish to pick up something higher level like
+silhouette type we might pull from deeper in the network.&lt;/p&gt;
+
+&lt;p&gt;The filtering step before we generate a index is also critically
+important. At this point we can narrow down our products to only come
+from one particular category, or even some further sub-categorization
+to leverage the deep knowledge of fashion present at HBC.&lt;/p&gt;
+
+&lt;p&gt;Finally, we must select the parameters for the index generation,
+which control the error rate and performance trade-off in the approximate nearest
+neighbors search. We can select these parameters empirically. We
+utilize our knowledge of fashion, once again, to determine a good
+operation point.&lt;/p&gt;
+
+&lt;h2 id=&quot;whats-next&quot;&gt;What’s next?&lt;/h2&gt;
+
+&lt;p&gt;We’ll be working to roll out to more and more categories, and even do
+some cross category elements, perhaps completing outfits based on
+their visual compatibility.&lt;/p&gt;</content><author><name>Chris Curro</name></author><category term="machine learning" /><category term="deep learning" /><category term="personalization" /><category term="recommendation" /><summary></summary></entry><entry><title>How Large Is YOUR Retrospective?</title><link href="https://saksdirect.github.io/hbc-tech-blog/agile/2017/07/27/large-scale-retro/" rel="alternate" type="text/html" title="How Large Is YOUR Retrospective?" /><published>2017-07-27T00:00:00-05:00</published><updated>2017-07-27T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/agile/2017/07/27/large-scale-retro</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/agile/2017/07/27/large-scale-retro/">&lt;p&gt;Can you recall the size and length of your typical retrospective?
+If your team operates by &lt;a href=&quot;http://www.scrumguides.org/docs/scrumguide/v2016/2016-Scrum-Guide-US.pdf&quot;&gt;The Scrum Guide&lt;/a&gt;, your retrospectives likely have less than ten people in one room and last about an hour for a two-weeks Sprint.&lt;/p&gt;
+
+&lt;p&gt;What if your current team is larger than a typical Scrum team and a retrospective period is longer than a month? What if the team members are distributed across locations, countries, time zones and multiple third party vendors? Is this retrospective doomed to fail? Not quite.
+These factors just add an additional complexity and call for a different facilitation approach.&lt;/p&gt;
+
+&lt;p&gt;Last month at HBC we facilitated a large-scale mid-project retrospective for a 60 people-project team. While this project certainly didn’t start as an agile project, bringing in an agile retrospective practice helped identify significant improvements. 
+Here is how we did it.&lt;/p&gt;
+
+&lt;h1 id=&quot;from-inquiry-to-buy-in&quot;&gt;From Inquiry to Buy-in&lt;/h1&gt;
+
+&lt;p&gt;This all started with one of the project sub-teams reaching out with an inquiry: “Can you facilitate a retrospective for us?”
+That didn’t sound like anything major. We’ve been advocating for and facilitating retrospectives on various occasions at HBC: regular Sprint retrospectives, process retrospectives, new hire onboarding retrospectives etc.&lt;/p&gt;
+
+&lt;p&gt;Further digging into a list of participants revealed that this retro would be unlike any others. We were about to pull together a group of 60 people from HBC and five consulting companies(!) In spite of working on the same project for a long time, these people never had a chance to step back and reflect on how they could work together differently.&lt;/p&gt;
+
+&lt;p&gt;In order to make it successful, we needed buy-in from the leadership team to bring the entire team (including consultants) into the retrospective. Our first intent was to bring everyone into the same space (physical and virtual) and facilitate a retrospective with &lt;a href=&quot;https://en.wikipedia.org/wiki/Open_Space_Technology&quot;&gt;Open Space Technology&lt;/a&gt;.
+Initial response wasn’t promising:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“We have another problem with this retro
+[…] is concerned that it is all day and that the cost of doing this meeting is like $25K-$50K”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;We had to go back and re-think the retrospective approach. How can we reduce the cost of this event without affecting the depth and breadth of the insights?&lt;/p&gt;
+
+&lt;h1 id=&quot;options-we-considered&quot;&gt;Options we considered&lt;/h1&gt;
+
+&lt;p&gt;Thanks to the well-documented large retrospectives experiments by other agile practitioners, there was a number of options to evaluate:&lt;/p&gt;
+
+&lt;p&gt;1)	&lt;a href=&quot;http://joakimsunden.com/2013/01/running-big-retrospectives-at-spotify/&quot;&gt;Full project team, full day, face-to-face, Open Space-style retro&lt;/a&gt;
+2)	&lt;a href=&quot;https://labs.spotify.com/2015/11/05/large-scale-retros/&quot;&gt;Decentralized, themes-based retros with learnings collected over a period of time and shared with the group&lt;/a&gt;
+3)	&lt;a href=&quot;http://www.innovationgames.com/2014/06/how-to-run-huge-retrospectives/&quot;&gt;Decentralized retrospectives using Innovation Games Online platform&lt;/a&gt;
+4)	&lt;a href=&quot;https://less.works/less/framework/overall-retrospective.html&quot;&gt;Overall retrospective (LeSS framework)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Around the same time, I was fortunate to join a Retrospective Facilitator’s Gathering (RFG2017) - an annual event that brought together the most experienced retrospective facilitators from around the World. Learning from their experience as well as brainstorming together on the possible format was really helpful. Thank you Tobias Baier, Allan Jepsen, Joanne Perold, George Dinwiddie and many others for sharing your insights! I was especially grateful for the in-depth conversation with Diana Larsen in which she pointed out to&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Clarify the goal and commitment of the key stakeholders before you start designing how to run the retrospective.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Back to the drawing board again! More conversations, clarifications and convincing… 
+With some modifications and adjustments, we finally were able to get the buy-in and moved forward with the retrospective.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-worked-for-us--a-tiered-format&quot;&gt;What worked for us – a tiered format.&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/35i1f82h.png&quot; alt=&quot;Tiered Retro&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;individual-team-level-retrospectives&quot;&gt;Individual team-level retrospectives&lt;/h2&gt;
+
+&lt;p&gt;We had a mix of co-located and distributed sub-teams on this project and chose to enlist some help from multiple facilitators. To simplify data consolidation, each facilitator received a data gathering format along with a sample retrospective facilitation plan. Each individual sub-team was asked to identify two types of action items: ones that they felt were in their power to address and others that required a system-level thinking and the support from the larger project community. The former were selected by the sub-teams and put in motion by their respective owners. The latter were passed to the main facilitator for analysis and aggregation to serve as a starting point for the final retrospective.&lt;/p&gt;
+
+&lt;h2 id=&quot;final-retrospective&quot;&gt;Final retrospective&lt;/h2&gt;
+
+&lt;p&gt;For the final retrospective we brought together two types of participants:&lt;/p&gt;
+
+&lt;p&gt;1) Leads and delegates from individual sub-teams who participated actively at all times.
+2) Senior leaders of the organization who joined in the last hour to review and support team’s recommendations.&lt;/p&gt;
+
+&lt;p&gt;The goal of this workshop was to review the ideas from sub-teams, explore system level improvements and get the support from senior leadership to put the system-level changes into motion.&lt;/p&gt;
+
+&lt;h2 id=&quot;retrospective-plans&quot;&gt;Retrospective plans&lt;/h2&gt;
+
+&lt;p&gt;Each retrospective was structured according to the &lt;a href=&quot;https://www.amazon.com/Agile-Retrospectives-Making-Teams-Great/dp/0977616649&quot;&gt;classic five-steps framework&lt;/a&gt; and included a number of activities selected from &lt;a href=&quot;https://plans-for-retrospectives.com/en/&quot;&gt;Retromat&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;example-of-an-in-room-sub-team-retrospective-1---15-hours&quot;&gt;Example of an in-room sub-team retrospective (1 - 1.5 hours)&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Set the Stage&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We used a happiness histogram to get things started and get a sense for how the people felt about the overall project.
+&lt;img src=&quot;http://i.imgur.com/iJMp2W5m.jpg&quot; alt=&quot;Happiness Histogram&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Instead of reading the &lt;a href=&quot;http://www.retrospectives.com/pages/retroPrimeDirective.html&quot;&gt;Prime Directive&lt;/a&gt; once at the beginning with the team, we opted for displaying it in the room on a large poster as a visible reminder throughout the retrospective.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gather Data&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Everyone was instructed to think about the things they liked about the project (&lt;strong&gt;What worked well?&lt;/strong&gt;) and the ones that could’ve been better (&lt;strong&gt;What didn’t work so well?&lt;/strong&gt;). In a short time-boxed silent brainstorming each team member had to come up with at least two items in each category.&lt;/p&gt;
+
+&lt;p&gt;Next we facilitated a pair-share activity in a “speed dating” format. Forming two lines, we asked participants to face each other and take turns discussing what each of them wrote on their post-its. After two minutes the partners were switched and the new pairs were formed to continue discussions with the new set of people.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/juJpgPwm.jpg&quot; alt=&quot;Pair Share&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At the end of the timebox, we asked the last pairs to walk together to the four posters on the wall and place their post-its into respective categories: 
+1) Worked Well/ Can’t control 
+2) Worked Well/Can control
+3) Didn’t work so well/Can’t control
+4) Didn’t work so well/ Can control&lt;/p&gt;
+
+&lt;p&gt;After performing an affinity mapping and a dot-voting the group selected top three issues that they felt were in their control to address.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Generate Insights/Decide What To Do&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Every selected issue got picked up by a self-organized sub-group. Using a template each sub-group designed a team level experiment defining the action they propose to take, an observable behavior they expect to see after taking that action and the specific measurement that will confirm a success of the experiment.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/LhY2tFlm.jpg&quot; alt=&quot;Experiment&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Close the Retro&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We closed the retro by getting a feedback on the retro format, taking photos of the insights generated by the team.
+These were passed on to the main facilitator for further analysis and preparation for the final retrospective event.&lt;/p&gt;
+
+&lt;h3 id=&quot;modifications-for-distributed-teams&quot;&gt;Modifications for distributed teams&lt;/h3&gt;
+
+&lt;p&gt;For those teams that had remote team members or were fully distributed, we used a &lt;a href=&quot;http://funretro.github.io/distributed/&quot;&gt;FunRetro&lt;/a&gt; tool. Flexibility to configure columns and the number of votes, along with easy user interface, fun colors and free cost made this tool a good substitute for an in-room retrospective.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/zg77ljGl.png&quot; alt=&quot;Fun Retro&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;final-retrospective-3-hours&quot;&gt;Final Retrospective (3 hours)&lt;/h2&gt;
+
+&lt;p&gt;Once all individual sub-teams retrospective were completed, we consolidated the project-level improvement proposals. These insights were reviewed, analyzed for trends and systemic issues and then shared during Tier 2 Final Retrospective.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Set the stage&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We used &lt;a href=&quot;https://www.storycubes.com&quot;&gt;story cubes&lt;/a&gt; to reflect and share how each of the participants felt about this project. This is a fun way to run a check in activity, equally effective with introverted and extraverted participants. The result is a collection of images that build a shared story about the project:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/72rTEPTm.jpg&quot; alt=&quot;Story Cubes&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We also reviewed an aggregated happiness histogram from each individual sub-teams to learn about the mood of 60 people on this project.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gather data&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Since the retrospective period was very long, building a timeline together was really helpful in re-constructing the full view of the project. We asked participants to sort the events into the ones that had a positive impact on the project (placing them above the timeline) and the ones that had a negative impact on the project (placing them below the timeline). The insight we gained from this exercise alone were invaluable!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/qLQC7WIh.jpg&quot; alt=&quot;Timeline&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Generate Insights&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Next we paired the participants and asked them to walk to the consolidated recommendations posters. As a pair, they were tasked with selecting the most pressing issues and bringing them back for a follow up discussion at their table.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/28Um9uFm.jpg&quot; alt=&quot;What Worked&quot; /&gt;
+&lt;img src=&quot;http://i.imgur.com/tkxnjwWm.jpg&quot; alt=&quot;What Didn't&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Each table used the &lt;a href=&quot;http://leancoffee.org&quot;&gt;LeanCoffee&lt;/a&gt; format to vote on the selected issues, prioritize them into a discussion backlog and explore as many of them as the timebox allowed. Participants used roman voting as a way to decide if they are ready to more on to the next topic or need more discussion about the current one. Closing each discussion, participants recorded their recommended action. At the end of the timebox all actions from each table were shared with the rest of the group to get feedback.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/wylfBVom.jpg&quot; alt=&quot;LeanCoffee&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Decide What To Do/Close&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In the final hour of the retrospective the action owners shared their proposed next steps with the senior leadership team and reviewed the insights from the consolidated teams’ feedback.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/AOKeQbVm.jpg&quot; alt=&quot;recommendations&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Was this experiment successful? Absolutely! One of the biggest benefits of this retrospective was this collective experience of working across sub-teams and designing organizational improvements together.&lt;/p&gt;
+
+&lt;p&gt;Could we have done it better? You bet! As the project continues, we will be looking to run the retrospectives more frequently and will take into account things we learnt in this experiment.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-did-we-learn&quot;&gt;What did we learn?&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Designing a retrospective of this size is a project in itself. You need to be clear about the vision, the stakeholders and the success criteria for the retrospective.&lt;/li&gt;
+  &lt;li&gt;Do your research, tap into the knowledge of agile community and get inspired by the experience of others. Take what you like and then adapt to make it work in the context of your organization.&lt;/li&gt;
+  &lt;li&gt;Ask for help. Involve additional facilitators to get feedback, speed up the execution and created a safe space for individual sub-teams.&lt;/li&gt;
+  &lt;li&gt;Inclusion trumps exclusion. Invite consultants as well as full-time employees into your retrospective to better understand the project dynamic.&lt;/li&gt;
+  &lt;li&gt;Beware of potential confusion around retrospective practice. Be ready to explain the benefits and highlight the differences between a retrospective and a postmortem.&lt;/li&gt;
+  &lt;li&gt;Bringing senior leaders into the last hour of final retrospective can negatively affect the dynamics of the discussions. Either work on prepping them better or plan on re-establishing the safe space after they join.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;what-would-we-like-to-do-next&quot;&gt;What would we like to do next?&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Continue promoting the retrospective practice across the organization.&lt;/li&gt;
+  &lt;li&gt;Offer a retrospective facilitator training to Scrum Masters, Agile Project Managers and anyone who is interested in learning how to run an effective retro.&lt;/li&gt;
+  &lt;li&gt;Establish retrospective facilitator circle to help maintain and improve the practice for all teams.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Inspired by our experiment? Have your own experience worth sharing? We’d love to hear from you and learn what works in your environment. Blog about it and tweet your questions at @hbcdigital.&lt;/p&gt;
+
+&lt;h1 id=&quot;world-retrospective-day&quot;&gt;World Retrospective Day&lt;/h1&gt;
+
+&lt;p&gt;Whether you are a retrospective pro, have never tried one in the past or your experience is anywhere in between, please do yourself a favor and mark &lt;strong&gt;February 6, 2018&lt;/strong&gt; on your calendar. 
+A group of experienced retrospective facilitators is currently planning a record-breaking World Retrospective Day with live local workshops on every continent and in every time zone along with many on-line learning opportunities. We are engaging with the industry thought leaders to make this one of the best and most engaging learning experience. We hope to see you there!&lt;/p&gt;</content><author><name>Dana Pylayeva</name></author><category term="agile" /><category term="retrospective" /><category term="scaling" /><summary>Can you recall the size and length of your typical retrospective?
+If your team operates by The Scrum Guide, your retrospectives likely have less than ten people in one room and last about an hour for a two-weeks Sprint.</summary></entry><entry><title>Advanced tips for building an iOS Notification Service Extension</title><link href="https://saksdirect.github.io/hbc-tech-blog/ios/2017/07/07/ios-notifciation-service-extension-tips/" rel="alternate" type="text/html" title="Advanced tips for building an iOS Notification Service Extension" /><published>2017-07-07T00:00:00-05:00</published><updated>2017-07-07T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/ios/2017/07/07/ios-notifciation-service-extension-tips</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/ios/2017/07/07/ios-notifciation-service-extension-tips/">&lt;p&gt;The Gilt iOS team is officially rolling out support for “rich notifications” in the coming days. By “rich notifications”, I mean the ability to include media (images/gifs/video/audio) with push notifications. Apple &lt;a href=&quot;https://developer.apple.com/videos/play/wwdc2016/708/&quot;&gt;announced&lt;/a&gt; rich notifications as a part of iOS 10 at WWDC last year (2016). For a mobile first e-commerce company with high quality images, adding media to push notifications is an exciting way to continue to engage our users.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/expanded_notification.png&quot; alt=&quot;alt image&quot; title=&quot;expanded notification&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This post details four helpful advanced tips I wish I had when I started building a &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unnotificationserviceextension&quot;&gt;Notification Service Extension&lt;/a&gt;(NSE) for the iOS app. Although all of this information is available through different blog posts and Apple documentation, I am putting it all in one place in the context of building a NSE in the hopes that it saves someone the time I spent hunting and testing this niche feature. Specifically, I will go over things I learned after the point where I was actually seeing modified push notifications on a real device (even something as simple as appending MODIFIED to the notification title).&lt;/p&gt;
+
+&lt;p&gt;If you’ve stumbled upon this post, you’re most likely about to start building a NSE or started already and have hit an unexpected roadblock. If you have not already created the shell of your extension, I recommend reading the official Apple &lt;a href=&quot;https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ModifyingNotifications.html#//apple_ref/doc/uid/TP40008194-CH16-SW1&quot;&gt;documentation&lt;/a&gt; and some other helpful blog posts found &lt;a href=&quot;https://pusher.com/docs/push_notifications/ios/ios10&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;https://www.avanderlee.com/ios-10/rich-notifications-ios-10/&quot;&gt;here&lt;/a&gt;. These posts give a great overview of how to get started receiving and displaying push notifications with media.&lt;/p&gt;
+
+&lt;h3 id=&quot;tip-0-sending-notifications&quot;&gt;Tip 0: Sending notifications&lt;/h3&gt;
+&lt;p&gt;When working with NSEs it is extremely helpful to have a reliable way of sending yourself push notifications. Whether you use a third party push platform or a home grown platform, validate that you can send yourself test notifications before going any further. Additionally, validate that you have the ability to send modified push payloads.&lt;/p&gt;
+
+&lt;h3 id=&quot;tip-1-debugging&quot;&gt;Tip 1: Debugging&lt;/h3&gt;
+&lt;p&gt;Being able to debug your code while you work is paramount. If you’ve ever built an app extension this tip may be old hat to you but as a first time extension builder it was a revelation to me! Because a NSE is not actually a part of your app, but an extension, it does not run on the same process id as your application. When you install your app on an iOS device from Xcode, the Xcode debugger and console are only listening to the process id of your application. This means any print statements and break points you set in the NSE won’t show up in the Xcode console and won’t pause the execution of your NSE.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/but_but_but.jpeg&quot; alt=&quot;alt image&quot; title=&quot;but but but&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You actually can see all of your print statements in the mac Console app but the Console also includes every print/log statement of every process running on your iOS device and filtering these events is more pain than its worth.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/console.png&quot; alt=&quot;alt image&quot; title=&quot;console&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Fortunately, there is another way. You can actually have Xcode listen to any of the processes running on your phone including low level processes like &lt;code class=&quot;highlighter-rouge&quot;&gt;wifid&lt;/code&gt;, Xcode just happens to default to your application.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/gilt_process.png&quot; alt=&quot;alt image&quot; title=&quot;gilt process id&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To attach to the NSE, you first need to send your device a notification to start up the NSE. Once you receive the notification, in Xcode go to the “Debug” tab, scroll down to “Attach to Process” and look to see if your NSE is listed under “Likely Targets”.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/unattached_process.png&quot; alt=&quot;alt image&quot; title=&quot;Unattached notification process id&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you don’t see it, try sending another notification to your device. If you do, attach to it! If you successfully attached to your NSE process you should see it grayed out when yo go back to Debug &amp;gt; Attach to Process.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/attached_process.png&quot; alt=&quot;alt image&quot; title=&quot;Attached to notification process id&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You should also be able to select the NSE from the Xcode debug area.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/debug_screen.png&quot; alt=&quot;alt image&quot; title=&quot;debug screen&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To validate both the debugger and print statements are working add a breakpoint and a print statement to your NSE. Note: Everytime you rebuild the app, you will unfortunately have to repeat the process of sending yourself a notification before attaching to the NSE process.&lt;/p&gt;
+
+&lt;p&gt;Amazing! Your NSE development experience will now be 10x faster than my own. I spent two days appending “print statements” to the body of the actual notification before I discovered the ability to attach to multiple processes.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/say_what.jpg&quot; alt=&quot;alt image&quot; title=&quot;say whaaaaaat&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;tip-2-sharing-data-between-your-application-and-nse&quot;&gt;Tip 2: Sharing data between your application and NSE&lt;/h3&gt;
+&lt;p&gt;Although your NSE is bundled with your app, it is not part of your app, does not run on the same process id (see above), and does not have the same bundle identifier. Because of this, your application and NSE cannot talk to each other and cannot use the same file system. If you have any information you would like to share between the app and the NSE, you will need to add them both to an App Group. For the specifics of adding an app group check out Apple’s &lt;a href=&quot;https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/ExtensionScenarios.html#//apple_ref/doc/uid/TP40014214-CH21-SW1&quot;&gt;Sharing Data with Your Containing App&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This came up in Gilt’s NSE because we wanted to have the ability to get logs from the NSE and include them with the rest of the app. For background, the Gilt iOS team uses our own open sourced logging library, &lt;a href=&quot;https://github.com/emaloney/CleanroomLogger&quot;&gt;CleanroomLogger&lt;/a&gt;. The library writes log files in the app’s allocated file system. To collect the log files from the NSE in the application, we needed to save the log files from the NSE to the shared app group.&lt;/p&gt;
+
+&lt;p&gt;Another feature you get once you set up the App Group is the ability to share information using the app group’s &lt;code class=&quot;highlighter-rouge&quot;&gt;NSUserDefaults&lt;/code&gt;. We aren’t using this feature right now, but might in the future.&lt;/p&gt;
+
+&lt;h3 id=&quot;tip-3-using-frameworks-in-your-nse&quot;&gt;Tip 3: Using frameworks in your NSE&lt;/h3&gt;
+&lt;p&gt;If you haven’t already realized, rich notifications don’t send actual media but just links to media which your NSE will download. If you’re a bolder person than me, you might decide to forgo the use of an HTTP framework in your extension and re-implement any functions/classes you need. For the rest of us, its a good idea to include additional frameworks in your NSE. In the simplest case, adding a framework to a NSE is the same as including a framework in another framework or your container app. Unfortunately, not all frameworks can be used in an extension.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/frameworks.jpg&quot; alt=&quot;alt image&quot; title=&quot;These aren't the frameworks you are looking for.&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To use a framework in your application, the framework must check the “App Extensions” box.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/promise-kit.png&quot; alt=&quot;alt image&quot; title=&quot;framework for extension&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Most popular open source frameworks are already set up to work with extensions but its something you should look out for. The Gilt iOS app has one internal framework which we weren’t able to use in extensions and I had to re-implement a few functions in the NSE. If you come across a framework that you think should work in an extension, but doesn’t, check out Apple’s &lt;a href=&quot;https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/ExtensionScenarios.html#//apple_ref/doc/uid/TP40014214-CH21-SW1&quot;&gt;Using an Embedded Framework to Share Code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;tip-4-display-different-media-for-thumbnail-and-expanded-view&quot;&gt;Tip 4: Display different media for thumbnail and expanded view&lt;/h3&gt;
+&lt;p&gt;When the rich notification comes up on the device, users see a small thumbnail image beside the notification title and message.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/thumbnail_notification.png&quot; alt=&quot;alt image&quot; title=&quot;thumbnail notification&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And when the user expands the notification, iOS shows a larger image.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/expanded_notification.png&quot; alt=&quot;alt image&quot; title=&quot;expanded notification&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In the simple case (example above), you might just have a single image to use as the thumbnail and the large image. In this case setting a single attachment is fine. In the Gilt app, we came across a case where we wanted to show a specific square image as the thumbnail and a specific rectangular image when the notification is expanded. This is possible because &lt;code class=&quot;highlighter-rouge&quot;&gt;UNMutableNotificationContent&lt;/code&gt; allows you to set a list of &lt;code class=&quot;highlighter-rouge&quot;&gt;UNNotificationAttachment&lt;/code&gt;. Although this is not a documented feature it is possible.&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;bestAttemptContent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;mutableCopy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as?&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UNMutableNotificationContent&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;expandedAttachment&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UNNotificationAttachment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expandedURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;UNNotificationAttachmentOptionsThumbnailHiddenKey&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;thumbnailAttachment&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UNNotificationAttachment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;thumbnailURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;UNNotificationAttachmentOptionsThumbnailHiddenKey&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;bestAttemptContent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attachments&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expandedAttachment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;thumbnailAttachment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;This code snippet sets two attachments on the notification. This may be confusing because, currently, iOS only allows and app to show one attachment. If we can only show one attachment, then why set two attachments on the notification? I am setting two attachments because I want to show different images in the collapsed and expanded notification views. The first attchment in the array, &lt;code class=&quot;highlighter-rouge&quot;&gt;expandedAttachment&lt;/code&gt;, is hidden in the collapsed view (&lt;code class=&quot;highlighter-rouge&quot;&gt;UNNotificationAttachmentOptionsThumbnailHiddenKey : true&lt;/code&gt;). The second attachment, &lt;code class=&quot;highlighter-rouge&quot;&gt;thumbnailAttachment&lt;/code&gt;, is not. In the collapsed view, iOS will select the first attachment where &lt;code class=&quot;highlighter-rouge&quot;&gt;UNNotificationAttachmentOptionsThumbnailHiddenKey&lt;/code&gt; is &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt;. But when the nofication is expanded, the first attachment in the array, in this case &lt;code class=&quot;highlighter-rouge&quot;&gt;expandedAttachment&lt;/code&gt;, is displayed. If that is confusing see the example images below. Notice, this is not one rectangular image cropped for the thumbnail.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/thumbnail_notification_diff.png&quot; alt=&quot;alt image&quot; title=&quot;thumbnail notification different than expanded&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/expanded_notification_diff.png&quot; alt=&quot;alt image&quot; title=&quot;expanded notification different than thumbnail&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Note: There is a way to specify a clipping rectangle using the &lt;code class=&quot;highlighter-rouge&quot;&gt;UNNotificationAttachmentOptionsThumbnailClippingRectKey&lt;/code&gt; option, but our backend system doesn’t include cropping rectangle information and we do have multiple approprite crops of product/sale images available.&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;Thats it! I hope this post was helpful and you will now fly through building a Notification Service Extension for your app. If there is anything you think I missed and should add to the blog please let us know, techevangelism@gilt.com.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/last_meme.png&quot; alt=&quot;alt image&quot; title=&quot;last meme&quot; /&gt;&lt;/p&gt;</content><author><name>Kyle Dorman</name></author><category term="ios" /><category term="push notifications" /><category term="notification service extension" /><summary></summary></entry><entry><title>Open Source Friday</title><link href="https://saksdirect.github.io/hbc-tech-blog/open%20source/2017/06/29/open-source-friday/" rel="alternate" type="text/html" title="Open Source Friday" /><published>2017-06-29T00:00:00-05:00</published><updated>2017-06-29T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/open%20source/2017/06/29/open-source-friday</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/open%20source/2017/06/29/open-source-friday/">&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/GYQx8ds.png&quot; alt=&quot;open source&quot; class=&quot;center-image&quot; /&gt;
+From the 54 public repos maintained at &lt;a href=&quot;http://code.gilt.com/&quot;&gt;code.gilt.com&lt;/a&gt; to the name of our tech blog (displayed in this tab’s header), open source has been part of our team’s DNA for years. Check out this &lt;a href=&quot;http://tech.gilt.com/front-end/2015/04/08/ubar-open-source-first-front-end-effort&quot;&gt;blog post&lt;/a&gt; from 2015 if you’re not convinced.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;Our open source love is why we’re excited to participate in our first Open Source Friday on June 30. &lt;a href=&quot;https://opensourcefriday.com/&quot;&gt;Open Source Friday&lt;/a&gt; is an effort being led by GitHub to make it easier to contribute to the open source community. This &lt;a href=&quot;https://github.com/blog/2386-contribute-on-open-source-friday&quot;&gt;blog post&lt;/a&gt; has more detail on the who, what and why. We’re hoping to make this a regular activity to help our teams foster an open-source-first culture as we grow and evolve.&lt;/p&gt;
+
+&lt;p&gt;Some of the projects we’ll be working on:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/emaloney/CleanroomLogger&quot;&gt;CleanroomLogger&lt;/a&gt; - Evan Maloney will be tackling a specific long-standing user request: custom “named subsystems” for logging. Some background here: https://github.com/emaloney/CleanroomLogger/issues/37.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.apibuilder.io/&quot;&gt;ApiBuilder&lt;/a&gt; - Ryan Martin will be working on fixing some edge cases in the &lt;a href=&quot;https://github.com/apicollective/apibuilder-swagger-generator&quot;&gt;Swagger Generator&lt;/a&gt; for ApiBuilder.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/gilt/gfc-guava&quot;&gt;gfc-guava&lt;/a&gt; - Sean Sullivan will be updating the documentation for gfc-guava and working on compatability with &lt;a href=&quot;https://github.com/google/guava/wiki/Release22&quot;&gt;Google Guava 22.0&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you’re inspired but don’t know where to start, head to our directory of &lt;a href=&quot;http://code.gilt.com&quot;&gt;open source projects&lt;/a&gt;, visit &lt;a href=&quot;http://up-for-grabs.net/&quot;&gt;this list&lt;/a&gt; by GitHub or ping us on &lt;a href=&quot;https://twitter.com/hbcdigital&quot;&gt;Twitter&lt;/a&gt; and we can help point you in the right direction.&lt;/p&gt;</content><author><name>HBC Tech</name></author><category term="open source" /><category term="culture" /><category term="community" /><summary>From the 54 public repos maintained at code.gilt.com to the name of our tech blog (displayed in this tab’s header), open source has been part of our team’s DNA for years. Check out this blog post from 2015 if you’re not convinced.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://saksdirect.github.io/hbc-tech-blog{&quot;feature&quot;=&gt;nil, &quot;credit&quot;=&gt;nil, &quot;creditlink&quot;=&gt;nil}" /></entry><entry><title>Hudson’s Bay Company at QCon</title><link href="https://saksdirect.github.io/hbc-tech-blog/conferences/2017/06/12/hbc-at-qcon/" rel="alternate" type="text/html" title="Hudson's Bay Company at QCon" /><published>2017-06-12T00:00:00-05:00</published><updated>2017-06-12T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/conferences/2017/06/12/hbc-at-qcon</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/conferences/2017/06/12/hbc-at-qcon/">&lt;p&gt;Heading to QCon? Don’t miss these two sessions! If you can’t make it, stay tuned here for slides and recordings from the conference.&lt;/p&gt;
+
+&lt;h2 id=&quot;removing-friction-in-the-developer-experience&quot;&gt;Removing Friction In the Developer Experience&lt;/h2&gt;
+
+&lt;p&gt;If you follow this blog at all, you know that we talk a lot about how we work here. Whether it’s out approach to &lt;a href=&quot;http://tech.gilt.com/leadership/2017/02/06/slack-and-voluntary-adoption&quot;&gt;adopting new technology&lt;/a&gt;, the work of our &lt;a href=&quot;http://tech.gilt.com/culture/2017/05/18/pops-up-plant-shop&quot;&gt;POps team&lt;/a&gt; or our &lt;a href=&quot;https://www.slideshare.net/hhfleming/the-new-work-order-team-ingredients-and-role-blending&quot;&gt;team ingredients&lt;/a&gt; framework, we’re not shy when it comes to our people and culture.&lt;/p&gt;
+
+&lt;p&gt;With that in mind, it only makes sense that &lt;a href=&quot;https://twitter.com/adrian_trenaman&quot;&gt;Ade Trenaman&lt;/a&gt;, SVP Engineering at Hudson’s Bay Company, will be part of the Developer Experience track at QCon New York in June. Titled &lt;a href=&quot;https://qconnewyork.com/ny2017/presentation/fitter-happier-more-productive-removing-friction-developer-experience&quot;&gt;“Removing Friction In the Developer Experience”&lt;/a&gt;, Ade will highlight a number of the steps we’ve taken as an organisation to improve how we work. His session will cover:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;how we blend microservice / serverless architectures, continuous deployment, and cloud technology to make it easy to push code swiftly, safely and frequently and operate it reliably in production.&lt;/li&gt;
+  &lt;li&gt;the organisational tools like &lt;a href=&quot;http://tech.gilt.com/agile/2017/05/31/self-selection-hbc&quot;&gt;team self-selection&lt;/a&gt;, team ingredients (see above), voluntary adoption and internal startups that allow us to decentralise and decouple high-performing teams.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;survival-of-the-fittest---streaming-architectures&quot;&gt;Survival of the Fittest - Streaming Architectures&lt;/h2&gt;
+
+&lt;p&gt;Michael Hansen will also be at QCon this year. &lt;a href=&quot;https://qconnewyork.com/ny2017/presentation/survival-fittest-streaming-architectures&quot;&gt;Mike’s talk&lt;/a&gt; will help guide the audience through a process to adopt the best streaming model for their needs (because there is no perfect solution).&lt;/p&gt;
+
+&lt;p&gt;In his own words: “Frameworks come and go, ​so this talk is not about the “best” framework or platform to use, rather it’s about core principles that will stand the tests of streaming evolution.”&lt;/p&gt;
+
+&lt;p&gt;His talk will also cover:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;major potential pitfalls that you may stumble over on your path to streaming and how to avoid them&lt;/li&gt;
+  &lt;li&gt;the next evolutionary step in streaming at Hudson’s Bay Company&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Hope to see you there!&lt;/p&gt;</content><author><name>HBC Tech</name></author><category term="developer experience" /><category term="culture" /><category term="stream processing" /><category term="data" /><category term="qcon" /><summary>Heading to QCon? Don’t miss these two sessions! If you can’t make it, stay tuned here for slides and recordings from the conference.</summary></entry><entry><title>Let’s run an experiment! Self-selection at HBC Digital</title><link href="https://saksdirect.github.io/hbc-tech-blog/agile/2017/05/31/self-selection-hbc/" rel="alternate" type="text/html" title="Let’s run an experiment! Self-selection at HBC Digital" /><published>2017-05-31T00:00:00-05:00</published><updated>2017-05-31T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/agile/2017/05/31/self-selection-hbc</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/agile/2017/05/31/self-selection-hbc/">&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/DGJx44J.png&quot; alt=&quot;Self-selection&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Inspired by Opower’s success story, we ran a self-selection experiment at HBC Digital.&lt;/p&gt;
+
+&lt;p&gt;Dubbed as &lt;em&gt;“the most anticipated event of the year”&lt;/em&gt; it enabled 39 team members to self-select into 4 project teams. How did they do it? By picking a project they wanted to work on, the teammates they wanted to work with and keeping a &lt;em&gt;“Do what’s best for the company”&lt;/em&gt; attitude. 
+Read on to learn about our experience and consider giving a self-selection a try!&lt;/p&gt;
+
+&lt;h2 id=&quot;a-little-bit-of-introduction&quot;&gt;A little bit of introduction:&lt;/h2&gt;
+
+&lt;h3 id=&quot;who-are-we&quot;&gt;Who are we?&lt;/h3&gt;
+&lt;p&gt;HBC Digital is the group that drives the digital retail/ecommerce and digital customer experience across all HBC retail banners including Hudson’s Bay, Lord &amp;amp; Taylor, Saks Fifth Avenue, Gilt, and Saks OFF 5TH.&lt;/p&gt;
+
+&lt;h3 id=&quot;our-process-trifectas-and-team-ingredients&quot;&gt;Our process, trifectas and team ingredients&lt;/h3&gt;
+
+&lt;p&gt;Our development process is largely inspired by the original &lt;a href=&quot;http://tech.gilt.com/2013/03/07/scaling-agile-at-gilt&quot;&gt;Gilt process&lt;/a&gt; and has the ideas of intrinsic motivation in its core. 
+What agile flavor do we use? It depends on the team.&lt;/p&gt;
+
+&lt;p&gt;Each team has a full autonomy in selecting Scrum, Kanban, XP, a combination thereof or none of the above as their process. As long as they remain small, nimble, able to collaborate and continuously deliver value, they can tailor the process to their needs.&lt;/p&gt;
+
+&lt;p&gt;We do keep certain key components standard across all teams. 
+One of them is a “Trifecta” – a group of servant-leaders in each team: a Product Manager, an Agile Project Manager and a Tech Lead. They work together to support their team and enable the team’s success. 
+We value continuous learning and facilitate role blending by instilling our Team Ingredients framework. Originally designed by Heather Fleming, the &lt;a href=&quot;https://www.slideshare.net/hhfleming/the-new-work-order-team-ingredients-and-role-blending&quot;&gt;Team Ingredients&lt;/a&gt; framework facilitates team-level conversations about the team strengths, learning interests and cross-training opportunities.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/GgkQVa9.jpg&quot; align=&quot;right&quot; width=&quot;250&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Over the years the framework evolved from being a management tool for assessing teams from “outside in” to being a team tool that supports self-organizing and learning discussions. After a major revamp and gamification of the framework in 2016, we now use it as part of our &lt;a href=&quot;https://www.amazon.com/Liftoff-Launching-Agile-Teams-Projects/dp/097792016X&quot;&gt;Liftoff&lt;/a&gt; sessions and team working agreement conversations.&lt;/p&gt;
+
+&lt;p&gt;Just like our Team Ingredients framework, our process continues to evolve. We experiment with new ideas and practices to facilitate teams’ effectiveness and create an environment for teams to thrive. The self-selection is our latest experiment and this blog post is a glimpse into how it went.&lt;/p&gt;
+
+&lt;h2 id=&quot;self-selection-triggers-and-enablers&quot;&gt;Self-selection triggers and enablers&lt;/h2&gt;
+
+&lt;h3 id=&quot;organizational-change&quot;&gt;Organizational change&lt;/h3&gt;
+
+&lt;p&gt;As an organization that grew through acquisitions, at one point we found ourselves dealing with an unhealthy mix of cultures, duplicate roles and clashing mindsets. To remain lean and agile, we went through a restructuring at all levels.&lt;/p&gt;
+
+&lt;h3 id=&quot;inspiring-case-studies&quot;&gt;Inspiring case studies&lt;/h3&gt;
+
+&lt;p&gt;When we were evaluating the best ways to re-form the teams, we came across Amber King and Jess Huth’s talk on &lt;a href=&quot;https://www.youtube.com/watch?v=OVyt62kZKiA&quot;&gt;self-selection&lt;/a&gt; at Business Agility 2017 Conference. The lightbulb went on! Amber and Jess were describing exactly the situation we were in at that time and were reporting the positive effect of running a self-selection with the teams at Opower. We followed up with them on Skype afterwards. Hearing their compelling story again and being encouraged by their guidance, we left the call fired up to give the self-selection a try!&lt;/p&gt;
+
+&lt;h3 id=&quot;self-selection-manual&quot;&gt;Self-selection manual&lt;/h3&gt;
+
+&lt;p&gt;When it is your turn to plan for self-selection, pick up a copy of Sandy Mamoli and David Mole’s book &lt;a href=&quot;https://www.amazon.com/Creating-Great-Teams-Self-Selection-People/dp/1680501283&quot;&gt;“Creating Great Teams: How Self-Selection Lets People Excel”&lt;/a&gt;
+This very detailed facilitation guide from the inventors of self-selection process is indispensable in preparing for and facilitating a self-selection event.&lt;/p&gt;
+
+&lt;h3 id=&quot;past-success&quot;&gt;Past success&lt;/h3&gt;
+
+&lt;p&gt;What worked in our favor was the fact that Gilt had tried running a self-selection in 2012 as part of a transition to &lt;a href=&quot;http://zurb.com/word/two-pizza-team&quot;&gt;“two-pizza”&lt;/a&gt; teams. The self-selection event was called a Speed Dating, involved 50 people and 6 projects. Fun fact - a number of today’s leaders were involved in 2012 event as regular participants.&lt;/p&gt;
+
+&lt;h3 id=&quot;transparency&quot;&gt;Transparency&lt;/h3&gt;
+
+&lt;p&gt;We kept the preparation process very transparent. Dedicated Slack channel, Confluence page with progress updates and participants’ info, communication at the tech all-hands meetings and Q&amp;amp;A sessions – everything to avoid creating discomfort and to reduce the fear factor amongst team members.&lt;/p&gt;
+
+&lt;h2 id=&quot;self-selection-in-seven-steps&quot;&gt;Self-selection in seven steps&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/g74dlgH.png&quot; alt=&quot;Seven Steps of Self-Selection&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;1-get-leadership-buy-in&quot;&gt;1. Get Leadership Buy-In&lt;/h3&gt;
+
+&lt;p&gt;One of the first steps in a self-selection is getting buy-in from your leadership team. 
+Whether you start from &lt;a href=&quot;http://www.innolution.com/blog/distinguishing-between-feature-component-teams&quot;&gt;feature teams or component teams&lt;/a&gt;, a self-selection event has a potential of impacting the existing reporting structure in your organization. 
+Have an open conversation with each of the leaders to clarify the process, understand their concerns and answer questions.&lt;/p&gt;
+
+&lt;p&gt;Is there a small modification you can make to the process to mitigate these concerns and turn the leaders into your supporters? 
+From our experience, making a self-selection invitational and positioning it as “an experiment” fast-tracked its acceptance in the organization.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-identify-participants&quot;&gt;2. Identify Participants&lt;/h3&gt;
+
+&lt;p&gt;How many people will be involved in your self-selection? 
+Will it include all of your existing project teams or a subset?&lt;/p&gt;
+
+&lt;p&gt;Reducing the size of the self-selection to only a subset of the teams at HBC Digital made our experiment more plausible.
+By the same token, it created a bit of a confusion around who was in vs. who was not.&lt;/p&gt;
+
+&lt;p&gt;If you are running a self-selection for a subset of your teams, make sure that the list of participants is known and publicly available to everyone. Verify that the total number of participants is equal or smaller than the number of open spots on the new teams.&lt;/p&gt;
+
+&lt;h4 id=&quot;pre-selected-vs-free-moving-participants&quot;&gt;Pre-selected vs. free-moving participants&lt;/h4&gt;
+
+&lt;p&gt;Decide if you need to have any of the team members pre-selected in each team.
+For us, the only two pre-selected roles in each team were a Product Manager and a Tech Lead. They were the key partners in pitching the initiative to team members. All others (including Agile Project Managers) were invited to self-select into new teams.&lt;/p&gt;
+
+&lt;h4 id=&quot;ftes-vs-contractors&quot;&gt;FTEs vs. Contractors&lt;/h4&gt;
+
+&lt;p&gt;If you have contractors working on your projects alongside the full-time employees, you will need to figure out if limiting self-selection to full-time employees makes sense in your environment.&lt;/p&gt;
+
+&lt;p&gt;Since our typical team had a mix of full-time employees and contractors, it was logical for us to invite both groups to participate in the self-selection. After all, individuals were selecting the teams based on a business idea, a technology stack and the other individuals that they wanted to work with.
+We did make one adjustment to the process and asked contractors to give employees “first dibs” at selecting their new teams. Everyone had equal opportunity after the first round of the self-selection.&lt;/p&gt;
+
+&lt;h4 id=&quot;observers&quot;&gt;Observers&lt;/h4&gt;
+
+&lt;p&gt;Usually, you would want to limit participation to those directly involved in a self-selection.
+In our case, there was so much interest in the self-selection experiment across the organization, that we had to compromise by introducing an observer role.
+Observers were invited to join in the first part of the self-selection event. They could check out how the room was set up, take a peek at the participants’ cards. They could listen to initiative pitches for all teams, without making an actual selection.
+Observers were asked to leave after the break and before the start of actual teams’ selection.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-work-with-your-key-partners&quot;&gt;3. Work with Your Key Partners&lt;/h3&gt;
+
+&lt;h4 id=&quot;adjust-the-process-to-fit-your-needs&quot;&gt;Adjust the process to fit your needs&lt;/h4&gt;
+
+&lt;p&gt;During our prep work we discovered that some team members felt very apprehensive about self-selection processes. To some extent, it reminded them of a negative experience they had in their childhood with a selection into sports teams.  We collaborated with current teams’ Trifectas to reduce potential discomfort with the following adjustments:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/NhTu2Vs.jpg&quot; align=&quot;right&quot; width=&quot;180&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We modified the “I have no squad” poster into “Available to help” poster for a more positive spin.&lt;/li&gt;
+  &lt;li&gt;We made a compromise on consultants’ participation, asking them to add their cards to “I am available to help” poster in the first round and letting them participate equally starting from the second round.&lt;/li&gt;
+  &lt;li&gt;We introduced a “No first come first serve” rule to keep the options open for everyone and avoid informal pre-selection.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;product-managers-and-tech-leads-pitches&quot;&gt;Product Managers and Tech Leads pitches.&lt;/h4&gt;
+
+&lt;p&gt;Coach them to inspire people with their short pitches about a product vision and a technology stack:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Why is this initiative important to our business?&lt;/li&gt;
+  &lt;li&gt;How can you make a difference if you join?&lt;/li&gt;
+  &lt;li&gt;What exciting technologies will you get a chance to work with if you become a part of this team?&lt;/li&gt;
+  &lt;li&gt;What kind of team are we looking to build?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/VPruZcp.jpg&quot; align=&quot;right&quot; width=&quot;180&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;establish-the-team-formula&quot;&gt;Establish the team formula&lt;/h4&gt;
+
+&lt;p&gt;This part is really critical.&lt;/p&gt;
+
+&lt;p&gt;Your team formula may include the core team only, or like in our case, include members from the larger project community (Infrastructure Engineers, UX Designers etc.)
+As a facilitator, you want to understand very well the needs of each project in terms of specific roles and the number of people required for each role. Cross-check the total number of people based on the team formula with the number of people invited to participate in the self-selection. Avoid putting people into “musical chairs” at all cost!&lt;/p&gt;
+
+&lt;h3 id=&quot;4-evangelize&quot;&gt;4. Evangelize&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/MG8zRri.png&quot; align=&quot;right&quot; width=&quot;300&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Take the uncertainty out of the self-selection! Clarify questions, address concerns, play the “what-ifs”, collect questions and make answers available to everyone.&lt;/p&gt;
+
+&lt;p&gt;We learnt to use a variety of channels to spread the word about the self-selection:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;announcements at Tech All-hands meetings&lt;/li&gt;
+  &lt;li&gt;dedicated Q&amp;amp;A sessions with each existing group.&lt;/li&gt;
+  &lt;li&gt;Confluence Q&amp;amp;A page&lt;/li&gt;
+  &lt;li&gt;#self-selection Slack channel&lt;/li&gt;
+  &lt;li&gt;formal and informal one-on-one conversations (including hallway and elevator chats)&lt;/li&gt;
+  &lt;li&gt;discussion between the Tech Leads and Product Managers and their potential team members&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5-prepare&quot;&gt;5. Prepare&lt;/h3&gt;
+&lt;h4 id=&quot;space&quot;&gt;Space&lt;/h4&gt;
+
+&lt;p&gt;It was important for us to find the right space and set the right mood for the actual self-selection event.
+The space that worked for us met all of our criteria:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/M0tzdmN.jpg&quot; align=&quot;right&quot; width=&quot;300&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;1) Appropriate for the size of the group
+2) Natural light
+3) Separate space for pitches and for team posters
+4) Away from the usual team spaces (to minimize distractions)&lt;/p&gt;
+
+&lt;h4 id=&quot;food&quot;&gt;Food&lt;/h4&gt;
+
+&lt;p&gt;Speaking of the right mood, we had enough good snacks brought in for all participants and observers!&lt;/p&gt;
+
+&lt;p&gt;Depending on the time of the day, you may plan on bringing breakfast, lunch or snacks into your self-selection event. 
+We ran ours in the afternoon and brought in a selection of European chocolate, popcorn and juices.&lt;/p&gt;
+
+&lt;h4 id=&quot;posters&quot;&gt;Posters&lt;/h4&gt;
+
+&lt;p&gt;Help the participants remember the rules and find the team corners by preparing posters. Be creative, make them visually appealing. Here is what worked for us:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/P585DPe.jpg?1&quot; align=&quot;right&quot; width=&quot;300&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;1) One team poster per team with the project/team name, team formula and a team mascot.&lt;/p&gt;
+
+&lt;p&gt;2) Rules posters:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;“Do what’s best for the company”&lt;/li&gt;
+  &lt;li&gt;“Equal team selection opportunity”&lt;/li&gt;
+  &lt;li&gt;“Teams have to be capable of delivering end to end”&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;3) “Available to help” poster. This is very similar to “I have no squad” poster from Sandi Mamoli’s book. However, we wanted to make the message on that poster a little bit more positive.&lt;/p&gt;
+
+&lt;h4 id=&quot;participants-cards&quot;&gt;Participants Cards&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/aXZZoaM.jpg?1&quot; align=&quot;right&quot; width=&quot;180&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At a minimum, have a printed photo prepared for each participant and color-coded labels to indicated different roles.&lt;/p&gt;
+
+&lt;p&gt;We invested a little more time in making participants cards look like game cards and included:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;a LinkedIn photo of the participant&lt;/li&gt;
+  &lt;li&gt;their name&lt;/li&gt;
+  &lt;li&gt;a current role&lt;/li&gt;
+  &lt;li&gt;their proficiency and learning interests in the eleven team ingredients&lt;/li&gt;
+  &lt;li&gt;a space to indicate their first, second and third choices of the team (during the event).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Using our Team ingredients framework and Kahoot! survey platform we created a gamified self-assessment to collect the data for these cards.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/ubdUHcw.png&quot; align=&quot;right&quot; width=&quot;300&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Participants rated their skill levels and learning interests for each of the ingredients using the following scale:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3 – I can teach it&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2 – I can do it&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1 – I’d like to learn it&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;0 – Don’t make me do it&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;6-run&quot;&gt;6. Run&lt;/h3&gt;
+
+&lt;p&gt;It took us exactly one month to get to this point. 
+On the day of the self-selection the group walked into the room. The product managers, tech leads and the facilitator were already there. The room was set and ready for action!&lt;/p&gt;
+
+&lt;h4 id=&quot;initiative-pitches&quot;&gt;Initiative Pitches&lt;/h4&gt;
+
+&lt;p&gt;Participants picked up their cards and settled in their chairs, prepared to hear the initiative pitches and to make their selections. This was one of the most attentive audience we’ve seen! We didn’t even have to set the rules around device usage - everyone was giving the pitches their undivided attention.&lt;/p&gt;
+
+&lt;p&gt;After a short introduction from the facilitator and a “blessing” from one of the leaders, Product Managers and Tech Leads took the stage.&lt;/p&gt;
+
+&lt;p&gt;For each initiative they presented their vision of the product, the technology stack and their perspective on the team they’d like to build. It was impressive to see how each pair worked together to answer questions and inspire people. 
+At the end of the pitches, we took a short break. It was a signal for observers to leave the room.&lt;/p&gt;
+
+&lt;h4 id=&quot;two-rounds-of-self-selection&quot;&gt;Two rounds of self-selection&lt;/h4&gt;
+
+&lt;p&gt;After the break, Product Managers and Tech Leads took their places in the team corners. We ran two rounds of self-selection, ten minutes each.&lt;/p&gt;
+
+&lt;p&gt;During the &lt;em&gt;first self-selection round&lt;/em&gt; people walked around, checked the team formula, chatted with others and placed their cards on a poster of their first choice team. Contractors and others, who didn’t want to make a selection in the first round, placed their cards on “Available to help” poster. At the end of the round, each tech lead was asked to give an update on the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Was the team complete after this round?&lt;/li&gt;
+  &lt;li&gt;Were there any ingredients or skills missing in the team after the first round?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/YvflUIjl.jpg&quot; align=&quot;right&quot; width=&quot;180&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;During the &lt;em&gt;second round&lt;/em&gt;, there were more conversations, more negotiations and more movement between the teams. Some people agreed to move to their second choice teams to help fill the project needs. The “Do what’s best for the company” poster served as a good reminder during this process.&lt;/p&gt;
+
+&lt;p&gt;The debrief revealed that three teams out of four had been fully formed by the end of the second round.
+The last team had more open spots still. It was decided that those will be filled later by hiring new people with the required skillset.&lt;/p&gt;
+
+&lt;p&gt;The self-selection event was completed. It was a time to celebrate and to start planning the work with the new teams.&lt;/p&gt;
+
+&lt;h3 id=&quot;7-support-new-teams&quot;&gt;7. Support New Teams&lt;/h3&gt;
+
+&lt;h4 id=&quot;transition-plan&quot;&gt;Transition Plan&lt;/h4&gt;
+
+&lt;p&gt;With the self-selection exercise, our teams formed a vision for their ideal “end state”. Afterwards, we needed to figure out how to achieve that vision.
+Tech leads worked with their new team members to figure our the systems they supported,  the projects they were involved with at that time and mapped out the transition plan.&lt;/p&gt;
+
+&lt;h4 id=&quot;team-working-agreement&quot;&gt;Team Working Agreement&lt;/h4&gt;
+
+&lt;p&gt;Once all members of the new teams were available to start, we faciliated &lt;a href=&quot;https://www.amazon.com/Liftoff-Launching-Agile-Teams-Projects/dp/097792016X&quot;&gt;Liftoff&lt;/a&gt; workshops to help them get more details on the product purpose, establish team working agreements and help the teams understand larger organizational context.&lt;/p&gt;
+
+&lt;h4 id=&quot;coachingmeasuring-happiness&quot;&gt;Coaching/Measuring Happiness&lt;/h4&gt;
+
+&lt;p&gt;Our experiment didn’t stop there. We continue checking in with the team through coaching, measuring happiness (we use gamified &lt;a href=&quot;https://play.kahoot.it/#/?quizId=6815b7d1-29ba-4d1a-a859-295a5ed91693&quot;&gt;Spotify Squad Health check&lt;/a&gt;) and facilitating regular retrospectives.&lt;/p&gt;
+
+&lt;h2 id=&quot;whats-next&quot;&gt;What’s next?&lt;/h2&gt;
+
+&lt;p&gt;As our roadmap continues to change and as we get more people joining the organization, we may consider running a self-selection again with a new group. 
+Or we may decide to move away from “large batches” of self-selection and experiment with a flow of &lt;a href=&quot;https://leanpub.com/dynamicreteaming&quot;&gt;Dynamic Reteaming&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Time will tell. One thing is clear - we will continue learning and experimenting.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-can-you-learn-more&quot;&gt;How can you learn more?&lt;/h2&gt;
+
+&lt;p&gt;We hope this blog post inspired you to think about a self-selection for your teams. Still have questions after reading it? Get in touch with us, we’d love to tell you more!&lt;/p&gt;
+
+&lt;h3 id=&quot;we-are-speaking&quot;&gt;We are speaking&lt;/h3&gt;
+
+&lt;p&gt;Join our talks and workshops around the World:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.slideshare.net/hhfleming/the-new-work-order-team-ingredients-and-role-blending&quot;&gt;“The New Work Order” keynote&lt;/a&gt; at Future of Work by Heather Fleming, VP People Operations &amp;amp; PMO&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://qconnewyork.com/ny2017/speakers/adrian-trenaman&quot;&gt;Removing Friction In the Developer Experience&lt;/a&gt; at QConn New York by Adrian Trenaman, SVP Engineering&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.scrumalliance.org/sgdub&quot;&gt;Discover Your Dream Teams Through Self-Selection with a Team Ingredients Game&lt;/a&gt; at Global Scrum Gathering Dublin by Dana Pylayeva, Agile Coach&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;great-books-that-inspired-us&quot;&gt;Great books that inspired us&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Sandy Mamoli, David Mole &lt;a href=&quot;https://www.amazon.com/Creating-Great-Teams-Self-Selection-People/dp/1680501283&quot;&gt;“Creating Great Teams: How Self-Selection Lets People Excel”&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Diana Larsen, Ainsley Nies &lt;a href=&quot;https://www.amazon.com/Liftoff-Launching-Agile-Teams-Projects/dp/097792016X&quot;&gt;Liftoff: Launching Agile Teams &amp;amp; Projects&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Heidi Shetzer Helfand &lt;a href=&quot;https://leanpub.com/dynamicreteaming&quot;&gt;Dynamic Reteaming. The Art and Wisdom of Changing Teams&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Dana Pylayeva</name></author><category term="culture" /><category term="agile" /><category term="self-selection" /><category term="leadership" /><summary></summary></entry><entry><title>CloudFormation Nanoservice</title><link href="https://saksdirect.github.io/hbc-tech-blog/aws/2017/05/19/cloudformation-nanoservice/" rel="alternate" type="text/html" title="CloudFormation Nanoservice" /><published>2017-05-19T00:00:00-05:00</published><updated>2017-05-19T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/aws/2017/05/19/cloudformation-nanoservice</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/aws/2017/05/19/cloudformation-nanoservice/">&lt;p&gt;One of the big HBC Digital initiatives for 2017 is “buy online, pickup in store” - somewhat awkwardly nicknamed “BOPIS” internally. This is the option for the customer to, instead of shipping an order to an address, pick it up in a store that has the items in inventory.&lt;/p&gt;
+
+&lt;p&gt;A small part of this new feature is the option to be notified of your order status (i.e. when you can pickup the order) via SMS. A further smaller part of the SMS option is what to do when a customer texts “STOP” (or some other similar stop word) in response to one of the SMS notifications. Due to laws such as the Telephone Consumer Protection Act (TCPA) and CAN-SPAM Act, we are required to immediately stop sending additional messages to a phone number, once that person has requested an end to further messaging.&lt;/p&gt;
+
+&lt;p&gt;Our SMS provider is able to receive the texted response from the customer and POST it to an endpoint of our choosing. We could wrap such an endpoint into one of our existing microservices, but the one that sends the SMS (our customer-notification-service) is super-simple: it receives order events and sends notifications (via email or SMS) based on the type of event. It is essentially a dumb pipe that doesn’t care about orders or users; it watches for events and sends messages to customers based on those events. Wrapping subscription information into this microservice felt like overstepping the bounds of the simple, clean job that it does.&lt;/p&gt;
+
+&lt;p&gt;So this is the story of how I found myself writing a very small service (nanoservice, if you will) that does one thing - and does it with close-to-zero maintenance, infrastructure, and overall investment. Furthermore, I decided to see if I could encapsulate it entirely within a single CloudFormation template.&lt;/p&gt;
+
+&lt;h1 id=&quot;how-we-got-here&quot;&gt;How we got here&lt;/h1&gt;
+
+&lt;p&gt;Here are the two things this nanoservice needs to do:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Receive the texted response and unsubscribe the customer if necessary&lt;/li&gt;
+  &lt;li&gt;Allow the customer notification service (CNS) to check the subscription status of a phone number before sending a SMS&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;In thinking about the volume of traffic for these two requests, we consider the following:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;This is on [https://www.saksfifthavenue.com] only (for the moment)&lt;/li&gt;
+  &lt;li&gt;Of the online Saks orders, only a subset of inventory is available to be picked up in the store&lt;/li&gt;
+  &lt;li&gt;Of the BOPIS-eligible items, only a subset of customers will choose to pickup in store&lt;/li&gt;
+  &lt;li&gt;Of those who choose to pickup in store, only a subset will opt-in for SMS messages&lt;/li&gt;
+  &lt;li&gt;Of those who opt-in for SMS, only a subset will attempt to stop messages after opting-in&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;For the service’s endpoints, the request volume for the unsub endpoint (#1 above) is roughly the extreme edge case of #5; the CNS check (#2) is the less-edgy-but-still-low-volume #4 above. So we’re talking about a very small amount of traffic: at most a couple dozen requests per day. This hardly justifies spinning up a microservice - even if it runs on a t2.nano, you still have the overhead of multiple nodes (for redundancy), deployment, monitoring, and everything else that comes with a new microservice. Seems like a perfect candidate for a serverless approach.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-architecture&quot;&gt;The architecture&lt;/h1&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;http://i.imgur.com/PurR7KJ.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;As mentioned above, a series of order events flows to the customer notification service, which checks to make sure that the destination phone number is not blacklisted. If it is not, CNS sends the SMS message through our partner, who in turn delivers the SMS to the customer. If the customer texts a response, our SMS partner proxies that message back to our blacklist service.&lt;/p&gt;
+
+&lt;p&gt;The blacklist service is a few Lambda functions behind API Gateway; those Lambda functions simply write to and read from DynamoDB. Because the stack is so simple, it felt like I could define the entire thing in a single artifact: one CloudFormation template. Not only would that be a geeky because-I-can coding challenge, it also felt really clean to be able to deploy a service using only one resource with no dependencies. It’s open source, so anyone can literally copy-paste the template into CloudFormation and have the fully-functioning service in the amount of time it takes to spin up the resources - with no further knowledge necessary. Plus, the template is in JSON (which I’ll explain later) and the functions are in Node.js, so it’s a bit of&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;http://i.imgur.com/Yd6AeB9.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h1 id=&quot;the-api&quot;&gt;The API&lt;/h1&gt;
+
+&lt;p&gt;Here at HBC Digital, we’ve really started promoting the idea of API-driven development (ADD). I like it a lot because it forces you to fully think through the most important models in your API, how they’re defined, and how clients should interact with them. You can iron out a lot of the kinks (Do I &lt;em&gt;really&lt;/em&gt; need this property? Do I need a search? How does the client edit? What needs to be exposed vs locked-down? etc) before you write a single line of code.&lt;/p&gt;
+
+&lt;p&gt;I like to sit down with a good API document editor such as &lt;a href=&quot;https://app.swaggerhub.com&quot;&gt;SwaggerHub&lt;/a&gt; and define the entire API at the beginning. The ADD approach worked really well for this project because we needed a quick turnaround time: the blacklist was something we weren’t expecting to own internally until very late in the project, so we had to get it in place and fully tested within a week or two. With an API document in hand (particularly one defined in &lt;a href=&quot;http://swagger.io&quot;&gt;Swagger&lt;/a&gt;), I was able to go from API definition to fully mocked endpoints (in API Gateway) in about 30 mins. The team working on CNS could then generate a client (we like the clients in &lt;a href=&quot;http://apidoc.me&quot;&gt;Apidoc&lt;/a&gt;, an open-source tool developed internally that supports Swagger import) and immediately start integrating against the API. This then freed me to work on the implementation of the blacklist service without being a blocker for the remainder of the team. We settled on the blacklist approach one day; less than 24 hours later we had a full API defined with no blockers for development.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;http://ui.apidoc.me/org/gilt/app/blacklist-nanoservice&quot;&gt;API definition&lt;/a&gt; is fairly generic: it supports blacklisting any uniquely-defined key for any type of notification. The main family of endpoints looks like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/{notification_type}/{blacklist_id}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;notification_type&lt;/code&gt; currently only supports &lt;code class=&quot;highlighter-rouge&quot;&gt;sms&lt;/code&gt;, but could very easily be expanded to support things like &lt;code class=&quot;highlighter-rouge&quot;&gt;email&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;push&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;facebook-messenger&lt;/code&gt;, etc. With this, you could blacklist phone numbers for &lt;code class=&quot;highlighter-rouge&quot;&gt;sms&lt;/code&gt; independently from email addresses for &lt;code class=&quot;highlighter-rouge&quot;&gt;email&lt;/code&gt; independently from device IDs for &lt;code class=&quot;highlighter-rouge&quot;&gt;push&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;A simple GET checks to see if the identifier of the destination is blacklisted for that type of notification:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; curl https://your-blacklist-root/sms/555-555-5555
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;message&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Entry not blacklisted&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This endpoint is used by CNS to determine whether or not it should send the SMS to the customer. In addition to the GET endpoint, the API defines a PUT and a DELETE for manual debugging/cleanup - though a client could also use them directly to maintain the blacklist.&lt;/p&gt;
+
+&lt;p&gt;The second important endpoint is a POST that receives a XML document with details about the SMS response:&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;moMessage&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;messageId=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;123456789&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;receiptDate=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;YYYY-MM-DD HH:MM:SS Z&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;attemptNumber=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;source&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;address=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;+15555555555&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;carrier=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;MDN&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;destination&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;address=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;12345&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;SC&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;message&amp;gt;&lt;/span&gt;Stop texting me&lt;span class=&quot;nt&quot;&gt;&amp;lt;/message&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/moMessage&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The important bits are the source address (the phone number that sent the message) and the message itself. With those, the API can determine whether or not to add the phone number to the blacklist. If it does, the next time CNS calls the GET endpoint for that phone number, the API will return a positive result for the blacklist and CNS will not send the SMS. The POST to &lt;code class=&quot;highlighter-rouge&quot;&gt;/mo_message&lt;/code&gt; lives at the top-level because it is only through coincidence that it results in blacklisting for SMS; one could imagine other endpoints at the top-level that blacklist from other types of notifications - or even multiple (depending on the type of event).&lt;/p&gt;
+
+&lt;h1 id=&quot;lets-see-some-code&quot;&gt;Let’s see some &lt;a href=&quot;https://github.com/gilt/blacklist&quot;&gt;code&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;First there are a couple functions shared across all the endpoints (and their backing Lambda functions):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-node&quot;&gt;function withSupportedType(event, context, lambdaCallback, callback) {
+  const supportedTypes = ['sms'];
+  if (supportedTypes.indexOf(event.pathParameters.notification_type.toLowerCase()) &amp;gt;= 0) {
+    callback(event.pathParameters.notification_type.toLowerCase());
+  } else {
+    lambdaCallback(null, { statusCode: 400, body: JSON.stringify({ message: 'Notification type [' + event.pathParameters.notification_type + '] not supported.' }) });
+  }
+}
+
+function sanitizeNumber(raw) {
+  var numbers = raw.replace(/[^\d]+/g, '');
+  if (numbers.match(/^1\d{10}$/)) numbers = numbers.substring(1, 11);
+  return numbers;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;These are there to ensure that each Lambda function is a) dealing with invalid notification_types and b) cleaning up the phone number in the same manner across all functions. Given those common functions, the amount of code for each function is fairly minimal.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://github.com/gilt/blacklist/blob/master/app/Get.js&quot;&gt;GET&lt;/a&gt; endpoint simply queries the DynamoDB for the unique combination of &lt;code class=&quot;highlighter-rouge&quot;&gt;notification_type&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;blacklist_id&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-node&quot;&gt;const AWS = require('aws-sdk'),
+      dynamo = new AWS.DynamoDB();
+
+exports.handler = (event, context, callback) =&amp;gt; {
+  const blacklistId = sanitizeNumber(event.pathParameters.blacklist_id);
+  withSupportedType(event, context, callback, function(notificationType) {
+    dynamo.getItem({
+      TableName: event.stageVariables.TABLE_NAME,
+      Key: { Id: { S: blacklistId }, Type: { S: notificationType } }
+    }, function(err, data) {
+      if (err) return callback(err);
+      if ((data &amp;amp;&amp;amp; data.Item &amp;amp;&amp;amp; afterNow(data, &quot;DeletedAt&quot;)) || !onWhitelist(blacklistId, event.stageVariables.WHITELIST)) {
+        callback(null, { statusCode: 200, body: JSON.stringify({ id: blacklistId }) });
+      } else {
+        callback(null, { statusCode: 404, body: JSON.stringify({ message: &quot;Entry not blacklisted&quot; }) });
+      }
+    })
+  });
+}
+
+function afterNow(data, propertyName) {
+  if (data &amp;amp;&amp;amp; data.Item &amp;amp;&amp;amp; data.Item[propertyName] &amp;amp;&amp;amp; data.Item[propertyName].S) {
+    return Date.parse(data.Item[propertyName].S) &amp;gt;= new Date();
+  } else {
+    return true;
+  }
+}
+
+// Set the whitelist in staging to only allow certain entries.
+function onWhitelist(blacklistId, whitelist) {
+  if (whitelist &amp;amp;&amp;amp; whitelist.trim() != '') {
+    const whitelisted = whitelist.split(',');
+    return whitelisted.findIndex(function(item) { return blacklistId == item.trim(); }) &amp;gt;= 0;
+  } else {
+    return true;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Disregarding the imports at the top and some minor complexity around a whitelist (which we put in place only for staging/test environments so we don’t accidentally spam people while testing), it’s about a dozen lines of code (depending on spacing) - with minimal boilerplate. This is the realization of one of the promises of the serverless approach: very little friction against getting directly to the meat of what you’re trying to do. There is nothing here about request routing or dependency-injection or model deserialization; the meaningful-code-to-boilerplate ratio is extremely high (though we’ll get to deployment later).&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://github.com/gilt/blacklist/blob/master/app/Put.js&quot;&gt;PUT&lt;/a&gt; (add an entry to the blacklist, managing soft-deletes correctly)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-node&quot;&gt;exports.handler = (event, context, callback) =&amp;gt; {
+  const blacklistId = sanitizeNumber(event.pathParameters.blacklist_id);
+  withSupportedType(event, context, callback, function(notificationType) {
+    dynamo.updateItem({
+      TableName: event.stageVariables.TABLE_NAME,
+      Key: { Id: { S: blacklistId }, Type: { S: notificationType } },
+      ExpressionAttributeNames: { '#l': 'Log' },
+      ExpressionAttributeValues: {
+        ':d': { S: (new Date()).toISOString() },
+        ':m': { SS: [ toMessageString(event) ] }
+      },
+      UpdateExpression: 'SET UpdatedAt=:d ADD #l :m REMOVE DeletedAt'
+    }, function(err, data) {
+      if (err) return callback(err);
+      callback(null, { statusCode: 200, body: JSON.stringify({ id: blacklistId }) });
+    })
+  });
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and &lt;a href=&quot;https://github.com/gilt/blacklist/blob/master/app/Delete.js&quot;&gt;DELETE&lt;/a&gt; (soft-delete entries when present)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-node&quot;&gt;exports.handler = (event, context, callback) =&amp;gt; {
+  const blacklistId = sanitizeNumber(event.pathParameters.blacklist_id);
+  withSupportedType(event, context, callback, function(notificationType) {
+    dynamo.updateItem({
+      TableName: event.stageVariables.TABLE_NAME,
+      Key: { Id: { S: blacklistId }, Type: { S: notificationType } },
+      ExpressionAttributeNames: { '#l': 'Log' },
+      ExpressionAttributeValues: {
+        ':d': { S: (new Date()).toISOString() },
+        ':m': { SS: [ toMessageString(event) ] }
+      },
+      UpdateExpression: 'SET DeletedAt=:d, UpdatedAt=:d ADD #l :m'
+    }, function(err, data) {
+      if (err) return callback(err);
+      callback(null, { statusCode: 200, body: JSON.stringify({ id: blacklistId }) });
+    })
+  });
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;functions are similarly succinct. The &lt;a href=&quot;https://github.com/gilt/blacklist/blob/master/app/MoMessage.js&quot;&gt;POST&lt;/a&gt; endpoint that receives the moMessage XML is a bit more verbose, but only because of a few additional corner cases (i.e. when the origin phone number or the message isn’t present).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-node&quot;&gt;exports.handler = (event, context, callback) =&amp;gt; {
+  const moMessageXml = event.body;
+  if (messageMatch = moMessageXml.match(/&amp;lt;message&amp;gt;(.*)&amp;lt;\/message&amp;gt;/)) {
+    if (messageMatch[1].toLowerCase().match(process.env.STOP_WORDS)) { // STOP_WORDS should be a Regex
+      if (originNumberMatch = moMessageXml.match(/&amp;lt;\s*source\s+.*?address\s*=\s*[&quot;'](.*?)[&quot;']/)) {
+        var originNumber = sanitizeNumber(originNumberMatch[1]);
+        dynamo.updateItem({
+          TableName: event.stageVariables.TABLE_NAME,
+          Key: { Id: { S: originNumber }, Type: { S: 'sms' } },
+          ExpressionAttributeNames: { '#l': 'Log' },
+          ExpressionAttributeValues: {
+            ':d': { S: (new Date()).toISOString() },
+            ':m': { SS: [ moMessageXml ] }
+          },
+          UpdateExpression: 'SET UpdatedAt=:d ADD #l :m REMOVE DeletedAt'
+        }, function(err, data) {
+          if (err) return callback(err);
+          callback(null, { statusCode: 200, body: JSON.stringify({ id: originNumber }) });
+        });
+      } else {
+        callback(null, { statusCode: 400, body: JSON.stringify({ message: 'Missing source address' }) });
+      }
+    } else {
+      callback(null, { statusCode: 200, body: JSON.stringify({ id: '' }) });
+    }
+  } else {
+    callback(null, { statusCode: 400, body: JSON.stringify({ message: 'Invalid message xml' }) });
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A couple things to call out here. First - and I know this looks terrible - this function doesn’t parse the XML - it instead uses regular expressions to pull out the data it needs. This is because Node.js doesn’t natively support XML parsing and importing a library to do it is not possible given my chosen constraints (the entire service defined in a CloudFormation template); I’ll explain further below. Second, there is expected to be a Lambda environment variable named &lt;code class=&quot;highlighter-rouge&quot;&gt;STOP_WORDS&lt;/code&gt; that contains a regular expression to match the desired stop words (things like stop, unsubscribe, fuck you, etc).&lt;/p&gt;
+
+&lt;p&gt;That’s pretty much the extent of the production code.&lt;/p&gt;
+
+&lt;h1 id=&quot;deployment---cloudformation&quot;&gt;Deployment - CloudFormation&lt;/h1&gt;
+
+&lt;p&gt;Here’s where this project gets a little verbose. Feel free to reference the &lt;a href=&quot;https://github.com/gilt/blacklist/blob/master/cloudformation/deploy-blacklist.template&quot;&gt;final CloudFormation template&lt;/a&gt; as we go through this. In broad strokes, this template matches the simple architecture diagram above: API Gateway calls Lambda functions which each interact with the same DynamoDB database. The bottom of the stack (i.e. the top of the template) is fairly simple: two DynamoDBs (one for prod, one for stage) and an IAM role that allows the Lambda functions to access the databases.&lt;/p&gt;
+
+&lt;p&gt;On top of that are the four Lambda functions - which contain the Node.js code (this is the “YO DAWG” part, since the Javascript is &lt;em&gt;in&lt;/em&gt; the JSON template) - plus individual permissions for API gateway to call each function. This section (at the bottom of the template) is long but is mostly code-generated (we’ll get to that later).&lt;/p&gt;
+
+&lt;p&gt;In the middle of the template lie a bunch of CloudFormation resources that define the API Gateway magic: a top-level Api record; resources that define the path components under that Api; methods that define the endpoints and which Lambda functions they call; separate configurations for stage vs prod. At this point, we’re just going to avert our eyes and reluctantly admit that, okay, fine, serverless still requires some boilerplate (just not inline with the code, damn it!). At some level, every service needs to define its endpoints; this is where our blacklist nanoservice does it.&lt;/p&gt;
+
+&lt;p&gt;All-in, the CloudFormation template approaches 1000 lines (fully linted, mind you, so there are a bunch of lines with just tabs and curly brackets). “But wait!” you say, “Doesn’t CloudFormation support YAML now?” Why yes, yes it does. I even started writing the template in YAML until I realized I shouldn’t.&lt;/p&gt;
+
+&lt;h1 id=&quot;bringing-cloudformation-together-with-nodejs&quot;&gt;Bringing CloudFormation together with Node.js&lt;/h1&gt;
+
+&lt;p&gt;To fully embed the Node.js functions inside the CloudFormation template would have been terrible. How would you run the code? How would you test it? A cycle of: tweak the code =&amp;gt; deploy the template to the CloudFormation stack =&amp;gt; manually QA - that would be a painful way of working. It’s unequivocally best to be able to write fully isolated and functioning &lt;a href=&quot;https://github.com/gilt/blacklist/tree/master/app&quot;&gt;Node.js code&lt;/a&gt;, plus &lt;a href=&quot;https://github.com/gilt/blacklist/tree/master/test/app&quot;&gt;unit tests&lt;/a&gt; in a standard manner. The problem is that Node.js code then needs to be zipped and uploaded to S3 and referenced by the CloudFormation template - which would create a dependency for the template and would not have achieved the goal of defining the entire service in a single template with no dependencies.&lt;/p&gt;
+
+&lt;p&gt;To resolve this, I wrote a &lt;a href=&quot;https://github.com/gilt/blacklist/blob/master/bin/package.js&quot;&gt;small packaging script&lt;/a&gt; that reads the app’s files and embeds them in the CloudFormation template. This can then be run after every code change (which obviously would have unit tests and a passing CI build), to keep the template inline with all code changes. The script is written in Node.js (hey, if you’re running tests locally, you must already have Node.js installed locally), so a CloudFormation template written in JSON (as opposed to YAML) is essentially native - no parsing necessary. The script can load the template as JSON, inject a CloudFormation resource for each function in the &lt;code class=&quot;highlighter-rouge&quot;&gt;/app&lt;/code&gt; directory, copy that function’s code into the resource, and iterate. Which brings us to&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;http://i.imgur.com/ffgqeh7.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The other thing to note about going down the path of embedding the Node.js code directly in the CloudFormation template (as opposed to packaging it in a zip file): all code for a function must be fully contained within that function definition (other than the natively supported AWS SDK). This has two implications: first, we can’t include external libraries such as a XML parser or a Promise framework (notice all the code around callbacks, which makes the functions a little more verbose than I’d like). Second, we can’t DRY out the functions by including common functions in a shared library; thus they are repeated in the code for each individual function.&lt;/p&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;So that’s it: we end up with a 1000-line CloudFormation template that entirely defines a blacklist nanoservice that exposes four endpoints and runs entirely serverless. It is fully tested, can run as a true Node.js app (if you want), and will likely consume so few resources that it is essentially free. We don’t need to monitor application servers, we don’t need to administer databases, we don’t need any non-standard deployment tooling. And there are even separate stage and production versions.&lt;/p&gt;
+
+&lt;p&gt;You can try it out for yourself by building a CloudFormation stack using the &lt;a href=&quot;https://github.com/gilt/blacklist/blob/master/cloudformation/deploy-blacklist.template&quot;&gt;template&lt;/a&gt;. Enjoy!&lt;/p&gt;</content><author><name>Ryan Martin</name></author><category term="aws" /><category term="cloudformation" /><category term="sms" /><category term="nanoservice" /><category term="api-driven development" /><category term="swagger" /><category term="apibuilder" /><category term="serverless" /><summary>One of the big HBC Digital initiatives for 2017 is “buy online, pickup in store” - somewhat awkwardly nicknamed “BOPIS” internally. This is the option for the customer to, instead of shipping an order to an address, pick it up in a store that has the items in inventory.</summary></entry></feed>
