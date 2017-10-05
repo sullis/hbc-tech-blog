@@ -21,7 +21,7 @@
 	    {% for article in pages_list %}
 	      {% if article.title != null %}
 	      {% if group == null or group == article.group %}
-	      <li class="tags__list-item"><a class="tags__list-item__link"href="{{ site.url }}{{ site.baseurl }}/{{ article.url }}">{{ article.title }}<span class="entry-date"><time datetime="{{ article.date | date_to_xmlschema }}" itemprop="datePublished">{{ article.date | date: "%B %d, %Y" }}</time></span></a></li>
+	      <li class="tags__list-item"><a class="tags__list-item__link" href="{{ site.url }}{{ site.baseurl }}{{ article.url }}">{{ article.title }}<span class="entry-date"><time datetime="{{ article.date | date_to_xmlschema }}" itemprop="datePublished">{{ article.date | date: "%B %d, %Y" }}</time></span></a></li>
 	      {% endif %}
 	      {% endif %}
 	    {% endfor %}
