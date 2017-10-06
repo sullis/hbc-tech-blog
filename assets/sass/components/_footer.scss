@@ -19,8 +19,25 @@
 	}
 
 	.hbc-stripes-logo {
-		height: 25px;
-		width: 25px;
+
+		.hbc-stripe {
+
+			&--green {
+				fill: $hbc-green;
+			}
+
+			&--red {
+				fill: $hbc-red;
+			}
+
+			&--yellow {
+				fill: $hbc-yellow;
+			}
+
+			&--blue {
+				fill: $hbc-blue;
+			}
+		}
 	}
 
 	@media screen and (max-width: $breakpoint-small) {
@@ -37,6 +54,12 @@
 
 		.hbc-stripes-logo {
 			display: none;
+
+			svg {
+				#hbc-green {
+					fill: $hbc-green;
+				}
+			}
 		}
 	}
 
