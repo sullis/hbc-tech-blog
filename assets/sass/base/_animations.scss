@@ -1,8 +1,4 @@
 @keyframes reveal-article {
-    from {
-        opacity: 0;
-        top: 200px;
-    }
     to {
 		opacity: 1;
 		top: 0;
@@ -12,6 +8,14 @@
 @keyframes reveal-feature-image {
     to { 
         clip-path: polygon(0% 4vw, 100% 0%, 100% 100%, 0% 100%);
+        box-shadow: inset 0px -150px 20000px 40px white;
+    }
+}
+
+@keyframes reveal-feature-image--mobile {
+    to {
+        clip-path: polygon(0% 4vw, 100% 0%, 100% 100%, 0% 100%);
+        box-shadow: inset 0px -50px 20000px 40px white;
     }
 }
 
@@ -39,3 +43,25 @@
     }
 }
 
+// hbc-stripes
+// $hbc-green: #00704a;
+// $hbc-red: #b30838;
+// $hbc-yellow: #eeb211;
+// $hbc-blue: #00274c;
+@keyframes color-animation {
+    0% {
+        background: $hbc-yellow;
+    }
+    33% {
+        background: $hbc-red;
+    }
+    66% {
+        background: $hbc-blue;
+    }
+    90% {
+        background: $hbc-green;
+    }
+    100% {
+        background: $hbc-yellow;
+    }
+}
