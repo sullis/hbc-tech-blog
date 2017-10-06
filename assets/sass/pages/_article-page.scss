@@ -153,7 +153,8 @@
 						}
 
 					.hbc-svg-icon {
-						fill: $hbc-gray-2;
+						fill: desaturate(lighten($hbc-highlight, 20%), 75%);
+						transition: fill 200ms ease-out;
 					}
 
 					&--reveal {
@@ -215,6 +216,10 @@
             animation-duration: 0.5s, 20s;
 	        animation-delay: 0s, 0.5s;
 	    }
+
+    	&__feature-image {
+	        animation-name: reveal-feature-image--mobile;
+		}
 
 		.article__content {
 			padding-top: 30px;

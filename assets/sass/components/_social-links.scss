@@ -1,12 +1,8 @@
 .social-links {
-	float: right;
 
 	&__list {
-		display: inline-block;
-		list-style-type: none;
-		text-indent: 0;
 		padding: 0;
-		margin: 26px 0 0 20px;
+	    margin: 0;
 	}
 
 	&__list-item {
@@ -35,7 +31,6 @@
 
 
 	@media screen and (max-width: $breakpoint-small) {
-		float: none;
 
 		&__list {
 			margin: 26px 0 20px 0;

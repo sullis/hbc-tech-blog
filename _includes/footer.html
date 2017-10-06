@@ -1,4 +1,7 @@
 <footer class="footer">
+	<svg class="hbc-stripes-logo" xmlns="http://www.w3.org/2000/svg">
+		<use class="hbc-stripes-logo__use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#hbc-stripes-logo" ></use>
+	</svg>
 	<section class="footer__links">
 		{% include social-links.html %}
 		<ul class="navigation navigation--footer">
@@ -6,6 +9,6 @@
 			  <li class="navigation__link-item"><a href="{{ site.url }}{{ site.baseurl }}/{{ link.url }}" class="navigation__link"><span class="navigation__link-highlight">{{ link.title }}</span></a></li>
 			{% endfor %}
 		</ul>
+	<p class="copyright">&copy; {{ site.time | date: '%Y' }} {{ site.title }}</i></p>
 	</section>
-  <p class="copyright">&copy; {{ site.time | date: '%Y' }} {{ site.title }}</i></p>
 </footer>

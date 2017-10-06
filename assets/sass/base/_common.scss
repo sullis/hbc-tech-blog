@@ -3,7 +3,7 @@ $hbc-black: #000000;
 $hbc-white: #ffffff;
 $hbc-off-white: #ffffff; // possibly #EFE7DF
 $hbc-highlight: #E94F3D;
-$hbc-border: #ccc;
+$hbc-border: darken(rgba($hbc-highlight, 0.12), 35%);
 $hbc-gray: #777;
 $hbc-gray-2: #999;
 $hbc-gray-3: #4A4A4A;
