@@ -2,7 +2,7 @@
     display: flex;
     float: right;
     width: 350px;
-    margin: 30px 30px 0 0;
+    margin: 8px 0;
     padding: 0;
     -webkit-backface-visibility: hidden; /* add to fix webkit bug jitter */
     -webkit-transform: perspective(1000px); /* add to fix webkit bug jitter */

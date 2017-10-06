@@ -6,15 +6,32 @@
     z-index: 100;
 	-webkit-backface-visibility: hidden; /* add to fix webkit bug jitter */
 	-webkit-transform: perspective(1000px); /* add to fix webkit bug jitter */
-    transition: all 0ms ease-out;
+    transition: all 100ms ease-out;
+    padding: 40px 5vw;
+    margin-bottom: 40px;
 
 	&__logo {
 	    display: inline-block;
-	    margin: 30px 20px 20px 40px;
+	    width: 150px;
 
 		.hbc-tech-logo {
+			display: flex;
 		    width: 100px;
-		    height: 100px;
+		    height: 86px;
+	        transition: all 200ms ease-out;
+		}
+
+		.est1670 {
+		    width: 100px;
+		    height: 9px;
+	        transition: all 200ms ease-out;
+		}
+
+		.hbc-stripes-logo {
+		    width: 100px;
+		    height: 30px;
+		    transform: scale(1.7);
+		    transform-origin: 0% 0%;
 	        transition: all 200ms ease-out;
 		}
 	}
@@ -26,34 +43,47 @@
 
 	    &--scaled {
     	    transition: all 300ms ease-out;
-	    	max-height: 65px;
-	    	box-shadow: darken(rgba($hbc-highlight, 0.15), 40%) 0px 1px 3px;	
-
-	    	.site-header__logo {
-			    margin: 10px 20px 0 20px;
-	    	}
+	        padding: 10px 20px 10px 40px;
+		    margin-bottom: 10px;
+		    max-height: 75px;
+	    	box-shadow: darken(rgba($hbc-highlight, 0.15), 40%) 0px 1px 3px;
+			-webkit-backface-visibility: hidden; /* add to fix webkit bug jitter */
+			-webkit-transform: perspective(1000px); /* add to fix webkit bug jitter */	
 
 			.hbc-tech-logo {
 			    width: 50px;
 			    height: 50px;
 			}
 
-			.navigation {
-				margin: 12px 30px 0 0;
+			.est1670 {
+			    width: 0px;
+			    height: 0px;
 			}
+
+			.hbc-stripes-logo {
+			    transform: scale(1.2);
+			    margin-top: 10px;
+			}
+
+			.navigation {
+				margin-right: 20px;
+			}
+
 	    }
 	}
 
 	.sticky-nav-meta {
 		display: inline-block;
 	    position: relative;
-	    top: -24px;
+	    top: -5px;
 	    opacity: 0;
+	    visibility: hidden;
 		transition: opacity 200ms ease-in, transform 200ms ease-out;
     	transform: translateX(20px);
 
 	    &--show {
 	    	opacity: 1;
+		    visibility: visible;
 	    	transform: translateX(0);
 	    }
 
@@ -85,7 +115,8 @@
 	
 
     @media screen and (max-width: $breakpoint-medium) {
-		position: relative;
+		padding: 20px 0;
+	    margin-bottom: 0;
 
     	.sticky-nav-meta {
     		display: none;
@@ -94,11 +125,19 @@
 		&__logo {
 			display: block;
 			text-align: center;
-			margin: 20px 0 0 0;
 
 			.hbc-tech-logo {
 			    width: 50px;
 			    height: 50px;
+		        margin: 0 auto 10px auto;
+			}
+
+			.est1670 {
+			    display: none;
+			}
+
+			.hbc-stripes-logo {
+			    transform: scale(1);
 			}
 		}
     }

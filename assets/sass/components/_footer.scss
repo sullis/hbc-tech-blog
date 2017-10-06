@@ -7,7 +7,7 @@
 
 	.copyright {
 		text-align: right;
-		font-size: 16px;
+		font-size: 14px;
 		width: 100%;
 	}
 
@@ -19,6 +19,8 @@
 	}
 
 	.hbc-stripes-logo {
+		height: 30px;
+		width: 130px;
 
 		.hbc-stripe {
 
@@ -43,7 +45,12 @@
 	.hbc-tech-logo {
 	    width: 80px;
 	    height: 80px;
+	}
 
+	.est1670 {
+	    height: 18px;
+	    width: 119px;
+	    fill: $hbc-gray;
 	}
 
 	@media screen and (max-width: $breakpoint-small) {
@@ -58,14 +65,8 @@
 			text-align: center;
 		}
 
-		.hbc-stripes-logo {
-			display: none;
-
-			svg {
-				#hbc-green {
-					fill: $hbc-green;
-				}
-			}
+		.est1670 {
+		    display: none;
 		}
 	}
 
