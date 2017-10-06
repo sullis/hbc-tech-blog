@@ -40,3 +40,16 @@ body {
 img {
 	max-width: 100%;
 }
+
+.slug-divider {
+	&:after {
+		display: inline-block;
+		position: relative;
+		content: "";
+		height: 20px;
+		top: 5px;
+		border-right: solid 1px $hbc-border;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}

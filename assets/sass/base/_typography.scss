@@ -80,4 +80,22 @@ blockquote {
 	}
 }
 
+@mixin special-text-link() {
+	transition: margin-bottom 150ms ease-out, padding-bottom 150ms ease-out, padding-bottom 150ms ease-out, color 150ms ease-out;
+	margin-bottom: 2px;
+	padding-bottom: 0px;
+	border-bottom: solid 1px $hbc-white;
+	display: inline-block;
+	text-decoration: none;
+    line-height: 100%;
+
+	&:hover {
+		padding-bottom: 2px;
+		margin-bottom: 0px;
+		// text-decoration: underline;
+		border-bottom: solid 1px $hbc-highlight;
+		color: $hbc-highlight;
+	}
+}
+
 

@@ -50,13 +50,8 @@
 		}
 
 		&__list-item__link {
-			text-decoration: none;
-			color: $hbc-black;
 
-			&:hover {
-				text-decoration: underline;
-				color: $hbc-highlight;
-			}
+				@include special-text-link();
 		}
 
 		&__list-header {

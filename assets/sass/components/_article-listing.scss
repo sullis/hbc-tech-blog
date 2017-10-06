@@ -84,6 +84,7 @@
 			&__title {
 				padding-right: 20px;
 				margin: 0 0 15px 0;
+			    font-weight: 500;
 			}
 
 			&__list {
@@ -98,15 +99,10 @@
 
 			&__list-item__link {
 				text-decoration: none;
-				text-transform: capitalize;
-				padding-left: 3px;
-				color: $hbc-highlight;
-				transition: padding-left 200ms ease-out;
+				text-transform: uppercase;
+				color: $hbc-gray-2;
 
-				&:hover {
-					padding-left: 0;
-					text-decoration: underline;
-				}
+				@include special-text-link();
 
 			}
 		}

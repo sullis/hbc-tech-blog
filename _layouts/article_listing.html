@@ -45,6 +45,7 @@ layout: default
                 {% endif %}
 
                 {% if post.author != '' %}
+                    <span class="slug-divider"></span>
                     {% for authorName in post.author %}
                         {% assign authorLink = authorName | replace: ' ', '-' | downcase %}
                         <!-- if author exists in site.authors, create link to author's page -->

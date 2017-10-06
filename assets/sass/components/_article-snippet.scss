@@ -50,32 +50,21 @@
 			&__category-link {
 				color: $hbc-highlight;
 				text-transform: uppercase;
-				text-decoration: none;
 			    font-size: 15px;
 
-				&:after {
-					display: inline-block;
-					position: relative;
-					content: "";
-					height: 20px;
-					top: 5px;
-					border-right: solid 1px $hbc-border;
-					margin-left: 10px;
-					margin-right: 10px;
-				}
+				@include special-text-link();
 
-				&:hover {
-					text-decoration: underline;
-				}
+			}
+
+			&__author {
+				color: $hbc-gray;
 			}
 
 			&__author-link {
 				text-decoration: none;
 				color: $hbc-highlight;
 
-				&:hover {
-					text-decoration: underline;
-				}
+				@include special-text-link();
 			}
 
 			&__author-job-title {

@@ -42,6 +42,8 @@
         {% endif %}
 
         {% if post.author != '' %}
+            <span class="slug-divider"></span>
+            <span class="meta__author">
             {% for authorName in post.author %}
                 {% assign authorLink = authorName | replace: ' ', '-' | downcase %}
                 <!-- if author exists in site.authors, create link to author's page -->
@@ -63,6 +65,7 @@
                 <span>,</span>
                 {% endunless %}
             {% endfor %}
+            </span>
         {% else %}
             {{ site.title }}
         {% endif %}

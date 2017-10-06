@@ -24,14 +24,10 @@
 		}
 
 		&__view-all-link {
-			display: inline-block;
-			text-decoration: none;
 			color: $hbc-highlight;
 			font-size: 18px;
 
-			&:hover {
-				border-bottom: solid 1px $hbc-highlight;
-			}
+			@include special-text-link();
 		}
 	}
 
