@@ -92,28 +92,31 @@ document.addEventListener('DOMContentLoaded',function() {
 
         randomizeArticleHeaderColors: function() {
             var headerBackgroundElm = document.querySelector(".article__no-feature-image");
-            var colorsArray = [
-                "#00704a",
-                "#b30838",
-                "#eeb211",
-                "#00274c",
-                "#00704a",
-                "#b30838",
-                "#eeb211",
-                "#00274c"
-            ];
 
-            function getRandomInt(min, max) {
-                min = Math.ceil(min);
-                max = Math.floor(max);
-                return Math.floor(Math.random() * (max - min)) + min;
+            if (headerBackgroundElm != null) {
+                var colorsArray = [
+                    "#00704a",
+                    "#b30838",
+                    "#eeb211",
+                    "#00274c",
+                    "#00704a",
+                    "#b30838",
+                    "#eeb211",
+                    "#00274c"
+                ];
+
+                function getRandomInt(min, max) {
+                    min = Math.ceil(min);
+                    max = Math.floor(max);
+                    return Math.floor(Math.random() * (max - min)) + min;
+                }
+
+                var randomBrandColor1 = colorsArray[getRandomInt(0, 8)];
+                var randomBrandColor2 = colorsArray[getRandomInt(0, 8)];
+
+                headerBackgroundElm.style.background += "linear-gradient(to bottom right, " + randomBrandColor1 + ", " + randomBrandColor2;
             }
-
-            var randomBrandColor1 = colorsArray[getRandomInt(0, 8)];
-            var randomBrandColor2 = colorsArray[getRandomInt(0, 8)];
-
-            headerBackgroundElm.style.background += "linear-gradient(to bottom right, " + randomBrandColor1 + ", " + randomBrandColor2;
-
+            
         },
 
         articleAnimationTiming: function() {            
