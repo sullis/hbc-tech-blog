@@ -73,6 +73,22 @@
 	@media screen and (max-width: $breakpoint-medium) {
 		padding: 10px;
 
+		.header {
+
+			&__title {
+				font-size: 18px;
+
+				&:after {
+					margin-left: 20px;
+					margin-right: 20px;
+				}
+			}
+
+			&__view-all-link {
+				font-size: 16px;
+			}
+		}
+
 		&__articles {
 			grid-template-columns: 1fr;
 

@@ -1,0 +1,54 @@
+.featured-topics {
+
+	&__title {
+		padding-right: 20px;
+		margin: 0 0 15px 0;
+	    font-weight: 500;
+	}
+
+	&__list {
+		list-style: none;
+	    padding: 0 20px 0 0;
+		border-bottom: solid 1px $hbc-border;
+	}
+
+	&__list-item {
+	    margin: 10px 0 20px 0;
+
+		&__link {
+			text-decoration: none;
+			text-transform: uppercase;
+			color: $hbc-gray-2;
+
+			@include special-text-link();
+		}
+	}
+
+	&__view-all-link {
+		color: $hbc-highlight;
+		@include special-text-link();
+		margin-bottom: 40px;
+	}
+
+
+	@media screen and (min-width: $breakpoint-medium) {
+
+		&__list {
+			padding-bottom: 40px;
+			margin-right: 40px;
+		}
+	}
+
+}
+
+@media screen and (max-width: $breakpoint-medium) {
+
+    .featured-topics {
+		order: 2;
+		width: 100%;
+		padding: 20px 0 20px 0;
+		border-right: solid 0 $hbc-border;
+		border-top: solid 1px $hbc-border;
+		margin-left: 0;
+    }
+}
