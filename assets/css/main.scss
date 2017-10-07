@@ -17,15 +17,16 @@
 @import '../sass/components/footer';
 @import '../sass/components/navigation';
 @import '../sass/components/sidebar';
-@import '../sass/components/article-listing';
 @import '../sass/components/author-bio';
 @import '../sass/components/recirc';
 @import '../sass/components/article-snippet';
 @import '../sass/components/pagination';
 @import '../sass/components/social-links';
+@import '../sass/components/featured-topics';
 
 // pages
 @import '../sass/pages/homepage';
+@import '../sass/pages/insights-page';
 @import '../sass/pages/article-page';
 @import '../sass/pages/categories-page';
 @import '../sass/pages/author-page';
