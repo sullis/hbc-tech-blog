@@ -2,7 +2,8 @@
 <aside class="featured-topics"><h3 class="featured-topics__title">Featured Topics</h3>
     <ul class="featured-topics__list">
         {% for cat in site.category %}
-        	<li class="featured-topics__list-item"><a class="featured-topics__list-item__link" href="{{ cat.name }}">{{ cat.name | capitalize }}</a></li>
+        	<li class="featured-topics__list-item"><a class="featured-topics__list-item__link" href="{{ site.url }}{{ site.baseurl }}/category/{{ cat.name  | slugify }}">{{ cat.name | capitalize}}</a></li>
         {% endfor %}
     </ul>
+    <a class="featured-topics__view-all-link" href="{{ site.url }}{{ site.baseurl }}/categories/index.html">Explore All Topics</a>
 </aside>
