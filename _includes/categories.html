@@ -1,6 +1,7 @@
 <section class="categories-page">
 	<h1 class="categories-page__title">Categories</h1>
 	<aside class="categories">
+		{% include featured-topics.html %}
 		<ul class="categories__list">
 		{% assign categories_list = site.categories %}
 		  {% if categories_list.first[0] == null %}
