@@ -4,10 +4,8 @@ header-links:
     url: insights
   - title: "Code"
     url: code
-  - title: "Culture"
-    url: culture
-  - title: "Work Here"
-    url: jobs
+  - title: "About"
+    url: about
 
 # Footer navigation links
 footer-links:
@@ -15,7 +13,5 @@ footer-links:
     url: insights
   - title: "Code"
     url: code
-  - title: "Culture"
-    url: culture
-  - title: "Work Here"
-    url: jobs
+  - title: "About"
+    url: about
