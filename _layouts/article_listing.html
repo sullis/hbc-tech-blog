@@ -11,6 +11,7 @@ layout: default
     {% for post in paginator.posts %}
           {% include article-snippet.html excerpt=true featureImage=false %}
     {% endfor %}
+    {% include pagination.html %}
     </div>
 </section>
 {% else %}
@@ -87,8 +88,8 @@ layout: default
     {% for post in paginator.posts offset:3 limit:8 %}
           {% include article-snippet.html excerpt=true featureImage=false %}
     {% endfor %}
+    {% include pagination.html %}
     </div>
 </section>
 {% endif %}
 
-{% include pagination.html %}
