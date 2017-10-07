@@ -76,8 +76,8 @@ document.addEventListener('DOMContentLoaded',function() {
                 .addTo(controller);
 
             // Scale sticky header
-            new ScrollMagic.Scene({triggerHook: 0, offset: 10, reverse: true})
-                .setClassToggle(".site-header", "site-header--scaled")
+            new ScrollMagic.Scene({triggerHook: 0, offset: 60, reverse: true})
+                .setClassToggle(".site-header", "site-header--shaddow")
                 // .addIndicators({name: "header (duration: 100)"})
                 .addTo(controller);
             new ScrollMagic.Scene({triggerHook: 0, duration: 100, offset: 50, reverse: true})
