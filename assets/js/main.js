@@ -75,15 +75,11 @@ document.addEventListener('DOMContentLoaded',function() {
                 .setClassToggle(".share-buttons__link-item", "share-buttons__link-item--reveal")
                 .addTo(controller);
 
-            // Scale sticky header
             new ScrollMagic.Scene({triggerHook: 0, offset: 60, reverse: true})
                 .setClassToggle(".site-header", "site-header--shaddow")
                 // .addIndicators({name: "header (duration: 100)"})
                 .addTo(controller);
-            new ScrollMagic.Scene({triggerHook: 0, duration: 100, offset: 50, reverse: true})
-                // .setTween(".navigation", {margin: "13px 30px 0 0"})
-                // .addIndicators({name: "navigation (duration: 100)"})
-                .addTo(controller);
+
             new ScrollMagic.Scene({triggerHook: 0, triggerElement: ".article__content__title", offset: -50, reverse: true})
                 .setClassToggle(".sticky-nav-meta", "sticky-nav-meta--show")
                 // .addIndicators({name: "navigation (duration: 100)"})
