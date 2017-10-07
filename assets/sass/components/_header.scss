@@ -14,7 +14,7 @@
 	    display: inline-block;
 	    width: 150px;
 
-		.hbc-tech-logo {
+		.hbc-tech-logo{
 			display: flex;
 		    width: 100px;
 		    height: 86px;
@@ -46,9 +46,7 @@
 	        padding: 10px 20px 10px 40px;
 		    margin-bottom: 10px;
 		    max-height: 75px;
-	    	box-shadow: darken(rgba($hbc-highlight, 0.15), 40%) 0px 1px 3px;
-			-webkit-backface-visibility: hidden; /* add to fix webkit bug jitter */
-			-webkit-transform: perspective(1000px); /* add to fix webkit bug jitter */	
+	    	
 
 			.hbc-tech-logo {
 			    width: 50px;
@@ -68,7 +66,10 @@
 			.navigation {
 				margin-right: 20px;
 			}
+	    }
 
+	    &--shaddow {
+	    	box-shadow: darken(rgba($hbc-highlight, 0.15), 40%) 0px 1px 3px;
 	    }
 	}
 
@@ -125,6 +126,7 @@
 		&__logo {
 			display: block;
 			text-align: center;
+		    margin: auto;
 
 			.hbc-tech-logo {
 			    width: 50px;

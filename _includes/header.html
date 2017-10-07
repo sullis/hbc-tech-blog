@@ -1,4 +1,5 @@
-<header id="site-header" class="site-header" >
+<header id="site-header" class="site-header {%if page.layout != "homepage" %} 
+{% if page.layout == "article" or "article_listing" or "homepage" %} site-header--scaled{% endif %}{% endif %}">
 	<a class="site-header__logo" href="{{ site.url }}{{ site.baseurl }}/">
 <!-- 	    <svg class="hbc-tech-logo" xmlns="http://www.w3.org/2000/svg">
 	        <use class="hbc-tech-logo__use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#hbc-tech-logo" ></use>
@@ -11,7 +12,7 @@
 		<use class="hbc-stripe hbc-stripe--red" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-logo-primary.svg#hbc-red" ></use>
 		<use class="hbc-stripe hbc-stripe--yellow" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-logo-primary.svg#hbc-yellow" ></use>
 		<use class="hbc-stripe hbc-stripe--blue" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-logo-primary.svg#hbc-blue" ></use>
-        <use class="hbc-tech-logo__use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-logo-primary.svg#text" ></use>
+        <use class="hbc-stripes-logo--text" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-logo-primary.svg#text" ></use>
     </svg>
 	</a>
 	<p class="sticky-nav-meta">

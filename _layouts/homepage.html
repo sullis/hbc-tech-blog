@@ -1,5 +1,32 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: page.lang | default: 'en' }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% include featured-articles.html %}
+        <title>{% if page.title %} {{ page.title | escape }} {% else %} {{ site.title | escape }} {% endif %}</title>
+
+        <!-- {% include og-seo.html %} -->
+        {% seo %}
+
+        <link rel="stylesheet" href="{{ site.url }}{{ site.baseurl }}/assets/css/main.css">
+        <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
+
+        <!-- Icons -->
+        <!-- 16x16 -->
+        <link rel="shortcut icon" href="{{ site.url }}{{ site.baseurl }}/assets/images/favicon.ico">
+    </head>
+
+    <body class="container homepage" aria-label="Content">
+        {% include header.html %}
+		<svg class="hbc-monogram" xmlns="http://www.w3.org/2000/svg">
+		    <use class="hbc-tech-logo__use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-logo-1670.svg#hbc-tech-logo" ></use>
+		</svg>
+        <use class="hbc-stripes-logo--text" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-logo-primary.svg#text" ></use>
+        {% include footer.html %}
+        {% include js.html %}
+    </body>
+
+</html>

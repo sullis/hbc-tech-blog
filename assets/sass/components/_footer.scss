@@ -1,9 +1,10 @@
 .footer {
     grid-area: ft;
 	color: lighten($hbc-black, 50%);
-	padding: 40px 40px 80px 40px;
+	padding: 40px 5vw;
 	border-top: solid 1px $hbc-border;
 	display: flex;
+	position: relative;
 
 	.copyright {
 		text-align: right;
@@ -43,18 +44,30 @@
 	}
 
 	.hbc-tech-logo {
-	    width: 80px;
-	    height: 80px;
+		fill-opacity: 0.4;
+		position: absolute;
+		fill: $hbc-border;
+		width: 390px;
+		bottom: 0;
+		height: 480px;
+		left: 0;
+		transform: rotate(-4deg);
+	    
 	}
 
 	.est1670 {
-	    height: 18px;
-	    width: 119px;
-	    fill: $hbc-gray;
+	    fill-opacity: 1;
+	    position: absolute;
+	    top: -10px;
+	    left: -1vw;
+		fill: $hbc-border;
+	    width: 420px;
+	    transform: rotate(-2deg);
+	    padding: 0;
+
 	}
 
 	@media screen and (max-width: $breakpoint-small) {
-		padding: 40px 0px 80px 0px;
 
 		.copyright {
 			text-align: center;
