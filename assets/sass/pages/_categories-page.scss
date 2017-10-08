@@ -1,33 +1,28 @@
 .categories-page {
 	display: grid;
-	grid-template-columns: 1.25fr 3fr;
-	grid-auto-rows: minmax(100px, auto);
+	grid-template-columns:  3fr 1.25fr;
+	grid-auto-rows: minmax(50px, auto);
 	grid-template-areas:
-    "title title"
-    "cats arts"
-    "cats arts"
+    "header header"
+    "arts cats"
+    "arts cats"
 	;
 
-	&__title {
-		grid-area: title;
-		padding-bottom: 20px;
-		border-bottom: solid 1px $hbc-border;
-		margin-bottom: 0;
-	}
-
-	.categories {
+	.asides {
 		grid-area: cats;
 		padding-top: 28px;
+		padding-left: 40px;
+
+		.sticky-container {
+			position: sticky;
+			top: 100px;
+		}
 	}
 
 	.articles {
 		grid-area: arts;
-		border-left: solid 1px $hbc-border;
-		padding: 20px 0 80px 40px;
-	}
-
-	.categories__list {
-		
+		border-right: solid 1px $hbc-border;
+		padding: 0 40px 80px 0;
 	}
 	
 	.categories__list,
@@ -46,13 +41,60 @@
 		}
 
 		&__list-item__link {
-
-				@include special-text-link();
+			@include special-text-link();
+			line-height: 140%;
 		}
 
 		&__list-header {
+			font-weight: 500;
 			line-height: 100%;
 			margin: 20px 0 5px 0;
 		}
+	}
+
+	@media screen and (max-width: $breakpoint-medium) {
+		padding: 0 20px;
+		grid-template-columns:  1fr;
+		grid-template-areas:
+	    "header"
+	    "arts"
+	    "cats"
+	    ;
+
+		.asides {
+			padding-top: 28px;
+			padding-left: 0;
+
+			.sticky-container {
+				position: relative;
+				top: 0;
+			}
+		}
+
+		.articles {
+			border-right: 0;
+			padding: 0;
+		}
+
+		.snippet {
+			padding: 20px 0;
+		    margin-bottom: 20px;
+		    border-bottom: solid 1px $hbc-border;
+
+		    &:first-child {
+				padding-top: 40px;
+			    border-top: solid 1px $hbc-border;
+		    }
+
+			&:first-child,
+			&:last-child {
+			    border-right: 0;
+			    margin-left: 0px;
+			    margin-top: 0px;
+			    padding-left: 0px;
+			}
+		}
+
+
 	}
 }
