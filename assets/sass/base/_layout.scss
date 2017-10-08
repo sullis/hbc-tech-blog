@@ -88,3 +88,16 @@ $breakpoint-large: 1024px;
 
 }
 
+.page {
+	padding-bottom: 80px;
+	margin-bottom: 40px;
+	min-height: 60vh;
+
+	&__header {
+		grid-area: header;
+		width: 100%;
+		margin-bottom: 40px;
+		border-bottom: solid 1px $hbc-border;
+	}
+}
+

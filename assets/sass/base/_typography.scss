@@ -17,18 +17,17 @@ h6 {
 	line-height: 140%;
 }
 
-h1 {
-	font-size: 36px;
-}
-
-
 p {
 	line-height: 160%;
 	// font-size: 20px !default;
 	// overflow: hidden;
 
-	// additional styles for post markdown elements
 }
+
+// 
+// additional styles for post markdown elements
+//
+
 p a, 
 li a {
 	line-height: 0;
@@ -39,10 +38,6 @@ li a {
 	}
 }
 
-h1 {
-	color: $hbc-black;
-}
-
 p ~ ul {
 	margin-bottom: 40px;
 
@@ -50,7 +45,6 @@ p ~ ul {
 		margin-bottom: 20px;
 	}
 }
-
 
 code {
 	font-size: inherit;
@@ -81,7 +75,7 @@ blockquote {
 }
 
 @mixin special-text-link() {
-	transition: margin-bottom 150ms ease-out, padding-bottom 150ms ease-out, padding-bottom 150ms ease-out, color 150ms ease-out;
+	transition: margin-bottom 150ms ease-out, padding-bottom 150ms ease-out, color 150ms ease-out;
 	margin-bottom: 2px;
 	padding-bottom: 0px;
 	border-bottom: solid 1px $hbc-white;
@@ -92,10 +86,7 @@ blockquote {
 	&:hover {
 		padding-bottom: 2px;
 		margin-bottom: 0px;
-		// text-decoration: underline;
 		border-bottom: solid 1px $hbc-highlight;
 		color: $hbc-highlight;
 	}
 }
-
-
