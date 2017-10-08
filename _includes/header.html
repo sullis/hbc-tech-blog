@@ -16,12 +16,28 @@
     </svg>
 	</a>
 	<p class="sticky-nav-meta">
-        {% if page.categories.first == featureCategory %}
+        {% for cat in site.category %}
+            {% if cat.name == page.categories.first %}
+                {% assign featureCategory = cat.name %}
+            {% endif %}
+        {% endfor %}
+
+        {% if featureCategory %}
         <a href="{{ site.url }}{{ site.baseurl }}/category/{{ featureCategory }}" class="meta__category">{{ featureCategory }}</a>
         {% else %}
         <a href="{{ site.url }}{{ site.baseurl }}/categories/#{{ page.categories }}" class="meta__category">{{ page.categories.first }}</a>
         {% endif %}
-        {% if page.layout == 'article' %}<span class="meta__title">{{ page.title }}</span>{% endif %}
+
+        {% if page.layout == 'article' %}
+        	<span class="meta__title">{{ page.title }}</span>
+        {% elsif page.url contains '/category/' %}
+        	<span class="meta__title">{{ page.title }}</span>
+        {% elsif page.url == '/categories/' %}
+	        <span class="meta__title">All Posts By Category</span>
+        {% elsif page.url contains '/authors/' %}
+        	<a href="{{ site.url }}{{ site.baseurl }}/authors/" class="meta__category">Authors</a>
+        	<span class="meta__title">{{page.name}}</span>
+        {% endif %}
     </p>
 	<ul class="navigation">
 		{% assign currentPage = page.url | replace: "/", "" %}

@@ -12,7 +12,7 @@
 
 	&__logo {
 	    display: inline-block;
-	    width: 150px;
+	    width: 120px;
 
 		.hbc-tech-logo{
 			display: flex;
@@ -93,6 +93,7 @@
 				text-transform: uppercase;
 				color: $hbc-highlight;
 			    font-size: 15px;
+			    margin-left: 20px;
 
 				@include special-text-link();
 			}
