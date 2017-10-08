@@ -1,0 +1,26 @@
+// for featured categories
+.category-page {
+	display: grid;
+	grid-template-columns:  3fr 1.25fr;
+	grid-auto-rows: minmax(50px, auto);
+	grid-template-areas:
+    "header header"
+    "articles cats"
+    "articles cats"
+	;
+
+	.articles {
+		grid-area: articles;
+	}
+
+	.asides {
+		grid-area: cats;
+		padding-top: 28px;
+		padding-left: 40px;
+
+		.sticky-container {
+			position: sticky;
+			top: 100px;
+		}
+	}
+}

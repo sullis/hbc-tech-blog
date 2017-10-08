@@ -1,12 +1,19 @@
 ---
 layout: default
 ---
-
-<section class="category-page">
-    <h1>{{ page.name | capitalize }}</h1>
+<section class="page category-page">
+    <header class="page__header">
+    	<h1 class="page__title">{{ page.name | capitalize }}</h1>
+    </header>
+    <section class="articles">
     {% for post in site.categories[page.name] %}
         {% include article-snippet.html excerpt=true featureImage=false %}
     {% endfor %}
+    </section>
+	<section class="asides">
+		{% include featured-topics.html %}
+		{% include featured-authors.html %}
+	</section>	
+	{% include pagination.html %}
 </section>
-{% include pagination.html %}
 
