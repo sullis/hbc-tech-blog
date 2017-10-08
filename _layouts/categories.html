@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<section class="page categories-page">
+	<header class="page__header">
+		<h1 class="page__title">All Posts By Category</h1>
+	</header>
+	<section class="articles">
+	{% assign siteTags = site.categories | sort %}
+	{% for tag in siteTags %}
+	  <a name="{{ tag[0] }}"><h2 class="articles__list-header">{{ tag[0] | capitalize }}</h2></a>
+	  <ul class="articles__list">
+	    {% assign pages_list = tag[1] | sort: 'title' %}
+	    {% for article in pages_list %}
+	      {% if article.title != null %}
+	      {% if group == null or group == article.group %}
+	      <li class="articles__list-item"><a class="articles__list-item__link" href="{{ site.url }}{{ site.baseurl }}{{ article.url }}">{{ article.title }}<span class="entry-date"><time datetime="{{ article.date | date_to_xmlschema }}" itemprop="datePublished">{{ article.date | date: "%B %d, %Y" }}</time></span></a></li>
+	      {% endif %}
+	      {% endif %}
+	    {% endfor %}
+	    {% assign pages_list = nil %}
+	    {% assign group = nil %}
+	  </ul>
+	{% endfor %}
+	</section>
+	<section class="asides">
+		<div class="sticky-container">
+			{% include featured-topics.html %}
+			{% include featured-authors.html %}
+		</div>
+	</section>	
+</section>
