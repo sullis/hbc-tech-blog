@@ -6,11 +6,43 @@
 	grid-template-areas:
     "header header"
     "articles cats"
-    "articles cats"
+    "articles ."
+    "recirc recirc"
 	;
 
 	.articles {
-		grid-area: articles;
+		border-right: solid 1px $hbc-border;
+		margin-bottom: 80px;
+
+		.snippet {
+			border-bottom: solid 1px $hbc-border;
+			padding-right: 40px;
+			padding-bottom: 40px; 
+			margin-right: 40px;
+			margin-bottom: 40px; 
+
+			&__meta {
+				order: 1;
+				margin-bottom: 5px;
+
+				.slug-divider {
+					display: none;
+				}
+			}
+
+			&__title {
+				order: 2;
+				margin-bottom: 0;
+			}
+
+			&__link {
+			    order: 3;
+			}
+
+			&:last-child {
+				border: 0;
+			}
+		}
 	}
 
 	.asides {
@@ -21,6 +53,88 @@
 		.sticky-container {
 			position: sticky;
 			top: 100px;
+
+			.featured-topics {
+				margin-bottom: 0;
+
+				&__list {
+					border: 0;
+				}
+			}
 		}
+	}
+
+	.recirc {
+		grid-area: recirc;
+		padding: 0;
+	}
+
+	@media screen and (max-width: $breakpoint-medium) {
+		padding: 0 20px;
+		grid-template-columns:  1fr;
+		grid-template-areas:
+	    "header"
+	    "articles"
+	    "cats"
+	    "recirc"
+	    ;
+
+		.asides {
+			padding-top: 28px;
+			padding-left: 0;
+
+			.sticky-container {
+				position: relative;
+				top: 0;
+			}
+		}
+
+		.articles {
+			border-right: 0;
+			padding: 0;
+		    margin-bottom: 0;
+		}
+
+		// .snippet {
+		// 	padding: 20px 0;
+		//     margin-bottom: 20px;
+		//     border-bottom: solid 1px $hbc-border;
+
+		//     &:first-child {
+		// 		padding-top: 0;
+		//     }
+
+		// 	&:last-child {
+		// 		border: 0;
+		// 	}
+		// }
+	}
+
+	@media screen and (min-width: $breakpoint-medium) {
+
+		// .snippet {
+		// 	grid-area: articles;
+		// 	padding-right: 60px;
+		// 	grid-row: auto;
+		// 	margin-bottom: 0px;
+			
+		// 	&__title {
+		// 		border-top: solid 1px $hbc-border;
+		// 		margin-top: 40px;
+		// 		padding-top: 40px;
+		// 		width: 100%;
+		// 	}
+
+		// 	&:first-of-type {
+		// 		padding-top: 0;
+		// 		margin-top: -5px;
+
+		// 		.snippet__title {
+		// 			padding-top: 0;
+		// 			margin-top: 0;
+		// 			border: 0;
+		// 		}
+		// 	}
+		// }
 	}
 }

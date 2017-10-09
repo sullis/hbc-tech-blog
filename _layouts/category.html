@@ -11,9 +11,11 @@ layout: default
     {% endfor %}
     </section>
 	<section class="asides">
-		{% include featured-topics.html %}
-		{% include featured-authors.html %}
-	</section>	
-	{% include pagination.html %}
+        <div class="sticky-container">
+	       {% include featured-topics.html showMoreLink=true%}
+        </div>
+	</section>
+    {% include recirc.html %}
+    {% include pagination.html %}
 </section>
 
