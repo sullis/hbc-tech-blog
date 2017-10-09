@@ -97,7 +97,16 @@ $breakpoint-large: 1024px;
 		grid-area: header;
 		width: 100%;
 		margin-bottom: 40px;
+		padding-bottom: 20px;
 		border-bottom: solid 1px $hbc-border;
+	}
+
+	&__title {
+		margin: 0;
+	}
+
+	&__description {
+		margin: 0;
 	}
 }
 

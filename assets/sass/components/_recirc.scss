@@ -8,7 +8,7 @@
 
 		&__title {
 			display: inline-block;
-			font-weight: bold;
+			font-weight: 700;
 			font-size: 22px;
 
 			&:after {
@@ -18,8 +18,8 @@
 				height: 30px;
 				top: 9px;
 				border-right: solid 1px $hbc-border;
-				margin-left: 30px;
-				margin-right: 30px;
+				margin-left: 20px;
+				margin-right: 20px;
 			}
 		}
 
