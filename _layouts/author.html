@@ -4,16 +4,19 @@ layout: default
 {% assign currAuthor = page.name %}
 {% assign authorPosts = site.posts | where: "author", currAuthor %}
 
-<section class="page authors-page">
+<section class="page author-page">
 	<header class="page__header">
-		<h1 class="author-page__title">{{page.name}}</h1>
-		<p>{{page.mini-bio}}</p>
+		<h1 class="page__title">{{page.name}}</h1>
+		<p class="page__description">{{page.mini-bio}}</p>
 	</header>
-	<section>
+	<section class="articles">
 		{% for post in authorPosts %}
-		    <article class="author-article-listing">
 		    {% include article-snippet.html excerpt=true %}
-		    </article>
 		{% endfor %}
+	</section>
+	<section class="asides">
+		<div class="sticky-container">
+			{% include featured-topics.html authorCategories=true %}
+		</div>
 	</section>
 </section>
