@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded',function() {
                 // .addIndicators({name: "header (duration: 100)"})
                 .addTo(controller);
 
-            new ScrollMagic.Scene({triggerHook: 0, triggerElement: ".article__content__title", offset: -50, reverse: true})
+            new ScrollMagic.Scene({triggerHook: 0, offset: 60, reverse: true})
                 .setClassToggle(".sticky-nav-meta", "sticky-nav-meta--show")
                 // .addIndicators({name: "navigation (duration: 100)"})
                 .addTo(controller);
