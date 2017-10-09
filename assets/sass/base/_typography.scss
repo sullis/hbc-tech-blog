@@ -27,6 +27,16 @@ p {
 // 
 // additional styles for post markdown elements
 //
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+	font-weight: 500;
+	color: $hbc-black;
+}
 
 p a, 
 li a {

@@ -26,6 +26,7 @@
 		&__view-all-link {
 			color: $hbc-highlight;
 			font-size: 18px;
+		    font-weight: 300;
 
 			@include special-text-link();
 		}

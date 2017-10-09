@@ -32,11 +32,9 @@
 	&__link {
 		text-decoration: none;
 		color: $hbc-black;
-
-
+		
 		&:hover {
 			color: $hbc-highlight;
-			text-decoration: none;
 		}
 	}
 
@@ -54,6 +52,7 @@
 				color: $hbc-highlight;
 				text-transform: uppercase;
 			    font-size: 15px;
+			    font-weight: 300;
 
 				@include special-text-link();
 
@@ -66,6 +65,7 @@
 			&__author-link {
 				text-decoration: none;
 				color: $hbc-highlight;
+				font-weight: 300;
 
 				@include special-text-link();
 			}

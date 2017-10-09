@@ -3,13 +3,13 @@
 	color: $hbc-gray-2;
 	font-size: 18px;
 	text-decoration: none;
-
+}
+.author {
 	&__avatar {
 		margin-right: 5px;
 		vertical-align: bottom;
 
 		.hbc-svg-icon {
-
 			&--avatar__circle {
 				fill: #ccc;
 			}
@@ -24,15 +24,17 @@
 	&__link {
 		color: $hbc-highlight;
 		vertical-align: super;
+	    top: -2px;
+	    position: relative;
 
-		&:hover {
-			text-decoration: underline;
-		}
+		@include special-text-link();
 	}
 
 	&__name {
-		color: black;
+		color: $hbc-black;
 		vertical-align: super;
+	    top: -2px;
+	    position: relative;
 	}
 	
 	&__job-title {
