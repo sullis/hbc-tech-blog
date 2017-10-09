@@ -3,11 +3,25 @@ layout: default
 title: Authors
 ---
 
-<section class="authors-page">
-	<h1 class="authors-page__title">Featured Authors</h1>
-
-{% for author in site.authors %}
-	<h3><a href="{{ site.url }}{{ site.baseurl }}{{ author.url }}">{{author.name}}</a></h3>
-{% endfor %}
-
+<section class="page authors-page">
+	<header class="page__header">
+		<h1 class="page__title">Featured Authors</h1>
+	</header>
+	<section class="authors">
+	{% for author in site.authors %}
+		<section class="author">
+			<svg class="author__avatar" xmlns="http://www.w3.org/2000/svg">
+		        <use class="hbc-svg-icon hbc-svg-icon--avatar__circle" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#circle" ></use>
+		        <use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#head" ></use>
+		        <use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#body" ></use>
+		    </svg>
+			<a href="{{ site.url }}{{ site.baseurl }}{{ author.url }}"><h3 class="author__link" >{{author.name}}</h3></a>
+		</section>
+	{% endfor %}
+	</section>
+	<section class="asides">
+		<div class="sticky-container">
+			{% include featured-topics.html %}
+		</div>
+	</section>
 </section>
