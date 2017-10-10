@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded',function() {
             this.bindEvents();
             LazyLoadRecircArticles.setupScenes();
             LazyLoadRecircArticles.articleAnimationTiming();
-            LazyLoadRecircArticles.randomizeArticleHeaderColors();
         },
 
         bindEvents: function() {
@@ -84,35 +83,6 @@ document.addEventListener('DOMContentLoaded',function() {
                 .setClassToggle(".sticky-nav-meta", "sticky-nav-meta--show")
                 // .addIndicators({name: "navigation (duration: 100)"})
                 .addTo(controller);
-        },
-
-        randomizeArticleHeaderColors: function() {
-            var headerBackgroundElm = document.querySelector(".article__no-feature-image");
-
-            if (headerBackgroundElm != null) {
-                var colorsArray = [
-                    "#00704a",
-                    "#b30838",
-                    "#eeb211",
-                    "#00274c",
-                    "#00704a",
-                    "#b30838",
-                    "#eeb211",
-                    "#00274c"
-                ];
-
-                function getRandomInt(min, max) {
-                    min = Math.ceil(min);
-                    max = Math.floor(max);
-                    return Math.floor(Math.random() * (max - min)) + min;
-                }
-
-                var randomBrandColor1 = colorsArray[getRandomInt(0, 8)];
-                var randomBrandColor2 = colorsArray[getRandomInt(0, 8)];
-
-                headerBackgroundElm.style.background += "linear-gradient(to bottom right, " + randomBrandColor1 + ", " + randomBrandColor2;
-            }
-            
         },
 
         articleAnimationTiming: function() {            
