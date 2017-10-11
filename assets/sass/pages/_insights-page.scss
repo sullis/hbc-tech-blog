@@ -2,37 +2,47 @@
 .article-listing {
 
 	&__featured {
-		// border-bottom: solid 1px $hbc-border;
-		padding-bottom: 80px;
+		display: grid;
+		grid-template-columns: 40px 1fr 40px;
+		grid-template-rows: repeat(4, 1fr);
+	    margin-bottom: 60px;
+	    max-height: 560px;
+	    overflow: hidden;
 
 		// these are overrides. defaults are set in _article-snippet.scss
-		.snippet {
-		    min-height: 45vh;
-		    height: 75vh;
-		    max-height: 589px;
-			padding: 40px 40px 0 40px;
-			display: flex;
-			flex-direction: column;
-			flex-wrap: nowrap;
-			justify-content: flex-end;
+		.feature-image__link {
+			grid-column: 1 / 4;
+		    grid-row: 1 / 10;
+		    overflow: hidden;
+		}
 
-			&__title {
-				margin: 0 0 40px 0;
-				font-size: 55px;
-				width: 70%;
-			}
+		.feature-image {
+		    // max-height: 589px;
+		    width: 100%;
+			// object-fit: fill;
+		}
 
-			&__link {
-				padding: 0 10px 0 10px;
-			    box-decoration-break: clone;
-			    background-color: white;
-			}
+		.snippet__title {
+			grid-column: 2 / 3;
+		    grid-row: 5/6;
+			margin: 0 0 40px 0;
+			font-size: 55px;
+			// width: 70%;
+		}
 
-			&__meta {
-			    padding: 0 10px;
-			    width: fit-content;
-				background-color: $hbc-white;
-			}
+		.snippet__link {
+			padding: 0 10px 0 10px;
+		    box-decoration-break: clone;
+		    background-color: white;
+		}
+
+		.snippet__meta {
+			grid-column: 2 / 3;
+		    grid-row: flex-end / flex-end;
+
+		    padding: 0 10px;
+		    width: fit-content;
+			background-color: $hbc-white;
 		}
 	}
 
@@ -131,7 +141,7 @@
 	@media screen and (max-width: $breakpoint-medium) {
 		max-width: 100vw;
 
-		&__featured,
+				
 		&__sub-featured,
 		&__remaining {
 		    display: flex;
@@ -141,27 +151,12 @@
 		}
 
 		&__featured {
-	        padding: 0 0 20px 0;
+			margin-bottom: 40px;
+			grid-template-columns: 20px 1fr 20px;
 
-			.snippet {
-				border: 0;
-			    height: 40vh;
-			    min-height: 25vh;
-			    max-height: 50vh;
-			    padding: 0;
-			    margin-top: 0;
-			    margin-bottom: 20px;
-
-				&__title {
-					margin: 0px 0 20px 20px;
-				    font-size: 35px;
-				}
-
-				&__meta {
-					margin-left: 20px;
-				}
-			}
 		}
+
+
 
 		&__sub-featured {
 		    padding: 0 20px;

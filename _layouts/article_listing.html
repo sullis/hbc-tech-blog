@@ -19,12 +19,13 @@ layout: default
 <!-- display the 1st article in a big way-->
 <section class="article-listing">
 {% for post in paginator.posts limit:1 %}
-<a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">
     <div class="article-listing__featured">        
-        <section class="snippet" {% if post.image.feature %} style="background: url(
-                {% if post.image.feature contains 'https' or post.image.feature contains 'http' %}{{ post.image.feature }}
-                {% else %}{{ site.url }}{{ site.baseurl }}/assets/images/{{ post.image.feature }}
-                {% endif %}) 50% 50% / 100% no-repeat;"{% endif %}>
+            {% if post.image.feature %}
+    <a class="feature-image__link"href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" >
+        <img class="feature-image" src="{% if post.image.feature contains 'https' or post.image.feature contains 'http' %}{{ post.image.feature }}
+                    {% else %}{{ site.url }}{{ site.baseurl }}/assets/images/{{ post.image.feature }}
+                    {% endif %}"/>
+            {% endif %}
             <h1 class="snippet__title"><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="snippet__link" title="{{ post.title }}">{{ post.title }}</a></h1>
             <div class="snippet__meta">
                 <span class="meta__day">{{ post.date | date: "%-d" }}</span>
@@ -71,10 +72,8 @@ layout: default
                 {% else %}
                     {{ site.title }}
                 {% endif %}
-            </div>
+            </div></a>
         </section>
-    </div>
-</a>
 {% endfor %}
     <!-- display the 2nd and 3rd posts in a smaller way-->
     <div class="article-listing__sub-featured">
