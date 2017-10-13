@@ -12,7 +12,6 @@
 
 	&__logo {
 	    display: inline-block;
-	    width: 120px;
 
 		.hbc-tech-logo{
 			display: flex;
@@ -21,18 +20,9 @@
 	        transition: all 200ms ease-out;
 		}
 
-		.est1670 {
-		    width: 100px;
-		    height: 9px;
-	        transition: all 200ms ease-out;
-		}
-
 		.hbc-stripes-logo {
-		    width: 100px;
-		    height: 30px;
-		    transform: scale(1.7);
-		    transform-origin: 0% 0%;
-	        transition: all 200ms ease-out;
+		    // width: 100px;
+		    // height: 30px;
 		}
 	}
 
@@ -49,7 +39,6 @@
 	    	
 
 			.hbc-tech-logo {
-			    width: 50px;
 			    height: 50px;
 			}
 
@@ -76,7 +65,7 @@
 	.sticky-nav-meta {
 		display: inline-block;
 	    position: relative;
-	    top: -5px;
+	    top: -18px;
 	    opacity: 0;
 	    visibility: hidden;
 		transition: opacity 200ms ease-in, transform 200ms ease-out;

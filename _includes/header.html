@@ -1,18 +1,8 @@
 <header id="site-header" class="site-header {%if page.layout != "homepage" %} 
 {% if page.layout == "article" or "article_listing" %} site-header--scaled{% endif %}{% endif %}">
 	<a class="site-header__logo" href="{{ site.url }}{{ site.baseurl }}/">
-<!-- 	    <svg class="hbc-tech-logo" xmlns="http://www.w3.org/2000/svg">
-	        <use class="hbc-tech-logo__use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#hbc-tech-logo" ></use>
-	    </svg>
-	    <svg class="est1670" xmlns="http://www.w3.org/2000/svg">
-	        <use class="hbc-tech-logo__use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#est1670" ></use>
-	    </svg> -->
-	<svg class="hbc-stripes-logo" xmlns="http://www.w3.org/2000/svg">
-		<use class="hbc-stripe hbc-stripe--green" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-logo-primary.svg#hbc-green" ></use>
-		<use class="hbc-stripe hbc-stripe--red" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-logo-primary.svg#hbc-red" ></use>
-		<use class="hbc-stripe hbc-stripe--yellow" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-logo-primary.svg#hbc-yellow" ></use>
-		<use class="hbc-stripe hbc-stripe--blue" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-logo-primary.svg#hbc-blue" ></use>
-        <use class="hbc-stripes-logo--text" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-tech-logo-primary.svg#text" ></use>
+	<svg class="hbc-tech-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 30">
+		<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#hbc-tech-logo-primary"></use>
     </svg>
 	</a>
 	<p class="sticky-nav-meta">
@@ -44,13 +34,15 @@
         {% endif %}
     </p>
 	<ul class="navigation">
-		{% assign currentPage = page.url | replace: "/", "" %}
-		{% for link in site.data.navigation.header-links %}
-		  <li class="navigation__link-item">
-		  	<a href="{{ site.url }}{{ site.baseurl }}/{{ link.url }}" class="navigation__link {% if currentPage == link.url %}navigation__link--current{% endif %}">
-		  		<span class="navigation__link-highlight">{{ link.title }}</span>
-		  	</a>
-		  </li>
-		{% endfor %}
-	</ul>
+		{% assign currentPage = page.url | replace: "/", ""%}
+        {% for link in site.data.navigation.header-links %}
+          <li class="navigation__link-item">
+            <a href="{{ site.url }}{{ site.baseurl }}/{{ link.url }}" class="navigation__link
+            {% if link.url == currentPage %}navigation__link--current{% endif %}
+            {% if paginator.page > 0 and link.title == 'Insights' %}navigation__link--current{% endif %}">
+                <span class="navigation__link-highlight">{{ link.title }}</span>
+            </a>
+          </li>
+        {% endfor %}
+    </ul>
 </header>

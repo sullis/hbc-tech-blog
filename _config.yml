@@ -33,7 +33,8 @@ permalink: pretty
 # permalink: /:categories/:year/:month/:day/:title
 
 paginate: 10
-paginate_path: "/insights/:num/"
+paginate_dir: "/"
+paginate_path: ":num/"
 
 autopages:
   # Site-wide kill switch, disable here and it doesn't run at all 

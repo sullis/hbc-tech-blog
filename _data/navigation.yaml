@@ -1,16 +1,7 @@
 # Masthead navigation links
 header-links:
   - title: "Insights"
-    url: insights
-  - title: "Code"
-    url: code
-  - title: "About"
-    url: about
-
-# Footer navigation links
-footer-links:
-  - title: "Insights"
-    url: insights
+    url: ""
   - title: "Code"
     url: code
   - title: "About"
