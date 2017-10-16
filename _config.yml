@@ -29,20 +29,19 @@ google_analytics: UA-106560024-1
 #
 timezone: EST
 markdown: kramdown
-permalink: pretty
+permalink: :year-:month-:day-:title.html
+# permalink: pretty
 # permalink: /:categories/:year/:month/:day/:title
 
 paginate: 10
 paginate_dir: "/"
 paginate_path: ":num/"
 
-autopages:
-  # Site-wide kill switch, disable here and it doesn't run at all 
-  enabled: false
 
 collections:
   authors:
     output: true
+    permalink: "/authors/:path/"
   category:
     permalink: "/category/:path/"
     output: true

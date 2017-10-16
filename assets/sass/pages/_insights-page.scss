@@ -91,7 +91,7 @@
 		.featured-topics {
 			grid-area: ft;
 			position: sticky;
-			top: 100px;
+			top: $sticky-header-offset;
 			margin-right: 40px;
 		}
 
