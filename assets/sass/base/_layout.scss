@@ -19,10 +19,8 @@ $breakpoint-large: 1024px;
       "ft ft ft ft   ft   ft   ft   ft   ft   ft   ft   ft";
 
 	@media screen and (max-width: $breakpoint-medium) {
-		grid-template-areas: 
-		      "hd hd hd hd   hd   hd   hd   hd   hd  hd   hd hd"
-		      "main main main main main main main main main main main main"
-		      "ft ft ft ft   ft   ft   ft   ft   ft   ft   ft   ft";
+	    grid-template-columns: 1fr;
+	    grid-template-areas: "hd" "main" "ft";
 	}
 }
 
@@ -31,6 +29,10 @@ $breakpoint-large: 1024px;
 	margin: auto;
 	display: grid;
 	grid-template-columns: minmax(auto, $content-width);
+
+	@media screen and (max-width: $breakpoint-medium) {
+	    grid-template-columns: 1fr;
+	}
 }
 
 
@@ -78,7 +80,7 @@ $breakpoint-large: 1024px;
 	}
 }
 
-// prevent anchor liks from being hidden behind sticky nav ;)
+// prevent anchor links from being hidden behind sticky nav ;)
 @media screen and (min-width: $breakpoint-medium) {
 
 	:target:before {

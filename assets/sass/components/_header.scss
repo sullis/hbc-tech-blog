@@ -1,33 +1,25 @@
 .site-header {
     grid-area: hd;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr) minmax($content-width/2, $content-width) 1fr;
+    grid-auto-rows: 1fr;
+    grid-template-areas: "logo meta nav";
     max-height: 150px;
 	background-color: $hbc-off-white;
 	color: $hbc-black;
     z-index: 100;
-	-webkit-backface-visibility: hidden; /* add to fix webkit bug jitter */
-	-webkit-transform: perspective(1000px); /* add to fix webkit bug jitter */
     transition: all 100ms ease-out;
     padding: 40px 5vw;
     margin-bottom: 40px;
 
 	&__logo {
+	    grid-area: logo;
+	    display: inline-flex;
+	    align-self: baseline;
 
 		.hbc-tech-logo{
-			display: flex;
-		    height: 130px;
+		    height: 100px;
 	        transition: all 200ms ease-out;
-
-	        &__1670 {
-	        	fill: $hbc-highlight;
-	        }
-		}
-
-		.hbc-stripes-logo {
-		    // width: 100px;
-		    // height: 30px;
 		}
 	}
 
@@ -44,7 +36,8 @@
 	    	
 
 			.hbc-tech-logo {
-			    height: 100px;
+			    height: 50px;
+			    margin-top: 15px;
 			}
 	    }
 
@@ -54,10 +47,12 @@
 	}
 
 	.sticky-nav-meta {
+	    grid-area: meta;
 		display: inline-flex;
-        flex-grow: 2;
         align-items: baseline;
+        align-self: center;
 	    opacity: 0;
+        margin-top: 0;
 	    visibility: hidden;
 		transition: opacity 200ms ease-in, transform 200ms ease-out;
     	transform: translateX(20px);
@@ -73,7 +68,6 @@
 				text-transform: uppercase;
 				color: $hbc-highlight;
 			    font-size: 15px;
-			    margin-left: 20px;
 
 				@include special-text-link();
 			}
@@ -94,33 +88,23 @@
 		}
 	}
 
-	
 
     @media screen and (max-width: $breakpoint-medium) {
-		padding: 20px 0;
-	    margin-bottom: 0;
+	    grid-template-columns: 1fr;
+	    grid-template-rows: 1fr 1fr;
+	    grid-template-areas: "logo" "nav";
+	    padding: 20px 0;
+	    border-bottom: solid 1px $hbc-border;
 
     	.sticky-nav-meta {
     		display: none;
     	}
 
 		&__logo {
-			display: block;
-			text-align: center;
-		    margin: auto;
+		    margin: 0 auto 20px auto;
 
 			.hbc-tech-logo {
-			    width: 50px;
 			    height: 50px;
-		        margin: 0 auto 10px auto;
-			}
-
-			.est1670 {
-			    display: none;
-			}
-
-			.hbc-stripes-logo {
-			    transform: scale(1);
 			}
 		}
     }
