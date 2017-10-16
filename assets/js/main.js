@@ -74,7 +74,8 @@ document.addEventListener('DOMContentLoaded',function() {
                 .setClassToggle(".share-buttons__link-item", "share-buttons__link-item--reveal")
                 .addTo(controller);
 
-            new ScrollMagic.Scene({triggerHook: 0, offset: 60, reverse: true})
+            new ScrollMagic.Scene({triggerHook: 0, offset: 60, delay:1, reverse: true})
+                // .setClassToggle(".site-header", "site-header--shaddow")
                 .setClassToggle(".site-header", "site-header--shaddow")
                 // .addIndicators({name: "header (duration: 100)"})
                 .addTo(controller);
@@ -83,6 +84,31 @@ document.addEventListener('DOMContentLoaded',function() {
                 .setClassToggle(".sticky-nav-meta", "sticky-nav-meta--show")
                 // .addIndicators({name: "navigation (duration: 100)"})
                 .addTo(controller);
+        },
+
+        randomNumber: function() {
+
+            var colorsArray = [
+                "#00704a",
+                "#b30838",
+                "#eeb211",
+                "#00274c",
+                "#00704a",
+                "#b30838",
+                "#eeb211",
+                "#00274c"
+            ];
+
+            function getRandomInt(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+
+                return Math.floor(Math.random() * (max - min)) + min;
+            }
+
+            var randomBrandColor1 = colorsArray[getRandomInt(0, 8)];
+            var randomBrandColor2 = colorsArray[getRandomInt(0, 8)];
+
         },
 
         articleAnimationTiming: function() {            
