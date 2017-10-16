@@ -1,5 +1,8 @@
 .site-header {
     grid-area: hd;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     max-height: 150px;
 	background-color: $hbc-off-white;
 	color: $hbc-black;
@@ -11,13 +14,15 @@
     margin-bottom: 40px;
 
 	&__logo {
-	    display: inline-block;
 
 		.hbc-tech-logo{
 			display: flex;
-		    width: 100px;
-		    height: 86px;
+		    height: 130px;
 	        transition: all 200ms ease-out;
+
+	        &__1670 {
+	        	fill: $hbc-highlight;
+	        }
 		}
 
 		.hbc-stripes-logo {
@@ -28,32 +33,18 @@
 
 	@media screen and (min-width: $breakpoint-medium) {
 
-		position: sticky;
-	    top: 0;
-
-	    &--scaled {
+	    &--scaled,
+	    &--shaddow {
+			position: sticky;
+		    top: 0;
     	    transition: all 300ms ease-out;
-	        padding: 10px 20px 10px 40px;
+	        padding: 10px 5vw;
 		    margin-bottom: 10px;
-		    max-height: 75px;
+		    max-height: $sticky-header-height;
 	    	
 
 			.hbc-tech-logo {
-			    height: 50px;
-			}
-
-			.est1670 {
-			    width: 0px;
-			    height: 0px;
-			}
-
-			.hbc-stripes-logo {
-			    transform: scale(1.2);
-			    margin-top: 10px;
-			}
-
-			.navigation {
-				margin-right: 20px;
+			    height: 100px;
 			}
 	    }
 
@@ -63,9 +54,9 @@
 	}
 
 	.sticky-nav-meta {
-		display: inline-block;
-	    position: relative;
-	    top: -18px;
+		display: inline-flex;
+        flex-grow: 2;
+        align-items: baseline;
 	    opacity: 0;
 	    visibility: hidden;
 		transition: opacity 200ms ease-in, transform 200ms ease-out;
