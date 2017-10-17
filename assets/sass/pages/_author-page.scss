@@ -89,48 +89,11 @@
 			border-right: 0;
 			padding: 0;
 		    margin-bottom: 0;
+
+		    .snippet {
+				padding-right: 0;
+				margin-right: 0;
+			}
 		}
-
-		// .snippet {
-		// 	padding: 20px 0;
-		//     margin-bottom: 20px;
-		//     border-bottom: solid 1px $hbc-border;
-
-		//     &:first-child {
-		// 		padding-top: 0;
-		//     }
-
-		// 	&:last-child {
-		// 		border: 0;
-		// 	}
-		// }
-	}
-
-	@media screen and (min-width: $breakpoint-medium) {
-
-		// .snippet {
-		// 	grid-area: articles;
-		// 	padding-right: 60px;
-		// 	grid-row: auto;
-		// 	margin-bottom: 0px;
-			
-		// 	&__title {
-		// 		border-top: solid 1px $hbc-border;
-		// 		margin-top: 40px;
-		// 		padding-top: 40px;
-		// 		width: 100%;
-		// 	}
-
-		// 	&:first-of-type {
-		// 		padding-top: 0;
-		// 		margin-top: -5px;
-
-		// 		.snippet__title {
-		// 			padding-top: 0;
-		// 			margin-top: 0;
-		// 			border: 0;
-		// 		}
-		// 	}
-		// }
 	}
 }

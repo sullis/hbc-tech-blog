@@ -1,6 +1,6 @@
 .recirc {
 	border-top: solid 1px $hbc-border;
-	padding-top: 20px;
+	padding: 20px 40px 0 40px;
 	padding-bottom: 100px;
 
 
@@ -52,10 +52,12 @@
 				margin-left: -1px;
 				margin-top: -1px;
 				padding-left: 40px;
+				padding-right: 0;
 			}
 
 			&:nth-child(2) {
 				padding-left: 40px;
+				padding-right: 0;
 			}
 		}
 
@@ -72,7 +74,7 @@
 	}
 
 	@media screen and (max-width: $breakpoint-medium) {
-		padding: 10px;
+		padding: 30px;
 
 		.header {
 

@@ -19,42 +19,6 @@
 	    width: 100%;
 	}
 
-	.hbc-stripes-logo {
-		height: 30px;
-		width: 130px;
-
-		.hbc-stripe {
-
-			&--green {
-				fill: $hbc-green;
-			}
-
-			&--red {
-				fill: $hbc-red;
-			}
-
-			&--yellow {
-				fill: $hbc-yellow;
-			}
-
-			&--blue {
-				fill: $hbc-blue;
-			}
-		}
-	}
-
-	.hbc-tech-logo {
-		fill-opacity: 0.4;
-		position: absolute;
-		fill: $hbc-border;
-		width: 390px;
-		bottom: 0;
-		height: 480px;
-		left: 0;
-		transform: rotate(-4deg);
-	    
-	}
-
 	.est1670 {
 	    fill-opacity: 1;
 	    position: absolute;
@@ -64,10 +28,9 @@
 	    width: 420px;
 	    transform: rotate(-2deg);
 	    padding: 0;
-
 	}
 
-	@media screen and (max-width: $breakpoint-small) {
+	@media screen and (max-width: $breakpoint-medium) {
 
 		.copyright {
 			text-align: center;

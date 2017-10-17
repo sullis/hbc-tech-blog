@@ -1,14 +1,10 @@
 .pagination {
+	grid-area: pg;
 	width: 100%;
     padding: 20px 0;
     text-align: left;
     font-weight: 500;
     min-height: 100px;
-
-    @media screen and (max-width: $breakpoint-medium) {
-    	text-align: center;
-    	margin: auto;
-    }
 
 	&__label {
 		position: relative;
@@ -107,4 +103,18 @@
 			}
 		}
 	}
+
+	// mobile layout
+    @media screen and (max-width: $breakpoint-medium) {
+    	text-align: center;
+    	margin: auto;
+	    padding: 0 0 40px 0;
+	    min-height: 0;
+    }
+
+    // tablet and above
+    @media screen and (min-width: $breakpoint-medium) {
+	    padding-left: 40px;
+	    margin-top: 60px;
+    }
 }
