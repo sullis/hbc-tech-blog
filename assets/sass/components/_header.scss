@@ -161,7 +161,7 @@
 	@media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) and (orientation: portrait) {
 		grid-template-columns: 20% 80%;
 	    grid-template-areas: "logo nav";
-	    padding: 20px 40px 0 40px;
+	    padding: 20px;
 	    margin-bottom: 0px;
 	    border-bottom: solid 1px $hbc-border;
 
@@ -180,10 +180,10 @@
 	}
 
 	// tablet landscape
-	@media screen and (max-height: 768px) and (orientation: landscape) {
+	@media screen and (min-width: $breakpoint-medium) and (orientation: landscape) {
 		grid-template-columns: 20% 80%;
 	    grid-template-areas: "logo nav";
-	    padding: 20px 40px 0 40px;
+	    padding: 20px;
 	    margin-bottom: 0px;
 	    border-bottom: solid 1px $hbc-border;
 
@@ -198,19 +198,40 @@
 
 		&__logo {
 		    margin-top: 10px;
+		    height: 70px;
+		    width: 80px;
 
 			.hbc-tech-logo {
-			    height: 50px;
-			    width: 62px;
+			    height: 70px;
+			    width: 80px;
 			}
 		}
 	}
 
-	// mobile layout
+	// mobile landscape
+	@media screen and (max-height: $breakpoint-small) and (orientation: landscape) {
+		grid-template-columns: 20% 80%;
+	    grid-template-areas: "logo nav";
+	    padding: 20px;
+        max-height: 70px;
+
+		&__logo {
+		    height: 65px;
+	        width: 65px;
+
+			.hbc-tech-logo {
+			    height: 100%;
+			    width: 100%;
+			}
+		}
+
+	}
+
+	// mobile portrait
     @media screen and (max-width: $breakpoint-medium) and (orientation: portrait) {
 	    display: block;
 	    width: 100%;
-	    padding: 20px 40px 20px 40px;
+	    padding: 20px;
 	    margin-bottom: 0px;
 	    border-bottom: solid 1px $hbc-border;
 		margin: auto;
@@ -221,13 +242,13 @@
 
 		&__logo {
 	    	display: block;
-		    height: 50px;
-		    width: 62px;
+		    height: 65px;
+	        width: 65px;
 		    margin: auto;
 
 			.hbc-tech-logo {
-			    height: 50px;
-			    width: 62px;
+			    height: 100%;
+			    width: 100%;
 			}
 		}
 
