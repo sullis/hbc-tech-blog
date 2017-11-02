@@ -8,6 +8,7 @@ $sticky-header-offset: 125px;
 $breakpoint-small: 375px;
 $breakpoint-medium: 767px;
 $breakpoint-large: 1023px;
+$breakpoints: (small: 320px, medium: 768px, large: 1024px, xlarge: 1440px);
 
 .container {
 	display: grid;
@@ -70,7 +71,7 @@ $breakpoint-large: 1023px;
 
 
 .center-image {
-	display: inline-block;
+	display: block;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
