@@ -147,6 +147,7 @@ $breakpoints: (small: 320px, medium: 768px, large: 1024px, xlarge: 1800px);
 	}
 
 	&__title {
+		text-transform: capitalize;
 		margin: 0;
 
 		// mobile layout

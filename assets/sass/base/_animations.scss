@@ -8,14 +8,6 @@
 @keyframes reveal-feature-image {
     to { 
         clip-path: polygon(0% 4vw, 100% 0%, 100% 100%, 0% 100%);
-        box-shadow: inset 0px -250px 20000px 40px white;
-    }
-}
-
-@keyframes reveal-feature-image--mobile {
-    to {
-        clip-path: polygon(0% 4vw, 100% 0%, 100% 100%, 0% 100%);
-        box-shadow: inset 0px -50vh 20000px 40px white;
     }
 }
 

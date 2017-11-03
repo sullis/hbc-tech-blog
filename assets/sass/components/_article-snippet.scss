@@ -27,14 +27,14 @@
 		margin: 0 0 10px 0;
 		line-height: 120%;
 		font-weight: 400;
-	}
 
-	&__link {
-		text-decoration: none;
-		color: $hbc-black;
-		
-		&:hover {
-			color: $hbc-highlight;
+		&__link {
+			text-decoration: none;
+			color: $hbc-black;
+			
+			&:hover {
+				color: $hbc-highlight;
+			}
 		}
 	}
 
@@ -79,6 +79,10 @@
 
 	&__excerpt {
 		margin: 10px 0 0 0;
+	
+		&__link {
+			text-decoration: none;
+			color: $hbc-black;
+		}
 	}
-
 }

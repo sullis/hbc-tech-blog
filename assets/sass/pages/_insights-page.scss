@@ -35,6 +35,12 @@
 			padding: 0 10px 0 10px;
 		    box-decoration-break: clone;
 		    background-color: white;
+			text-decoration: none;
+			color: $hbc-black;
+			
+			&:hover {
+				color: $hbc-highlight;
+			}
 		}
 
 		.snippet__meta {
@@ -175,7 +181,7 @@
 	}
 
 	// medium landscape
-	@include media('>=medium', 'landscape') {
+	@include media('>=medium', '<large', 'landscape') {
 		margin-top: 20px;
 
 		&__remaining {
