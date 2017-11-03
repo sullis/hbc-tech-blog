@@ -8,9 +8,12 @@
 	    margin-bottom: 60px;
 	    max-height: 560px;
 	    overflow: hidden;
+	    margin-left: -40px;
+	    margin-right: -40px;
 
 		// these are overrides. defaults are set in _article-snippet.scss
 		.feature-image__link {
+		    display: flex;
 			grid-column: 1 / 4;
 		    grid-row: 1 / 10;
 		    overflow: hidden;
@@ -18,6 +21,7 @@
 
 		.feature-image {
 		    width: 100%;
+	        align-self: center;
 		}
 
 		.snippet__title {
@@ -118,23 +122,61 @@
 		}	
 	}
 	
-	// Wide Screens
-	@media screen and (min-width: 1100px) {
-	    &__sub-featured,
-	    &__remaining {
-			padding-left: 40px;
-			padding-right: 40px;
-	    }
+	// // Wide Screens
+	// @media screen and (min-width: 1100px) {
+	  //   &__sub-featured,
+	  //   &__remaining {
+			// padding-left: 40px;
+			// padding-right: 40px;
+	  //   }
+	// }
+
+	// medium portrait
+	@include media('>=medium', '<large', 'portrait') {
+
+		&__sub-featured {
+		    display: flex;
+		    flex-direction: column;
+			border: 0;
+			margin-bottom: 0;
+		}
+
+		&__sub-featured {
+			padding: 0;
+
+			.snippet {
+				padding: 20px 0 40px 0;
+			    margin-bottom: 20px;
+			    border-bottom: solid 1px $hbc-border;
+
+			    &:first-child {
+					padding-top: 40px;
+					padding-right: 0px;
+				    border-top: solid 1px $hbc-border;
+			    }
+
+				&:first-child,
+				&:last-child {
+				    border-right: 0;
+				    margin-left: 0px;
+				    margin-top: 0px;
+				    padding-left: 0px;
+				}
+			}
+		}
+
+		&__remaining {
+
+			.featured-topics {
+				top: 40px;
+			}
+
+		}
 	}
 
-
-	// tablet landscape
-	@media screen and (max-width: $breakpoint-medium) and (orientation: landscape) {
-
-		&__featured {
-		    margin-left: -40px;
-		    margin-right: -40px;
-		}
+	// medium landscape
+	@include media('>=medium', 'landscape') {
+		margin-top: 20px;
 
 		&__remaining {
 			.featured-topics {
@@ -143,21 +185,19 @@
 		}
 	}
 
-   	// tablet layout
-	@media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
-
+	// large
+	@include media('>large') {
 		&__featured {
-		    margin-left: -40px;
-		    margin-right: -40px;
+		    margin-left: 0px;
+		    margin-right: 0px;
 		}
-
-		&__remaining  {
-			.featured-topics {
-				top: 40px;
-			}
-		}
+		
+		&__sub-featured,
+	    &__remaining {
+			padding-left: 40px;
+			padding-right: 40px;
+	    }
 	}
-
 
 	// mobile layout
     @media screen and (max-width: $breakpoint-medium) {

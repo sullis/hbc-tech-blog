@@ -8,7 +8,7 @@ $sticky-header-offset: 125px;
 $breakpoint-small: 375px;
 $breakpoint-medium: 767px;
 $breakpoint-large: 1023px;
-$breakpoints: (small: 320px, medium: 768px, large: 1024px, xlarge: 1440px);
+$breakpoints: (small: 320px, medium: 768px, large: 1024px, xlarge: 1800px);
 
 .container {
 	display: grid;
@@ -67,6 +67,12 @@ $breakpoints: (small: 320px, medium: 768px, large: 1024px, xlarge: 1440px);
 		padding-right: 20px;
 		padding-left: 20px;
     }
+
+	// xLarge Breakpoint
+	@include media('>xlarge') {
+		grid-template-columns: minmax(auto, 70vw);
+	}
+
 }
 
 
@@ -127,6 +133,7 @@ $breakpoints: (small: 320px, medium: 768px, large: 1024px, xlarge: 1440px);
 }
 
 .page {
+	padding-top: 20px;
 	padding-bottom: 80px;
 	margin-bottom: 40px;
 	min-height: 60vh;

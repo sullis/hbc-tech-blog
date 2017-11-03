@@ -73,11 +73,6 @@
 	}
 
 
-	@include media('>medium') {
-		padding: 20px 0 0 0;
-	}
-
-
 	@media screen and (max-width: $breakpoint-large) {
 		padding: 0;
 
