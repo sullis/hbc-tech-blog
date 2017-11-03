@@ -1,76 +1,26 @@
 .article {
 
-	&__feature-image,
-	&__no-feature-image {
-	    grid-area: article-image;
-		position: absolute;
-		left: 0;
-		width: 100vw;
-		height: 40vw;
-		z-index: -1;
-		clip-path: polygon(0% 4vw, 100% 0%, 100% 0%, 0% 4vw);
-	    background-color: $hbc-yellow;
+	&__color-header {
+		display: none;
 	}
 
-	&__no-feature-image {
-        box-shadow: inset 0px -540px 20000px 40px white;
-	    transform: scaleX(1.2);
-        animation-name: reveal-feature-image, color-animation;
-        animation-duration: 0.15s, 30s;
-        animation-delay: 0.4s, 0s;
-        animation-timing-function: linear, linear;
-        animation-direction: normal, normal;
-        animation-iteration-count: 1, infinite;
-        animation-fill-mode: forwards, forwards;
-	}
-
-	&__feature-image {
-        animation-name: reveal-feature-image;
-        animation-duration: 0.15s;
-        animation-delay: 0.4s;
-        animation-timing-function: ease-out;
-        animation-direction: normal;
-        animation-iteration-count: 1;
-        animation-fill-mode: forwards;
-
-		&:after {
-			content: "";
-			display: block;
-			height: 100%;
-			width: 100%;
-			mix-blend-mode: soft-light;
-			background-color: rgba(210, 0, 0, 0.8);
-		}
-	}
-
-	
 	&__content {
 		display: grid;
-		grid-template-columns: 90px 90px 1fr 90px ;
 	    grid-auto-rows: minmax(20px, auto);
-	    // grid-auto-rows: min-content;
+		grid-template-columns: 0 20px 1fr 0;
 	    grid-template-areas:
-	    ". meta meta ."
-	    ". title title ."
-	    ". read-time body . "
-	    ". share body . "
-	    ". . body . "
-	    ". . footer . ";
+		    ". meta meta ."
+		    ". title title ."
+		    ". read-time read-time read-time"
+		    ". body body . "
+		    "share share share share"
+		    "share share share share"
+		    ". footer footer . "
+		;
 		align-items: start;
 		position: relative;
-		padding: 60px 0 90px 0;
-		margin-top: 150px;
-		opacity: 0;
-        top: 200px;
+        padding: 20px 0 80px 0;
 		background-color: $hbc-white;
-		clip-path: polygon(0% 0%, 100% 4vw, 100% 100%, 0% 100%);
-        animation-name: reveal-article;
-        animation-duration: .2s;
-        animation-delay: .5s;
-        animation-timing-function: cubic-bezier(0.000, 0.870, 1.000, 1.015); 
-        animation-direction: normal;
-        animation-iteration-count: 1;
-        animation-fill-mode: forwards;	
 
 		.article-meta {
 			grid-area: meta;
@@ -103,9 +53,9 @@
 
 		&__title {
 			grid-area: title;
-			font-size: 72px;
+			font-size: 36px;
 		    line-height: 110%;
-		    margin: 20px 0 0 -5px;
+		    margin: 20px 0 0 -3px;
 		    pointer-events: none;
 		    font-weight: 300;
 		}
@@ -120,7 +70,7 @@
 			.read-time__text-1,
 			.read-time__text-2,
 			.read-time__text-3 {
-				display: block;
+				display: inline-block;
 				margin-bottom: 7px;
 			}
 		}
@@ -128,42 +78,27 @@
 		&__share-buttons {
 			grid-area: share;
 			align-self: start;
-			width: 36px;
+			position: relative;
+			width: 100%;
 			padding-top: 20px;
-			position: sticky;
-			top: 60vh;
+		    top: auto;
 
 			.share-buttons {
 				list-style-type: none;
 				padding: 20px 0 0 0;
 				margin: 0;
-				width: 36px;
+				width: 100%;
 
 				&__link-item {
 					padding: 0;
-					margin: 0 0 10px 0;
+					margin: 0 0 0 10px;
 					display: inline-block;
-					opacity: 0;
-
-						&:hover {
-							.hbc-svg-icon {
-								fill: $hbc-highlight;
-							}
-						}
+					float: left;
+					opacity: 1;
 
 					.hbc-svg-icon {
 						fill: desaturate(lighten($hbc-highlight, 20%), 75%);
 						transition: fill 200ms ease-out;
-					}
-
-					&--reveal {
-				        animation-name: fade-in-and-up;
-				        animation-duration: 200ms;
-				        animation-delay: 0;
-				        animation-timing-function: ease-out; 
-				        animation-direction: normal;
-				        animation-iteration-count: 1;
-				        animation-fill-mode: forwards;
 					}
 				}
 			}
@@ -207,31 +142,11 @@
 		}
 	}
 
-	// Tablet layout
-	@media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
-		&__no-feature-image {
-	        animation-name: reveal-feature-image--mobile, color-animation;
-            animation-duration: 0s, 30s;
-	        animation-delay: 0s, 0.5s;
-            transform: scaleX(1.8);
-			height: 100vh;
-	    }
+	// small portrait
+	@include media('>small', 'portrait') {
 
-    	&__feature-image {
-	        animation-name: reveal-feature-image--mobile;
-		}
-
-		&__feature-image,
-		&__no-feature-image {
-			display: none;
-			visibility: invisible;
-		}
-
-		.article__content {
-			padding-top: 10px;
-		    margin-top: 0;
-	        top: 0;
-			grid-template-columns: 40px 20px 1fr 40px;
+		&__content {
+			grid-template-columns: 5px 20px 1fr 5px;
 		    grid-template-areas:
 			    ". meta meta ."
 			    ". title title ."
@@ -242,23 +157,14 @@
 			    ". footer footer . "
 			;
 
-			&__read-time {
-				.read-time__text-1,
-				.read-time__text-2,
-				.read-time__text-3 {
-					display: inline-block;
-					margin: 0;
-				}
-			}
-
 			&__share-buttons {
-				width: 100vw;
 				position: relative;
 			    top: auto;
 
 				.share-buttons {
 					background-color: #fff;				
 					width: 100%;
+					margin-left: -3px;
 
 					&__link-item {
 						margin: 0 0 0 10px;
@@ -270,80 +176,119 @@
 		}
 	}
 
-	// Mobile Layout
-	@media screen and (max-width: $breakpoint-medium) {
-
-		&__no-feature-image {
-	        animation-name: reveal-feature-image--mobile, color-animation;
-            animation-duration: 0s, 30s;
-	        animation-delay: 0s, 0.5s;
-            transform: scaleX(1.8);
-			height: 100vh;
-	    }
-
-    	&__feature-image {
-	        animation-name: reveal-feature-image--mobile;
+	// medium landscape
+	@include media('>medium', 'landscape') {
+		
+		&__color-header {
+			display: inline-flex;
+		    grid-area: article-image;
+			position: absolute;
+			left: 0;
+			width: 100%;
+			height: 60vw;
+			z-index: -1;
+			clip-path: polygon(0% 4vw, 100% 0%, 100% 100%, 0% 100%);
+		    background-color: $hbc-yellow;
+			box-shadow: inset 0px -540px 20000px 40px white;
+			animation-name: reveal-feature-image, color-animation;
+			animation-duration: 0.15s, 30s;
+			animation-delay: 0.4s, 0s;
+			animation-timing-function: linear, linear;
+			animation-direction: normal, normal;
+			animation-iteration-count: 1, infinite;
+		    animation-fill-mode: forwards, forwards;
 		}
 
-		&__feature-image,
-		&__no-feature-image {
-			display: none;
-			visibility: invisible;
-		}
-
-		.article__content {
-	        padding: 20px 0 80px 0;
-		    margin-top: 0;
-	        top: 0;
-			grid-template-columns: 0 20px 1fr 0;
-		    grid-template-areas:
-			    ". meta meta ."
-			    ". title title ."
-			    ". read-time read-time read-time"
-			    ". body body . "
-			    "share share share share"
-			    "share share share share"
-			    ". footer footer . "
-			;
+		&__content {
+			display: grid;
+			grid-template-columns: 40px 90px 1fr 40px;
+			grid-template-areas:
+		    ". meta meta ."
+		    ". title title ."
+		    ". read-time body . "
+		    ". share body . "
+		    ". . body . "
+		    ". . footer . "
+		    ;
+			margin-top: 80px;
+			padding: 60px 0 90px 0;
+			clip-path: polygon(0% 0%, 100% 4vw, 100% 100%, 0% 100%);
 
 		    &__title {
-				font-size: 36px;
-				margin-left: -3px;
+				font-size: 62px;
+			}
+
+			&__share-buttons {
+				width: 100%;
+				position: sticky;
+				top: 60vh;
+
+				.share-buttons {
+					width: 36px;
+
+					&__link-item {
+						margin: 0 0 10px 0;
+						float: none;
+						opacity: 0;
+
+						&:hover {
+							.hbc-svg-icon {
+								fill: $hbc-highlight;
+							}
+						}
+
+						&--reveal {
+					        animation-name: fade-in-and-up;
+					        animation-duration: 200ms;
+					        animation-delay: 0;
+					        animation-timing-function: ease-out; 
+					        animation-direction: normal;
+					        animation-iteration-count: 1;
+					        animation-fill-mode: forwards;
+						}
+					}
+				}
 			}
 
 			&__read-time {
 				.read-time__text-1,
 				.read-time__text-2,
 				.read-time__text-3 {
-					display: inline-block;
-					margin: 0;
+					display: block;
+					margin-bottom: 0;
 				}
 			}
+		}
+	}
 
-			&__share-buttons {
-				width: 100%;
-				position: relative;
-			    top: auto;
+	// Large Breakpoint
+	@include media('>large') {
 
-				.share-buttons {
-					background-color: #fff;				
-					width: 100%;
+		&__content {
+			grid-template-columns: 90px 90px 1fr 90px;
+		    grid-template-areas:
+		    ". meta meta ."
+		    ". title title ."
+		    ". read-time body . "
+		    ". share body . "
+		    ". . body . "
+		    ". . footer . "
+		    ;
+			margin-top: 150px;
+			opacity: 0;
+	        animation-name: reveal-article;
+	        animation-duration: .2s;
+	        animation-delay: .5s;
+	        animation-timing-function: cubic-bezier(0.000, 0.870, 1.000, 1.015); 
+	        animation-direction: normal;
+	        animation-iteration-count: 1;
+	        animation-fill-mode: forwards;
 
-					&__link-item {
-						margin: 0 0 0 10px;
-						float: left;
-						opacity: 1;
-
-						&:first-child {
-							margin-left: 0;
-						}
-					}
-				}
+		    &__title {
+		    	font-size: 72px;
+				margin-left: -5px;
 			}
 
-			&__body {
-				font-size: 18px;
-			}
 		}
 	}
 }

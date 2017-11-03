@@ -1,6 +1,5 @@
 .recirc {
 	border-top: solid 1px $hbc-border;
-	padding: 20px 40px 0 40px;
 	padding-bottom: 100px;
 
 
@@ -73,7 +72,13 @@
 	    }	
 	}
 
-	@media screen and (max-width: $breakpoint-medium) {
+
+	@include media('>medium') {
+		padding: 20px 0 0 0;
+	}
+
+
+	@media screen and (max-width: $breakpoint-large) {
 		padding: 0;
 
 		.header {
