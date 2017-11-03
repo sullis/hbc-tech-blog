@@ -4,7 +4,7 @@ title: Let’s run an experiment! Self-selection at HBC Digital
 author: Dana Pylayeva
 date: '2017-05-31'
 categories: 
-- agile
+- culture
 tags:
 - culture
 - agile

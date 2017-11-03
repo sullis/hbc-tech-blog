@@ -4,7 +4,7 @@ title: "Hudson's Bay Company at QCon"
 author: HBC Tech
 date: '2017-06-12'
 categories: 
-- conferences
+- events
 tags:
 - developer experience
 - culture

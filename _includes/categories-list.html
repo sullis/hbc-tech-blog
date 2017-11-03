@@ -1,5 +1,6 @@
 <ul class="categories__list">
-{% assign categories_list = site.categories | sort %}
+{% assign categories_list = categories: 
+site.category | sort %}
   {% if categories_list.first[0] == null %}
     {% for category in categories_list %}
       <li class="categories__list-item"><a class="categories__list-item__link" href="#{{ category }}">{{ category | capitalize }} ({{ site.tags[category].size }})</a></li>

@@ -4,7 +4,7 @@ title: December Meetups at HBC Digital
 author: John Coghlan
 date:   2016-12-07
 categories: 
-- meetups
+- events
 tag:
 - meetups
 - scala

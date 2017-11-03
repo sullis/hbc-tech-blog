@@ -4,7 +4,7 @@ title: Keeping an Extra Eye on Your Stack with CloudWatch Events
 author: Emerson Loureiro
 date: '2017-01-25'
 categories: 
-- aws
+- infrastructure
 tags:
 - aws
 - cloudwatch

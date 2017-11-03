@@ -4,7 +4,7 @@ title: "Rookie Summer"
 author: Team Rookie
 date: '2016-8-12'
 categories: 
-- internship
+- culture
 tags:
 - internship
 - mobile

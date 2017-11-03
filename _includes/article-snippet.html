@@ -13,13 +13,13 @@
             {% endif %}
             alt="{{ post.title }}"></a>
         {% else %}
-            <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}"><img class="snippet__feature-image" src="http://placehold.it/1920x800/" alt="{{ post.title }}" ></a>
+            <a class="snippet__feature-image__link" href="{{ site.url }}{{ site.baseurl }}{{ post.url }}"><img class="snippet__feature-image" src="http://placehold.it/1920x800/" alt="{{ post.title }}" ></a>
         {% else %}
-            <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}"><img class="snippet__feature-image" src="http://placehold.it/1920x800/" alt="{{ post.title }}" ></a>
+            <a class="snippet__feature-image__link" href="{{ site.url }}{{ site.baseurl }}{{ post.url }}"><img class="snippet__feature-image" src="http://placehold.it/1920x800/" alt="{{ post.title }}" ></a>
         {% endif %}
     {% endif %}
     <h1 class="snippet__title">
-    <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="snippet__link" title="{{ post.title }}">
+    <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="snippet__title__link" title="{{ post.title }}">
         {{ post.title }}
     </a>
     </h1>
@@ -76,7 +76,7 @@
         {% endif %}
     </div>
     {% if post.excerpt and showExcerpt == true %}
-        <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="snippet__link" title="{{ post.title }}">
+        <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="snippet__excerpt__link" title="{{ post.title }}">
         <p class="snippet__excerpt">
         {{ post.excerpt | strip_html | truncatewords: 70 }}
     {% endif %}

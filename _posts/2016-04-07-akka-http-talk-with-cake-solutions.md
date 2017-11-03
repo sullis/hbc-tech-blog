@@ -1,8 +1,8 @@
 ---
 layout: article
 title: "Akka HTTP Talk with Cake Solutions"
-category:
-- meetups
+categories:
+- events
 tags:
 - meetup
 - cake solutions

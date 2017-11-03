@@ -2,22 +2,8 @@
 layout: default
 ---
 <article class="article">
-    {% if page.image.feature %}
-    <section class="article__feature-image" style="background: url(
-        {% if page.image.feature contains 'https' or page.image.feature contains 'http' %}
-            {{ page.image.feature }}
-        {% else %}
-            {{ site.url }}{{ site.baseurl }}/assets/images/{{ page.image.feature }}
-        {% endif %}) 50% 50% / cover no-repeat;">
-    </section>
-    {% else %}
-    <section class="article__no-feature-image">
-    </section>
-    {% endif %}
+    <section class="article__color-header"><span class="fader"></span></section>
     <section class="article__content">
-<!--     {% if page.image.credit %}
-        <span>Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
-    {% endif %} -->
         {% if page.categories.size > 0 %}
             {% for cat in site.category %}
                 {% if cat.name == page.categories.first %}

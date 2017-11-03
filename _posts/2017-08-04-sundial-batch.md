@@ -4,7 +4,7 @@ title: "Sundial or AWS Batch, Why not both?"
 author: Kevin O'Riordan
 date: '2017-08-04'
 categories: 
-- data
+- data science
 tags:
 - batch
 - aws

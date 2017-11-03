@@ -4,7 +4,7 @@ title: "Open Source Friday"
 author: HBC Tech
 date: '2017-06-29'
 categories: 
-- open source
+- culture
 tags:
 - open source
 - culture

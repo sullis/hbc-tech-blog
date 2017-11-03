@@ -4,7 +4,7 @@ title: "Watch Gilt's QCon New York talks"
 author: John Coghlan
 date: '2016-10-24'
 categories: 
-- conferences
+- events
 tags:
 - communication
 - team building

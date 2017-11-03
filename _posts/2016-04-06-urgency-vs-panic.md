@@ -4,7 +4,7 @@ title: Urgency vs. Panic
 author: Hilah Almog
 date: '2016-04-06'
 categories: 
-- tech blog
+- product
 tags:
 - KPI
 - urgency

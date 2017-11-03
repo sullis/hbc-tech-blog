@@ -4,7 +4,7 @@ title: "Visually Similar Recommendations"
 author: Chris Curro
 date: '2017-05-12'
 categories: 
-- personalization
+- data science
 tags:
 - machine learning
 - deep learning

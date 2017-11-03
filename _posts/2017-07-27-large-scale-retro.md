@@ -4,7 +4,7 @@ title: How Large Is YOUR Retrospective?
 author: Dana Pylayeva
 date: '2017-07-27'
 categories: 
-- agile
+- culture
 tags: 
 - agile
 - retrospective

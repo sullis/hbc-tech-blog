@@ -4,7 +4,7 @@ title: "Advanced tips for building an iOS Notification Service Extension"
 author: Kyle Dorman
 date: '2017-07-07'
 categories: 
-- ios
+- mobile
 tags:
 - ios
 - push notifications

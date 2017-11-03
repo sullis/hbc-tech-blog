@@ -19,14 +19,14 @@ layout: default
 <!-- display the 1st article in a big way-->
 <section class="article-listing">
 {% for post in paginator.posts limit:1 %}
-    <div class="article-listing__featured">        
+    <div class="article-listing__featured">
             {% if post.image.feature %}
     <a class="feature-image__link"href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" >
         <img class="feature-image" src="{% if post.image.feature contains 'https' or post.image.feature contains 'http' %}{{ post.image.feature }}
                     {% else %}{{ site.url }}{{ site.baseurl }}/assets/images/{{ post.image.feature }}
                     {% endif %}"/>
             {% endif %}
-            <h1 class="snippet__title"><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="snippet__link" title="{{ post.title }}">{{ post.title }}</a></h1>
+            <h1 class="snippet__title"><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="snippet__title__link" title="{{ post.title }}">{{ post.title }}</a></h1>
             <div class="snippet__meta">
                 <span class="meta__day">{{ post.date | date: "%-d" }}</span>
                 <span class="meta__month">{{ post.date | date: "%b" | upcase }}</span>

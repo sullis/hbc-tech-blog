@@ -4,7 +4,7 @@ title: "Sundial PagerDuty Integration"
 author: Giovanni Gargiulo
 date: '2017-02-06'
 categories: 
-- aws
+- infrastructure
 tags:
 - aws
 - sundial

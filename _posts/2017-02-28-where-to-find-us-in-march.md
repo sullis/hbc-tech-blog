@@ -4,7 +4,7 @@ title: "Where to find our team in March"
 author: HBC Digital
 date: '2017-02-28'
 categories: 
-- meetups
+- events
 tags:
 - agile
 - people ops

@@ -4,7 +4,7 @@ title:  Linting NPM Version Conflicts
 author: Andrew Powell
 date: 2016-11-09
 categories: 
-- node
+- front end
 tag:
 - npm
 - node.js

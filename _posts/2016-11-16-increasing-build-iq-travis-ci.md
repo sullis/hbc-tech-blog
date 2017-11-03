@@ -4,7 +4,7 @@ title:  Increasing Build IQ with Travis CI
 author: Andrew Powell
 date:   2016-11-16
 categories: 
-- continuous integration
+- front end
 tag:
 - continuous integration
 - node.js

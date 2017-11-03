@@ -4,7 +4,7 @@ title: "From Monolothic to Microservices - Gilt's Journey to Microservices on AW
 author: John Coghlan
 date: '2016-12-13'
 categories: 
-- conferences
+- events
 tags:
 - microservices
 - aws

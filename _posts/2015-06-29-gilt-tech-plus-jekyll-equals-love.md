@@ -4,7 +4,7 @@ title: Gilt Tech + Jekyll = ♥
 author: Andrew Powell
 date: '2015-06-29'
 categories: 
-- tech blog
+- culture
 tags:
 - jekyll
 - github

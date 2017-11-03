@@ -4,7 +4,7 @@ title: "HBC Digital is Sponsoring !!Con"
 author: HBC Digital
 date: '2017-04-25'
 categories: 
-- conferences
+- events
 tags:
 - tech
 - conferences

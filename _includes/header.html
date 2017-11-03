@@ -20,9 +20,9 @@
         {% if page.layout == 'article' %}
         	<span class="meta__title">{{ page.title }}</span>
         {% elsif page.url contains '/category/' %}
-        	<span class="meta__title">{{ page.title }}</span>
+        	<a href="{{ site.url }}{{ site.baseurl }}/categories/" class="meta__category">All Categories</a><span class="meta__title">{{ page.title }}</span>
         {% elsif page.url == '/categories/' %}
-	        <span class="meta__title">All Posts By Category</span>
+	        <span class="meta__title"><i>The surest way to find your dream job is to create it. ~ Unknown</i></span>
         {% elsif page.url contains '/authors/' %}
         	<a href="{{ site.url }}{{ site.baseurl }}/authors/" class="meta__category">Authors</a>
         	{% if page.title != nil %}

@@ -3,10 +3,10 @@ layout: article
 title: "Deep Learning at GILT"
 author: Pau Carré Cardona
 date: '2016-12-22'
-categories: 
-- machine learning
+categories:
+- data science
 tags:
-- deep learning
+- machine learning
 - Pau Carré Cardona
 - machine learning
 - computer vision

@@ -4,7 +4,7 @@ title: Codedeploy Notifications as a Service
 author: Emerson Loureiro
 date: '2016-02-10'
 categories: 
-- aws
+- infrastructure
 tags:
 - aws
 - codedeploy

@@ -4,7 +4,7 @@ title: gulp-scan &bull; Find Yourself Some Strings
 author: Andrew Powell
 date: '2016-02-15'
 categories:
-- gulp
+- front end
 tags:
 - gulp
 - javascript
