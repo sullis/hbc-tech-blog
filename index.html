@@ -1,94 +1,154 @@
 ---
-layout: default
+layout:
 ---
 
 {% if paginator.previous_page %}
-<!-- sub page template -->
-<!-- this is the rest of the posts listed with no feature images-->
-<section class="article-listing">
-    <div class="article-listing__remaining">
-    {% include featured-topics.html showMoreLink=true %}
-    {% for post in paginator.posts %}
-          {% include article-snippet.html excerpt=true featureImage=false %}
-    {% endfor %}
-    {% include pagination.html %}
-    </div>
-</section>
-{% else %}
-<!-- page 1 template -->
-<!-- display the 1st article in a big way-->
-<section class="article-listing">
-{% for post in paginator.posts limit:1 %}
-    <div class="article-listing__featured">        
-            {% if post.image.feature %}
-    <a class="feature-image__link"href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" >
-        <img class="feature-image" src="{% if post.image.feature contains 'https' or post.image.feature contains 'http' %}{{ post.image.feature }}
-                    {% else %}{{ site.url }}{{ site.baseurl }}/assets/images/{{ post.image.feature }}
-                    {% endif %}"/>
-            {% endif %}
-            <h1 class="snippet__title"><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="snippet__link" title="{{ post.title }}">{{ post.title }}</a></h1>
-            <div class="snippet__meta">
-                <span class="meta__day">{{ post.date | date: "%-d" }}</span>
-                <span class="meta__month">{{ post.date | date: "%b" | upcase }}</span>
-                <span class="meta__year">{{ post.date | date: "%Y" }}</span>
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: page.lang | default: 'en' }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-                {% if post.categories.size > 0 %}
-                    {% for cat in site.category %}
-                        {% if cat.name == post.categories.first %}
-                            {% assign featureCategory = cat.name %}
-                        {% endif %}
-                    {% endfor %}
+        <title>{% if page.title %} {{ page.title | escape }} {% else %} {{ site.title | escape }} {% endif %}</title>
 
-                    {% if post.categories.first == featureCategory %}
-                        <a class="meta__category-link" href="{{ site.url }}{{ site.baseurl }}/category/{{ post.categories.first }}">{{post.categories.first}}</a>
-                    {% else %}
-                        <a class="meta__category-link" href="{{ site.url }}{{ site.baseurl }}/categories/#{{ post.categories.first }}">{{post.categories.first}}</a>
-                    {% endif %}
-                {% endif %}
+        <!-- {% include og-seo.html %} -->
+        {% seo %}
 
-                {% if post.author != '' %}
-                    <span class="slug-divider"></span>
-                    {% for authorName in post.author %}
-                        {% assign authorLink = authorName | replace: ' ', '-' | downcase %}
-                        <!-- if author exists in site.authors, create link to author's page -->
-                        {% for a in site.authors %}
-                            {% if a.name == authorName %}
-                            <a class="meta__author-link" href="{{ site.url }}{{ site.baseurl }}/authors/{{ authorLink }}">
-                            {% endif %}
-                        {% endfor %}
-                        <!-- render the author name regardless if they're a featured author -->
-                        {{- authorName -}}
-                        <!-- if author exists in site.authors, close link to author's page -->
-                        <!-- add author's job title to give article more clout -->
-                        {% for a in site.authors %}
-                            {% if a.name == authorName %}
-                            </a>{%if a.job-title %}<span class="meta__author-job-title">, {{a.job-title}}</span>{% endif %}
-                            {% endif %}
-                        {% endfor %}
-                        {%- unless forloop.last -%}
-                        <span>,</span>
-                        {% endunless %}
-                    {% endfor %}
-                {% else %}
-                    {{ site.title }}
-                {% endif %}
-            </div></a>
+        <link rel="stylesheet" href="{{ site.url }}{{ site.baseurl }}/assets/css/main.css">
+        <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
+
+        <!-- Icons -->
+        <!-- 16x16 -->
+        <link rel="shortcut icon" href="{{ site.url }}{{ site.baseurl }}/assets/images/favicon.ico">
+    </head>
+
+    <body class="container" aria-label="Content">
+        {% include header-subpage.html %}
+        <section class="content">
+            <!-- sub page template -->
+            <!-- this is the rest of the posts listed with no feature images-->
+            <section class="article-listing">
+                <div class="article-listing__remaining">
+                {% include featured-topics.html showMoreLink=true %}
+                {% for post in paginator.posts %}
+                      {% include article-snippet.html excerpt=true featureImage=false %}
+                {% endfor %}
+                {% include pagination.html %}
+                </div>
+            </section>
         </section>
-{% endfor %}
-    <!-- display the 2nd and 3rd posts in a smaller way-->
-    <div class="article-listing__sub-featured">
-    {% for post in paginator.posts limit:2 offset:1 %}
-        {% include article-snippet.html excerpt=true featureImage=false %}
-    {% endfor %}
-    </div>
-    <!-- this is the rest of the posts listed with no feature images-->
-    <div class="article-listing__remaining">
-    {% include featured-topics.html showMoreLink=true %}
-    {% for post in paginator.posts offset:3 limit:8 %}
-          {% include article-snippet.html excerpt=true featureImage=false %}
-    {% endfor %}
-    {% include pagination.html %}
-    </div>
-</section>
+        {% include footer.html %}
+        {% include js.html %}
+    </body>
+</html>
+    
+    {% else %}
+
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: page.lang | default: 'en' }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{% if page.title %} {{ page.title | escape }} {% else %} {{ site.title | escape }} {% endif %}</title>
+
+        <!-- {% include og-seo.html %} -->
+        {% seo %}
+
+        <link rel="stylesheet" href="{{ site.url }}{{ site.baseurl }}/assets/css/main.css">
+        <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
+
+        <!-- Icons -->
+        <!-- 16x16 -->
+        <link rel="shortcut icon" href="{{ site.url }}{{ site.baseurl }}/assets/images/favicon.ico">
+    </head>
+
+    <body class="container" aria-label="Content">
+        {% include header.html %}
+        <section class="content">
+            <!-- page 1 template -->
+            <!-- display the 1st article in a big way-->
+            <section class="article-listing">
+            {% for post in paginator.posts limit:1 %}
+                <div class="article-listing__featured">        
+                        {% if post.image.feature %}
+                <a class="feature-image__link"href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" >
+                    <img class="feature-image" src="{% if post.image.feature contains 'https' or post.image.feature contains 'http' %}{{ post.image.feature }}
+                                {% else %}{{ site.url }}{{ site.baseurl }}/assets/images/{{ post.image.feature }}
+                                {% endif %}"/>
+                        {% endif %}
+                        <h1 class="snippet__title"><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="snippet__link" title="{{ post.title }}">{{ post.title }}</a></h1>
+                        <div class="snippet__meta">
+                            <span class="meta__day">{{ post.date | date: "%-d" }}</span>
+                            <span class="meta__month">{{ post.date | date: "%b" | upcase }}</span>
+                            <span class="meta__year">{{ post.date | date: "%Y" }}</span>
+
+                            {% if post.categories.size > 0 %}
+                                {% for cat in site.category %}
+                                    {% if cat.name == post.categories.first %}
+                                        {% assign featureCategory = cat.name %}
+                                    {% endif %}
+                                {% endfor %}
+
+                                {% if post.categories.first == featureCategory %}
+                                    <a class="meta__category-link" href="{{ site.url }}{{ site.baseurl }}/category/{{ post.categories.first }}">{{post.categories.first}}</a>
+                                {% else %}
+                                    <a class="meta__category-link" href="{{ site.url }}{{ site.baseurl }}/categories/#{{ post.categories.first }}">{{post.categories.first}}</a>
+                                {% endif %}
+                            {% endif %}
+
+                            {% if post.author != '' %}
+                                <span class="slug-divider"></span>
+                                {% for authorName in post.author %}
+                                    {% assign authorLink = authorName | replace: ' ', '-' | downcase %}
+                                    <!-- if author exists in site.authors, create link to author's page -->
+                                    {% for a in site.authors %}
+                                        {% if a.name == authorName %}
+                                        <a class="meta__author-link" href="{{ site.url }}{{ site.baseurl }}/authors/{{ authorLink }}">
+                                        {% endif %}
+                                    {% endfor %}
+                                    <!-- render the author name regardless if they're a featured author -->
+                                    {{- authorName -}}
+                                    <!-- if author exists in site.authors, close link to author's page -->
+                                    <!-- add author's job title to give article more clout -->
+                                    {% for a in site.authors %}
+                                        {% if a.name == authorName %}
+                                        </a>{%if a.job-title %}<span class="meta__author-job-title">, {{a.job-title}}</span>{% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    {%- unless forloop.last -%}
+                                    <span>,</span>
+                                    {% endunless %}
+                                {% endfor %}
+                            {% else %}
+                                {{ site.title }}
+                            {% endif %}
+                        </div></a>
+                    </section>
+            {% endfor %}
+                <!-- display the 2nd and 3rd posts in a smaller way-->
+                <div class="article-listing__sub-featured">
+                {% for post in paginator.posts limit:2 offset:1 %}
+                    {% include article-snippet.html excerpt=true featureImage=false %}
+                {% endfor %}
+                </div>
+                <!-- this is the rest of the posts listed with no feature images-->
+                <div class="article-listing__remaining">
+                {% include featured-topics.html showMoreLink=true %}
+                {% for post in paginator.posts offset:3 limit:8 %}
+                      {% include article-snippet.html excerpt=true featureImage=false %}
+                {% endfor %}
+                {% include pagination.html %}
+                </div>
+            </section>
+        </section>
+        {% include footer.html %}
+        {% include js.html %}
+    </body>
+</html>
 {% endif %}
 
