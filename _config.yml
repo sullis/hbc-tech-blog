@@ -51,6 +51,7 @@ defaults:
       type: posts
     values:
       author: HBC Tech
+      layout: article
   - scope:
       type: authors
     values:

@@ -1,8 +1,7 @@
 ---
-layout: default
+layout: sub-page
 ---
-<article class="article">
-    <section class="article__color-header"><span class="fader"></span></section>
+<article class="page article">
     <section class="article__content">
         {% if page.categories.size > 0 %}
             {% for cat in site.category %}
@@ -30,8 +29,8 @@ layout: default
             {% include author-bio.html %}
         </footer>
     </section>
+    {% include recirc.html %}
 </article>
-{% include recirc.html %}
 
 
 <!-- {% if site.owner.disqus-shortname and page.comments == true %}

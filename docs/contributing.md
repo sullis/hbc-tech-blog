@@ -4,25 +4,23 @@
 Each post contains front matter, a header section with some auto-generated metadata (layout, title, author, date, categories, tags). Please always add the metadata as follows:
 
 ```
-layout: article
-title: "Enter Your Title Here. Format: YYYY-MM-DD-your-post-name.md"
-description: "A short description of your post in 160 characters or less"
+title: Your Title Here
+description: A short description of your post in 160 characters or less
 author: 
-- First Last
-date: 'YYYY-MM-DD'
+- First Name Last Name
+date: YYYY-MM-DD
 categories:
-- just one
+- just one please
 tags: 
 - your
 - tags
 - here
 ```
 
-- `layout`: String, leave this set to article.
-- `title`: String, your post title
+- `title`: String, your post title. No need for quotes
 - `description`: String, A short description of the page's content. Used for snippets in the article listing and in search engine results.
-- `author`: Yaml list, can be more than one. Optionally, you can add your bio to the [contributors file](/_data/contributors.md).
-- `date`: String, 'YYYY-MM-DD' format
+- `author`: Yaml list, can be more than one.
+- `date`: String, YYYY-MM-DD format
 - `categories`: Yaml list, Must be one of the following [categories](/_data/categories.md). Use tags for additional topic refinement.
 - `tags`: Yaml list
 
@@ -76,6 +74,9 @@ Sometimes you may want to have more control over how your image is displayed on 
 ![the image alt text](http://the-image.jpg){:.left-align .simple-border}
 
 ```
+
+### Featured Authors
+Become a featured author by contributing at least 3 articles and adding your bio to the [Featured Authors Collection](/_authors/).
 
 ### Guest Posts
 If you're an individual or organization and you'd like to contribute a guest post to our blog, please contact [jcoghlan@gilt.com](mailto:jcoghlan@gilt.com)

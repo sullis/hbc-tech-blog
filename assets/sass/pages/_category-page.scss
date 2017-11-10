@@ -1,7 +1,7 @@
 // for featured categories
 .category-page {
 	display: grid;
-	grid-template-columns:  3fr 1.25fr;
+	grid-template-columns: minmax(auto, $content-width*0.7) minmax(auto, $content-width*0.3);
 	grid-auto-rows: minmax(50px, auto);
 	grid-template-areas:
     "header header"
@@ -9,7 +9,8 @@
     "articles ."
     "recirc recirc"
 	;
-
+	margin: auto;
+	
 	.articles {
 		border-right: solid 1px $hbc-border;
 		margin-bottom: 80px;

@@ -1,8 +1,7 @@
 ---
-layout: article
-title: "Dublin Scala Spree"
+title: Dublin Scala Spree
 author: Gregor Heine
-date: '2017-09-11'
+date: 2017-09-11
 categories: 
 - events
 tags:
