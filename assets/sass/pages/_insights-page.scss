@@ -1,16 +1,18 @@
-@include media('>small') {
-	$content-side-margins: 40px;
-}
-
 // insights page
 .article-listing {
 	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: min-content;
+	grid-template-areas: "featured" "sub-featured" "remaining";
+	margin: auto;
+	max-width: $content-width;
 
 	&__featured {
 		display: grid;
 		grid-area: featured;
 		grid-template-columns: $content-side-margins minmax(auto, $content-width) $content-side-margins;
 		grid-template-rows: repeat(4, 1fr);
+	    margin: auto;
 		margin: 0 ($content-side-margins*-1) 0 ($content-side-margins*-1);
 	    max-height: 560px;
 	    overflow: hidden;
@@ -60,59 +62,44 @@
 	&__sub-featured,
 	&__remaining {
 		display: grid;
-		grid-template-columns: 1fr;
-	}
-
-	&__sub-featured {
 	    margin-top: 40px;
 	    border-top: solid 1px $hbc-border;
 
 		.snippet {
 			padding: 40px 0 40px 0;
 		    border-bottom: solid 1px $hbc-border;
+
+		    &:last-child {
+		    	border-bottom: 0;
+		    	padding-bottom: 0;
+		    }
 		}
-	
+	}
+
+	&__sub-featured {
+		grid-area: sub-featured;
 	}
 
 	&__remaining  {
-		display: grid;
+		grid-area: remaining;
 		grid-template-columns: 1fr;
-		align-items: start;
-		padding: 40px 0 0 0;
-		margin: auto;
-
-		.snippet {
-			grid-area: art;
-			padding-left: 40px;
-			grid-row: auto;
-			border-left: solid 1px $hbc-border;
-			margin-bottom: 0px;
-			
-			&__title {
-				border-top: solid 1px $hbc-border;
-				margin-top: 40px;
-				padding-top: 40px;
-				width: 100%;
-			}
-
-			&:first-of-type {
-				padding-top: 0;
-				margin-top: -5px;
-
-				.snippet__title {
-					padding-top: 0;
-					margin-top: 0;
-					border: 0;
-				}
-			}
-		}
+		grid-auto-rows: repeat(12, minmax(100px, auto));
+	    grid-template-areas:
+	    "art"
+	    "art"
+	    "art"
+	    "art"
+	    "art"
+	    "art"
+	    "art"
+	    "art"
+	    "art"
+	    "art"
+	    "pg"
+	    "ft";
 
 		.featured-topics {
-			grid-area: ft;
-			position: sticky;
-			top: $sticky-header-offset;
-			margin-right: 40px;
-		}	
+		}
 	}
 
 	// small landscape
@@ -124,14 +111,20 @@
 				font-size: 38px;
 			}
 	    }
+
+		&__sub-featured {
+
+			.snippet {
+				
+				&:last-child {
+				    border-bottom: 0;
+				}
+			}
+		}
 	}
 
 	// medium
 	@include media('>=medium') {
-		grid-template-columns: 1fr minmax(auto, $content-width) 1fr;
-		grid-template-areas:
-			". featured ."
-		;
 
 		&__featured {
 			grid-template-columns: $content-side-margins-large minmax(auto, $content-width) $content-side-margins-large;
@@ -139,151 +132,106 @@
 		}
 	}
 
+	@include media('>=medium', 'landscape') {
+
+		&__remaining {
+			display: grid;
+			margin: 60px auto;
+			padding-top: $content-side-margins-large*2;
+			max-width: $content-width;
+			border-top: solid 1px $hbc-border;
+			grid-template-columns: minmax(auto, 25%) minmax(auto, 75%);
+			grid-auto-rows: repeat(11, minmax(100px, auto));
+		    grid-template-areas:
+		    "ft art"
+		    "ft art"
+		    "ft art"
+		    "ft art"
+		    "ft art"
+		    "ft art"
+		    "ft art"
+		    "ft art"
+		    "ft art"
+		    "ft art"
+		    ". pg";
+
+		    .snippet {
+				grid-row: auto;
+				padding: 0 40px;
+				border-left: solid 1px $hbc-border;
+				border-bottom: 0;
+				margin-bottom: 0px;
+				
+				&__title {
+					border-top: solid 1px $hbc-border;
+					margin-top: 40px;
+					padding-top: 40px;
+					width: 100%;
+				}
+
+				&:first-of-type {
+					padding-top: 0;
+
+					.snippet__title {
+						padding-top: 0;
+						margin-top: 0;
+						border: 0;
+					}
+				}
+			}
+
+			.featured-topics {
+				grid-area: ft;
+				position: sticky;
+				top: $sticky-header-offset;
+				margin-right: 40px;
+			}	
+		}
+	}
+
 	// large
 	@include media('>=large') {
 
 		&__sub-featured {
-			grid-template-columns: 1fr repeat(2, minmax(auto, $content-width/2)) 1fr;
-			grid-auto-rows: 1fr;
+			grid-template-columns: repeat(2, 50%);
 		    border-top: 0;
-			margin: 60px 0;
+			margin: 60px auto;
+			max-width: $content-width;
 
 			.snippet {
 				padding: 0;
 			    border: 0;
 
 				&:first-child {
-					grid-column: 2 / 3;
+					grid-column: 1 / 2;
 					border-right: solid 1px $hbc-border;
 					padding-right: 40px;
 				}	
 
 				&:last-child {
-					grid-column: 3 / 4;
+					grid-column: 2 / 3;
 					padding-left: 40px;
 				}
 			}
 		}
-
-		// &__remaining {
-		// 	display: grid;
-		// 	grid-template-columns: minmax(auto, $content-width*.3) minmax(auto, $content-width*.7);
-		// 	grid-auto-rows: repeat(11, minmax(100px, auto));
-		//     grid-template-areas:
-		//     "ft art"
-		//     "ft art"
-		//     "ft art"
-		//     "ft art"
-		//     "ft art"
-		//     "ft art"
-		//     "ft art"
-		//     "ft art"
-		//     "ft art"
-		//     "ft art"
-		//     ". pg";
-		// }
 	}
 
 
-
-
- //    // small landscape
-	// @include media('>=small', '<medium', 'landscape') {
-	// 	&__featured {
-	// 		height: 90vh;
-	// 	}
-	// }
-
-	// // medium portrait
-	// @include media('>small', '<medium') {
-
-	// 	&__featured {
-	// 		margin-left: -40px;
-	// 		margin-right: -40px;
-	// 	}
-
-	// 	&__sub-featured {
-	// 	    display: flex;
-	// 	    flex-direction: column;
-	// 		border: 0;
-	// 		margin-bottom: 0;
-	// 	}
-
-	// 	&__sub-featured {
-	// 		padding: 0;
-
-	// 		.snippet {
-	// 			padding: 20px 0 40px 0;
-	// 		    margin-bottom: 20px;
-	// 		    border-bottom: solid 1px $hbc-border;
-
-	// 		    &:first-child {
-	// 				padding-top: 40px;
-	// 				padding-right: 0px;
-	// 			    border-top: solid 1px $hbc-border;
-	// 		    }
-
-	// 			&:first-child,
-	// 			&:last-child {
-	// 			    border-right: 0;
-	// 			    margin-left: 0px;
-	// 			    margin-top: 0px;
-	// 			    padding-left: 0px;
-	// 			}
-	// 		}
-	// 	}
-
-	// 	&__sub-featured,
-	// 	&__remaining {
-	// 		padding-left: 40px;
-	// 		padding-right: 40px;
-
-	// 		.featured-topics {
-	// 			top: 40px;
-	// 		}
-
-	// 	}
-	// }
-
-	// // medium landscape
-	// @include media('>=medium', '<large', 'landscape') {
-
-	// 	&__remaining {
-	// 		padding-left: 40px;
-	// 		padding-right: 40px;
-
-	// 		.featured-topics {
-	// 			top: 40px;
-	// 		}
-	// 	}
-	// }
-
-	// mobile layout
-    // @media screen and (max-width: $breakpoint-medium) {
+	@include media('>large') {
 		
-				
+		&__featured {
+			margin: auto;
+		}
+
+		&__sub-featured {
+			padding: 0 $content-side-margins-large;
+		}
 
 
-		// &__sub-featured {
-		// 	padding: 0;
-
-
-		// }
-
-		// &__remaining  {
-		// 	grid-template-columns: 1fr;
-		// 	padding-top: 0;
-
-		// 	.snippet {
-		// 	    padding-left: 0;
-		// 	    border-left: 0;
-		// 	    width: 100%;
-
-		// 	    &:first-of-type {
-		// 			padding-top: 20px;
-		// 	    }
-		// 	}
-		// }	
-	// }
+		&__remaining {
+			padding-left: $content-side-margins-large;
+			padding-right: $content-side-margins-large;
+		}
+	}
 }
 

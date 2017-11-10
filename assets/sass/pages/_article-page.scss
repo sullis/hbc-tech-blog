@@ -10,7 +10,6 @@
 		    "read-time read-time"
 		    "body body "
 		    "share share"
-		    "share share"
 		    "footer footer "
 		;
 		align-items: start;
@@ -175,9 +174,22 @@
 	@include media('>medium') {
 
 		&__content {
-			display: grid;
-			grid-template-columns: 90px minmax(auto, ($content-width)-90px);
-    		grid-template-areas: "meta meta" "title title" "read-time body" "share body" ". body" ". footer";
+			// grid-template-columns: 90px minmax(auto, ($content-width)-90px);
+   //  		grid-template-areas:
+   //  			"meta meta"
+   //  			"title title"
+   //  			"read-time body"
+   //  			"share body"
+   //  			"share body"
+   //  			"share footer";
+		   grid-template-columns: 40px 90px 1fr 40px;
+		   grid-template-areas:
+		   ". meta meta ."
+		   ". title title ."
+		   ". read-time body . "
+		   ". share body . "
+		   ". . body . "
+		   ". . footer . ";
 
 		    &__title {
 				font-size: 62px;
@@ -226,12 +238,6 @@
 		}
 	}
 
-
-	// Large Breakpoint
-	@include media('>=large') {
-
-	}
-
 	// xLarge Breakpoint
 	@include media('>xlarge') {
 		&__content {
@@ -241,9 +247,10 @@
 		    ". title title ."
 		    ". read-time body . "
 		    ". share body . "
-		    ". . body . "
-		    ". . footer . "
+		    ". share body . "
+		    ". share footer . "
 		    ;
+
 		    &__body {
 				grid-area: body;
 				max-width: 1000px;
