@@ -1,5 +1,5 @@
 // Basic Layout
-$site-width: 1280px;
+$site-width: 1024px;
 $content-width: 1080px;
 $sticky-header-height: 100px;
 $sticky-header-offset: 125px;
@@ -8,73 +8,33 @@ $sticky-header-offset: 125px;
 $breakpoint-small: 375px;
 $breakpoint-medium: 767px;
 $breakpoint-large: 1023px;
-$breakpoints: (small: 320px, medium: 768px, large: 1024px, xlarge: 1800px);
+$breakpoints: (small: 320px, medium: 768px, large: $site-width, xlarge: 1800px);
+
+// spacers
+$content-side-margins: 20px;
+$content-side-margins-large: 40px;
 
 .container {
 	display: grid;
-    grid-auto-rows: minmax(10px, auto);
-
-	// desktop layout
-	@media screen and (min-width: $breakpoint-large) {
-		grid-template-columns: repeat(12, 1fr);
-	    grid-template-areas: 
-	      "hd hd hd hd   hd   hd   hd   hd   hd  hd   hd hd"
-	      ". main main main main main main main main main main ."
-	      "ft ft ft ft   ft   ft   ft   ft   ft   ft   ft   ft";
-   	}
-
-   	// tablet layout
-	@media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
-	    grid-template-columns: 1fr;
-	    grid-template-areas: "hd" "main" "ft";
-	}
-
-	// tablet landscape
-	@media screen and (max-height: 768px) and (orientation: landscape) {
-	    grid-template-columns: 1fr;
-	    grid-template-areas: "hd" "main" "ft";
-	}
-
-	// mobile layout
-    @media screen and (max-width: $breakpoint-medium) {
-	    grid-template-columns: 1fr;
-	    grid-template-areas: "hd" "main" "ft";
-    }
+	grid-template-columns: 1fr;
+    grid-template-areas: 
+      "hd"
+      "main"
+      "ft";
 }
 
 .content {
     grid-area: main;
-	display: grid;
-	grid-template-columns: minmax(auto, $content-width);
-    margin: auto;
+	max-width: 100vw;
+	overflow: hidden;
+	padding-right: $content-side-margins;
+	padding-left: $content-side-margins;
 
-	@media screen and (max-width: $breakpoint-medium) {
-	    grid-template-columns: 1fr;
+	@include media('>=medium') {
+		padding-right: $content-side-margins-large;
+		padding-left: $content-side-margins-large;
 	}
-
-	// tablet layout
-	@media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
-		padding-right: 40px;
-		padding-left: 40px;
-	}
-	// tablet landscape
-	@media screen and (max-height: 768px) and (orientation: landscape) {
-		padding-right: 40px;
-		padding-left: 40px;
-	}
-	// mobile layout
-    @media screen and (max-width: $breakpoint-medium) {
-		padding-right: 20px;
-		padding-left: 20px;
-    }
-
-	// xLarge Breakpoint
-	@include media('>xlarge') {
-		grid-template-columns: minmax(auto, 70vw);
-	}
-
 }
-
 
 .center-image {
 	display: block;
@@ -133,10 +93,11 @@ $breakpoints: (small: 320px, medium: 768px, large: 1024px, xlarge: 1800px);
 }
 
 .page {
-	padding-top: 20px;
+	padding-top: 40px;
 	padding-bottom: 80px;
 	margin-bottom: 40px;
 	min-height: 60vh;
+	margin: auto;
 
 	&__header {
 		grid-area: header;
@@ -167,6 +128,21 @@ $breakpoints: (small: 320px, medium: 768px, large: 1024px, xlarge: 1800px);
 
 	&__description {
 		margin: 0;
+	}
+
+	// medium portrait
+	@include media('>=medium', '<large', 'portrait') {
+	    // padding-left: $content-side-margins;
+	    // padding-right: $content-side-margins;
+	}
+
+	// medium
+	@include media('>=medium', '<large', 'landscape') {
+	}
+
+	// xlarge
+	@include media('>=xlarge') {
+		// margin-top: 0;
 	}
 }
 
