@@ -24,12 +24,11 @@ layout:
         <link rel="shortcut icon" href="{{ site.url }}{{ site.baseurl }}/assets/images/favicon.ico">
     </head>
 
-    <body class="container" aria-label="Content">
+    <body aria-label="Content">
         {% include header-subpage.html %}
         <section class="content">
             <!-- sub page template -->
             <!-- this is the rest of the posts listed with no feature images-->
-            <section class="article-listing">
                 <div class="article-listing__remaining">
                 {% include featured-topics.html showMoreLink=true %}
                 {% for post in paginator.posts %}
@@ -67,20 +66,19 @@ layout:
         <link rel="shortcut icon" href="{{ site.url }}{{ site.baseurl }}/assets/images/favicon.ico">
     </head>
 
-    <body class="container" aria-label="Content">
+    <body aria-label="Content">
         {% include header.html %}
         <section class="content">
             <!-- page 1 template -->
-            {% for post in paginator.posts limit:1 %}
             <!-- display the 1st article in a big way-->
-            <section class="article-listing article-listing__featured">        
-            {% if post.image.feature %}
+            {% for post in paginator.posts limit:1 %}
+            <section class="article-listing__featured">        
+                    {% if post.image.feature %}
                 <a class="feature-image__link"href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" >
-                    <img class="feature-image" src="{% if post.image.feature contains 'https' or post.image.feature contains 'http' %}{{ post.image.feature }}
-                            {% else %}{{ site.url }}{{ site.baseurl }}/assets/images/{{ post.image.feature }}
-                            {% endif %}"/>
-                </a>
-            {% endif %}
+                <img class="feature-image" src="{% if post.image.feature contains 'https' or post.image.feature contains 'http' %}{{ post.image.feature }}
+                        {% else %}{{ site.url }}{{ site.baseurl }}/assets/images/{{ post.image.feature }}
+                        {% endif %}"/></a>
+                {% endif %}
                 <h1 class="snippet__title"><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="snippet__link" title="{{ post.title }}">{{ post.title }}</a></h1>
                 <div class="snippet__meta">
                     <span class="meta__day">{{ post.date | date: "%-d" }}</span>
@@ -100,47 +98,50 @@ layout:
                             <a class="meta__category-link" href="{{ site.url }}{{ site.baseurl }}/categories/#{{ post.categories.first }}">{{post.categories.first}}</a>
                         {% endif %}
                     {% endif %}
-
-                    {% if post.author != '' %}
-                        <span class="slug-divider"></span>
-                        {% for authorName in post.author %}
-                            {% assign authorLink = authorName | replace: ' ', '-' | downcase %}
-                            <!-- if author exists in site.authors, create link to author's page -->
-                            {% for a in site.authors %}
-                                {% if a.name == authorName %}
-                                <a class="meta__author-link" href="{{ site.url }}{{ site.baseurl }}/authors/{{ authorLink }}">
-                                {% endif %}
-                            {% endfor %}
-                            <!-- render the author name regardless if they're a featured author -->
-                            {{- authorName -}}
-                            <!-- if author exists in site.authors, close link to author's page -->
-                            <!-- add author's job title to give article more clout -->
-                            {% for a in site.authors %}
-                                {% if a.name == authorName %}
-                                </a>{%if a.job-title %}<span class="meta__author-job-title">, {{a.job-title}}</span>{% endif %}
-                                {% endif %}
-                            {% endfor %}
-                            {%- unless forloop.last -%}
-                            <span>,</span>
-                            {% endunless %}
+                {% if post.author != '' %}
+                    <span class="slug-divider"></span>
+                    {% for authorName in post.author %}
+                        {% assign authorLink = authorName | replace: ' ', '-' | downcase %}
+                        <!-- if author exists in site.authors, create link to author's page -->
+                        {% for a in site.authors %}
+                            {% if a.name == authorName %}
+                            <a class="meta__author-link" href="{{ site.url }}{{ site.baseurl }}/authors/{{ authorLink }}">
+                            {% endif %}
                         {% endfor %}
-                    {% else %}
-                        {{ site.title }}
-                    {% endif %}
+                        <!-- render the author name regardless if they're a featured author -->
+                        {{- authorName -}}
+                        <!-- if author exists in site.authors, close link to author's page -->
+                        <!-- add author's job title to give article more clout -->
+                        {% for a in site.authors %}
+                            {% if a.name == authorName %}
+                            </a>{%if a.job-title %}<span class="meta__author-job-title">, {{a.job-title}}</span>{% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        {%- unless forloop.last -%}
+                        <span>,</span>
+                        {% endunless %}
+                    {% endfor %}
+                {% else %}
+                    {{ site.title }}
+                {% endif %}
             </section>
+        {% endfor %}
+            <!-- display the 2nd and 3rd posts in a smaller way-->
+            <section class="article-listing__sub-featured">
+            {% for post in paginator.posts limit:2 offset:1 %}
+                {% include article-snippet.html excerpt=true featureImage=false %}
             {% endfor %}
-                <!-- display the 2nd and 3rd posts in a smaller way-->
-            <section class="article-listing article-listing__sub-featured">
-                {% for post in paginator.posts limit:2 offset:1 %}
-                    {% include article-snippet.html excerpt=true featureImage=false %}
-                {% endfor %}
             </section>
-                <!-- this is the rest of the posts listed with no feature images-->
-            <section class="article-listing article-listing__remaining">
-                {% include featured-topics.html showMoreLink=true %}
-                {% for post in paginator.posts offset:3 limit:8 %}
-                      {% include article-snippet.html excerpt=true featureImage=false %}
-                {% endfor %}
+            <!-- this is the rest of the posts listed with no feature images-->
+            <section class="article-listing__remaining">
+                <section class="asides">
+                   {% include featured-topics.html showMoreLink=true%}
+                </section>
+                <section class="articles">
+                    {% for post in paginator.posts offset:3 limit:8 %}
+                    {% include article-snippet.html excerpt=true featureImage=false %}
+                    {% endfor %}
+                </section>
                 {% include pagination.html %}
             </section>
         </section>

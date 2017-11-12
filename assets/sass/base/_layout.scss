@@ -2,7 +2,7 @@
 $site-width: 1024px;
 $content-width: 1080px;
 $sticky-header-height: 100px;
-$sticky-header-offset: 125px;
+$sticky-header-offset: $sticky-header-height + 10px;
 
 // breakpoints
 $breakpoint-small: 375px;
@@ -14,23 +14,20 @@ $breakpoints: (small: 320px, medium: 768px, large: $site-width, xlarge: 1800px);
 $content-side-margins: 20px;
 $content-side-margins-large: 40px;
 
-.container {
-	display: grid;
-	grid-template-columns: 1fr;
-    grid-template-areas: 
-      "hd"
-      "main"
-      "ft";
-}
-
 .content {
-    grid-area: main;
-	max-width: 100vw;
-	overflow: hidden;
+	margin: auto;
+	max-width: $content-width;
 	padding-right: $content-side-margins;
 	padding-left: $content-side-margins;
 
+	// tablet layout
 	@include media('>=medium') {
+		padding-right: $content-side-margins-large;
+		padding-left: $content-side-margins-large;
+	}
+
+	// tablet landscape
+	@include media('>=medium', 'landscape') {
 		padding-right: $content-side-margins-large;
 		padding-left: $content-side-margins-large;
 	}
