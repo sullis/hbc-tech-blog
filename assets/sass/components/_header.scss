@@ -135,18 +135,22 @@
 	position: relative;
 	margin-top: 0;
 
-	&--minified {
-		position: sticky;
-	    top: 0;
-	    max-height: $sticky-header-height;
-        background-color: $hbc-off-white;
-        box-shadow: darken(rgba($hbc-highlight, 0.15), 40%) 0px 1px 3px;
-	    margin-bottom: 10px;
+	// large
+	@include media('>=large') {
+		
+		&--minified {
+			position: sticky;
+		    top: 0;
+		    max-height: $sticky-header-height;
+	        background-color: $hbc-off-white;
+	        box-shadow: darken(rgba($hbc-highlight, 0.15), 40%) 0px 1px 3px;
+		    margin-bottom: 10px;
 
-		.site-header__logo {
-		    height: 65px;
-	        width: 65px;
-	        margin: 0;
+			.site-header__logo {
+			    height: 65px;
+		        width: 65px;
+		        margin: 0;
+			}
 		}
 	}
 }

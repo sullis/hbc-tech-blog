@@ -28,14 +28,19 @@ layout:
         {% include header-subpage.html %}
         <section class="content">
             <!-- sub page template -->
-            <!-- this is the rest of the posts listed with no feature images-->
-                <div class="article-listing__remaining">
-                {% include featured-topics.html showMoreLink=true %}
-                {% for post in paginator.posts %}
-                      {% include article-snippet.html excerpt=true featureImage=false %}
-                {% endfor %}
+            <header class="page__header">
+                <h1 class="page__title">Recent Articles</h1>
+            </header><!-- this is the rest of the posts listed with no feature images-->
+            <section class="article-listing__remaining article-listing__remaining--sub-page">
+                <section class="asides">
+                   {% include featured-topics.html showMoreLink=true%}
+                </section>
+                <section class="articles">
+                    {% for post in paginator.posts offset:3 limit:8 %}
+                    {% include article-snippet.html excerpt=true featureImage=false %}
+                    {% endfor %}
+                </section>
                 {% include pagination.html %}
-                </div>
             </section>
         </section>
         {% include footer.html %}
