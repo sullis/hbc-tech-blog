@@ -10,6 +10,7 @@
     transition: all 100ms ease-out;
     width: 100%;
     pointer-events: none;
+    position: absolute;
 
 	&__logo {
 	    grid-area: logo;
@@ -136,9 +137,9 @@
 	margin-top: 0;
 
 	// large
-	@include media('>=large') {
+	@include media('>=medium') {
 		
-		&--minified {
+		// &--minified {
 			position: sticky;
 		    top: 0;
 		    max-height: $sticky-header-height;
@@ -151,6 +152,6 @@
 		        width: 65px;
 		        margin: 0;
 			}
-		}
+		// }
 	}
 }
