@@ -41,16 +41,22 @@ document.addEventListener('DOMContentLoaded',function() {
                 .setClassToggle(".share-buttons__link-item", "share-buttons__link-item--reveal")
                 .addTo(controller);
 
-            // new ScrollMagic.Scene({triggerHook: 0, offset: 60, delay:1, reverse: true})
-            //     // .setClassToggle(".site-header", "site-header--shaddow")
-            //     .setClassToggle(".site-header", "site-header--shaddow")
-            //     // .addIndicators({name: "header (duration: 100)"})
-            //     .addTo(controller);
+            new ScrollMagic.Scene({triggerHook: 0, offset: 120, reverse: true})
+                // .setClassToggle(".site-header", "site-header--shaddow")
+                .setClassToggle(".site-header", "site-header--minified")
+                // .addIndicators({name: "header"})
+                .addTo(controller);
 
-            // new ScrollMagic.Scene({triggerHook: 0, offset: 60, reverse: true})
-            //     .setClassToggle(".sticky-nav-meta", "sticky-nav-meta--show")
-            //     // .addIndicators({name: "navigation (duration: 100)"})
-            //     .addTo(controller);
+            new ScrollMagic.Scene({triggerHook: 0, offset: 2, reverse: true})
+                // .setClassToggle(".site-header", "site-header--shaddow")
+                .setClassToggle(".site-header--sub-page", "site-header--sub-page--minified")
+                // .addIndicators({name: "sub-page header"})
+                .addTo(controller);
+
+            new ScrollMagic.Scene({triggerHook: 0, offset: 150, reverse: true})
+                .setClassToggle(".sticky-nav-meta", "sticky-nav-meta--show")
+                // .addIndicators({name: "navigation (duration: 100)"})
+                .addTo(controller);
         },
 
         articleAnimationTiming: function() {            
