@@ -39,7 +39,7 @@
             {% endfor %}
 
             {% if post.categories.first == featureCategory %}
-                <a class="meta__category-link" href="{{ site.url }}{{ site.baseurl }}/category/{{ post.categories.first }}">{{post.categories.first}}</a>
+                <a class="meta__category-link" href="{{ site.url }}{{ site.baseurl }}/category/{{ post.categories.first | slugify }}">{{post.categories.first }}</a>
             {% else %}
                 <a class="meta__category-link" href="{{ site.url }}{{ site.baseurl }}/categories/#{{ post.categories.first }}">{{post.categories.first}}</a>
             {% endif %}

@@ -11,7 +11,7 @@ layout: sub-page
             {% endfor %}
         <div class="article-meta">
             {% if page.categories.first == featureCategory %}
-            <a href="{{ site.url }}{{ site.baseurl }}/category/{{ featureCategory }}" class="article-meta__category">{{ featureCategory }}</a>
+            <a href="{{ site.url }}{{ site.baseurl }}/category/{{ featureCategory | slugify }}" class="article-meta__category">{{ featureCategory }}</a>
             {% else %}
             <a href="{{ site.url }}{{ site.baseurl }}/categories/#{{ page.categories }}" class="article-meta__category">{{ page.categories.first }}</a>
             {% endif %}
