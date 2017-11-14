@@ -3,19 +3,18 @@
 	&__content {
 		display: grid;
 	    grid-auto-rows: minmax(20px, auto);
-		grid-template-columns: 20px 1fr;
+		grid-template-columns: 1fr;
 	    grid-template-areas:
-		    "meta meta"
-		    "title title"
-		    "read-time read-time"
-		    "body body "
-		    "share share"
-		    "footer footer "
+		    "meta"
+		    "title"
+		    "read-time"
+		    "body"
+		    "share"
+		    "footer"
 		;
 		align-items: start;
 		position: relative;
-        padding: 0 0 80px 0;
-		background-color: $hbc-white;
+        margin-bottom: 80px;
 
 		.article-meta {
 			grid-area: meta;
@@ -140,16 +139,6 @@
 	@include media('>small', 'portrait') {
 
 		&__content {
-			grid-template-columns: 5px 20px 1fr 5px;
-		    grid-template-areas:
-			    ". meta meta ."
-			    ". title title ."
-			    ". read-time read-time read-time"
-			    ". body body . "
-			    "share share share share"
-			    "share share share share"
-			    ". footer footer . "
-			;
 
 			&__share-buttons {
 				position: relative;
@@ -174,22 +163,15 @@
 	@include media('>medium') {
 
 		&__content {
-			// grid-template-columns: 90px minmax(auto, ($content-width)-90px);
-   //  		grid-template-areas:
-   //  			"meta meta"
-   //  			"title title"
-   //  			"read-time body"
-   //  			"share body"
-   //  			"share body"
-   //  			"share footer";
-		   grid-template-columns: 40px 90px 1fr 40px;
-		   grid-template-areas:
-		   ". meta meta ."
-		   ". title title ."
-		   ". read-time body . "
-		   ". share body . "
-		   ". . body . "
-		   ". . footer . ";
+			padding: 0 $content-side-margins-large;
+			grid-template-columns: 90px 1fr;
+			grid-template-areas:
+			"meta meta"
+			"title title"
+			"read-time body"
+			"share body"
+			". body"
+			". footer";
 
 		    &__title {
 				font-size: 62px;
@@ -234,26 +216,6 @@
 					display: block;
 					margin-bottom: 0;
 				}
-			}
-		}
-	}
-
-	// xLarge Breakpoint
-	@include media('>xlarge') {
-		&__content {
-			grid-template-columns: 1fr 90px 1000px 1fr;
-			grid-template-areas:
-		    ". meta meta ."
-		    ". title title ."
-		    ". read-time body . "
-		    ". share body . "
-		    ". share body . "
-		    ". share footer . "
-		    ;
-
-		    &__body {
-				grid-area: body;
-				max-width: 1000px;
 			}
 		}
 	}
