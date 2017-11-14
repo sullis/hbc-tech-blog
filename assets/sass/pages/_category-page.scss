@@ -1,7 +1,7 @@
 // for featured categories
 .category-page {
 	display: grid;
-	grid-template-columns: minmax(auto, $content-width*0.7) minmax(auto, $content-width*0.3);
+	grid-template-columns: 75% 25%;
 	grid-auto-rows: minmax(50px, auto);
 	grid-template-areas:
     "header header"

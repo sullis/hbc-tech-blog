@@ -14,7 +14,7 @@
 		grid-template-rows: repeat(4, 1fr);
 	    margin: auto;
 		margin: 0 ($content-side-margins*-1) 0 ($content-side-margins*-1);
-	    max-height: 560px;
+	    max-height: 60vh;
 	    overflow: hidden;
 
 		// these are overrides. defaults are set in _article-snippet.scss
@@ -86,19 +86,24 @@
 		grid-auto-rows: repeat(12, minmax(100px, auto));
 	    grid-template-areas:
 	    "art"
-	    "art"
-	    "art"
-	    "art"
-	    "art"
-	    "art"
-	    "art"
-	    "art"
-	    "art"
-	    "art"
 	    "pg"
 	    "ft";
 
-		.featured-topics {
+		.asides {
+			grid-area: ft;
+		}
+
+		&--sub-page {
+			margin-top: 0;
+			border: 0;
+			padding-top: 0;
+
+			.articles {
+
+				.snippet:first-child {
+					padding-top: 0;
+				}
+			}
 		}
 	}
 
@@ -129,35 +134,31 @@
 		&__featured {
 			grid-template-columns: $content-side-margins-large minmax(auto, $content-width) $content-side-margins-large;
 			margin: 0 ($content-side-margins-large*-1) 0 ($content-side-margins-large*-1);
+
+			.snippet__title {
+				font-size: 48px;
+			}
 		}
 	}
 
 	@include media('>=medium', 'landscape') {
 
+		&__featured {
+	    	max-height: 80vh;
+	    }
+
 		&__remaining {
-			display: grid;
-			margin: 60px auto;
 			padding-top: $content-side-margins-large*2;
 			max-width: $content-width;
-			border-top: solid 1px $hbc-border;
 			grid-template-columns: minmax(auto, 25%) minmax(auto, 75%);
-			grid-auto-rows: repeat(11, minmax(100px, auto));
+			grid-auto-rows: minmax(50px, auto);
 		    grid-template-areas:
-		    "ft art"
-		    "ft art"
-		    "ft art"
-		    "ft art"
-		    "ft art"
-		    "ft art"
-		    "ft art"
-		    "ft art"
-		    "ft art"
 		    "ft art"
 		    ". pg";
 
 		    .snippet {
 				grid-row: auto;
-				padding: 0 40px;
+				padding: 0 0 0 40px;
 				border-left: solid 1px $hbc-border;
 				border-bottom: 0;
 				margin-bottom: 0px;
@@ -180,17 +181,27 @@
 				}
 			}
 
-			.featured-topics {
-				grid-area: ft;
-				position: sticky;
-				top: $sticky-header-offset;
+			.asides {
 				margin-right: 40px;
-			}	
+
+				.featured-topics {
+					position: sticky;
+					top: 40px;
+				}
+			}
+
+			&--sub-page {
+				padding-top: 0;
+			}
 		}
 	}
 
 	// large
 	@include media('>=large') {
+
+		&__featured {
+	    	max-height: 600px;
+	    }
 
 		&__sub-featured {
 			grid-template-columns: repeat(2, 50%);
@@ -214,6 +225,16 @@
 				}
 			}
 		}
+
+		&__remaining {
+
+			.asides {
+
+				.featured-topics {
+					top: $sticky-header-offset;
+				}
+			}
+		}
 	}
 
 
@@ -227,10 +248,14 @@
 			padding: 0 $content-side-margins-large;
 		}
 
-
 		&__remaining {
 			padding-left: $content-side-margins-large;
 			padding-right: $content-side-margins-large;
+
+			&--sub-page {
+				padding-left: 0;
+				padding-right: 0;
+			}
 		}
 	}
 }
