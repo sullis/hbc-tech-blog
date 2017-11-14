@@ -1,47 +1,36 @@
 // Typography
-@import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,500');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Oswald:300,400,700');
-@import url('https://fonts.googleapis.com/css?family=Patua+One');
-@import url('https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i');
-@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
-@import url('https://fonts.googleapis.com/css?family=Crete+Round');
+@import url('https://fonts.googleapis.com/css?family=
+	Crimson+Text:400,400i,500|
+	Roboto+Slab:100,300,400,700|
+	Open+Sans:300,400|
+	Oswald:300,400,700|
+	Droid+Serif:400,400i,700,700i|
+	Fjalla+One|
+	Crete+Round|
+	Patua+One|
+	Roboto+Slab:100,300,400,700
+');
 
-$hbc-font-family: 'Oswald', sans-serif;;
+
+$hbc-font-family-sans-serif: 'Roboto Slab', sans-serif;
 $hbc-font-family-serif: 'Crimson Text', serif;
-// $hbc-font-family: 'Poppins', sans-serif;
-// $hbc-font-family-serif:  'Patua One', cursive;
-@mixin italic-styles() {
-	font-family: $hbc-font-family-serif;
-	font-weight: 400i;
-	font-style: italic;
-}
+
+$hbc-font-family-01: 'oswald';
+$hbc-font-family-02: 'open sans';
+
 
 * {
-	font-weight: 300;
 	text-rendering: optimizeLegibility;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	line-height: 140%;
-	font-family: $hbc-font-family-serif, serif;
-	font-weight: 500;
-	color: $hbc-black;
-}
-
 p {
-	font-family: $hbc-font-family-serif, sans-serif;
+	font-family: $hbc-font-family-02;
 	line-height: 145%;
 	font-weight: 300;
 	font-size: 18px;
 	color: $hbc-gray-3;
-
 }
 
 h1,
@@ -51,8 +40,8 @@ h4,
 h5,
 h6,
 strong {
-	font-weight: 500;
-	color: $hbc-black;
+	font-weight: 300;
+	color: inherit;
 }
 
 p a, 
@@ -102,28 +91,25 @@ blockquote {
 	}
 }
 
-@mixin special-text-link() {
-	transition: margin-bottom 150ms ease-out, padding-bottom 150ms ease-out, color 150ms ease-out;
-	margin-bottom: 2px;
-	padding-bottom: 0px;
-	border-bottom: solid 1px $hbc-white;
-	display: inline-block;
-	text-decoration: none;
-    line-height: 100%;
+// type styles for post content
+.article__content__body {
+    p, 
+	li,
+	p ~ ul {
+		font-size: 18px;
+		font-family: $hbc-font-family-02;
+		font-weight: 300;
+	}
 
-	&:hover {
-		padding-bottom: 2px;
-		margin-bottom: 0px;
-		border-bottom: solid 1px $hbc-highlight;
-		color: $hbc-highlight;
+	p a, 
+	li a {
+		text-decoration: none;
+	    border-bottom: solid 1px #bbb;
+
+		&:hover {
+			color: $hbc-highlight;
+			border-color: $hbc-highlight;
+		}
 	}
 }
 
-// type styles
-
-.page {
-
-	&__header {
-		font-weight: 400;
-	}
-}

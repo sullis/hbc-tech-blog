@@ -1,0 +1,47 @@
+@mixin special-text-link() {
+	transition: margin-bottom 150ms ease-out, padding-bottom 150ms ease-out, color 150ms ease-out;
+	margin-bottom: 2px;
+	padding-bottom: 0px;
+	border-bottom: solid 1px $hbc-white;
+	display: inline-block;
+	text-decoration: none;
+    line-height: 100%;
+
+	&:hover {
+		padding-bottom: 2px;
+		margin-bottom: 0px;
+		border-bottom: solid 1px $hbc-highlight;
+		color: $hbc-highlight;
+	}
+}
+
+@mixin italic-styles() {
+	font-family: $hbc-font-family-02;
+	font-style: italic;
+}
+
+@mixin headline-styles($type:null) {
+	line-height: 140%;
+	font-family: $hbc-font-family-01;
+	font-weight: 700;
+	color: $hbc-gray-4;
+
+	@if $type == 'anchor' {
+		text-decoration: none;
+			
+		&:hover {
+			color: $hbc-highlight;
+		}
+	}
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@include headline-styles();
+}
+

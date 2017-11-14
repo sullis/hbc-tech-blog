@@ -26,12 +26,15 @@
 				color: $hbc-highlight;
 			    font-size: 15px;
 			    font-weight: 400;
+				font-family: $hbc-font-family-01;
 
 				@include special-text-link();
 			}
 
 			&__date {
 				color: $hbc-gray;
+				font-weight: 300;
+				font-family: $hbc-font-family-02;
 
 				&:before {
 					display: inline-block;
@@ -52,7 +55,6 @@
 		    line-height: 110%;
 		    margin: 10px 0 0 -3px;
 		    pointer-events: none;
-		    font-weight: 300;
 		}
 
 		&__read-time {
@@ -69,6 +71,7 @@
 				display: inline-block;
 				margin-bottom: 7px;
 				font-size: 16px;
+				font-weight: 300;
 				@include italic-styles();
 			}
 		}
@@ -104,8 +107,6 @@
 
 		&__body {
 			grid-area: body;
-			font-size: 18px;
-			color: $hbc-gray-3;
 		}
 
 		&__footer {
@@ -125,7 +126,7 @@
 			.author {
 
 				&__name {
-
+					font-family: $hbc-font-family-02;
 				}
 
 				&__job-title {

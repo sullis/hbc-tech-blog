@@ -26,19 +26,15 @@
 	&__title {
 		margin: 0 0 10px 0;
 		line-height: 120%;
-		font-weight: 400;
 
 		&__link {
-			text-decoration: none;
-			color: $hbc-black;
-			
-			&:hover {
-				color: $hbc-highlight;
-			}
+			@include headline-styles(anchor);
 		}
 	}
 
 	&__meta {
+		color: $hbc-gray;
+		font-family: $hbc-font-family-02;
 
 		.meta {
 
@@ -51,15 +47,15 @@
 			&__category-link {
 				color: $hbc-highlight;
 				text-transform: uppercase;
+				font-family: $hbc-font-family-01;
 			    font-size: 15px;
-			    font-weight: 300;
+			    font-weight: 400;
 
 				@include special-text-link();
 
 			}
 
 			&__author {
-				color: $hbc-gray;
 			}
 
 			&__author-link {
