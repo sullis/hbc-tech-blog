@@ -32,7 +32,7 @@ $content-side-margins-large: 40px;
 		padding-left: $content-side-margins-large;
 	}
 
-	@include media('>=large') {
+	@include media('>large') {
 		padding: 0;
 	}
 }

@@ -19,14 +19,11 @@ h6 {
 p {
 	line-height: 160%;
 	font-weight: 300;
-	// font-size: 20px !default;
-	// overflow: hidden;
+	font-size: 18px;
+	color: $hbc-gray-3;
 
 }
 
-// 
-// additional styles for post markdown elements
-//
 h1,
 h2,
 h3,
@@ -50,6 +47,7 @@ li a {
 
 p ~ ul {
 	margin-bottom: 40px;
+    font-weight: 300;
 
 	li {
 		margin-bottom: 20px;
