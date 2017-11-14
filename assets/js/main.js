@@ -10,42 +10,9 @@ document.addEventListener('DOMContentLoaded',function() {
         },
 
         bindEvents: function() {
-            // set listeners for mouse events
-            // document.body.onscroll = ScrollEvents.toggleClass();
-            // document.querySelector('.container').onscroll = function() {
-            //     ScrollEvents.toggleClass();
-            // }
+
         }
     }
-
-    // replacing scrollmagic with the following
-    // var ScrollEvents = {
-
-    //     // listen for watched elements to move off the screen and toggle a class
-    //     toggleClass: function() {
-
-    //         var scrollTop = document.body.scrollTop;
-
-    //         // watched elements
-    //         var articleTitle = document.querySelector('.article__content__title');
-    //         var siteHeader = document.querySelector('.site-header');
-
-    //         var watchedElements = [
-    //             articleTitle,
-    //             siteHeader
-    //         ];
-
-    //         var targetElement = watchedElements[0].getBoundingClientRect();
-
-    //         // console.log("scrollTop: " + scrollTop + " articleTitlePosition: " + articleTitlePosition.top);
-
-    //         if (scrollTop > targetElement.top) {
-    //             console.log("the " + watchedElements[0].className + " is off the screen");
-    //         } else {
-    //             console.log("we can see the " + watchedElements[0].className);
-    //         }
-    //     }
-    // }
 
     var LazyLoadRecircArticles = {
 
@@ -74,41 +41,22 @@ document.addEventListener('DOMContentLoaded',function() {
                 .setClassToggle(".share-buttons__link-item", "share-buttons__link-item--reveal")
                 .addTo(controller);
 
-            new ScrollMagic.Scene({triggerHook: 0, offset: 60, delay:1, reverse: true})
+            new ScrollMagic.Scene({triggerHook: 0, offset: 120, reverse: true})
                 // .setClassToggle(".site-header", "site-header--shaddow")
-                .setClassToggle(".site-header", "site-header--shaddow")
-                // .addIndicators({name: "header (duration: 100)"})
+                .setClassToggle(".site-header", "site-header--minified")
+                // .addIndicators({name: "header"})
                 .addTo(controller);
 
-            new ScrollMagic.Scene({triggerHook: 0, offset: 60, reverse: true})
+            new ScrollMagic.Scene({triggerHook: 0, offset: 2, reverse: true})
+                // .setClassToggle(".site-header", "site-header--shaddow")
+                .setClassToggle(".site-header--sub-page", "site-header--sub-page--minified")
+                // .addIndicators({name: "sub-page header"})
+                .addTo(controller);
+
+            new ScrollMagic.Scene({triggerHook: 0, offset: 150, reverse: true})
                 .setClassToggle(".sticky-nav-meta", "sticky-nav-meta--show")
                 // .addIndicators({name: "navigation (duration: 100)"})
                 .addTo(controller);
-        },
-
-        randomNumber: function() {
-
-            var colorsArray = [
-                "#00704a",
-                "#b30838",
-                "#eeb211",
-                "#00274c",
-                "#00704a",
-                "#b30838",
-                "#eeb211",
-                "#00274c"
-            ];
-
-            function getRandomInt(min, max) {
-                min = Math.ceil(min);
-                max = Math.floor(max);
-
-                return Math.floor(Math.random() * (max - min)) + min;
-            }
-
-            var randomBrandColor1 = colorsArray[getRandomInt(0, 8)];
-            var randomBrandColor2 = colorsArray[getRandomInt(0, 8)];
-
         },
 
         articleAnimationTiming: function() {            
