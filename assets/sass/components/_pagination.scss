@@ -3,17 +3,17 @@
 	width: 100%;
     padding: 20px 0;
     text-align: left;
-    font-weight: 500;
     min-height: 100px;
 
 	&__label {
 		position: relative;
 		top: -10px;
+		@include render-type-style(label-2, $type-styles);
 	}
 
 	&__link {
+		@include render-type-style(subhead-3, $type-styles);
 		padding: 0 7px 0 7px;
-		font-weight: 700;
 		text-decoration: none;
 		transition: all 100ms ease-out;
 		position: relative;

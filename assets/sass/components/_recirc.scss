@@ -8,8 +8,7 @@
 
 		&__title {
 			display: inline-block;
-			font-weight: 700;
-			font-size: 22px;
+			@include render-type-style(subhead-1, $type-styles);
 
 			&:after {
 				display: inline-block;

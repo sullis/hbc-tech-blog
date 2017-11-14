@@ -25,16 +25,19 @@
 	
 	&__title {
 		margin: 0 0 10px 0;
-		line-height: 120%;
 
 		&__link {
-			@include headline-styles(anchor);
+			text-decoration: none;
+			color: $hbc-gray-4;
+			
+			&:hover {
+				color: $hbc-highlight;
+			}
 		}
 	}
 
 	&__meta {
 		color: $hbc-gray;
-		font-family: $hbc-font-family-02;
 
 		.meta {
 
@@ -46,28 +49,26 @@
 
 			&__category-link {
 				color: $hbc-highlight;
-				text-transform: uppercase;
-				font-family: $hbc-font-family-01;
-			    font-size: 15px;
-			    font-weight: 400;
 
+				@include render-type-style(slug-1, $type-styles);
 				@include special-text-link();
 
 			}
 
 			&__author {
+				@include render-type-style(label-2, $type-styles);
 			}
 
 			&__author-link {
-				text-decoration: none;
 				color: $hbc-highlight;
-				font-weight: 300;
-
+				
+				@include render-type-style(label-2, $type-styles);
 				@include special-text-link();
 			}
 
 			&__author-job-title {
-				color: $hbc-gray;				
+				color: $hbc-gray;	
+				@include render-type-style(label-2, $type-styles);			
 			}
 		}
 
