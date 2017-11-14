@@ -31,6 +31,10 @@ $content-side-margins-large: 40px;
 		padding-right: $content-side-margins-large;
 		padding-left: $content-side-margins-large;
 	}
+
+	@include media('>=large') {
+		padding: 0;
+	}
 }
 
 .center-image {

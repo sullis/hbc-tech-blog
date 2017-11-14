@@ -199,6 +199,10 @@
 	// large
 	@include media('>=large') {
 
+		&__featured {
+	    	max-height: 600px;
+	    }
+
 		&__sub-featured {
 			grid-template-columns: repeat(2, 50%);
 		    border-top: 0;
