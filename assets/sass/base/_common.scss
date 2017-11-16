@@ -7,6 +7,7 @@ $hbc-border: darken(rgba($hbc-highlight, 0.12), 35%);
 $hbc-gray: #777;
 $hbc-gray-2: #999;
 $hbc-gray-3: #4A4A4A;
+$hbc-gray-4: #222;
 
 // hbc-stripes
 $hbc-green: #00704a;
@@ -16,7 +17,6 @@ $hbc-blue: #00274c;
 
 $hbc-colors: $hbc-green, $hbc-red, $hbc-yellow, $hbc-blue;
 
-
 /**
  * Set up a decent box model on the root element
  */
@@ -24,9 +24,6 @@ html {
   box-sizing: border-box;
 }
 
-body {
-	background-color: $hbc-off-white;
-}
 /**
  * Make all elements from the DOM inherit from the parent box-sizing
  * Since `*` has a specificity of 0, it does not override the `html` value
@@ -35,10 +32,6 @@ body {
  */
 *, ::before, ::after {
   box-sizing: inherit;
-} 
-
-img {
-	max-width: 100%;
 }
 
 .slug-divider {

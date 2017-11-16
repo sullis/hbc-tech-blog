@@ -1,0 +1,131 @@
+// type styles for post content
+.article__content__body {
+
+	p a, 
+	li a {
+		line-height: 0;
+		color: inherit;
+
+		&:hover {
+			color: $hbc-highlight;
+		}
+	}
+
+	p ~ ul {
+		margin-bottom: 40px;
+
+		li {
+			margin-bottom: 10px;
+		}
+	}
+
+    p, 
+	li,
+	p ~ ul {
+		font-size: 18px;
+		font-family: $hbc-font-family-02;
+		font-weight: 300;
+	}
+
+	p a, 
+	li a {
+		text-decoration: none;
+	    border-bottom: solid 1px #bbb;
+
+		&:hover {
+			color: $hbc-highlight;
+			border-color: $hbc-highlight;
+		}
+	}
+
+	img {
+		// display: inline-flex;
+	 //    margin: 20px;
+	    max-height: $content-width/2;
+	}
+
+	code {
+		font-size: inherit;
+	}
+
+	.highlight {
+		code {
+			line-height: 1.5;
+			font-size: 18px;
+		}
+	}
+
+	blockquote {
+		font-style: italic;
+		font-size: 22px;
+		color: $hbc-gray;
+		margin: 0 $content-side-margins;
+		padding: 0 $content-side-margins;
+		padding-bottom: $content-side-margins;
+		border-left: dotted 2px $hbc-border;
+
+		&:first-of-type {
+			padding-top: $content-side-margins;
+			margin-top: $content-side-margins-large;
+		}
+
+		// incase we have multiple blockquotes next to each other,
+		// we are only style the first and the last.
+
+		&:last-of-type {
+			// border-bottom: dotted 2px $hbc-border;
+			margin-bottom: $content-side-margins;
+		}
+
+		p {
+			margin: 0;
+			color: $hbc-gray-3;
+			@include render-type-style(base, $type-styles);
+			font-size: 22px;
+			font-style: italic;
+		}
+	}
+
+	.center-image {
+	    display: flex;
+		max-width: 100%;
+	    margin: auto;
+	}
+
+	.right-align {
+		float: right;
+		margin-left: 20px;
+
+		// center images on mobile
+		@include media('<medium') {
+			display: inline-block;
+			float: none;
+		    position: relative;
+			margin-left: 0;
+		}
+	}
+
+	.left-align {
+		float: left;
+		margin-right: 20px;
+		margin-bottom: 20px;
+		text-align: center;
+		// center images on mobile
+		@include media('<medium') {
+			display: block;
+			float: none;
+			margin-right: 0;
+		}
+	}
+
+	.simple-border {
+		display: inline-block;
+		padding: 3px;
+		border: solid 1px #ccc;
+		
+		// center images on mobile
+		@include media('<medium') {
+			display: block;
+		}
+	}
+}

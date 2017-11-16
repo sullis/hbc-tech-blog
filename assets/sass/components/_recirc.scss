@@ -8,8 +8,7 @@
 
 		&__title {
 			display: inline-block;
-			font-weight: 700;
-			font-size: 22px;
+			@include render-type-style(subhead-1, $type-styles);
 
 			&:after {
 				display: inline-block;
@@ -25,8 +24,10 @@
 
 		&__view-all-link {
 			color: $hbc-highlight;
-			font-size: 18px;
-		    font-weight: 300;
+			font-size: 15px;
+			text-transform: uppercase;
+			font-family: $hbc-font-family-01;
+		    font-weight: 400;
 
 			@include special-text-link();
 		}

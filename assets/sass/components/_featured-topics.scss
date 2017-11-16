@@ -5,7 +5,7 @@
 	&__title {
 		padding-right: 20px;
 		margin: 0 0 15px 0;
-	    font-weight: 500;
+		@include render-type-style(subhead-1, $type-styles);
 	}
 
 	&__list {
@@ -19,15 +19,15 @@
 
 		&__link {
 			text-decoration: none;
-			text-transform: uppercase;
-			color: $hbc-gray-2;
+			@include render-type-style(slug-1, $type-styles);
+		    color: $hbc-highlight;
 
 			@include special-text-link();
 		}
 	}
 
 	&__view-all-link {
-		color: $hbc-highlight;
+		color: $hbc-gray;
 		@include special-text-link();
 	}
 

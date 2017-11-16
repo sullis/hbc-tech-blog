@@ -1,5 +1,4 @@
 // Basic Layout
-$site-width: 1024px;
 $content-width: 1080px;
 $sticky-header-height: 100px;
 $sticky-header-offset: $sticky-header-height + 10px;
@@ -8,7 +7,7 @@ $sticky-header-offset: $sticky-header-height + 10px;
 $breakpoint-small: 375px;
 $breakpoint-medium: 767px;
 $breakpoint-large: 1023px;
-$breakpoints: (small: 320px, medium: 768px, large: $site-width, xlarge: 1800px);
+$breakpoints: (small: 320px, medium: 768px, large: $content-width, xlarge: 1800px);
 
 // spacers
 $content-side-margins: 20px;
@@ -37,60 +36,16 @@ $content-side-margins-large: 40px;
 	}
 }
 
-.center-image {
-	display: block;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.right-align {
-	float: right;
-	margin-left: 20px;
-
-	// center images on mobile
-	@media screen and (max-width: $breakpoint-medium) {
-		display: inline-block;
-		float: none;
-	    position: relative;
-		margin-left: 0;
-	}
-}
-
-.left-align {
-	float: left;
-	margin-right: 20px;
-	margin-bottom: 20px;
-	text-align: center;
-	// center images on mobile
-	@media screen and (max-width: $breakpoint-medium) {
-		display: block;
-		float: none;
-		margin-right: 0;
-	}
-}
-
-.simple-border {
-	display: inline-block;
-	padding: 3px;
-	border: solid 1px #ccc;
-	
-	// center images on mobile
-	@media screen and (max-width: $breakpoint-medium) {
-		display: block;
-	}
-}
 
 // prevent anchor links from being hidden behind sticky nav ;)
-@media screen and (min-width: $breakpoint-medium) {
-
+// media query because there we've only got a sticky nav on desktop
+@include media('>=medium') {
 	:target:before {
 		content: "";
 		display: block;
 		height: 90px; /* fixed header height*/
 		margin: -90px 0 0; /* negative fixed header height */
 	}
-
 }
 
 .page {
@@ -111,39 +66,10 @@ $content-side-margins-large: 40px;
 	&__title {
 		text-transform: capitalize;
 		margin: 0;
-
-		// mobile layout
-	    @media screen and (max-width: $breakpoint-medium) {
-			margin-top: 20px;
-	    }
-		// tablet landscape
-		@media screen and (max-height: 768px) and (orientation: landscape) {
-			margin-top: 20px;
-	    }
-
-	    // tablet layout
-		@media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) and (orientation: portrait) {
-			margin-top: 20px;
-		}
 	}
 
 	&__description {
 		margin: 0;
-	}
-
-	// medium portrait
-	@include media('>=medium', '<large', 'portrait') {
-	    // padding-left: $content-side-margins;
-	    // padding-right: $content-side-margins;
-	}
-
-	// medium
-	@include media('>=medium', '<large', 'landscape') {
-	}
-
-	// xlarge
-	@include media('>=xlarge') {
-		// margin-top: 0;
 	}
 }
 

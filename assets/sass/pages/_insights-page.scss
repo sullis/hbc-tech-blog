@@ -34,15 +34,14 @@
 			grid-column: 2 / 3;
 		    grid-row: 5/6;
 			margin: 0 0 30px 0;
-			font-size: 32px;
-			
+			@include render-type-style(headline-3, $type-styles);
+
 			&__link {
 				padding: 0 10px 0 10px;
 			    box-decoration-break: clone;
 			    background-color: white;
 				text-decoration: none;
-				color: $hbc-black;
-				
+			
 				&:hover {
 					color: $hbc-highlight;
 				}
@@ -114,7 +113,7 @@
 	    	max-height: 80vh;
 
 			.snippet__title {
-				font-size: 38px;
+				@include render-type-style(headline-2, $type-styles);
 			}
 	    }
 
@@ -137,7 +136,7 @@
 			margin: 0 ($content-side-margins-large*-1) 0 ($content-side-margins-large*-1);
 
 			.snippet__title {
-				font-size: 48px;
+				@include render-type-style(headline-2, $type-styles);
 			}
 		}
 	}
@@ -146,6 +145,10 @@
 
 		&__featured {
 	    	max-height: 80vh;
+
+			.snippet__title {
+				@include render-type-style(headline-1, $type-styles);
+			}
 	    }
 
 		&__remaining {
@@ -202,6 +205,10 @@
 
 		&__featured {
 	    	max-height: 600px;
+
+			.snippet__title {
+				@include render-type-style(headline-1, $type-styles);
+			}
 	    }
 
 		&__sub-featured {
