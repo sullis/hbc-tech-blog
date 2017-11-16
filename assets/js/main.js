@@ -5,13 +5,13 @@ document.addEventListener('DOMContentLoaded',function() {
 
         init: function() {
             this.bindEvents();
-            LazyLoadRecircArticles.setupScenes();
-            LazyLoadRecircArticles.articleAnimationTiming();
+            LazyLoadArticleSnippets.setupScenes();
+            LazyLoadArticleSnippets.articleAnimationTiming();
             Search.init();
         },
 
         bindEvents: function() {
-
+            // document.getElementById('menu').click(console.log(this));
         }
     };
 
@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded',function() {
         init: function() {
 
             var searchTerm = this.getQueryVariable('query');
-
             if (searchTerm) {
                 document.getElementById('search-box').setAttribute("value", searchTerm);
 
@@ -32,6 +31,7 @@ document.addEventListener('DOMContentLoaded',function() {
                     this.field('author');
                     this.field('category');
                     this.field('content');
+                    this.field('date');
 
                     for (var key in window.store) { // Add the data to lunr
                         this.add({
@@ -39,7 +39,8 @@ document.addEventListener('DOMContentLoaded',function() {
                             'title': window.store[key].title,
                             'author': window.store[key].author,
                             'category': window.store[key].category,
-                            'content': window.store[key].content
+                            'content': window.store[key].content,
+                            'date': window.store[key].date
                         });
                     }
                 });
@@ -50,20 +51,31 @@ document.addEventListener('DOMContentLoaded',function() {
         },
 
         displaySearchResults: function(results, store) {
+            var searchTerm = this.getQueryVariable('query');
             var searchResults = document.getElementById('search-results');
 
             if (results.length) { // Are there any results?
-                var appendString = '<h4>' + results.length + ' results:<h4>';
+                    
+                var appendString = '<header class="page__header"><h1 class="page__title">'+ results.length +' matching results for "'+ searchTerm +'"</h1></header>';
 
                 for (var i = 0; i < results.length; i++) {  // Iterate over the results
                     var item = store[results[i].ref];
-                    appendString += '<li><a href="' + item.url + '"><h3>' + item.title + '</h3></a>';
-                    appendString += '<p>' + item.content.substring(0, 150) + '...</p></li>';
+
+                    appendString += 
+                    '<section class="snippet">'+
+                    '<div class="snippet__meta">'+
+                        '<a class="meta__category-link" href="/category/'+ item.category +'">'+ item.category +'</a>'+
+                        '<span class="meta__author">' + item.author +'</span>'+
+                        '<span class="meta__date">' + item.date +'</span>'+
+                    '</div>'+
+                    '<h1 class="snippet__title"><a href="' + item.url + '" class="snippet__title__link" title="' + item.title +'">' + item.title +'</a></h1>'+
+                    '<a href="' + item.url +'" class="snippet__excerpt__link" title="' + item.title +'"><p class="snippet__excerpt">' + item.content.substring(0, 150) +'</p></a>'+
+                    '</section>';
                 }
 
                 searchResults.innerHTML = appendString;
             } else {
-                searchResults.innerHTML = '<li>No results found</li>';
+                searchResults.innerHTML = '<header class="page__header"><h1 class="page__title">No results found</h1></header>';
             }
         },
 
@@ -81,7 +93,7 @@ document.addEventListener('DOMContentLoaded',function() {
         }
     };
 
-    var LazyLoadRecircArticles = {
+    var LazyLoadArticleSnippets = {
 
         setupScenes: function() {
             var controller = new ScrollMagic.Controller({globalSceneOptions:{refreshInterval: 0}});               
@@ -141,7 +153,7 @@ document.addEventListener('DOMContentLoaded',function() {
                 if (index < 3) {                    
                     delay += offset;
                 } else {
-                    deslay = 0;
+                    delay = 0;
                 };
             });
         }

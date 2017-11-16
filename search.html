@@ -1,21 +1,22 @@
 ---
 layout: sub-page
+title: Search
 ---
-<form action="{{ site.url }}{{ site.baseurl }}/search.html" method="get">
-    <label for="search-box">Search</label>
-    <input type="text" id="search-box" name="query">
-    <input type="submit" value="search">
-</form>
 
-<ul id="search-results"></ul>
+<section id="search-results" class="page search-results">
+    <header class="page__header">
+        <h1 class="page__title">Search</h1>
+    </header>
+</section>
 
 <script>
     window.store = {
         {% for post in site.posts %}
             "{{ post.url | slugify }}": {
                 "title": "{{ post.title | xml_escape }}",
+                "date": "{{ post.date | date: "%b %-d %Y" | upcase }}",
                 "author": "{{ post.author | xml_escape }}",
-                "category": "{{ post.category | xml_escape }}",
+                "category": "{{ post.categories }}",
                 "content": {{ post.content | strip_html | strip_newlines | jsonify }},
                 "url": "{{ post.url | xml_escape }}"
             }
