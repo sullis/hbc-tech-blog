@@ -33,9 +33,10 @@
     .menu-overlay {
     	position: absolute;
     	display: grid;
+		grid-template-columns: 1fr $content-width 1fr;
     	height: 10vh;
 	    width: 100%;
-    	background-color: rgba($hbc-black, 0.9);
+    	background-color: rgba(239, 231, 223, 0.95); // transparency of #EFE7DF
 	    top: 0;
 	    left: 0;
 	    opacity: 0;
@@ -43,6 +44,26 @@
 	    margin-top: -120px;
 	    transition: all 200ms ease-out;
 	    z-index: -1;
+
+	    .link-list {
+		    display: flex;
+		    flex-direction: column;
+			grid-column: 2 / 3;
+	        padding: 0;
+		    list-style-type: none;
+		    max-width: $content-width;
+		    margin: auto;
+
+		    &__link-item {
+	    		margin-bottom: 40px;
+		    }
+
+	    	&__link {
+	    		color: $hbc-black;
+				@include special-text-link();
+				@include render-type-style(headline-1, $type-styles);
+	    	}
+	    }
     }
 
 
@@ -60,7 +81,6 @@
 		 	&__svg-icon {
 
 		 		.bar {
-		 			stroke: white;
 
 				 	&__top {
 						// d: path("M0,5 L30,5");
@@ -89,7 +109,7 @@
 		.menu-overlay {
 		    visibility: visible;
 			opacity: 1;
-			pointer-events: none;
+			pointer-events: auto;
 	    	height: calc(100vh + 120px);
 		}
     }

@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded',function() {
     var NavEvents = {
 
         toggleNav: function(evt) {
-            evt.preventDefault();
+            // evt.preventDefault();
             App.setView();
         }
     };

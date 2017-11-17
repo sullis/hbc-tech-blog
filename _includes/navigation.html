@@ -1,13 +1,22 @@
 <nav id="nav" class="navigation">
-	<a href="#" class="navigation__link">
+	<div class="navigation__link">
 	    <svg class="navigation__link__svg-icon" xmlns="http://www.w3.org/2000/svg">
 	        <path class="bar bar__top" d="M0,3 L30,3" />
 	        <path class="bar bar__cross-1" d="M0,14 L30,14" />
 	        <path class="bar bar__cross-2" d="M0,14 L30,14" />
 	        <path class="bar bar__bottom" d="M0,25 L30,25" />
 	    </svg>
-	</a>
+	</div>
 	<section class="menu-overlay">
-		<h1>Menu</h1>
+		<ul class="link-list">
+		{% assign currentPage = page.url | replace: "/", ""%}
+        {% for link in site.data.navigation.header-links %}
+          <li class="link-list__link-item">
+            <a href="{{ site.url }}{{ site.baseurl }}/{{ link.url }}" class="link-list__link">
+                <span class="link-list__link-highlight">{{ link.title }}</span>
+            </a>
+          </li>
+        {% endfor %}
+	    </ul>
 	</section>
 </nav>
