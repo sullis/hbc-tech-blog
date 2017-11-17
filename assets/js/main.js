@@ -1,6 +1,9 @@
 /* scripts */
 document.addEventListener('DOMContentLoaded',function() {
 
+    // GLOBAL VARS
+    var isNavOpen = false;
+
     var App = {
 
         init: function() {
@@ -11,7 +14,31 @@ document.addEventListener('DOMContentLoaded',function() {
         },
 
         bindEvents: function() {
-            // document.getElementById('menu').click(console.log(this));
+            // var nav = document.getElementById('nav');
+            document.getElementById('nav').addEventListener("click", NavEvents.toggleNav, false);
+        },
+
+        setView: function() {
+
+            console.log('isNavOpen: ' + isNavOpen + " toggling class...");
+
+            var navContainer = document.getElementById('nav');
+            
+            if (!isNavOpen) {
+                navContainer.className += ' ' + 'navigation--open';
+                isNavOpen = true;
+            } else {
+                navContainer.className = 'navigation';
+                isNavOpen = false;
+            }
+        }
+    };
+
+    var NavEvents = {
+
+        toggleNav: function(evt) {
+            evt.preventDefault();
+            App.setView();
         }
     };
 
