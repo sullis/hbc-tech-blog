@@ -3,8 +3,8 @@
     grid-area: hd;
     display: grid;
     grid-auto-rows: 1fr;
-	grid-template-columns: 80px 1fr 70px;
-	grid-template-areas: "logo meta nav";
+	grid-template-columns: 80px 1fr 1fr 70px;
+	grid-template-areas: "logo meta search nav";
 	color: $hbc-black;
     z-index: 100;
     transition: all 100ms ease-out;
@@ -144,6 +144,7 @@
 .site-header--sub-page {
 	position: relative;
 	margin-top: 0;
+    pointer-events: auto;
 
 	// large
 	@include media('>=medium') {

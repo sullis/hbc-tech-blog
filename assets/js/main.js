@@ -5,16 +5,32 @@ document.addEventListener('DOMContentLoaded',function() {
 
         init: function() {
             this.bindEvents();
-            LazyLoadRecircArticles.setupScenes();
-            LazyLoadRecircArticles.articleAnimationTiming();
+            LazyLoadArticleSnippets.setupScenes();
+            LazyLoadArticleSnippets.articleAnimationTiming();
+            Search.init();
         },
 
         bindEvents: function() {
-
+            // document.getElementById('menu').click(console.log(this));
         }
-    }
+    };
 
-    var LazyLoadRecircArticles = {
+    var Search = {
+
+        init: function() {
+
+            const siteSearch = new jekyllSearch(
+                '/search.json',
+                '#search-input',
+                '#search-results',
+                ''
+            );
+
+            siteSearch.init();
+        }
+    };
+
+    var LazyLoadArticleSnippets = {
 
         setupScenes: function() {
             var controller = new ScrollMagic.Controller({globalSceneOptions:{refreshInterval: 0}});               
@@ -74,7 +90,7 @@ document.addEventListener('DOMContentLoaded',function() {
                 if (index < 3) {                    
                     delay += offset;
                 } else {
-                    deslay = 0;
+                    delay = 0;
                 };
             });
         }
