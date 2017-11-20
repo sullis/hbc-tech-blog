@@ -19,77 +19,14 @@ document.addEventListener('DOMContentLoaded',function() {
 
         init: function() {
 
-            var searchTerm = this.getQueryVariable('query');
-            if (searchTerm) {
-                document.getElementById('search-box').setAttribute("value", searchTerm);
+            const siteSearch = new jekyllSearch(
+                '/search.json',
+                '#search-input',
+                '#search-results',
+                ''
+            );
 
-                // Initalize lunr with the fields it will be searching on. I've given title
-                // a boost of 10 to indicate matches on this field are more important.
-                var idx = lunr(function () {
-                    this.field('id');
-                    this.field('title', { boost: 10 });
-                    this.field('author');
-                    this.field('category');
-                    this.field('content');
-                    this.field('date');
-
-                    for (var key in window.store) { // Add the data to lunr
-                        this.add({
-                            'id': key,
-                            'title': window.store[key].title,
-                            'author': window.store[key].author,
-                            'category': window.store[key].category,
-                            'content': window.store[key].content,
-                            'date': window.store[key].date
-                        });
-                    }
-                });
-
-                var results = idx.search(searchTerm); // Get lunr to perform a search
-                this.displaySearchResults(results, window.store); // We'll write this in the next section
-            }
-        },
-
-        displaySearchResults: function(results, store) {
-            var searchTerm = this.getQueryVariable('query');
-            var searchResults = document.getElementById('search-results');
-
-            if (results.length) { // Are there any results?
-                    
-                var appendString = '<header class="page__header"><h1 class="page__title">'+ results.length +' matching results for "'+ searchTerm +'"</h1></header>';
-
-                for (var i = 0; i < results.length; i++) {  // Iterate over the results
-                    var item = store[results[i].ref];
-
-                    appendString += 
-                    '<section class="snippet">'+
-                    '<div class="snippet__meta">'+
-                        '<a class="meta__category-link" href="/category/'+ item.category +'">'+ item.category +'</a>'+
-                        '<span class="meta__author">' + item.author +'</span>'+
-                        '<span class="meta__date">' + item.date +'</span>'+
-                    '</div>'+
-                    '<h1 class="snippet__title"><a href="' + item.url + '" class="snippet__title__link" title="' + item.title +'">' + item.title +'</a></h1>'+
-                    '<a href="' + item.url +'" class="snippet__excerpt__link" title="' + item.title +'"><p class="snippet__excerpt">' + item.content.substring(0, 150) +'</p></a>'+
-                    '</section>';
-                }
-
-                searchResults.innerHTML = appendString;
-            } else {
-                searchResults.innerHTML = '<header class="page__header"><h1 class="page__title">No results found</h1></header>';
-            }
-        },
-
-        getQueryVariable: function(variable) {
-            var query = window.location.search.substring(1);
-            var vars = query.split('&');
-
-            for (var i = 0; i < vars.length; i++) {
-                var pair = vars[i].split('=');
-
-                if (pair[0] === variable) {
-                    return decodeURIComponent(pair[1].replace(/\+/g, '%20'));
-                }
-            }
+            siteSearch.init();
         }
     };
 

@@ -3,24 +3,10 @@ layout: sub-page
 title: Search
 ---
 
-<section id="search-results" class="page search-results">
+<section class="page search-results">
     <header class="page__header">
         <h1 class="page__title">Search</h1>
+        {% include header-search.html %}
     </header>
+    <section id="search-results"></section>
 </section>
-
-<script>
-    window.store = {
-        {% for post in site.posts %}
-            "{{ post.url | slugify }}": {
-                "title": "{{ post.title | xml_escape }}",
-                "date": "{{ post.date | date: "%b %-d %Y" | upcase }}",
-                "author": "{{ post.author | xml_escape }}",
-                "category": "{{ post.categories }}",
-                "content": {{ post.content | strip_html | strip_newlines | jsonify }},
-                "url": "{{ post.url | xml_escape }}"
-            }
-            {% unless forloop.last %},{% endunless %}
-        {% endfor %}
-    };
-</script>
