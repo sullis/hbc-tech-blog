@@ -7,38 +7,126 @@
     pointer-events: auto;
 
     &__link {
-        display: inline-flex;
 		background-color: rgba($hbc-white, 0.8);
 	    border-radius: 100%;
 		padding: 10px;
 	    width: 50px;
-	    height: 50px;
+	    height: 49px;
+	    z-index: 1000;
 
 		&__svg-icon {
-		    width: 100%;
-		    height: 100%;
+		    width: 30px;
+		    height: 30px;
 		    overflow: visible !important;
 
 		    .bar {
+		    	position: relative;
 				stroke: black;
 				stroke-width: 2px;
 				stroke-linecap: round;
+				transform-origin: 48% 48%;
+			    transition: all 200ms ease-out;
+		    }
+		}
+    }
 
-				&__top {
-					// d: path("M0,5 L30,5");
-				}
+    .menu-overlay {
+    	position: absolute;
+    	display: grid;
+		grid-template-columns: 1fr $content-width 1fr;
+    	height: 10vh;
+	    width: 100%;
+    	background-color: rgba(239, 231, 223, 0.95); // transparency of #EFE7DF
+	    top: 0;
+	    left: 0;
+	    opacity: 0;
+	    visibility: hidden;
+	    margin-top: -120px;
+	    transition: all 200ms ease-out;
+	    z-index: -1;
 
-				&__middle {
-					// d: path("M0,15 L30,15");
-				}
+	    .link-list {
+		    display: flex;
+		    flex-direction: column;
+			grid-column: 2 / 3;
+	        padding: 0;
+		    list-style-type: none;
+		    max-width: $content-width;
+		    margin: auto;
 
-				&__bottom {
-					
-				}
-		    	
+		    &__link-item {
+	    		margin-bottom: 40px;
 		    }
 
+	    	&__link {
+	    		color: $hbc-black;
+				@include special-text-link();
+				@include render-type-style(headline-1, $type-styles);
+	    	}
+	    }
+    }
+
+
+    @include media('>medium') {
+    	&__link {
+			background-color: transparent;
+		}
+    }
+
+    &--open {
+
+		.navigation__link {
+		 	background-color: transparent;
+
+		 	&__svg-icon {
+
+		 		.bar {
+
+				 	&__top {
+						// d: path("M0,5 L30,5");
+						transform: scaleX(.5) translateY(5px);
+						opacity: 0;
+					}
+
+					&__cross-1 {
+						d: path("M-5,14 L35,14");
+			    	    transform: rotate(45deg);
+					}
+
+					&__cross-2 {
+						d: path("M-5,14 L35,14");
+						transform: rotate(-45deg);
+					}
+
+					&__bottom {
+						transform: scaleX(.5) translateY(-5px);
+						opacity: 0;
+					}
+				}
+			}
 		}
 
+		.menu-overlay {
+		    visibility: visible;
+			opacity: 1;
+			pointer-events: auto;
+	    	height: calc(100vh + 120px);
+		}
     }
+
+    @include media('>=large') {
+    	&__link__svg-icon:hover {
+
+	    	.bar {
+			    transition: all 150ms ease-out;
+
+	    		&__top {
+	    			d: path("M0,-1  L30,-1");
+	    		}
+	    		&__bottom {
+	    			d: path("M0,29 L30,29");
+	    		}
+	    	}
+	    }
+	}
 }

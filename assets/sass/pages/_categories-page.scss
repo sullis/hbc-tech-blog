@@ -40,6 +40,7 @@
 		}
 
 		&__list-item__link {
+		    color: $hbc-black;
 			@include special-text-link();
 			line-height: 140%;
 		}

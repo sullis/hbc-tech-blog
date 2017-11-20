@@ -71,6 +71,8 @@
 	&__sub-featured,
 	&__remaining {
 		display: grid;
+		max-width: $content-width;
+		margin: auto;
 	    margin-top: 40px;
 	    border-top: solid 1px $hbc-border;
 
@@ -141,7 +143,7 @@
 	@include media('>=medium') {
 
 		&__featured {
-			grid-template-columns: $content-side-margins-large minmax(auto, $content-width) $content-side-margins-large;
+			grid-template-columns: 1fr minmax(auto, $content-width) 1fr;
 			margin: 0 ($content-side-margins-large*-1) 0 ($content-side-margins-large*-1);
 
 			.snippet__title {
@@ -162,7 +164,6 @@
 
 		&__remaining {
 			padding-top: $content-side-margins-large*2;
-			max-width: $content-width;
 			grid-template-columns: minmax(auto, 25%) minmax(auto, 75%);
 			grid-auto-rows: minmax(50px, auto);
 		    grid-template-areas:
@@ -172,9 +173,9 @@
 		    .snippet {
 				grid-row: auto;
 				padding: 0 0 0 40px;
+				margin-bottom: 0px;
 				border-left: solid 1px $hbc-border;
 				border-bottom: 0;
-				margin-bottom: 0px;
 				
 				&__title {
 					border-top: solid 1px $hbc-border;
@@ -213,6 +214,7 @@
 	@include media('>=large') {
 
 		&__featured {
+		    margin: auto;
 	    	max-height: 600px;
 
 			.snippet__title {
@@ -224,7 +226,6 @@
 			grid-template-columns: repeat(2, 50%);
 		    border-top: 0;
 			margin: 60px auto;
-			max-width: $content-width;
 
 			.snippet {
 				padding: 0;
@@ -256,18 +257,8 @@
 
 
 	@include media('>large') {
-		
-		&__featured {
-			margin: auto;
-		}
-
-		&__sub-featured {
-			padding: 0 $content-side-margins-large;
-		}
 
 		&__remaining {
-			padding-left: $content-side-margins-large;
-			padding-right: $content-side-margins-large;
 
 			&--sub-page {
 				padding-left: 0;
