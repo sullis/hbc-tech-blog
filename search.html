@@ -6,7 +6,9 @@ title: Search
 <section class="page search-results">
     <header class="page__header">
         <h1 class="page__title">Search</h1>
-        {% include header-search.html %}
+    	<form class="search__form" action>
+		    <input type="text" class="search__input" id="search-input" placeholder="Search" name="query">
+		</form>
     </header>
     <section id="search-results"></section>
 </section>

@@ -1,3 +1,9 @@
-<form class="header-search" action>
-  <input type="text" id="search-input" placeholder="Search" name="query">
-</form>
+<search id="header-search" class="header-search">
+	<form class="header-search__form" action>
+	  <input type="text" class="header-search__input" id="header-search-input" placeholder="Search" name="query">
+	</form>
+	<svg id="header-search__svg" class="header-search__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 52">
+		<use class="header-search__icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#search"></use>
+    </svg>
+    <section class="header-search__results" id="header-search__results"></section>
+</search>
