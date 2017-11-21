@@ -1,17 +1,17 @@
 // Typography
 @import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,500');
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700');
+// @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
-@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,700');
-@import url('https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i');
-@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
-@import url('https://fonts.googleapis.com/css?family=Crete+Round');
-@import url('https://fonts.googleapis.com/css?family=Patua+One');
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700');
-@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,700');
+// @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,700');
+// @import url('https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i');
+// @import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+// @import url('https://fonts.googleapis.com/css?family=Crete+Round');
+// @import url('https://fonts.googleapis.com/css?family=Patua+One');
+// @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700');
+// @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,700');
 
-$hbc-font-family-01: 'Oswald', sans-serif;
-$hbc-font-family-02: 'open sans', sans-serif;
+$hbc-font-family-01: 'Crimson Text', sans-serif;
+$hbc-font-family-02: 'Open Sans', sans-serif;
 
 $type-styles: (
     base: (
@@ -46,7 +46,7 @@ $type-styles: (
         font-weight: 400,
         font-style: normal,
         text-transform: normal,
-      	font-family: $hbc-font-family-02
+      	font-family: $hbc-font-family-01
   	),
     headline-1: (
         font-size: 62px,
@@ -57,10 +57,10 @@ $type-styles: (
   	),
     headline-2: (
         font-size: 42px,
-        font-weight: 400,
+        font-weight: 700,
         font-style: normal,
         text-transform: normal,
-      	font-family: $hbc-font-family-02
+      	font-family: $hbc-font-family-01
   	),
     headline-3: (
         font-size: 32px,

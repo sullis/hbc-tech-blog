@@ -19,7 +19,7 @@
         
         &:hover {
         	.feature-image {
-        		transform: scale(1.02);
+        		transform: scale(1.01);
         	}
         }
 
@@ -41,7 +41,7 @@
 			grid-column: 2 / 3;
 		    grid-row: 5/6;
 			margin: 0 0 30px 0;
-			@include render-type-style(headline-3, $type-styles);
+			@include render-type-style(headline-2, $type-styles);
 		    z-index: 1;
 
 			&__link {
@@ -143,11 +143,11 @@
 	@include media('>=medium') {
 
 		&__featured {
-			grid-template-columns: 1fr minmax(auto, $content-width) 1fr;
-			margin: 0 ($content-side-margins-large*-1) 0 ($content-side-margins-large*-1);
+			grid-template-columns: minmax($content-side-margins-large, 1fr) minmax(auto, $content-width) minmax($content-side-margins-large, 1fr);
+			margin: auto ($content-side-margins-large*-1) auto ($content-side-margins-large*-1);
 
 			.snippet__title {
-				@include render-type-style(headline-2, $type-styles);
+				@include render-type-style(headline-1, $type-styles);
 			}
 		}
 	}
@@ -156,10 +156,6 @@
 
 		&__featured {
 	    	max-height: 80vh;
-
-			.snippet__title {
-				@include render-type-style(headline-1, $type-styles);
-			}
 	    }
 
 		&__remaining {
