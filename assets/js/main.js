@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded',function() {
                     searchContainer.className += ' ' + 'header-search--active';
 
                     if(isNavOpen) { this.setView("nav") };
-                    // searchInput.addEventListener("keyup", SearchEvents.displayResults)
                 } else {
                     isSearchOpen = false;
                     searchContainer.className = 'header-search';
