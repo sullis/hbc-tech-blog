@@ -9,26 +9,11 @@
 		&__title {
 			display: inline-block;
 			@include render-type-style(subhead-1, $type-styles);
-
-			&:after {
-				display: inline-block;
-				position: relative;
-				content: "";
-				height: 30px;
-				top: 9px;
-				border-right: solid 1px $hbc-border;
-				margin-left: 20px;
-				margin-right: 20px;
-			}
 		}
 
 		&__view-all-link {
 			color: $hbc-highlight;
-			font-size: 15px;
-			text-transform: uppercase;
-			font-family: $hbc-font-family-01;
-		    font-weight: 400;
-
+			@include render-type-style(slug-1, $type-styles);
 			@include special-text-link();
 		}
 	}

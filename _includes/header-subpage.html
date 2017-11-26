@@ -12,21 +12,25 @@
         {% endfor %}
 
         {% if featureCategory %}
-        <a href="{{ site.url }}{{ site.baseurl }}/category/{{ featureCategory }}" class="meta__category">{{ featureCategory }}</a>
+        <a href="{{ site.url }}{{ site.baseurl }}/category/{{ featureCategory | slugify }}" class="meta__category">{{ featureCategory }}</a>
         {% else %}
         <a href="{{ site.url }}{{ site.baseurl }}/categories/#{{ page.categories }}" class="meta__category">{{ page.categories.first }}</a>
         {% endif %}
 
         {% if page.layout == 'article' %}
-        	<span class="meta__title">{{ page.title }}</span>
+        	<span class="slug-divider"></span>
+            <span class="meta__title">{{ page.title }}</span>
         {% elsif page.url contains '/category/' %}
-        	<a href="{{ site.url }}{{ site.baseurl }}/categories/" class="meta__category">All Categories</a><span class="meta__title">{{ page.title }}</span>
+        	<a href="{{ site.url }}{{ site.baseurl }}/categories/" class="meta__category">All Categories</a>
+            <span class="slug-divider"></span>
+            <span class="meta__title">{{ page.title }}</span>
         {% elsif page.url == '/categories/' %}
 	        <span class="meta__title"><i>The surest way to find your dream job is to create it. ~ Unknown</i></span>
         {% elsif page.url contains '/authors/' %}
         	<a href="{{ site.url }}{{ site.baseurl }}/authors/" class="meta__category">Authors</a>
         	{% if page.title != nil %}
-        	<span class="meta__title">{{page.title}}</span>
+        	<span class="slug-divider"></span>
+            <span class="meta__title">{{page.title}}</span>
         	{% else %}
         	<span class="meta__title">Featured Authors</span>
 	        {% endif %}

@@ -27,7 +27,8 @@
 	}
 
 	&__view-all-link {
-		color: $hbc-gray;
+		color: $hbc-highlight;
+		@include render-type-style(slug-1, $type-styles);
 		@include special-text-link();
 	}
 
