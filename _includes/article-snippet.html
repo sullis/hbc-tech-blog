@@ -73,9 +73,9 @@
         {% endif %}
     {% endif %}
     {% if page.date %}
-        <span class="meta__date">{{ page.date | date: "%b %-d %Y" | upcase }}</span>
+        <span class="meta__date">{{ page.date | date: "%b %-d, %Y" | upcase }}</span>
         {% elsif post.date %}
-        <span class="meta__date">{{ post.date | date: "%b %-d %Y" | upcase }}</span>
+        <span class="meta__date">{{ post.date | date: "%b %-d, %Y" | upcase }}</span>
     {% endif %}
     </div>
     {% if post.excerpt and showExcerpt == true %}

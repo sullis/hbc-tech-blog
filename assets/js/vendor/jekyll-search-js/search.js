@@ -27,7 +27,9 @@ class jekyllSearch {
             <section class="snippet snippet--reveal">
                 <div class="snippet__meta">
                     <a class="meta__category-link" href="/category/${item.category}">${item.category}</a>
+                    <span class="slug-divider"></span>
                     <span class="meta__author">${item.author}</span>
+                    <span class="slug-divider"></span>
                     <span class="meta__date">${item.date}</span>
                 </div>
                 <h1 class="snippet__title"><a class="snippet__title__link" title="${item.title}" href="${item.url}">${item.title}</a></h1>

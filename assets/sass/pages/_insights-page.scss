@@ -2,7 +2,6 @@
 .article-listing {
 
 	&__featured {
-		max-width: $content-width;
 		margin: auto;
 
 		.snippet {
@@ -10,8 +9,9 @@
 			grid-area: featured;
 			grid-template-columns: $content-side-margins minmax(auto, $content-width) $content-side-margins;
 			grid-template-rows: 1fr;
-		    margin: auto;
 			margin: 0 ($content-side-margins*-1) 0 ($content-side-margins*-1);
+		    // min-height: 400px;
+			max-width: 100vw;
 		    max-height: 60vh;
 		    overflow: hidden;
 
@@ -50,7 +50,7 @@
 			&__meta {
 				grid-column: 2 / 3;
 			    grid-row: 4 / 4;
-			    padding: 5px 10px 0 10px;
+			    padding: 0 10px 0 10px;
 			    width: fit-content;
 				background-color: $hbc-white;
 				z-index: 1;
@@ -111,7 +111,6 @@
 	// small landscape
 	@include media('>=small', '<medium', 'landscape') {
 	    &__featured {
-	    	max-height: 80vh;
 
 			.snippet__title {
 				@include render-type-style(headline-2, $type-styles);
@@ -146,10 +145,6 @@
 	}
 
 	@include media('>=medium', 'landscape') {
-
-		&__featured {
-	    	max-height: 80vh;
-	    }
 
 		&__remaining {
 			padding-top: $content-side-margins-large*2;
@@ -203,8 +198,6 @@
 	@include media('>=large') {
 
 		&__featured {
-		    margin: auto;
-	    	max-height: 600px;
         
 	        &:hover {
 	        	.snippet__feature-image {
@@ -212,8 +205,11 @@
 	        	}
 	        }
 
-			.snippet__title {
-				@include render-type-style(headline-1, $type-styles);
+			.snippet {
+				margin: auto;
+				.snippet__title {
+					@include render-type-style(headline-1, $type-styles);
+				}
 			}
 	    }
 
