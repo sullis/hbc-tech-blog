@@ -3,7 +3,7 @@
     grid-area: hd;
     display: grid;
     grid-auto-rows: 1fr;
-	grid-template-columns: 80px 1fr 1fr 70px;
+	grid-template-columns: 80px 1fr 1fr;
 	grid-template-areas: "logo meta search nav";
 	color: $hbc-black;
     z-index: 100;
@@ -60,6 +60,7 @@
    	// medium
 	@include media('>=medium') {
 		position: absolute;
+		grid-template-areas: "logo meta nav search";
 
 		&__logo {
 			height: 150px;
@@ -71,6 +72,7 @@
    	// medium
 	@include media('>=medium', 'landscape') {
 		margin-top: 0;
+		grid-template-areas: "logo meta nav search";
 	}
 
 

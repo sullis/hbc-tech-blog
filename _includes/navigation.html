@@ -1,13 +1,11 @@
-<nav id="nav" class="navigation">
-	<div class="navigation__link">
-	    <svg class="navigation__link__svg-icon" xmlns="http://www.w3.org/2000/svg">
-	        <path class="bar bar__top" d="M0,3 L30,3" />
-	        <path class="bar bar__cross-1" d="M0,14 L30,14" />
-	        <path class="bar bar__cross-2" d="M0,14 L30,14" />
-	        <path class="bar bar__bottom" d="M0,25 L30,25" />
-	    </svg>
-	</div>
-	<section class="menu-overlay">
+<nav id="menu" class="navigation">
+    <svg class="navigation__menu-icon" xmlns="http://www.w3.org/2000/svg">
+        <path class="bar bar__top" d="M0,3 L30,3" />
+        <path class="bar bar__cross-1" d="M0,14 L30,14" />
+        <path class="bar bar__cross-2" d="M0,14 L30,14" />
+        <path class="bar bar__bottom" d="M0,25 L30,25" />
+    </svg>
+	<menu class="menu">
 		<ul class="link-list">
 		{% assign currentPage = page.url | replace: "/", ""%}
         {% for link in site.data.navigation.header-links %}
@@ -18,5 +16,5 @@
           </li>
         {% endfor %}
 	    </ul>
-	</section>
+	</menu>
 </nav>

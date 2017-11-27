@@ -112,9 +112,14 @@
 	@include media('>=small', '<medium', 'landscape') {
 	    &__featured {
 
-			.snippet__title {
-				@include render-type-style(headline-2, $type-styles);
-			}
+	    	.snippet {
+			    max-height: 80vh;
+			    
+				.snippet__title {
+					@include render-type-style(headline-2, $type-styles);
+				}
+	    	}
+
 	    }
 
 		&__sub-featured {

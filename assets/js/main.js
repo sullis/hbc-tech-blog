@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded',function() {
         },
 
         bindEvents: function() {
-            document.getElementById('nav').addEventListener("click", NavEvents.toggleNav, false);
+            document.getElementById('menu').addEventListener("click", NavEvents.toggleNav, false);
             document.getElementById('header-search__svg').addEventListener("click", SearchEvents.toggleSearch, false);
         },
 
@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded',function() {
                 if (!isSearchOpen) {
                     isSearchOpen = true;
                     searchContainer.className += ' ' + 'header-search--active';
+                    searchInput.focus();
 
                     if(isNavOpen) { this.setView("nav") };
                 } else {
@@ -40,7 +41,7 @@ document.addEventListener('DOMContentLoaded',function() {
 
             } else if (view === "nav") {
 
-                var navContainer = document.getElementById('nav');
+                var navContainer = document.getElementById('menu');
                 
                 if (!isNavOpen) {
                     isNavOpen = true;

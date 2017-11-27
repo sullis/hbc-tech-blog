@@ -43,11 +43,14 @@
 	    .snippet {
     		border-bottom: solid 1px $hbc-border;
 		    padding: 20px 40px;
-		    padding-bottom: 40px;
 		    top: 0;
 
 		    &:last-child {
 		    	border: 0;
+		    }
+
+		    &__meta {
+		    	height: 28px;
 		    }
 
 		    &__title {
@@ -67,17 +70,6 @@
 		    .meta__date {
 		    	color: $hbc-gray;
 			    @include render-type-style(slug-2, $type-styles);
-
-				&:before {
-					display: inline-block;
-					position: relative;
-					content: "";
-					height: 20px;
-					top: 5px;
-					border-right: solid 1px $hbc-border;
-					margin-left: 10px;
-					margin-right: 10px;
-				}
 		    }
 	    }
 
