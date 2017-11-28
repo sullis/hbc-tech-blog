@@ -4,13 +4,12 @@ title: "Voluntary Adoption in Action: HBC Digital Adopts Slack"
 author: Adrian Trenaman
 date: '2017-02-06'
 categories:
-- leadership
+- culture
 tags:
 - leadership
 - organisation
 - chat solutions
 - voluntary adoption
-- culture
 - hipchat
 - slack
 ---

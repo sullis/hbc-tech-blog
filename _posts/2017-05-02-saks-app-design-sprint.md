@@ -13,7 +13,7 @@ tags:
 - ux
 ---
 
-<img class="center" src="http://i.imgur.com/isnWMvv.jpg"/>
+<img class="center-image" src="http://i.imgur.com/isnWMvv.jpg"/>
 
 HBC Digital is a large organization. We are hundreds of technologists responsible for the retail experiences for many of North America's largest retailers including Saks Fifth Avenue, Saks OFF 5TH, Gilt, Lord & Taylor and the Bay. Our breadth allows us to work on complex challenges with huge upsides. The number of opportunities available to us, however, requires commitment from our teams to ensure we are focused on the right problems. 
 
@@ -23,7 +23,7 @@ The design sprint was inspired by past exercises we've conducted with [Prolific 
 
 ## The Process
 
-<img class="center" src="http://i.imgur.com/oWNZ5A9.jpg"/>
+<img class="center-image" src="http://i.imgur.com/oWNZ5A9.jpg"/>
 
 Each day of the five-day sprint had a particular focus: 
 * Day 1 - Goal Setting and Mapping the Challenge
@@ -43,7 +43,7 @@ Any team embarking on a design sprint should outline their goal and opportunitie
 
 <br>
 
-<img class="center" src="http://i.imgur.com/JsrEH7X.png"/>
+<img class="center-image" src="http://i.imgur.com/JsrEH7X.png"/>
 
 <br>
 

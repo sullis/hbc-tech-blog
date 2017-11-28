@@ -72,9 +72,7 @@
             <span class="slug-divider"></span>
         {% endif %}
     {% endif %}
-    {% if page.date %}
-        <span class="meta__date">{{ page.date | date: "%b %-d, %Y" | upcase }}</span>
-        {% elsif post.date %}
+    {% if post.date %}
         <span class="meta__date">{{ post.date | date: "%b %-d, %Y" | upcase }}</span>
     {% endif %}
     </div>
