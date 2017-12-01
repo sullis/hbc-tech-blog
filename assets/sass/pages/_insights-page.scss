@@ -17,8 +17,8 @@
 
 			&__feature-image__link {
 				display: flex;
-				grid-column: 1 / 4;
-			    grid-row: 1 / 8;
+				grid-column: 1 / 5;
+			    grid-row: 1 / 5;
 			    overflow: hidden;
 			}
 
@@ -30,7 +30,7 @@
 
 			&__title {
 				grid-column: 2 / 3;
-			    grid-row: 3/4;
+			    grid-row: 3 / 4;
 				margin: 0 0 30px 0;
 				@include render-type-style(headline-2, $type-styles);
 			    z-index: 1;
