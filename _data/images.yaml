@@ -1,0 +1,20 @@
+# images used for all static content pages
+# can be accessed in templates ie: {{ site.data.images.about.locations[0] }}
+banners:
+  - hb-logo.svg
+  - saks-logo.svg
+  - off5th-logo.svg
+  - gilt-logo.svg
+  - lt-logo.svg
+
+about:
+  hero: about-us.jpg
+  image-grid:
+    - photo-grid-1.jpg
+    - photo-grid-4.jpg
+  locations:
+    - new-york.jpg
+    - dublin.jpg
+
+careers:
+  hero: careers.jpg

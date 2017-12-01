@@ -1,13 +1,34 @@
 ---
 layout: sub-page
+title: "HBC Tech: About Us"
 ---
-<section class="page about-page">
-	<header class="page__header">
-		<h1 class="page__title">About</h1>
-		<p class="page__description">Something really cool is going here...</p>
+<section class="about-page">
+	<header class="about-page__header about-page__header--reveal">
+		<h1 class="about-page__title">About</h1>
+		<img class="about-page__hero-image" title="about us" src="{{ site.url }}{{ site.baseurl }}/assets/images/{{ site.data.images.about.hero }}" />
 	</header>
-
-	<section>
-		<img class="dummy-content" src="https://images.unsplash.com/photo-1508138221679-760a23a2285b?dpr=1&auto=format&fit=crop&w=1567&q=60&cs=tinysrgb" />
+	<section class="about-page__intro about-page__intro--reveal">
+		<p class="about-page__intro__text">We offer a flexible work environment, great work-life balance and a growing number of perks and career development opportunities.</p>
+	</section>
+	<section class="about-page__photo-grid about-page__photo-grid--reveal">
+		<img class="left" src="{{ site.url }}{{ site.baseurl }}/assets/images/photo-grid-1.jpg"/>
+		<img class="right" src="{{ site.url }}{{ site.baseurl }}/assets/images/photo-grid-4.jpg"/>
+	</section>
+	<section class="about-page__our-banners">
+		<h2 class="about-page__our-banners__title">Our Banners</h2>
+		<a class="banner-logo--link" href="http://thebay.com" target="_blank" title="Hudson's Bay"><img class="banner-logo" src="{{ site.url }}{{ site.baseurl }}/assets/images/hb-logo.svg" alt="Hudson's Bay"/></a>
+		<a class="banner-logo--link" href="http://saks.com" target="_blank" title="Saks Fifth Avenue"><img class="banner-logo" src="{{ site.url }}{{ site.baseurl }}/assets/images/saks-logo.svg" alt="Saks Fifth Avenue"/></a>
+		<a class="banner-logo--link" href="http://off5th.com" target="_blank" title="Saks Fifth Avenue Off5th"><img class="banner-logo" src="{{ site.url }}{{ site.baseurl }}/assets/images/off5th-logo.svg" alt="Saks Fifth Avenue Off5th"/></a>
+		<a class="banner-logo--link" href="http://gilt.com" target="_blank" title="Gilt"><img class="banner-logo banner-logo--gilt" src="{{ site.url }}{{ site.baseurl }}/assets/images/gilt-logo.svg" alt="Gilt"/></a>
+		<a class="banner-logo--link" href="http://lordandtaylor.com" target="_blank" title="Lord & Taylor"><img class="banner-logo" src="{{ site.url }}{{ site.baseurl }}/assets/images/lt-logo.svg" alt="Lord & Taylor"/></a>
+	</section>
+	<section class="about-page__locations">
+		<h2 class="about-page__locations__title">Locations</h2>
+		<section class="location location--new-york">
+			<h3 class="location__label">New York City</h3>
+		</section>
+		<section class="location location--dublin">
+			<h3 class="location__label">Dublin</h3>
+		</section>
 	</section>
 </section>
