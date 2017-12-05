@@ -8,9 +8,10 @@
 		height: 350px;
 		max-width: 100vw;
 	    max-height: 40vh;
-		background-color: black;
 	    overflow: hidden;
 	    align-items: center;
+	    @include background-gradient();
+	    background-blend-mode: multiply;
 	    
 		.careers-page__title {
 			grid-column: 1 / 2;
@@ -43,7 +44,6 @@
         justify-content: center;
 		max-width: $content-width;
 		margin: 0 auto 40px auto;
-	    align-items: center;
 		animation-delay: 0.3s;
 
 		&__title {
@@ -54,8 +54,9 @@
 		}
 
 		&__position {
+			display: flex;
+		    flex-direction: column;
 			width: 100%;
-			// min-height: 170px;
 			padding: 40px 0;
 			margin: auto;
 		    text-align: center;
@@ -79,6 +80,8 @@
 		    }
 
 		    .view-listing {
+		    	margin: auto;
+			    margin-bottom: 0;
 		    	color: $hbc-highlight;
 				@include render-type-style(slug-1, $type-styles);
 		    	@include special-text-link();
@@ -86,8 +89,9 @@
 		}
 
 		&__view-all {
-			max-width: $content-width;
 			text-align: center;
+			margin: 40px auto;
+		    width: 100%;
 
 			.view-all-link {
 			    display: inline-block;
@@ -201,7 +205,7 @@
 			max-width: unset;
 			
 			&__position {
-				width: auto;
+				width: calc(768px/3);
 			    border: 0;
 			    border-right: solid 1px $hbc-border;
 			    padding: 40px 20px;
@@ -214,10 +218,6 @@
 			    &:nth-child(6) {
 			    	border: 0;
 			    }
-			}
-
-			&__view-all {
-				width: 100%;
 			}
 		}
 

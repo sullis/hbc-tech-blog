@@ -88,7 +88,14 @@ $type-styles: (
         font-weight: 700,
         font-style: normal,
         text-transform: normal,
-      	font-family: $hbc-font-family-01
+        font-family: $hbc-font-family-01
+    ),
+    nav: (
+        font-size: 20px,
+        font-weight: 600,
+        font-style: normal,
+        text-transform: normal,
+      	font-family: $hbc-font-family-02
   	)
 
 );

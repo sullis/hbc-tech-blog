@@ -1,14 +1,24 @@
 ---
 layout: sub-page
+title: "HBC Tech: Code"
 ---
-<section class="page code-page">
-	<header class="page__header">
-		<h1 class="page__title">Code</h1>
-		<p class="page__description">Some of the open source projects we've created</p>
+<section class="code-page">
+	<header class="code-page__header code-page__header--reveal">
+		<h1 class="code-page__title">Code</h1>
 	</header>
-	<div id="loading">Loading...</div>
-	<div id="fallback" class="hidden">
-	  <a class="btn" href="https://github.com/gilt">View Gilt's Repositories</a>
-	</div>
-	<section id="all-repos" class="repos-container"></section>
+	<section class="code-page__projects code-page__projects--reveal">
+		<a class="gilt-api" href="https://dev.gilt.com/" target="_blank" title="Gilt Public Api">
+			<img class="gilt-api__logo" src="{{ site.url }}{{ site.baseurl }}/assets/images/gilt-api.png" alt="Gilt Public Api">
+		</a>
+		<a class="styleguide" href="https://styleguide.hbc.com/" target="_blank" title="HBC Styleguide">
+			<img class="styleguide__logo" src="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-styleguide.png" alt="HBC Styleguide">
+		</a>
+	</section>
+	<section id="all-repos" class="code-page__repos">
+		<h2 class="repos-title">Some of the open source projects we've created</h2>		
+		<div id="loading">Loading...</div>
+		<div id="fallback" class="hidden">
+		  <a class="btn" href="https://github.com/gilt">View Gilt's Repositories</a>
+		</div>
+	</section>
 </section>

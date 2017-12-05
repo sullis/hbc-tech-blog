@@ -17,6 +17,9 @@ $hbc-blue: #00274c;
 
 $hbc-colors: $hbc-green, $hbc-red, $hbc-yellow, $hbc-blue;
 
+@mixin background-gradient() {
+	background: linear-gradient(to bottom, $hbc-black, lighten($hbc-black, 30%));
+}
 /**
  * Set up a decent box model on the root element
  */

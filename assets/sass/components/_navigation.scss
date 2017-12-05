@@ -39,7 +39,6 @@
 
 	    .link-list {
 		    list-style-type: none;
-		    width: 100vw;
 		    margin: auto;
 		    padding: 0;
 
@@ -51,7 +50,7 @@
 	    	&__link {
 	    		color: $hbc-black;
 				@include special-text-link();
-				@include render-type-style(headline-2, $type-styles);
+				@include render-type-style(headline-3, $type-styles);
 	    	}
 	    }
     }
@@ -95,6 +94,12 @@
 			pointer-events: auto;
 	    	height: calc(100vh + 120px);
 	    	padding: 0;
+	    	position: absolute;
+	    	
+
+	    	.link-list {
+			    min-width: 350px;
+	    	}
 		}
     }
 
@@ -134,7 +139,7 @@
 
 		    	&__link {
 		    		color: $hbc-black;
-					@include render-type-style(subhead-1, $type-styles);
+					@include render-type-style(nav, $type-styles);
 					@include special-text-link();
 		    	}
 		    }
