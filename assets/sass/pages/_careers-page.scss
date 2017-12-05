@@ -44,6 +44,7 @@
 		max-width: $content-width;
 		margin: 0 auto 40px auto;
 	    align-items: center;
+		animation-delay: 0.3s;
 
 		&__title {
 			margin: 40px auto;
@@ -238,6 +239,23 @@
 	@include media('>=large') {
 		&__header {
 			margin: auto;
+		}
+
+		// reveal animations
+		&__header,
+		&__jobs {
+			position: relative;
+			top: 200px;
+			opacity: 0;
+
+			&--reveal {
+				animation-name: reveal-article;
+				animation-duration: 0.6s;
+				animation-timing-function: cubic-bezier(0.000, 0.980, 0.655, 0.995); 
+				animation-direction: normal;
+				animation-iteration-count: 1;
+				animation-fill-mode: forwards;
+			}
 		}
 	}
 }
