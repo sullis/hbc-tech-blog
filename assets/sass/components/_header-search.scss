@@ -5,7 +5,7 @@
     height: 36px;
     align-self: center;
     align-items: center;
-    margin-left: auto;
+    justify-self: end;
     margin-right: 20px;
 
 	&__input {
@@ -85,4 +85,20 @@
 		    width: 210px;
 		}
     }
+	@include media('>=medium') {
+
+	    &--active {
+		    position: absolute;
+		    right: 0;
+		    top: 50%;
+		    z-index: 1;
+		    transform: translateY(-50%);
+		    background: white;
+		    
+			.header-search__input {
+			    width: calc(100vw - 160px);
+			}
+	    }
+    }
+
 }

@@ -1,15 +1,13 @@
 .navigation {
     grid-area: nav;
     display: inline-flex;
-    margin-left: auto;
+    justify-self: end;
     margin-right: 20px;
     padding: 0;
     align-self: center;
     pointer-events: auto;
 
 	&__menu-icon {
-		// background-color: rgba($hbc-white, 0.8);
-	    border-radius: 100%;
 	    width: 30px;
 	    height: 30px;
 	    overflow: visible !important;
@@ -41,17 +39,19 @@
 
 	    .link-list {
 		    list-style-type: none;
-		    max-width: $content-width;
+		    width: 100vw;
 		    margin: auto;
+		    padding: 0;
 
 		    &__link-item {
 	    		margin-bottom: 40px;
+	    		text-align: center;
 		    }
 
 	    	&__link {
 	    		color: $hbc-black;
 				@include special-text-link();
-				@include render-type-style(headline-1, $type-styles);
+				@include render-type-style(headline-2, $type-styles);
 	    	}
 	    }
     }
@@ -94,6 +94,7 @@
 			opacity: 1;
 			pointer-events: auto;
 	    	height: calc(100vh + 120px);
+	    	padding: 0;
 		}
     }
 
@@ -121,6 +122,7 @@
 
 		    .link-list {
 			    list-style-type: none;
+			    width: auto;
 			    max-width: $content-width;
 			    margin: auto;
 			    padding: 0;
