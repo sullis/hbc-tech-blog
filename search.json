@@ -1,0 +1,444 @@
+[
+    
+    {
+        "title": "Dublin Scala Spree",
+        "date": "SEP 11 2017",
+        "author": "Gregor Heine",
+        "category": "events",
+        "excerpt": "Dublin Scala SpreeThis Friday the Gilt/HBC Digital Dublin office will be hosting the first ever Dublin Scala Spree, a day-long Scala Open Source Hackathon. The event is organized by the Dublin Scala Usergroup in cooperation with Dublin Functional Kubs and the Scala Center at EPFL in Lausanne, Switzerland.  Date &amp; Time: Friday, 15th September, 10am - 4pm  Location: Gilt/HBC Digital Office, Shelbourne Rd., Dublin 4, Ireland  Sign-Up: Please register for the event via the Dublin Scala Users Group  Organizers: Dublin Scala Meetup and Dublin Functional Kubs in cooperation with the Scala Center @ EPFL in Lausanne",
+        "url": "/2017-09-11-dublin-scala-spree.html"
+    },
+    
+    {
+        "title": "HBC Tech Talks: February 2017 through July 2017",
+        "date": "AUG 10 2017",
+        "author": "HBC Tech",
+        "category": "events",
+        "excerpt": "We’ve had a busy 2017 at HBC. The great work of our teams has created opportunities to share what we’ve learned with audiences around the world. This year our folks have been on stage in Austin, Sydney, Portland, Seattle, San Diego, Boston, London, Israel and on our home turf in NYC and Dublin. The talks have covered deep learning, design thinking, data streaming and developer experience to name just a few.",
+        "url": "/2017-08-10-midyear-recap.html"
+    },
+    
+    {
+        "title": "Sundial or AWS Batch, Why not both?",
+        "date": "AUG 4 2017",
+        "author": "Kevin O'Riordan",
+        "category": "data science",
+        "excerpt": "About a year ago, we (the Gilt/HBC personalization team) open sourced Sundial , a batch job orchestration system leveraging Amazon EC2 Container Service.",
+        "url": "/2017-08-04-sundial-batch.html"
+    },
+    
+    {
+        "title": "Visually Similar Recommendations",
+        "date": "JUL 31 2017",
+        "author": "Chris Curro",
+        "category": "data science",
+        "excerpt": "",
+        "url": "/2017-07-31-tiefvision-2.html"
+    },
+    
+    {
+        "title": "How Large Is YOUR Retrospective?",
+        "date": "JUL 27 2017",
+        "author": "Dana Pylayeva",
+        "category": "culture",
+        "excerpt": "Can you recall the size and length of your typical retrospective?If your team operates by The Scrum Guide, your retrospectives likely have less than ten people in one room and last about an hour for a two-weeks Sprint.",
+        "url": "/2017-07-27-large-scale-retro.html"
+    },
+    
+    {
+        "title": "Advanced tips for building an iOS Notification Service Extension",
+        "date": "JUL 7 2017",
+        "author": "Kyle Dorman",
+        "category": "mobile",
+        "excerpt": "",
+        "url": "/2017-07-07-ios-notifciation-service-extension-tips.html"
+    },
+    
+    {
+        "title": "Open Source Friday",
+        "date": "JUN 29 2017",
+        "author": "HBC Tech",
+        "category": "culture",
+        "excerpt": "From the 54 public repos maintained at code.gilt.com to the name of our tech blog (displayed in this tab’s header), open source has been part of our team’s DNA for years. Check out this blog post from 2015 if you’re not convinced.",
+        "url": "/2017-06-29-open-source-friday.html"
+    },
+    
+    {
+        "title": "Hudson's Bay Company at QCon",
+        "date": "JUN 12 2017",
+        "author": "HBC Tech",
+        "category": "events",
+        "excerpt": "Heading to QCon? Don’t miss these two sessions! If you can’t make it, stay tuned here for slides and recordings from the conference.",
+        "url": "/2017-06-12-hbc-at-qcon.html"
+    },
+    
+    {
+        "title": "Let’s run an experiment! Self-selection at HBC Digital",
+        "date": "MAY 31 2017",
+        "author": "Dana Pylayeva",
+        "category": "culture",
+        "excerpt": "",
+        "url": "/2017-05-31-self-selection-hbc.html"
+    },
+    
+    {
+        "title": "CloudFormation Nanoservice",
+        "date": "MAY 19 2017",
+        "author": "Ryan Martin",
+        "category": "infrastructure",
+        "excerpt": "One of the big HBC Digital initiatives for 2017 is “buy online, pickup in store” - somewhat awkwardly nicknamed “BOPIS” internally. This is the option for the customer to, instead of shipping an order to an address, pick it up in a store that has the items in inventory.",
+        "url": "/2017-05-19-cloudformation-nanoservice.html"
+    },
+    
+    {
+        "title": "The POps Up Plant Shop",
+        "date": "MAY 18 2017",
+        "author": "HBC Digital",
+        "category": "culture",
+        "excerpt": "",
+        "url": "/2017-05-18-pops-up-plant-shop.html"
+    },
+    
+    {
+        "title": "Visually Similar Recommendations",
+        "date": "MAY 12 2017",
+        "author": "Chris Curro",
+        "category": "data science",
+        "excerpt": "",
+        "url": "/2017-05-12-tiefvision-2.html"
+    },
+    
+    {
+        "title": "Mobile Design Sprint",
+        "date": "MAY 2 2017",
+        "author": "HBC Digital",
+        "category": "mobile",
+        "excerpt": "",
+        "url": "/2017-05-02-saks-app-design-sprint.html"
+    },
+    
+    {
+        "title": "Meetups: April Recap and What's Happening In May",
+        "date": "APR 26 2017",
+        "author": "John Coghlan",
+        "category": "events",
+        "excerpt": "April Meetups: 105 guests, 48 seltzers, 45 All Day IPAs, 19 pizzas &amp; 2 great speakers.",
+        "url": "/2017-04-26-april-meetup-recap-and-looking-ahead.html"
+    },
+    
+    {
+        "title": "HBC Digital is Sponsoring !!Con",
+        "date": "APR 25 2017",
+        "author": "HBC Digital",
+        "category": "events",
+        "excerpt": "",
+        "url": "/2017-04-25-hbc-digital-sponsoring-bang-bang-con.html"
+    },
+    
+    {
+        "title": "Pau Carré Cardona To Speak at O'Reilly AI Conference",
+        "date": "APR 12 2017",
+        "author": "HBC Digital",
+        "category": "data science",
+        "excerpt": "The O’Reilly Artificial Intelligence Conference is coming to New York City in June. From June 27-29, the top minds in AI will be meeting for “a deep dive into emerging AI techniques and technologies with a focus on how to use it in real-world implementations.”",
+        "url": "/2017-04-12-pau-carre-cardona-at-oreilly-ai-conference.html"
+    },
+    
+    {
+        "title": "Where to find our team in March",
+        "date": "FEB 28 2017",
+        "author": "HBC Digital",
+        "category": "events",
+        "excerpt": "We have a busy month lined up:",
+        "url": "/2017-02-28-where-to-find-us-in-march.html"
+    },
+    
+    {
+        "title": "Don’t just read about DevOps culture, play-test it!",
+        "date": "FEB 14 2017",
+        "author": "Dana Pylayeva",
+        "category": "culture",
+        "excerpt": "Don’t just read about DevOps culture, play-test it!",
+        "url": "/2017-02-14-spotlight-on-devops-p1.html"
+    },
+    
+    {
+        "title": "Sundial PagerDuty Integration",
+        "date": "FEB 6 2017",
+        "author": "Giovanni Gargiulo",
+        "category": "infrastructure",
+        "excerpt": "Sundial",
+        "url": "/2017-02-06-sundial-pagerduty-integration.html"
+    },
+    
+    {
+        "title": "Voluntary Adoption in Action: HBC Digital Adopts Slack",
+        "date": "FEB 6 2017",
+        "author": "Adrian Trenaman",
+        "category": "culture",
+        "excerpt": "Musings on Decentralised Control and Voluntary Adoption in Large Organisations.",
+        "url": "/2017-02-06-slack-and-voluntary-adoption.html"
+    },
+    
+    {
+        "title": "Keeping an Extra Eye on Your Stack with CloudWatch Events",
+        "date": "JAN 25 2017",
+        "author": "Emerson Loureiro",
+        "category": "infrastructure",
+        "excerpt": "Why an Extra Eye?",
+        "url": "/2017-01-25-keep-an-eye-on-your-stack-with-cloudwatch-events-lambda.html"
+    },
+    
+    {
+        "title": "Perfect Overnight Cold Brew",
+        "date": "JAN 25 2017",
+        "author": "Evan Maloney",
+        "category": "culture",
+        "excerpt": "When Gilt’s Mobile team worked at 1 Madison Avenue, my morning coffee ritual involved getting a large black iced coffee from myWayCup as I exited the 6 train at 23rd Street. What they served at myWayCup—a private-label version of Intelligentsia Coffee’s House Blend—was so good that I switched to iced coffee year-round—even through brutal New York winters—a trait that often earned me quizzical looks when ordering my preferred drink during a snowstorm.",
+        "url": "/2017-01-25-perfect-overnight-cold-brew.html"
+    },
+    
+    {
+        "title": "NYC Scrum User Group - January 19th",
+        "date": "JAN 11 2017",
+        "author": "HBC Tech",
+        "category": "events",
+        "excerpt": "We’ll be hosting our first meetup of 2017 in partnership with the NYC Scrum User Group on Thursday, January 19th. This is our first time hosting this group and we’re off to a great start: Ken Rubin will be joining us to lead a talk on Agile.",
+        "url": "/2017-01-11-nyc-scrum-user-group-meetup.html"
+    },
+    
+    {
+        "title": "BackOffice Hike",
+        "date": "JAN 5 2017",
+        "author": "Ryan Martin",
+        "category": "culture",
+        "excerpt": "Now that winter is here and the cold is keeping us inside, I thought it would be good to dream of warm days and look back at a BackOffice team outing from October.",
+        "url": "/2017-01-05-backoffice-hike.html"
+    },
+    
+    {
+        "title": "Deep Learning at GILT",
+        "date": "DEC 22 2016",
+        "author": "Pau Carré Cardona",
+        "category": "data science",
+        "excerpt": "Cognitive Fashion Industry Challenges",
+        "url": "/2016-12-22-deep-learning-at-gilt.html"
+    },
+    
+    {
+        "title": "From Monolothic to Microservices - Gilt's Journey to Microservices on AWS",
+        "date": "DEC 13 2016",
+        "author": "John Coghlan",
+        "category": "events",
+        "excerpt": "Watch Emerson Louriero’s talk from AWS re:Invent 2016",
+        "url": "/2016-12-13-emerson-louriero-at-aws-reinvent.html"
+    },
+    
+    {
+        "title": "December Meetups at HBC Digital",
+        "date": "DEC 7 2016",
+        "author": "John Coghlan",
+        "category": "events",
+        "excerpt": "We’re closing out 2016 with two more meetups at our offices in Brookfied Place.",
+        "url": "/2016-12-07-december-meetups.html"
+    },
+    
+    {
+        "title": "Increasing Build IQ with Travis CI",
+        "date": "NOV 16 2016",
+        "author": "Andrew Powell",
+        "category": "front end",
+        "excerpt": "Continuous Integration is a must these days. And for social, open sourceprojects it’s crucial. Our tool of choice for automated testing isTravis CI. Like most tools, Travis does what it doeswell. Unfortunately it’s not very “smart”. Heaven help you if you have a largeor modular project with a multitude of tests - you’ll be waiting an eternitybetween builds.",
+        "url": "/2016-11-16-increasing-build-iq-travis-ci.html"
+    },
+    
+    {
+        "title": "Linting NPM Version Conflicts",
+        "date": "NOV 9 2016",
+        "author": "Andrew Powell",
+        "category": "front end",
+        "excerpt": "Say you had the need for shared front-end assets (scripts, stylesheets, images,etc.) and a need for an entire org to access them, independently, for reliablebuilds of many different apps which used those assets. NPM might be a goodchoice - With NPM’s move to a flat-ish install tree,it’s still a relevant choice. But what about package version conflicts?",
+        "url": "/2016-11-09-linting-npm-version-conflicts.html"
+    },
+    
+    {
+        "title": "Running with Scissors: Koa2 and Vue.js",
+        "date": "NOV 4 2016",
+        "author": "Andrew Powell",
+        "category": "front end",
+        "excerpt": "We love Koa at Gilt. (Hell, I love Koa.) Embarking on a newproject, I wanted to try something that wasn’t React or Angular. After poking atthe alternatives I landed on Vue.js. I picked up the sharpest pair ofscissors I could find and started running.",
+        "url": "/2016-11-04-running-with-koa-vuejs.html"
+    },
+    
+    {
+        "title": "Watch Gilt's QCon New York talks",
+        "date": "OCT 24 2016",
+        "author": "John Coghlan",
+        "category": "events",
+        "excerpt": "",
+        "url": "/2016-10-24-qcon-new-york-talks.html"
+    },
+    
+    {
+        "title": "Where to find our team in October",
+        "date": "OCT 7 2016",
+        "author": "John Coghlan",
+        "category": "events",
+        "excerpt": "Here’s where to find Gilt and HBC Digital this month:",
+        "url": "/2016-10-07-where-to-find-our-team-in-october.html"
+    },
+    
+    {
+        "title": "iOS Custom Gesture Recognizer",
+        "date": "SEP 26 2016",
+        "author": "Paul Lee",
+        "category": "mobile",
+        "excerpt": "Developing New Product Photo GalleryAs part of our Mobile team’s ongoing effort to introduce more Swift-based pages in the iOS app, I recently started working on a full screen gallery feature on our Product Detail Page (PDP). The feature is similar to the typical full screen photo gallery users will recognize from many other apps, including Apple’s Photo app and e-commerce applications featuring full screen view of product images.",
+        "url": "/2016-09-26-custom-ios-gesture-recognizer.html"
+    },
+    
+    {
+        "title": "New Gilt HQ",
+        "date": "AUG 29 2016",
+        "author": "John Coghlan",
+        "category": "culture",
+        "excerpt": "The New Gilt HQ",
+        "url": "/2016-08-29-new-gilt-hq.html"
+    },
+    
+    {
+        "title": "New open source project: scala-fedex",
+        "date": "AUG 21 2016",
+        "author": "Ryan Caloras",
+        "category": "back end",
+        "excerpt": "    ",
+        "url": "/2016-08-21-scala-fedex.html"
+    },
+    
+    {
+        "title": "Rookie Summer",
+        "date": "AUG 12 2016",
+        "author": "Team Rookie",
+        "category": "culture",
+        "excerpt": "The Summer Internship #TeamRookie",
+        "url": "/2016-08-12-rookie-summer.html"
+    },
+    
+    {
+        "title": "How to convert fully connected layers into equivalent convolutional ones",
+        "date": "MAY 18 2016",
+        "author": "Pau Carré Cardona",
+        "category": "data science",
+        "excerpt": "The Problem",
+        "url": "/2016-05-18-fully-connected-to-convolutional-conversion.html"
+    },
+    
+    {
+        "title": "Akka HTTP Talk with Cake Solutions",
+        "date": "APR 7 2016",
+        "author": "HBC Tech",
+        "category": "events",
+        "excerpt": "We are thrilled to be hosting Aleksandr Ivanov of Cake Solutions on Tuesday, April 12th. He’ll be presenting an excellent talk on Akka HTTP. Who is Aleksandr? We’re glad you asked:",
+        "url": "/2016-04-07-akka-http-talk-with-cake-solutions.html"
+    },
+    
+    {
+        "title": "Urgency vs. Panic",
+        "date": "APR 6 2016",
+        "author": "Hilah Almog",
+        "category": "product",
+        "excerpt": "Urgency vs. Panic",
+        "url": "/2016-04-06-urgency-vs-panic.html"
+    },
+    
+    {
+        "title": "Breaking the Mold: Megaservice Architecture at Gilt",
+        "date": "APR 1 2016",
+        "author": "Adrian Trenaman",
+        "category": "infrastructure",
+        "excerpt": "Today we announce a novel approach to software and system architecture that we’ve been experimenting with for the last while at Gilt: internally, we’ve been referring to it ‘mega-service’ architecture, and, the name seems to have stuck. We’re pretty excited about it, as it represents a real paradigm shift for us.",
+        "url": "/2016-04-01-mega-service-gilt.html"
+    },
+    
+    {
+        "title": "Front End Engineering Lightning Talks with HBC Digital",
+        "date": "MAR 24 2016",
+        "author": "HBC Tech",
+        "category": "front end",
+        "excerpt": "Join us for an evening of lightning talks by 4 of HBC Digital’s Front End Engineers and an introduction by Steve Jacobs, SVP, Digital Technology and Demand Marketing.",
+        "url": "/2016-03-24-front-end-engineering-lightning-talks-with-hbc-digital.html"
+    },
+    
+    {
+        "title": "OSX, Docker, NFS and packet filter firewall",
+        "date": "MAR 10 2016",
+        "author": "Andrey Kartashov",
+        "category": "front end",
+        "excerpt": "The Mobile Services team at Gilt uses Docker to both build and run software. In addition to the usual Docker benefits for software deployments moving toolchains to Docker has a few advantages:",
+        "url": "/2016-03-10-osx-docker-firewall.html"
+    },
+    
+    {
+        "title": "gulp-scan &amp;bull; Find Yourself Some Strings",
+        "date": "FEB 15 2016",
+        "author": "Andrew Powell",
+        "category": "front end",
+        "excerpt": "We recently ran across the need to simply scan a file for a particular term duringone of our build processes. Surpringly enough, we didn’t find a Gulpplugin that performed only that one simple task. And so gulp-scanwas born and now resides on npmjs.org.",
+        "url": "/2016-02-15-gulp-scan-find-strings.html"
+    },
+    
+    {
+        "title": "Codedeploy Notifications as a Service",
+        "date": "FEB 10 2016",
+        "author": "Emerson Loureiro",
+        "category": "infrastructure",
+        "excerpt": "After moving our software stack to AWS, some of us here at Gilt have started deploying our services to production using AWS’s Codedeploy. Before that, in a not-so-distant past, we used an in-house tool for deployments - IonCannon. One of the things IonCannon provided were deployment notifications. In particular, it would:",
+        "url": "/2016-02-10-codedeploy-notifications.html"
+    },
+    
+    {
+        "title": "Using tvOS, the Focus Engine &amp; Swift to build Apple TV apps",
+        "date": "OCT 13 2015",
+        "author": "Evan Maloney",
+        "category": "mobile",
+        "excerpt": "At the Apple product launch event in September, Gilt demonstrated its upcoming “Gilt on TV” app for the Apple TV. (If you missed the demo and would like to see it, Apple has the video available on their website. Eddy Cue’s introduction of Gilt begins at the 74:20 mark.)",
+        "url": "/2015-10-13-apple-tv-tvos-swift-development-focus-engine.html"
+    },
+    
+    {
+        "title": "ION-Roller - Immutable software deployment service for AWS",
+        "date": "SEP 16 2015",
+        "author": "Natalia Bartol",
+        "category": "infrastructure",
+        "excerpt": "Gilt has been at the forefront of the wave of microservice architecture. With the advantage of many individual services that do one thing well comes increased complexity of service management.",
+        "url": "/2015-09-16-ion-roller-immutable-software-deployment-service-for-aws.html"
+    },
+    
+    {
+        "title": "Private NPM Modules&amp;#58; A Song of Fire and Ice",
+        "date": "AUG 3 2015",
+        "author": "Andrew Powell",
+        "category": "front end",
+        "excerpt": "Grab a coffee or pop and a snack, this is a read.",
+        "url": "/2015-08-03-gilt-private-npm-modules-npmjsorg.html"
+    },
+    
+    {
+        "title": "Gilt Tech + Jekyll = ♥",
+        "date": "JUN 29 2015",
+        "author": "Andrew Powell",
+        "category": "culture",
+        "excerpt": "Gilt Tech Blog Moves to Github",
+        "url": "/2015-06-29-gilt-tech-plus-jekyll-equals-love.html"
+    },
+    
+    {
+        "title": "Sean Smith to Present at Microservices Day!",
+        "date": "JUN 18 2015",
+        "author": "Sean Smith",
+        "category": "events",
+        "excerpt": "What is Microservices Day?from microservicesday.comMicroservices Day is a conference by the enterprise, for the enterprise. It brings together people from organizations that have adopted (or are planning to adopt) a microservices approach to running their business and focuses on the issues that companies face. It gives participants a forum to discuss and share their experiences with microservices through advice, tips and tricks as well as driving forward both the technology and business community. Come join us at The Altman Building, 135 West 18th Street in New York on July 13th! The event will consist of a range of talks from industry leaders who have deep experience building and operating microservices systems at scale. Panel discussions and active audience participation will be a further part of the event, as the implications of enabling business to innovate at a faster pace than ever before will be a key discussion point. Come join the early adopters at the dawn of a new era in business computing!Sean Smith is a Software Engineer from Canada. He currently works at Gilt as a Principal Software Engineer. He has worked on a variety of services at Gilt, ranging from third party warehouse systems integration to email content generation and delivery.Register now for this great event!  See you on July 13th!",
+        "url": "/2015-06-18-sean-smith-to-present-at-microservices-day.html"
+    }
+    
+]
