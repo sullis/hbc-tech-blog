@@ -1,8 +1,17 @@
 ---
 layout: sub-page
 ---
-<article class="page article">
-    <section class="article__content">
+<article class="article">
+    <header class="article__header article__header--reveal">
+        <h1 class="header-title" title="{{ page.title }}">{{ page.title }}</h1>
+        {% if page.image.feature %}
+        {% if page.image.feature contains 'https' or page.image.feature contains 'http' %}
+        <img class="hero-image" title="{{ page.title }}" src="{{ page.image.feature }}" />
+        {% else %}
+        <img class="hero-image" title="{{ page.title }}" src="{{ site.url }}{{ site.baseurl }}/assets/images/{{ page.image.feature }}" />
+        {% endif %}
+        {% endif %}
+
         {% if page.categories.size > 0 %}
             {% for cat in site.category %}
                 {% if cat.name == page.categories.first %}
@@ -17,10 +26,12 @@ layout: sub-page
             {% endif %}
         {% endif %}
             <span class="article-meta__date">
-                Published {{ page.date | date: "%b %-d, %Y" | upcase }}
+                {{ page.date | date: "%b %-d, %Y" | upcase }}
             </span>
         </div>
-        <h1 class="article__content__title" title="{{ page.title }}">{{ page.title }}</h1>
+    </header>
+    <section class="article__content">
+        
         <div class="article__content__read-time">{% include read-time.html %}</div>
         <div class="article__content__share-buttons">{% include share-buttons.html %}</div>
         <div class="article__content__body">{{ content }}</div>

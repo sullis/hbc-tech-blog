@@ -44,10 +44,7 @@
 				@include special-text-link();
 			}
 
-			&__date {
-				@include render-type-style(slug-2, $type-styles);
-			}
-
+			&__date,
 			&__author {
 				@include render-type-style(label-2, $type-styles);
 			}

@@ -16,7 +16,6 @@ image:
   creditlink: ~
 ---
 
-### Dublin Scala Spree
 This Friday the Gilt/HBC Digital Dublin office will be hosting the first ever Dublin Scala Spree, a day-long Scala Open Source Hackathon. 
 The event is organized by the Dublin Scala Usergroup in cooperation with Dublin Functional Kubs and the Scala Center at EPFL in Lausanne, Switzerland.
 <!--more-->
@@ -24,8 +23,6 @@ The event is organized by the Dublin Scala Usergroup in cooperation with Dublin 
 * __Location:__ Gilt/HBC Digital Office, Shelbourne Rd., Dublin 4, Ireland
 * __Sign-Up:__ Please register for the event via the [Dublin Scala Users Group](https://www.meetup.com/Dublin-Scala-users-group/events/242952081)
 * __Organizers:__ Dublin Scala Meetup and Dublin Functional Kubs in cooperation with the Scala Center @ EPFL in Lausanne
-
-<img class="center" src="https://pbs.twimg.com/media/DEIosBJWAAAj87h.jpg">
 
 ### What is a Scala Spree?
 Scala Spree is a free community event aiming to popularize Open Source Software. It brings together Open Source authors, 
