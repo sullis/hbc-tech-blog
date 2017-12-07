@@ -20,7 +20,7 @@ class jekyllSearch {
         });
     }
 
-    async displayResults() {
+    async displayResults(event) {
         const results = await this.findResults();
         const html = results.map(item => {
             return `
@@ -37,11 +37,20 @@ class jekyllSearch {
             </section>`;
         }).join('');
 
-        this.resultsList.className += ' ' + 'header-search__results--active';
+        console.log(event.keyCode);
 
         if ((results.length == 0) || (this.searchField.value == '')) {
+            this.resultsList.className = 'header-search__results header-search__results--active';
             this.resultsList.innerHTML = `<section class="snippet snippet--reveal"><p>Sorry, nothing was found</p></snippet>`;
+            if (event.keyCode === 27) {
+                this.resultsList.className = 'header-search__results';
+                this.resultsList.innerHTML = ``;
+            }
+        } else if (event.keyCode === 27) {
+            this.resultsList.className = 'header-search__results';
+            this.resultsList.innerHTML = ``;
         } else {
+            this.resultsList.className = 'header-search__results header-search__results--active';
             this.resultsList.innerHTML = html;
         }
     }
@@ -54,7 +63,7 @@ class jekyllSearch {
         this.searchField.addEventListener('click', this.clearPlaceholder.bind(this));
         this.searchField.addEventListener('keyup', this.displayResults);
         this.searchField.addEventListener('keypress', event => {
-            if (event.keyCode == 13) {
+            if (event.keyCode === 13) {
                 event.preventDefault();
             }
         });
