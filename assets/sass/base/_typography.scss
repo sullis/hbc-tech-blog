@@ -1,14 +1,6 @@
 // Typography
 @import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,500');
-// @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
-// @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,700');
-// @import url('https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i');
-// @import url('https://fonts.googleapis.com/css?family=Fjalla+One');
-// @import url('https://fonts.googleapis.com/css?family=Crete+Round');
-// @import url('https://fonts.googleapis.com/css?family=Patua+One');
-// @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700');
-// @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,700');
 
 $hbc-font-family-01: 'Crimson Text', sans-serif;
 $hbc-font-family-02: 'Open Sans', sans-serif;
@@ -56,11 +48,11 @@ $type-styles: (
       	font-family: $hbc-font-family-01
   	),
     headline-2: (
-        font-size: 42px,
-        font-weight: 700,
+        font-size: 40px,
+        font-weight: 600,
         font-style: normal,
         text-transform: normal,
-      	font-family: $hbc-font-family-01
+      	font-family: $hbc-font-family-02
   	),
     headline-3: (
         font-size: 32px,
@@ -71,10 +63,10 @@ $type-styles: (
   	),
     subhead-1: (
         font-size: 22px,
-        font-weight: 700,
+        font-weight: 600,
         font-style: normal,
         text-transform: normal,
-      	font-family: $hbc-font-family-01
+      	font-family: $hbc-font-family-02
   	),
     subhead-2: (
         font-size: 20px,
@@ -96,7 +88,14 @@ $type-styles: (
         font-style: normal,
         text-transform: normal,
       	font-family: $hbc-font-family-02
-  	)
+  	),
+    big-copy: (
+        font-size: 25px,
+        font-weight: 400,
+        font-style: normal,
+        text-transform: normal,
+        font-family: $hbc-font-family-02
+    )
 
 );
 
@@ -113,10 +112,11 @@ h3,
 h4,
 h5,
 h6 {
-	line-height: 140%;
-	font-family: $hbc-font-family-01;
-	font-weight: 700;
-	color: $hbc-gray-4;
+  line-height: 120%;
+  font-family: $hbc-font-family-01;
+  font-weight: 700;
+  color: $hbc-gray-4;
+
 }
 
 strong {

@@ -43,16 +43,14 @@
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr;
 		height: 40vh;
-		max-height: 350px;
-		max-width: $content-width;
-		margin: auto;
+		max-height: 160px;
+		max-width: 800px;
+		margin: 100px auto;
 		animation-delay: 0.3s;
 
 		&__text {
 			text-align: center;
-			margin: auto;
-			max-width: 600px;
-			@include render-type-style(subhead-2, $type-styles);
+			@include render-type-style(big-copy, $type-styles);
 		}
 	}
 
