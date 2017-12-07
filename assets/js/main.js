@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded',function() {
                 .addTo(controller);
 
             // show article share tools
-            new ScrollMagic.Scene({triggerHook: 0.05, triggerElement: ".article__content__title", reverse: false})
+            new ScrollMagic.Scene({triggerHook: 0.05, triggerElement: ".article__content", reverse: false})
                 .setClassToggle(".share-buttons__link-item", "share-buttons__link-item--reveal")
                 .addTo(controller);
 
