@@ -9,6 +9,7 @@
 		&__title {
 			display: inline-block;
 			@include render-type-style(subhead-1, $type-styles);
+			text-transform: uppercase;
 		}
 
 		&__view-all-link {

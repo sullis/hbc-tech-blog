@@ -45,12 +45,18 @@
 		    &__link-item {
 	    		margin-bottom: 40px;
 	    		text-align: center;
-		    }
+			}
 
 	    	&__link {
 	    		color: $hbc-black;
 				@include special-text-link();
 				@include render-type-style(headline-3, $type-styles);
+
+				&--current {
+					.link-list__link-highlight {
+						color: $hbc-highlight;
+					}
+				}
 	    	}
 	    }
     }
@@ -115,7 +121,7 @@
 			grid-template-columns: 1fr;
 	    	height: auto;
 		    width: 100%;
-	    	background-color: white;
+	    	background-color: black;
 		    top: 0;
 		    left: 0;
 		    opacity: 1;
@@ -138,7 +144,7 @@
 			    }
 
 		    	&__link {
-		    		color: $hbc-black;
+		    		color: $hbc-white;
 					@include render-type-style(nav, $type-styles);
 					@include special-text-link();
 		    	}

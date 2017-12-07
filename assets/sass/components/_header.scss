@@ -5,10 +5,11 @@
     grid-auto-rows: 1fr;
 	grid-template-columns: 80px 1fr 60px 60px;
 	grid-template-areas: "logo . search nav";
-	color: $hbc-black;
+	color: $hbc-white;
     z-index: 100;
     transition: all 100ms ease-out;
     width: 100%;
+    background-color: black;
 
 	&__logo {
 	    grid-area: logo;
@@ -128,8 +129,7 @@
 
 	// large
 	@include media('>=medium') {
-	    max-height: $sticky-header-height;
-        background-color: $hbc-off-white;
+        // background-color: $hbc-off-white;
 
 		.site-header__logo {
 		    height: 75px;

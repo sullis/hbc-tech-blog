@@ -304,10 +304,13 @@
 		}
 
 		// reveal animations
-		&__header,
-		&__jobs {
-			position: relative;
+		&__intro {
 			top: 200px;
+		}
+		
+		&__header,
+		&__intro {
+			position: relative;
 			opacity: 0;
 
 			&--reveal {

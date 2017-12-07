@@ -4,6 +4,13 @@ document.addEventListener('DOMContentLoaded',function() {
     // GLOBAL VARS
     var isNavOpen = false;
     var isSearchOpen = false;
+    var menu = document.getElementById('menu');
+    var searchToggle = document.getElementById('header-search__toggle');
+    var searchContainer = document.getElementById('header-search');
+    var searchInput = document.getElementById('header-search-input');
+    var searchResults = document.getElementById('header-search__results');
+    var navContainer = document.getElementById('menu');
+
 
     var App = {
 
@@ -15,17 +22,21 @@ document.addEventListener('DOMContentLoaded',function() {
         },
 
         bindEvents: function() {
-            document.getElementById('menu').addEventListener("click", NavEvents.toggleNav, false);
-            document.getElementById('header-search__svg').addEventListener("click", SearchEvents.toggleSearch, false);
+            menu.addEventListener("click", NavEvents.toggleNav, false);
+            searchToggle.addEventListener("click", SearchEvents.toggleSearch, false);
+            document.addEventListener('keyup', event => {
+                if (event.keyCode === 27) {
+                    App.setView("default");
+                }
+            });
+            // document.addEventListener("click", event => {
+            //     App.setView("default");
+            // });
         },
 
         setView: function(view) {
 
             if (view === "search") {
-
-                var searchContainer = document.getElementById('header-search');
-                var searchInput = document.getElementById('header-search-input');
-                var searchResults = document.getElementById('header-search__results');
 
                 if (!isSearchOpen) {
                     isSearchOpen = true;
@@ -33,6 +44,7 @@ document.addEventListener('DOMContentLoaded',function() {
                     searchInput.focus();
 
                     if(isNavOpen) { this.setView("nav") };
+
                 } else {
                     isSearchOpen = false;
                     searchContainer.className = 'header-search';
@@ -40,8 +52,6 @@ document.addEventListener('DOMContentLoaded',function() {
                 }
 
             } else if (view === "nav") {
-
-                var navContainer = document.getElementById('menu');
                 
                 if (!isNavOpen) {
                     isNavOpen = true;
@@ -51,6 +61,13 @@ document.addEventListener('DOMContentLoaded',function() {
                     isNavOpen = false;
                     navContainer.className = 'navigation';
                 }
+
+            } else if (view === "default") {
+                searchContainer.className = 'header-search';
+                navContainer.className = 'navigation';
+
+                isSearchOpen = false;
+                isNavOpen = false;
             }
         }
     };
@@ -66,12 +83,6 @@ document.addEventListener('DOMContentLoaded',function() {
 
         init: function() {
 
-            const siteSearch = new jekyllSearch(
-                '/search.json',
-                '#search-input',
-                '#search-results'
-            );
-
             const headerSearch = new jekyllSearch(
                 '/search.json',
                 '#header-search-input',
@@ -79,7 +90,6 @@ document.addEventListener('DOMContentLoaded',function() {
             );
 
             headerSearch.init();
-            siteSearch.init();
         },
 
         toggleSearch: function(evt) {

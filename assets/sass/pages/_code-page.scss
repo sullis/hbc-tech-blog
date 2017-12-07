@@ -5,7 +5,7 @@
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
         margin: 0 ($content-side-margins*-1) 0 ($content-side-margins*-1);
-        height: 250px;
+        height: 350px;
         max-width: 100vw;
         max-height: 40vh;
         overflow: hidden;
@@ -115,10 +115,19 @@
         }
 
         // reveal animations
-        &__projects,
-        &__header {
-            position: relative;
+        .styleguide,
+        .gilt-api {
             top: 200px;
+        }
+        
+        .styleguide {
+            animation-delay: 0.2s;
+        }
+        
+        &__header,
+        .styleguide,
+        .gilt-api {
+            position: relative;
             opacity: 0;
 
             &--reveal {
