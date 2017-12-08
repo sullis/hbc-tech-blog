@@ -78,20 +78,6 @@
 	@include media('>large') {
 	    border-bottom: solid 0px $hbc-border;
 
-		&--minified {
-			position: sticky;
-		    top: 0;
-		    max-height: $sticky-header-height;
-	        background-color: $hbc-off-white;
-	        box-shadow: darken(rgba($hbc-highlight, 0.15), 40%) 0px 1px 3px;
-
-			.site-header__logo {
-			    height: 75px;
-		        width: 75px;
-		        margin: 0;
-			}
-		}
-
 		&__logo {
 			transition: all 200ms ease-out;
 			margin-left: 0;
@@ -137,8 +123,8 @@
 	        margin: 0;
 		}
 		
-		&--minified {
-	        box-shadow: darken(rgba($hbc-highlight, 0.15), 40%) 0px 1px 3px;
-		}
+		// &--minified {
+	 //        box-shadow: darken(rgba($hbc-highlight, 0.15), 40%) 0px 1px 3px;
+		// }
 	}
 }

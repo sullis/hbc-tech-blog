@@ -106,17 +106,22 @@ $type-styles: (
 	-webkit-font-smoothing: antialiased;
 }
 
-h1,
+h1 {
+  line-height: 120%;
+  font-family: $hbc-font-family-01;
+  font-weight: 700;
+  color: $hbc-gray-4;
+}
+
 h2,
 h3,
 h4,
 h5,
 h6 {
   line-height: 120%;
-  font-family: $hbc-font-family-01;
+  font-family: $hbc-font-family-02;
   font-weight: 700;
   color: $hbc-gray-4;
-
 }
 
 strong {

@@ -13,9 +13,7 @@
             {% endif %}
             alt="{{ post.title }}"></a>
         {% else %}
-            <a class="snippet__feature-image__link" href="{{ site.url }}{{ site.baseurl }}{{ post.url }}"><img class="snippet__feature-image" src="http://placehold.it/1920x800/" alt="{{ post.title }}" ></a>
-        {% else %}
-            <a class="snippet__feature-image__link" href="{{ site.url }}{{ site.baseurl }}{{ post.url }}"><img class="snippet__feature-image" src="http://placehold.it/1920x800/" alt="{{ post.title }}" ></a>
+            <a class="snippet__feature-image__link" href="{{ site.url }}{{ site.baseurl }}{{ post.url }}"><span id="no-image-placeholder" class="snippet__no-image-placeholder"></span></a>
         {% endif %}
     {% endif %}
     <h1 class="snippet__title">

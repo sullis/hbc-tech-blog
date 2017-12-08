@@ -14,7 +14,7 @@
 
 	    .bar {
 	    	position: relative;
-			stroke: black;
+			stroke: white;
 			stroke-width: 2px;
 			stroke-linecap: round;
 			transform-origin: 48% 48%;
@@ -50,7 +50,7 @@
 	    	&__link {
 	    		color: $hbc-black;
 				@include special-text-link();
-				@include render-type-style(headline-3, $type-styles);
+				@include render-type-style(subhead-2, $type-styles);
 
 				&--current {
 					.link-list__link-highlight {
@@ -70,6 +70,7 @@
 		 	// background-color: transparent;
 
 	 		.bar {
+	 			stroke: black;
 
 			 	&__top {
 					// d: path("M0,5 L30,5");

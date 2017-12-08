@@ -27,19 +27,26 @@
 		    grid-row: 1 / 2;
 			color: $hbc-white;
 		    line-height: 110%;
-		    margin: 10px 0 10px -2px;
+		    margin: 10px 0 20px -2px;
 			z-index: 1;
 			align-self: end;
 			text-shadow: 0 2px 5px rgba($hbc-black, 0.5);
 			@include render-type-style(headline-2, $type-styles);
 	    }
 
-		.hero-image {
-		    grid-column: 1 / 2;
+	    .no-image-placeholder {
+			height: 1000px;
+	    }
+
+		.hero-image,
+		.no-image-placeholder {
+		    grid-column: 1 / 4;
 		    grid-row: 1 / 4;
 	        align-self: center;
 	        display: flex;
-	        width: 100vw;
+    	    min-width: 100%;
+		    min-height: 100%;
+	        width: 100%;
 		    overflow: hidden;
 		    // opacity: 0.5;
 		    // adding scale here so there is no visual jump when clicking through from the homepage.
@@ -68,7 +75,6 @@
 					background-color: $hbc-highlight;
 					color: $hbc-white;
 				}
-
 			}
 
 			&__date {
@@ -81,6 +87,7 @@
 	&__content {
 		max-width: $content-width;
 		margin: auto;
+		margin-top: 20px;
 		display: grid;
 	    grid-auto-rows: minmax(20px, auto);
 		grid-template-columns: 1fr;
@@ -140,6 +147,7 @@
 
 		&__body {
 			grid-area: body;
+			max-width: 820px;
 		}
 
 		&__footer {

@@ -32,7 +32,14 @@
 			    }
 			}
 
-		    &__feature-image {
+			&__no-image-placeholder {
+				height: 1000px;
+			}
+
+		    &__feature-image,
+		    &__no-image-placeholder {
+	    	    min-width: 100%;
+			    min-height: 100%;
 			    width: 100%;
 		        align-self: center;
 	            transition: transform 400ms cubic-bezier(0.2, 1, 1, 1);
@@ -41,7 +48,7 @@
 			&__title {
 				grid-column: 2 / 3;
 			    grid-row: 3 / 4;
-				margin: 0;
+				margin: 10px 0;
 				@include render-type-style(headline-2, $type-styles);
 			    z-index: 1;
 
@@ -52,10 +59,10 @@
 				    // box-decoration-break: clone;
 				    // background-color: white;
 					text-decoration: none;
-				
-					&:hover {
-						color: $hbc-highlight;
-					}
+				}
+
+				&:hover {
+					cursor: pointer;
 				}
 			}
 
