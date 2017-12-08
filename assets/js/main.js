@@ -74,8 +74,6 @@ document.addEventListener('DOMContentLoaded',function() {
 
         randomizeArticleHeaderColors: function() {
             
-            var headerBackground = document.getElementById("no-image-placeholder");
-
             var colorsArray = [
                 "#00704a",
                 "#b30838",
@@ -96,7 +94,11 @@ document.addEventListener('DOMContentLoaded',function() {
             var randomBrandColor1 = colorsArray[getRandomInt(0, 8)];
             var randomBrandColor2 = colorsArray[getRandomInt(0, 8)];
 
-            headerBackground.style.background = 'linear-gradient(to bottom right, ' + randomBrandColor1 + ',' + randomBrandColor2;
+            var headerBackground = document.getElementById("no-image-placeholder");
+
+            if (headerBackground) {
+                headerBackground.style.background = 'linear-gradient(to bottom right, ' + randomBrandColor1 + ',' + randomBrandColor2;
+            }
         }
     };
 
