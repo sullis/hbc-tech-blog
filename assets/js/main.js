@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded',function() {
             LazyLoadArticleSnippets.setupScenes();
             LazyLoadArticleSnippets.articleAnimationTiming();
             SearchEvents.init();
+            Utils.randomizeArticleHeaderColors();
         },
 
         bindEvents: function() {
@@ -29,9 +30,6 @@ document.addEventListener('DOMContentLoaded',function() {
                     App.setView("default");
                 }
             });
-            // document.addEventListener("click", event => {
-            //     App.setView("default");
-            // });
         },
 
         setView: function(view) {
@@ -69,6 +67,36 @@ document.addEventListener('DOMContentLoaded',function() {
                 isSearchOpen = false;
                 isNavOpen = false;
             }
+        }
+    };
+
+    var Utils = {
+
+        randomizeArticleHeaderColors: function() {
+            
+            var headerBackground = document.getElementById("no-image-placeholder");
+
+            var colorsArray = [
+                "#00704a",
+                "#b30838",
+                "#eeb211",
+                "#00274c",
+                "#00704a",
+                "#b30838",
+                "#eeb211",
+                "#00274c"
+            ];
+
+            function getRandomInt(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min)) + min;
+            }
+
+            var randomBrandColor1 = colorsArray[getRandomInt(0, 8)];
+            var randomBrandColor2 = colorsArray[getRandomInt(0, 8)];
+
+            headerBackground.style.background = 'linear-gradient(to bottom right, ' + randomBrandColor1 + ',' + randomBrandColor2;
         }
     };
 
@@ -131,18 +159,6 @@ document.addEventListener('DOMContentLoaded',function() {
             // show article share tools
             new ScrollMagic.Scene({triggerHook: 0.05, triggerElement: ".article__content", reverse: false})
                 .setClassToggle(".share-buttons__link-item", "share-buttons__link-item--reveal")
-                .addTo(controller);
-
-            new ScrollMagic.Scene({triggerHook: 0, offset: 120, reverse: true})
-                // .setClassToggle(".site-header", "site-header--shaddow")
-                .setClassToggle(".site-header", "site-header--minified")
-                // .addIndicators({name: "header"})
-                .addTo(controller);
-
-            new ScrollMagic.Scene({triggerHook: 0, offset: 2, reverse: true})
-                // .setClassToggle(".site-header", "site-header--shaddow")
-                .setClassToggle(".site-header--sub-page", "site-header--sub-page--minified")
-                // .addIndicators({name: "sub-page header"})
                 .addTo(controller);
 
             new ScrollMagic.Scene({triggerHook: 0, offset: 150, reverse: true})

@@ -1,5 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://saksdirect.github.io/hbc-tech-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://saksdirect.github.io/hbc-tech-blog/" rel="alternate" type="text/html" /><updated>2017-12-07T15:15:09-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
-</subtitle><entry><title>Dublin Scala Spree</title><link href="https://saksdirect.github.io/hbc-tech-blog/2017-09-11-dublin-scala-spree.html" rel="alternate" type="text/html" title="Dublin Scala Spree" /><published>2017-09-11T00:00:00-05:00</published><updated>2017-09-11T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/dublin-scala-spree</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2017-09-11-dublin-scala-spree.html">&lt;p&gt;This Friday the Gilt/HBC Digital Dublin office will be hosting the first ever Dublin Scala Spree, a day-long Scala Open Source Hackathon. 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://saksdirect.github.io/hbc-tech-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://saksdirect.github.io/hbc-tech-blog/" rel="alternate" type="text/html" /><updated>2017-12-08T11:46:51-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+</subtitle><entry><title>Rethinking Retail: 4 Opportunities to Upgrade the Associate Experience</title><link href="https://saksdirect.github.io/hbc-tech-blog/2017-11-24-rethinking-retail-4-oportunities.html" rel="alternate" type="text/html" title="Rethinking Retail: 4 Opportunities to Upgrade the Associate Experience" /><published>2017-11-24T00:00:00-05:00</published><updated>2017-11-24T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/rethinking-retail-4-oportunities</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2017-11-24-rethinking-retail-4-oportunities.html">&lt;p&gt;At HBC Tech, one of the company’s current initiatives is to bridge the divide between the physical and digital experience. Saks Fifth Avenue has a considerable network of retail locations throughout the US, and our goal is to use technology to entice more people into these stores. More specifically, one initiative focuses on connecting new and existing Saks customers with our style professionals on the retail floor.&lt;/p&gt;
+
+&lt;p&gt;How does the design team go about tackling this challenge? The first thing we do is map out the full customer journey from beginning to end — device-agnostic, channel-agnostic. We create a view of the distinct elements that make up the customer journey, in order to devise an approach to provide a better experience for each touchpoint. Research helps to inform the customer journey, and for this initiative we’ve conducted many customer and associate interviews in order to get to the heart of their challenges and how we can help.&lt;/p&gt;
+
+&lt;p&gt;We have two types of customers to design for in this case — the associate who works in the retail store and provides styling advice to the customer, and the Saks customer themselves. There are a few points in the journey where these two users intersect.
+Customers may have an event coming up that they need to dress for, or they might be looking for that impossible-to-find Fendi backpack. They might deep down really want a new fashionable friend that they can get advice from on the daily. In these moments, they will be more likely to reach out to a retail associate for help.&lt;/p&gt;
+
+&lt;p&gt;Associates are style professionals who thoughtfully build their client book month after month and meticulously style and assist their regular clients. They want to provide the best possible service to Saks customers and drive sales. There are some common pain points that came up again and again in the interviews, and design can help to solve some of them.
+These are four core opportunities to make the retail associate workflow more seamless, structured and analytical.&lt;/p&gt;
+
+&lt;h3 id=&quot;1-one-view-of-the-customer&quot;&gt;1. One view of the customer&lt;/h3&gt;
+&lt;p&gt;Visibility into the customer’s previous orders, style affinities, brands they follow, sizes and online activity will give associates the information they need to provide the best advice to customers. Most importantly, associates need to be able to access this information on their personal devices as customer requests don’t stop after business hours.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-client-acquisition&quot;&gt;2. Client acquisition&lt;/h3&gt;
+&lt;p&gt;Associates need to have the ability to accept digital leads in one system — the same system that they add new clients to that they meet in the store. We want to provide as much information about the customer up front to allow them to successfully work with the customer.
+We’re launching a new way for customers to onboard with a stylist in the Saks app soon, however to scale the styling service, we’re also talking about automation. Some companies are turning to chatbots to help customers narrow down their requests before connecting with a styling professional. This boosts the efficiency of customer service for companies, while also potentially leading to a more accurate match with a stylist.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-inventory&quot;&gt;3. Inventory&lt;/h3&gt;
+&lt;p&gt;Visibility into online and in-store inventory is a must. It should be clear to Associates what they can pull from the store racks vs what they need to send a link to online. This visibility should extend to other store locations and beyond. What if there were even further transparency of global inventory levels of a product? This would benefit customers as they could find anything they’re looking for through Saks stores, and it would benefit associates by boosting sales.&lt;/p&gt;
+
+&lt;h3 id=&quot;4-automation&quot;&gt;4. Automation&lt;/h3&gt;
+&lt;p&gt;Store associates don’t have time to sift through inventory to provide personalized recommendations to each of their clients, or to personally get to know each new customer coming through the doors. They need insights regularly delivered to them that they can take immediate action on. For example, suggestions for follow up, new arrivals, upcoming events, or personal notes that can be searched and added to tasks. Machine learning can be implemented with product recommendations at the customer level as well as at the group level of customers with similar affinities.
+Perhaps most importantly, ideally all of these activities would exist in a unified stylist tool. We should provide a seamless integration of their CRM tool and point of sale so that associates can checkout a customer and add notes to follow up efficiently without switching between systems.
+After more than 30 interviews with our Saks Fifth Avenue retail associates, these opportunities to improve their experience became quite clear. Some of these challenges are beyond design, but through workshops, research, prototyping and iteration, we can assist in identifying the priorities for business, product and all other teams involved.
+Associates are our customers too. They are the thread that ties together all of the services offered by Saks, and they represent the brand. We should be doing everything in our power to make their lives easier and to nurture their client relationships.&lt;/p&gt;</content><author><name>Elizabeth Pizzuti</name></author><category term="retail" /><category term="user experience" /><category term="product design" /><category term="user research" /><category term="retail technology" /><summary>At HBC Tech, one of the company’s current initiatives is to bridge the divide between the physical and digital experience. Saks Fifth Avenue has a considerable network of retail locations throughout the US, and our goal is to use technology to entice more people into these stores. More specifically, one initiative focuses on connecting new and existing Saks customers with our style professionals on the retail floor.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://saksdirect.github.io/hbc-tech-blog{&quot;feature&quot;=&gt;nil, &quot;credit&quot;=&gt;nil, &quot;creditlink&quot;=&gt;nil}" /></entry><entry><title>Dublin Scala Spree</title><link href="https://saksdirect.github.io/hbc-tech-blog/2017-09-11-dublin-scala-spree.html" rel="alternate" type="text/html" title="Dublin Scala Spree" /><published>2017-09-11T00:00:00-05:00</published><updated>2017-09-11T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/dublin-scala-spree</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2017-09-11-dublin-scala-spree.html">&lt;p&gt;This Friday the Gilt/HBC Digital Dublin office will be hosting the first ever Dublin Scala Spree, a day-long Scala Open Source Hackathon. 
 The event is organized by the Dublin Scala Usergroup in cooperation with Dublin Functional Kubs and the Scala Center at EPFL in Lausanne, Switzerland.
 &lt;!--more--&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -925,255 +949,4 @@ Or we may decide to move away from “large batches” of self-selection and exp
   &lt;li&gt;Sandy Mamoli, David Mole &lt;a href=&quot;https://www.amazon.com/Creating-Great-Teams-Self-Selection-People/dp/1680501283&quot;&gt;“Creating Great Teams: How Self-Selection Lets People Excel”&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Diana Larsen, Ainsley Nies &lt;a href=&quot;https://www.amazon.com/Liftoff-Launching-Agile-Teams-Projects/dp/097792016X&quot;&gt;Liftoff: Launching Agile Teams &amp;amp; Projects&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Heidi Shetzer Helfand &lt;a href=&quot;https://leanpub.com/dynamicreteaming&quot;&gt;Dynamic Reteaming. The Art and Wisdom of Changing Teams&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Dana Pylayeva</name></author><category term="culture" /><category term="agile" /><category term="self-selection" /><category term="leadership" /><summary></summary></entry><entry><title>CloudFormation Nanoservice</title><link href="https://saksdirect.github.io/hbc-tech-blog/2017-05-19-cloudformation-nanoservice.html" rel="alternate" type="text/html" title="CloudFormation Nanoservice" /><published>2017-05-19T00:00:00-05:00</published><updated>2017-05-19T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/cloudformation-nanoservice</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2017-05-19-cloudformation-nanoservice.html">&lt;p&gt;One of the big HBC Digital initiatives for 2017 is “buy online, pickup in store” - somewhat awkwardly nicknamed “BOPIS” internally. This is the option for the customer to, instead of shipping an order to an address, pick it up in a store that has the items in inventory.&lt;/p&gt;
-
-&lt;p&gt;A small part of this new feature is the option to be notified of your order status (i.e. when you can pickup the order) via SMS. A further smaller part of the SMS option is what to do when a customer texts “STOP” (or some other similar stop word) in response to one of the SMS notifications. Due to laws such as the Telephone Consumer Protection Act (TCPA) and CAN-SPAM Act, we are required to immediately stop sending additional messages to a phone number, once that person has requested an end to further messaging.&lt;/p&gt;
-
-&lt;p&gt;Our SMS provider is able to receive the texted response from the customer and POST it to an endpoint of our choosing. We could wrap such an endpoint into one of our existing microservices, but the one that sends the SMS (our customer-notification-service) is super-simple: it receives order events and sends notifications (via email or SMS) based on the type of event. It is essentially a dumb pipe that doesn’t care about orders or users; it watches for events and sends messages to customers based on those events. Wrapping subscription information into this microservice felt like overstepping the bounds of the simple, clean job that it does.&lt;/p&gt;
-
-&lt;p&gt;So this is the story of how I found myself writing a very small service (nanoservice, if you will) that does one thing - and does it with close-to-zero maintenance, infrastructure, and overall investment. Furthermore, I decided to see if I could encapsulate it entirely within a single CloudFormation template.&lt;/p&gt;
-
-&lt;h1 id=&quot;how-we-got-here&quot;&gt;How we got here&lt;/h1&gt;
-
-&lt;p&gt;Here are the two things this nanoservice needs to do:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Receive the texted response and unsubscribe the customer if necessary&lt;/li&gt;
-  &lt;li&gt;Allow the customer notification service (CNS) to check the subscription status of a phone number before sending a SMS&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;In thinking about the volume of traffic for these two requests, we consider the following:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;This is on [https://www.saksfifthavenue.com] only (for the moment)&lt;/li&gt;
-  &lt;li&gt;Of the online Saks orders, only a subset of inventory is available to be picked up in the store&lt;/li&gt;
-  &lt;li&gt;Of the BOPIS-eligible items, only a subset of customers will choose to pickup in store&lt;/li&gt;
-  &lt;li&gt;Of those who choose to pickup in store, only a subset will opt-in for SMS messages&lt;/li&gt;
-  &lt;li&gt;Of those who opt-in for SMS, only a subset will attempt to stop messages after opting-in&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;For the service’s endpoints, the request volume for the unsub endpoint (#1 above) is roughly the extreme edge case of #5; the CNS check (#2) is the less-edgy-but-still-low-volume #4 above. So we’re talking about a very small amount of traffic: at most a couple dozen requests per day. This hardly justifies spinning up a microservice - even if it runs on a t2.nano, you still have the overhead of multiple nodes (for redundancy), deployment, monitoring, and everything else that comes with a new microservice. Seems like a perfect candidate for a serverless approach.&lt;/p&gt;
-
-&lt;h1 id=&quot;the-architecture&quot;&gt;The architecture&lt;/h1&gt;
-
-&lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;http://i.imgur.com/PurR7KJ.png&quot; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;As mentioned above, a series of order events flows to the customer notification service, which checks to make sure that the destination phone number is not blacklisted. If it is not, CNS sends the SMS message through our partner, who in turn delivers the SMS to the customer. If the customer texts a response, our SMS partner proxies that message back to our blacklist service.&lt;/p&gt;
-
-&lt;p&gt;The blacklist service is a few Lambda functions behind API Gateway; those Lambda functions simply write to and read from DynamoDB. Because the stack is so simple, it felt like I could define the entire thing in a single artifact: one CloudFormation template. Not only would that be a geeky because-I-can coding challenge, it also felt really clean to be able to deploy a service using only one resource with no dependencies. It’s open source, so anyone can literally copy-paste the template into CloudFormation and have the fully-functioning service in the amount of time it takes to spin up the resources - with no further knowledge necessary. Plus, the template is in JSON (which I’ll explain later) and the functions are in Node.js, so it’s a bit of&lt;/p&gt;
-
-&lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;http://i.imgur.com/Yd6AeB9.png&quot; /&gt;
-&lt;/p&gt;
-
-&lt;h1 id=&quot;the-api&quot;&gt;The API&lt;/h1&gt;
-
-&lt;p&gt;Here at HBC Digital, we’ve really started promoting the idea of API-driven development (ADD). I like it a lot because it forces you to fully think through the most important models in your API, how they’re defined, and how clients should interact with them. You can iron out a lot of the kinks (Do I &lt;em&gt;really&lt;/em&gt; need this property? Do I need a search? How does the client edit? What needs to be exposed vs locked-down? etc) before you write a single line of code.&lt;/p&gt;
-
-&lt;p&gt;I like to sit down with a good API document editor such as &lt;a href=&quot;https://app.swaggerhub.com&quot;&gt;SwaggerHub&lt;/a&gt; and define the entire API at the beginning. The ADD approach worked really well for this project because we needed a quick turnaround time: the blacklist was something we weren’t expecting to own internally until very late in the project, so we had to get it in place and fully tested within a week or two. With an API document in hand (particularly one defined in &lt;a href=&quot;http://swagger.io&quot;&gt;Swagger&lt;/a&gt;), I was able to go from API definition to fully mocked endpoints (in API Gateway) in about 30 mins. The team working on CNS could then generate a client (we like the clients in &lt;a href=&quot;http://apidoc.me&quot;&gt;Apidoc&lt;/a&gt;, an open-source tool developed internally that supports Swagger import) and immediately start integrating against the API. This then freed me to work on the implementation of the blacklist service without being a blocker for the remainder of the team. We settled on the blacklist approach one day; less than 24 hours later we had a full API defined with no blockers for development.&lt;/p&gt;
-
-&lt;p&gt;The &lt;a href=&quot;http://ui.apidoc.me/org/gilt/app/blacklist-nanoservice&quot;&gt;API definition&lt;/a&gt; is fairly generic: it supports blacklisting any uniquely-defined key for any type of notification. The main family of endpoints looks like this:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/{notification_type}/{blacklist_id}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;notification_type&lt;/code&gt; currently only supports &lt;code class=&quot;highlighter-rouge&quot;&gt;sms&lt;/code&gt;, but could very easily be expanded to support things like &lt;code class=&quot;highlighter-rouge&quot;&gt;email&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;push&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;facebook-messenger&lt;/code&gt;, etc. With this, you could blacklist phone numbers for &lt;code class=&quot;highlighter-rouge&quot;&gt;sms&lt;/code&gt; independently from email addresses for &lt;code class=&quot;highlighter-rouge&quot;&gt;email&lt;/code&gt; independently from device IDs for &lt;code class=&quot;highlighter-rouge&quot;&gt;push&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;A simple GET checks to see if the identifier of the destination is blacklisted for that type of notification:&lt;/p&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;curl https://your-blacklist-root/sms/555-555-5555
-&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;message&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Entry not blacklisted&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;This endpoint is used by CNS to determine whether or not it should send the SMS to the customer. In addition to the GET endpoint, the API defines a PUT and a DELETE for manual debugging/cleanup - though a client could also use them directly to maintain the blacklist.&lt;/p&gt;
-
-&lt;p&gt;The second important endpoint is a POST that receives a XML document with details about the SMS response:&lt;/p&gt;
-
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;moMessage&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;messageId=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;123456789&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;receiptDate=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;YYYY-MM-DD HH:MM:SS Z&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;attemptNumber=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;source&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;address=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;+15555555555&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;carrier=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;MDN&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;destination&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;address=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;12345&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;SC&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;message&amp;gt;&lt;/span&gt;Stop texting me&lt;span class=&quot;nt&quot;&gt;&amp;lt;/message&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/moMessage&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;The important bits are the source address (the phone number that sent the message) and the message itself. With those, the API can determine whether or not to add the phone number to the blacklist. If it does, the next time CNS calls the GET endpoint for that phone number, the API will return a positive result for the blacklist and CNS will not send the SMS. The POST to &lt;code class=&quot;highlighter-rouge&quot;&gt;/mo_message&lt;/code&gt; lives at the top-level because it is only through coincidence that it results in blacklisting for SMS; one could imagine other endpoints at the top-level that blacklist from other types of notifications - or even multiple (depending on the type of event).&lt;/p&gt;
-
-&lt;h1 id=&quot;lets-see-some-code&quot;&gt;Let’s see some &lt;a href=&quot;https://github.com/gilt/blacklist&quot;&gt;code&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;First there are a couple functions shared across all the endpoints (and their backing Lambda functions):&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-node&quot;&gt;function withSupportedType(event, context, lambdaCallback, callback) {
-  const supportedTypes = ['sms'];
-  if (supportedTypes.indexOf(event.pathParameters.notification_type.toLowerCase()) &amp;gt;= 0) {
-    callback(event.pathParameters.notification_type.toLowerCase());
-  } else {
-    lambdaCallback(null, { statusCode: 400, body: JSON.stringify({ message: 'Notification type [' + event.pathParameters.notification_type + '] not supported.' }) });
-  }
-}
-
-function sanitizeNumber(raw) {
-  var numbers = raw.replace(/[^\d]+/g, '');
-  if (numbers.match(/^1\d{10}$/)) numbers = numbers.substring(1, 11);
-  return numbers;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;These are there to ensure that each Lambda function is a) dealing with invalid notification_types and b) cleaning up the phone number in the same manner across all functions. Given those common functions, the amount of code for each function is fairly minimal.&lt;/p&gt;
-
-&lt;p&gt;The &lt;a href=&quot;https://github.com/gilt/blacklist/blob/master/app/Get.js&quot;&gt;GET&lt;/a&gt; endpoint simply queries the DynamoDB for the unique combination of &lt;code class=&quot;highlighter-rouge&quot;&gt;notification_type&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;blacklist_id&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-node&quot;&gt;const AWS = require('aws-sdk'),
-      dynamo = new AWS.DynamoDB();
-
-exports.handler = (event, context, callback) =&amp;gt; {
-  const blacklistId = sanitizeNumber(event.pathParameters.blacklist_id);
-  withSupportedType(event, context, callback, function(notificationType) {
-    dynamo.getItem({
-      TableName: event.stageVariables.TABLE_NAME,
-      Key: { Id: { S: blacklistId }, Type: { S: notificationType } }
-    }, function(err, data) {
-      if (err) return callback(err);
-      if ((data &amp;amp;&amp;amp; data.Item &amp;amp;&amp;amp; afterNow(data, &quot;DeletedAt&quot;)) || !onWhitelist(blacklistId, event.stageVariables.WHITELIST)) {
-        callback(null, { statusCode: 200, body: JSON.stringify({ id: blacklistId }) });
-      } else {
-        callback(null, { statusCode: 404, body: JSON.stringify({ message: &quot;Entry not blacklisted&quot; }) });
-      }
-    })
-  });
-}
-
-function afterNow(data, propertyName) {
-  if (data &amp;amp;&amp;amp; data.Item &amp;amp;&amp;amp; data.Item[propertyName] &amp;amp;&amp;amp; data.Item[propertyName].S) {
-    return Date.parse(data.Item[propertyName].S) &amp;gt;= new Date();
-  } else {
-    return true;
-  }
-}
-
-// Set the whitelist in staging to only allow certain entries.
-function onWhitelist(blacklistId, whitelist) {
-  if (whitelist &amp;amp;&amp;amp; whitelist.trim() != '') {
-    const whitelisted = whitelist.split(',');
-    return whitelisted.findIndex(function(item) { return blacklistId == item.trim(); }) &amp;gt;= 0;
-  } else {
-    return true;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Disregarding the imports at the top and some minor complexity around a whitelist (which we put in place only for staging/test environments so we don’t accidentally spam people while testing), it’s about a dozen lines of code (depending on spacing) - with minimal boilerplate. This is the realization of one of the promises of the serverless approach: very little friction against getting directly to the meat of what you’re trying to do. There is nothing here about request routing or dependency-injection or model deserialization; the meaningful-code-to-boilerplate ratio is extremely high (though we’ll get to deployment later).&lt;/p&gt;
-
-&lt;p&gt;The &lt;a href=&quot;https://github.com/gilt/blacklist/blob/master/app/Put.js&quot;&gt;PUT&lt;/a&gt; (add an entry to the blacklist, managing soft-deletes correctly)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-node&quot;&gt;exports.handler = (event, context, callback) =&amp;gt; {
-  const blacklistId = sanitizeNumber(event.pathParameters.blacklist_id);
-  withSupportedType(event, context, callback, function(notificationType) {
-    dynamo.updateItem({
-      TableName: event.stageVariables.TABLE_NAME,
-      Key: { Id: { S: blacklistId }, Type: { S: notificationType } },
-      ExpressionAttributeNames: { '#l': 'Log' },
-      ExpressionAttributeValues: {
-        ':d': { S: (new Date()).toISOString() },
-        ':m': { SS: [ toMessageString(event) ] }
-      },
-      UpdateExpression: 'SET UpdatedAt=:d ADD #l :m REMOVE DeletedAt'
-    }, function(err, data) {
-      if (err) return callback(err);
-      callback(null, { statusCode: 200, body: JSON.stringify({ id: blacklistId }) });
-    })
-  });
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;and &lt;a href=&quot;https://github.com/gilt/blacklist/blob/master/app/Delete.js&quot;&gt;DELETE&lt;/a&gt; (soft-delete entries when present)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-node&quot;&gt;exports.handler = (event, context, callback) =&amp;gt; {
-  const blacklistId = sanitizeNumber(event.pathParameters.blacklist_id);
-  withSupportedType(event, context, callback, function(notificationType) {
-    dynamo.updateItem({
-      TableName: event.stageVariables.TABLE_NAME,
-      Key: { Id: { S: blacklistId }, Type: { S: notificationType } },
-      ExpressionAttributeNames: { '#l': 'Log' },
-      ExpressionAttributeValues: {
-        ':d': { S: (new Date()).toISOString() },
-        ':m': { SS: [ toMessageString(event) ] }
-      },
-      UpdateExpression: 'SET DeletedAt=:d, UpdatedAt=:d ADD #l :m'
-    }, function(err, data) {
-      if (err) return callback(err);
-      callback(null, { statusCode: 200, body: JSON.stringify({ id: blacklistId }) });
-    })
-  });
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;functions are similarly succinct. The &lt;a href=&quot;https://github.com/gilt/blacklist/blob/master/app/MoMessage.js&quot;&gt;POST&lt;/a&gt; endpoint that receives the moMessage XML is a bit more verbose, but only because of a few additional corner cases (i.e. when the origin phone number or the message isn’t present).&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-node&quot;&gt;exports.handler = (event, context, callback) =&amp;gt; {
-  const moMessageXml = event.body;
-  if (messageMatch = moMessageXml.match(/&amp;lt;message&amp;gt;(.*)&amp;lt;\/message&amp;gt;/)) {
-    if (messageMatch[1].toLowerCase().match(process.env.STOP_WORDS)) { // STOP_WORDS should be a Regex
-      if (originNumberMatch = moMessageXml.match(/&amp;lt;\s*source\s+.*?address\s*=\s*[&quot;'](.*?)[&quot;']/)) {
-        var originNumber = sanitizeNumber(originNumberMatch[1]);
-        dynamo.updateItem({
-          TableName: event.stageVariables.TABLE_NAME,
-          Key: { Id: { S: originNumber }, Type: { S: 'sms' } },
-          ExpressionAttributeNames: { '#l': 'Log' },
-          ExpressionAttributeValues: {
-            ':d': { S: (new Date()).toISOString() },
-            ':m': { SS: [ moMessageXml ] }
-          },
-          UpdateExpression: 'SET UpdatedAt=:d ADD #l :m REMOVE DeletedAt'
-        }, function(err, data) {
-          if (err) return callback(err);
-          callback(null, { statusCode: 200, body: JSON.stringify({ id: originNumber }) });
-        });
-      } else {
-        callback(null, { statusCode: 400, body: JSON.stringify({ message: 'Missing source address' }) });
-      }
-    } else {
-      callback(null, { statusCode: 200, body: JSON.stringify({ id: '' }) });
-    }
-  } else {
-    callback(null, { statusCode: 400, body: JSON.stringify({ message: 'Invalid message xml' }) });
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;A couple things to call out here. First - and I know this looks terrible - this function doesn’t parse the XML - it instead uses regular expressions to pull out the data it needs. This is because Node.js doesn’t natively support XML parsing and importing a library to do it is not possible given my chosen constraints (the entire service defined in a CloudFormation template); I’ll explain further below. Second, there is expected to be a Lambda environment variable named &lt;code class=&quot;highlighter-rouge&quot;&gt;STOP_WORDS&lt;/code&gt; that contains a regular expression to match the desired stop words (things like stop, unsubscribe, fuck you, etc).&lt;/p&gt;
-
-&lt;p&gt;That’s pretty much the extent of the production code.&lt;/p&gt;
-
-&lt;h1 id=&quot;deployment---cloudformation&quot;&gt;Deployment - CloudFormation&lt;/h1&gt;
-
-&lt;p&gt;Here’s where this project gets a little verbose. Feel free to reference the &lt;a href=&quot;https://github.com/gilt/blacklist/blob/master/cloudformation/deploy-blacklist.template&quot;&gt;final CloudFormation template&lt;/a&gt; as we go through this. In broad strokes, this template matches the simple architecture diagram above: API Gateway calls Lambda functions which each interact with the same DynamoDB database. The bottom of the stack (i.e. the top of the template) is fairly simple: two DynamoDBs (one for prod, one for stage) and an IAM role that allows the Lambda functions to access the databases.&lt;/p&gt;
-
-&lt;p&gt;On top of that are the four Lambda functions - which contain the Node.js code (this is the “YO DAWG” part, since the Javascript is &lt;em&gt;in&lt;/em&gt; the JSON template) - plus individual permissions for API gateway to call each function. This section (at the bottom of the template) is long but is mostly code-generated (we’ll get to that later).&lt;/p&gt;
-
-&lt;p&gt;In the middle of the template lie a bunch of CloudFormation resources that define the API Gateway magic: a top-level Api record; resources that define the path components under that Api; methods that define the endpoints and which Lambda functions they call; separate configurations for stage vs prod. At this point, we’re just going to avert our eyes and reluctantly admit that, okay, fine, serverless still requires some boilerplate (just not inline with the code, damn it!). At some level, every service needs to define its endpoints; this is where our blacklist nanoservice does it.&lt;/p&gt;
-
-&lt;p&gt;All-in, the CloudFormation template approaches 1000 lines (fully linted, mind you, so there are a bunch of lines with just tabs and curly brackets). “But wait!” you say, “Doesn’t CloudFormation support YAML now?” Why yes, yes it does. I even started writing the template in YAML until I realized I shouldn’t.&lt;/p&gt;
-
-&lt;h1 id=&quot;bringing-cloudformation-together-with-nodejs&quot;&gt;Bringing CloudFormation together with Node.js&lt;/h1&gt;
-
-&lt;p&gt;To fully embed the Node.js functions inside the CloudFormation template would have been terrible. How would you run the code? How would you test it? A cycle of: tweak the code =&amp;gt; deploy the template to the CloudFormation stack =&amp;gt; manually QA - that would be a painful way of working. It’s unequivocally best to be able to write fully isolated and functioning &lt;a href=&quot;https://github.com/gilt/blacklist/tree/master/app&quot;&gt;Node.js code&lt;/a&gt;, plus &lt;a href=&quot;https://github.com/gilt/blacklist/tree/master/test/app&quot;&gt;unit tests&lt;/a&gt; in a standard manner. The problem is that Node.js code then needs to be zipped and uploaded to S3 and referenced by the CloudFormation template - which would create a dependency for the template and would not have achieved the goal of defining the entire service in a single template with no dependencies.&lt;/p&gt;
-
-&lt;p&gt;To resolve this, I wrote a &lt;a href=&quot;https://github.com/gilt/blacklist/blob/master/bin/package.js&quot;&gt;small packaging script&lt;/a&gt; that reads the app’s files and embeds them in the CloudFormation template. This can then be run after every code change (which obviously would have unit tests and a passing CI build), to keep the template inline with all code changes. The script is written in Node.js (hey, if you’re running tests locally, you must already have Node.js installed locally), so a CloudFormation template written in JSON (as opposed to YAML) is essentially native - no parsing necessary. The script can load the template as JSON, inject a CloudFormation resource for each function in the &lt;code class=&quot;highlighter-rouge&quot;&gt;/app&lt;/code&gt; directory, copy that function’s code into the resource, and iterate. Which brings us to&lt;/p&gt;
-
-&lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;http://i.imgur.com/ffgqeh7.png&quot; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;The other thing to note about going down the path of embedding the Node.js code directly in the CloudFormation template (as opposed to packaging it in a zip file): all code for a function must be fully contained within that function definition (other than the natively supported AWS SDK). This has two implications: first, we can’t include external libraries such as a XML parser or a Promise framework (notice all the code around callbacks, which makes the functions a little more verbose than I’d like). Second, we can’t DRY out the functions by including common functions in a shared library; thus they are repeated in the code for each individual function.&lt;/p&gt;
-
-&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
-
-&lt;p&gt;So that’s it: we end up with a 1000-line CloudFormation template that entirely defines a blacklist nanoservice that exposes four endpoints and runs entirely serverless. It is fully tested, can run as a true Node.js app (if you want), and will likely consume so few resources that it is essentially free. We don’t need to monitor application servers, we don’t need to administer databases, we don’t need any non-standard deployment tooling. And there are even separate stage and production versions.&lt;/p&gt;
-
-&lt;p&gt;You can try it out for yourself by building a CloudFormation stack using the &lt;a href=&quot;https://github.com/gilt/blacklist/blob/master/cloudformation/deploy-blacklist.template&quot;&gt;template&lt;/a&gt;. Enjoy!&lt;/p&gt;</content><author><name>Ryan Martin</name></author><category term="aws" /><category term="cloudformation" /><category term="sms" /><category term="nanoservice" /><category term="api-driven development" /><category term="swagger" /><category term="apibuilder" /><category term="serverless" /><summary>One of the big HBC Digital initiatives for 2017 is “buy online, pickup in store” - somewhat awkwardly nicknamed “BOPIS” internally. This is the option for the customer to, instead of shipping an order to an address, pick it up in a store that has the items in inventory.</summary></entry></feed>
+&lt;/ol&gt;</content><author><name>Dana Pylayeva</name></author><category term="culture" /><category term="agile" /><category term="self-selection" /><category term="leadership" /><summary></summary></entry></feed>
