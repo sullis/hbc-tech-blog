@@ -1,3 +1,5 @@
+/* adopted from https://github.com/daviddarnes/jekyll-search-js */
+
 class jekyllSearch {
     constructor(dataSource, searchField, resultsList) {
         this.dataSource = dataSource;
@@ -36,8 +38,6 @@ class jekyllSearch {
                 <a class="snippet__excerpt__link" href="https://saksdirect.github.io/hbc-tech-blog/${item.url}"><p class="snippet__excerpt">${item.excerpt}</p></a>
             </section>`;
         }).join('');
-
-        console.log(event.keyCode);
 
         if ((results.length == 0) || (this.searchField.value == '')) {
             this.resultsList.className = 'header-search__results header-search__results--active';
