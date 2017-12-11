@@ -27,6 +27,35 @@ layout: sub-page
             <a href="{{ site.url }}{{ site.baseurl }}/categories/#{{ page.categories }}" class="article-meta__category">{{ page.categories.first }}</a>
             {% endif %}
         {% endif %}
+        {% if page.author != page.name %}
+        {% if page.author != '' %}
+            <span class="slug-divider"></span>
+            <span class="article-meta__author">
+            {% for authorName in page.author %}
+                {% assign authorLink = authorName | replace: ' ', '-' | downcase %}
+                <!-- if author exists in site.authors, create link to author's page -->
+                {% for a in site.authors %}
+                    {% if a.name == authorName %}
+                    <a class="article-meta__author__link" href="{{ site.url }}{{ site.baseurl }}/authors/{{ authorLink }}">
+                    {% endif %}
+                {% endfor %}
+                <!-- render the author name regardless if they're a featured author -->
+                {{- authorName -}}
+                <!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                {% for a in site.authors %}
+                    {% if a.name == authorName %}
+                    </a>{%if a.job-title %}<span class="article-meta__author__job-title">, {{a.job-title}}</span>{% endif %}
+                    {% endif %}
+                {% endfor %}
+                {%- unless forloop.last -%}
+                <span>,</span>
+                {% endunless %}
+            {% endfor %}
+            </span>
+            <span class="slug-divider"></span>
+        {% endif %}
+    {% endif %}
             <span class="article-meta__date">
                 {{ page.date | date: "%b %-d, %Y" | upcase }}
             </span>

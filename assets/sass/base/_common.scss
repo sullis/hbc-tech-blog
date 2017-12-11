@@ -40,14 +40,11 @@ html {
 }
 
 .slug-divider {
-	&:after {
-		display: inline-block;
-		position: relative;
-		content: "";
-		height: 20px;
-		top: 5px;
-		border-right: solid 1px $hbc-border;
-		margin-left: 10px;
-		margin-right: 10px;
-	}
+	display: inline-block;
+	position: relative;
+	height: 20px;
+	top: 5px;
+	border-right: solid 1px $hbc-border;
+	margin-left: 10px;
+	margin-right: 10px;
 }

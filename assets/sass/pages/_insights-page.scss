@@ -78,22 +78,21 @@
 
 				.meta__category-link {
 					background-color: $hbc-white;
-					padding: 0 3px;
-					margin-right: 5px;
+					padding: 2px 3px;
+					margin-right: 4px;
 					color: $hbc-highlight;
 				    @include render-type-style(slug-1, $type-styles);
 					text-decoration: none;
 					transition: color 150ms ease-out, background-color 150ms ease-out;
-					border: 1px;
 
 					&:hover {
 						background-color: $hbc-highlight;
 						color: $hbc-white;
-						border: 0;
+						margin-bottom: 2px;
 					}
 				}
 
-				.slug-divider:after {
+				.slug-divider {
 					border-color: rgba($hbc-white, 0.5);
 				}
 			}
