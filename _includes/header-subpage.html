@@ -1,41 +1,43 @@
-<header id="site-header" class="site-header--sub-page">
-	<a class="site-header__logo" href="{{ site.url }}{{ site.baseurl }}/">
-	<svg class="hbc-tech-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 52">
-		<use class="hbc-tech-logo__text" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#hbc-tech-logo"></use>
-    </svg>
-	</a>
-	<p class="sticky-nav-meta">
-        {% for cat in site.category %}
-            {% if cat.name == page.categories.first %}
-                {% assign featureCategory = cat.name %}
+<header id="site-header" class="site-header site-header--wrapper">
+    <div class="site-header__inner-container">
+    	<a class="site-header__logo" href="{{ site.url }}{{ site.baseurl }}/">
+        	<svg class="hbc-tech-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 52">
+        		<use class="hbc-tech-logo__text" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#hbc-tech-logo"></use>
+            </svg>
+    	</a>
+    	<p class="sticky-nav-meta">
+            {% for cat in site.category %}
+                {% if cat.name == page.categories.first %}
+                    {% assign featureCategory = cat.name %}
+                {% endif %}
+            {% endfor %}
+
+            {% if featureCategory %}
+            <a href="{{ site.url }}{{ site.baseurl }}/category/{{ featureCategory | slugify }}" class="meta__category">{{ featureCategory }}</a>
+            {% else %}
+            <a href="{{ site.url }}{{ site.baseurl }}/categories/#{{ page.categories }}" class="meta__category">{{ page.categories.first }}</a>
             {% endif %}
-        {% endfor %}
 
-        {% if featureCategory %}
-        <a href="{{ site.url }}{{ site.baseurl }}/category/{{ featureCategory | slugify }}" class="meta__category">{{ featureCategory }}</a>
-        {% else %}
-        <a href="{{ site.url }}{{ site.baseurl }}/categories/#{{ page.categories }}" class="meta__category">{{ page.categories.first }}</a>
-        {% endif %}
-
-        {% if page.layout == 'article' %}
-        	<span class="slug-divider"></span>
-            <span class="meta__title">{{ page.title }}</span>
-        {% elsif page.url contains '/category/' %}
-        	<a href="{{ site.url }}{{ site.baseurl }}/categories/" class="meta__category">All Categories</a>
-            <span class="slug-divider"></span>
-            <span class="meta__title">{{ page.title }}</span>
-        {% elsif page.url == '/categories/' %}
-	        <span class="meta__title"><i>The surest way to find your dream job is to create it. ~ Unknown</i></span>
-        {% elsif page.url contains '/authors/' %}
-        	<a href="{{ site.url }}{{ site.baseurl }}/authors/" class="meta__category">Authors</a>
-        	{% if page.title != nil %}
-        	<span class="slug-divider"></span>
-            <span class="meta__title">{{page.title}}</span>
-        	{% else %}
-        	<span class="meta__title">Featured Authors</span>
-	        {% endif %}
-        {% endif %}
-    </p>
-    {% include navigation.html %}
-    {% include header-search.html %}
+            {% if page.layout == 'article' %}
+            	<span class="slug-divider"></span>
+                <span class="meta__title">{{ page.title }}</span>
+            {% elsif page.url contains '/category/' %}
+            	<a href="{{ site.url }}{{ site.baseurl }}/categories/" class="meta__category">All Categories</a>
+                <span class="slug-divider"></span>
+                <span class="meta__title">{{ page.title }}</span>
+            {% elsif page.url == '/categories/' %}
+    	        <span class="meta__title"><i>The surest way to find your dream job is to create it. ~ Unknown</i></span>
+            {% elsif page.url contains '/authors/' %}
+            	<a href="{{ site.url }}{{ site.baseurl }}/authors/" class="meta__category">Authors</a>
+            	{% if page.title != nil %}
+            	<span class="slug-divider"></span>
+                <span class="meta__title">{{page.title}}</span>
+            	{% else %}
+            	<span class="meta__title">Featured Authors</span>
+    	        {% endif %}
+            {% endif %}
+        </p>
+        {% include navigation.html %}
+        {% include header-search.html %}
+    </div>
 </header>

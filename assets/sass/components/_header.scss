@@ -1,15 +1,22 @@
-.site-header,
-.site-header--sub-page {
-    grid-area: hd;
-    display: grid;
-    grid-auto-rows: 1fr;
-	grid-template-columns: 80px 1fr 60px 60px;
-	grid-template-areas: "logo . search nav";
-	color: $hbc-white;
-    z-index: 100;
-    transition: all 100ms ease-out;
-    width: 100%;
-    background-color: black;
+.site-header {
+
+    &__wrapper {
+	    grid-area: hd;
+	    display: grid;
+	    grid-auto-rows: 1fr;
+		grid-template-columns: 1fr 1fr 60px 1fr;
+		// grid-template-areas: "logo . search nav";
+		color: $hbc-white;
+	    z-index: 100;
+	    transition: all 100ms ease-out;
+	    width: 100%;
+	    height: 100%;
+	    background-color: black;
+    }
+
+    &__inner-container {
+		width: $content-width;
+    }
 
 	&__logo {
 	    grid-area: logo;
