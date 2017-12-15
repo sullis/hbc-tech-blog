@@ -18,7 +18,7 @@ class jekyllSearch {
         const data = await this.fetchedData();
         const regex = new RegExp(this.searchField.value, 'gi');
         return data.filter(item => {
-            return item.title.match(regex) || item.excerpt.match(regex);
+            return item.title.match(regex) || item.excerpt.match(regex) || item.category.match(regex) || item.author.match(regex);
         });
     }
 
