@@ -1,5 +1,4 @@
 ---
-layout: article
 title: "Hudson's Bay Company at QCon"
 author: HBC Tech
 date: '2017-06-12'

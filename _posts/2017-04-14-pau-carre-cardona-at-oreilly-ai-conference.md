@@ -1,5 +1,4 @@
 ---
-layout: article
 title: "Pau Carré Cardona To Speak at O'Reilly AI Conference"
 author: HBC Digital
 date: '2017-04-12'

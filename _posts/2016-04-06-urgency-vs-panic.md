@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Urgency vs. Panic
 author: Hilah Almog
 date: '2016-04-06'

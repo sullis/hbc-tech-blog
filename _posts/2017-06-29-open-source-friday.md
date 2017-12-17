@@ -1,5 +1,4 @@
 ---
-layout: article
 title: "Open Source Friday"
 author: HBC Tech
 date: '2017-06-29'

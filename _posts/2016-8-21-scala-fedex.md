@@ -1,5 +1,4 @@
 ---
-layout: article
 title: "New open source project: scala-fedex"
 author: Ryan Caloras
 date: '2016-8-21'

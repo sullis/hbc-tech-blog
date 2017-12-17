@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Using tvOS, the Focus Engine & Swift to build Apple TV apps
 author: Evan Maloney
 date: '2015-10-13'

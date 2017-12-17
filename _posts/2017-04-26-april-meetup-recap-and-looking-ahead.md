@@ -1,5 +1,4 @@
 ---
-layout: article
 title: "Meetups: April Recap and What's Happening In May"
 author: John Coghlan
 date: '2017-04-26'

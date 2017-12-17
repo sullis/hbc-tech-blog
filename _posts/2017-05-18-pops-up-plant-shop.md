@@ -1,5 +1,4 @@
 ---
-layout: article
 title: "The POps Up Plant Shop"
 author: HBC Digital
 date: '2017-05-18'

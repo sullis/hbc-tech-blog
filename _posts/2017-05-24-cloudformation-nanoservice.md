@@ -1,5 +1,4 @@
 ---
-layout: article
 title: CloudFormation Nanoservice
 author: Ryan Martin
 date: '2017-05-19'

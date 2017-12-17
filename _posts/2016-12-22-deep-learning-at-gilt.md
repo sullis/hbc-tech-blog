@@ -1,5 +1,4 @@
 ---
-layout: article
 title: "Deep Learning at GILT"
 author: Pau Carré Cardona
 date: '2016-12-22'

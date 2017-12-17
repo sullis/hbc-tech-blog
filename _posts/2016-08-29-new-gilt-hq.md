@@ -1,5 +1,4 @@
 ---
-layout: article
 title: "New Gilt HQ"
 author: John Coghlan
 date: '2016-8-29'

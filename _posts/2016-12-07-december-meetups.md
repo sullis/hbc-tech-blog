@@ -1,5 +1,4 @@
 ---
-layout: article
 title: December Meetups at HBC Digital
 author: John Coghlan
 date:   2016-12-07

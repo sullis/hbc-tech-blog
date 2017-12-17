@@ -1,5 +1,4 @@
 ---
-layout: article
 title: "HBC Digital is Sponsoring !!Con"
 author: HBC Digital
 date: '2017-04-25'

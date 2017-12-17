@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Gilt Tech + Jekyll = ♥
 author: Andrew Powell
 date: '2015-06-29'

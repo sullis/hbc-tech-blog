@@ -1,5 +1,4 @@
 ---
-layout: article
 title: "Akka HTTP Talk with Cake Solutions"
 categories:
 - events

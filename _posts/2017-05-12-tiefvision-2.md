@@ -1,5 +1,4 @@
 ---
-layout: article
 title: "Visually Similar Recommendations"
 author: Chris Curro
 date: '2017-05-12'

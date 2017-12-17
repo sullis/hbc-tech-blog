@@ -1,5 +1,4 @@
 ---
-layout: article
 title: "Mobile Design Sprint"
 author: HBC Digital
 date: '2017-05-02'

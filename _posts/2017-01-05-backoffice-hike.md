@@ -1,5 +1,4 @@
 ---
-layout: article
 title: BackOffice Hike
 author: Ryan Martin
 date: '2017-01-05'

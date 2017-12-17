@@ -1,5 +1,4 @@
 ---
-layout: article
 title:  'Running with Scissors: Koa2 and Vue.js'
 author: Andrew Powell
 date: '2016-11-04'
