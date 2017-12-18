@@ -73,15 +73,19 @@
 	        font-size: 16px;
 		    background-color: $hbc-gray-5;
 
+		    &--featured {
+				.description__link,
+				.view-listing {
+					display: none;
+				}
+		    }
+
 		    .job-title {
 		    	margin-top: 0;
 		    	margin-bottom: 20px;
 		    	text-decoration: none;
-				@include render-type-style(subhead-1, $type-styles);
-
-				&--featured {
-					@include render-type-style(headline-2, $type-styles);
-				}
+				@include render-type-style(headline-3, $type-styles);
+				line-height: 100%;
 
 		    	&__link {
 		    		color: $hbc-black;
@@ -93,29 +97,12 @@
 		    	}
 		    }
 
-		    .description {
-		    	margin-top: 0;
-
-		    	&__link {
-		    		color: $hbc-black;
-			    	text-decoration: none;
-		    	}
-		    }
-
 		    .location {
 		    	margin-top: 10px;
 
 		    	&__label {
 		    		font-weight: 600;
 		    	}
-		    }
-
-		    .view-listing {
-		    	margin: 20px auto;
-				// @include render-type-style(slug-1, $type-styles);
-				color: $hbc-black;
-				font-weight: 500;
-		    	@include special-text-link();
 		    }
 		}
 
@@ -265,6 +252,29 @@
 			    height: 100%;
 			    width: 100%;
 			    text-align: left;
+
+		    	&--featured {
+				    .job-title {
+						@include render-type-style(headline-2, $type-styles);
+					}
+
+					.description__link {
+						display: inline-block;
+		    			line-height: 145%;
+						@include render-type-style(base, $type-styles);
+				    	margin-top: 0;
+			    		color: $hbc-black;
+				    	text-decoration: none;
+				    }
+
+				    .view-listing {
+				    	margin: 20px auto;
+						color: $hbc-black;
+						font-weight: 500;
+				    	@include special-text-link();
+				    }
+
+				}
 
 			    &:first-of-type {
 					grid-column: 1 / 3;
