@@ -35,7 +35,7 @@ layout:
                    {% include featured-topics.html showMoreLink=true%}
                 </section>
                 <section class="articles">
-                    {% for post in paginator.posts offset:3 limit:8 %}
+                    {% for post in paginator.posts %}
                     {% include article-snippet.html excerpt=true featureImage=false %}
                     {% endfor %}
                 </section>

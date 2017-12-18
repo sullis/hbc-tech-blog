@@ -49,6 +49,10 @@
 				@include render-type-style(label-2, $type-styles);
 			}
 
+			&__date {
+				font-size: 14px;
+			}
+
 			&__author-link {
 				color: $hbc-highlight;
 				
