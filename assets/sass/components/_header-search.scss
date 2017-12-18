@@ -44,12 +44,10 @@
 
 
 	&__results {
-	    position: absolute;
-        left: -20px;
+	    position: fixed;
 	    right: 0;
-	    width: 100vw;
+	    left: 0;
 	    height: 0;
-	    min-width: 50vw;
 	    top: 50px;
 	    overflow: hidden;
 
@@ -57,6 +55,8 @@
     		border-bottom: solid 1px $hbc-border;
 		    padding: 20px 20px;
 		    top: 0;
+		    max-width: $content-width;
+		    margin: auto;
 
 		    &:last-child {
 		    	border: 0;
