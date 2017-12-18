@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Selenium PageObjects in ScalaTest</title><title>Selenium PageObjects in ScalaTest | HBC Tech</title><meta property="og:title" content="Selenium PageObjects in ScalaTest"><meta name="author" content="HBC Tech"><meta property="og:locale" content="en_US"><meta name="description" content="PageObjects enable you to take a group or collection of elements on a page that share some commonality and group them together. In general, a PageObject can be any web page, but can also be broken down into more precise PageObjects. If a Page has elements and services&ndash;or some repeated group of elements and services&ndash;that can logically be grouped together, those elements and services can be modeled as PageObjects. A PageObject can be thought of in the context of a full Page or grouped objects on a Page. Here’s what Selenium has to say about them: “The PageObject pattern represents the screens of your web app as a series of objects … PageObjects can be thought of as facing in two directions simultaneously. Facing towards the developer of a test, they represent the services offered by a particular page. Facing away from the developer, they should be the only thing that has a deep knowledge of the structure of the HTML of a page (or part of a page). It&rsquo;s simplest to think of the methods on a PageObject as offering the &ldquo;services&rdquo; that a page offers rather than exposing the details and mechanics of the page. Because we&rsquo;re encouraging the developer of a test to try and think about the services that they&rsquo;re interacting with rather than the implementation, PageObjects should seldom expose the underlying WebDriver instance. To facilitate this, methods on the PageObject should return other PageObjects. This means that we can effectively model the user&rsquo;s journey through our application.” &ndash; Selenium At Gilt, we’ve adopted the practice of breaking a Page into smaller parts that can be modeled as PageObjects. We’ve done this to generate fewer lines of code and to make PageObjects easier to understand and analyze. A PageObject should be an object; otherwise, it should be a class with constructor params that provide the context. For example: package com.giltgroupe.repository.page.foo"><meta property="og:description" content="PageObjects enable you to take a group or collection of elements on a page that share some commonality and group them together. In general, a PageObject can be any web page, but can also be broken down into more precise PageObjects. If a Page has elements and services&ndash;or some repeated group of elements and services&ndash;that can logically be grouped together, those elements and services can be modeled as PageObjects. A PageObject can be thought of in the context of a full Page or grouped objects on a Page. Here’s what Selenium has to say about them: “The PageObject pattern represents the screens of your web app as a series of objects … PageObjects can be thought of as facing in two directions simultaneously. Facing towards the developer of a test, they represent the services offered by a particular page. Facing away from the developer, they should be the only thing that has a deep knowledge of the structure of the HTML of a page (or part of a page). It&rsquo;s simplest to think of the methods on a PageObject as offering the &ldquo;services&rdquo; that a page offers rather than exposing the details and mechanics of the page. Because we&rsquo;re encouraging the developer of a test to try and think about the services that they&rsquo;re interacting with rather than the implementation, PageObjects should seldom expose the underlying WebDriver instance. To facilitate this, methods on the PageObject should return other PageObjects. This means that we can effectively model the user&rsquo;s journey through our application.” &ndash; Selenium At Gilt, we’ve adopted the practice of breaking a Page into smaller parts that can be modeled as PageObjects. We’ve done this to generate fewer lines of code and to make PageObjects easier to understand and analyze. A PageObject should be an object; otherwise, it should be a class with constructor params that provide the context. For example: package com.giltgroupe.repository.page.foo"><link rel="canonical" href="https://saksdirect.github.io/hbc-tech-blog/2014-07-29-selenium-pageobjects-in-scalatest.html"><meta property="og:url" content="https://saksdirect.github.io/hbc-tech-blog/2014-07-29-selenium-pageobjects-in-scalatest.html"><meta property="og:site_name" content="HBC Tech"><meta property="og:type" content="article"><meta property="article:published_time" content="2014-07-29T14:34:00-05:00"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@"><meta name="twitter:creator" content="@HBC Tech"><script type="application/ld+json">{"name":null,"description":"PageObjects enable you to take a group or collection of elements on a page that share some commonality and group them together. In general, a PageObject can be any web page, but can also be broken down into more precise PageObjects. If a Page has elements and services&ndash;or some repeated group of elements and services&ndash;that can logically be grouped together, those elements and services can be modeled as PageObjects. A PageObject can be thought of in the context of a full Page or grouped objects on a Page. Here’s what Selenium has to say about them: “The PageObject pattern represents the screens of your web app as a series of objects … PageObjects can be thought of as facing in two directions simultaneously. Facing towards the developer of a test, they represent the services offered by a particular page. Facing away from the developer, they should be the only thing that has a deep knowledge of the structure of the HTML of a page (or part of a page). It&rsquo;s simplest to think of the methods on a PageObject as offering the &ldquo;services&rdquo; that a page offers rather than exposing the details and mechanics of the page. Because we&rsquo;re encouraging the developer of a test to try and think about the services that they&rsquo;re interacting with rather than the implementation, PageObjects should seldom expose the underlying WebDriver instance. To facilitate this, methods on the PageObject should return other PageObjects. This means that we can effectively model the user&rsquo;s journey through our application.” &ndash; Selenium At Gilt, we’ve adopted the practice of breaking a Page into smaller parts that can be modeled as PageObjects. We’ve done this to generate fewer lines of code and to make PageObjects easier to understand and analyze. A PageObject should be an object; otherwise, it should be a class with constructor params that provide the context. For example: package com.giltgroupe.repository.page.foo","author":{"@type":"Person","name":"HBC Tech"},"@type":"BlogPosting","url":"https://saksdirect.github.io/hbc-tech-blog/2014-07-29-selenium-pageobjects-in-scalatest.html","publisher":null,"image":null,"headline":"Selenium PageObjects in ScalaTest","dateModified":"2014-07-29T14:34:00-05:00","datePublished":"2014-07-29T14:34:00-05:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"https://saksdirect.github.io/hbc-tech-blog/2014-07-29-selenium-pageobjects-in-scalatest.html"},"@context":"http://schema.org"}</script><link rel="stylesheet" href="https://saksdirect.github.io/hbc-tech-blog/assets/css/main.css"><link rel="canonical" href="https://saksdirect.github.io/hbc-tech-blog/2014-07-29-selenium-pageobjects-in-scalatest.html"><link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet"><link rel="shortcut icon" href="https://saksdirect.github.io/hbc-tech-blog/assets/images/favicon.ico"></head><body aria-label="Content"><header id="site-header" class="site-header"><div class="site-header__inner"><a class="site-header__logo" href="https://saksdirect.github.io/hbc-tech-blog/"><svg class="hbc-tech-logo" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 64 52"><use class="hbc-tech-logo__text" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://saksdirect.github.io/hbc-tech-blog/assets/images/hbc-icons.svg#hbc-tech-logo"></use></svg></a><p class="sticky-nav-meta"><a href="https://saksdirect.github.io/hbc-tech-blog/categories/#" class="meta__category"></a> <span class="slug-divider"></span> <span class="meta__title">Selenium PageObjects in ScalaTest</span></p><nav id="menu" class="navigation"><svg class="navigation__menu-icon" xmlns="http://www.w3.org/2000/svg"><path class="bar bar__top" d="M0,3 L30,3"></path><path class="bar bar__cross-1" d="M0,14 L30,14"></path><path class="bar bar__cross-2" d="M0,14 L30,14"></path><path class="bar bar__bottom" d="M0,25 L30,25"></path></svg><menu class="menu"><ul class="link-list"><li class="link-list__link-item"><a href="https://saksdirect.github.io/hbc-tech-blog/" class="link-list__link"><span class="link-list__link-highlight">Insights</span></a></li><li class="link-list__link-item"><a href="https://saksdirect.github.io/hbc-tech-blog/code" class="link-list__link"><span class="link-list__link-highlight">Code</span></a></li><li class="link-list__link-item"><a href="https://saksdirect.github.io/hbc-tech-blog/about" class="link-list__link"><span class="link-list__link-highlight">About</span></a></li><li class="link-list__link-item"><a href="https://saksdirect.github.io/hbc-tech-blog/work-here" class="link-list__link"><span class="link-list__link-highlight">Work Here</span></a></li></ul></menu></nav><search id="header-search" class="header-search"><form class="header-search__form"><input type="text" class="header-search__input" id="header-search-input" placeholder="Search" name="query"></form><svg id="header-search__toggle" class="header-search__svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 64 52"><use class="header-search__icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://saksdirect.github.io/hbc-tech-blog/assets/images/hbc-icons.svg#search"></use></svg><section class="header-search__results" id="header-search__results"></section></search></div></header><section class="content"><article class="article"><header class="article__header article__header--reveal"><h1 class="header-title" title="Selenium PageObjects in ScalaTest">Selenium PageObjects in ScalaTest</h1><span id="no-image-placeholder" class="no-image-placeholder"></span> <span class="slug-divider"></span> <span class="article-meta__author">HBC Tech</span> <span class="slug-divider"></span> <span class="article-meta__date">JUL 29, 2014</span></header><section class="article__content article__content--reveal"><div class="article__content__read-time"><span class="read-time" title="Estimated read time"><span class="read-time__text-1">13 min</span> <span class="read-time__text-2">Read</span> <span class="read-time__text-3">Time</span></span></div><div class="article__content__share-buttons"><ul class="share-buttons"><li class="share-buttons__link-item"><a href="https://twitter.com/intent/tweet?text=https://saksdirect.github.io/hbc-tech-blog//2014-07-29-selenium-pageobjects-in-scalatest.html" class="share-buttons__link" title="Share on Twitter"><svg class="hbc-svg-icon" height="36" width="36" xmlns="http://www.w3.org/2000/svg"><use class="hbc-svg-icon--twitter" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://saksdirect.github.io/hbc-tech-blog/assets/images/hbc-icons.svg#twitter"></use></svg></a></li><li class="share-buttons__link-item"><a href="https://www.linkedin.com/shareArticle?mini=true&url=https://saksdirect.github.io/hbc-tech-blog/&source=/2014-07-29-selenium-pageobjects-in-scalatest.html&title=Selenium PageObjects in ScalaTest" class="share-buttons__link" title="Share on Linkedin"><svg height="36" width="36" xmlns="http://www.w3.org/2000/svg"><use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://saksdirect.github.io/hbc-tech-blog/assets/images/hbc-icons.svg#linkedin"></use></svg></a></li><li class="share-buttons__link-item"><a href="https://www.facebook.com/sharer/sharer.php?u=https://saksdirect.github.io/hbc-tech-blog//2014-07-29-selenium-pageobjects-in-scalatest.html" class="share-buttons__link" title="Share on Facebook"><svg height="36" width="36" xmlns="http://www.w3.org/2000/svg"><use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://saksdirect.github.io/hbc-tech-blog/assets/images/hbc-icons.svg#facebook"></use></svg></a></li><li class="share-buttons__link-item"><a href="https://www.reddit.com/submit?url=https://saksdirect.github.io/hbc-tech-blog//2014-07-29-selenium-pageobjects-in-scalatest.html" class="share-buttons__link" title="Share on Reddit"><svg height="36" width="36" xmlns="http://www.w3.org/2000/svg"><use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://saksdirect.github.io/hbc-tech-blog/assets/images/hbc-icons.svg#reddit"></use></svg></a></li></ul></div><div class="article__content__body"><p><img alt="image" src="https://31.media.tumblr.com/e3a8cc80c6b4feb9e935a84ac1f18613/tumblr_inline_n9a3uwfOL71s17bu5.png"></p><p>PageObjects enable you to take a group or collection of elements on a page that share some commonality and group them together. In general, a PageObject can be any web page, but can also be broken down into more precise PageObjects. If a Page has elements and services&ndash;or some repeated group of elements and services&ndash;that can logically be grouped together, those elements and services can be modeled as PageObjects.</p><p>A PageObject can be thought of in the context of a full Page or grouped objects on a Page. Here’s what Selenium has to say about them:</p><blockquote><p>“The PageObject pattern represents the screens of your web app as a series of objects … PageObjects can be thought of as facing in two directions simultaneously. Facing towards the developer of a test, they represent the services offered by a particular page. Facing away from the developer, they should be the only thing that has a deep knowledge of the structure of the HTML of a page (or part of a page).</p><p>It&rsquo;s simplest to think of the methods on a PageObject as offering the &ldquo;services&rdquo; that a page offers rather than exposing the details and mechanics of the page. Because we&rsquo;re encouraging the developer of a test to try and think about the services that they&rsquo;re interacting with rather than the implementation, PageObjects should seldom expose the underlying WebDriver instance. To facilitate this, methods on the PageObject should return other PageObjects. This means that we can effectively model the user&rsquo;s journey through our application.”</p><p>&ndash; <a href="https://code.google.com/p/selenium/wiki/PageObjects" target="_blank">Selenium</a></p></blockquote><p>At Gilt, we’ve adopted the practice of breaking a Page into smaller parts that can be modeled as PageObjects. We’ve done this to generate fewer lines of code and to make PageObjects easier to understand and analyze.</p><p>A PageObject should be an object; otherwise, it should be a class with constructor params that provide the context. For example:</p><pre><code>
+package com.giltgroupe.repository.page.foo
+
+/**
+ * Foo PageObject.
+ */
+object Foo extends FooActions with FooAssertions{
+ def doSomethings
+     (implicit eventType: EventType, driver: WebDriver): Foo.type = {
+     clickSomething
+       triggerSomething
+       selectSomething
+    this
+  }
+}
+</code></pre><pre><code>package com.giltgroupe.repository.page.foo
+
+/**
+ * Foo PageObject.
+ */
+case class Foo(foo: String) extends FooActions with FooAssertions{
+ def doSomethings(foo: String)
+     (implicit eventType: EventType, driver: WebDriver): Foo.type = {
+     clickSomething(foo)
+       triggerSomething
+       selectSomething
+    this
+  }
+}</code></pre><p>Here, the PageObject Foo can extend Actions. It can also be mixed with Assertions and even Rich Actions.</p><h3>More on Actions</h3><p>Actions can either be <em>simple</em> or <em>rich</em>.</p><p><strong>Simple Actions:</strong></p><ol><li>Provide a PageObject return type.</li><li>Are located in an Actions trait.</li><li>Should simulate user actions e.g., clickSomething, triggerSomething, selectSomething. Should not make any Assertions. In other words, an Action does one thing well.</li><li>Assertions should happen as part of the test and should not be included in the Action. If there is an Assertion that is reusable, it should be located in an Assertions trait for the PageObject.</li><li>Rich Actions: Are located in the PageObject Can be a number of grouped simple actions which are commonly used. Simple vs. Rich Actions A rich action is made up of a number of Simple Actions. clickSomething is a simple action described above. triggerSomething and selectSomething are also simple actions. Calling them together makes a it a rich action. Here’s an example of a simple action:</li></ol><pre><code>private[foo] trait FooActions extends BrowserAction {
+
+  def locators = FooLocators  
+
+  def clickSomething(foo: String)
+     (implicit eventType: EventType, driver: WebDriver): Foo.type = {
+     click(locators.myDefLocator(foo))
+    this
+  }
+
+ def goFooUrl(url: String)
+    (implicit driver: WebDriver): Foo.type = {
+       go to url
+ }
+</code></pre><p>And here is a Rich Action:</p><pre><code>
+  def doSomethings(foo: String)
+     (implicit eventType: EventType, driver: WebDriver): Foo.type = {
+     clickSomething(foo)
+       triggerSomething
+       selectSomething
+    Foo
+  }
+</code></pre><p>The Gilt engineering team has been discussing the value of rich vs. simple action terminology. We haven’t yet decided if locating the rich actions in the PageObject is valid, or if rich and simple actions should just be actions because they all live inside the Actions trait.</p><h3>BrowserAction</h3><p>Gilt’s Selenium automation is built around the ScalaTest Framework. The WebBrowser trait, which we can see in the following code example, can be found <a href="http://doc.scalatest.org/2.2.0/index.html#org.scalatest.selenium.WebBrowser" target="_blank">here</a>. BrowserAction is a wrapper for Selenium WebDriver that removes much of the required boilerplate. We’ve been using BrowserAction so that engineers who aren’t familiar with Selenium can still write cool end-to-end tests (instead of copying and pasting code):</p><pre><code>/**
+   * Click on a WebElement by using native or synthetic event simulation.
+   *
+   * @param query : WebBrowser#Query to define the webElement
+   * @param eventType : Native or Synthetic.
+   */
+  def click(query: WebBrowser#Query)(implicit eventType: EventType, driver: WebDriver) {
+    WaitTool.waitForElementClickable(query)
+    eventType match {
+      case Native =&gt; query.webElement.click()
+      case Synthetic =&gt; JQueryHelper.click(query)
+    }
+    JQueryHelper.pageIsLoadedAndAjaxIsCompleted()
+  }</code></pre><p>The click action is based on the implicit event type passed to it by the test, and waits for an element to become clickable before it carries out the action.</p><p>The code above shows a simple action, which performs a mouse click on the page on the element. This is subsequently passed as an argument to the function click. There is an implicit, <code>EventType</code>, which defines how the browser should behave&ndash;either <code>Native</code> or <code>Synthetic</code>.</p><p>The Gilt team has developed a library called WaitTool, which handles implicit waits and expected conditions. The click action uses WaitTool, which hides the complexity of making sure that the element&ndash;which was passed to the click function&ndash;can be clicked. As soon as the element becomes clickable by Selenium WebDriver, a mouse click is performed (dependent on the <code>EventType</code>). The last step of the action click is to wait for page to load, and also wait for all Ajax calls to complete.</p><p>The click action nicely shows how you can hide some of Selenium’s complexity behind a simple action. As a result, people who lack Selenium WebDriver expertise or a full understanding of what goes on under the hood can write a test and get a clear API (click function) to use.</p><p>With WaitTool, upon entry into an action we can wait for expected conditions to be true, then carry out an action:</p><pre><code>/**
+   * Wait for the element to clickable in the DOM.
+   *
+   * Returns an Option of the first WebElement using the given method.
+   *
+   * @param query selector to find the element
+   * @param timeOutInSeconds time to wait until returning None
+   * @return an Option of the first WebElement using the given method, or (None if the timeout is reached)
+   */
+
+  def waitForElementClickable(query: WebBrowser#Query,
+                              timeOutInSeconds: Int = DefaultWaitTimeForElement)
+                             (implicit driver: WebDriver): Option[WebElement] = {
+    try {
+      driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS)
+      val element = {
+        val wait = new WebDriverWait(driver, timeOutInSeconds)
+        wait.until(ExpectedConditions.elementToBeClickable(query.by))
+      }
+      driver.manage().timeouts().implicitlyWait(DefaultWaitTimeForElement, 
+                                                TimeUnit.SECONDS)
+      Some(element)
+    } catch {
+      case e: Exception =&gt; None
+    }
+  }</code></pre><p>To ensure we can exit the action correctly we then wait for the DOM or page to be loaded, and for all Ajax calls and other actions to be completed, before returning control to the caller or carrying out the next called Selenium action. This enables us to instantly and easily see how our work flow is naturally progressing. Without such a library, test cases look muddy, unclear and unreadable.</p><pre><code>  /**
+   * Ensure the page is loaded and AJAX calls are completed using jQuery.
+   */
+  def pageIsLoadedAndAjaxIsCompleted()(implicit driver: WebDriver) {
+    eventually {
+        withClue("Ajax calls may not have completed within time specified") {
+            executeScript("return jQuery.active")
+             .asInstanceOf[Long] shouldBe (0)
+        }
+    }
+
+    eventually {
+        withClue("Document ready state was not [complete] within time 
+                  specified by eventually clause.") {
+              executeScript("return document.readyState")
+              .asInstanceOf[String] shouldEqual ("complete")
+        }
+    }
+  }</code></pre><h3>Locators</h3><p>Locators should be objects, not traits. As objects, locators are naturally namespaced and give compile-time checking. You can’t mix in two locator traits and, without knowing it, have selectors overridden. e.g., <code>FooLocators.myLazyLocator</code>. Selectors that require parameters are defs; otherwise, they are lazy vals.</p><pre><code>object FooLocators extends WebBrowser {
+    lazy val myLazyLocator: Query = cssSelector("[data-gilt-test=’foo’]")
+    def myDefLocator(foo: String): Query = cssSelector(s"[data-gilt-test=’$foo’]")
+}</code></pre><h3>Assertions</h3><p>Assertions are generally located with tests, but commonly used assertions can be implemented as an assertions trait in the PageObject.</p><pre><code>trait CartAssertions extends WebBrowser with Checkpoints with Matchers {
+  self: Foo.type =&gt;
+
+  def assertSomething()(implicit eventType: EventType, driver: WebDriver): Foo.type ={
+  
+      val cp = new Checkpoint    
+      cp {  assertSomething  should be(something) }
+      cp {  assertAnotherThing  should be(anotehrThing) }
+
+      cp.reportAll
+    Foo
+  }</code></pre><p><a href="http://tech.gilt.com/2013/09/27/which-scala-testing-tools-should-you-use" target="_blank">ScalaTest</a> offers a really useful feature called <a href="http://doc.scalatest.org/2.2.0/index.html#org.scalatest.Checkpoints" target="_blank">checkpoints</a>, which enables multiple assertions to be performed within a test. Any failures are accumulated and reported together at the end of the test.</p><h3>Using PageObjects in Tests</h3><p>Now with our newly created Foo PageObject we can write tests like this:</p><pre><code>/**
+ * Test Using PageObject.
+ *
+ */
+@Selenium
+class MyFooTest extends FunSpecTestBase {
+describe("Test using Foo PageObject") {
+  it("should test stuff") {
+         withFixture() { 
+        fixture =&gt;
+            Foo
+         .goFooUrl(fixture.url)
+         .doSomethings(fixture.foo)
+         .assertSomething
+        }
+      }
+   }
+}</code></pre><p>We can also include additional PageObjects in tests:</p><pre><code>/**
+ * Test Using PageObject.
+ *
+ */
+@Selenium
+class MyFooTest extends FunSpecTestBase {
+describe("Test using Foo PageObject") {
+  it("should test stuff") {
+         withFixture() { 
+        fixture =&gt;
+            Foo
+         .goFooUrl(fixture.url)
+         .doSomethings(fixture.foo)
+         .assertSomething
+
+        Foo2         
+         .clickSomeStuff
+         .assertSomeStuff
+        }
+      }
+    }
+ }</code></pre><p>And if Foo has an action <code>getFoo2</code>, with a return type of <code>Foo2</code>, we can chain actions together:</p><pre><code>
+/**
+ * Test Using PageObject.
+ *
+ */
+@Selenium
+class MyFooTest extends FunSpecTestBase {
+describe("Test using Foo PageObject") {
+  it("should test stuff") {
+         withFixture() { 
+        fixture =&gt;
+            Foo
+         .goFooUrl(fixture.url)
+         .doSomethings(fixture.foo)
+         .assertSomething
+         .getFoo2        
+         .clickSomeStuff
+         .assertSomeStuff
+        }
+      }
+    }
+ }
+</code></pre><p>Take, for example, Gilt’s Sale Listing page:</p><p><img alt="image" src="https://31.media.tumblr.com/046c2bf25534529f5e56d621d2b97efe/tumblr_inline_n9hlvdNZBP1s17bu5.png"></p><p>The Sale Listing page serves several elements to users, such as breadcrumbs, sale end times, sale titles, and filters. Each Sale Listing page also features <em>n</em> product looks, also known as Listing Looks, that contain product names, brand names and prices. We can now logically abstract the Listing Look as a function or factor of the page. In other words, the Listing Look has a number of related elements and actions that are uniquely identifiable as belonging to a Listing Look. Each Listing Look can be its own PageObject and resolve to a Quick Add Modal, which in turn can resolve to a Cart modal based on user interactions.</p><p><img alt="image" src="https://31.media.tumblr.com/77f9bd88522a4e3e04af71ea53e5dc02/tumblr_inline_n9hlyijyjb1s17bu5.png"></p><p><img alt="image" src="https://31.media.tumblr.com/f8bb121e9fa5ddd472aa547a38af3ba4/tumblr_inline_n9hlzkUIjT1s17bu5.png"></p><p>As we can break down and describe the services on the page into unique, logical groupings, we can start to define PageObjects for the page. According to our team’s interpretation of PageObjects, we regard PageObjects <em>not</em> as an Object of the entire page, but rather as a number of easily defined services, elements, and actions that can be grouped together to model the page. With PageObjects broken down into these component parts, we can create PageObjects for each element.</p><p>For a Sale Listing page, we can have four PageObjects:</p><p><code>SaleListing -&gt; ListingLook -&gt; QuickAdd -&gt; Cart</code></p><p>We can also have a <code>CartItems</code> PageObject, as a Cart can have <em>n</em> items (up to five user selections).</p><h3>Show me some real code, dude!</h3><p>At Gilt, we’ve set up a repository for our Sale Listing code. We’ve also created a Selenium folder that has its own project structure:</p><p><img alt="image" src="https://31.media.tumblr.com/e05c8fcbc84a73fb5b84056d3ace775f/tumblr_inline_n9hnbwlcaN1s17bu5.png"></p><p>With this setup, we can export a PageObject listed under the <code>src/main</code> folder in <code>web-search-selenium</code> as its own jar, import it into another project, and use it in that project’s tests. To port tests from the repository to a global/integration regression, we tag a test so that it can be called and included from within an integration execution job. Let’s look at a test:</p><pre><code>abstract class QuickAddToCartTestOnSaleListing extends FunSpecTestBase
+  with SkuFixture
+  with SaleHelper
+  with BeforeAndAfterEach
+{
+  implicit val eventType = Synthetic
+
+  override protected def beforeEach() { registerAUser() }
+  override protected def afterEach() { logoutAndCloseBrowser }
+  protected def skuFilter(sku: Sku): Boolean
+
+  describe("Sale listing") {
+    it("should add available sku to cart using quick add") {
+      withActiveSku(filter = skuFilter, lock = true) { sku =&gt;
+          Given(s"a sku[$sku.getSkuId]")
+          val sale = getSale(sku)
+          val productLook = sku.getProductLook
+          And(s"its sale[$sale.getSaleId]")
+          Then("go to the sale listing")
+          SaleListing
+            .goToSaleListing(sale.getRelativeUrl
+                .asScala
+                .getOrElse(cancel("Sale did not have a relativeUrl")))
+             //SaleListing action which returns a ListingLook PageObject. 
+            .getListingLook(productLook.getProductLookId)
+
+             //ListingLook rich action which selects a size and click add to cart. 
+            .triggerQuickAdd
+
+             //QuickAdd action which returns a Cart.
+            .addToCart(sku.getSize.asScala.map(_.getLabel.toLowerCase))
+
+             //Cart action which returns a CartItem.
+            .getCartItem(sku.getSkuId)
+
+             //CarItem Assertion
+            .assertCartItem(sku.getProductLook.getProduct.getName,          
+                            sku.getProductLook.getProduct.getBrand.getName)
+
+          Cart.clearCart()
+            .assertCartEmpty
+            .assertContinueShoppingIsDisplayedWhenCartIsEmpty
+      }
+    }
+  } </code></pre><p>Because the test steps are located in an abstract class, we can reuse the code to create brand-new tests and check other functionalities, based on the SKU and its attributes (which are passed into the test via the fixture).</p><pre><code>
+/**
+* Tests for Quick Add on Search-Listing Page
+*/
+@Selenium
+class QuickAddToCartTestOnSaleListingSkuHasSize 
+extends QuickAddToCartTestOnSaleListing
+   with SearchHelper {
+  
+   //Use filters to find a specific sku to test with.
+   override def skuFilter(sku: Sku): Boolean = 
+               SkuFilters.hasSearchBaseFilters(sku) &amp;&amp;                           
+               SkuFilters.hasSizeAttribute(sku) &amp;&amp;
+               isOnFirstPageLoad(sku)
+}
+</code></pre><p>Let’s dig deeper:</p><pre><code>
+            //ListingLook rich action which selects a size and click add to cart.
+            .triggerQuickAdd
+
+             //QuickAdd action which returns a Cart.
+            .addToCart(sku.getSize.asScala.map(_.getLabel.toLowerCase))
+
+             //Cart action which returns a CartItem.
+            .getCartItem(sku.getSkuId)
+</code></pre><p><code>.triggerQuickAdd.</code> This action is a <code>ListingLook</code> Simple Action that performs a <code>mouseEnter</code> on a <code>productName</code> element Listing Look and returns a <code>QuickAdd</code> PageObject.</p><pre><code>def locators = ListingLookLocators
+def triggerQuickAdd()
+(implicit eventType: EventType, driver: WebDriver): QuickAdd = {
+        
+      mouseEnter(locators.productName(this.productLookId))
+    QuickAdd(productLookId)
+  }</code></pre><p><code>.mouseEnter</code></p><pre><code>/**
+   * Move Mouse into Element Position.
+   *
+   * @param query : WebBrowser#Query to define the webElement
+   * @param eventType : Native or Synthetic
+   */
+  def mouseEnter(query: WebBrowser#Query)
+     (implicit eventType: EventType, driver: WebDriver) {
+      WaitTool.waitForElementIsDisplayed(query)
+      eventType match {
+          case Native =&gt; {
+                 val builder = new Actions(driver)
+                 builder.moveToElement(query.webElement).build().perform()
+          }
+          case Synthetic =&gt; JQueryHelper.mouseEnter(query)
+    }
+    JQueryHelper.pageIsLoadedAndAjaxIsCompleted()
+  }
+</code></pre><p>This action is located in our <code>commons-selenium</code> library and will execute a Selenium action or a jQuery action based on the <code>eventType</code>. This action is wrapped to perform:</p><ul><li>- on enter : ensure the element is displayed</li><li>- on exit : ensure, all Ajax calls are completed and the DOM is in a <code>readyState</code> of “complete”.</li><li><code>.addToCart</code> is a rich action comprised of a number of simple actions. It calls the Cart PageObject <code>waitForCartDisplayed action</code>, which returns a Cart PageObject:</li></ul><pre><code>/**
+   * Selects (if necessary) the size and adds it to the cart, 
+   * asserting that the cart opens successfully.
+   */
+  def addToCart(sizeOpt: Option[String])
+      (implicit eventType: EventType, driver: WebDriver): Cart.type = {
+    selectSize(sizeOpt)
+    clickAddToCartButton()
+    Cart.waitForCartDisplayed()
+  }</code></pre><p><code>.getCartItem(sku.getSkuId)</code> is a Cart action that returns a <code>CartItem</code> PageObject based on the skuId. <code>.assertCartItemDisplayed()</code> and ensures that the <code>CartItem</code> is actually in the cart:</p><pre><code>
+  def getCartItem(skuId: Long)
+     (implicit eventType: EventType, driver: WebDriver): CartItem = {
+    CartItem(skuId).assertCartItemDisplayed()
+  }
+</code></pre><p>A <code>CartItem</code> is a function of the Cart, so it is a PageObject, as you can have <em>n</em> items on a cart.</p><h3>Wrap-up</h3><p>With PageObjects, we’ve eliminated a lot of the flakiness associated with testing. Breaking PageObjects down into smaller logically grouped constituent parts works just as well for small projects as for bigger ones. And because we’re using BrowserAction and more of the wrapping, we can more easily follow our work flow from one step to the next. The motivation for this work is to drive more voluntary adoption of Selenium within teams at Gilt.</p></div><footer class="article__content__footer"><div class="article-tags"><span class="article-tags__tag">Gilt</span><span>,</span> <span class="article-tags__tag">Gilt Tech</span><span>,</span> <span class="article-tags__tag">Gilt Groupe</span><span>,</span> <span class="article-tags__tag">gilttech</span><span>,</span> <span class="article-tags__tag">Darrell Roarty</span><span>,</span> <span class="article-tags__tag">Selenium</span><span>,</span> <span class="article-tags__tag">testing</span><span>,</span> <span class="article-tags__tag">Page Object pattern</span><span>,</span> <span class="article-tags__tag">WebDriver</span><span>,</span> <span class="article-tags__tag">ScalaTest</span><span>,</span> <span class="article-tags__tag">rich actions</span><span>,</span> <span class="article-tags__tag">simple actions</span><span>,</span> <span class="article-tags__tag">Assertions</span><span>,</span> <span class="article-tags__tag">BrowserAction</span><span>,</span> <span class="article-tags__tag">software engineering</span><span>,</span> <span class="article-tags__tag">automation</span><span>,</span> <span class="article-tags__tag">Selenium WebDriver</span><span>,</span> <span class="article-tags__tag">EventType</span><span>,</span> <span class="article-tags__tag">WaitTool</span><span>,</span> <span class="article-tags__tag">Locators</span><span>,</span> <span class="article-tags__tag">checkpoints</span><span>,</span> <span class="article-tags__tag">using page objects in tests</span><span>,</span> <span class="article-tags__tag">PageObjects</span><span>,</span> <span class="article-tags__tag">PageObject</span><span>,</span> <span class="article-tags__tag">Page Object</span></div><section class="author-bio"><svg class="author__avatar" height="36" width="36" xmlns="http://www.w3.org/2000/svg"><use class="hbc-svg-icon hbc-svg-icon--avatar__circle" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://saksdirect.github.io/hbc-tech-blog/assets/images/hbc-icons.svg#circle"></use><use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://saksdirect.github.io/hbc-tech-blog/assets/images/hbc-icons.svg#head"></use><use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://saksdirect.github.io/hbc-tech-blog/assets/images/hbc-icons.svg#body"></use></svg><span class="author__name">HBC Tech</span></section></footer></section><aside class="recirc"><h2 class="header__title">Recent Insights</h2><span class="slug-divider"></span> <a class="header__view-all-link" href="https://saksdirect.github.io/hbc-tech-blog/categories/index.html">See All</a><div class="recirc__articles"><article class="recirc__articles__item"><section class="snippet"><h1 class="snippet__title"><a href="https://saksdirect.github.io/hbc-tech-blog/2017-08-10-midyear-recap.html" class="snippet__title__link" title="HBC Tech Talks: February 2017 through July 2017">HBC Tech Talks: February 2017 through July 2017</a></h1><div class="snippet__meta"><a class="meta__category-link" href="https://saksdirect.github.io/hbc-tech-blog/category/events">events</a> <span class="slug-divider"></span> <span class="meta__author">HBC Tech</span> <span class="slug-divider"></span> <span class="meta__date">AUG 10, 2017</span></div><a href="https://saksdirect.github.io/hbc-tech-blog/2017-08-10-midyear-recap.html" class="snippet__excerpt__link" title="HBC Tech Talks: February 2017 through July 2017"><p class="snippet__excerpt">We’ve had a busy 2017 at HBC. The great work of our teams has created opportunities to share what we’ve learned with audiences around the world. This year our folks have been on stage in Austin, Sydney, Portland, Seattle, San Diego, Boston, London, Israel and on our home turf in NYC and Dublin. The talks have covered deep learning, design thinking, data streaming and developer experience to name just a...</p></a></section></article><article class="recirc__articles__item"><section class="snippet"><h1 class="snippet__title"><a href="https://saksdirect.github.io/hbc-tech-blog/2017-06-29-open-source-friday.html" class="snippet__title__link" title="Open Source Friday">Open Source Friday</a></h1><div class="snippet__meta"><a class="meta__category-link" href="https://saksdirect.github.io/hbc-tech-blog/category/culture">culture</a> <span class="slug-divider"></span> <span class="meta__author">HBC Tech</span> <span class="slug-divider"></span> <span class="meta__date">JUN 29, 2017</span></div><a href="https://saksdirect.github.io/hbc-tech-blog/2017-06-29-open-source-friday.html" class="snippet__excerpt__link" title="Open Source Friday"><p class="snippet__excerpt">From the 54 public repos maintained at code.gilt.com to the name of our tech blog (displayed in this tab’s header), open source has been part of our team’s DNA for years. Check out this blog post from 2015 if you’re not convinced.</p></a></section></article><article class="recirc__articles__item"><section class="snippet"><h1 class="snippet__title"><a href="https://saksdirect.github.io/hbc-tech-blog/2017-06-12-hbc-at-qcon.html" class="snippet__title__link" title="Hudson's Bay Company at QCon">Hudson's Bay Company at QCon</a></h1><div class="snippet__meta"><a class="meta__category-link" href="https://saksdirect.github.io/hbc-tech-blog/category/events">events</a> <span class="slug-divider"></span> <span class="meta__author">HBC Tech</span> <span class="slug-divider"></span> <span class="meta__date">JUN 12, 2017</span></div><a href="https://saksdirect.github.io/hbc-tech-blog/2017-06-12-hbc-at-qcon.html" class="snippet__excerpt__link" title="Hudson's Bay Company at QCon"><p class="snippet__excerpt">Heading to QCon? Don’t miss these two sessions! If you can’t make it, stay tuned here for slides and recordings from the conference.</p></a></section></article><article class="recirc__articles__item"><section class="snippet"><h1 class="snippet__title"><a href="https://saksdirect.github.io/hbc-tech-blog/2017-01-11-nyc-scrum-user-group-meetup.html" class="snippet__title__link" title="NYC Scrum User Group - January 19th">NYC Scrum User Group - January 19th</a></h1><div class="snippet__meta"><a class="meta__category-link" href="https://saksdirect.github.io/hbc-tech-blog/category/events">events</a> <span class="slug-divider"></span> <span class="meta__author">HBC Tech</span> <span class="slug-divider"></span> <span class="meta__date">JAN 11, 2017</span></div><a href="https://saksdirect.github.io/hbc-tech-blog/2017-01-11-nyc-scrum-user-group-meetup.html" class="snippet__excerpt__link" title="NYC Scrum User Group - January 19th"><p class="snippet__excerpt">We’ll be hosting our first meetup of 2017 in partnership with the NYC Scrum User Group on Thursday, January 19th. This is our first time hosting this group and we’re off to a great start: Ken Rubin will be joining us to lead a talk on Agile.</p></a></section></article></div></aside></article></section><footer class="footer"><svg class="est1670" xmlns="http://www.w3.org/2000/svg"><use class="hbc-tech-logo__use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://saksdirect.github.io/hbc-tech-blog/assets/images/hbc-icons.svg#est1670"></use></svg><section class="footer__links"><ul class="social-links social-links__list"><li class="social-links__list-item"><a class="social-links__link" rel="next" href="#"><svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg"><use class="linkedin" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://saksdirect.github.io/hbc-tech-blog/assets/images/hbc-icons.svg#linkedin"></use></svg></a></li><li class="social-links__list-item"><a class="social-links__link" rel="next" href="#"><svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg"><use class="twitter" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://saksdirect.github.io/hbc-tech-blog/assets/images/hbc-icons.svg#twitter"></use></svg></a></li><li class="social-links__list-item"><a class="social-links__link" rel="next" href="#"><svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg"><use class="instagram" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://saksdirect.github.io/hbc-tech-blog/assets/images/hbc-icons.svg#instagram"></use></svg></a></li></ul><p class="copyright">&copy; 2017 HBC Tech</p></section></footer><script type="text/javascript" src="https://saksdirect.github.io/hbc-tech-blog/assets/js/vendor/scrollmagic/ScrollMagic.min.js"></script><script type="text/javascript" src="https://saksdirect.github.io/hbc-tech-blog/assets/js/vendor/jekyll-search-js/fetch.js"></script><script type="text/javascript" src="https://saksdirect.github.io/hbc-tech-blog/assets/js/vendor/jekyll-search-js/search.js"></script><script type="text/javascript" src="https://saksdirect.github.io/hbc-tech-blog/assets/js/main.js"></script></body></html>

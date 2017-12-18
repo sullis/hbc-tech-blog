@@ -1,3 +1,5 @@
+/* adopted from https://github.com/daviddarnes/jekyll-search-js */
+
 class jekyllSearch {
     constructor(dataSource, searchField, resultsList) {
         this.dataSource = dataSource;
@@ -16,7 +18,7 @@ class jekyllSearch {
         const data = await this.fetchedData();
         const regex = new RegExp(this.searchField.value, 'gi');
         return data.filter(item => {
-            return item.title.match(regex) || item.excerpt.match(regex);
+            return item.title.match(regex) || item.excerpt.match(regex) || item.category.match(regex) || item.author.match(regex);
         });
     }
 
@@ -36,8 +38,6 @@ class jekyllSearch {
                 <a class="snippet__excerpt__link" href="https://saksdirect.github.io/hbc-tech-blog/${item.url}"><p class="snippet__excerpt">${item.excerpt}</p></a>
             </section>`;
         }).join('');
-
-        console.log(event.keyCode);
 
         if ((results.length == 0) || (this.searchField.value == '')) {
             this.resultsList.className = 'header-search__results header-search__results--active';
