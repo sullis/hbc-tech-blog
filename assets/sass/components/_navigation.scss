@@ -2,7 +2,6 @@
     grid-area: nav;
     display: inline-flex;
     justify-self: end;
-    margin-right: 20px;
     padding: 0;
     align-self: center;
     pointer-events: auto;
@@ -27,20 +26,24 @@
     	display: grid;
 		grid-template-columns: 1fr $content-width 1fr;
     	height: 10vh;
-	    width: 100%;
+	    width: 100vw;
     	background-color: rgba(239, 231, 223, 0.95); // transparency of #EFE7DF
-	    top: 0;
-	    left: 0;
+	    top: -20px;
+	    left: -20px;
 	    opacity: 0;
 	    visibility: hidden;
-	    margin-top: -120px;
 	    transition: all 200ms ease-out;
 	    z-index: -1;
+		pointer-events: auto;
+    	padding: 0;
 
 	    .link-list {
+	    	opacity: 0;
 		    list-style-type: none;
-		    margin: auto;
 		    padding: 0;
+		    align-self: center;
+		    height: 100vh;
+		    width: 100vw;
 
 		    &__link-item {
 	    		margin-bottom: 40px;
@@ -98,14 +101,11 @@
 		.menu {
 		    visibility: visible;
 			opacity: 1;
-			pointer-events: auto;
 	    	height: calc(100vh + 120px);
-	    	padding: 0;
-	    	position: absolute;
 	    	
 
 	    	.link-list {
-			    min-width: 350px;
+				opacity: 1;
 	    	}
 		}
     }
@@ -138,6 +138,8 @@
 			    max-width: $content-width;
 			    margin: auto;
 			    padding: 0;
+			    height: auto;
+			    opacity: 1;
 
 			    &__link-item {
 		    		margin: 0 20px;
