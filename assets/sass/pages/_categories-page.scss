@@ -1,27 +1,27 @@
 .categories-page {
 	display: grid;
-	grid-template-columns: 75% 25%;
+	grid-template-columns: 25% 75%;
 	grid-auto-rows: minmax(50px, auto);
 	grid-template-areas:
     "header header"
-    "arts cats"
-    "arts cats"
+    "cats arts"
+    "cats arts"
 	;
 
 	.asides {
 		grid-area: cats;
-		padding-left: 40px;
+		padding-right: 40px;
 
 		.sticky-container {
 			position: sticky;
-			top: 100px;
+			top: 40px;
 		}
 	}
 
 	.articles {
 		grid-area: arts;
-		border-right: solid 1px $hbc-border;
-		padding: 0 40px 80px 0;
+		border-left: solid 1px $hbc-border;
+		padding: 0 0 80px 40px;
 	}
 	
 	.categories__list,

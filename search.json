@@ -7,6 +7,7 @@
         "date": "{{ post.date | date: "%b %-d %Y" | upcase }}",
         "author": "{{ post.author | xml_escape }}",
         "category": "{{ post.categories }}",
+        "tags": "{{ post.tags[0] }} {{ post.tags[1] }} {{ post.tags[2] }}",
         "excerpt": {{ post.excerpt | strip_html | strip_newlines | jsonify }},
         "url": "{{ post.url | xml_escape }}"
     }{% unless forloop.last %},{% endunless %}

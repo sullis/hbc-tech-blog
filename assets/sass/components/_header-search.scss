@@ -10,6 +10,7 @@
 	&__form {
 		display: grid;
 		width: 100%;
+	    transition: width 200ms ease-out;
 	}
 
 	&__input {
@@ -44,11 +45,13 @@
 
 
 	&__results {
+		display: none;
 	    position: fixed;
 	    right: 0;
 	    left: 0;
 	    height: 0;
 	    top: 50px;
+	    padding-top: 40px;
 	    overflow: hidden;
 
 	    .snippet {
@@ -94,7 +97,10 @@
 	}
 
     &--active {
-		    
+		.header-search__results {
+			display: block;
+		}
+
 		.header-search__form {
 			width: 100%;
 

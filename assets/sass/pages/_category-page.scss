@@ -1,25 +1,25 @@
 // for featured categories
 .category-page {
 	display: grid;
-	grid-template-columns: 75% 25%;
+	grid-template-columns: 25% 75%;
 	grid-auto-rows: minmax(50px, auto);
 	grid-template-areas:
     "header header"
-    "articles cats"
-    "articles ."
+    "cats articles"
+    ". articles"
     "recirc recirc"
 	;
 	margin: auto;
 	
 	.articles {
-		border-right: solid 1px $hbc-border;
+		border-left: solid 1px $hbc-border;
 		margin-bottom: 80px;
 
 		.snippet {
 			border-bottom: solid 1px $hbc-border;
-			padding-right: 40px;
+			padding-left: 0px;
 			padding-bottom: 40px; 
-			margin-right: 40px;
+			margin-left: 40px;
 			margin-bottom: 40px; 
 
 			&__meta {
@@ -44,11 +44,12 @@
 
 	.asides {
 		grid-area: cats;
-		padding-left: 40px;
+		padding-right: 40px;
+		margin-bottom: 80px;
 
 		.sticky-container {
 			position: sticky;
-			top: 100px;
+			top: 40px;
 
 			.featured-topics {
 				margin-bottom: 0;
