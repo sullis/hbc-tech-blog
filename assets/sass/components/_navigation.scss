@@ -25,14 +25,13 @@
     	position: absolute;
     	display: grid;
 		grid-template-columns: 1fr $content-width 1fr;
-    	height: 10vh;
+		height: 100vh;
 	    width: 100vw;
-    	background-color: rgba(239, 231, 223, 0.95); // transparency of #EFE7DF
+    	background-color: rgba(0, 0, 0, 0.95);
 	    top: -20px;
 	    left: -20px;
 	    opacity: 0;
 	    visibility: hidden;
-	    transition: all 200ms ease-out;
 	    z-index: -1;
 		pointer-events: auto;
     	padding: 0;
@@ -51,7 +50,7 @@
 			}
 
 	    	&__link {
-	    		color: $hbc-black;
+	    		color: $hbc-white;
 				@include special-text-link();
 				@include render-type-style(subhead-2, $type-styles);
 
@@ -73,7 +72,6 @@
 		 	// background-color: transparent;
 
 	 		.bar {
-	 			stroke: black;
 
 			 	&__top {
 					// d: path("M0,5 L30,5");
@@ -129,7 +127,6 @@
 		    visibility: visible;
 		    margin: auto;
 		    padding: 0;
-		    transition: all 200ms ease-out;
 		    z-index: 1;
 
 		    .link-list {
