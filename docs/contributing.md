@@ -77,6 +77,3 @@ Sometimes you may want to have more control over how your image is displayed on 
 
 ### Featured Authors
 Become a featured author by contributing at least 3 articles and adding your bio to the [Featured Authors Collection](/_authors/).
-
-### Guest Posts
-If you're an individual or organization and you'd like to contribute a guest post to our blog, please contact [jcoghlan@gilt.com](mailto:jcoghlan@gilt.com)
