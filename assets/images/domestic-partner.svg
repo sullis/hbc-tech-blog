@@ -1,15 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="271px" height="271px" viewBox="0 0 271 271" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
-    <title>domestic partner</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="domestic-partner">
-            <circle id="Oval-4" fill="#FAFAFA" cx="136" cy="136" r="135"></circle>
-            <g id="Group-5" transform="translate(35.000000, 50.000000)" fill="#4A4A4A">
-                <path d="M48.1877913,0 C28.8131651,0 13.7371257,11.7760432 5.05967061,28.9225028 C-5.60792308,49.9985356 1.77798414,72.7534397 16.177968,90.0224344 C30.6934447,107.428049 99.8806912,171.582906 99.8806912,171.582906 C99.8806912,171.582906 164.855266,110.780158 180.476376,93.0308818 C194.263684,77.3661106 205.294658,56.9548658 197.31016,36.0013681 C189.824252,16.3591366 172.903145,1.46901244 151.615845,1.46901244 C122.986299,1.46901244 100.189142,16.3464606 99.8750574,44.837978 C99.8806912,16.030968 77.0173365,0.00140844913 48.1877913,0 Z" id="Fill-36"></path>
-            </g>
-        </g>
-    </g>
-</svg>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 270"><defs><style>.cls-1{fill:#fafafa;}.cls-2{fill:#4a4a4a;}.cls-3{fill:#fff;}</style></defs><title>domestic partner</title><g id="domestic-partner"><circle id="Oval-4" class="cls-1" cx="135" cy="135" r="135"/><g id="Group-5"><path id="Fill-36" class="cls-2" d="M83.2,50C63.8,50,48.7,61.8,40.1,78.9,29.4,100,36.8,122.8,51.2,140c10.8,13,51.8,51.8,72.1,70.8a16.87,16.87,0,0,0,23.1,0c19.4-18.3,57.6-54.7,69.1-67.7,13.8-15.7,24.8-36.1,16.8-57-7.5-19.6-24.4-34.5-45.7-34.5-28.6,0-51.4,14.9-51.7,43.4C134.9,66,112,50,83.2,50Z" transform="translate(-1 -1)"/></g></g><path class="cls-3" d="M218.3,98h.2a2.12,2.12,0,0,0,2-2.2c-1.1-23.2-19-29.9-28-30.3h-.1a2.27,2.27,0,0,0-2.3,1.8,2.11,2.11,0,0,0,2,2.4h0c1.3,0,23,1.2,24.2,26.3A2.15,2.15,0,0,0,218.3,98Z" transform="translate(-1 -1)"/></svg>
