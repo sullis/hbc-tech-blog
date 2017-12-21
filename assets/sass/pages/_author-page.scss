@@ -15,6 +15,7 @@
 		margin-bottom: 80px;
 
 		.snippet {
+			display: flex;
 			border-bottom: solid 1px $hbc-border;
 			padding-right: 40px;
 			padding-bottom: 40px; 
@@ -31,8 +32,8 @@
 				margin-bottom: 0;
 			}
 
-			&__link {
-			    order: 3;
+			&__excerpt__link {
+				order: 3;
 			}
 
 			&:last-child {

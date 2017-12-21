@@ -84,6 +84,7 @@ gulp.task('watch', function () {
                 'authors/**/*.*',
                 'categories/**/*.*',
                 '_data/**/*.*',
+                '_authors/**/*.*',
                 '_layouts/*.html',
                 '_includes/*.html',
                 '_includes/*.svg',

@@ -55,11 +55,12 @@
                 {% endfor %}
                 <!-- render the author name regardless if they're a featured author -->
                 {{- authorName -}}
-                <!-- if author exists in site.authors, close link to author's page -->
+                <!-- if author exists in site.authors,  -->
                 <!-- add author's job title to give article more clout -->
+                <!-- and close link to author's page -->
                 {% for a in site.authors %}
                     {% if a.name == authorName %}
-                    </a>{%if a.job-title %}<span class="meta__author-job-title">, {{a.job-title}}</span>{% endif %}
+                    {%if a.job-title %}<span class="meta__author-job-title">, {{a.job-title}}</span>{% endif %}</a>
                     {% endif %}
                 {% endfor %}
                 {%- unless forloop.last -%}
