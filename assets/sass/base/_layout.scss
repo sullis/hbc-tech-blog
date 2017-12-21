@@ -52,7 +52,7 @@ $content-side-margins-large: 40px;
 .page {
 	padding-top: 160px;
 	min-height: 60vh;
-	max-width: $content-width;
+    max-width: 1080px;
 	margin: auto;
 
 	&__header {
