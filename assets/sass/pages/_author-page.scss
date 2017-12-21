@@ -67,7 +67,6 @@
 	}
 
 	@media screen and (max-width: $breakpoint-medium) {
-		padding: 0 20px;
 		grid-template-columns:  1fr;
 		grid-template-areas:
 	    "header"

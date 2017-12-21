@@ -7,7 +7,7 @@ layout: sub-page
 <section class="page author-page">
 	<header class="page__header">
 		<h1 class="page__title">{{page.name}}</h1>
-		<p class="page__description">{{page.mini-bio}}</p>
+		<p class="page__description">{{page.mini-bio | truncate: 280 }}</p>
 	</header>
 	<section class="articles">
 		{% for post in authorPosts %}

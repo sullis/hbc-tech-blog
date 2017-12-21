@@ -97,6 +97,10 @@
 					}
 				}
 
+				.meta__author-job-title {
+					display: none;
+				}
+
 				.slug-divider {
 					border-color: rgba($hbc-white, 0.5);
 				}
@@ -124,6 +128,10 @@
 		    	border-bottom: 0;
 		    	padding-bottom: 0;
 		    }
+
+			.meta__author-job-title {
+				display: none;
+			}
 		}
 	}
 
@@ -211,6 +219,18 @@
 					max-height: unset;
 					max-width: 100%;
 			    }
+			}
+		}
+
+		&__featured,
+		&__sub-featured,
+		&__remaining {
+
+			.snippet {
+				
+				.meta__author-job-title {
+					display: inline-flex;
+				}
 			}
 		}
 	}
