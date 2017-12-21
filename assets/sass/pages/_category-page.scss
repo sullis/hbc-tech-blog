@@ -1,25 +1,25 @@
 // for featured categories
 .category-page {
 	display: grid;
-	grid-template-columns: 25% 75%;
+	grid-template-columns: 75% 25%;
 	grid-auto-rows: minmax(50px, auto);
 	grid-template-areas:
     "header header"
-    "cats articles"
-    ". articles"
+    "articles cats"
+    "articles . "
     "recirc recirc"
 	;
 	margin: auto;
 	
 	.articles {
-		border-left: solid 1px $hbc-border;
+		border-right: solid 1px $hbc-border;
 		margin-bottom: 80px;
 
 		.snippet {
 			border-bottom: solid 1px $hbc-border;
 			padding-left: 0px;
 			padding-bottom: 40px; 
-			margin-left: 40px;
+			margin-right: 40px;
 			margin-bottom: 40px; 
 
 			&__meta {
@@ -44,7 +44,7 @@
 
 	.asides {
 		grid-area: cats;
-		padding-right: 40px;
+		padding-left: 40px;
 		margin-bottom: 80px;
 
 		.sticky-container {
@@ -83,13 +83,13 @@
 		}
 
 		.articles {
-			border-right: 0;
+			border-left: 0;
 			padding: 0;
 		    margin-bottom: 0;
 
 			.snippet {
 				padding-right: 0;
-				margin-right: 0;
+				margin-left: 0;
 			}
 		}
 	}
@@ -105,8 +105,11 @@
 	    ;
 
 	    .articles {
+			border: 0;
+
 			.snippet {
-				padding-right: 0;
+				padding-left: 0;
+				margin-left: 0;
 				margin-right: 0;
 			}
 	    }

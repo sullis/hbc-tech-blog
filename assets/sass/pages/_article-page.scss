@@ -186,7 +186,7 @@
 
 				&__job-title {
 					color: $hbc-gray;
-					@include render-type-style(label-2, $type-styles);
+					@include render-type-style(label-1, $type-styles);
 				}
 
 				&__bio {

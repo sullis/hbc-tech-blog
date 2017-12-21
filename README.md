@@ -1,6 +1,4 @@
-<img src="assets/images/hbc-tech-logo-tipi.png" alt="logo" width="888" height="218">
-
-# HBC Tech Blog
+<img title="HBC Tech Blog" alt="HBC Tech Blog" src="assets/images/hbc-tech-logo-tipi.png" alt="logo" width="888" height="218">
 
 Welcome to the tech blog from HBC Tech's engineering team. We are reinventing retail through our work with Saks Fifth Avenue, Saks OFF 5TH, Lord & Taylor, Gilt and The Hudson's Bay. This blog is built with Jekyll, a static site generator and hosted on Github pages.
 

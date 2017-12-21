@@ -15,6 +15,7 @@ $content-side-margins: 20px;
 $content-side-margins-large: 40px;
 
 .content {
+	background-color: white;
 	margin: auto;
 	padding-right: $content-side-margins;
 	padding-left: $content-side-margins;
@@ -51,7 +52,7 @@ $content-side-margins-large: 40px;
 .page {
 	padding-top: 160px;
 	min-height: 60vh;
-	max-width: $content-width;
+    max-width: 1080px;
 	margin: auto;
 
 	&__header {

@@ -76,4 +76,25 @@ Sometimes you may want to have more control over how your image is displayed on 
 ```
 
 ### Featured Authors
+Featured authors are 
+
 Become a featured author by contributing at least 3 articles and adding your bio to the [Featured Authors Collection](/_authors/).
+Save your your bio as `firstName-lastName.html` using hyphen for spaces. Follow the YAML template below for your bio details:
+```
+---
+name: Your Name
+job-title: ~
+mini-bio: > # 280 character limit, no html, no quotes, no line breaks, just one big string of 280 characters or less.
+  Start your bio here. Note this line is indented 2 spaces. If it's not, the yaml parser breaks.
+
+# list one or multiple
+social-media-profiles:
+- platform:
+  url:
+  handle:
+- platform:
+  url:
+  handle:
+---
+```
+
