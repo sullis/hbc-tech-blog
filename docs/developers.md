@@ -1,5 +1,5 @@
 ## Development setup
-- Make sure you have a recent version of Ruby Installed. Instructions [here](https://www.ruby-lang.org/en/downloads/)
+- Make sure you have a recent version of Ruby Installed. Instructions [here](https://www.ruby-lang.org/en/documentation/installation/)
 
 - Install bundler to make life easier
 ```
