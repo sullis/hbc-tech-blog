@@ -1,25 +1,24 @@
 // posts by author page
 .author-page {
 	display: grid;
-	grid-template-columns:  3fr 1.25fr;
+	grid-template-columns:  25% 75%;
 	grid-auto-rows: minmax(50px, auto);
 	grid-template-areas:
     "header header"
-    "articles cats"
-    "articles ."
+    "cats articles"
+    ". articles"
     "recirc recirc"
 	;
 
 	.articles {
-		border-right: solid 1px $hbc-border;
+		border-left: solid 1px $hbc-border;
 		margin-bottom: 80px;
 
 		.snippet {
 			display: flex;
 			border-bottom: solid 1px $hbc-border;
-			padding-right: 40px;
 			padding-bottom: 40px; 
-			margin-right: 40px;
+			margin-left: 40px;
 			margin-bottom: 40px; 
 
 			&__meta {
@@ -44,8 +43,8 @@
 
 	.asides {
 		grid-area: cats;
-		padding-top: 28px;
-		padding-left: 40px;
+		padding-top: 10px;
+		padding-right: 40px;
 
 		.sticky-container {
 			position: sticky;
@@ -76,7 +75,7 @@
 	    ;
 
 		.asides {
-			padding-top: 28px;
+			padding-top: 10px;
 			padding-left: 0;
 
 			.sticky-container {
@@ -86,13 +85,14 @@
 		}
 
 		.articles {
-			border-right: 0;
+			border: 0;
 			padding: 0;
 		    margin-bottom: 0;
 
 		    .snippet {
-				padding-right: 0;
+				padding-left: 0;
 				margin-right: 0;
+				margin-left: 0;
 			}
 		}
 	}

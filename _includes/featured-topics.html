@@ -14,7 +14,7 @@
 	{% assign project_cats = authorCats_array | uniq %}
 
 	{% for cat in project_cats %}
-    	<li class="featured-topics__list-item"><a class="featured-topics__list-item__link" href="{{ site.url }}{{ site.baseurl }}/categories/#{{ cat | slugify }}">{{ cat | capitalize}}</a></li>
+    	<li class="featured-topics__list-item"><a class="featured-topics__list-item__link" href="{{ site.url }}{{ site.baseurl }}/category/{{ cat | slugify }}">{{ cat | capitalize}}</a></li>
     {% endfor %}
 
     </ul>
