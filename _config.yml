@@ -67,6 +67,9 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
+liquid:
+  error_mode: warn
+
 # Sass settings
 sass:
   add_charset: true
