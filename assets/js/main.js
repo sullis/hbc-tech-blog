@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded',function() {
     var isSearchOpen = false;
     var menu = document.getElementById('menu');
     var searchToggle = document.getElementById('header-search__toggle');
-    var searchContainer = document.getElementById('header-search');
+    var siteHeader = document.getElementById('site-header');
     var searchInput = document.getElementById('header-search-input');
     var searchResults = document.getElementById('header-search__results');
     var navContainer = document.getElementById('menu');
@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded',function() {
         bindEvents: function() {
             menu.addEventListener("click", NavEvents.toggleNav, false);
             searchToggle.addEventListener("click", SearchEvents.toggleSearch, false);
+            
             document.addEventListener('keyup', event => {
                 if (event.keyCode === 27) {
                     App.setView("default");
@@ -38,14 +39,14 @@ document.addEventListener('DOMContentLoaded',function() {
 
                 if (!isSearchOpen) {
                     isSearchOpen = true;
-                    searchContainer.className += ' ' + 'header-search--active';
+                    siteHeader.className += ' ' + 'header-search--active';
                     searchInput.focus();
 
                     if(isNavOpen) { this.setView("nav") };
 
                 } else {
                     isSearchOpen = false;
-                    searchContainer.className = 'header-search';
+                    siteHeader.className = 'site-header';
                     searchResults.innerHTML = '';
                 }
 
@@ -61,7 +62,7 @@ document.addEventListener('DOMContentLoaded',function() {
                 }
 
             } else if (view === "default") {
-                searchContainer.className = 'header-search';
+                siteHeader.className = 'site-header';
                 navContainer.className = 'navigation';
 
                 isSearchOpen = false;
