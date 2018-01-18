@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded',function() {
                 } else {
                     isSearchOpen = false;
                     siteHeader.className = 'site-header';
-                    searchResults.innerHTML = '';
+                    // searchResults.innerHTML = '';
                 }
 
             } else if (view === "nav") {
@@ -115,12 +115,20 @@ document.addEventListener('DOMContentLoaded',function() {
         init: function() {
 
             const headerSearch = new jekyllSearch(
-                'https://saksdirect.github.io/hbc-tech-blog/search.json',
+                '../../search.json',
                 '#header-search-input',
                 '#header-search__results'
             );
 
             headerSearch.init();
+
+            searchInput.onblur = function(event) {
+                setTimeout(SearchEvents.resetSearch, 150);
+            };
+        },
+
+        resetSearch: function(evt) {
+            App.setView("default");
         },
 
         toggleSearch: function(evt) {
@@ -128,7 +136,7 @@ document.addEventListener('DOMContentLoaded',function() {
         },
 
         displayResults: function() {
-            // animate show reults
+            // animate show results
             var results = document.querySelectorAll('.header-search--active__results .snippet')
 
             results.forEach(function(element, index) {
