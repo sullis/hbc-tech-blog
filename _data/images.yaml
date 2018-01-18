@@ -18,3 +18,8 @@ about:
 
 careers:
   hero: careers.jpg
+
+code-page:
+  hero: code.jpg
+  # hero: https://images.unsplash.com/photo-1510751007277-36932aac9ebd?auto=format
+

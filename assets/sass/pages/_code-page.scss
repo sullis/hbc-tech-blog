@@ -23,6 +23,19 @@
             max-width: $content-width;
             z-index: 1;
         }
+
+        .code-page__hero-image {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            // width: 100%;
+            // min-width: 100vw;
+            max-width: 100%;
+            overflow: hidden;
+            opacity: 0.5;
+        }
     }
 
     &__projects {
