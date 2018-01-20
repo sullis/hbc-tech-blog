@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded',function() {
         bindEvents: function() {
             mobileMenu.addEventListener("click", NavEvents.toggleNav, false);
             searchToggle.addEventListener("click", NavEvents.toggleSearch, false);
-            
+
             // if user hits esc key, close search 
             searchInput.addEventListener('keyup', event => {
                 if (event.keyCode === 27) {
@@ -106,8 +106,6 @@ document.addEventListener('DOMContentLoaded',function() {
 
         delayedReset: function() {
             isSearchOpen = false;
-            console.log("searchBlur: " + isSearchOpen);
-            console.log("called reset");
             App.setView("search");
         }
     };
