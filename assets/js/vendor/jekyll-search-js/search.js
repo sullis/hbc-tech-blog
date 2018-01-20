@@ -34,7 +34,7 @@ class jekyllSearch {
                     <span class="slug-divider"></span>
                     <span class="meta__date">${item.date}</span>
                 </div>
-                <h1 class="snippet__title"><a class="snippet__title__link" title="${item.title}" href="https://saksdirect.github.io/hbc-tech-blog/${item.url}">${item.title}</a></h1>
+                <h1 class="snippet__title"><a class="snippet__title__link" title="${item.title}" href="https://saksdirect.github.io/hbc-tech-blog${item.url}">${item.title}</a></h1>
                 <a class="snippet__excerpt__link" href="https://saksdirect.github.io/hbc-tech-blog/${item.url}"><p class="snippet__excerpt">${item.excerpt}</p></a>
             </section>`;
         }).join('');
@@ -42,13 +42,6 @@ class jekyllSearch {
         if ((results.length == 0) || (this.searchField.value == '')) {
             this.resultsList.className = 'header-search__results header-search__results--active';
             this.resultsList.innerHTML = `<section class="snippet snippet--reveal"><p>Sorry, nothing was found</p></snippet>`;
-            if (event.keyCode === 27) {
-                this.resultsList.className = 'header-search__results';
-                this.resultsList.innerHTML = ``;
-            }
-        } else if (event.keyCode === 27) {
-            this.resultsList.className = 'header-search__results';
-            this.resultsList.innerHTML = ``;
         } else {
             this.resultsList.className = 'header-search__results header-search__results--active';
             this.resultsList.innerHTML = html;

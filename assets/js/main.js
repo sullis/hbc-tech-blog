@@ -4,12 +4,11 @@ document.addEventListener('DOMContentLoaded',function() {
     // GLOBAL VARS
     var isNavOpen = false;
     var isSearchOpen = false;
-    var menu = document.getElementById('menu');
     var searchToggle = document.getElementById('header-search__toggle');
-    var searchContainer = document.getElementById('header-search');
+    var siteHeader = document.getElementById('site-header');
     var searchInput = document.getElementById('header-search-input');
     var searchResults = document.getElementById('header-search__results');
-    var navContainer = document.getElementById('menu');
+    var mobileMenu = document.getElementById('menu');
 
 
     var App = {
@@ -18,55 +17,122 @@ document.addEventListener('DOMContentLoaded',function() {
             this.bindEvents();
             LazyLoadArticleSnippets.setupScenes();
             LazyLoadArticleSnippets.articleAnimationTiming();
-            SearchEvents.init();
+            Search.init();
             Utils.randomizeArticleHeaderColors();
         },
 
         bindEvents: function() {
-            menu.addEventListener("click", NavEvents.toggleNav, false);
-            searchToggle.addEventListener("click", SearchEvents.toggleSearch, false);
-            document.addEventListener('keyup', event => {
+            mobileMenu.addEventListener("click", NavEvents.toggleNav, false);
+            searchToggle.addEventListener("click", NavEvents.toggleSearch, false);
+            
+            // if user hits esc key, close search 
+            searchInput.addEventListener('keyup', event => {
                 if (event.keyCode === 27) {
                     App.setView("default");
                 }
             });
+
+            searchInput.onblur = function(event) {
+                setTimeout(NavEvents.delayedReset, 200);
+            };
         },
 
+        // this controls all the view displays.
         setView: function(view) {
 
             if (view === "search") {
-
-                if (!isSearchOpen) {
-                    isSearchOpen = true;
-                    searchContainer.className += ' ' + 'header-search--active';
+                if (isSearchOpen === true) {
                     searchInput.focus();
+                    siteHeader.className += ' ' + 'header-search--active';
+                    mobileMenu.className = 'navigation';
 
-                    if(isNavOpen) { this.setView("nav") };
+                    isNavOpen = false;
 
                 } else {
-                    isSearchOpen = false;
-                    searchContainer.className = 'header-search';
+                    // reset UI
+                    searchInput.blur();
+                    siteHeader.className = 'site-header';
+                    // clear out prev search query
+                    searchInput.value = '';
+                    searchInput.placeholder = 'Search';
                     searchResults.innerHTML = '';
+                    searchResults.className = 'header-search__results';
                 }
 
             } else if (view === "nav") {
-                
-                if (!isNavOpen) {
-                    isNavOpen = true;
-                    navContainer.className += ' ' + 'navigation--open';
-                    if(isSearchOpen) { this.setView("search") };
+                if (isNavOpen === true) {
+                    mobileMenu.className += ' ' + 'navigation--open';
+                    
+                    if(isSearchOpen) { NavEvents.toggleSearch() };
+
                 } else {
-                    isNavOpen = false;
-                    navContainer.className = 'navigation';
+                    // reset UI
+                    mobileMenu.className = 'navigation';
                 }
 
             } else if (view === "default") {
-                searchContainer.className = 'header-search';
-                navContainer.className = 'navigation';
+                // reset for BOTH search UI and the mobile menu
+                mobileMenu.className = 'navigation';
+                searchInput.blur();
+                siteHeader.className = 'site-header';
+                // clear out prev search query
+                searchInput.value = '';
+                searchInput.placeholder = 'Search';
+                searchResults.innerHTML = '';
+                searchResults.className = 'header-search__results';
 
-                isSearchOpen = false;
-                isNavOpen = false;
             }
+        }
+    };
+
+    // the menu icon (only displayed below desktop breakpoints) 
+    // and the search icon have listeners that call these functions on click
+    var NavEvents = {
+
+        toggleNav: function(evt) {
+            isNavOpen = !isNavOpen;
+            App.setView("nav");
+        },
+
+        toggleSearch: function(evt) {
+            isSearchOpen = !isSearchOpen;
+            App.setView("search");
+
+            // this is redundant because of safari
+            if (isSearchOpen === true) {
+                searchInput.focus();
+            }
+        },
+
+        delayedReset: function() {
+            isSearchOpen = false;
+            console.log("searchBlur: " + isSearchOpen);
+            console.log("called reset");
+            App.setView("search");
+        }
+    };
+
+    // init constructor class to handle fuzy search
+    var Search = {
+
+        init: function() {
+
+            const headerSearch = new jekyllSearch(
+                '../../search.json',
+                '#header-search-input',
+                '#header-search__results'
+            );
+
+            headerSearch.init();
+        },
+
+        displayResults: function() {
+            // animate show results
+            var results = document.querySelectorAll('.header-search--active__results .snippet')
+
+            results.forEach(function(element, index) {
+                element.className += ' ' + 'snippet--reveal';
+            });
         }
     };
 
@@ -93,46 +159,11 @@ document.addEventListener('DOMContentLoaded',function() {
 
             var randomBrandColor1 = colorsArray[getRandomInt(0, 8)];
             var randomBrandColor2 = colorsArray[getRandomInt(0, 8)];
-
             var headerBackground = document.getElementById("no-image-placeholder");
 
             if (headerBackground) {
                 headerBackground.style.background = 'linear-gradient(to bottom right, ' + randomBrandColor1 + ',' + randomBrandColor2;
             }
-        }
-    };
-
-    var NavEvents = {
-
-        toggleNav: function(evt) {
-            App.setView("nav");
-        }
-    };
-
-    var SearchEvents = {
-
-        init: function() {
-
-            const headerSearch = new jekyllSearch(
-                'https://saksdirect.github.io/hbc-tech-blog/search.json',
-                '#header-search-input',
-                '#header-search__results'
-            );
-
-            headerSearch.init();
-        },
-
-        toggleSearch: function(evt) {
-            App.setView("search");
-        },
-
-        displayResults: function() {
-            // animate show reults
-            var results = document.querySelectorAll('.header-search--active__results .snippet')
-
-            results.forEach(function(element, index) {
-                element.className += ' ' + 'snippet--reveal';
-            });
         }
     };
 

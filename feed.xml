@@ -1,5 +1,502 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.0">Jekyll</generator><link href="https://saksdirect.github.io/hbc-tech-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://saksdirect.github.io/hbc-tech-blog/" rel="alternate" type="text/html" /><updated>2017-12-22T13:38:22-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
-</subtitle><entry><title>Rethinking Retail: 4 Opportunities to Upgrade the Associate Experience</title><link href="https://saksdirect.github.io/hbc-tech-blog/2017-11-24-rethinking-retail-4-oportunities.html" rel="alternate" type="text/html" title="Rethinking Retail: 4 Opportunities to Upgrade the Associate Experience" /><published>2017-11-24T00:00:00-05:00</published><updated>2017-11-24T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/rethinking-retail-4-oportunities</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2017-11-24-rethinking-retail-4-oportunities.html">&lt;p&gt;At HBC Tech, one of the company’s current initiatives is to bridge the divide between the physical and digital experience. Saks Fifth Avenue has a considerable network of retail locations throughout the US, and our goal is to use technology to entice more people into these stores. More specifically, one initiative focuses on connecting new and existing Saks customers with our style professionals on the retail floor.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="https://tech.hbc.com/hbc-tech-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/hbc-tech-blog/" rel="alternate" type="text/html" /><updated>2018-01-20T00:50:24-05:00</updated><id>https://tech.hbc.com/hbc-tech-blog/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+</subtitle><entry><title>Sundial AWS EMR Integration</title><link href="https://tech.hbc.com/hbc-tech-blog/2018-01-16-sundial-aws-emr-integration.html" rel="alternate" type="text/html" title="Sundial AWS EMR Integration" /><published>2018-01-16T00:00:00-05:00</published><updated>2018-01-16T00:00:00-05:00</updated><id>https://tech.hbc.com/hbc-tech-blog/sundial-aws-emr-integration</id><content type="html" xml:base="https://tech.hbc.com/hbc-tech-blog/2018-01-16-sundial-aws-emr-integration.html">&lt;h1 id=&quot;aws-elastic-map-reduce-on-sundial&quot;&gt;AWS Elastic Map Reduce on Sundial&lt;/h1&gt;
+
+&lt;p&gt;Today I want to talk about a recent improvement we implemented in &lt;a href=&quot;https://github.com/gilt/sundial&quot;&gt;Sundial&lt;/a&gt;, an Open Source product launched by Gilt in early 2016. With &lt;a href=&quot;https://github.com/gilt/sundial/releases/tag/v2.0.0&quot;&gt;Sundial 2.0.0&lt;/a&gt; it’s now possible to schedule AWS Elastic Map Reduce jobs.&lt;/p&gt;
+
+&lt;p&gt;For those of you who are not familiar with it, &lt;a href=&quot;https://github.com/gilt/sundial&quot;&gt;Sundial&lt;/a&gt; is a batch job scheduler, developed by the Gilt Personalization Team, that works with Amazon ECS and Amazon Batch.&lt;/p&gt;
+
+&lt;p&gt;Before jumping into the nitty gritty details, it’s worth taking a deeper dive into the current batch job processing setup in Gilt and the challenges we have recently started to face.&lt;/p&gt;
+
+&lt;p&gt;We will quickly cover the following areas:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;the current batch jobs setup&lt;/li&gt;
+  &lt;li&gt;batch job scalability&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;batch-processing-today&quot;&gt;Batch processing today&lt;/h2&gt;
+
+&lt;p&gt;Every night, the Gilt Aster data warehouse (DW) is locked down in order to update it with the latest data coming from the relevant area of the business. During this lock, Extract-Transform-Load (&lt;a href=&quot;https://www.webopedia.com/TERM/E/ETL.html&quot;&gt;ETL&lt;/a&gt;) suites, or &lt;a href=&quot;https://www.ironsidegroup.com/2015/03/01/_ETL_-vs-elt-whats-the-big-difference/&quot;&gt;ELT as we prefer to call it&lt;/a&gt;, are
+run. 
+When all the jobs complete, the DW gets unlocked and the normal access to Aster is resumed. There are a number of client systems relying on the DW, most relevant are BI tools, i.e &lt;a href=&quot;https://looker.com/&quot;&gt;Looker&lt;/a&gt;, and Sundial.
+Sundial in particular is used in personalization for scheduling additional jobs and to build Machine Learning models. Since there is no synchronization between Aster and Sundial, occasionally when Aster takes longer to complete, Sundial jobs would fail because of the DW being still locked down or data being stale.&lt;/p&gt;
+
+&lt;h2 id=&quot;performance-degradation&quot;&gt;Performance degradation&lt;/h2&gt;
+
+&lt;p&gt;Because Aster is a shared resource, and the number of jobs relying on it is increasing day by day, in the past few weeks we’ve experienced significant performance degradation.
+This issue is particularly amplified at a specific time of the week, when BI reports are generated. The result is that batch jobs and reports are taking longer and longer to complete. 
+This of course affects developers experience and productivity.&lt;/p&gt;
+
+&lt;h2 id=&quot;emr-adoption&quot;&gt;EMR adoption&lt;/h2&gt;
+
+&lt;p&gt;Because of all the nuisances above, there is additional operational time spent to restart failed jobs. Furthermore, when developing a new model, 
+most of the time is spent extracting and massaging data, rather than focusing on the actual job logic.&lt;/p&gt;
+
+&lt;p&gt;It’s easy to understand that Aster wasn’t a good candidate anymore for us and that we needed to migrate to a better and more &lt;a href=&quot;https://en.wikipedia.org/wiki/Elasticity_(cloud_computing)&quot;&gt;elastic&lt;/a&gt; platform.&lt;/p&gt;
+
+&lt;p&gt;The solution we were looking for should:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;work with multiple data formats&lt;/li&gt;
+  &lt;li&gt;be scalable&lt;/li&gt;
+  &lt;li&gt;be owned by the team&lt;/li&gt;
+  &lt;li&gt;be easy to integrate with our scheduling solution&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We didn’t have to look far to find a great candidate to solve our problems: Spark running on &lt;a href=&quot;https://aws.amazon.com/emr/&quot;&gt;AWS EMR (Elastic Map Reduce)&lt;/a&gt;. Amazon EMR provides a managed Hadoop framework that makes it easy, fast, and cost-effective to process vast amounts of data across dynamically scalable Amazon EC2 instances. 
+You can also run other popular distributed frameworks such as Apache Spark, HBase, Presto, and Flink in Amazon EMR, and interact with data in other AWS data stores such as Amazon S3 and Amazon DynamoDB.&lt;/p&gt;
+
+&lt;p&gt;A complete list of open source applications (or components) running on AWS ERM can be found &lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;AWS EMR also offers a nice SDK to spin a new dynamic EMR cluster, run a job and tear down resources &lt;em&gt;on the fly&lt;/em&gt; and a cost per second billing system so to make the whole platform very cost efficient.&lt;/p&gt;
+
+&lt;p&gt;The last two perks of using AWS EMR are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://aws.amazon.com/ec2/spot/&quot;&gt;AWS Spot Instances&lt;/a&gt;: running hardware at a discounted price&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-supported-instance-types.html&quot;&gt;Large variety of hardware&lt;/a&gt;: most of ELT jobs run on commodity hardware, some ML require intensive GPU computation and EMR offers hardware solutions for all of our use cases.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-sundial-emr-integration&quot;&gt;The Sundial EMR Integration&lt;/h2&gt;
+
+&lt;p&gt;Since we were already using Sundial for most of our ETL and ML heavy lifting, we decided to extend the Sundial &lt;code class=&quot;highlighter-rouge&quot;&gt;task_definition&lt;/code&gt; and add a new &lt;code class=&quot;highlighter-rouge&quot;&gt;executable&lt;/code&gt;: the &lt;code class=&quot;highlighter-rouge&quot;&gt;emr_command&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Features we’ve implemented are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;running a Spark EMR job on a pre-existing cluster&lt;/li&gt;
+  &lt;li&gt;running a Spark EMR job on a new created-on-the-fly cluster (and automatic tear down of resources)&lt;/li&gt;
+  &lt;li&gt;choose between &lt;code class=&quot;highlighter-rouge&quot;&gt;on_demand&lt;/code&gt; vs &lt;code class=&quot;highlighter-rouge&quot;&gt;spot&lt;/code&gt; instances&lt;/li&gt;
+  &lt;li&gt;live logs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the next two paragraphs I will go through two Sundial EMR task definition examples: the first is a Spark EMR job running on a pre-existing cluster, the second is the same job but running on a dynamically created cluster instead.&lt;/p&gt;
+
+&lt;h3 id=&quot;running-a-job-on-a-pre-existing-emr-cluster&quot;&gt;Running a job on a pre-existing EMR Cluster&lt;/h3&gt;
+
+&lt;p&gt;Launching an EMR job on a pre-existing cluster is really simple, all that you need are some job details and the &lt;code class=&quot;highlighter-rouge&quot;&gt;cluster_id&lt;/code&gt; where you want the job to run.&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;executable&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;emr_command&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;emr_cluster&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;existing_emr_cluster&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+             &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;cluster_id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;j-123ABC456DEF9&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;job_name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MyJobName1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;region&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;us-east-1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;class&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;com.company.job.spark.core.MainClass&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;s3_jar_path&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;s3://my-spark-job-release-bucket/my-job-spark-v1-0-0.jar&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;spark_conf&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;spark.driver.extraJavaOptions=-Denvironment=production&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;args&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;arg1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;arg2&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;s3_log_details&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;log_group_name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;spark-emr-log-group&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;log_stream_name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;spark-emr-log-stream&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The other properties are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;class&lt;/em&gt;: the fully qualified main class of the job, e.g. “com.company.job.spark.core.MainClass”&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;s3_jar_path&lt;/em&gt;: the s3 path to the job jar file e.g “s3://my-spark-job-release-bucket/my-job-spark-v1-0-0.jar”&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;spark_conf&lt;/em&gt;: this is a &lt;strong&gt;list&lt;/strong&gt; of attributes that you can pass to the spark driver, like memory or Java Opts (as per above example)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;args&lt;/em&gt;: another list of params that will be passed to the &lt;strong&gt;MainClass&lt;/strong&gt; as arguments (as per above example)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;s3_log_details&lt;/em&gt;: Cloudwatch Log Group and Stream names for your job. See &lt;a href=&quot;#emr-logs&quot;&gt;EMR Logs paragraph&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;emr-logs&quot;&gt;EMR Logs&lt;/h4&gt;
+
+&lt;p&gt;One nice feature of Sundial is the possibility of viewing jobs’ live logs. While AWS Elastic Container Service (ECS) and Batch natively offer 
+a way to access live logs, EMR updates logs only every five minutes on S3 and it cannot be used as feed for live logs. Since there isn’t a straightforward way of fixing this, it is developer’s 
+responsibility to implement the code that streams job’s log to &lt;a href=&quot;https://aws.amazon.com/cloudwatch/&quot;&gt;AWS Cloudwatch Logs&lt;/a&gt;. One way of achieving this is via the &lt;a href=&quot;https://github.com/speedwing/log4j-cloudwatch-appender&quot;&gt;log4j-cloudwatch-appender&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The downside of having jobs running on &lt;em&gt;static&lt;/em&gt; AWS EMR clusters is that you will be paying for it even if no jobs are running. For this reason it would be ideal if we could spin up an EMR cluster &lt;em&gt;on-the-fly&lt;/em&gt;, run a Spark job and then dispose all the resources.&lt;/p&gt;
+
+&lt;p&gt;If you want to know more, well, keep reading!&lt;/p&gt;
+
+&lt;h3 id=&quot;running-a-job-on-a-dynamic-emr-cluster&quot;&gt;Running a job on a dynamic EMR Cluster&lt;/h3&gt;
+
+&lt;p&gt;The Sundial Task definition that uses a dynamic cluster is fairly more complex and gives you some fine grained control when provisioning your cluster. 
+At the same time though, if your jobs don’t require very specific configurations (e.g. permissions, aws market type), sensible default options have been provided so to simplify the 
+Task Definition where possible.&lt;/p&gt;
+
+&lt;p&gt;Let’s dig into the different sections of the json template.&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr_cluster&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;new_emr_cluster&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;My Cluster Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;release_label&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr-5.11.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;applications&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Spark&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;s3_log_uri&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;s3://cluster-log-bucket&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;master_instance&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;emr_instance_type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;m4.large&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;instance_count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;aws_market&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;on_demand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;on_demand&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;core_instance&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;emr_instance_type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;m4.xlarge&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;instance_count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;aws_market&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;on_demand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;on_demand&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;emr_service_role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;default_emr_service_role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;EMR_DefaultRole&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;emr_job_flow_role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;default_emr_job_flow_role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;EMR_EC2_DefaultRole&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;ec2_subnet&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;subnet-a123456b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;visible_to_all_users&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The json object name for a &lt;em&gt;dynamic emr cluster&lt;/em&gt; is &lt;code class=&quot;highlighter-rouge&quot;&gt;new_emr_cluster&lt;/code&gt;. It is composed by the following attributes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;name&lt;/em&gt;: The name that will appear on the AWS EMR console&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;release_label&lt;/em&gt;: The EMR version of the cluster to create. Each EMR version maps to specific version of the applications that can run in the EMR cluster. Additional details are available on the &lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html&quot;&gt;AWS EMR components page&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;applications&lt;/em&gt;: The list of applications to launch on the cluster. For a comprehensive list of available applications, visit the &lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html&quot;&gt;AWS EMR components page&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;s3_log_uri&lt;/em&gt;: The s3 bucket where the EMR cluster put their log files. These are both cluster logs as well as &lt;code class=&quot;highlighter-rouge&quot;&gt;stdout&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;stderr&lt;/code&gt; of the EMR job&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;master_instance&lt;/em&gt;: The master node hardware details (see below for more details.)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;core_instance&lt;/em&gt;: The core node hardware details (see below for more details.)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;task_instance&lt;/em&gt;: The task node hardware details (see below for more details.)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;emr_service_role&lt;/em&gt;: The IAM role that Amazon EMR assumes to access AWS resources on your behalf. For more information, see &lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html&quot;&gt;Configure IAM Roles for Amazon EMR&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;emr_job_flow_role&lt;/em&gt;: (Also called instance profile and EC2 role.) Accepts an instance profile that’s associated with the role that you want to use. All EC2 instances in the cluster assume this role. For more information, see &lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-what-is-emr.html&quot;&gt;Create and Use IAM Roles for Amazon EMR&lt;/a&gt; in the Amazon EMR Management Guide&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;ec2_subnet&lt;/em&gt;: The subnet where to spin the EMR cluster. (Optional if the account has only the standard VPC)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;visible_to_all_users&lt;/em&gt;: Indicates whether the instances in the cluster are visible to all IAM users in the AWS account. If you specify true, all IAM users can view and (if they have permissions) manage the instances. If you specify false, only the IAM user that created the cluster can view and manage it&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;master-core-and-task-instances&quot;&gt;Master, core and task instances&lt;/h4&gt;
+
+&lt;p&gt;An EMR cluster is composed by exactly one master instance, at least one core instance and any number of tasks instances.&lt;/p&gt;
+
+&lt;p&gt;A detailed explanation of the different instance types is available in the &lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-instances.html&quot;&gt;AWS EMR plan instances page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For simplicity I’ll paste a snippet of the AWS official documentation:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;master node: The master node manages the cluster and typically runs master components of distributed applications. For example, the master node runs the YARN ResourceManager service to manage resources for applications, as well as the HDFS NameNode service. It also tracks the status of jobs submitted to the cluster and monitors the health of the instance groups. Because there is only one master node, the instance group or instance fleet consists of a single EC2 instance.&lt;/li&gt;
+    &lt;li&gt;core node: Core nodes are managed by the master node. Core nodes run the Data Node daemon to coordinate data storage as part of the Hadoop Distributed File System (HDFS). They also run the Task Tracker daemon and perform other parallel computation tasks on data that installed applications require.&lt;/li&gt;
+    &lt;li&gt;task node: Task nodes are optional. You can use them to add power to perform parallel computation tasks on data, such as Hadoop MapReduce tasks and Spark executors. Task nodes don’t run the Data Node daemon, nor do they store data in HDFS.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The json below describes configuration details of an EMR master instance:&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;master_instance&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;emr_instance_type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;m4.large&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;instance_count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;aws_market&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;on_demand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;on_demand&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Please note that there can only be exactly one master node, if a different values is specified in the &lt;code class=&quot;highlighter-rouge&quot;&gt;instance_count&lt;/code&gt;, it is ignored. For other instance group types the 
+value &lt;code class=&quot;highlighter-rouge&quot;&gt;instance_count&lt;/code&gt; represents, as the name says, the number of EC2 instances to launch for that instance type.&lt;/p&gt;
+
+&lt;p&gt;Other attributes are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;emr_instance_type&lt;/em&gt;: the EC2 instance type to use when launching the EMR instance&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;aws_market&lt;/em&gt;: the marketplace to provision instances for this group. It can be either &lt;code class=&quot;highlighter-rouge&quot;&gt;on_demand&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;spot&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;An example of a EMR instance using spot is:&lt;/p&gt;
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;aws_market&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;spot&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;bid_price&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.07&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Where &lt;code class=&quot;highlighter-rouge&quot;&gt;bid_price&lt;/code&gt; is the Spot bid price in dollars.&lt;/p&gt;
+
+&lt;h2 id=&quot;limitations&quot;&gt;Limitations&lt;/h2&gt;
+
+&lt;p&gt;Because of some AWS EMR implementation details, Sundial has two major limitations when it comes to EMR job scheduling.&lt;/p&gt;
+
+&lt;p&gt;The first limitation is that Sundial is not able to stop EMR jobs running on pre-existing clusters. Since jobs on the EMR cluster are scheduled via &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; and since 
+AWS did not build any api on top of it, once a job is scheduled on an existing EMR cluster, in order to kill it, it would be required to ssh on the EC2 instance where the master node is running, query &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; so to find out the
+correct application id and issue a yarn kill command. We decided to not implement this feature because it would have greatly over complicated the job definition.
+Jobs running on dynamic cluster are affected by the same issue. We’ve managed to still implement this feature by simply killing the whole EMR cluster.&lt;/p&gt;
+
+&lt;p&gt;The second limitation is about live logs. As previously mentioned live logs are not implemented out of the box. Developers require to stream logs to Cloudwatch Logs and set log group and log name in the task definition.&lt;/p&gt;</content><author><name>Giovanni Gargiulo</name></author><category term="aws" /><category term="data" /><category term="sundial" /><category term="etl" /><category term="scheduling" /><category term="machine learning" /><summary>AWS Elastic Map Reduce on Sundial</summary></entry><entry><title>Revitalize Gilt City’s Order Processing with Serverless Architecture</title><link href="https://tech.hbc.com/hbc-tech-blog/2018-01-03-instant-voucher-serverless.html" rel="alternate" type="text/html" title="Revitalize Gilt City's Order Processing with Serverless Architecture" /><published>2018-01-03T00:00:00-05:00</published><updated>2018-01-03T00:00:00-05:00</updated><id>https://tech.hbc.com/hbc-tech-blog/instant-voucher-serverless</id><content type="html" xml:base="https://tech.hbc.com/hbc-tech-blog/2018-01-03-instant-voucher-serverless.html">&lt;h1 id=&quot;instant-vouchers-initiative&quot;&gt;Instant Vouchers Initiative&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.gilt.com/city/&quot;&gt;Gilt City&lt;/a&gt; is Gilt’s high-end voucher portal that offers localised discounts on exclusive lifestyle experiences in dining, entertainment, beauty, fitness etc to our 3.4 million members across 13 U.S. cities. Gilt City’s legacy order processing backend is a scheduled-job based architecture in which functionality such as fraud scan, payment authorisation, order fulfillment are assigned to independent jobs that process orders in batches according to order status. Though this architecture can scale to meet peak time workload and provides some level of resilience (failed orders are retried the next time the job runs), it inevitably includes some idle time i.e. wait for the next job to pick up an order from the previous job. The resulting average processing time could add up to 15 minutes.&lt;/p&gt;
+
+&lt;p&gt;Since many of Gilt City’s offers are of an impulsive nature and time-sensitive, long processing time becomes a clear bottleneck to user experience. Team Marconi in Gilt have been driving the work on the Instant Vouchers Initiative for the past few months ago, in an effort to re-architect the backend of order processing using the latest cloud technologies. We believe that by reducing this wait time, it will significantly boost overall shopping experience and enable immediate use of vouchers and, in turn, it allows for new features such as location-based push notifications.&lt;/p&gt;
+
+&lt;h1 id=&quot;an-event-driven-serverless-architecture&quot;&gt;An Event Driven, Serverless Architecture&lt;/h1&gt;
+
+&lt;p&gt;It is never easy to rewrite (or replace) a mission critical system. In our case, we have to keep the existing monolithic Ruby on Rails app running while spinning up a new pipeline. We took the strangler pattern (see this &lt;a href=&quot;https://martinfowler.com/bliki/StranglerApplication.html&quot;&gt;Martin Fowler article&lt;/a&gt; for an explanation) and built a new API layer for processing individual orders around the existing batch-processing, job-based system in the same Rails app. With this approach, the legacy job-based system gradually receives less traffic and becomes a fallback safety net to catch and retry failed orders from the instant processing pipeline.&lt;/p&gt;
+
+&lt;p&gt;The new instant order pipeline starts with the &lt;strong&gt;checkout system&lt;/strong&gt; publishing a notification to an SNS topic whenever it creates an order object. An order notification contains the order ID to allow event subscribers to look up the order object in the order key-value store. An AWS Lambda application &lt;strong&gt;order-notification-dispatcher&lt;/strong&gt; subscribes to this SNS topic and kicks off the processing by invoking an AWS Step Functions resource. See below a simplified architecture diagram of the order processing system.&lt;/p&gt;
+
+&lt;p&gt;The architecture leverages Lambda and Step Functions from the AWS Serverless suite to build several key components. At HBC, different teams have started embracing a serverless paradigm to build production applications. There are many benefits of adopting a serverless paradigm, such as abstraction from infrastructure, out-of-the-box scalability, and an on-demand cost model just to name a few. Compared to the alternative of building and maintaining an array of EC2/container instances, a serverless architecture goes a step beyond microservices to allow an even faster development iteration cycle. With the use of Step Functions as an orchestration engine, it is much easier to facilitate interaction between Lambda applications.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/2FYlarr.png&quot; alt=&quot;alt text&quot; title=&quot;Instant Order Processing Architecture&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;aws-step-functions-for-lambda-orchestration&quot;&gt;AWS Step Functions for Lambda Orchestration&lt;/h1&gt;
+
+&lt;p&gt;As mentioned above, AWS Step Functions is an orchestration service that makes it easy to coordinate stateless Lambda applications by establishing a specification to transition application states. Behind the scenes, it is depicted as a state machine constructed with the JSON-based &lt;a href=&quot;https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html&quot;&gt;Amazon States Language&lt;/a&gt;. See below a sample execution from the order-processing step function.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/RWakgNC.png&quot; alt=&quot;alt text&quot; title=&quot;An successful Step Function execution example&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;inside-step-functions&quot;&gt;Inside Step Functions&lt;/h3&gt;
+
+&lt;p&gt;At the top level the specification includes various types of &lt;a href=&quot;https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-states.html&quot;&gt;States&lt;/a&gt;, such as &lt;code class=&quot;highlighter-rouge&quot;&gt;Task&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Choice&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Wait&lt;/code&gt;, to be used to compose simple business logic to transition application state. Inside a &lt;code class=&quot;highlighter-rouge&quot;&gt;Task&lt;/code&gt; State, an AWS Lambda ARN can be specified to be invoked. The output of the Lambda will be directed as input to next State. This is an excerpt from the order-processing state machine:&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Comment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Order processing state machine&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;StartAt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ChangeOrderStatus&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;States&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;ChangeOrderStatus&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Task&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Resource&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;arn:aws:lambda:us-east-1:1234567890:function:start-order-processing:2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;TimeoutSeconds&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FraudScan&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;FraudScan&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Task&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Resource&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;arn:aws:lambda:us-east-1:1234567890:function:fraud-scan:2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;TimeoutSeconds&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;      
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsFraudOrder&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;IsFraudOrder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Choice&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Choices&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Variable&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;$.fraud_verdict&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;StringEquals&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cleared&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AuthorizePayment&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Variable&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;$.fraud_verdict&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;StringEquals&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;fraud&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FraudOrderTerminal&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;      
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;AuthorizePayment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Task&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Resource&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;arn:aws:lambda:us-east-1:1234567890:function:authorize-payments:2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;TimeoutSeconds&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;      
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;WarehouseChoice&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;FraudOrderTerminal&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Pass&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;      
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Result&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;This is the ending state for a fraud order&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;End&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;polling-and-retry-on-errors&quot;&gt;Polling and Retry on Errors&lt;/h3&gt;
+
+&lt;p&gt;A serverless paradigm fits really well in situations where computation completes within a short time (ideally seconds). However, sometimes we still need to run a task that will take slightly longer. For example, in our pipeline, we need to keep polling a service endpoint for a fraud-scan result, since it is an async process. We implemented this by defining a retry counter &lt;code class=&quot;highlighter-rouge&quot;&gt;get_fraud_status_retries&lt;/code&gt; within a &lt;code class=&quot;highlighter-rouge&quot;&gt;Choice&lt;/code&gt; state and set a max attempt count of 60 to terminate retries.&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsFraudOrder&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Choice&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Choices&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Variable&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;$.fraud_verdict&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;StringEquals&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cleared&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AuthorizePayment&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Variable&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;$.fraud_verdict&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;StringEquals&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;fraud&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FraudOrderTerminal&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;        
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Variable&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;$.get_fraud_status_retries&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;NumericLessThanEquals&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FraudScanWait&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Variable&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;$.get_fraud_status_retries&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;NumericGreaterThan&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FraudStatusUnavailableTerminal&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;      
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;It is also critical to make cloud applications resilient to errors such as network timeouts. Step Functions provides error handling to allow catching/retrying of some predefined errors as well as customised Lambda error types. You can specify different retry strategies with properties such as &lt;code class=&quot;highlighter-rouge&quot;&gt;MaxAttempts&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;BackoffRate&lt;/code&gt;. See the below example where we implemented a retry mechanism for different errors in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Task&lt;/code&gt; state to create redemption codes:&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreateRedemptionCode&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Task&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Resource&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;arn:aws:lambda:us-east-1:1234567890:function:create-redemption-code:3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;TimeoutSeconds&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FulfillElectronicOrder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Retry&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;ErrorEquals&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GatewayTimeoutError&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;IntervalSeconds&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;MaxAttempts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Catch&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;            
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;ErrorEquals&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;States.ALL&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CatchMissingRedemptionCode&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;immutable-deployment--partial-rollout&quot;&gt;Immutable Deployment &amp;amp; Partial Rollout&lt;/h1&gt;
+
+&lt;p&gt;Deploying a mission critical service to a production environment is always a nervous process. At HBC we advocate immutable deployments whenever possible and leverage A/B testing to help us roll out new features to customers in a gradual manner. In a serverless world, it is a little different, since most of the infrastructure management is abstracted away.&lt;/p&gt;
+
+&lt;h3 id=&quot;lambda-versioning&quot;&gt;Lambda Versioning&lt;/h3&gt;
+&lt;p&gt;AWS Lambda’s &lt;a href=&quot;https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html&quot;&gt;versioning feature&lt;/a&gt; provides the ability to make Lambda functions immutable by taking a snapshot of the function (aka publishing a version). We really like this, since it ensures the Lambda function artifact as well as environment variables remain immutable once published. Note that in the above code snippets of state machine JSON, the ARN specified for each Lambda resource is Lambda version ARN instead of function ARN. We also use Lambda’s &lt;a href=&quot;https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html&quot;&gt;aliasing feature&lt;/a&gt; to have a &lt;code class=&quot;highlighter-rouge&quot;&gt;prod&lt;/code&gt; alias mapped to the current production version, with immutable environment variables:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Rj7UeTy.png&quot; alt=&quot;alt text&quot; title=&quot;Lambda Alias Mapping&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;With aliasing we can easily roll back to a previous Lambda version in case of an unexpected production failure.&lt;/p&gt;
+
+&lt;h3 id=&quot;bluegreen-stacks&quot;&gt;Blue/Green Stacks&lt;/h3&gt;
+
+&lt;p&gt;So we have immutable Lambda functions, but we still want to make our Step Functions (SF) immutable. We decided to create a new SF resource every time we release it, meanwhile the old SF resource remains unchanged. Since AWS does not currently provide a versioning feature for Step Functions, we included semantic versioning in the SF name e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;order-processing-v0.0.6&lt;/code&gt;. With both new and old versions (including historical SFs) we are able to apply a blue/green deployment and rollback procedure.&lt;/p&gt;
+
+&lt;p&gt;To route orders to either blue/green stack, we make the &lt;strong&gt;order-notification-dispatcher&lt;/strong&gt; Lambda the de facto router by providing blue/green versions of SF as its &lt;a href=&quot;https://docs.aws.amazon.com/lambda/latest/dg/env_variables.html&quot;&gt;environment variables&lt;/a&gt;. Here is the Node.js code to read the stack environment variables:&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stateMachineBlueVer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;STATE_MACHINE_BLUE_VER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stateMachineGreenVer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;STATE_MACHINE_GREEN_VER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;With fetched state machine stack version we can compose Step Function ARN with predefined format, then start a new execution with AWS sdk Step Function api:&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stateMachineVersion&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Read from environment vars&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dispatch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;orderJson&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;orderId&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;orderJson&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;order_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stateMachine&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;preProcessingStepFunctionPrefix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stateMachineVersion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+  &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;params&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;stateMachineArn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stateMachine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;orderId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;orderJson&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;  
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AWS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;StepFunctions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;startExecution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;partial-rollout&quot;&gt;Partial Rollout&lt;/h3&gt;
+
+&lt;p&gt;We make the &lt;strong&gt;order-notification-dispatcher&lt;/strong&gt; query our a/b test engine to have simple routing logic for each order notification, so that it can shift traffic to either the blue/green Step Function stack according to test/control group the order falls into. Also note that AWS recently released a nice &lt;a href=&quot;https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html&quot;&gt;traffic shifting&lt;/a&gt; feature for Lambda applications. However, we didn’t use it as our a/b test engine provides finer-grain control which allows us to target certain groups such as HBC’s internal employees. Here is a diagram depicting the partial rollout process for new Step Function resources:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/ZSyvoJ1.png&quot; alt=&quot;alt text&quot; title=&quot;Partial Rollout Process&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+
+&lt;h3 id=&quot;what-we-have-achieved&quot;&gt;What We Have Achieved&lt;/h3&gt;
+
+&lt;p&gt;As of today all of Gilt City’s orders have been directed to the instant processing pipeline, which shortens the majority of orders’ processing time from over 15 minutes to a few seconds. We are looking to expand the system to take over more workload including physical products to bring the instant order user experience to a wider customer base.&lt;/p&gt;
+
+&lt;h3 id=&quot;step-functions-limitations&quot;&gt;Step Functions Limitations&lt;/h3&gt;
+
+&lt;p&gt;From our development exerience using AWS Step Functions we discovered some limitations of this service. First of all, it lacks of a feature like a &lt;code class=&quot;highlighter-rouge&quot;&gt;Map&lt;/code&gt; state which would take a list of input objects and transform it to another list of result objects. A possible solution could be allowing invocation of a sub SF multiple times. In our case, an order object can be split into multiple order objects depending on the items in the original order. Unfortuntely SF does not offer a State type that can map a dynamic number of elements. We eventually made the workaround by creating an &lt;strong&gt;order-pre-processing&lt;/strong&gt; SF and make it invoke the &lt;strong&gt;order-processing&lt;/strong&gt; SF multiple times to process those ‘split’ orders.&lt;/p&gt;
+
+&lt;p&gt;Secondly, we hope AWS can provide versioning/aliasing for Step Functions so we can gain immutability out of the box instead of forcing immutability on our side. Any support for blue/green deployment would be even better.&lt;/p&gt;
+
+&lt;p&gt;Also, we expect AWS to provide better filtering/searching abilities on the Step Functions dashboard so we can gain some fundamental data analytics from historical executions. This could be obtained by declaring some “searchable” fields and relative types in the SF definition.&lt;/p&gt;
+
+&lt;p&gt;In the context of AWS Enterprise Support, we (Team Marconi) had a productive meeting directly with the AWS Step Functions Product Manager during which we have suggested our list of improvements. It was gratifying to hear that most of these are already or will be included in their development roadmap.&lt;/p&gt;
+
+&lt;h3 id=&quot;future-work&quot;&gt;Future Work&lt;/h3&gt;
+&lt;p&gt;From an architecture perspective, we are trying to standardize a continous delivery process for our serverless components. At the moment, what we have is “poor man’s CI/CD” - some bash/node scripts which use AWS CloudFormation SDK to provision resources. There are various tools available either from AWS or the serverless community such as &lt;a href=&quot;https://www.terraform.io/&quot;&gt;Terraform&lt;/a&gt;, &lt;a href=&quot;https://aws.amazon.com/documentation/codepipeline/&quot;&gt;CodePipeline&lt;/a&gt; that we are trying to integrate with to provide a frictionless path to production.&lt;/p&gt;</content><author><name>Liyu Ma</name></author><category term="aws" /><category term="serverless" /><category term="lambda" /><category term="step function" /><category term="gilt city" /><category term="order processing" /><summary>Instant Vouchers Initiative</summary></entry><entry><title>Presentations we love: 2017</title><link href="https://tech.hbc.com/hbc-tech-blog/2017-12-30-presentations-we-love.html" rel="alternate" type="text/html" title="Presentations we love: 2017" /><published>2017-12-30T00:00:00-05:00</published><updated>2017-12-30T00:00:00-05:00</updated><id>https://tech.hbc.com/hbc-tech-blog/presentations-we-love</id><content type="html" xml:base="https://tech.hbc.com/hbc-tech-blog/2017-12-30-presentations-we-love.html">&lt;p&gt;2017 was a year of growth and learning at HBC Tech. Our organization embraced new technologies and new ways of building application software.&lt;/p&gt;
+
+&lt;p&gt;As the year comes to an end, let’s recognize some notable technical presentations from 2017.&lt;/p&gt;
+
+&lt;h2 id=&quot;kubernetes-project-update&quot;&gt;Kubernetes Project update&lt;/h2&gt;
+&lt;p&gt;Kelsey Hightower (&lt;a href=&quot;https://twitter.com/kelseyhightower&quot;&gt;@kelseyhightower&lt;/a&gt;) at KubeCon 2017&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=07jq-5VbBVQ&quot; title=&quot;Kubernetes Project update&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/07jq-5VbBVQ/0.jpg&quot; alt=&quot;Kelsey Hightower video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;production-designing-for-testability&quot;&gt;Production: Designing for testability&lt;/h2&gt;
+&lt;p&gt;Mike Bryzek (&lt;a href=&quot;https://twitter.com/mbryzek&quot;&gt;@mbryzek&lt;/a&gt;) at QCon New York 2017&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=z-ATZTUgaAo&quot; title=&quot;Production: Designing for testability&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/z-ATZTUgaAo/0.jpg&quot; alt=&quot;Mike Bryzek video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;streaming-microservices-contracts--compatibility&quot;&gt;Streaming Microservices: Contracts &amp;amp; Compatibility&lt;/h2&gt;
+&lt;p&gt;Gwen Shapira (&lt;a href=&quot;https://twitter.com/gwenshap&quot;&gt;@gwenshap&lt;/a&gt;) at QCon New York 2017&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.infoq.com/presentations/contracts-streaming-microservices&quot;&gt;&lt;img src=&quot;/assets/images/presentations-we-love-2017/gwen-shapira-contracts-and-compatibility-480.png&quot; alt=&quot;contracts-streaming-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;spinnaker-and-the-culture-behind-the-tech&quot;&gt;Spinnaker and the Culture Behind the Tech&lt;/h2&gt;
+&lt;p&gt;Dianne Marsh (&lt;a href=&quot;https://twitter.com/dmarsh&quot;&gt;@dmarsh&lt;/a&gt;) at KubeCon 2017&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=mfFtfaulCtg&quot; title=&quot;Spinnaker and the culture behind the tech&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/mfFtfaulCtg/0.jpg&quot; alt=&quot;Dianne Marsh video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;embracing-change-without-breaking-the-world&quot;&gt;Embracing Change without breaking the world&lt;/h2&gt;
+&lt;p&gt;Jim Flanagan and Kyle Thomson at AWS re:invent 2017&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=kJq81Y7OEx4&quot; title=&quot;Video Title&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/kJq81Y7OEx4/0.jpg&quot; alt=&quot;AWS Embracing Change&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;developing-applications-on-aws-in-the-jvm&quot;&gt;Developing Applications on AWS in the JVM&lt;/h2&gt;
+&lt;p&gt;Kyle Thomson (&lt;a href=&quot;https://github.com/kiiadi&quot;&gt;@kiiadi&lt;/a&gt;) at AWS re:invent 2017&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=byRois3s5Yc&quot; title=&quot;Video Title&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/byRois3s5Yc/0.jpg&quot; alt=&quot;AWS JVM&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;chaos-engineering-at-netflix&quot;&gt;Chaos Engineering at Netflix&lt;/h2&gt;
+&lt;p&gt;Nora Jones (&lt;a href=&quot;https://twitter.com/nora_js&quot;&gt;@nora_js&lt;/a&gt;) at AWS re:invent 2017&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=LaKGx0dAUlo&quot; title=&quot;Video Title&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/LaKGx0dAUlo/0.jpg&quot; alt=&quot;Chaos Engineering at Netflix&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;apibuilder&quot;&gt;apibuilder&lt;/h2&gt;
+&lt;p&gt;Sean Sullivan (&lt;a href=&quot;https://twitter.com/tinyrobots&quot;&gt;@tinyrobots&lt;/a&gt;) at Scala Up North 2017&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/sullis/api-builder-scala-up-north-2017&quot;&gt;&lt;img src=&quot;/assets/images/presentations-we-love-2017/sean-sullivan-apibuilder-july-2017-480.png&quot; alt=&quot;apibuilder-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;managing-data-in-microservices&quot;&gt;Managing Data in Microservices&lt;/h2&gt;
+&lt;p&gt;Randy Shoup (&lt;a href=&quot;https://twitter.com/randyshoup&quot;&gt;@randyshoup&lt;/a&gt;) at QCon New York 2017&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=E8-e-3fRHBw&quot; title=&quot;Video Title&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/E8-e-3fRHBw/0.jpg&quot; alt=&quot;Randy Shoup - Managing Data&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;crushing-tech-debt-through-automation-at-coinbase&quot;&gt;Crushing Tech Debt Through Automation at Coinbase&lt;/h2&gt;
+&lt;p&gt;Rob Witoff  (&lt;a href=&quot;https://twitter.com/rwitoff&quot;&gt;@rwitoff&lt;/a&gt;) at QCon London 2017&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=KaK2lAj1B-Q&quot; title=&quot;Video Title&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/KaK2lAj1B-Q/0.jpg&quot; alt=&quot;Rob Witoff - Tech Debt&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;gilts-ios-codebase-evolution&quot;&gt;Gilt’s iOS codebase evolution&lt;/h2&gt;
+&lt;p&gt;Evan Maloney (&lt;a href=&quot;https://twitter.com/_emaloney_&quot;&gt;@_emaloney_&lt;/a&gt;) at the Brooklyn Swift Developers Meetup&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://vimeo.com/217236459&quot;&gt;&lt;img src=&quot;/assets/images/presentations-we-love-2017/evan-maloney-ios-swift-gilt-2017-480.png&quot; alt=&quot;evan-maloney-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;apache-struts-and-the-equifax-data-breach&quot;&gt;Apache Struts and the Equifax Data Breach&lt;/h2&gt;
+&lt;p&gt;Sean Sullivan (&lt;a href=&quot;https://twitter.com/tinyrobots&quot;&gt;@tinyrobots&lt;/a&gt;) at the Portland Java User Group&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/sullis/apache-struts-and-the-equifax-data-breach&quot;&gt;&lt;img src=&quot;/assets/images/presentations-we-love-2017/sean-sullivan-struts-and-equifax-october-2017-480.png&quot; alt=&quot;struts-equifax-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;promcon-2017&quot;&gt;Promcon 2017&lt;/h2&gt;
+&lt;p&gt;Giovanni Gargiulo (&lt;a href=&quot;https://twitter.com/giannigar&quot;&gt;@giannigar&lt;/a&gt;) at Promcon 2017 (Munich)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=btnXuFLcpS8&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/btnXuFLcpS8/0.jpg&quot; alt=&quot;giovanni-gargiulo-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>HBC Tech</name></author><category term="community" /><category term="conferences" /><category term="qcon" /><category term="aws" /><category term="cloud" /><category term="2017" /><summary>2017 was a year of growth and learning at HBC Tech. Our organization embraced new technologies and new ways of building application software.</summary></entry><entry><title>Rethinking Retail: 4 Opportunities to Upgrade the Associate Experience</title><link href="https://tech.hbc.com/hbc-tech-blog/2017-11-24-rethinking-retail-4-oportunities.html" rel="alternate" type="text/html" title="Rethinking Retail: 4 Opportunities to Upgrade the Associate Experience" /><published>2017-11-24T00:00:00-05:00</published><updated>2017-11-24T00:00:00-05:00</updated><id>https://tech.hbc.com/hbc-tech-blog/rethinking-retail-4-oportunities</id><content type="html" xml:base="https://tech.hbc.com/hbc-tech-blog/2017-11-24-rethinking-retail-4-oportunities.html">&lt;p&gt;At HBC Tech, one of the company’s current initiatives is to bridge the divide between the physical and digital experience. Saks Fifth Avenue has a considerable network of retail locations throughout the US, and our goal is to use technology to entice more people into these stores. More specifically, one initiative focuses on connecting new and existing Saks customers with our style professionals on the retail floor.&lt;/p&gt;
 
 &lt;p&gt;How does the design team go about tackling this challenge? The first thing we do is map out the full customer journey from beginning to end — device-agnostic, channel-agnostic. We create a view of the distinct elements that make up the customer journey, in order to devise an approach to provide a better experience for each touchpoint. Research helps to inform the customer journey, and for this initiative we’ve conducted many customer and associate interviews in order to get to the heart of their challenges and how we can help.&lt;/p&gt;
 
@@ -23,7 +520,7 @@ We’re launching a new way for customers to onboard with a stylist in the Saks 
 &lt;p&gt;Store associates don’t have time to sift through inventory to provide personalized recommendations to each of their clients, or to personally get to know each new customer coming through the doors. They need insights regularly delivered to them that they can take immediate action on. For example, suggestions for follow up, new arrivals, upcoming events, or personal notes that can be searched and added to tasks. Machine learning can be implemented with product recommendations at the customer level as well as at the group level of customers with similar affinities.
 Perhaps most importantly, ideally all of these activities would exist in a unified stylist tool. We should provide a seamless integration of their CRM tool and point of sale so that associates can checkout a customer and add notes to follow up efficiently without switching between systems.
 After more than 30 interviews with our Saks Fifth Avenue retail associates, these opportunities to improve their experience became quite clear. Some of these challenges are beyond design, but through workshops, research, prototyping and iteration, we can assist in identifying the priorities for business, product and all other teams involved.
-Associates are our customers too. They are the thread that ties together all of the services offered by Saks, and they represent the brand. We should be doing everything in our power to make their lives easier and to nurture their client relationships.&lt;/p&gt;</content><author><name>Elizabeth Pizzuti</name></author><category term="retail" /><category term="user experience" /><category term="product design" /><category term="user research" /><category term="retail technology" /><summary>At HBC Tech, one of the company’s current initiatives is to bridge the divide between the physical and digital experience. Saks Fifth Avenue has a considerable network of retail locations throughout the US, and our goal is to use technology to entice more people into these stores. More specifically, one initiative focuses on connecting new and existing Saks customers with our style professionals on the retail floor.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://saksdirect.github.io/hbc-tech-blog{&quot;feature&quot;=&gt;&quot;rethinking-retail.jpg&quot;, &quot;credit&quot;=&gt;nil, &quot;creditlink&quot;=&gt;nil}" /></entry><entry><title>Dublin Scala Spree</title><link href="https://saksdirect.github.io/hbc-tech-blog/2017-09-11-dublin-scala-spree.html" rel="alternate" type="text/html" title="Dublin Scala Spree" /><published>2017-09-11T00:00:00-05:00</published><updated>2017-09-11T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/dublin-scala-spree</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2017-09-11-dublin-scala-spree.html">&lt;p&gt;This Friday the Gilt/HBC Digital Dublin office will be hosting the first ever Dublin Scala Spree, a day-long Scala Open Source Hackathon. 
+Associates are our customers too. They are the thread that ties together all of the services offered by Saks, and they represent the brand. We should be doing everything in our power to make their lives easier and to nurture their client relationships.&lt;/p&gt;</content><author><name>Elizabeth Pizzuti</name></author><category term="retail" /><category term="user experience" /><category term="product design" /><category term="user research" /><category term="retail technology" /><summary>At HBC Tech, one of the company’s current initiatives is to bridge the divide between the physical and digital experience. Saks Fifth Avenue has a considerable network of retail locations throughout the US, and our goal is to use technology to entice more people into these stores. More specifically, one initiative focuses on connecting new and existing Saks customers with our style professionals on the retail floor.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tech.hbc.com/hbc-tech-blog{&quot;feature&quot;=&gt;&quot;rethinking-retail.jpg&quot;, &quot;credit&quot;=&gt;nil, &quot;creditlink&quot;=&gt;nil}" /></entry><entry><title>Dublin Scala Spree</title><link href="https://tech.hbc.com/hbc-tech-blog/2017-09-11-dublin-scala-spree.html" rel="alternate" type="text/html" title="Dublin Scala Spree" /><published>2017-09-11T00:00:00-05:00</published><updated>2017-09-11T00:00:00-05:00</updated><id>https://tech.hbc.com/hbc-tech-blog/dublin-scala-spree</id><content type="html" xml:base="https://tech.hbc.com/hbc-tech-blog/2017-09-11-dublin-scala-spree.html">&lt;p&gt;This Friday the Gilt/HBC Digital Dublin office will be hosting the first ever Dublin Scala Spree, a day-long Scala Open Source Hackathon. 
 The event is organized by the Dublin Scala Usergroup in cooperation with Dublin Functional Kubs and the Scala Center at EPFL in Lausanne, Switzerland.
 &lt;!--more--&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -74,7 +571,90 @@ The event is organized by the Dublin Scala Usergroup in cooperation with Dublin 
   Date &amp;amp; Time: Friday, 15th September, 10am - 4pm
   Location: Gilt/HBC Digital Office, Shelbourne Rd., Dublin 4, Ireland
   Sign-Up: Please register for the event via the Dublin Scala Users Group
-  Organizers: Dublin Scala Meetup and Dublin Functional Kubs in cooperation with the Scala Center @ EPFL in Lausanne</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://saksdirect.github.io/hbc-tech-blog{&quot;feature&quot;=&gt;&quot;https://pbs.twimg.com/media/DEIosBJWAAAj87h.jpg&quot;, &quot;credit&quot;=&gt;nil, &quot;creditlink&quot;=&gt;nil}" /></entry><entry><title>HBC Tech Talks: February 2017 through July 2017</title><link href="https://saksdirect.github.io/hbc-tech-blog/2017-08-10-midyear-recap.html" rel="alternate" type="text/html" title="HBC Tech Talks: February 2017 through July 2017" /><published>2017-08-10T00:00:00-05:00</published><updated>2017-08-10T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/midyear-recap</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2017-08-10-midyear-recap.html">&lt;p&gt;We’ve had a busy 2017 at HBC. The great work of our teams has created opportunities to share what we’ve learned with audiences around the world. This year our folks have been on stage in Austin, Sydney, Portland, Seattle, San Diego, Boston, London, Israel and on our home turf in NYC and Dublin. The talks have covered deep learning, design thinking, data streaming and developer experience to name just a few.
+  Organizers: Dublin Scala Meetup and Dublin Functional Kubs in cooperation with the Scala Center @ EPFL in Lausanne</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tech.hbc.com/hbc-tech-blog{&quot;feature&quot;=&gt;&quot;https://pbs.twimg.com/media/DEIosBJWAAAj87h.jpg&quot;, &quot;credit&quot;=&gt;nil, &quot;creditlink&quot;=&gt;nil}" /></entry><entry><title>Team Rookie 2017</title><link href="https://tech.hbc.com/hbc-tech-blog/2017-08-30-team-rookie.html" rel="alternate" type="text/html" title="Team Rookie 2017" /><published>2017-08-30T00:00:00-05:00</published><updated>2017-08-30T00:00:00-05:00</updated><id>https://tech.hbc.com/hbc-tech-blog/team-rookie</id><content type="html" xml:base="https://tech.hbc.com/hbc-tech-blog/2017-08-30-team-rookie.html">&lt;h1 id=&quot;who-we-are&quot;&gt;Who We Are&lt;/h1&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/team-rookie-2017/team.png&quot; width=&quot;940&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Team-Rookie-2017, as we pride ourselves with being the most awesome team ever, has spent the summer improving the browsing experience for Gilt users as well as to collect data for our personalization team. The end result of our project included the crafted front-end user experience and a back-end service for data processing.&lt;/p&gt;
+
+&lt;h1 id=&quot;project-ideation&quot;&gt;Project Ideation&lt;/h1&gt;
+&lt;p&gt;The final project idea rose to the top through countless meetings and discussions with various teams in the organization. With the initially decided problem-solution proven to be unexecutable, our team, along with all of our mentors, took efforts to come up with a new solution to solve the given problem with the limited resources we had. This immersive process, in the very beginning of the program, ensured the understanding of the engineering problem and established the success of our project.&lt;/p&gt;
+
+&lt;p&gt;To arrive at the best possible solution, we spent time learning the technology stack end-to-end. We went through many tutorials and labs with our mentors on the technologies we were going to eventually use, namely Scala, Android, and the Play framework. As we gained familiarities with these tools and technologies daily, we were quickly able to finalize on our ideas and the project has finally taken off.&lt;/p&gt;
+
+&lt;h1 id=&quot;problem-space&quot;&gt;Problem Space:&lt;/h1&gt;
+
+&lt;p&gt;So let’s talk about the problem. With a growing user base, the Gilt platform needs to better understand what the users’ interests are in order to tailor unique shopping experiences to different user groups. Currently, users are able to “shop-the-look.” This feature allows a user to browse a completed set of apparels, such as the combination of a shirt, a pair of jeans, and shoes. It rids the hassle of a lot of users having to discover these items separately, they are able to find them all at once and make one single purchase. At the moment, these completed looks are selected by stylists who understand them. While stylists may provide the highest quality pairings, we are unable to scale human labor to the entire catalog. As fashion trends change, we need to update our pairings accordingly. Therefore, we aim to continuously collect user opinions on possible pairings. With these we can develop machine learning models to infer item compatibility. This is an ambitious goal, but not unachievable. We just need a steady supply of data.&lt;/p&gt;
+
+&lt;h1 id=&quot;solution&quot;&gt;Solution:&lt;/h1&gt;
+
+&lt;p&gt;To tackle this problem, we proposed to create a fun and engaging experience for the users while they are shopping: completing their own outfits. One key requirement for this experience is that it can not interfere with the current purchase flow, meaning that if a user is closing in on a purchase, that process should not be interrupted. Therefore, rather than inserting the experience within the current workflow, we’ve decided to include the feature on the search page where users are able to favorite items they like. This is shown in the figure below.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/team-rookie-2017/web-search.png&quot; width=&quot;940&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;For our experience, to minimize disruption to the current workflow, we’ve added an additional hover link on the favorite button, and this will direct the users to our experience.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/team-rookie-2017/favorite.png&quot; width=&quot;940&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;We provide the users with additional items that can potentially be paired with the initial favorited item to form completed looks. These products, limited by category and price based on the favorited items, will be presented to the users for individual selections. The users can let their imaginations go wild and pick what they think are the best combinations. During this process, we will collected this data and persist it through our back-end API to the database.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/team-rookie-2017/first_page.png&quot; width=&quot;940&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Finally, in order to complete the experience and make it as engaging as possible, we’ve decided to allow the users to immediately purchase the selected items if they wish. Since these items are what they specifically picked out from a pool of products, they will have a greater likelihood for conversion.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/team-rookie-2017/second_page.png&quot; width=&quot;940&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;So in a nutshell, this is the completed project of the 10 week internship filled with hard work, grind, sweat (mostly from our daily trips to equinox right down stairs), and a whole lot of fun.&lt;/p&gt;
+
+&lt;h1 id=&quot;intern-activities&quot;&gt;Intern Activities&lt;/h1&gt;
+
+&lt;p&gt;While we were not busy being awesome engineers, team-rookie spent most of our leisure time exploring New York and staying cool. Here are some of the highlights.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/team-rookie-2017/pose.JPG&quot; width=&quot;940&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/team-rookie-2017/poke.JPG&quot; width=&quot;940&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/team-rookie-2017/wonderwoman.JPG&quot; width=&quot;940&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/team-rookie-2017/dessert.png&quot; width=&quot;940&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/team-rookie-2017/helmets.JPG&quot; width=&quot;940&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/team-rookie-2017/presentation.JPG&quot; width=&quot;940&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h1 id=&quot;mentorship&quot;&gt;Mentorship&lt;/h1&gt;
+
+&lt;p&gt;Team Rookie would like to give out a huge shout out to all of our mentors that helped us along they way and made this project possible (you know who you are)! With a special thanks to Doochan and Mike, who led the intern committee through all of our battles and came out on the other end with a solid victory. The complete-the-look experience would not have been possible without you guys.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/team-rookie-2017/doochan.JPG&quot; width=&quot;940&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/team-rookie-2017/mike.JPG&quot; width=&quot;940&quot; /&gt;
+&lt;/p&gt;</content><author><name>Team Rookie</name></author><category term="internship" /><category term="web" /><category term="team rookie" /><summary>Who We Are</summary></entry><entry><title>HBC Tech Talks: February 2017 through July 2017</title><link href="https://tech.hbc.com/hbc-tech-blog/2017-08-10-midyear-recap.html" rel="alternate" type="text/html" title="HBC Tech Talks: February 2017 through July 2017" /><published>2017-08-10T00:00:00-05:00</published><updated>2017-08-10T00:00:00-05:00</updated><id>https://tech.hbc.com/hbc-tech-blog/midyear-recap</id><content type="html" xml:base="https://tech.hbc.com/hbc-tech-blog/2017-08-10-midyear-recap.html">&lt;p&gt;We’ve had a busy 2017 at HBC. The great work of our teams has created opportunities to share what we’ve learned with audiences around the world. This year our folks have been on stage in Austin, Sydney, Portland, Seattle, San Diego, Boston, London, Israel and on our home turf in NYC and Dublin. The talks have covered deep learning, design thinking, data streaming and developer experience to name just a few.
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://i.imgur.com/zkRer6r.png&quot; alt=&quot;Sera Chin and Yi Cao spoke at the NYC Scrum User Group about HBC's Design Sprints&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
@@ -121,7 +701,7 @@ The event is organized by the Dublin Scala Usergroup in cooperation with Dublin 
   &lt;li&gt;Sophie Huang spoke at the Customer Love Summit in Seattle.&lt;/li&gt;
   &lt;li&gt;Kyla Robinson gave a keynote on Key to Success: Creating A Mobile–First Mentality.&lt;/li&gt;
   &lt;li&gt;Sera Chin and Yi Cao spoke at the NYC Scrum User Group about HBC’s Design Sprints.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>HBC Tech</name></author><category term="meetups" /><category term="conferences" /><category term="evangelism" /><summary>We’ve had a busy 2017 at HBC. The great work of our teams has created opportunities to share what we’ve learned with audiences around the world. This year our folks have been on stage in Austin, Sydney, Portland, Seattle, San Diego, Boston, London, Israel and on our home turf in NYC and Dublin. The talks have covered deep learning, design thinking, data streaming and developer experience to name just a few.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://saksdirect.github.io/hbc-tech-blog{&quot;feature&quot;=&gt;&quot;http://i.imgur.com/zkRer6r.png&quot;, &quot;credit&quot;=&gt;nil, &quot;creditlink&quot;=&gt;nil}" /></entry><entry><title>Sundial or AWS Batch, Why not both?</title><link href="https://saksdirect.github.io/hbc-tech-blog/2017-08-04-sundial-batch.html" rel="alternate" type="text/html" title="Sundial or AWS Batch, Why not both?" /><published>2017-08-04T00:00:00-05:00</published><updated>2017-08-04T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/sundial-batch</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2017-08-04-sundial-batch.html">&lt;p&gt;About a year ago, we (the Gilt/HBC personalization team) open sourced Sundial &lt;img src=&quot;https://github.com/gilt/sundial&quot; alt=&quot;&quot; /&gt;, a batch job orchestration system leveraging &lt;a href=&quot;https://aws.amazon.com/ecs/&quot;&gt;Amazon EC2 Container Service&lt;/a&gt;.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>HBC Tech</name></author><category term="meetups" /><category term="conferences" /><category term="evangelism" /><summary>We’ve had a busy 2017 at HBC. The great work of our teams has created opportunities to share what we’ve learned with audiences around the world. This year our folks have been on stage in Austin, Sydney, Portland, Seattle, San Diego, Boston, London, Israel and on our home turf in NYC and Dublin. The talks have covered deep learning, design thinking, data streaming and developer experience to name just a few.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tech.hbc.com/hbc-tech-blog{&quot;feature&quot;=&gt;&quot;http://i.imgur.com/zkRer6r.png&quot;, &quot;credit&quot;=&gt;nil, &quot;creditlink&quot;=&gt;nil}" /></entry><entry><title>Sundial or AWS Batch, Why not both?</title><link href="https://tech.hbc.com/hbc-tech-blog/2017-08-04-sundial-batch.html" rel="alternate" type="text/html" title="Sundial or AWS Batch, Why not both?" /><published>2017-08-04T00:00:00-05:00</published><updated>2017-08-04T00:00:00-05:00</updated><id>https://tech.hbc.com/hbc-tech-blog/sundial-batch</id><content type="html" xml:base="https://tech.hbc.com/hbc-tech-blog/2017-08-04-sundial-batch.html">&lt;p&gt;About a year ago, we (the Gilt/HBC personalization team) open sourced Sundial &lt;img src=&quot;https://github.com/gilt/sundial&quot; alt=&quot;&quot; /&gt;, a batch job orchestration system leveraging &lt;a href=&quot;https://aws.amazon.com/ecs/&quot;&gt;Amazon EC2 Container Service&lt;/a&gt;.&lt;/p&gt;
 
 &lt;!--more--&gt;
 
@@ -194,7 +774,7 @@ The event is organized by the Dublin Scala Usergroup in cooperation with Dublin 
 &lt;p&gt;Sundial with AWS Batch backend now works great for the use cases we encounter doing personalization. We may consider enhancements such as Prometheus push gateway integration (to replace the Graphite service we had with ECS and to keep track of metrics over time) and UI enhancements to Sundial.&lt;/p&gt;
 
 &lt;p&gt;In the long term we may consider other open source solutions as maintaining a job system counts as technical debt that
- is a distraction from product focused tasks. The HBC data team, who have very similar requirements to us, have started adopting Airflow (by Airbnb). As part of their adoption, they have contributed to an open source effort to make Airflow support Batch as a backend: &lt;a href=&quot;https://github.com/gilt/incubator-airflow/tree/aws_batch&quot;&gt;https://github.com/gilt/incubator-airflow/tree/aws_batch&lt;/a&gt;. If it works well, this is a solution we may adopt in the future.&lt;/p&gt;</content><author><name>Kevin O'Riordan</name></author><category term="batch" /><category term="aws" /><category term="tech" /><category term="personalization" /><summary>About a year ago, we (the Gilt/HBC personalization team) open sourced Sundial , a batch job orchestration system leveraging Amazon EC2 Container Service.</summary></entry><entry><title>Visually Similar Recommendations</title><link href="https://saksdirect.github.io/hbc-tech-blog/2017-07-31-tiefvision-2.html" rel="alternate" type="text/html" title="Visually Similar Recommendations" /><published>2017-07-31T00:00:00-05:00</published><updated>2017-07-31T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/tiefvision-2</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2017-07-31-tiefvision-2.html">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+ is a distraction from product focused tasks. The HBC data team, who have very similar requirements to us, have started adopting Airflow (by Airbnb). As part of their adoption, they have contributed to an open source effort to make Airflow support Batch as a backend: &lt;a href=&quot;https://github.com/gilt/incubator-airflow/tree/aws_batch&quot;&gt;https://github.com/gilt/incubator-airflow/tree/aws_batch&lt;/a&gt;. If it works well, this is a solution we may adopt in the future.&lt;/p&gt;</content><author><name>Kevin O'Riordan</name></author><category term="batch" /><category term="aws" /><category term="tech" /><category term="personalization" /><summary>About a year ago, we (the Gilt/HBC personalization team) open sourced Sundial , a batch job orchestration system leveraging Amazon EC2 Container Service.</summary></entry><entry><title>Visually Similar Recommendations</title><link href="https://tech.hbc.com/hbc-tech-blog/2017-07-31-tiefvision-2.html" rel="alternate" type="text/html" title="Visually Similar Recommendations" /><published>2017-07-31T00:00:00-05:00</published><updated>2017-07-31T00:00:00-05:00</updated><id>https://tech.hbc.com/hbc-tech-blog/tiefvision-2</id><content type="html" xml:base="https://tech.hbc.com/hbc-tech-blog/2017-07-31-tiefvision-2.html">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
 
 &lt;p&gt;Previously we’ve written about about &lt;a href=&quot;http://tech.gilt.com/machine/learning,/deep/learning/2016/12/22/deep-learning-at-gilt&quot;&gt;Tiefvision
 &lt;/a&gt;,
@@ -357,7 +937,7 @@ operation point.&lt;/p&gt;
 
 &lt;p&gt;We’ll be working to roll out to more and more categories, and even do
 some cross category elements, perhaps completing outfits based on
-their visual compatibility.&lt;/p&gt;</content><author><name>Chris Curro</name></author><category term="machine learning" /><category term="deep learning" /><category term="personalization" /><category term="recommendation" /><summary></summary></entry><entry><title>How Large Is YOUR Retrospective?</title><link href="https://saksdirect.github.io/hbc-tech-blog/2017-07-27-large-scale-retro.html" rel="alternate" type="text/html" title="How Large Is YOUR Retrospective?" /><published>2017-07-27T00:00:00-05:00</published><updated>2017-07-27T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/large-scale-retro</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2017-07-27-large-scale-retro.html">&lt;p&gt;Can you recall the size and length of your typical retrospective?
+their visual compatibility.&lt;/p&gt;</content><author><name>Chris Curro</name></author><category term="machine learning" /><category term="deep learning" /><category term="personalization" /><category term="recommendation" /><summary></summary></entry><entry><title>How Large Is YOUR Retrospective?</title><link href="https://tech.hbc.com/hbc-tech-blog/2017-07-27-large-scale-retro.html" rel="alternate" type="text/html" title="How Large Is YOUR Retrospective?" /><published>2017-07-27T00:00:00-05:00</published><updated>2017-07-27T00:00:00-05:00</updated><id>https://tech.hbc.com/hbc-tech-blog/large-scale-retro</id><content type="html" xml:base="https://tech.hbc.com/hbc-tech-blog/2017-07-27-large-scale-retro.html">&lt;p&gt;Can you recall the size and length of your typical retrospective?
 If your team operates by &lt;a href=&quot;http://www.scrumguides.org/docs/scrumguide/v2016/2016-Scrum-Guide-US.pdf&quot;&gt;The Scrum Guide&lt;/a&gt;, your retrospectives likely have less than ten people in one room and last about an hour for a two-weeks Sprint.&lt;/p&gt;
 
 &lt;p&gt;What if your current team is larger than a typical Scrum team and a retrospective period is longer than a month? What if the team members are distributed across locations, countries, time zones and multiple third party vendors? Is this retrospective doomed to fail? Not quite.
@@ -528,424 +1108,4 @@ These were passed on to the main facilitator for further analysis and preparatio
 
 &lt;p&gt;Whether you are a retrospective pro, have never tried one in the past or your experience is anywhere in between, please do yourself a favor and mark &lt;strong&gt;February 6, 2018&lt;/strong&gt; on your calendar. 
 A group of experienced retrospective facilitators is currently planning a record-breaking World Retrospective Day with live local workshops on every continent and in every time zone along with many on-line learning opportunities. We are engaging with the industry thought leaders to make this one of the best and most engaging learning experience. We hope to see you there!&lt;/p&gt;</content><author><name>Dana Pylayeva</name></author><category term="agile" /><category term="retrospective" /><category term="scaling" /><summary>Can you recall the size and length of your typical retrospective?
-If your team operates by The Scrum Guide, your retrospectives likely have less than ten people in one room and last about an hour for a two-weeks Sprint.</summary></entry><entry><title>Advanced tips for building an iOS Notification Service Extension</title><link href="https://saksdirect.github.io/hbc-tech-blog/2017-07-07-ios-notifciation-service-extension-tips.html" rel="alternate" type="text/html" title="Advanced tips for building an iOS Notification Service Extension" /><published>2017-07-07T00:00:00-05:00</published><updated>2017-07-07T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/ios-notifciation-service-extension-tips</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2017-07-07-ios-notifciation-service-extension-tips.html">&lt;p&gt;The Gilt iOS team is officially rolling out support for “rich notifications” in the coming days. By “rich notifications”, I mean the ability to include media (images/gifs/video/audio) with push notifications. Apple &lt;a href=&quot;https://developer.apple.com/videos/play/wwdc2016/708/&quot;&gt;announced&lt;/a&gt; rich notifications as a part of iOS 10 at WWDC last year (2016). For a mobile first e-commerce company with high quality images, adding media to push notifications is an exciting way to continue to engage our users.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/expanded_notification.png&quot; alt=&quot;alt image&quot; title=&quot;expanded notification&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This post details four helpful advanced tips I wish I had when I started building a &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unnotificationserviceextension&quot;&gt;Notification Service Extension&lt;/a&gt;(NSE) for the iOS app. Although all of this information is available through different blog posts and Apple documentation, I am putting it all in one place in the context of building a NSE in the hopes that it saves someone the time I spent hunting and testing this niche feature. Specifically, I will go over things I learned after the point where I was actually seeing modified push notifications on a real device (even something as simple as appending MODIFIED to the notification title).&lt;/p&gt;
-
-&lt;p&gt;If you’ve stumbled upon this post, you’re most likely about to start building a NSE or started already and have hit an unexpected roadblock. If you have not already created the shell of your extension, I recommend reading the official Apple &lt;a href=&quot;https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ModifyingNotifications.html#//apple_ref/doc/uid/TP40008194-CH16-SW1&quot;&gt;documentation&lt;/a&gt; and some other helpful blog posts found &lt;a href=&quot;https://pusher.com/docs/push_notifications/ios/ios10&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;https://www.avanderlee.com/ios-10/rich-notifications-ios-10/&quot;&gt;here&lt;/a&gt;. These posts give a great overview of how to get started receiving and displaying push notifications with media.&lt;/p&gt;
-
-&lt;h3 id=&quot;tip-0-sending-notifications&quot;&gt;Tip 0: Sending notifications&lt;/h3&gt;
-&lt;p&gt;When working with NSEs it is extremely helpful to have a reliable way of sending yourself push notifications. Whether you use a third party push platform or a home grown platform, validate that you can send yourself test notifications before going any further. Additionally, validate that you have the ability to send modified push payloads.&lt;/p&gt;
-
-&lt;h3 id=&quot;tip-1-debugging&quot;&gt;Tip 1: Debugging&lt;/h3&gt;
-&lt;p&gt;Being able to debug your code while you work is paramount. If you’ve ever built an app extension this tip may be old hat to you but as a first time extension builder it was a revelation to me! Because a NSE is not actually a part of your app, but an extension, it does not run on the same process id as your application. When you install your app on an iOS device from Xcode, the Xcode debugger and console are only listening to the process id of your application. This means any print statements and break points you set in the NSE won’t show up in the Xcode console and won’t pause the execution of your NSE.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/but_but_but.jpeg&quot; alt=&quot;alt image&quot; title=&quot;but but but&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;You actually can see all of your print statements in the mac Console app but the Console also includes every print/log statement of every process running on your iOS device and filtering these events is more pain than its worth.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/console.png&quot; alt=&quot;alt image&quot; title=&quot;console&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Fortunately, there is another way. You can actually have Xcode listen to any of the processes running on your phone including low level processes like &lt;code class=&quot;highlighter-rouge&quot;&gt;wifid&lt;/code&gt;, Xcode just happens to default to your application.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/gilt_process.png&quot; alt=&quot;alt image&quot; title=&quot;gilt process id&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;To attach to the NSE, you first need to send your device a notification to start up the NSE. Once you receive the notification, in Xcode go to the “Debug” tab, scroll down to “Attach to Process” and look to see if your NSE is listed under “Likely Targets”.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/unattached_process.png&quot; alt=&quot;alt image&quot; title=&quot;Unattached notification process id&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;If you don’t see it, try sending another notification to your device. If you do, attach to it! If you successfully attached to your NSE process you should see it grayed out when yo go back to Debug &amp;gt; Attach to Process.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/attached_process.png&quot; alt=&quot;alt image&quot; title=&quot;Attached to notification process id&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;You should also be able to select the NSE from the Xcode debug area.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/debug_screen.png&quot; alt=&quot;alt image&quot; title=&quot;debug screen&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;To validate both the debugger and print statements are working add a breakpoint and a print statement to your NSE. Note: Everytime you rebuild the app, you will unfortunately have to repeat the process of sending yourself a notification before attaching to the NSE process.&lt;/p&gt;
-
-&lt;p&gt;Amazing! Your NSE development experience will now be 10x faster than my own. I spent two days appending “print statements” to the body of the actual notification before I discovered the ability to attach to multiple processes.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/say_what.jpg&quot; alt=&quot;alt image&quot; title=&quot;say whaaaaaat&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;tip-2-sharing-data-between-your-application-and-nse&quot;&gt;Tip 2: Sharing data between your application and NSE&lt;/h3&gt;
-&lt;p&gt;Although your NSE is bundled with your app, it is not part of your app, does not run on the same process id (see above), and does not have the same bundle identifier. Because of this, your application and NSE cannot talk to each other and cannot use the same file system. If you have any information you would like to share between the app and the NSE, you will need to add them both to an App Group. For the specifics of adding an app group check out Apple’s &lt;a href=&quot;https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/ExtensionScenarios.html#//apple_ref/doc/uid/TP40014214-CH21-SW1&quot;&gt;Sharing Data with Your Containing App&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;This came up in Gilt’s NSE because we wanted to have the ability to get logs from the NSE and include them with the rest of the app. For background, the Gilt iOS team uses our own open sourced logging library, &lt;a href=&quot;https://github.com/emaloney/CleanroomLogger&quot;&gt;CleanroomLogger&lt;/a&gt;. The library writes log files in the app’s allocated file system. To collect the log files from the NSE in the application, we needed to save the log files from the NSE to the shared app group.&lt;/p&gt;
-
-&lt;p&gt;Another feature you get once you set up the App Group is the ability to share information using the app group’s &lt;code class=&quot;highlighter-rouge&quot;&gt;NSUserDefaults&lt;/code&gt;. We aren’t using this feature right now, but might in the future.&lt;/p&gt;
-
-&lt;h3 id=&quot;tip-3-using-frameworks-in-your-nse&quot;&gt;Tip 3: Using frameworks in your NSE&lt;/h3&gt;
-&lt;p&gt;If you haven’t already realized, rich notifications don’t send actual media but just links to media which your NSE will download. If you’re a bolder person than me, you might decide to forgo the use of an HTTP framework in your extension and re-implement any functions/classes you need. For the rest of us, its a good idea to include additional frameworks in your NSE. In the simplest case, adding a framework to a NSE is the same as including a framework in another framework or your container app. Unfortunately, not all frameworks can be used in an extension.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/frameworks.jpg&quot; alt=&quot;alt image&quot; title=&quot;These aren't the frameworks you are looking for.&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;To use a framework in your application, the framework must check the “App Extensions” box.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/promise-kit.png&quot; alt=&quot;alt image&quot; title=&quot;framework for extension&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Most popular open source frameworks are already set up to work with extensions but its something you should look out for. The Gilt iOS app has one internal framework which we weren’t able to use in extensions and I had to re-implement a few functions in the NSE. If you come across a framework that you think should work in an extension, but doesn’t, check out Apple’s &lt;a href=&quot;https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/ExtensionScenarios.html#//apple_ref/doc/uid/TP40014214-CH21-SW1&quot;&gt;Using an Embedded Framework to Share Code&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;tip-4-display-different-media-for-thumbnail-and-expanded-view&quot;&gt;Tip 4: Display different media for thumbnail and expanded view&lt;/h3&gt;
-&lt;p&gt;When the rich notification comes up on the device, users see a small thumbnail image beside the notification title and message.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/thumbnail_notification.png&quot; alt=&quot;alt image&quot; title=&quot;thumbnail notification&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;And when the user expands the notification, iOS shows a larger image.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/expanded_notification.png&quot; alt=&quot;alt image&quot; title=&quot;expanded notification&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;In the simple case (example above), you might just have a single image to use as the thumbnail and the large image. In this case setting a single attachment is fine. In the Gilt app, we came across a case where we wanted to show a specific square image as the thumbnail and a specific rectangular image when the notification is expanded. This is possible because &lt;code class=&quot;highlighter-rouge&quot;&gt;UNMutableNotificationContent&lt;/code&gt; allows you to set a list of &lt;code class=&quot;highlighter-rouge&quot;&gt;UNNotificationAttachment&lt;/code&gt;. Although this is not a documented feature it is possible.&lt;/p&gt;
-
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;bestAttemptContent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;mutableCopy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as?&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UNMutableNotificationContent&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;expandedAttachment&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UNNotificationAttachment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expandedURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;UNNotificationAttachmentOptionsThumbnailHiddenKey&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;thumbnailAttachment&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UNNotificationAttachment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;thumbnailURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;UNNotificationAttachmentOptionsThumbnailHiddenKey&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;bestAttemptContent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attachments&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expandedAttachment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;thumbnailAttachment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;This code snippet sets two attachments on the notification. This may be confusing because, currently, iOS only allows and app to show one attachment. If we can only show one attachment, then why set two attachments on the notification? I am setting two attachments because I want to show different images in the collapsed and expanded notification views. The first attchment in the array, &lt;code class=&quot;highlighter-rouge&quot;&gt;expandedAttachment&lt;/code&gt;, is hidden in the collapsed view (&lt;code class=&quot;highlighter-rouge&quot;&gt;UNNotificationAttachmentOptionsThumbnailHiddenKey : true&lt;/code&gt;). The second attachment, &lt;code class=&quot;highlighter-rouge&quot;&gt;thumbnailAttachment&lt;/code&gt;, is not. In the collapsed view, iOS will select the first attachment where &lt;code class=&quot;highlighter-rouge&quot;&gt;UNNotificationAttachmentOptionsThumbnailHiddenKey&lt;/code&gt; is &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt;. But when the nofication is expanded, the first attachment in the array, in this case &lt;code class=&quot;highlighter-rouge&quot;&gt;expandedAttachment&lt;/code&gt;, is displayed. If that is confusing see the example images below. Notice, this is not one rectangular image cropped for the thumbnail.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/thumbnail_notification_diff.png&quot; alt=&quot;alt image&quot; title=&quot;thumbnail notification different than expanded&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/expanded_notification_diff.png&quot; alt=&quot;alt image&quot; title=&quot;expanded notification different than thumbnail&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Note: There is a way to specify a clipping rectangle using the &lt;code class=&quot;highlighter-rouge&quot;&gt;UNNotificationAttachmentOptionsThumbnailClippingRectKey&lt;/code&gt; option, but our backend system doesn’t include cropping rectangle information and we do have multiple approprite crops of product/sale images available.&lt;/p&gt;
-
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-&lt;p&gt;Thats it! I hope this post was helpful and you will now fly through building a Notification Service Extension for your app. If there is anything you think I missed and should add to the blog please let us know, techevangelism@gilt.com.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/notification-service-extension/last_meme.png&quot; alt=&quot;alt image&quot; title=&quot;last meme&quot; /&gt;&lt;/p&gt;</content><author><name>Kyle Dorman</name></author><category term="ios" /><category term="push notifications" /><category term="notification service extension" /><summary></summary></entry><entry><title>Open Source Friday</title><link href="https://saksdirect.github.io/hbc-tech-blog/2017-06-29-open-source-friday.html" rel="alternate" type="text/html" title="Open Source Friday" /><published>2017-06-29T00:00:00-05:00</published><updated>2017-06-29T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/open-source-friday</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2017-06-29-open-source-friday.html">&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/GYQx8ds.png&quot; alt=&quot;open source&quot; class=&quot;center-image&quot; /&gt;
-From the 54 public repos maintained at &lt;a href=&quot;http://code.gilt.com/&quot;&gt;code.gilt.com&lt;/a&gt; to the name of our tech blog (displayed in this tab’s header), open source has been part of our team’s DNA for years. Check out this &lt;a href=&quot;http://tech.gilt.com/front-end/2015/04/08/ubar-open-source-first-front-end-effort&quot;&gt;blog post&lt;/a&gt; from 2015 if you’re not convinced.
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;Our open source love is why we’re excited to participate in our first Open Source Friday on June 30. &lt;a href=&quot;https://opensourcefriday.com/&quot;&gt;Open Source Friday&lt;/a&gt; is an effort being led by GitHub to make it easier to contribute to the open source community. This &lt;a href=&quot;https://github.com/blog/2386-contribute-on-open-source-friday&quot;&gt;blog post&lt;/a&gt; has more detail on the who, what and why. We’re hoping to make this a regular activity to help our teams foster an open-source-first culture as we grow and evolve.&lt;/p&gt;
-
-&lt;p&gt;Some of the projects we’ll be working on:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/emaloney/CleanroomLogger&quot;&gt;CleanroomLogger&lt;/a&gt; - Evan Maloney will be tackling a specific long-standing user request: custom “named subsystems” for logging. Some background here: https://github.com/emaloney/CleanroomLogger/issues/37.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.apibuilder.io/&quot;&gt;ApiBuilder&lt;/a&gt; - Ryan Martin will be working on fixing some edge cases in the &lt;a href=&quot;https://github.com/apicollective/apibuilder-swagger-generator&quot;&gt;Swagger Generator&lt;/a&gt; for ApiBuilder.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/gilt/gfc-guava&quot;&gt;gfc-guava&lt;/a&gt; - Sean Sullivan will be updating the documentation for gfc-guava and working on compatability with &lt;a href=&quot;https://github.com/google/guava/wiki/Release22&quot;&gt;Google Guava 22.0&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;If you’re inspired but don’t know where to start, head to our directory of &lt;a href=&quot;http://code.gilt.com&quot;&gt;open source projects&lt;/a&gt;, visit &lt;a href=&quot;http://up-for-grabs.net/&quot;&gt;this list&lt;/a&gt; by GitHub or ping us on &lt;a href=&quot;https://twitter.com/hbcdigital&quot;&gt;Twitter&lt;/a&gt; and we can help point you in the right direction.&lt;/p&gt;</content><author><name>HBC Tech</name></author><category term="open source" /><category term="culture" /><category term="community" /><summary>From the 54 public repos maintained at code.gilt.com to the name of our tech blog (displayed in this tab’s header), open source has been part of our team’s DNA for years. Check out this blog post from 2015 if you’re not convinced.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://saksdirect.github.io/hbc-tech-blog{&quot;feature&quot;=&gt;nil, &quot;credit&quot;=&gt;nil, &quot;creditlink&quot;=&gt;nil}" /></entry><entry><title>Hudson’s Bay Company at QCon</title><link href="https://saksdirect.github.io/hbc-tech-blog/2017-06-12-hbc-at-qcon.html" rel="alternate" type="text/html" title="Hudson's Bay Company at QCon" /><published>2017-06-12T00:00:00-05:00</published><updated>2017-06-12T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/hbc-at-qcon</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2017-06-12-hbc-at-qcon.html">&lt;p&gt;Heading to QCon? Don’t miss these two sessions! If you can’t make it, stay tuned here for slides and recordings from the conference.&lt;/p&gt;
-
-&lt;h2 id=&quot;removing-friction-in-the-developer-experience&quot;&gt;Removing Friction In the Developer Experience&lt;/h2&gt;
-
-&lt;p&gt;If you follow this blog at all, you know that we talk a lot about how we work here. Whether it’s out approach to &lt;a href=&quot;http://tech.gilt.com/leadership/2017/02/06/slack-and-voluntary-adoption&quot;&gt;adopting new technology&lt;/a&gt;, the work of our &lt;a href=&quot;http://tech.gilt.com/culture/2017/05/18/pops-up-plant-shop&quot;&gt;POps team&lt;/a&gt; or our &lt;a href=&quot;https://www.slideshare.net/hhfleming/the-new-work-order-team-ingredients-and-role-blending&quot;&gt;team ingredients&lt;/a&gt; framework, we’re not shy when it comes to our people and culture.&lt;/p&gt;
-
-&lt;p&gt;With that in mind, it only makes sense that &lt;a href=&quot;https://twitter.com/adrian_trenaman&quot;&gt;Ade Trenaman&lt;/a&gt;, SVP Engineering at Hudson’s Bay Company, will be part of the Developer Experience track at QCon New York in June. Titled &lt;a href=&quot;https://qconnewyork.com/ny2017/presentation/fitter-happier-more-productive-removing-friction-developer-experience&quot;&gt;“Removing Friction In the Developer Experience”&lt;/a&gt;, Ade will highlight a number of the steps we’ve taken as an organisation to improve how we work. His session will cover:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;how we blend microservice / serverless architectures, continuous deployment, and cloud technology to make it easy to push code swiftly, safely and frequently and operate it reliably in production.&lt;/li&gt;
-  &lt;li&gt;the organisational tools like &lt;a href=&quot;http://tech.gilt.com/agile/2017/05/31/self-selection-hbc&quot;&gt;team self-selection&lt;/a&gt;, team ingredients (see above), voluntary adoption and internal startups that allow us to decentralise and decouple high-performing teams.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;survival-of-the-fittest---streaming-architectures&quot;&gt;Survival of the Fittest - Streaming Architectures&lt;/h2&gt;
-
-&lt;p&gt;Michael Hansen will also be at QCon this year. &lt;a href=&quot;https://qconnewyork.com/ny2017/presentation/survival-fittest-streaming-architectures&quot;&gt;Mike’s talk&lt;/a&gt; will help guide the audience through a process to adopt the best streaming model for their needs (because there is no perfect solution).&lt;/p&gt;
-
-&lt;p&gt;In his own words: “Frameworks come and go, ​so this talk is not about the “best” framework or platform to use, rather it’s about core principles that will stand the tests of streaming evolution.”&lt;/p&gt;
-
-&lt;p&gt;His talk will also cover:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;major potential pitfalls that you may stumble over on your path to streaming and how to avoid them&lt;/li&gt;
-  &lt;li&gt;the next evolutionary step in streaming at Hudson’s Bay Company&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Hope to see you there!&lt;/p&gt;</content><author><name>HBC Tech</name></author><category term="developer experience" /><category term="culture" /><category term="stream processing" /><category term="data" /><category term="qcon" /><summary>Heading to QCon? Don’t miss these two sessions! If you can’t make it, stay tuned here for slides and recordings from the conference.</summary></entry><entry><title>Let’s run an experiment! Self-selection at HBC Digital</title><link href="https://saksdirect.github.io/hbc-tech-blog/2017-05-31-self-selection-hbc.html" rel="alternate" type="text/html" title="Let’s run an experiment! Self-selection at HBC Digital" /><published>2017-05-31T00:00:00-05:00</published><updated>2017-05-31T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/self-selection-hbc</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2017-05-31-self-selection-hbc.html">&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/DGJx44J.png&quot; alt=&quot;Self-selection&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Inspired by Opower’s success story, we ran a self-selection experiment at HBC Digital.&lt;/p&gt;
-
-&lt;p&gt;Dubbed as &lt;em&gt;“the most anticipated event of the year”&lt;/em&gt; it enabled 39 team members to self-select into 4 project teams. How did they do it? By picking a project they wanted to work on, the teammates they wanted to work with and keeping a &lt;em&gt;“Do what’s best for the company”&lt;/em&gt; attitude. 
-Read on to learn about our experience and consider giving a self-selection a try!&lt;/p&gt;
-
-&lt;h2 id=&quot;a-little-bit-of-introduction&quot;&gt;A little bit of introduction:&lt;/h2&gt;
-
-&lt;h3 id=&quot;who-are-we&quot;&gt;Who are we?&lt;/h3&gt;
-&lt;p&gt;HBC Digital is the group that drives the digital retail/ecommerce and digital customer experience across all HBC retail banners including Hudson’s Bay, Lord &amp;amp; Taylor, Saks Fifth Avenue, Gilt, and Saks OFF 5TH.&lt;/p&gt;
-
-&lt;h3 id=&quot;our-process-trifectas-and-team-ingredients&quot;&gt;Our process, trifectas and team ingredients&lt;/h3&gt;
-
-&lt;p&gt;Our development process is largely inspired by the original &lt;a href=&quot;http://tech.gilt.com/2013/03/07/scaling-agile-at-gilt&quot;&gt;Gilt process&lt;/a&gt; and has the ideas of intrinsic motivation in its core. 
-What agile flavor do we use? It depends on the team.&lt;/p&gt;
-
-&lt;p&gt;Each team has a full autonomy in selecting Scrum, Kanban, XP, a combination thereof or none of the above as their process. As long as they remain small, nimble, able to collaborate and continuously deliver value, they can tailor the process to their needs.&lt;/p&gt;
-
-&lt;p&gt;We do keep certain key components standard across all teams. 
-One of them is a “Trifecta” – a group of servant-leaders in each team: a Product Manager, an Agile Project Manager and a Tech Lead. They work together to support their team and enable the team’s success. 
-We value continuous learning and facilitate role blending by instilling our Team Ingredients framework. Originally designed by Heather Fleming, the &lt;a href=&quot;https://www.slideshare.net/hhfleming/the-new-work-order-team-ingredients-and-role-blending&quot;&gt;Team Ingredients&lt;/a&gt; framework facilitates team-level conversations about the team strengths, learning interests and cross-training opportunities.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/GgkQVa9.jpg&quot; align=&quot;right&quot; width=&quot;250&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Over the years the framework evolved from being a management tool for assessing teams from “outside in” to being a team tool that supports self-organizing and learning discussions. After a major revamp and gamification of the framework in 2016, we now use it as part of our &lt;a href=&quot;https://www.amazon.com/Liftoff-Launching-Agile-Teams-Projects/dp/097792016X&quot;&gt;Liftoff&lt;/a&gt; sessions and team working agreement conversations.&lt;/p&gt;
-
-&lt;p&gt;Just like our Team Ingredients framework, our process continues to evolve. We experiment with new ideas and practices to facilitate teams’ effectiveness and create an environment for teams to thrive. The self-selection is our latest experiment and this blog post is a glimpse into how it went.&lt;/p&gt;
-
-&lt;h2 id=&quot;self-selection-triggers-and-enablers&quot;&gt;Self-selection triggers and enablers&lt;/h2&gt;
-
-&lt;h3 id=&quot;organizational-change&quot;&gt;Organizational change&lt;/h3&gt;
-
-&lt;p&gt;As an organization that grew through acquisitions, at one point we found ourselves dealing with an unhealthy mix of cultures, duplicate roles and clashing mindsets. To remain lean and agile, we went through a restructuring at all levels.&lt;/p&gt;
-
-&lt;h3 id=&quot;inspiring-case-studies&quot;&gt;Inspiring case studies&lt;/h3&gt;
-
-&lt;p&gt;When we were evaluating the best ways to re-form the teams, we came across Amber King and Jess Huth’s talk on &lt;a href=&quot;https://www.youtube.com/watch?v=OVyt62kZKiA&quot;&gt;self-selection&lt;/a&gt; at Business Agility 2017 Conference. The lightbulb went on! Amber and Jess were describing exactly the situation we were in at that time and were reporting the positive effect of running a self-selection with the teams at Opower. We followed up with them on Skype afterwards. Hearing their compelling story again and being encouraged by their guidance, we left the call fired up to give the self-selection a try!&lt;/p&gt;
-
-&lt;h3 id=&quot;self-selection-manual&quot;&gt;Self-selection manual&lt;/h3&gt;
-
-&lt;p&gt;When it is your turn to plan for self-selection, pick up a copy of Sandy Mamoli and David Mole’s book &lt;a href=&quot;https://www.amazon.com/Creating-Great-Teams-Self-Selection-People/dp/1680501283&quot;&gt;“Creating Great Teams: How Self-Selection Lets People Excel”&lt;/a&gt;
-This very detailed facilitation guide from the inventors of self-selection process is indispensable in preparing for and facilitating a self-selection event.&lt;/p&gt;
-
-&lt;h3 id=&quot;past-success&quot;&gt;Past success&lt;/h3&gt;
-
-&lt;p&gt;What worked in our favor was the fact that Gilt had tried running a self-selection in 2012 as part of a transition to &lt;a href=&quot;http://zurb.com/word/two-pizza-team&quot;&gt;“two-pizza”&lt;/a&gt; teams. The self-selection event was called a Speed Dating, involved 50 people and 6 projects. Fun fact - a number of today’s leaders were involved in 2012 event as regular participants.&lt;/p&gt;
-
-&lt;h3 id=&quot;transparency&quot;&gt;Transparency&lt;/h3&gt;
-
-&lt;p&gt;We kept the preparation process very transparent. Dedicated Slack channel, Confluence page with progress updates and participants’ info, communication at the tech all-hands meetings and Q&amp;amp;A sessions – everything to avoid creating discomfort and to reduce the fear factor amongst team members.&lt;/p&gt;
-
-&lt;h2 id=&quot;self-selection-in-seven-steps&quot;&gt;Self-selection in seven steps&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/g74dlgH.png&quot; alt=&quot;Seven Steps of Self-Selection&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;1-get-leadership-buy-in&quot;&gt;1. Get Leadership Buy-In&lt;/h3&gt;
-
-&lt;p&gt;One of the first steps in a self-selection is getting buy-in from your leadership team. 
-Whether you start from &lt;a href=&quot;http://www.innolution.com/blog/distinguishing-between-feature-component-teams&quot;&gt;feature teams or component teams&lt;/a&gt;, a self-selection event has a potential of impacting the existing reporting structure in your organization. 
-Have an open conversation with each of the leaders to clarify the process, understand their concerns and answer questions.&lt;/p&gt;
-
-&lt;p&gt;Is there a small modification you can make to the process to mitigate these concerns and turn the leaders into your supporters? 
-From our experience, making a self-selection invitational and positioning it as “an experiment” fast-tracked its acceptance in the organization.&lt;/p&gt;
-
-&lt;h3 id=&quot;2-identify-participants&quot;&gt;2. Identify Participants&lt;/h3&gt;
-
-&lt;p&gt;How many people will be involved in your self-selection? 
-Will it include all of your existing project teams or a subset?&lt;/p&gt;
-
-&lt;p&gt;Reducing the size of the self-selection to only a subset of the teams at HBC Digital made our experiment more plausible.
-By the same token, it created a bit of a confusion around who was in vs. who was not.&lt;/p&gt;
-
-&lt;p&gt;If you are running a self-selection for a subset of your teams, make sure that the list of participants is known and publicly available to everyone. Verify that the total number of participants is equal or smaller than the number of open spots on the new teams.&lt;/p&gt;
-
-&lt;h4 id=&quot;pre-selected-vs-free-moving-participants&quot;&gt;Pre-selected vs. free-moving participants&lt;/h4&gt;
-
-&lt;p&gt;Decide if you need to have any of the team members pre-selected in each team.
-For us, the only two pre-selected roles in each team were a Product Manager and a Tech Lead. They were the key partners in pitching the initiative to team members. All others (including Agile Project Managers) were invited to self-select into new teams.&lt;/p&gt;
-
-&lt;h4 id=&quot;ftes-vs-contractors&quot;&gt;FTEs vs. Contractors&lt;/h4&gt;
-
-&lt;p&gt;If you have contractors working on your projects alongside the full-time employees, you will need to figure out if limiting self-selection to full-time employees makes sense in your environment.&lt;/p&gt;
-
-&lt;p&gt;Since our typical team had a mix of full-time employees and contractors, it was logical for us to invite both groups to participate in the self-selection. After all, individuals were selecting the teams based on a business idea, a technology stack and the other individuals that they wanted to work with.
-We did make one adjustment to the process and asked contractors to give employees “first dibs” at selecting their new teams. Everyone had equal opportunity after the first round of the self-selection.&lt;/p&gt;
-
-&lt;h4 id=&quot;observers&quot;&gt;Observers&lt;/h4&gt;
-
-&lt;p&gt;Usually, you would want to limit participation to those directly involved in a self-selection.
-In our case, there was so much interest in the self-selection experiment across the organization, that we had to compromise by introducing an observer role.
-Observers were invited to join in the first part of the self-selection event. They could check out how the room was set up, take a peek at the participants’ cards. They could listen to initiative pitches for all teams, without making an actual selection.
-Observers were asked to leave after the break and before the start of actual teams’ selection.&lt;/p&gt;
-
-&lt;h3 id=&quot;3-work-with-your-key-partners&quot;&gt;3. Work with Your Key Partners&lt;/h3&gt;
-
-&lt;h4 id=&quot;adjust-the-process-to-fit-your-needs&quot;&gt;Adjust the process to fit your needs&lt;/h4&gt;
-
-&lt;p&gt;During our prep work we discovered that some team members felt very apprehensive about self-selection processes. To some extent, it reminded them of a negative experience they had in their childhood with a selection into sports teams.  We collaborated with current teams’ Trifectas to reduce potential discomfort with the following adjustments:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/NhTu2Vs.jpg&quot; align=&quot;right&quot; width=&quot;180&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;We modified the “I have no squad” poster into “Available to help” poster for a more positive spin.&lt;/li&gt;
-  &lt;li&gt;We made a compromise on consultants’ participation, asking them to add their cards to “I am available to help” poster in the first round and letting them participate equally starting from the second round.&lt;/li&gt;
-  &lt;li&gt;We introduced a “No first come first serve” rule to keep the options open for everyone and avoid informal pre-selection.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;product-managers-and-tech-leads-pitches&quot;&gt;Product Managers and Tech Leads pitches.&lt;/h4&gt;
-
-&lt;p&gt;Coach them to inspire people with their short pitches about a product vision and a technology stack:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Why is this initiative important to our business?&lt;/li&gt;
-  &lt;li&gt;How can you make a difference if you join?&lt;/li&gt;
-  &lt;li&gt;What exciting technologies will you get a chance to work with if you become a part of this team?&lt;/li&gt;
-  &lt;li&gt;What kind of team are we looking to build?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/VPruZcp.jpg&quot; align=&quot;right&quot; width=&quot;180&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;establish-the-team-formula&quot;&gt;Establish the team formula&lt;/h4&gt;
-
-&lt;p&gt;This part is really critical.&lt;/p&gt;
-
-&lt;p&gt;Your team formula may include the core team only, or like in our case, include members from the larger project community (Infrastructure Engineers, UX Designers etc.)
-As a facilitator, you want to understand very well the needs of each project in terms of specific roles and the number of people required for each role. Cross-check the total number of people based on the team formula with the number of people invited to participate in the self-selection. Avoid putting people into “musical chairs” at all cost!&lt;/p&gt;
-
-&lt;h3 id=&quot;4-evangelize&quot;&gt;4. Evangelize&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/MG8zRri.png&quot; align=&quot;right&quot; width=&quot;300&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Take the uncertainty out of the self-selection! Clarify questions, address concerns, play the “what-ifs”, collect questions and make answers available to everyone.&lt;/p&gt;
-
-&lt;p&gt;We learnt to use a variety of channels to spread the word about the self-selection:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;announcements at Tech All-hands meetings&lt;/li&gt;
-  &lt;li&gt;dedicated Q&amp;amp;A sessions with each existing group.&lt;/li&gt;
-  &lt;li&gt;Confluence Q&amp;amp;A page&lt;/li&gt;
-  &lt;li&gt;#self-selection Slack channel&lt;/li&gt;
-  &lt;li&gt;formal and informal one-on-one conversations (including hallway and elevator chats)&lt;/li&gt;
-  &lt;li&gt;discussion between the Tech Leads and Product Managers and their potential team members&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;5-prepare&quot;&gt;5. Prepare&lt;/h3&gt;
-&lt;h4 id=&quot;space&quot;&gt;Space&lt;/h4&gt;
-
-&lt;p&gt;It was important for us to find the right space and set the right mood for the actual self-selection event.
-The space that worked for us met all of our criteria:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/M0tzdmN.jpg&quot; align=&quot;right&quot; width=&quot;300&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;1) Appropriate for the size of the group
-2) Natural light
-3) Separate space for pitches and for team posters
-4) Away from the usual team spaces (to minimize distractions)&lt;/p&gt;
-
-&lt;h4 id=&quot;food&quot;&gt;Food&lt;/h4&gt;
-
-&lt;p&gt;Speaking of the right mood, we had enough good snacks brought in for all participants and observers!&lt;/p&gt;
-
-&lt;p&gt;Depending on the time of the day, you may plan on bringing breakfast, lunch or snacks into your self-selection event. 
-We ran ours in the afternoon and brought in a selection of European chocolate, popcorn and juices.&lt;/p&gt;
-
-&lt;h4 id=&quot;posters&quot;&gt;Posters&lt;/h4&gt;
-
-&lt;p&gt;Help the participants remember the rules and find the team corners by preparing posters. Be creative, make them visually appealing. Here is what worked for us:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/P585DPe.jpg?1&quot; align=&quot;right&quot; width=&quot;300&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;1) One team poster per team with the project/team name, team formula and a team mascot.&lt;/p&gt;
-
-&lt;p&gt;2) Rules posters:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;“Do what’s best for the company”&lt;/li&gt;
-  &lt;li&gt;“Equal team selection opportunity”&lt;/li&gt;
-  &lt;li&gt;“Teams have to be capable of delivering end to end”&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;3) “Available to help” poster. This is very similar to “I have no squad” poster from Sandi Mamoli’s book. However, we wanted to make the message on that poster a little bit more positive.&lt;/p&gt;
-
-&lt;h4 id=&quot;participants-cards&quot;&gt;Participants Cards&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/aXZZoaM.jpg?1&quot; align=&quot;right&quot; width=&quot;180&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;At a minimum, have a printed photo prepared for each participant and color-coded labels to indicated different roles.&lt;/p&gt;
-
-&lt;p&gt;We invested a little more time in making participants cards look like game cards and included:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;a LinkedIn photo of the participant&lt;/li&gt;
-  &lt;li&gt;their name&lt;/li&gt;
-  &lt;li&gt;a current role&lt;/li&gt;
-  &lt;li&gt;their proficiency and learning interests in the eleven team ingredients&lt;/li&gt;
-  &lt;li&gt;a space to indicate their first, second and third choices of the team (during the event).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Using our Team ingredients framework and Kahoot! survey platform we created a gamified self-assessment to collect the data for these cards.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/ubdUHcw.png&quot; align=&quot;right&quot; width=&quot;300&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Participants rated their skill levels and learning interests for each of the ingredients using the following scale:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;3 – I can teach it&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2 – I can do it&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1 – I’d like to learn it&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;0 – Don’t make me do it&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;6-run&quot;&gt;6. Run&lt;/h3&gt;
-
-&lt;p&gt;It took us exactly one month to get to this point. 
-On the day of the self-selection the group walked into the room. The product managers, tech leads and the facilitator were already there. The room was set and ready for action!&lt;/p&gt;
-
-&lt;h4 id=&quot;initiative-pitches&quot;&gt;Initiative Pitches&lt;/h4&gt;
-
-&lt;p&gt;Participants picked up their cards and settled in their chairs, prepared to hear the initiative pitches and to make their selections. This was one of the most attentive audience we’ve seen! We didn’t even have to set the rules around device usage - everyone was giving the pitches their undivided attention.&lt;/p&gt;
-
-&lt;p&gt;After a short introduction from the facilitator and a “blessing” from one of the leaders, Product Managers and Tech Leads took the stage.&lt;/p&gt;
-
-&lt;p&gt;For each initiative they presented their vision of the product, the technology stack and their perspective on the team they’d like to build. It was impressive to see how each pair worked together to answer questions and inspire people. 
-At the end of the pitches, we took a short break. It was a signal for observers to leave the room.&lt;/p&gt;
-
-&lt;h4 id=&quot;two-rounds-of-self-selection&quot;&gt;Two rounds of self-selection&lt;/h4&gt;
-
-&lt;p&gt;After the break, Product Managers and Tech Leads took their places in the team corners. We ran two rounds of self-selection, ten minutes each.&lt;/p&gt;
-
-&lt;p&gt;During the &lt;em&gt;first self-selection round&lt;/em&gt; people walked around, checked the team formula, chatted with others and placed their cards on a poster of their first choice team. Contractors and others, who didn’t want to make a selection in the first round, placed their cards on “Available to help” poster. At the end of the round, each tech lead was asked to give an update on the following:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Was the team complete after this round?&lt;/li&gt;
-  &lt;li&gt;Were there any ingredients or skills missing in the team after the first round?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/YvflUIjl.jpg&quot; align=&quot;right&quot; width=&quot;180&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;During the &lt;em&gt;second round&lt;/em&gt;, there were more conversations, more negotiations and more movement between the teams. Some people agreed to move to their second choice teams to help fill the project needs. The “Do what’s best for the company” poster served as a good reminder during this process.&lt;/p&gt;
-
-&lt;p&gt;The debrief revealed that three teams out of four had been fully formed by the end of the second round.
-The last team had more open spots still. It was decided that those will be filled later by hiring new people with the required skillset.&lt;/p&gt;
-
-&lt;p&gt;The self-selection event was completed. It was a time to celebrate and to start planning the work with the new teams.&lt;/p&gt;
-
-&lt;h3 id=&quot;7-support-new-teams&quot;&gt;7. Support New Teams&lt;/h3&gt;
-
-&lt;h4 id=&quot;transition-plan&quot;&gt;Transition Plan&lt;/h4&gt;
-
-&lt;p&gt;With the self-selection exercise, our teams formed a vision for their ideal “end state”. Afterwards, we needed to figure out how to achieve that vision.
-Tech leads worked with their new team members to figure our the systems they supported,  the projects they were involved with at that time and mapped out the transition plan.&lt;/p&gt;
-
-&lt;h4 id=&quot;team-working-agreement&quot;&gt;Team Working Agreement&lt;/h4&gt;
-
-&lt;p&gt;Once all members of the new teams were available to start, we faciliated &lt;a href=&quot;https://www.amazon.com/Liftoff-Launching-Agile-Teams-Projects/dp/097792016X&quot;&gt;Liftoff&lt;/a&gt; workshops to help them get more details on the product purpose, establish team working agreements and help the teams understand larger organizational context.&lt;/p&gt;
-
-&lt;h4 id=&quot;coachingmeasuring-happiness&quot;&gt;Coaching/Measuring Happiness&lt;/h4&gt;
-
-&lt;p&gt;Our experiment didn’t stop there. We continue checking in with the team through coaching, measuring happiness (we use gamified &lt;a href=&quot;https://play.kahoot.it/#/?quizId=6815b7d1-29ba-4d1a-a859-295a5ed91693&quot;&gt;Spotify Squad Health check&lt;/a&gt;) and facilitating regular retrospectives.&lt;/p&gt;
-
-&lt;h2 id=&quot;whats-next&quot;&gt;What’s next?&lt;/h2&gt;
-
-&lt;p&gt;As our roadmap continues to change and as we get more people joining the organization, we may consider running a self-selection again with a new group. 
-Or we may decide to move away from “large batches” of self-selection and experiment with a flow of &lt;a href=&quot;https://leanpub.com/dynamicreteaming&quot;&gt;Dynamic Reteaming&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Time will tell. One thing is clear - we will continue learning and experimenting.&lt;/p&gt;
-
-&lt;h2 id=&quot;how-can-you-learn-more&quot;&gt;How can you learn more?&lt;/h2&gt;
-
-&lt;p&gt;We hope this blog post inspired you to think about a self-selection for your teams. Still have questions after reading it? Get in touch with us, we’d love to tell you more!&lt;/p&gt;
-
-&lt;h3 id=&quot;we-are-speaking&quot;&gt;We are speaking&lt;/h3&gt;
-
-&lt;p&gt;Join our talks and workshops around the World:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://www.slideshare.net/hhfleming/the-new-work-order-team-ingredients-and-role-blending&quot;&gt;“The New Work Order” keynote&lt;/a&gt; at Future of Work by Heather Fleming, VP People Operations &amp;amp; PMO&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://qconnewyork.com/ny2017/speakers/adrian-trenaman&quot;&gt;Removing Friction In the Developer Experience&lt;/a&gt; at QConn New York by Adrian Trenaman, SVP Engineering&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://www.scrumalliance.org/sgdub&quot;&gt;Discover Your Dream Teams Through Self-Selection with a Team Ingredients Game&lt;/a&gt; at Global Scrum Gathering Dublin by Dana Pylayeva, Agile Coach&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;great-books-that-inspired-us&quot;&gt;Great books that inspired us&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Sandy Mamoli, David Mole &lt;a href=&quot;https://www.amazon.com/Creating-Great-Teams-Self-Selection-People/dp/1680501283&quot;&gt;“Creating Great Teams: How Self-Selection Lets People Excel”&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Diana Larsen, Ainsley Nies &lt;a href=&quot;https://www.amazon.com/Liftoff-Launching-Agile-Teams-Projects/dp/097792016X&quot;&gt;Liftoff: Launching Agile Teams &amp;amp; Projects&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Heidi Shetzer Helfand &lt;a href=&quot;https://leanpub.com/dynamicreteaming&quot;&gt;Dynamic Reteaming. The Art and Wisdom of Changing Teams&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Dana Pylayeva</name></author><category term="culture" /><category term="agile" /><category term="self-selection" /><category term="leadership" /><summary></summary></entry></feed>
+If your team operates by The Scrum Guide, your retrospectives likely have less than ten people in one room and last about an hour for a two-weeks Sprint.</summary></entry></feed>

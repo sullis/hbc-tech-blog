@@ -1,6 +1,36 @@
 [
     
     {
+        "title": "Sundial AWS EMR Integration",
+        "date": "JAN 16 2018",
+        "author": "Giovanni Gargiulo",
+        "category": "aws",
+        "tags": "aws data sundial",
+        "excerpt": "AWS Elastic Map Reduce on Sundial",
+        "url": "/2018-01-16-sundial-aws-emr-integration.html"
+    },
+    
+    {
+        "title": "Revitalize Gilt City's Order Processing with Serverless Architecture",
+        "date": "JAN 3 2018",
+        "author": "Liyu Ma",
+        "category": "aws",
+        "tags": "aws serverless lambda",
+        "excerpt": "Instant Vouchers Initiative",
+        "url": "/2018-01-03-instant-voucher-serverless.html"
+    },
+    
+    {
+        "title": "Presentations we love: 2017",
+        "date": "DEC 30 2017",
+        "author": "HBC Tech",
+        "category": "presentations",
+        "tags": "community conferences qcon",
+        "excerpt": "2017 was a year of growth and learning at HBC Tech. Our organization embraced new technologies and new ways of building application software.",
+        "url": "/2017-12-30-presentations-we-love.html"
+    },
+    
+    {
         "title": "Rethinking Retail: 4 Opportunities to Upgrade the Associate Experience",
         "date": "NOV 24 2017",
         "author": "Elizabeth Pizzuti",
@@ -18,6 +48,16 @@
         "tags": "open source hackathon culture",
         "excerpt": "This Friday the Gilt/HBC Digital Dublin office will be hosting the first ever Dublin Scala Spree, a day-long Scala Open Source Hackathon. The event is organized by the Dublin Scala Usergroup in cooperation with Dublin Functional Kubs and the Scala Center at EPFL in Lausanne, Switzerland.  Date &amp; Time: Friday, 15th September, 10am - 4pm  Location: Gilt/HBC Digital Office, Shelbourne Rd., Dublin 4, Ireland  Sign-Up: Please register for the event via the Dublin Scala Users Group  Organizers: Dublin Scala Meetup and Dublin Functional Kubs in cooperation with the Scala Center @ EPFL in Lausanne",
         "url": "/2017-09-11-dublin-scala-spree.html"
+    },
+    
+    {
+        "title": "Team Rookie 2017",
+        "date": "AUG 30 2017",
+        "author": "Team Rookie",
+        "category": "internship",
+        "tags": "internship web team rookie",
+        "excerpt": "Who We Are",
+        "url": "/2017-08-30-team-rookie.html"
     },
     
     {
