@@ -118,21 +118,22 @@
 			    color: $hbc-black;
 			}
 		}
-
-		//hide menu items when search opens
-		.link-list__link-item {
-		    transform: scale(0) !important;
-		}
-
-		// change color of menu icon when search is open
-		.navigation__menu-icon {
-
-	 		.bar {
-				stroke: $hbc-black;
-			}
-		}
     }
 
+	@include media('<=medium') {
+
+		&--active {
+
+			// change color of menu icon when search is open
+			.navigation__menu-icon {
+
+		 		.bar {
+					stroke: $hbc-black;
+				}
+			}
+		}
+	}
+	
 	@include media('>=medium') {
 		
 		.header-search__form {
@@ -150,6 +151,11 @@
 				.header-search__input {
 				    width: calc(100% - 30px);
 				}
+			}
+
+			//hide menu items when search opens
+			.link-list__link-item {
+			    transform: scale(0) !important;
 			}
 	    }
     }
