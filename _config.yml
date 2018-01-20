@@ -11,7 +11,7 @@ description: > # this means to ignore newlines until "baseurl:"
   We power the website and mobile experiences for Saks, 
   Saks Off Fifth, Gilt, Lord & Taylor and The Bay.
 baseurl: "/hbc-tech-blog" # the subpath of your site, e.g. blog
-url: "https://saksdirect.github.io/hbc-tech-blog" #the base hostname & protocol for your site. 
+url: "https://saksdirect.github.io" #the base hostname & protocol for your site. 
 twitter: hbcdigital
 facebook: hbcdigital
 github: hbc-tech
