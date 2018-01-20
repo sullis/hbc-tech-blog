@@ -3,10 +3,11 @@
     grid-auto-rows: 1fr;
 	grid-template-columns: minmax(20px, auto) minmax(auto, $content-width) minmax(20px, auto);
     z-index: 100;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.3);
 	position: absolute;
 	width: 100%;
     margin-bottom: 40px;
+    transition: background-color 300ms ease-out;
 
     &__inner {
     	position: relative;
@@ -30,7 +31,7 @@
 		    height: 70px;
 	        width: 75px;
 		    padding: 0 10px;
-		    z-index: 2;
+		    z-index: 20;
 
 			.hbc-tech-logo{
 			    height: 100%;
