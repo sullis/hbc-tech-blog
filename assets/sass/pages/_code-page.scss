@@ -10,7 +10,6 @@
         max-width: 100vw;
         max-height: 40vh;
         overflow: hidden;
-        align-items: center;
         @include background-gradient();
         
         .code-page__title {
@@ -18,10 +17,10 @@
             grid-row: 1 / 2;
             text-transform: uppercase;
             color: white;
-            margin: auto;
-            align-self: center;
             max-width: $content-width;
             z-index: 1;
+            margin: auto;
+            align-self: center;
         }
 
         .code-page__hero-image {
@@ -35,6 +34,7 @@
             max-width: 100%;
             overflow: hidden;
             opacity: 0.5;
+            align-self: center;
         }
     }
 
@@ -126,6 +126,14 @@
     @include media('>=large') {
         &__header {
             margin: auto;
+
+            .code-page__title {
+                margin: 40px 0;
+                justify-self: center;
+                align-self: flex-end;
+                width: $content-width;
+                @include render-type-style(headline-1, $type-styles);
+            }
         }
 
         // reveal animations
@@ -155,6 +163,7 @@
         }
     }
 
+    // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
     // old styles from code.gilt.com repo
 
     /* hide bootstrap icons (not the best solution) */
