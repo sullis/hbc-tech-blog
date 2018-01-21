@@ -29,8 +29,11 @@
 	}
 
     &__svg {
-    	height: 26px;
+    	height: 28px;
 		fill: white;
+		position: absolute;
+	    right: 50px;
+	    transition: all 250ms ease-out;
 
     	&__icon {
     		height: 100%;
@@ -88,6 +91,7 @@
 		    }
 	    }
 
+	    // async results
 	    &--active {
 		    background-color: white;
 		    height: 100vh;
@@ -97,11 +101,14 @@
 	    }
 	}
 
+	// UI: form, input, icon
     &--active {
 		background-color: rgba(255,255,255,1);
 
 		.header-search__svg {
-			fill: $hbc-black;
+			fill: $hbc-gray;
+			right: 0;
+		    height: 24px;
 		}
 
 		.header-search__results {
@@ -120,6 +127,24 @@
 		}
     }
 
+
+
+	// hide search icon when nav is open
+    @include media('<=medium') {
+
+		&--active {
+
+			.site-header__inner {
+				grid-template-columns: 75px 1fr 0px;
+			}
+
+			.navigation__menu-icon {
+		 		opacity: 0;
+		 		pointer-events: none;
+			}
+		}
+	}
+
 	@include media('<=medium') {
 
 		&--active {
@@ -136,9 +161,14 @@
 	
 	@include media('>=medium') {
 		
-		.header-search__form {
+		&__form {
 			width: 0%;
 		}
+
+		&__svg {
+	    	height: 26px;
+	    	right: 0;
+	    }
 
 	    &--active {
 		    z-index: 1;

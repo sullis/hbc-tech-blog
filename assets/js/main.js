@@ -63,18 +63,17 @@ document.addEventListener('DOMContentLoaded',function() {
 
             } else if (view === "nav") {
                 if (isNavOpen === true) {
-                    mobileMenu.className += ' ' + 'navigation--open';
+                    siteHeader.className += ' ' + 'navigation--open';
                     
                     if(isSearchOpen) { NavEvents.toggleSearch() };
 
                 } else {
                     // reset UI
-                    mobileMenu.className = 'navigation';
+                    siteHeader.className = 'site-header';
                 }
 
             } else if (view === "default") {
                 // reset for BOTH search UI and the mobile menu
-                mobileMenu.className = 'navigation';
                 searchInput.blur();
                 siteHeader.className = 'site-header';
                 // clear out prev search query
