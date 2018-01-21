@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded',function() {
             });
 
             searchInput.onblur = function(event) {
+                // delayed reset because blur event fires before mouse events.
+                // Timeout allows user to click a search link and navigate before UI reset.
                 setTimeout(NavEvents.delayedReset, 200);
             };
         },
@@ -54,30 +56,29 @@ document.addEventListener('DOMContentLoaded',function() {
                     siteHeader.className = 'site-header';
                     // clear out prev search query
                     searchInput.value = '';
-                    searchInput.placeholder = 'Search';
+                    searchInput.placeholder = ' Search';
                     searchResults.innerHTML = '';
                     searchResults.className = 'header-search__results';
                 }
 
             } else if (view === "nav") {
                 if (isNavOpen === true) {
-                    mobileMenu.className += ' ' + 'navigation--open';
+                    siteHeader.className += ' ' + 'navigation--open';
                     
                     if(isSearchOpen) { NavEvents.toggleSearch() };
 
                 } else {
                     // reset UI
-                    mobileMenu.className = 'navigation';
+                    siteHeader.className = 'site-header';
                 }
 
             } else if (view === "default") {
                 // reset for BOTH search UI and the mobile menu
-                mobileMenu.className = 'navigation';
                 searchInput.blur();
                 siteHeader.className = 'site-header';
                 // clear out prev search query
                 searchInput.value = '';
-                searchInput.placeholder = 'Search';
+                searchInput.placeholder = '';
                 searchResults.innerHTML = '';
                 searchResults.className = 'header-search__results';
 
