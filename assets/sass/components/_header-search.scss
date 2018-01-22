@@ -30,19 +30,28 @@
 
     &__svg {
     	height: 28px;
+	    width: 23px;
+    	overflow: visible !important;
 		fill: white;
 		position: absolute;
 	    right: 50px;
 	    transition: all 250ms ease-out;
 
-    	&__icon {
-    		height: 100%;
-    		width: 100%;
+    	.path {
+    		stroke: white;
+    		fill: none;
+			stroke-width: 2px;
+			stroke-linecap: round;
+			stroke-linejoin: round;
+			transition: all 250ms ease-out;
     	}
 
     	&:hover {
-    		fill: $hbc-highlight;
     		cursor: pointer;
+
+		    .path {
+	    		stroke: $hbc-highlight;
+	    	}
     	}
     }
 
@@ -106,9 +115,30 @@
 		background-color: rgba(255,255,255,1);
 
 		.header-search__svg {
-			fill: $hbc-gray;
 			right: 0;
-		    height: 24px;
+
+		    .path {
+	    		stroke: $hbc-gray;
+
+	    		&--left-half {
+	    			d: path("M3.5 3.5L11.575 11.699 20.26 20.516");
+	    		}
+	    		
+	    		&--right-half {
+	    			d: path("M20.26 3.256L11.848 11.797 3.5 20.272");
+	    		}
+	    		
+	    		&--handle {
+	    			display: none;
+	    		}
+	    	}
+
+    		&:hover {
+
+			    .path {
+		    		stroke: $hbc-highlight;
+		    	}
+	    	}
 		}
 
 		.header-search__results {
@@ -167,6 +197,7 @@
 
 		&__svg {
 	    	height: 26px;
+		    width: 28px;
 	    	right: 0;
 	    }
 
@@ -175,8 +206,8 @@
 
 			.header-search__form {
 				position: absolute;
-		        right: 60px;
-			    width: calc(100% - 165px);
+		        right: 5px;
+			    width: calc(100% - 100px);
 	    
 				.header-search__input {
 				    width: calc(100% - 30px);
