@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded',function() {
                     siteHeader.className = 'site-header';
                     // clear out prev search query
                     searchInput.value = '';
+                    searchInput.setAttribute("style", "");
                     searchInput.placeholder = ' Search';
                     searchResults.innerHTML = '';
                     searchResults.className = 'header-search__results';
