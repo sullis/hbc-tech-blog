@@ -34,7 +34,7 @@
     	overflow: visible !important;
 		fill: white;
 		position: absolute;
-	    right: 50px;
+	    right: 60px;
 	    transition: all 250ms ease-out;
 
     	.path {
@@ -44,14 +44,11 @@
 			stroke-linecap: round;
 			stroke-linejoin: round;
 			transition: all 250ms ease-out;
-    	}
-
-    	&:hover {
-    		cursor: pointer;
-
-		    .path {
-	    		stroke: $hbc-highlight;
-	    	}
+	    		
+    		&--cross-1,
+    		&--cross-2 {
+    			display: none;
+    		}
     	}
     }
 
@@ -117,27 +114,31 @@
 		.header-search__svg {
 			right: 0;
 
+			// originally i broke up the paths so we could animate the path data,
+			// but ran out of steam to get it working. It's either a lack of browser support,
+			// or i didn't have to same number of points in both paths (from and to).
 		    .path {
 	    		stroke: $hbc-gray;
 
 	    		&--left-half {
-	    			d: path("M3.5 3.5L11.575 11.699 20.26 20.516");
+	    			display: none;
+	    			// d: path("M3.5 3.5L11.575 11.699 20.26 20.516");
 	    		}
 	    		
 	    		&--right-half {
-	    			d: path("M20.26 3.256L11.848 11.797 3.5 20.272");
+	    			display: none;
+	    			// d: path("M20.26 3.256L11.848 11.797 3.5 20.272");
 	    		}
 	    		
 	    		&--handle {
 	    			display: none;
 	    		}
-	    	}
 
-    		&:hover {
-
-			    .path {
-		    		stroke: $hbc-highlight;
-		    	}
+	    		
+	    		&--cross-1,
+	    		&--cross-2 {
+	    			display: inline-block;
+	    		}
 	    	}
 		}
 
@@ -199,6 +200,14 @@
 	    	height: 26px;
 		    width: 28px;
 	    	right: 0;
+
+	    	&:hover {
+	    		cursor: pointer;
+
+			    .path {
+		    		stroke: $hbc-highlight;
+		    	}
+	    	}
 	    }
 
 	    &--active {

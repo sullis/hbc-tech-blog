@@ -147,8 +147,9 @@
 	&__perks {
 		max-width: 90vw;
 		margin: auto;
+		justify-self: center;
 		display: grid;
-		grid-template-columns: auto auto;
+		grid-template-columns: 1fr 1fr;
 		grid-template-rows: minmax(40px, 1fr);
 		grid-gap: 20px;
 
