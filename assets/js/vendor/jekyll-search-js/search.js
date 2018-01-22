@@ -23,6 +23,7 @@ class jekyllSearch {
     }
 
     async displayResults(event) {
+        this.searchField.setAttribute("style", "z-index: 150; width: calc(100% - 10px)");
         const results = await this.findResults();
         const html = results.map(item => {
             return `

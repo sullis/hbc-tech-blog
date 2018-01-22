@@ -36,6 +36,7 @@
 		position: absolute;
 	    right: 60px;
 	    transition: all 250ms ease-out;
+	    z-index: 151;
 
     	.path {
     		stroke: white;
@@ -134,7 +135,6 @@
 	    			display: none;
 	    		}
 
-	    		
 	    		&--cross-1,
 	    		&--cross-2 {
 	    			display: inline-block;
