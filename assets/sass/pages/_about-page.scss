@@ -46,7 +46,7 @@
 		height: 40vh;
 		max-height: 160px;
 		max-width: 800px;
-		margin: 100px auto;
+		margin: 50px auto;
 		animation-delay: 0.3s;
 
 		&__text {
@@ -226,6 +226,10 @@
 			.about-page__hero-image {
 				height: auto;
 			}
+		}
+
+		&__intro {
+			margin: 100px auto;
 		}
 
 		&__photo-grid {
