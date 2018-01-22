@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded',function() {
         init: function() {
 
             const headerSearch = new jekyllSearch(
-                '../../search.json',
+                'https://saksdirect.github.io/hbc-tech-blog/search.json',
                 '#header-search-input',
                 '#header-search__results'
             );
