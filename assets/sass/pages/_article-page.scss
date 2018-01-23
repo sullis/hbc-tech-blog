@@ -326,7 +326,7 @@
 			opacity: 0;
 
 			&--reveal {
-				animation-name: reveal-article;
+				animation-name: fade-in-and-up;
 				animation-duration: 0.6s;
 				animation-timing-function: cubic-bezier(0.000, 0.980, 0.655, 0.995); 
 				animation-direction: normal;

@@ -97,6 +97,14 @@
 					}
 				}
 
+				.meta__author-link {
+					color: $hbc-white;
+
+					&:hover {
+						color: $hbc-highlight;
+					}
+				}
+
 				.meta__author-job-title {
 					display: none;
 				}
@@ -341,6 +349,15 @@
 	@include media('>large') {
 
 		&__featured {
+
+			&--reveal {
+				animation-name: fade-in-and-up;
+				animation-duration: 0.6s;
+				animation-timing-function: cubic-bezier(0.000, 0.980, 0.655, 0.995); 
+				animation-direction: normal;
+				animation-iteration-count: 1;
+				animation-fill-mode: forwards;
+			}
 
 			.snippet {
 
