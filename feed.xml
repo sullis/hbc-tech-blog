@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.0">Jekyll</generator><link href="https://saksdirect.github.io/hbc-tech-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://saksdirect.github.io/hbc-tech-blog/" rel="alternate" type="text/html" /><updated>2018-01-22T15:44:44-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.0">Jekyll</generator><link href="https://saksdirect.github.io/hbc-tech-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://saksdirect.github.io/hbc-tech-blog/" rel="alternate" type="text/html" /><updated>2018-01-23T15:16:50-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
 </subtitle><entry><title>Sundial AWS EMR Integration</title><link href="https://saksdirect.github.io/hbc-tech-blog/2018-01-16-sundial-aws-emr-integration.html" rel="alternate" type="text/html" title="Sundial AWS EMR Integration" /><published>2018-01-16T00:00:00-05:00</published><updated>2018-01-16T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/sundial-aws-emr-integration</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2018-01-16-sundial-aws-emr-integration.html">&lt;h1 id=&quot;aws-elastic-map-reduce-on-sundial&quot;&gt;AWS Elastic Map Reduce on Sundial&lt;/h1&gt;
 
 &lt;p&gt;Today I want to talk about a recent improvement we implemented in &lt;a href=&quot;https://github.com/gilt/sundial&quot;&gt;Sundial&lt;/a&gt;, an Open Source product launched by Gilt in early 2016. With &lt;a href=&quot;https://github.com/gilt/sundial/releases/tag/v2.0.0&quot;&gt;Sundial 2.0.0&lt;/a&gt; it’s now possible to schedule AWS Elastic Map Reduce jobs.&lt;/p&gt;
@@ -437,7 +437,7 @@ Jobs running on dynamic cluster are affected by the same issue. We’ve managed 
 &lt;h2 id=&quot;streaming-microservices-contracts--compatibility&quot;&gt;Streaming Microservices: Contracts &amp;amp; Compatibility&lt;/h2&gt;
 &lt;p&gt;Gwen Shapira (&lt;a href=&quot;https://twitter.com/gwenshap&quot;&gt;@gwenshap&lt;/a&gt;) at QCon New York 2017&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://www.infoq.com/presentations/contracts-streaming-microservices&quot;&gt;&lt;img src=&quot;/assets/images/presentations-we-love-2017/gwen-shapira-contracts-and-compatibility-480.png&quot; alt=&quot;contracts-streaming-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.infoq.com/presentations/contracts-streaming-microservices&quot;&gt;&lt;img src=&quot;./assets/images/presentations-we-love-2017/gwen-shapira-contracts-and-compatibility-480.png&quot; alt=&quot;contracts-streaming-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;spinnaker-and-the-culture-behind-the-tech&quot;&gt;Spinnaker and the Culture Behind the Tech&lt;/h2&gt;
 &lt;p&gt;Dianne Marsh (&lt;a href=&quot;https://twitter.com/dmarsh&quot;&gt;@dmarsh&lt;/a&gt;) at KubeCon 2017&lt;/p&gt;
@@ -462,7 +462,7 @@ Jobs running on dynamic cluster are affected by the same issue. We’ve managed 
 &lt;h2 id=&quot;apibuilder&quot;&gt;apibuilder&lt;/h2&gt;
 &lt;p&gt;Sean Sullivan (&lt;a href=&quot;https://twitter.com/tinyrobots&quot;&gt;@tinyrobots&lt;/a&gt;) at Scala Up North 2017&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/sullis/api-builder-scala-up-north-2017&quot;&gt;&lt;img src=&quot;/assets/images/presentations-we-love-2017/sean-sullivan-apibuilder-july-2017-480.png&quot; alt=&quot;apibuilder-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/sullis/api-builder-scala-up-north-2017&quot;&gt;&lt;img src=&quot;./assets/images/presentations-we-love-2017/sean-sullivan-apibuilder-july-2017-480.png&quot; alt=&quot;apibuilder-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;managing-data-in-microservices&quot;&gt;Managing Data in Microservices&lt;/h2&gt;
 &lt;p&gt;Randy Shoup (&lt;a href=&quot;https://twitter.com/randyshoup&quot;&gt;@randyshoup&lt;/a&gt;) at QCon New York 2017&lt;/p&gt;
@@ -477,12 +477,12 @@ Jobs running on dynamic cluster are affected by the same issue. We’ve managed 
 &lt;h2 id=&quot;gilts-ios-codebase-evolution&quot;&gt;Gilt’s iOS codebase evolution&lt;/h2&gt;
 &lt;p&gt;Evan Maloney (&lt;a href=&quot;https://twitter.com/_emaloney_&quot;&gt;@_emaloney_&lt;/a&gt;) at the Brooklyn Swift Developers Meetup&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://vimeo.com/217236459&quot;&gt;&lt;img src=&quot;/assets/images/presentations-we-love-2017/evan-maloney-ios-swift-gilt-2017-480.png&quot; alt=&quot;evan-maloney-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://vimeo.com/217236459&quot;&gt;&lt;img src=&quot;./assets/images/presentations-we-love-2017/evan-maloney-ios-swift-gilt-2017-480.png&quot; alt=&quot;evan-maloney-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;apache-struts-and-the-equifax-data-breach&quot;&gt;Apache Struts and the Equifax Data Breach&lt;/h2&gt;
 &lt;p&gt;Sean Sullivan (&lt;a href=&quot;https://twitter.com/tinyrobots&quot;&gt;@tinyrobots&lt;/a&gt;) at the Portland Java User Group&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/sullis/apache-struts-and-the-equifax-data-breach&quot;&gt;&lt;img src=&quot;/assets/images/presentations-we-love-2017/sean-sullivan-struts-and-equifax-october-2017-480.png&quot; alt=&quot;struts-equifax-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/sullis/apache-struts-and-the-equifax-data-breach&quot;&gt;&lt;img src=&quot;./assets/images/presentations-we-love-2017/sean-sullivan-struts-and-equifax-october-2017-480.png&quot; alt=&quot;struts-equifax-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;promcon-2017&quot;&gt;Promcon 2017&lt;/h2&gt;
 &lt;p&gt;Giovanni Gargiulo (&lt;a href=&quot;https://twitter.com/giannigar&quot;&gt;@giannigar&lt;/a&gt;) at Promcon 2017 (Munich)&lt;/p&gt;
