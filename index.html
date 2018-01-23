@@ -78,7 +78,7 @@ layout:
             <!-- page 1 template -->
             <!-- display the 1st article in a big way-->
             {% for post in paginator.posts limit:1 %}
-            <section class="article-listing__featured">
+            <section class="article-listing__featured article-listing__featured--reveal">
                 {% include article-snippet.html excerpt=false featureImage=true %}
             </section>
             {% endfor %}
