@@ -84,7 +84,7 @@ Save your your bio as `firstName-lastName.html` using hyphen for spaces. Follow 
 ---
 name: Your Name
 job-title: ~
-mini-bio: > # 280 character limit, no html, no quotes, no line breaks, just one big string of 280 characters or less.
+mini-bio: > # 280 character limit! No html, no quotes, no line breaks, just one big string of 280 characters or less.
   Start your bio here. Note this line is indented 2 spaces. If it's not, the yaml parser breaks.
 
 # list one or multiple
