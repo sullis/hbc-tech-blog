@@ -45,6 +45,10 @@ Follow this format to add additional images to your article. By default, all ima
 ![alt text](image url)
 ```
 
+Images can be added in a couple ways;
+1. locally hosted: can be added to this repo under `assets/images/`. In this case the URL for your image would be `./assets/images/[folder-named-to-match-your-post]/your-image.jpg`.
+2. Remotely hosted: use an absolute URL to your image. ie: `http://some-domain.com/fancy-image.jpg`
+
 ### Linking An Image
 Follow the example below when you want to link an image in your post.
 
