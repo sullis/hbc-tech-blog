@@ -1,1 +1,1 @@
-Sitemap: https://tech.hbc.com/hbc-tech-blog/sitemap.xml
+Sitemap: https://saksdirect.github.io/hbc-tech-blog/sitemap.xml
