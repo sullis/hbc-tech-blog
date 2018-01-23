@@ -45,25 +45,24 @@
 				@include special-text-link();
 			}
 
-			&__date,
+			&__date {
+				@include render-type-style(label-2, $type-styles);
+			}
+
 			&__author {
 				@include render-type-style(label-2, $type-styles);
+
+				&-link {
+					color: $hbc-highlight;				
+					@include render-type-style(label-2, $type-styles);
+					@include special-text-link();
+				}
+
+				&-job-title {
+					@include render-type-style(label-2, $type-styles);			
+				}
 			}
 
-			&__date {
-				font-size: 14px;
-			}
-
-			&__author-link {
-				color: $hbc-highlight;
-				
-				@include render-type-style(label-2, $type-styles);
-				@include special-text-link();
-			}
-
-			&__author-job-title {
-				@include render-type-style(label-2, $type-styles);			
-			}
 		}
 
 	}
