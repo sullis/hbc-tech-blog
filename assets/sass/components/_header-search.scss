@@ -155,6 +155,15 @@
 			    margin-right: 0px;
 			    color: $hbc-black;
 			}
+
+			.search-ui-fix {
+				z-index: 150;
+				width: calc(100% - 10px);
+				
+				@include media('>=medium') {
+					width: calc(100% - 30px);
+				}
+			}
 		}
     }
 

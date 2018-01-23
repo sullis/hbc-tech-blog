@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded',function() {
                     siteHeader.className = 'site-header';
                     // clear out prev search query
                     searchInput.value = '';
-                    searchInput.setAttribute("style", "");
+                    searchInput.className = 'header-search__input';
                     searchInput.placeholder = ' Search';
                     searchResults.innerHTML = '';
                     searchResults.className = 'header-search__results';
@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded',function() {
                 // clear out prev search query
                 searchInput.value = '';
                 searchInput.placeholder = '';
+                searchInput.className = 'header-search__input';
                 searchResults.innerHTML = '';
                 searchResults.className = 'header-search__results';
 
