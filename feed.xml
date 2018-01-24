@@ -1,5 +1,257 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.0">Jekyll</generator><link href="https://saksdirect.github.io/hbc-tech-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://saksdirect.github.io/hbc-tech-blog/" rel="alternate" type="text/html" /><updated>2018-01-23T17:17:53-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
-</subtitle><entry><title>Sundial AWS EMR Integration</title><link href="https://saksdirect.github.io/hbc-tech-blog/2018-01-16-sundial-aws-emr-integration.html" rel="alternate" type="text/html" title="Sundial AWS EMR Integration" /><published>2018-01-16T00:00:00-05:00</published><updated>2018-01-16T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/sundial-aws-emr-integration</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2018-01-16-sundial-aws-emr-integration.html">&lt;h1 id=&quot;aws-elastic-map-reduce-on-sundial&quot;&gt;AWS Elastic Map Reduce on Sundial&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.0">Jekyll</generator><link href="https://saksdirect.github.io/hbc-tech-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://saksdirect.github.io/hbc-tech-blog/" rel="alternate" type="text/html" /><updated>2018-01-24T10:52:54-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+</subtitle><entry><title>Career Structure. It doesn’t matter. Until it matters.</title><link href="https://saksdirect.github.io/hbc-tech-blog/2018-01-24-career-structure.html" rel="alternate" type="text/html" title="Career Structure. It doesn't matter. Until it matters." /><published>2018-01-24T00:00:00-05:00</published><updated>2018-01-24T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/career-structure</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2018-01-24-career-structure.html">&lt;p&gt;In this article, I’m going to talk about career structure, career development, and career titles in a tech organisation. This post is more about organisational development than it is about technology; however, on the grounds that the health of your architecture and technology choices will be somewhat isomorphic to the health of your organisation, I believe this to be a worthwhile read for any engineering leader. I’m also writing this for anyone who is considering joining HBC Tech, so that they can understand our approach, and the meaning we give to our titles.&lt;/p&gt;
+
+&lt;p&gt;I’ll cover our motivation and need for a career structure, the core principles that drove our solution, and, perhaps most importantly, our experience in transitioning to that solution in a Dunbar-sized technology organisation at HBC Tech.&lt;/p&gt;
+
+&lt;h3 id=&quot;i-dont-care-about-my-title&quot;&gt;“I don’t care about my title.”&lt;/h3&gt;
+&lt;p&gt;Titles are an amazing thing. When I joined Gilt in 2011, I didn’t care about titles; I was happy to shed my shiny ‘Distinguished Engineer’ title from IONA Technologies and join Gilt as a Senior Engineer. It was easy: the general rule was that every engineer at Gilt apart from our CTO was a Senior Engineer, and the democratic, meritocratic, startup culture obviated the need for titles.&lt;/p&gt;
+
+&lt;p&gt;However, over time something interesting happened, not quite to me directly, but to the organisation as a whole. Blips started to appear in the organisational title space - a new hire would arrive as a ‘Principal’, and peers would wonder “what does that mean?”. Or, someone would become a team lead, or Director of Engineering, which begged the question: is that higher than an Engineer, or, somehow equivalent? And then blips started attracting attention from &lt;em&gt;outside&lt;/em&gt; of our organisational radar: our team would see their peers in the industry getting promotions and fancy titles, and wonder were they somehow stagnating in their careers?&lt;/p&gt;
+
+&lt;p&gt;Organisations develop and grow over time; the tech leadership team at Gilt realised in February of 2013 that the organisation needed and wanted a clear career structure, something different from our original loose, startup-y approach. The career structure we landed on at Gilt worked well for us in the subsequent three years. More recently in 2017 we set out to create a career structure for the larger HBC Tech organisation; we wanted to design it carefully so that it would align with our cultural values and learn form our experience. We started with a few principles to guide our thoughts.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-principles&quot;&gt;The principles&lt;/h3&gt;
+
+&lt;p&gt;Here’s what we felt was important:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Meritocracy (or, you &lt;em&gt;earn&lt;/em&gt; your title)&lt;/strong&gt;: No-one is ‘entitled’ to a title: just because you’ve been here a while, doesn’t mean you qualify for a promotion. Ever. We expect you to perform at the next level for sustained period - at least six months - before you can get promoted. A good metric of your success in this regard is that your promotion should be a surprise to &lt;em&gt;nobody&lt;/em&gt;; the only surprise should be a colleague saying “Hey, I thought you were at that level already!”.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Equivalence of Individual Contributors and People Leads&lt;/strong&gt;: We feel strongly about this. We hire talented people who design and build great things, and we wanted to create a career development path that encourages development in the skill that make you great. &lt;em&gt;No one should ever feel that they have to become “a manager” to get promoted&lt;/em&gt;. Equivalence should apply to compensation, but also in day-to-day operations: for example, in our Dublin office we extended our regular “Dublin Leads Meeting” to a “Dublin Leads &amp;amp; Principals Meeting”.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;We want Leaders, not Managers&lt;/strong&gt;: When you have talented individuals, working in small autonomous well-knit teams, you don’t need to manage. We develop our leaders from within: for us, leaders are people who love their craft, but also get a real kick out of leading people: showing the way, setting direction, getting alignment, and making the team successful.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Encourage people to try leadership out, with a route back to Individual Contributor&lt;/strong&gt;: The idea of putting &lt;em&gt;yourself&lt;/em&gt; forward as a team lead is daunting for many individual contributors; some of that may be down to humility (“Why do I think I’m better equipped to lead than everyone else on my team?”), or fear of failure (“What happens if I’m just not good at this?”). Perhaps the biggest fear is the idea of losing your grasp on the skills and talents that make you great as an engineer in the first place. We wanted to create an environment where individual contributors could experiment with leadership roles, and have an avenue back to individual contributor later should they so desire. I must confess: the first time I saw a team lead return to an individual contributor engineering role and be replaced by another more junior team member as lead, I honestly thought it would never work. I was wrong. The original lead (now engineer) and new lead just got stuck in at what they were good at, and the team was great.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;With these principles in place, the question became “What kind of career structure can support this?”&lt;/p&gt;
+
+&lt;h3 id=&quot;what-do-other-organisations-do-about-career-titles&quot;&gt;What do other organisations do about career titles?&lt;/h3&gt;
+
+&lt;p&gt;We triangulated ourselves off our understanding of organisations like Netflix, Facebook and Google, and how they manage their career structures. Organisations don’t often publish their career structure; however, pulling together from a number of sources and contacts, we saw some interesting patterns:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Netflix&lt;/strong&gt;: Netflix operates a very simple structure. Ultimately, every engineer is a Senior Engineer, and there is a separate track for leadership, including Manager, Director, VP.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Google&lt;/strong&gt;: Google has a multi-tier ‘levelled’ system, with individual contributor levels ranging from &lt;em&gt;Level 1: Software Engineer I&lt;/em&gt; to &lt;em&gt;Level 10: Senior Google Fellow&lt;/em&gt;, and a parallel engineering management track that ranges from level 5 to level 10.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Facebook&lt;/strong&gt;: Facebook also has a multi-tier ‘levelled’ system. Engineers range from &lt;em&gt;Level 3 - Software Engineer&lt;/em&gt; up to a &lt;em&gt;Level 9&lt;/em&gt;, with associated &lt;em&gt;Manager&lt;/em&gt; and &lt;em&gt;Director&lt;/em&gt; roles on a parallel track above &lt;em&gt;Level 5&lt;/em&gt;. Anecdotally, once an individual elects into the management track, the intent is that they will remain in that track.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Gilt&lt;/strong&gt;: At Gilt, pre-2013 we had a structure similar to Netflix (see above!), and we found that this structure didn’t give a compelling career prospect for individual contributors in our engineering teams. Ironically, for tech team with a strong startup mentality, we looked to the industry and adopted what outwardly seems to be a fairly &lt;em&gt;traditional&lt;/em&gt; approach. Based on the &lt;a href=&quot;https://radford.aon.com/insights/articles/2015/radford-global-job-leveling&quot;&gt;Radford&lt;/a&gt; methodology, we created a career path and approach that had the following qualities:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Recognised different levels of ability, impact, contribution, scope and influence across individual contributor and leadership tracks; and,&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Encouraged folk to jump across the Individual Contributor / Leadership boundary as their career develops.&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The roll-out of the approach at Gilt was positive: it became clearer to staff who their peers were, and what ‘the next level’ really looked like. Career development discussions went from the abstract to the concrete. Perhaps the biggest result was that a generation of individual contributors, who had resisted the idea of taking on a leadership role, gave leadership a try &lt;em&gt;and discovered they were good at it&lt;/em&gt;. More-so, on our engineering teams, we developed a culture of ‘leaders-who-code’: we found that engineering leads up to the level of Director and Senior Director continued to make significant impacts in terms on engineering contributions. Result!&lt;/p&gt;
+
+&lt;h3 id=&quot;the-hbc-tech-career-path&quot;&gt;The HBC Tech Career Path&lt;/h3&gt;
+
+&lt;p&gt;After HBC acquired Gilt in 2016, the subsequent merger of the tech teams presented a challenge in terms of career paths: which career structure should we adopt, the existing HBC career structure, or, the Gilt career structure? Rather than just pick one of the existing, we took the opportunity to rethink both, and, landed on a structure loosely modelled on the ideas from Radford, Google and Gilt, as per the table below.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Level&lt;/th&gt;
+      &lt;th&gt;Individual Contributor&lt;/th&gt;
+      &lt;th&gt;Leadership&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Software Engineer I&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Software Engineer II&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;Software Engineer III&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;Senior Engineer&lt;/td&gt;
+      &lt;td&gt;Lead Engineer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;Staff Engineer&lt;/td&gt;
+      &lt;td&gt;Senior Lead Engineer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;Principal Engineer&lt;/td&gt;
+      &lt;td&gt;Director of Engineering&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;Distinguished Engineer&lt;/td&gt;
+      &lt;td&gt;Senior Director of Engineering&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;Fellow&lt;/td&gt;
+      &lt;td&gt;VP Engineering&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;SVP Engineering&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;This approach has all the qualities we were looking for: equality of levels, ability to experiment with leadership at the senior level, and supported our culture of valuing leadership and autonomy rather than management and rule.&lt;/p&gt;
+
+&lt;p&gt;For each level, we worked out key indicators of what it means to be at that level. For example:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Level of knowledge&lt;/strong&gt;: how much domain knowledge / expertise is required and expected at a particular level?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Job complexity&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Supervision&lt;/strong&gt;: how much supervision / hand-holding should we expect the individual to need at a particular level?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Experience&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Sphere of influence&lt;/strong&gt;. This is one of my favourite indicators: at early levels, the sphere of influence is really ‘self’. As we get to subsequent levels, we expect individual contributors and leads to influence their teams, department, tech, the wider organisation, and the industry &amp;amp; community.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Team size (for leads)&lt;/strong&gt;. There’s some good rules of thumb in terms of team size:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Lead Level&lt;/th&gt;
+      &lt;th&gt;Title&lt;/th&gt;
+      &lt;th&gt;Team size&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;Lead Engineer&lt;/td&gt;
+      &lt;td&gt;7 ± 2 (a pizza size team)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;Senior Lead&lt;/td&gt;
+      &lt;td&gt;10 ± 2 (a large team, or team of teams)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;Director&lt;/td&gt;
+      &lt;td&gt;20 ± 4 (a classroom-size team of teams)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;Senior Director&lt;/td&gt;
+      &lt;td&gt;25+&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;VP Engineering&lt;/td&gt;
+      &lt;td&gt;~80 (e.g. an engineering site / office)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;SVP Engineering&lt;/td&gt;
+      &lt;td&gt;~150 (a Dunbar)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Accountability&lt;/strong&gt;: what are the systems that you own / are responsible for. How critical are they to the business?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;One big learning is that these indicators are only &lt;em&gt;guidelines&lt;/em&gt;. I dislike the idea of career advancement being a box-ticking exercise: there is a qualitative judgement that we as leaders need to apply, and sometimes a candidate’s excellence in one area may make up for a deficiency in another, or, make up for organisational blockers. For example, we once had a Director of Engineering with a small team of four or five reports; you could argue that this Director didn’t have a large enough team to warrant the title. However, when we considered his technical ability, the scope of the role, the level of accountability, and, the fact that we would most likely never have a classroom size team in this area, we felt great about promoting.&lt;/p&gt;
+
+&lt;p&gt;Qualitative judgement of levels is, of course, hard. One idea we found helpful was to look at &lt;em&gt;peer groups&lt;/em&gt;, to ensure that staff at the same level are in the same peer group. If we find that a member of staff ended up grouped with other members who seem at a different level, we re-examine the case to make sure our evaluation has been correct and fair.&lt;/p&gt;
+
+&lt;h3 id=&quot;rolling-out-a-career-path&quot;&gt;Rolling out a Career Path&lt;/h3&gt;
+
+&lt;p&gt;With our new career path in place we then had to figure out how to roll it out. Ultimately, rolling out a new career structure means you may be changing your people’s titles: we want to make sure that we did that in a sensitive and proactive way. For example: if someone’s existing title is ‘Software Engineer’, then the question is what level are they in the new system (I, II, III)? How will someone feel if they think they’re a III, but we think they’re a II?&lt;/p&gt;
+
+&lt;p&gt;We settled on a couple of core ideas to help us make a smooth transition:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;There are no salary or bonus adjustments as part of transitioning to the new structure. No one gets a pay cut, no one gets a pay rise: the focus is on getting the track and level right.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We apply the level &lt;em&gt;as is&lt;/em&gt;: there are &lt;em&gt;no&lt;/em&gt; promotions as part of the levelling. We didn’t want to use this exercise as a way for folk to canvas for a promotion.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We involved each individual in the selection of their level, through 1:1s with their current directors and leads. At the end of the exercise, everyone knows their level (1-9) and track (Individual Contributor / Lead), and has been part of the process.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Individuals can adopt their new title publicly if they wish, or retain their current title. Whatever about our internal career titles, we didn’t feel it was right to force people to change their LinkedIn profiles!&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Everyone gets evaluated at their level and track going forward. This is a nice feedback loop back to having individuals involved in the selection of their role! Sure, maybe you did persuade your lead that you’re a Software Engineer III: if so, then you’ll be evaluated against your peers… you better be up to it :)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So then, we began the roll out! With a Dunbar-sized subset of the organisation we formulated a simple plan:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Communicate: let everyone know what’s going on! You really can’t communicate enough on these things: despite your best intentions, there will always be someone who “didn’t get the memo” or wasn’t there when you talked about it at an All Hands meeting. Communicate often across multiple channels, and be mindful of people who may not have missed out.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Educate: after the initial communications, we moved to educate our folk in groups of about 20, with a one-hour walkthrough of the career path, where it came from, why it’s important, and backed up with all the materials. This is a nice ‘classroom’ size: big enough to scale the communications, but small enough that folk feel comfortable  talking about the issues, and asking questions.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Get personal: after the education sessions, we ran our 1:1s with folk to settle levels.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Close the loop with HR! In almost every organisation I’ve ever worked for, the system HR uses to store titles and levels has been different from the spreadsheet I’ve been working off. It’s crazy after all this levelling work to think that six months later someone might get an official letter with the &lt;em&gt;wrong title&lt;/em&gt;! As a general rule in life, it’s always good to &lt;em&gt;hammer the nail all the way in&lt;/em&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;its-nice-to-have-a-title-so-then-you-dont-have-to-care-about-it-any-more&quot;&gt;“It’s nice to have a title, so then you don’t have to care about it any more.”&lt;/h3&gt;
+
+&lt;p&gt;The irony of &lt;em&gt;all&lt;/em&gt; of this is that, really, still, I don’t care much about titles! When I was a tech consultant in a previous job we always had this saying: “You’re only ever as good as your last gig.” Likewise, when it comes to titles, there’s no resting on your laurels, proudly shining and polishing your trophy title: you must deliver, every day, for your team and for the organisation. That said, there are a couple of real benefits that we’ve seen from this work:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Having clarity on titles means that any fear, uncertainty, envy, distrust related to previous title confusion is now gone. Everyone knows where they are, and can just get down to work.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Career development conversations just got a whole lot more interesting. Now we can have meaningful conversations with our staff on where they are, where they want to go, and, how they can get there.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;One final piece of advice: title systems and career paths are frameworks that exist to help us; they’re a tool that should enable us, not restrict us or box us in. While we have leaders-who-code (e.g. directors of engineering optimising our caching architecture), we also have coders-who-lead on some of our teams (e.g. principal engineers leading teams working on a technical area like ElasticSearch); and, this is as it should be. We flex the framework to our needs. And, if we find that this framework breaks, we’ll fix it, and perhaps write another post to let you know what we learnt.&lt;/p&gt;</content><author><name>Adrian Trenaman</name></author><category term="culture" /><category term="career path" /><category term="titles" /><summary>In this article, I’m going to talk about career structure, career development, and career titles in a tech organisation. This post is more about organisational development than it is about technology; however, on the grounds that the health of your architecture and technology choices will be somewhat isomorphic to the health of your organisation, I believe this to be a worthwhile read for any engineering leader. I’m also writing this for anyone who is considering joining HBC Tech, so that they can understand our approach, and the meaning we give to our titles.</summary></entry><entry><title>Sundial AWS EMR Integration</title><link href="https://saksdirect.github.io/hbc-tech-blog/2018-01-16-sundial-aws-emr-integration.html" rel="alternate" type="text/html" title="Sundial AWS EMR Integration" /><published>2018-01-16T00:00:00-05:00</published><updated>2018-01-16T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/sundial-aws-emr-integration</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2018-01-16-sundial-aws-emr-integration.html">&lt;h1 id=&quot;aws-elastic-map-reduce-on-sundial&quot;&gt;AWS Elastic Map Reduce on Sundial&lt;/h1&gt;
 
 &lt;p&gt;Today I want to talk about a recent improvement we implemented in &lt;a href=&quot;https://github.com/gilt/sundial&quot;&gt;Sundial&lt;/a&gt;, an Open Source product launched by Gilt in early 2016. With &lt;a href=&quot;https://github.com/gilt/sundial/releases/tag/v2.0.0&quot;&gt;Sundial 2.0.0&lt;/a&gt; it’s now possible to schedule AWS Elastic Map Reduce jobs.&lt;/p&gt;
 
@@ -928,175 +1180,4 @@ operation point.&lt;/p&gt;
 
 &lt;p&gt;We’ll be working to roll out to more and more categories, and even do
 some cross category elements, perhaps completing outfits based on
-their visual compatibility.&lt;/p&gt;</content><author><name>Chris Curro</name></author><category term="machine learning" /><category term="deep learning" /><category term="personalization" /><category term="recommendation" /><summary></summary></entry><entry><title>How Large Is YOUR Retrospective?</title><link href="https://saksdirect.github.io/hbc-tech-blog/2017-07-27-large-scale-retro.html" rel="alternate" type="text/html" title="How Large Is YOUR Retrospective?" /><published>2017-07-27T00:00:00-05:00</published><updated>2017-07-27T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/large-scale-retro</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2017-07-27-large-scale-retro.html">&lt;p&gt;Can you recall the size and length of your typical retrospective?
-If your team operates by &lt;a href=&quot;http://www.scrumguides.org/docs/scrumguide/v2016/2016-Scrum-Guide-US.pdf&quot;&gt;The Scrum Guide&lt;/a&gt;, your retrospectives likely have less than ten people in one room and last about an hour for a two-weeks Sprint.&lt;/p&gt;
-
-&lt;p&gt;What if your current team is larger than a typical Scrum team and a retrospective period is longer than a month? What if the team members are distributed across locations, countries, time zones and multiple third party vendors? Is this retrospective doomed to fail? Not quite.
-These factors just add an additional complexity and call for a different facilitation approach.&lt;/p&gt;
-
-&lt;p&gt;Last month at HBC we facilitated a large-scale mid-project retrospective for a 60 people-project team. While this project certainly didn’t start as an agile project, bringing in an agile retrospective practice helped identify significant improvements. 
-Here is how we did it.&lt;/p&gt;
-
-&lt;h1 id=&quot;from-inquiry-to-buy-in&quot;&gt;From Inquiry to Buy-in&lt;/h1&gt;
-
-&lt;p&gt;This all started with one of the project sub-teams reaching out with an inquiry: “Can you facilitate a retrospective for us?”
-That didn’t sound like anything major. We’ve been advocating for and facilitating retrospectives on various occasions at HBC: regular Sprint retrospectives, process retrospectives, new hire onboarding retrospectives etc.&lt;/p&gt;
-
-&lt;p&gt;Further digging into a list of participants revealed that this retro would be unlike any others. We were about to pull together a group of 60 people from HBC and five consulting companies(!) In spite of working on the same project for a long time, these people never had a chance to step back and reflect on how they could work together differently.&lt;/p&gt;
-
-&lt;p&gt;In order to make it successful, we needed buy-in from the leadership team to bring the entire team (including consultants) into the retrospective. Our first intent was to bring everyone into the same space (physical and virtual) and facilitate a retrospective with &lt;a href=&quot;https://en.wikipedia.org/wiki/Open_Space_Technology&quot;&gt;Open Space Technology&lt;/a&gt;.
-Initial response wasn’t promising:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“We have another problem with this retro
-[…] is concerned that it is all day and that the cost of doing this meeting is like $25K-$50K”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;We had to go back and re-think the retrospective approach. How can we reduce the cost of this event without affecting the depth and breadth of the insights?&lt;/p&gt;
-
-&lt;h1 id=&quot;options-we-considered&quot;&gt;Options we considered&lt;/h1&gt;
-
-&lt;p&gt;Thanks to the well-documented large retrospectives experiments by other agile practitioners, there was a number of options to evaluate:&lt;/p&gt;
-
-&lt;p&gt;1)	&lt;a href=&quot;http://joakimsunden.com/2013/01/running-big-retrospectives-at-spotify/&quot;&gt;Full project team, full day, face-to-face, Open Space-style retro&lt;/a&gt;
-2)	&lt;a href=&quot;https://labs.spotify.com/2015/11/05/large-scale-retros/&quot;&gt;Decentralized, themes-based retros with learnings collected over a period of time and shared with the group&lt;/a&gt;
-3)	&lt;a href=&quot;http://www.innovationgames.com/2014/06/how-to-run-huge-retrospectives/&quot;&gt;Decentralized retrospectives using Innovation Games Online platform&lt;/a&gt;
-4)	&lt;a href=&quot;https://less.works/less/framework/overall-retrospective.html&quot;&gt;Overall retrospective (LeSS framework)&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Around the same time, I was fortunate to join a Retrospective Facilitator’s Gathering (RFG2017) - an annual event that brought together the most experienced retrospective facilitators from around the World. Learning from their experience as well as brainstorming together on the possible format was really helpful. Thank you Tobias Baier, Allan Jepsen, Joanne Perold, George Dinwiddie and many others for sharing your insights! I was especially grateful for the in-depth conversation with Diana Larsen in which she pointed out to&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“Clarify the goal and commitment of the key stakeholders before you start designing how to run the retrospective.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Back to the drawing board again! More conversations, clarifications and convincing… 
-With some modifications and adjustments, we finally were able to get the buy-in and moved forward with the retrospective.&lt;/p&gt;
-
-&lt;h1 id=&quot;what-worked-for-us--a-tiered-format&quot;&gt;What worked for us – a tiered format.&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/35i1f82h.png&quot; alt=&quot;Tiered Retro&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;individual-team-level-retrospectives&quot;&gt;Individual team-level retrospectives&lt;/h2&gt;
-
-&lt;p&gt;We had a mix of co-located and distributed sub-teams on this project and chose to enlist some help from multiple facilitators. To simplify data consolidation, each facilitator received a data gathering format along with a sample retrospective facilitation plan. Each individual sub-team was asked to identify two types of action items: ones that they felt were in their power to address and others that required a system-level thinking and the support from the larger project community. The former were selected by the sub-teams and put in motion by their respective owners. The latter were passed to the main facilitator for analysis and aggregation to serve as a starting point for the final retrospective.&lt;/p&gt;
-
-&lt;h2 id=&quot;final-retrospective&quot;&gt;Final retrospective&lt;/h2&gt;
-
-&lt;p&gt;For the final retrospective we brought together two types of participants:&lt;/p&gt;
-
-&lt;p&gt;1) Leads and delegates from individual sub-teams who participated actively at all times.
-2) Senior leaders of the organization who joined in the last hour to review and support team’s recommendations.&lt;/p&gt;
-
-&lt;p&gt;The goal of this workshop was to review the ideas from sub-teams, explore system level improvements and get the support from senior leadership to put the system-level changes into motion.&lt;/p&gt;
-
-&lt;h2 id=&quot;retrospective-plans&quot;&gt;Retrospective plans&lt;/h2&gt;
-
-&lt;p&gt;Each retrospective was structured according to the &lt;a href=&quot;https://www.amazon.com/Agile-Retrospectives-Making-Teams-Great/dp/0977616649&quot;&gt;classic five-steps framework&lt;/a&gt; and included a number of activities selected from &lt;a href=&quot;https://plans-for-retrospectives.com/en/&quot;&gt;Retromat&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;example-of-an-in-room-sub-team-retrospective-1---15-hours&quot;&gt;Example of an in-room sub-team retrospective (1 - 1.5 hours)&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Set the Stage&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;We used a happiness histogram to get things started and get a sense for how the people felt about the overall project.
-&lt;img src=&quot;http://i.imgur.com/iJMp2W5m.jpg&quot; alt=&quot;Happiness Histogram&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Instead of reading the &lt;a href=&quot;http://www.retrospectives.com/pages/retroPrimeDirective.html&quot;&gt;Prime Directive&lt;/a&gt; once at the beginning with the team, we opted for displaying it in the room on a large poster as a visible reminder throughout the retrospective.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Gather Data&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Everyone was instructed to think about the things they liked about the project (&lt;strong&gt;What worked well?&lt;/strong&gt;) and the ones that could’ve been better (&lt;strong&gt;What didn’t work so well?&lt;/strong&gt;). In a short time-boxed silent brainstorming each team member had to come up with at least two items in each category.&lt;/p&gt;
-
-&lt;p&gt;Next we facilitated a pair-share activity in a “speed dating” format. Forming two lines, we asked participants to face each other and take turns discussing what each of them wrote on their post-its. After two minutes the partners were switched and the new pairs were formed to continue discussions with the new set of people.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/juJpgPwm.jpg&quot; alt=&quot;Pair Share&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;At the end of the timebox, we asked the last pairs to walk together to the four posters on the wall and place their post-its into respective categories: 
-1) Worked Well/ Can’t control 
-2) Worked Well/Can control
-3) Didn’t work so well/Can’t control
-4) Didn’t work so well/ Can control&lt;/p&gt;
-
-&lt;p&gt;After performing an affinity mapping and a dot-voting the group selected top three issues that they felt were in their control to address.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Generate Insights/Decide What To Do&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Every selected issue got picked up by a self-organized sub-group. Using a template each sub-group designed a team level experiment defining the action they propose to take, an observable behavior they expect to see after taking that action and the specific measurement that will confirm a success of the experiment.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/LhY2tFlm.jpg&quot; alt=&quot;Experiment&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Close the Retro&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;We closed the retro by getting a feedback on the retro format, taking photos of the insights generated by the team.
-These were passed on to the main facilitator for further analysis and preparation for the final retrospective event.&lt;/p&gt;
-
-&lt;h3 id=&quot;modifications-for-distributed-teams&quot;&gt;Modifications for distributed teams&lt;/h3&gt;
-
-&lt;p&gt;For those teams that had remote team members or were fully distributed, we used a &lt;a href=&quot;http://funretro.github.io/distributed/&quot;&gt;FunRetro&lt;/a&gt; tool. Flexibility to configure columns and the number of votes, along with easy user interface, fun colors and free cost made this tool a good substitute for an in-room retrospective.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/zg77ljGl.png&quot; alt=&quot;Fun Retro&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;final-retrospective-3-hours&quot;&gt;Final Retrospective (3 hours)&lt;/h2&gt;
-
-&lt;p&gt;Once all individual sub-teams retrospective were completed, we consolidated the project-level improvement proposals. These insights were reviewed, analyzed for trends and systemic issues and then shared during Tier 2 Final Retrospective.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Set the stage&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;We used &lt;a href=&quot;https://www.storycubes.com&quot;&gt;story cubes&lt;/a&gt; to reflect and share how each of the participants felt about this project. This is a fun way to run a check in activity, equally effective with introverted and extraverted participants. The result is a collection of images that build a shared story about the project:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/72rTEPTm.jpg&quot; alt=&quot;Story Cubes&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;We also reviewed an aggregated happiness histogram from each individual sub-teams to learn about the mood of 60 people on this project.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Gather data&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Since the retrospective period was very long, building a timeline together was really helpful in re-constructing the full view of the project. We asked participants to sort the events into the ones that had a positive impact on the project (placing them above the timeline) and the ones that had a negative impact on the project (placing them below the timeline). The insight we gained from this exercise alone were invaluable!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/qLQC7WIh.jpg&quot; alt=&quot;Timeline&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Generate Insights&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Next we paired the participants and asked them to walk to the consolidated recommendations posters. As a pair, they were tasked with selecting the most pressing issues and bringing them back for a follow up discussion at their table.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/28Um9uFm.jpg&quot; alt=&quot;What Worked&quot; /&gt;
-&lt;img src=&quot;http://i.imgur.com/tkxnjwWm.jpg&quot; alt=&quot;What Didn't&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Each table used the &lt;a href=&quot;http://leancoffee.org&quot;&gt;LeanCoffee&lt;/a&gt; format to vote on the selected issues, prioritize them into a discussion backlog and explore as many of them as the timebox allowed. Participants used roman voting as a way to decide if they are ready to more on to the next topic or need more discussion about the current one. Closing each discussion, participants recorded their recommended action. At the end of the timebox all actions from each table were shared with the rest of the group to get feedback.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/wylfBVom.jpg&quot; alt=&quot;LeanCoffee&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Decide What To Do/Close&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;In the final hour of the retrospective the action owners shared their proposed next steps with the senior leadership team and reviewed the insights from the consolidated teams’ feedback.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/AOKeQbVm.jpg&quot; alt=&quot;recommendations&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Was this experiment successful? Absolutely! One of the biggest benefits of this retrospective was this collective experience of working across sub-teams and designing organizational improvements together.&lt;/p&gt;
-
-&lt;p&gt;Could we have done it better? You bet! As the project continues, we will be looking to run the retrospectives more frequently and will take into account things we learnt in this experiment.&lt;/p&gt;
-
-&lt;h1 id=&quot;what-did-we-learn&quot;&gt;What did we learn?&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Designing a retrospective of this size is a project in itself. You need to be clear about the vision, the stakeholders and the success criteria for the retrospective.&lt;/li&gt;
-  &lt;li&gt;Do your research, tap into the knowledge of agile community and get inspired by the experience of others. Take what you like and then adapt to make it work in the context of your organization.&lt;/li&gt;
-  &lt;li&gt;Ask for help. Involve additional facilitators to get feedback, speed up the execution and created a safe space for individual sub-teams.&lt;/li&gt;
-  &lt;li&gt;Inclusion trumps exclusion. Invite consultants as well as full-time employees into your retrospective to better understand the project dynamic.&lt;/li&gt;
-  &lt;li&gt;Beware of potential confusion around retrospective practice. Be ready to explain the benefits and highlight the differences between a retrospective and a postmortem.&lt;/li&gt;
-  &lt;li&gt;Bringing senior leaders into the last hour of final retrospective can negatively affect the dynamics of the discussions. Either work on prepping them better or plan on re-establishing the safe space after they join.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;what-would-we-like-to-do-next&quot;&gt;What would we like to do next?&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Continue promoting the retrospective practice across the organization.&lt;/li&gt;
-  &lt;li&gt;Offer a retrospective facilitator training to Scrum Masters, Agile Project Managers and anyone who is interested in learning how to run an effective retro.&lt;/li&gt;
-  &lt;li&gt;Establish retrospective facilitator circle to help maintain and improve the practice for all teams.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Inspired by our experiment? Have your own experience worth sharing? We’d love to hear from you and learn what works in your environment. Blog about it and tweet your questions at @hbcdigital.&lt;/p&gt;
-
-&lt;h1 id=&quot;world-retrospective-day&quot;&gt;World Retrospective Day&lt;/h1&gt;
-
-&lt;p&gt;Whether you are a retrospective pro, have never tried one in the past or your experience is anywhere in between, please do yourself a favor and mark &lt;strong&gt;February 6, 2018&lt;/strong&gt; on your calendar. 
-A group of experienced retrospective facilitators is currently planning a record-breaking World Retrospective Day with live local workshops on every continent and in every time zone along with many on-line learning opportunities. We are engaging with the industry thought leaders to make this one of the best and most engaging learning experience. We hope to see you there!&lt;/p&gt;</content><author><name>Dana Pylayeva</name></author><category term="agile" /><category term="retrospective" /><category term="scaling" /><summary>Can you recall the size and length of your typical retrospective?
-If your team operates by The Scrum Guide, your retrospectives likely have less than ten people in one room and last about an hour for a two-weeks Sprint.</summary></entry></feed>
+their visual compatibility.&lt;/p&gt;</content><author><name>Chris Curro</name></author><category term="machine learning" /><category term="deep learning" /><category term="personalization" /><category term="recommendation" /><summary></summary></entry></feed>
