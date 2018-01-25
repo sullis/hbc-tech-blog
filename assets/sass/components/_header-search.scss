@@ -118,6 +118,7 @@
 			// originally i broke up the paths so we could animate the path data,
 			// but ran out of steam to get it working. It's either a lack of browser support,
 			// or i didn't have to same number of points in both paths (from and to).
+			// Using CSS to replace path data is not supported on mobile.
 		    .path {
 	    		stroke: $hbc-gray;
 
