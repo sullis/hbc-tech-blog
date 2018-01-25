@@ -12,7 +12,7 @@ tags:
 # Who We Are
 
 <p align="center">
-<img src="/assets/images/team-rookie-2017/team.png" width="940" />
+<img src="./assets/images/team-rookie-2017/team.png" width="940" />
 </p>
 
 Team-Rookie-2017, as we pride ourselves with being the most awesome team ever, has spent the summer improving the browsing experience for Gilt users as well as to collect data for our personalization team. The end result of our project included the crafted front-end user experience and a back-end service for data processing.
@@ -33,25 +33,25 @@ So let’s talk about the problem. With a growing user base, the Gilt platform n
 
 
 <p align="center">
-<img src="/assets/images/team-rookie-2017/web-search.png" width="940"/>
+<img src="./assets/images/team-rookie-2017/web-search.png" width="940"/>
 </p>
 
 For our experience, to minimize disruption to the current workflow, we’ve added an additional hover link on the favorite button, and this will direct the users to our experience.
 
 <p align="center">
-<img src="/assets/images/team-rookie-2017/favorite.png" width="940"/>
+<img src="./assets/images/team-rookie-2017/favorite.png" width="940"/>
 </p>
 
 We provide the users with additional items that can potentially be paired with the initial favorited item to form completed looks. These products, limited by category and price based on the favorited items, will be presented to the users for individual selections. The users can let their imaginations go wild and pick what they think are the best combinations. During this process, we will collected this data and persist it through our back-end API to the database.
 
 <p align="center">
-<img src="/assets/images/team-rookie-2017/first_page.png" width="940"/>
+<img src="./assets/images/team-rookie-2017/first_page.png" width="940"/>
 </p>
 
 Finally, in order to complete the experience and make it as engaging as possible, we’ve decided to allow the users to immediately purchase the selected items if they wish. Since these items are what they specifically picked out from a pool of products, they will have a greater likelihood for conversion.
 
 <p align="center">
-<img src="/assets/images/team-rookie-2017/second_page.png" width="940"/>
+<img src="./assets/images/team-rookie-2017/second_page.png" width="940"/>
 </p>
 
 So in a nutshell, this is the completed project of the 10 week internship filled with hard work, grind, sweat (mostly from our daily trips to equinox right down stairs), and a whole lot of fun.
@@ -62,27 +62,27 @@ So in a nutshell, this is the completed project of the 10 week internship filled
 While we were not busy being awesome engineers, team-rookie spent most of our leisure time exploring New York and staying cool. Here are some of the highlights.
 
 <p align="center">
-<img src="/assets/images/team-rookie-2017/pose.JPG" width="940"/>
+<img src="./assets/images/team-rookie-2017/pose.JPG" width="940"/>
 </p>
 
 <p align="center">
-<img src="/assets/images/team-rookie-2017/poke.JPG" width="940"/>
+<img src="./assets/images/team-rookie-2017/poke.JPG" width="940"/>
 </p>
 
 <p align="center">
-<img src="/assets/images/team-rookie-2017/wonderwoman.JPG" width="940"/>
+<img src="./assets/images/team-rookie-2017/wonderwoman.JPG" width="940"/>
 </p>
 
 <p align="center">
-<img src="/assets/images/team-rookie-2017/dessert.png" width="940"/>
+<img src="./assets/images/team-rookie-2017/dessert.png" width="940"/>
 </p>
 
 <p align="center">
-<img src="/assets/images/team-rookie-2017/helmets.JPG" width="940"/>
+<img src="./assets/images/team-rookie-2017/helmets.JPG" width="940"/>
 </p>
 
 <p align="center">
-<img src="/assets/images/team-rookie-2017/presentation.JPG" width="940"/>
+<img src="./assets/images/team-rookie-2017/presentation.JPG" width="940"/>
 </p>
 
 # Mentorship
@@ -90,9 +90,9 @@ While we were not busy being awesome engineers, team-rookie spent most of our le
 Team Rookie would like to give out a huge shout out to all of our mentors that helped us along they way and made this project possible (you know who you are)! With a special thanks to Doochan and Mike, who led the intern committee through all of our battles and came out on the other end with a solid victory. The complete-the-look experience would not have been possible without you guys.
 
 <p align="center">
-<img src="/assets/images/team-rookie-2017/doochan.JPG" width="940"/>
+<img src="./assets/images/team-rookie-2017/doochan.JPG" width="940"/>
 </p>
 
 <p align="center">
-<img src="/assets/images/team-rookie-2017/mike.JPG" width="940"/>
+<img src="./assets/images/team-rookie-2017/mike.JPG" width="940"/>
 </p>

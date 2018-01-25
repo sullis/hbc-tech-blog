@@ -18,7 +18,7 @@ Previously we've written about about [Tiefvision
 a technical demo showcasing the ability to automatically find similar
 dresses to a particular one of interest. For example:
 
-<img style="display: block; margin: auto; width: 80%;" src="/assets/images/tiefvision-2/example.png" />
+<img style="display: block; margin: auto; width: 80%;" src="./assets/images/tiefvision-2/example.png" />
 
 Since then, we've worked on taking the ideas at play in Tiefvision, and
 making them usable in a production scalable way, that allows us to
@@ -68,7 +68,7 @@ features. Consider these three dresses: a red floral print, pink stripes, and
 a blue floral print.
 
 <img style="display: block; margin: auto; width: 60%;"
-src="/assets/images/tiefvision-2/pixel-space-example.png" />
+src="./assets/images/tiefvision-2/pixel-space-example.png" />
 
 With this "pixel-space" approach the red floral print and the pink stripes are
 more likely to be recognized as similar than the red floral print and the
@@ -143,7 +143,7 @@ far as open source technology is concerned, we use
 very own) [Sundial](https://github.com/gilt/sundial). Below you can
 see a block diagram of our implementation: 
 
-<img style="display: block; margin: auto; width: 60%;" src="/assets/images/tiefvision-2/block_diagram.png" />
+<img style="display: block; margin: auto; width: 60%;" src="./assets/images/tiefvision-2/block_diagram.png" />
 
 Let's walk through this process. First, we have a Sundial job that
 accomplishes two tasks. We check for new products, and then we compute
