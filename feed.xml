@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.0">Jekyll</generator><link href="https://saksdirect.github.io/hbc-tech-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://saksdirect.github.io/hbc-tech-blog/" rel="alternate" type="text/html" /><updated>2018-01-24T11:55:29-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.0">Jekyll</generator><link href="https://saksdirect.github.io/hbc-tech-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://saksdirect.github.io/hbc-tech-blog/" rel="alternate" type="text/html" /><updated>2018-01-29T11:41:51-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
 </subtitle><entry><title>Career Structure. It doesn’t matter. Until it matters.</title><link href="https://saksdirect.github.io/hbc-tech-blog/2018-01-24-career-structure.html" rel="alternate" type="text/html" title="Career Structure. It doesn't matter. Until it matters." /><published>2018-01-24T00:00:00-05:00</published><updated>2018-01-24T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/career-structure</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2018-01-24-career-structure.html">&lt;p&gt;In this article, I’m going to talk about career structure, career development, and career titles in a tech organisation. This post is more about organisational development than it is about technology; however, on the grounds that the health of your architecture and technology choices will be somewhat isomorphic to the health of your organisation, I believe this to be a worthwhile read for any engineering leader. I’m also writing this for anyone who is considering joining HBC Tech, so that they can understand our approach, and the meaning we give to our titles.&lt;/p&gt;
 
 &lt;p&gt;I’ll cover our motivation and need for a career structure, the core principles that drove our solution, and, perhaps most importantly, our experience in transitioning to that solution in a Dunbar-sized technology organisation at HBC Tech.&lt;/p&gt;
@@ -817,7 +817,7 @@ The event is organized by the Dublin Scala Usergroup in cooperation with Dublin 
   Organizers: Dublin Scala Meetup and Dublin Functional Kubs in cooperation with the Scala Center @ EPFL in Lausanne</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://saksdirect.github.io/hbc-tech-blog{&quot;feature&quot;=&gt;&quot;https://pbs.twimg.com/media/DEIosBJWAAAj87h.jpg&quot;, &quot;credit&quot;=&gt;nil, &quot;creditlink&quot;=&gt;nil}" /></entry><entry><title>Team Rookie 2017</title><link href="https://saksdirect.github.io/hbc-tech-blog/2017-08-30-team-rookie.html" rel="alternate" type="text/html" title="Team Rookie 2017" /><published>2017-08-30T00:00:00-05:00</published><updated>2017-08-30T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/team-rookie</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2017-08-30-team-rookie.html">&lt;h1 id=&quot;who-we-are&quot;&gt;Who We Are&lt;/h1&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/images/team-rookie-2017/team.png&quot; width=&quot;940&quot; /&gt;
+&lt;img src=&quot;./assets/images/team-rookie-2017/team.png&quot; width=&quot;940&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Team-Rookie-2017, as we pride ourselves with being the most awesome team ever, has spent the summer improving the browsing experience for Gilt users as well as to collect data for our personalization team. The end result of our project included the crafted front-end user experience and a back-end service for data processing.&lt;/p&gt;
@@ -836,25 +836,25 @@ The event is organized by the Dublin Scala Usergroup in cooperation with Dublin 
 &lt;p&gt;To tackle this problem, we proposed to create a fun and engaging experience for the users while they are shopping: completing their own outfits. One key requirement for this experience is that it can not interfere with the current purchase flow, meaning that if a user is closing in on a purchase, that process should not be interrupted. Therefore, rather than inserting the experience within the current workflow, we’ve decided to include the feature on the search page where users are able to favorite items they like. This is shown in the figure below.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/images/team-rookie-2017/web-search.png&quot; width=&quot;940&quot; /&gt;
+&lt;img src=&quot;./assets/images/team-rookie-2017/web-search.png&quot; width=&quot;940&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;For our experience, to minimize disruption to the current workflow, we’ve added an additional hover link on the favorite button, and this will direct the users to our experience.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/images/team-rookie-2017/favorite.png&quot; width=&quot;940&quot; /&gt;
+&lt;img src=&quot;./assets/images/team-rookie-2017/favorite.png&quot; width=&quot;940&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;We provide the users with additional items that can potentially be paired with the initial favorited item to form completed looks. These products, limited by category and price based on the favorited items, will be presented to the users for individual selections. The users can let their imaginations go wild and pick what they think are the best combinations. During this process, we will collected this data and persist it through our back-end API to the database.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/images/team-rookie-2017/first_page.png&quot; width=&quot;940&quot; /&gt;
+&lt;img src=&quot;./assets/images/team-rookie-2017/first_page.png&quot; width=&quot;940&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Finally, in order to complete the experience and make it as engaging as possible, we’ve decided to allow the users to immediately purchase the selected items if they wish. Since these items are what they specifically picked out from a pool of products, they will have a greater likelihood for conversion.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/images/team-rookie-2017/second_page.png&quot; width=&quot;940&quot; /&gt;
+&lt;img src=&quot;./assets/images/team-rookie-2017/second_page.png&quot; width=&quot;940&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;So in a nutshell, this is the completed project of the 10 week internship filled with hard work, grind, sweat (mostly from our daily trips to equinox right down stairs), and a whole lot of fun.&lt;/p&gt;
@@ -864,27 +864,27 @@ The event is organized by the Dublin Scala Usergroup in cooperation with Dublin 
 &lt;p&gt;While we were not busy being awesome engineers, team-rookie spent most of our leisure time exploring New York and staying cool. Here are some of the highlights.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/images/team-rookie-2017/pose.JPG&quot; width=&quot;940&quot; /&gt;
+&lt;img src=&quot;./assets/images/team-rookie-2017/pose.JPG&quot; width=&quot;940&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/images/team-rookie-2017/poke.JPG&quot; width=&quot;940&quot; /&gt;
+&lt;img src=&quot;./assets/images/team-rookie-2017/poke.JPG&quot; width=&quot;940&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/images/team-rookie-2017/wonderwoman.JPG&quot; width=&quot;940&quot; /&gt;
+&lt;img src=&quot;./assets/images/team-rookie-2017/wonderwoman.JPG&quot; width=&quot;940&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/images/team-rookie-2017/dessert.png&quot; width=&quot;940&quot; /&gt;
+&lt;img src=&quot;./assets/images/team-rookie-2017/dessert.png&quot; width=&quot;940&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/images/team-rookie-2017/helmets.JPG&quot; width=&quot;940&quot; /&gt;
+&lt;img src=&quot;./assets/images/team-rookie-2017/helmets.JPG&quot; width=&quot;940&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/images/team-rookie-2017/presentation.JPG&quot; width=&quot;940&quot; /&gt;
+&lt;img src=&quot;./assets/images/team-rookie-2017/presentation.JPG&quot; width=&quot;940&quot; /&gt;
 &lt;/p&gt;
 
 &lt;h1 id=&quot;mentorship&quot;&gt;Mentorship&lt;/h1&gt;
@@ -892,11 +892,11 @@ The event is organized by the Dublin Scala Usergroup in cooperation with Dublin 
 &lt;p&gt;Team Rookie would like to give out a huge shout out to all of our mentors that helped us along they way and made this project possible (you know who you are)! With a special thanks to Doochan and Mike, who led the intern committee through all of our battles and came out on the other end with a solid victory. The complete-the-look experience would not have been possible without you guys.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/images/team-rookie-2017/doochan.JPG&quot; width=&quot;940&quot; /&gt;
+&lt;img src=&quot;./assets/images/team-rookie-2017/doochan.JPG&quot; width=&quot;940&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/images/team-rookie-2017/mike.JPG&quot; width=&quot;940&quot; /&gt;
+&lt;img src=&quot;./assets/images/team-rookie-2017/mike.JPG&quot; width=&quot;940&quot; /&gt;
 &lt;/p&gt;</content><author><name>Team Rookie</name></author><category term="internship" /><category term="web" /><category term="team rookie" /><summary>Who We Are</summary></entry><entry><title>HBC Tech Talks: February 2017 through July 2017</title><link href="https://saksdirect.github.io/hbc-tech-blog/2017-08-10-midyear-recap.html" rel="alternate" type="text/html" title="HBC Tech Talks: February 2017 through July 2017" /><published>2017-08-10T00:00:00-05:00</published><updated>2017-08-10T00:00:00-05:00</updated><id>https://saksdirect.github.io/hbc-tech-blog/midyear-recap</id><content type="html" xml:base="https://saksdirect.github.io/hbc-tech-blog/2017-08-10-midyear-recap.html">&lt;p&gt;We’ve had a busy 2017 at HBC. The great work of our teams has created opportunities to share what we’ve learned with audiences around the world. This year our folks have been on stage in Austin, Sydney, Portland, Seattle, San Diego, Boston, London, Israel and on our home turf in NYC and Dublin. The talks have covered deep learning, design thinking, data streaming and developer experience to name just a few.
 &lt;!--more--&gt;&lt;/p&gt;
 
@@ -1024,7 +1024,7 @@ The event is organized by the Dublin Scala Usergroup in cooperation with Dublin 
 a technical demo showcasing the ability to automatically find similar
 dresses to a particular one of interest. For example:&lt;/p&gt;
 
-&lt;p&gt;&lt;img style=&quot;display: block; margin: auto; width: 80%;&quot; src=&quot;/assets/images/tiefvision-2/example.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img style=&quot;display: block; margin: auto; width: 80%;&quot; src=&quot;./assets/images/tiefvision-2/example.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Since then, we’ve worked on taking the ideas at play in Tiefvision, and
 making them usable in a production scalable way, that allows us to
@@ -1070,7 +1070,7 @@ we’re not measuring the difference between semantically meaningful
 features. Consider these three dresses: a red floral print, pink stripes, and
 a blue floral print.&lt;/p&gt;
 
-&lt;p&gt;&lt;img style=&quot;display: block; margin: auto; width: 60%;&quot; src=&quot;/assets/images/tiefvision-2/pixel-space-example.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img style=&quot;display: block; margin: auto; width: 60%;&quot; src=&quot;./assets/images/tiefvision-2/pixel-space-example.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;With this “pixel-space” approach the red floral print and the pink stripes are
 more likely to be recognized as similar than the red floral print and the
@@ -1139,7 +1139,7 @@ far as open source technology is concerned, we use
 very own) &lt;a href=&quot;https://github.com/gilt/sundial&quot;&gt;Sundial&lt;/a&gt;. Below you can
 see a block diagram of our implementation:&lt;/p&gt;
 
-&lt;p&gt;&lt;img style=&quot;display: block; margin: auto; width: 60%;&quot; src=&quot;/assets/images/tiefvision-2/block_diagram.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img style=&quot;display: block; margin: auto; width: 60%;&quot; src=&quot;./assets/images/tiefvision-2/block_diagram.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Let’s walk through this process. First, we have a Sundial job that
 accomplishes two tasks. We check for new products, and then we compute
