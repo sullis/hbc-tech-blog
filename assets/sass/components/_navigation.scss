@@ -46,8 +46,7 @@
 		    width: 100vw;
 
 		    &__link-item {
-		    	margin-bottom: 20px;
-			    padding: 10px 0;
+		    	margin: 20px 0;
 	    		text-align: center;
 	    		// used to hide menu items when search opens
 	    		transform: scale(1);
@@ -57,14 +56,23 @@
 
 	    	&__link {
 	    		color: $hbc-white;
-				@include special-text-link();
-				@include render-type-style(subhead-2, $type-styles);
+			    padding: 10px 0;
+			    @include render-type-style(subhead-1, $type-styles);
+			    text-transform: none;
+			    text-decoration: none;
 
 				&--current {
 					.link-list__link-highlight {
 						color: $hbc-highlight;
 					}
 				}
+	    	}
+
+	    	&__link-highlight {
+				margin-bottom: 2px;
+				padding-bottom: 0px;
+				border-bottom: solid 1px transparent;
+				transition: margin-bottom 150ms ease-out, padding-bottom 150ms ease-out, color 150ms ease-out;	    		
 	    	}
 	    }
     }
@@ -155,20 +163,41 @@
 			    list-style-type: none;
 			    width: auto;
 			    max-width: $content-width;
+			    min-width: 450px;
 			    margin: auto;
 			    padding: 0;
 			    height: auto;
 			    opacity: 1;
+			    display: flex;
 
 			    &__link-item {
-		    		margin: 0 20px;
-			    	display: inline-flex;
+			    	flex-grow: 2;
+			    	margin: 0;
 			    }
 
+		    	&:first-child {
+		    		flex-grow: 1;
+				    text-align: left;
+		    	}
+
+		    	&:last-child {
+		    		flex-grow: 1;
+				    text-align: right;
+		    	}
+
 		    	&__link {
-		    		color: $hbc-white;
-					@include render-type-style(nav, $type-styles);
-					@include special-text-link();
+		    		display: block;
+
+		    		&:hover {
+
+						.link-list__link-highlight {
+							color: $hbc-highlight;
+							padding-bottom: 2px;
+						    margin-bottom: 0px;
+						    border-bottom: solid 1px $hbc-highlight;
+						    color: $hbc-highlight;
+						}
+					}
 		    	}
 		    }
 	    }
