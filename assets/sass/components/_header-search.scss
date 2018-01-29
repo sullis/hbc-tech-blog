@@ -32,10 +32,8 @@
     	height: 28px;
 	    width: 23px;
     	overflow: visible !important;
-		fill: white;
 		position: absolute;
 	    right: 60px;
-	    transition: all 250ms ease-out;
 	    z-index: 151;
 
     	.path {
@@ -44,12 +42,7 @@
 			stroke-width: 2px;
 			stroke-linecap: round;
 			stroke-linejoin: round;
-			transition: all 250ms ease-out;
-	    		
-    		&--cross-1,
-    		&--cross-2 {
-    			display: none;
-    		}
+			transition: stroke 250ms ease-out;
     	}
     }
 
@@ -115,31 +108,8 @@
 		.header-search__svg {
 			right: 0;
 
-			// originally i broke up the paths so we could animate the path data,
-			// but ran out of steam to get it working. It's either a lack of browser support,
-			// or i didn't have to same number of points in both paths (from and to).
-			// Using CSS to replace path data is not supported on mobile.
 		    .path {
 	    		stroke: $hbc-gray;
-
-	    		&--left-half {
-	    			display: none;
-	    			// d: path("M3.5 3.5L11.575 11.699 20.26 20.516");
-	    		}
-	    		
-	    		&--right-half {
-	    			display: none;
-	    			// d: path("M20.26 3.256L11.848 11.797 3.5 20.272");
-	    		}
-	    		
-	    		&--handle {
-	    			display: none;
-	    		}
-
-	    		&--cross-1,
-	    		&--cross-2 {
-	    			display: inline-block;
-	    		}
 	    	}
 		}
 
