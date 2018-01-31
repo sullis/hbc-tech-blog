@@ -12,17 +12,15 @@
 	    overflow: hidden;
 	    align-items: center;
 	    @include background-gradient();
-	    background-blend-mode: multiply;
 	    
 		.careers-page__title {
-			grid-column: 1 / 2;
-		    grid-row: 1 / 2;
-			text-transform: uppercase;
-			color: white;
-			margin: auto;
-		    align-self: center;
-			max-width: $content-width;
-			z-index: 1;
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            color: white;
+            max-width: $content-width;
+            z-index: 1;
+            margin: auto;
+            align-self: center;
 		}
 
 		.careers-page__hero-image {
@@ -35,7 +33,8 @@
     	    // min-width: 100vw;
 		    max-height: 100%;
 		    overflow: hidden;
-		    opacity: 0.5;
+		    opacity: 0.75;
+		    mix-blend-mode: difference;
         }
 	}
 
@@ -313,6 +312,14 @@
 	@include media('>=large') {
 		&__header {
 			margin: auto;
+
+            .careers-page__title {
+                margin: 40px 0;
+                justify-self: center;
+                align-self: flex-end;
+                width: $content-width;
+                @include render-type-style(headline-1, $type-styles);
+            }
 		}
 
 		// reveal animations

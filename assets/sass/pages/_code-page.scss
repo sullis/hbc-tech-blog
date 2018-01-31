@@ -15,7 +15,6 @@
         .code-page__title {
             grid-column: 1 / 2;
             grid-row: 1 / 2;
-            text-transform: uppercase;
             color: white;
             max-width: $content-width;
             z-index: 1;
@@ -48,6 +47,7 @@
             max-width: 100%;
             overflow: hidden;
             opacity: 0.5;
+            mix-blend-mode: difference;        
         }
     }
 
