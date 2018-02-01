@@ -13,6 +13,7 @@ layout:
         <title>{% if page.title %} {{ page.title | escape }} {% else %} {{ site.title | escape }} {% endif %}</title>
 
         {% seo %}
+        {% include og-image.html %}
 
         <link rel="stylesheet" href="{{ site.url }}{{ site.baseurl }}/assets/css/main.css">
         <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
@@ -60,8 +61,8 @@ layout:
 
         <title>{% if page.title %} {{ page.title | escape }} {% else %} {{ site.title | escape }} {% endif %}</title>
 
-        <!-- {% include og-seo.html %} -->
         {% seo %}
+        {% include og-image.html %}
 
         <link rel="stylesheet" href="{{ site.url }}{{ site.baseurl }}/assets/css/main.css">
         <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
