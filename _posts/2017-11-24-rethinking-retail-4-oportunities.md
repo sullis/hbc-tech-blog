@@ -11,7 +11,7 @@ tags:
 - user research
 - retail technology
 image:
-  feature: rethinking-retail.jpg
+  feature: rethinking-retail-4-oportunities/rethinking-retail.jpg
   credit: ~
   creditlink: ~
 ---
