@@ -1,1 +1,1 @@
-Sitemap: http://tech.hbc.com/hbc-tech-blog/sitemap.xml
+Sitemap: http://tech.hbc.com//sitemap.xml
