@@ -10,8 +10,8 @@ email: evangelism@hbc.com
 description: > # this means to ignore newlines until "baseurl:"
   We power the website and mobile experiences for Saks, 
   Saks Off Fifth, Gilt, Lord & Taylor and The Bay.
-baseurl: "/hbc-tech-blog" # the subpath of your site, e.g. blog
-url: "http://tech.hbc.com" #the base hostname & protocol for your site. 
+baseurl: "" # the subpath of your site, e.g. blog
+url: "http://tech.hbc.com/" #the base hostname & protocol for your site. 
 twitter: hbcdigital
 facebook: hbcdigital
 github: hbc-tech
