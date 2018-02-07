@@ -15,6 +15,10 @@ tags:
 - your
 - tags
 - here
+image:
+  feature: https://pbs.twimg.com/media/DEIosBJWAAAj87h.jpg
+  credit: ~
+  creditlink: ~
 ```
 
 - `title`: String, your post title. No need for quotes
@@ -23,6 +27,8 @@ tags:
 - `date`: String, YYYY-MM-DD format
 - `categories`: Yaml list, Must be one of the following [categories](/_data/categories.md). Use tags for additional topic refinement.
 - `tags`: Yaml list
+- `image:
+	 feature:` Yaml string. Image name or image url
 
 ### Post Excerpts
 Jekyll grabs post excerpts from the first paragraph by default. Tailor your post excerpt by using the '<!--more-->' excerpt separator. Limit post excerpts to less than 40 words or 200 characters.
@@ -31,15 +37,47 @@ Jekyll grabs post excerpts from the first paragraph by default. Tailor your post
 Headlines, like poetry and songs, should have a rhythm about them. [Read these tips](http://web.ku.edu/~edit/heads.html) on writing good headlines before you start. Make sure they follow the ["dooh-dah"](http://web.ku.edu/~edit/heads.html) rule.
 
 ## Feature Images
-Not a requirement, but it's strongly encouraged to include a feature image to your post. If you need some inspiration on images or perhaps you want a custom image, email the design team for some help. 
+Not a requirement, but it's strongly encouraged to include a feature image to your post.
 
-### Content Guidelines
+#### Content Guidelines
 - avoid using text/headlines in an image
 - use simple, high quality images
-- crop images at 4:3
+- crop images at 4:3 (Landscape)
 - use images with a central point of focus
 
-### Adding Additional Images
+#### Image Sizes
+Providing images that are 2880px wide will support high resolution screens. Currently, we don't have a CDN in place to optimize images for mobile devices.
+
+- Min image width 2880px
+- JPG format
+- Lossy compression
+- Save images as “optimized for web” in tools such as Photoshop
+- upload images to `/assets/images/[folder-named-to-match-your-post]/your-image.jpg` or your favorite CDN.
+
+#### Examples
+Images can be served from `/assets/images/`
+
+```
+image:
+  feature: [folder-named-to-match-your-post]/my-feature-image.jpg
+  credit: ~
+  creditlink: ~
+```
+
+
+Or you can point to an image stored on a CDN:
+
+```
+image:
+  feature: https://pbs.twimg.com/media/DEIosBJWAAAj87h.jpg
+  credit: ~
+  creditlink: ~
+```
+
+If you need some inspiration on images or you want a custom image, contact someone on the design team for help.
+
+
+### Adding Inline Images
 Follow this format to add additional images to your article. By default, all images will be displayed inline. See [Styling Your Image with Classes](#styling-your-image-with-classes) below for additional image display options.
 ```
 ![alt text](image url)
