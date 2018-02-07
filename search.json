@@ -1,6 +1,16 @@
 [
     
     {
+        "title": "AWS SDK for Java, version 2.0",
+        "date": "JAN 26 2018",
+        "author": "Sean Sullivan",
+        "category": "cloud",
+        "tags": "aws java scala",
+        "excerpt": "The Capital Region AWS User Group met on January 18th at the Nanotech Complex in Albany New York. CommerceHub hosted the meeting at their main office.",
+        "url": "/2018-01-26-aws-sdk-for-java.html"
+    },
+    
+    {
         "title": "Career Structure. It doesn't matter. Until it matters.",
         "date": "JAN 24 2018",
         "author": "Adrian Trenaman",

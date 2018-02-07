@@ -1,5 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="http://tech.hbc.com//feed.xml" rel="self" type="application/atom+xml" /><link href="http://tech.hbc.com//" rel="alternate" type="text/html" /><updated>2018-02-07T14:37:07-05:00</updated><id>http://tech.hbc.com//</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
-</subtitle><entry><title>Career Structure. It doesn’t matter. Until it matters.</title><link href="http://tech.hbc.com//2018-01-24-career-structure.html" rel="alternate" type="text/html" title="Career Structure. It doesn't matter. Until it matters." /><published>2018-01-24T00:00:00-05:00</published><updated>2018-01-24T00:00:00-05:00</updated><id>http://tech.hbc.com//career-structure</id><content type="html" xml:base="http://tech.hbc.com//2018-01-24-career-structure.html">&lt;p&gt;In this article, I’m going to talk about career structure, career development, and career titles in a tech organisation. This post is more about organisational development than it is about technology; however, on the grounds that the health of your architecture and technology choices will be somewhat isomorphic to the health of your organisation, I believe this to be a worthwhile read for any engineering leader. I’m also writing this for anyone who is considering joining HBC Tech, so that they can understand our approach, and the meaning we give to our titles.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.5.2">Jekyll</generator><link href="http://tech.hbc.com//feed.xml" rel="self" type="application/atom+xml" /><link href="http://tech.hbc.com//" rel="alternate" type="text/html" /><updated>2018-02-07T14:55:41-05:00</updated><id>http://tech.hbc.com//</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+</subtitle><entry><title>AWS SDK for Java, version 2.0</title><link href="http://tech.hbc.com//2018-01-26-aws-sdk-for-java.html" rel="alternate" type="text/html" title="AWS SDK for Java, version 2.0" /><published>2018-01-26T00:00:00-05:00</published><updated>2018-01-26T00:00:00-05:00</updated><id>http://tech.hbc.com//aws-sdk-for-java</id><content type="html" xml:base="http://tech.hbc.com//2018-01-26-aws-sdk-for-java.html">&lt;p&gt;The Capital Region AWS User Group met on January 18th at the &lt;a href=&quot;https://sunypoly.edu/research/albany-nanotech-complex.html&quot;&gt;Nanotech Complex&lt;/a&gt; in Albany New York. &lt;a href=&quot;https://www.commercehub.com/&quot;&gt;CommerceHub&lt;/a&gt; hosted the meeting at their main office.&lt;/p&gt;
+
+&lt;p&gt;The topic of this month’s meetup was the AWS SDK for Java. At HBC, our development teams use the SDK to access AWS services such as DynamoDB, S3, CloudWatch, and SNS. The v1 SDK has been a core building block at HBC since 2014.&lt;/p&gt;
+
+&lt;p&gt;In June 2017, Amazon released a new implementation of the SDK for Java.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/aws-sdk-for-java/aws-sdk-java-version-2_0-june-2017.png&quot; alt=&quot;aws-sdk-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The version 2.0 SDK is available as a developer preview. HBC is evaluating the new SDK and we look forward to using it in production later this year.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/aws-sdk-for-java/aws-sdk-java-version-2_0-github-v2-sdk.png&quot; alt=&quot;aws-sdk-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Our engineering team has already started incorporating the v2 SDK into our helper libraries:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;gfc-aws-cloudwatch – &lt;a href=&quot;https://github.com/gilt/gfc-aws-cloudwatch/pull/8/&quot;&gt;pull request&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;gfc-s3-cache – &lt;a href=&quot;https://github.com/gilt/gfc-s3-cache/pull/4&quot;&gt;pull request&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The v2 API uses  &lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html&quot;&gt;java.util.concurrent.CompletableFuture&lt;/a&gt; to encapsulate the result of an AWS service call. HBC’s Scala libraries will use &lt;a href=&quot;https://github.com/scala/scala-java8-compat/blob/master/src/main/scala/scala/compat/java8/FutureConverters.scala&quot;&gt;FutureConverters&lt;/a&gt; to convert Java CompletableFuture objects into Scala Future objects.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/aws-sdk-for-java/aws-sdk-java-version-2_0-futureconverters.png&quot; alt=&quot;aws-sdk-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you want to learn more about the v2 SDK, review my slidedeck or watch Kyle Thomson’s re:invent 2017 presentation.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/sullis/aws-sdk-for-java-version-2-dot-0-albany-ny-january-18-2018&quot;&gt;&lt;img src=&quot;/assets/images/aws-sdk-for-java/AWS_SDK_for_Java-speakerdeck-albany-480.png&quot; alt=&quot;aws-sdk-java-speakerdeck-albany-image&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;https://www.youtube.com/watch?v=byRois3s5Yc&quot;&gt;&lt;img src=&quot;/assets/images/aws-sdk-for-java/aws-sdk-java-version-2_0-kyle-reinvent-youtube-480.png&quot; alt=&quot;aws-reinvent-2017-kyle-thomson-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Sean Sullivan</name></author><category term="aws" /><category term="java" /><category term="scala" /><category term="cloud" /><category term="albany" /><category term="newyork" /><category term="2018" /><summary>The Capital Region AWS User Group met on January 18th at the Nanotech Complex in Albany New York. CommerceHub hosted the meeting at their main office.</summary></entry><entry><title>Career Structure. It doesn’t matter. Until it matters.</title><link href="http://tech.hbc.com//2018-01-24-career-structure.html" rel="alternate" type="text/html" title="Career Structure. It doesn't matter. Until it matters." /><published>2018-01-24T00:00:00-05:00</published><updated>2018-01-24T00:00:00-05:00</updated><id>http://tech.hbc.com//career-structure</id><content type="html" xml:base="http://tech.hbc.com//2018-01-24-career-structure.html">&lt;p&gt;In this article, I’m going to talk about career structure, career development, and career titles in a tech organisation. This post is more about organisational development than it is about technology; however, on the grounds that the health of your architecture and technology choices will be somewhat isomorphic to the health of your organisation, I believe this to be a worthwhile read for any engineering leader. I’m also writing this for anyone who is considering joining HBC Tech, so that they can understand our approach, and the meaning we give to our titles.&lt;/p&gt;
 
 &lt;p&gt;I’ll cover our motivation and need for a career structure, the core principles that drove our solution, and, perhaps most importantly, our experience in transitioning to that solution in a Dunbar-sized technology organisation at HBC Tech.&lt;/p&gt;
 
@@ -1026,167 +1051,4 @@ The event is organized by the Dublin Scala Usergroup in cooperation with Dublin 
 &lt;p&gt;Sundial with AWS Batch backend now works great for the use cases we encounter doing personalization. We may consider enhancements such as Prometheus push gateway integration (to replace the Graphite service we had with ECS and to keep track of metrics over time) and UI enhancements to Sundial.&lt;/p&gt;
 
 &lt;p&gt;In the long term we may consider other open source solutions as maintaining a job system counts as technical debt that
- is a distraction from product focused tasks. The HBC data team, who have very similar requirements to us, have started adopting Airflow (by Airbnb). As part of their adoption, they have contributed to an open source effort to make Airflow support Batch as a backend: &lt;a href=&quot;https://github.com/gilt/incubator-airflow/tree/aws_batch&quot;&gt;https://github.com/gilt/incubator-airflow/tree/aws_batch&lt;/a&gt;. If it works well, this is a solution we may adopt in the future.&lt;/p&gt;</content><author><name>Kevin O'Riordan</name></author><category term="batch" /><category term="aws" /><category term="tech" /><category term="personalization" /><summary>About a year ago, we (the Gilt/HBC personalization team) open sourced Sundial , a batch job orchestration system leveraging Amazon EC2 Container Service.</summary></entry><entry><title>Visually Similar Recommendations</title><link href="http://tech.hbc.com//2017-07-31-tiefvision-2.html" rel="alternate" type="text/html" title="Visually Similar Recommendations" /><published>2017-07-31T00:00:00-05:00</published><updated>2017-07-31T00:00:00-05:00</updated><id>http://tech.hbc.com//tiefvision-2</id><content type="html" xml:base="http://tech.hbc.com//2017-07-31-tiefvision-2.html">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Previously we’ve written about about &lt;a href=&quot;http://tech.gilt.com/machine/learning,/deep/learning/2016/12/22/deep-learning-at-gilt&quot;&gt;Tiefvision
-&lt;/a&gt;,
-a technical demo showcasing the ability to automatically find similar
-dresses to a particular one of interest. For example:&lt;/p&gt;
-
-&lt;p&gt;&lt;img style=&quot;display: block; margin: auto; width: 80%;&quot; src=&quot;./assets/images/tiefvision-2/example.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Since then, we’ve worked on taking the ideas at play in Tiefvision, and
-making them usable in a production scalable way, that allows us to
-roll out to new product categories besides dresses quickly and
-efficiently. Today, we’re excited to announce that we’ve rolled out
-visually similar recommendations on Gilt for all dresses, t-shirts, and handbags,
-as well as to women’s shoes, women’s denim, women’s pants, and men’s
-outerwear.&lt;/p&gt;
-
-&lt;p&gt;Let’s start with a brief overview. Consider the general task at
-hand. We have a landing page for every product on our online
-stores. For the Gilt store, we refer to this as the product detail
-page (PDP). On the PDP we would like to offer the user a variety of
-alternatives to the product they are looking at, so that they can
-best make a purchasing decision. There exist a variety of approaches
-to selecting other products to display as alternatives; a particularly
-popular approach is called collaborative filtering which leverages
-purchase history across users to make recommendations. However this
-approach is what we call content-agnostic – it has no knowledge of
-what a particular garment looks like. Instead, we’d like to look at the
-photographs of garments and recommend similar looking garments within
-the same category.&lt;/p&gt;
-
-&lt;p&gt;Narrowing our focus a little bit, our task is to take a photograph of a
-garment and find similar looking photographs. First, we need to come up
-with some similarity measure for photographs, then we will need to be able
-to quickly query for the most similar photographs from our large
-catalog.&lt;/p&gt;
-
-&lt;p&gt;This is something we need to do numerically. Recall that we can
-represent a photograph as some tensor &lt;script type=&quot;math/tex&quot;&gt;P \in [0,1]^{H \times W \times 3}&lt;/script&gt; (in other words a three dimensional array with entries in between 0
-and 1). Given that we have a numerical representation for an photograph, you
-might think we could so something simple to the measure the similarity
-between two photographs. Consider:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\text{sim} (P, P^\prime) =
-\sqrt{\sum\limits_{h=0}^{H-1}\sum\limits_{w=0}^{W-1}\sum\limits_{c=0}^{2}
-\left(P_{h,w,c} - P^\prime_{h,w,c}\right)^2}&lt;/script&gt;
-
-&lt;p&gt;which we’d refer to as the Frobenius norm of the difference between the
-two photographs. The problem with this, although it is simple, is that
-we’re not measuring the difference between semantically meaningful
-features. Consider these three dresses: a red floral print, pink stripes, and
-a blue floral print.&lt;/p&gt;
-
-&lt;p&gt;&lt;img style=&quot;display: block; margin: auto; width: 60%;&quot; src=&quot;./assets/images/tiefvision-2/pixel-space-example.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;With this “pixel-space” approach the red floral print and the pink stripes are
-more likely to be recognized as similar than the red floral print and the
-blue floral print, because they have pixels of similar colors at similar
-locations. The “pixel-space” approach ignores locality and global
-reasoning, and has no insight into semantic concepts.&lt;/p&gt;
-
-&lt;p&gt;What we’d like to do is find some function &lt;script type=&quot;math/tex&quot;&gt;\phi(\cdot)&lt;/script&gt; that extracts
-semantically meaningful features. We can then compute our similarity
-metric in the feature-space rather than the pixel-space. Where do we
-get this &lt;script type=&quot;math/tex&quot;&gt;\phi(\cdot)&lt;/script&gt;? In our case, we leverage deep neural networks
-(deep learning) for this function. Neural networks are hierarchical
-functions composed of typically sequential connections of simple
-building blocks. This structure allows us take a neural network
-trained for a specific task, like arbitrary object recognition and
-pull from some intermediate point in the network. For example say we
-take a network, trained to recognize objects in the ImageNet dataset,
-composed of building blocks &lt;script type=&quot;math/tex&quot;&gt;f_1, f_2, \dots, f_M&lt;/script&gt;:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;f\left(P\right) = f_M(f_{M-1}(\cdots f_2(f_1(P))\cdots)&lt;/script&gt;
-
-&lt;p&gt;We might take the output of &lt;script type=&quot;math/tex&quot;&gt;f_3&lt;/script&gt; and call those our features:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\phi(P) = f_3(f_2(f_1(P)))&lt;/script&gt;
-
-&lt;p&gt;In the case of convolutional networks like the VGG, Inception, or
-Resnet families our output features would lie in some
-vector space &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^{H^\prime \times W^\prime \times C}&lt;/script&gt;. The
-first two dimensions correspond to the original spatial dimensions (at
-some reduced resolution) while the
-third dimension corresponds to some set of &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; feature types. So in
-other words, if one of our &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; feature types detects a human face,
-we might see a high numerical value in spatial position near where a
-person’s face is in the photograph. In our use cases, we’ve determined that
-this spatial information isn’t nearly as important as the feature types
-that we detect, so at this point we aggregate over the spatial
-dimensions to get a vector in &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^C&lt;/script&gt;. A simple way to do
-this aggregation is with a simple arithmetic mean but other methods
-work as well.&lt;/p&gt;
-
-&lt;p&gt;From there we could build up some matrix &lt;script type=&quot;math/tex&quot;&gt;\Phi \in \mathbb{R}^{N
-\times C}&lt;/script&gt; where &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; is the number of items in a category of
-interest. We could then construct an &lt;script type=&quot;math/tex&quot;&gt;N \times N&lt;/script&gt; similarity matrix
-&lt;script type=&quot;math/tex&quot;&gt;S&lt;/script&gt;&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;S_{ij} = \sqrt{\sum\limits_{k=0}^{C-1} \left(\Phi_{ik} - \Phi_{jk}\right)^2}&lt;/script&gt;
-
-&lt;p&gt;Then to find the most similar items to a query &lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt;, we look at the
-locations of the highest values in row &lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt; of the matrix.&lt;/p&gt;
-
-&lt;p&gt;This approach is infeasible as &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; becomes large, as it has computational complexity
-&lt;script type=&quot;math/tex&quot;&gt;O(N^2C)&lt;/script&gt; and space complexity &lt;script type=&quot;math/tex&quot;&gt;O(N^2)&lt;/script&gt;. To alleviate this issue,
-we can leverage a variety of approximate nearest neighbor methods. We
-empirically find that approximate neighbors are sufficient. Also
-when we consider that our feature space represents some arbitrary
-embedding with no guarantees of any particular notion of optimality,
-it becomes clear there’s no grounded reason to warrant exact nearest
-neighbor searches.&lt;/p&gt;
-
-&lt;h2 id=&quot;how-do-we-do-it&quot;&gt;How do we do it?&lt;/h2&gt;
-
-&lt;p&gt;We leverage several open source technologies, as well as established
-results from published research to serve visually similar garments. As
-far as open source technology is concerned, we use
-&lt;a href=&quot;https://www.tensorflow.org/&quot;&gt;Tensorflow&lt;/a&gt;, and (our
-very own) &lt;a href=&quot;https://github.com/gilt/sundial&quot;&gt;Sundial&lt;/a&gt;. Below you can
-see a block diagram of our implementation:&lt;/p&gt;
-
-&lt;p&gt;&lt;img style=&quot;display: block; margin: auto; width: 60%;&quot; src=&quot;./assets/images/tiefvision-2/block_diagram.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Let’s walk through this process. First, we have a Sundial job that
-accomplishes two tasks. We check for new products, and then we compute
-embeddings using Tensorflow and a pretrained network of a particular type for
-particular categories of products. We persist the embeddings on AWS
-S3. Second, we have another Sundial job, again with two tasks. This job
-filters the set of products to ones of some particular interest and
-generates a nearest neighbors index for fast nearest neighbor look-ups. The job
-completes, persisting the index on AWS S3. Finally, we wrap a
-cluster of servers in a load balancer. Our product recommendation
-service can query these nodes to get visually similar recommendations
-as desired.&lt;/p&gt;
-
-&lt;p&gt;Now, we can take a bit of a deeper dive into the thought process
-behind some of the decisions we make as we roll out to new
-categories. First, and perhaps the most important, is what network
-type and where to tap it off so that we can compute embeddings. If we
-recall that neural networks produce hierarchical representations, we
-can deduce (and notice empirically) that deeper tap-points (more steps
-removed from the input) produce embeddings that pick up on “higher
-level” concepts rather than “low level” textures. So, for example, if
-we wish to pick up on basic fabric textures we might pull from near
-the input, and if we wish to pick up something higher level like
-silhouette type we might pull from deeper in the network.&lt;/p&gt;
-
-&lt;p&gt;The filtering step before we generate a index is also critically
-important. At this point we can narrow down our products to only come
-from one particular category, or even some further sub-categorization
-to leverage the deep knowledge of fashion present at HBC.&lt;/p&gt;
-
-&lt;p&gt;Finally, we must select the parameters for the index generation,
-which control the error rate and performance trade-off in the approximate nearest
-neighbors search. We can select these parameters empirically. We
-utilize our knowledge of fashion, once again, to determine a good
-operation point.&lt;/p&gt;
-
-&lt;h2 id=&quot;whats-next&quot;&gt;What’s next?&lt;/h2&gt;
-
-&lt;p&gt;We’ll be working to roll out to more and more categories, and even do
-some cross category elements, perhaps completing outfits based on
-their visual compatibility.&lt;/p&gt;</content><author><name>Chris Curro</name></author><category term="machine learning" /><category term="deep learning" /><category term="personalization" /><category term="recommendation" /><summary></summary></entry></feed>
+ is a distraction from product focused tasks. The HBC data team, who have very similar requirements to us, have started adopting Airflow (by Airbnb). As part of their adoption, they have contributed to an open source effort to make Airflow support Batch as a backend: &lt;a href=&quot;https://github.com/gilt/incubator-airflow/tree/aws_batch&quot;&gt;https://github.com/gilt/incubator-airflow/tree/aws_batch&lt;/a&gt;. If it works well, this is a solution we may adopt in the future.&lt;/p&gt;</content><author><name>Kevin O'Riordan</name></author><category term="batch" /><category term="aws" /><category term="tech" /><category term="personalization" /><summary>About a year ago, we (the Gilt/HBC personalization team) open sourced Sundial , a batch job orchestration system leveraging Amazon EC2 Container Service.</summary></entry></feed>
