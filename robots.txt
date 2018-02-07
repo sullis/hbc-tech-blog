@@ -1,2 +1,1 @@
-User-agent: *
-Disallow: /
+Sitemap: http://tech.hbc.com/hbc-tech-blog/sitemap.xml
