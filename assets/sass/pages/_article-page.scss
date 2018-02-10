@@ -84,7 +84,7 @@
 				}
 
 				&__job-title {
-					@include render-type-style(label-2, $type-styles);
+					display: none;
 				}
 			}
 
@@ -257,6 +257,16 @@
 
 		    .header-title {
 				@include render-type-style(headline-1, $type-styles);
+			}
+
+			.article-meta {
+
+				&__author {
+					&__job-title {
+						display: inline-flex;
+						@include render-type-style(label-2, $type-styles);
+					}
+				}
 			}
 		}
 
