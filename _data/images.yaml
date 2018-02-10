@@ -1,25 +1,25 @@
 # images used for all static content pages
 # can be accessed in templates ie: {{ site.data.images.about.locations[0] }}
 banners:
-  - hb-logo.svg
-  - saks-logo.svg
-  - off5th-logo.svg
-  - gilt-logo.svg
-  - lt-logo.svg
+  - blog/about/hb-logo.svg
+  - blog/about/saks-logo.svg
+  - blog/about/off5th-logo.svg
+  - blog/about/gilt-logo.svg
+  - blog/about/lt-logo.svg
 
 about:
-  hero: about-us.jpg
+  hero: blog/about/about-us.jpg
   image-grid:
-    - photo-grid-1.jpg
-    - photo-grid-4.jpg
+    - blog/about/photo-grid-1.jpg
+    - blog/about/photo-grid-4.jpg
   locations:
-    - new-york.jpg
-    - dublin.jpg
+    - blog/about/new-york.jpg
+    - blog/about/dublin.jpg
 
 careers:
-  hero: careers.jpg
+  hero: blog/careers/careers.jpg
 
 code-page:
-  hero: code.jpg
-  # hero: https://images.unsplash.com/photo-1510751007277-36932aac9ebd?auto=format
-
+  hero: blog/code/code.jpg
+  api: blog/code/gilt-api.png
+  styleguide: blog/code/hbc-styleguide.png
