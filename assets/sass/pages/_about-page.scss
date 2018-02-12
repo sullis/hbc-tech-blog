@@ -41,8 +41,7 @@
 		display: grid;
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr;
-		height: 40vh;
-		max-height: 160px;
+		// height: 40vh;
 		max-width: 800px;
 		margin: 50px auto;
 		animation-delay: 0.3s;
@@ -133,40 +132,26 @@
 
 	    .location {
 			width: calc(100% - 20px);
-	    	height: 330px;
+	    	height: 160px;
 	    	max-height: calc(90vw - 20px);
-	    	margin-bottom: 40px;
-			display: grid;
-			grid-template-columns: 1fr;
-			grid-template-rows: 1fr;
-		    align-items: center;
+	    	margin: 40px auto;
 		    text-align: center;
 		    position: relative;
 
-		    &:before {
-		    	content: '';
-		    	display: block;
-		    	position: absolute;
-		    	background-color: black;
-		    	height: 100%;
-		    	width: 100%;
-		    	opacity: 0.2;
-		    }
-
 		    &__label {
-		    	color: white;
-		    	@include render-type-style(headline-2, $type-styles);
-		    	// font-size: 48px;
-		    	// font-weight: 700;
+		    	margin: 0;
+		    	color: $hbc-gray-3;
+		    	@include render-type-style(headline-3, $type-styles);
+		    	font-weight: 700;
+		    	letter-spacing: -2px;
 		    	z-index: 1;
-		    }
 
-		    &--new-york {
-		    	background: url('../images/blog/about/new-york.jpg') 50% 50% / cover no-repeat;
-		    }
-
-		    &--dublin {
-		    	background: url('../images/blog/about/dublin.jpg') 100% 100% / 170% no-repeat;
+		    	&--2 {
+			    	margin: 0;
+			    	color: $hbc-gray;
+			    	@include render-type-style(subhead-1, $type-styles);
+			    	text-transform: uppercase;
+		    	}
 		    }
 		}
 	}
@@ -204,13 +189,9 @@
 				margin-right: 10px;
 
 				&:last-child {
-					margin-left: 10px;
+					margin-left: 0;
 					margin-right: 0;
 				}
-
-			    &--dublin {
-			    	background: url('../images/blog/about/dublin.jpg') 100% 100% / 200% no-repeat;
-			    }
 			}
 		}
 	}
@@ -228,6 +209,7 @@
 
 		&__intro {
 			margin: 100px auto;
+			max-height: 160px;
 		}
 
 		&__photo-grid {
@@ -249,18 +231,17 @@
 		&__locations {
 			.location {
 				width: calc(100% / 2 - 10px);
+		    	height: 260px;
+		    	padding-top: 80px;
 		    	max-height: calc(90vw / 2 - 20px);
 				margin: 0;
 				margin-right: 10px;
+				margin-bottom: 10px;
 
 				&:last-child {
 					margin-left: 10px;
 					margin-right: 0;
 				}
-
-			    &--dublin {
-			    	background: url('../images/blog/about/dublin.jpg') 100% 100% / 170% no-repeat;
-			    }
 			}
 		}
 
