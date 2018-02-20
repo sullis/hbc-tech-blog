@@ -9,7 +9,7 @@ script: jekyll build
 
 branches:
   only:
-    - develop
+    - master
 
 notifications:
   slack:
