@@ -1,0 +1,119 @@
+.pagination {
+	grid-area: pg;
+	width: 100%;
+    padding: 20px 0;
+    text-align: left;
+    min-height: 100px;
+
+	&__label {
+		position: relative;
+		top: -10px;
+		@include render-type-style(label-2, $type-styles);
+	}
+
+	&__link {
+		@include render-type-style(subhead-3, $type-styles);
+		padding: 0 7px 0 7px;
+		text-decoration: none;
+		transition: all 100ms ease-out;
+		position: relative;
+		top: -10px;
+
+	    &:last-child {
+	    	padding-right: 0;
+	    }
+
+	    &:first-child {
+	    	padding-left: 0;
+	    }
+
+	    &:visited,
+	    &:-webkit-any-link {
+	    	color: inherit;
+	    }
+
+		.arrow-box {
+	        fill: none;
+	        overflow: visible;
+
+		    .arrow {
+		    	stroke: $hbc-highlight;
+			    stroke-width: 1px;
+			    transition: stroke-width 200ms ease-in;
+		    }
+
+		    .box {
+		    	stroke: $hbc-highlight;
+			    stroke-width: 1px;
+		        stroke-dasharray: 116px;
+		        stroke-dashoffset: 116px;
+		    }
+		}
+
+		&:hover {
+			padding-bottom: 5px;
+			border-bottom: solid 3px $hbc-highlight;
+			color: $hbc-highlight;
+		}
+
+		&--prev {
+    		.arrow-box {
+		    	transform: rotate(180deg);
+			    transform-origin: 50% 50%;
+		    }
+		}
+
+		&--prev,
+		&--next {
+			top: 0;
+			display: inline-block;
+
+		    &:hover {
+	    		padding-bottom: 0;
+	    		border: 0;
+
+	    		.arrow {
+			    	stroke: $hbc-highlight;
+				    stroke-width: 2.5px;
+				    transition: stroke-width 200ms ease-in;
+			    }
+
+			    .box {
+			    	stroke: $hbc-highlight;
+				    animation-name: animate-stroke;
+			    	animation-duration: 300ms;
+			        animation-timing-function: none; 
+					animation-direction: normal;
+					animation-iteration-count: 1;
+					animation-fill-mode: both;
+		    	    transform: rotate(-180deg);
+				    transform-origin: 50% 50%;
+				    transition: transform 200ms ease-out;
+			    }
+			}
+		}
+
+		&--current {
+			border-bottom: solid 3px $hbc-black;
+			padding-bottom: 5px;
+
+			&:hover {
+				border-bottom: solid 3px $hbc-black;
+				color: $hbc-black;
+			}
+		}
+	}
+
+    // tablet and above
+    @media screen and (min-width: $breakpoint-medium) {
+	    padding-left: 40px;
+	    margin-top: 60px;
+    }
+
+	// mobile layout
+    @media screen and (max-width: $breakpoint-medium) {
+    	text-align: center;
+    	margin: 20px auto;
+	    min-height: 0;
+    }
+}

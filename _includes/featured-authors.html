@@ -1,0 +1,9 @@
+<!-- featured authors -->
+<aside class="featured-authors">
+	<h3 class="featured-authors__title">Featured Authors</h3>
+    <ul class="featured-authors__list">
+    	{% for author in site.authors %}
+			<li class="featured-authors__list-item"><a class="featured-authors__list-item__link" href="{{ site.url }}{{ site.baseurl }}{{ author.url}}">{{ author.name }}</a></li>
+        {% endfor %}
+    </ul>
+</aside>

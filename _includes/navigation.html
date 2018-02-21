@@ -1,0 +1,21 @@
+<nav id="menu" class="navigation">
+    <svg class="navigation__menu-icon" xmlns="http://www.w3.org/2000/svg">
+        <path class="bar bar__top" d="M0,3 L30,3" />
+        <path class="bar bar__cross-1" d="M0,14 L30,14" />
+        <path class="bar bar__cross-2" d="M0,14 L30,14" />
+        <path class="bar bar__bottom" d="M0,25 L30,25" />
+    </svg>
+	<menu class="menu">
+		<ul class="link-list">
+		{% assign currentPage = page.url | replace: "/", ""%}
+        {% for link in site.data.navigation.header-links %}
+            <li class="link-list__link-item">
+                <a href="{{ site.url }}{{ site.baseurl }}/{{ link.url }}" class="link-list__link
+            {% if link.url == currentPage %}link-list__link--current{% endif %}
+            {% if paginator.page > 0 and link.title == 'Insights' %}link-list__link--current{% endif %}">
+                <span class="link-list__link-highlight">{{ link.title }}</span></a>
+            </li>
+        {% endfor %}
+	    </ul>
+	</menu>
+</nav>

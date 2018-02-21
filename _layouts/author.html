@@ -1,0 +1,22 @@
+---
+layout: sub-page
+---
+{% assign currAuthor = page.name %}
+{% assign authorPosts = site.posts | where: "author", currAuthor %}
+
+<section class="page author-page">
+	<header class="page__header">
+		<h1 class="page__title">{{page.name}}</h1>
+		<p class="page__description">{{page.mini-bio | truncate: 280 }}</p>
+	</header>
+	<section class="articles">
+		{% for post in authorPosts %}
+		    {% include article-snippet.html excerpt=true %}
+		{% endfor %}
+	</section>
+	<section class="asides">
+		<div class="sticky-container">
+			{% include featured-topics.html authorCategories=true %}
+		</div>
+	</section>
+</section>

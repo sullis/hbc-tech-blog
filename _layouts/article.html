@@ -1,0 +1,76 @@
+---
+layout: sub-page
+---
+<article class="article">
+    <header class="article__header article__header--reveal">
+        <h1 class="header-title" title="{{ page.title }}">{{ page.title }}</h1>
+        {% if page.image.feature %}
+        {% if page.image.feature contains 'https' or page.image.feature contains 'http' %}
+        <img class="hero-image" title="{{ page.title }}" src="{{ page.image.feature }}" />
+        {% else %}
+        <img class="hero-image" title="{{ page.title }}" src="{{ site.url }}{{ site.baseurl }}/assets/images/{{ page.image.feature }}" />
+        {% endif %}
+        {% else %}
+        <span id="no-image-placeholder" class="no-image-placeholder"></span>
+        {% endif %}
+
+        {% if page.categories.size > 0 %}
+            {% for cat in site.category %}
+                {% if cat.name == page.categories.first %}
+                    {% assign featureCategory = cat.name %}
+                {% endif %}
+            {% endfor %}
+        <div class="article-meta">
+            {% if page.categories.first == featureCategory %}
+            <a href="{{ site.url }}{{ site.baseurl }}/category/{{ featureCategory | slugify }}" class="article-meta__category">{{ featureCategory }}</a>
+            {% else %}
+            <a href="{{ site.url }}{{ site.baseurl }}/categories/#{{ page.categories }}" class="article-meta__category">{{ page.categories.first }}</a>
+            {% endif %}
+        {% endif %}
+        {% if page.author != page.name %}
+        {% if page.author != '' %}
+            <span class="slug-divider"></span>
+            <span class="article-meta__author">
+            {% for authorName in page.author %}
+                {% assign authorLink = authorName | replace: ' ', '-' | downcase %}
+                <!-- if author exists in site.authors, create link to author's page -->
+                {% for a in site.authors %}
+                    {% if a.name == authorName %}
+                    <a class="article-meta__author__link" href="{{ site.url }}{{ site.baseurl }}/authors/{{ authorLink }}">
+                    {% endif %}
+                {% endfor %}
+                <!-- render the author name regardless if they're a featured author -->
+                {{- authorName -}}
+                <!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                {% for a in site.authors %}
+                    {% if a.name == authorName %}
+                    </a>{%if a.job-title %}<span class="article-meta__author__job-title">, {{a.job-title}}</span>{% endif %}
+                    {% endif %}
+                {% endfor %}
+                {%- unless forloop.last -%}
+                <span>,</span>
+                {% endunless %}
+            {% endfor %}
+            </span>
+            <span class="slug-divider"></span>
+        {% endif %}
+    {% endif %}
+            <span class="article-meta__date">
+                {{ page.date | date: "%b %-d, %Y" | upcase }}
+            </span>
+        </div>
+    </header>
+    <section class="article__content article__content--reveal">
+        
+        <div class="article__content__read-time">{% include read-time.html %}</div>
+        <div class="article__content__share-buttons">{% include share-buttons.html %}</div>
+        <div class="article__content__body">{{ content }}</div>
+        <footer class="article__content__footer">
+            {% include article-tags.html %}
+            {% include author-bio.html %}
+        </footer>
+    </section>
+    {% include recirc.html %}
+</article>
+

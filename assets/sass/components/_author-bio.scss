@@ -1,0 +1,52 @@
+.author-bio {
+	vertical-align: top;
+	color: $hbc-gray-2;
+	font-size: 18px;
+	text-decoration: none;
+
+	&__avatar {
+		margin-right: 5px;
+		vertical-align: middle;
+
+		.hbc-svg-icon {
+			&--avatar__circle {
+				fill: #ccc;
+			}
+
+			&--avatar__body,
+			&--avatar__head {
+				fill: #fff;
+			}
+		}
+	}
+
+	p:first-of-type {
+	    display: inline-flex;
+	    align-items: center;
+	}
+
+	&__link {
+		color: $hbc-highlight;
+	    position: relative;
+
+		@include special-text-link();
+	}
+
+	&__name {
+		color: $hbc-black;
+	    position: relative;
+	}
+	
+	&__job-title {
+		font-size: 18px;
+		// vertical-align: super;
+	    margin-top: -3px;
+	}
+
+	&__bio {
+		font-size: 16px;
+		color: $hbc-gray-2;
+		max-width: 820px;
+		margin-top: 0;
+	}
+}

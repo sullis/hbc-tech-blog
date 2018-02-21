@@ -1,0 +1,10 @@
+_site
+.sass-cache
+_drafts
+.ruby-version
+.DS_Store
+node_modules/
+npm-debug.log
+.jekyll-metadata
+Gemfile.lock
+.publish/

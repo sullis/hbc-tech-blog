@@ -1,0 +1,84 @@
+{% assign showExcerpt = include.excerpt %}
+{% assign showFeatureImage = include.featureImage %}
+
+<section class="snippet">
+    
+    {% if showFeatureImage == true  %}
+        {% if post.image.feature %}
+            <a class="snippet__feature-image__link" href="{{ site.url }}{{ site.baseurl }}{{ post.url }}"><img class="snippet__feature-image" src=
+            {% if post.image.feature contains 'http' %}
+            "{{ post.image.feature }}"
+            {% else %}
+            "{{ site.url }}{{ site.baseurl }}/assets/images/{{ post.image.feature }}"
+            {% endif %}
+            alt="{{ post.title }}"></a>
+        {% else %}
+            <a class="snippet__feature-image__link" href="{{ site.url }}{{ site.baseurl }}{{ post.url }}"><span id="no-image-placeholder" class="snippet__no-image-placeholder"></span></a>
+        {% endif %}
+    {% endif %}
+    <h1 class="snippet__title">
+    <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="snippet__title__link" title="{{ post.title }}">
+        {{ post.title }}
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    {% if post.categories.size > 0 %}
+        {% assign pTitle = page.title | downcase %}
+        {% assign pCat = post.categories.first %}
+        {% if pCat != pTitle %}
+            {% for cat in site.category %}
+                {% if cat.name == post.categories.first %}
+                    {% assign featureCategory = cat.name %}
+                {% endif %}
+            {% endfor %}
+
+            {% if post.categories.first == featureCategory %}
+                <a class="meta__category-link" href="{{ site.url }}{{ site.baseurl }}/category/{{ post.categories.first | slugify }}">{{post.categories.first }}</a>
+            {% else %}
+                <a class="meta__category-link" href="{{ site.url }}{{ site.baseurl }}/categories/#{{ post.categories.first }}">{{post.categories.first}}</a>
+            {% endif %}
+            
+            <span class="slug-divider"></span>
+        {% endif %}
+    {% endif %}
+
+    {% if post.author != page.name %}
+        {% if post.author != '' %}
+            <span class="meta__author">
+            {% for authorName in post.author %}
+                {% assign authorLink = authorName | replace: ' ', '-' | downcase %}
+                <!-- if author exists in site.authors, create link to author's page -->
+                {% for a in site.authors %}
+                    {% if a.name == authorName %}
+                    <a class="meta__author-link" href="{{ site.url }}{{ site.baseurl }}/authors/{{ authorLink }}">
+                    {% endif %}
+                {% endfor %}
+                <!-- render the author name regardless if they're a featured author -->
+                {{- authorName -}}
+                <!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                {% for a in site.authors %}
+                    {% if a.name == authorName %}
+                    </a>{%if a.job-title %}<span class="meta__author__job-title">, {{a.job-title}}</span>{% endif %}
+                    {% endif %}
+                {% endfor %}
+                {%- unless forloop.last -%}
+                <span>,</span>
+                {% endunless %}
+            {% endfor %}
+            </span>
+            <span class="slug-divider"></span>
+        {% endif %}
+    {% endif %}
+    {% if post.date %}
+        <span class="meta__date">{{ post.date | date: "%b %-d, %Y" | upcase }}</span>
+    {% endif %}
+    </div>
+    {% if post.excerpt and showExcerpt == true %}
+        <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="snippet__excerpt__link" title="{{ post.title }}">
+            <p class="snippet__excerpt">
+            {{ post.excerpt | strip_html | truncatewords: 70 }}
+            </p>
+        </a>
+    {% endif %}
+</section>

@@ -1,0 +1,91 @@
+// Basic Layout
+$content-width: 1080px;
+$header-height: 80px;
+$sticky-header-height: 40px;
+$sticky-header-offset: $sticky-header-height + 10px;
+
+// breakpoints
+$breakpoint-small: 375px;
+$breakpoint-medium: 767px;
+$breakpoint-large: 1023px;
+$breakpoints: (small: 320px, medium: 768px, large: $content-width, xlarge: 1800px);
+
+// spacers
+$content-side-margins: 20px;
+$content-side-margins-large: 40px;
+
+.content {
+	background-color: white;
+	margin: auto;
+	padding-right: $content-side-margins;
+	padding-left: $content-side-margins;
+
+	// tablet layout
+	@include media('>=medium') {
+		padding-right: $content-side-margins-large;
+		padding-left: $content-side-margins-large;
+	}
+
+	// tablet landscape
+	@include media('>=medium', 'landscape') {
+		padding-right: $content-side-margins-large;
+		padding-left: $content-side-margins-large;
+	}
+
+	@include media('>large') {
+		padding: 0;
+	}
+}
+
+
+// prevent anchor links from being hidden behind sticky nav ;)
+// media query because there we've only got a sticky nav on desktop
+@include media('>=medium') {
+	:target:before {
+		content: "";
+		display: block;
+		height: 90px; /* fixed header height*/
+		margin: -90px 0 0; /* negative fixed header height */
+	}
+}
+
+.page {
+	padding-top: 160px;
+	min-height: 60vh;
+    max-width: 1080px;
+	margin: auto;
+
+	&__header {
+		grid-area: header;
+		width: 100%;
+		margin-bottom: 40px;
+		padding-bottom: 20px;
+		border-bottom: solid 1px $hbc-border;
+	}
+
+	&__title {
+		text-transform: capitalize;
+		margin: 0;
+	}
+
+	&__description {
+		margin: 0;
+	}
+}
+
+// responsive helper for embedded iframes with video
+.videoWrapper {
+	position: relative;
+	padding-bottom: 76%;
+	height: 0;
+	overflow: hidden;
+	max-width: 100%;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+

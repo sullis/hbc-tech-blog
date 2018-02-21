@@ -1,0 +1,49 @@
+{
+  "name": "hbc-tech-blog",
+  "version": "1.0.0",
+  "description": "Tech blog for HBC Digital",
+  "main": "gulpfile.js",
+  "homepage": "https://github.com/saksdirect/hbc-tech-blog#readme",
+  "engines": {
+    "node": "~5.11.1",
+    "npm": "~3.8.6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jaret_stezelberger@s5a.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saksdirect/hbc-tech-blog/issues"
+  },
+  "devDependencies": {
+    "browser-sync": "2.18.13",
+    "gulp": "3.9.1",
+    "gulp-autoprefixer": "4.0.0",
+    "gulp-clean-css": "3.9.0",
+    "gulp-concat": "2.6.1",
+    "gulp-html-extract": "0.3.0",
+    "gulp-minify-html": "1.0.6",
+    "gulp-notify": "3.0.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-rename": "1.2.2",
+    "gulp-replace": "0.6.1",
+    "gulp-sass": "3.1.0",
+    "gulp-uglify": "3.0.0",
+    "gulp-uncss": "1.0.6",
+    "pump": "^1.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saksdirect/hbc-tech-blog.git"
+  },
+  "keywords": [
+    "jekyll",
+    "gulp",
+    "sass",
+    "js",
+    "blog",
+    "browsersync",
+    "hbc digital"
+  ]
+}

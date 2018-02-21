@@ -1,0 +1,31 @@
+<!-- Pagination links -->
+{% if paginator.total_pages > 1 %}
+<section class="pagination">
+    {% if paginator.previous_page %}
+    <a class="pagination__link pagination__link--prev" rel="prev" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">
+        <svg class="arrow-box"  width="30" height="30" xmlns="http://www.w3.org/2000/svg">
+            <use class="arrow" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#arrow"></use>
+            <use class="box"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#box"></use>
+        </svg>
+    </a>
+    {% endif %}
+    <span class="pagination__label">Page:</span>
+    {% for page in (1..paginator.total_pages) limit:5 %}
+        {% if page == paginator.page %}
+        <span class="pagination__link pagination__link--current">{{ page }}</span>
+        {% elsif page == 1 %}
+        <a class="pagination__link" href="{{ site.url }}{{ site.baseurl }}{{site.paginate_dir}}">{{ page }}</a>
+        {% else %}
+        <a class="pagination__link" href="{{ site.paginate_dir | prepend: site.baseurl | replace: '//', '/' | append: page }}">{{ page }}</a>
+        {% endif %}
+    {% endfor %}
+    {% if paginator.next_page %}
+        <a class="pagination__link pagination__link--next" rel="next" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">
+            <svg class="arrow-box"  width="30" height="30" xmlns="http://www.w3.org/2000/svg">
+                <use class="arrow" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#arrow"></use>
+                <use class="box"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.url }}{{ site.baseurl }}/assets/images/hbc-icons.svg#box"></use>
+            </svg>
+        </a>
+    {% endif %}
+</section>
+{% endif %}
