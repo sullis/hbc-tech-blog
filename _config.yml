@@ -81,7 +81,6 @@ exclude:
   - Gemfile.lock
   - package.json
   - README.md
-  - CNAME
   - docs
   - node_modules
   - gulpfile.js
