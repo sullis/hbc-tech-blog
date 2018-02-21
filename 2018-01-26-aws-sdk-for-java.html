@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title> AWS SDK for Java, version 2.0 </title>
+
+        <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>AWS SDK for Java, version 2.0 | HBC Tech</title>
+<meta name="generator" content="Jekyll v3.7.2" />
+<meta property="og:title" content="AWS SDK for Java, version 2.0" />
+<meta name="author" content="Sean Sullivan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Capital Region AWS User Group met on January 18th at the Nanotech Complex in Albany New York. CommerceHub hosted the meeting at their main office." />
+<meta property="og:description" content="The Capital Region AWS User Group met on January 18th at the Nanotech Complex in Albany New York. CommerceHub hosted the meeting at their main office." />
+<link rel="canonical" href="http://tech.hbc.com/2018-01-26-aws-sdk-for-java.html" />
+<meta property="og:url" content="http://tech.hbc.com/2018-01-26-aws-sdk-for-java.html" />
+<meta property="og:site_name" content="HBC Tech" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-01-26T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@Sean Sullivan" />
+<script type="application/ld+json">
+{"description":"The Capital Region AWS User Group met on January 18th at the Nanotech Complex in Albany New York. CommerceHub hosted the meeting at their main office.","author":{"@type":"Person","name":"Sean Sullivan"},"@type":"BlogPosting","url":"http://tech.hbc.com/2018-01-26-aws-sdk-for-java.html","headline":"AWS SDK for Java, version 2.0","dateModified":"2018-01-26T00:00:00-05:00","datePublished":"2018-01-26T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://tech.hbc.com/2018-01-26-aws-sdk-for-java.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+        <meta property="og:title" content="AWS SDK for Java, version 2.0" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://tech.hbc.com//2018-01-26-aws-sdk-for-java.html" />
+<meta property="og:description" content="The Capital Region AWS User Group met on January 18th at the Nanotech Complex in Albany New York. CommerceHub hosted the meeting at their main office." />
+<meta property="og:image" content="http://tech.hbc.com/assets/images/blog/hbc-tech-logo-tipi.jpg" />
+<meta property="og:image:secure_url" content="http://tech.hbc.com/assets/images/" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:alt" content="" />
+
+
+        <link rel="stylesheet" href="http://tech.hbc.com/assets/css/main.css">
+        <link rel="canonical" href="http://tech.hbc.com/2018-01-26-aws-sdk-for-java.html">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
+
+        <!-- Icons -->
+        <!-- 16x16 -->
+        <link rel="shortcut icon" href="http://tech.hbc.com/assets/images/favicon.ico">
+    </head>
+
+    <body aria-label="Content">
+        <header id="site-header" class="site-header">
+    <div class="site-header__inner">
+    	<a class="site-header__logo" href="/">
+        	<svg class="hbc-tech-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 52">
+        		<use class="hbc-tech-logo__text" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#hbc-tech-logo"></use>
+            </svg>
+    	</a>
+        <nav id="menu" class="navigation">
+    <svg class="navigation__menu-icon" xmlns="http://www.w3.org/2000/svg">
+        <path class="bar bar__top" d="M0,3 L30,3" />
+        <path class="bar bar__cross-1" d="M0,14 L30,14" />
+        <path class="bar bar__cross-2" d="M0,14 L30,14" />
+        <path class="bar bar__bottom" d="M0,25 L30,25" />
+    </svg>
+	<menu class="menu">
+		<ul class="link-list">
+		
+        
+            <li class="link-list__link-item">
+                <a href="http://tech.hbc.com/" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">Insights</span></a>
+            </li>
+        
+            <li class="link-list__link-item">
+                <a href="http://tech.hbc.com/code" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">Code</span></a>
+            </li>
+        
+            <li class="link-list__link-item">
+                <a href="http://tech.hbc.com/about" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">About</span></a>
+            </li>
+        
+            <li class="link-list__link-item">
+                <a href="http://tech.hbc.com/work-here" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">Work Here</span></a>
+            </li>
+        
+	    </ul>
+	</menu>
+</nav>
+
+        <search id="header-search" class="header-search">
+	<form class="header-search__form" action>
+	  <input type="text" class="header-search__input" id="header-search-input" placeholder=" Search" name="query">
+	</form>
+  	<svg id="header-search__toggle" class="header-search__svg" xmlns="http://www.w3.org/2000/svg" >
+		<path id="leftSearch" class="path path--left-half" d="M11.4842576,23.9891168 C5.09608476,23.7189967 0,18.4546255 0,12 C0,5.54951437 4.85419801,0.113423154 12.4763811,0.0114091479"/>
+		<path id="rightSearch" class="path path--right-half" d="M12.5376167,0.0118279089 C18.9155446,0.293025077 24,5.55274344 24,12 C24,18.4701834 17.7604297,24.3112218 11.1896721,23.9909829"/>
+		<path id="handle" class="path path--handle" d="M20.7485408,20.8914207 L26.8571202,27 L20.7485408,20.8914207"/>
+    </svg>
+    <section class="header-search__results" id="header-search__results"></section>
+</search>
+
+    </div>
+</header>
+
+        <section class="content"><article class="article">
+    <header class="article__header article__header--reveal">
+        <h1 class="header-title" title="AWS SDK for Java, version 2.0">AWS SDK for Java, version 2.0</h1>
+        
+        <span id="no-image-placeholder" class="no-image-placeholder"></span>
+        
+
+        
+            
+        <div class="article-meta">
+            
+            <a href="http://tech.hbc.com/categories/#cloud" class="article-meta__category">cloud</a>
+            
+        
+        
+        
+            <span class="slug-divider"></span>
+            <span class="article-meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Sean Sullivan<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+            <span class="article-meta__date">
+                JAN 26, 2018
+            </span>
+        </div>
+    </header>
+    <section class="article__content article__content--reveal">
+        
+        <div class="article__content__read-time"><span class="read-time" title="Estimated read time">
+  
+  
+    <span class="read-time__text-1">1 min</span>
+    <span class="read-time__text-2">Read</span>
+    <span class="read-time__text-3">Time</span>
+  
+</span>
+</div>
+        <div class="article__content__share-buttons"><ul class="share-buttons">
+    <li class="share-buttons__link-item">
+        <a href="https://twitter.com/intent/tweet?text=http://tech.hbc.com//2018-01-26-aws-sdk-for-java.html" class="share-buttons__link" title="Share on Twitter" target="_blank">
+            <svg class="hbc-svg-icon" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon--twitter" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
+            </svg>
+        </a>
+    </li>
+    <li class="share-buttons__link-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://tech.hbc.com/&source=/2018-01-26-aws-sdk-for-java.html&title=AWS SDK for Java, version 2.0" class="share-buttons__link" title="Share on Linkedin" target="_blank">
+            <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#linkedin" ></use>
+            </svg>
+        </a>
+    </li>
+    <li class="share-buttons__link-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://tech.hbc.com//2018-01-26-aws-sdk-for-java.html" class="share-buttons__link" title="Share on Facebook" target="_blank">
+            <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#facebook" ></use>
+            </svg>
+        </a>
+    </li>
+    <li class="share-buttons__link-item">
+        <a href="https://www.reddit.com/submit?url=http://tech.hbc.com//2018-01-26-aws-sdk-for-java.html" class="share-buttons__link" title="Share on Reddit" target="_blank">
+            <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#reddit" ></use>
+            </svg>
+        </a>
+    </li>
+</ul>
+</div>
+        <div class="article__content__body"><p>The Capital Region AWS User Group met on January 18th at the <a href="https://sunypoly.edu/research/albany-nanotech-complex.html">Nanotech Complex</a> in Albany New York. <a href="https://www.commercehub.com/">CommerceHub</a> hosted the meeting at their main office.</p>
+
+<p>The topic of this month’s meetup was the AWS SDK for Java. At HBC, our development teams use the SDK to access AWS services such as DynamoDB, S3, CloudWatch, and SNS. The v1 SDK has been a core building block at HBC since 2014.</p>
+
+<p>In June 2017, Amazon released a new implementation of the SDK for Java.</p>
+
+<p><img src="/assets/images/aws-sdk-for-java/aws-sdk-java-version-2_0-june-2017.png" alt="aws-sdk-image" /></p>
+
+<p>The version 2.0 SDK is available as a developer preview. HBC is evaluating the new SDK and we look forward to using it in production later this year.</p>
+
+<p><img src="/assets/images/aws-sdk-for-java/aws-sdk-java-version-2_0-github-v2-sdk.png" alt="aws-sdk-image" /></p>
+
+<p>Our engineering team has already started incorporating the v2 SDK into our helper libraries:</p>
+
+<ul>
+  <li>gfc-aws-cloudwatch – <a href="https://github.com/gilt/gfc-aws-cloudwatch/pull/8/">pull request</a></li>
+  <li>gfc-s3-cache – <a href="https://github.com/gilt/gfc-s3-cache/pull/4">pull request</a></li>
+</ul>
+
+<p>The v2 API uses  <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html">java.util.concurrent.CompletableFuture</a> to encapsulate the result of an AWS service call. HBC’s Scala libraries will use <a href="https://github.com/scala/scala-java8-compat/blob/master/src/main/scala/scala/compat/java8/FutureConverters.scala">FutureConverters</a> to convert Java CompletableFuture objects into Scala Future objects.</p>
+
+<p><img src="/assets/images/aws-sdk-for-java/aws-sdk-java-version-2_0-futureconverters.png" alt="aws-sdk-image" /></p>
+
+<p>If you want to learn more about the v2 SDK, review my slidedeck or watch Kyle Thomson’s re:invent 2017 presentation.</p>
+
+<p><a href="https://speakerdeck.com/sullis/aws-sdk-for-java-version-2-dot-0-albany-ny-january-18-2018"><img src="/assets/images/aws-sdk-for-java/AWS_SDK_for_Java-speakerdeck-albany-480.png" alt="aws-sdk-java-speakerdeck-albany-image" /></a> <a href="https://www.youtube.com/watch?v=byRois3s5Yc"><img src="/assets/images/aws-sdk-for-java/aws-sdk-java-version-2_0-kyle-reinvent-youtube-480.png" alt="aws-reinvent-2017-kyle-thomson-image" /></a></p>
+</div>
+        <footer class="article__content__footer">
+            
+<div class="article-tags">
+
+    <span class="article-tags__tag">aws</span><span>,</span>
+    
+
+    <span class="article-tags__tag">java</span><span>,</span>
+    
+
+    <span class="article-tags__tag">scala</span><span>,</span>
+    
+
+    <span class="article-tags__tag">cloud</span><span>,</span>
+    
+
+    <span class="article-tags__tag">albany</span><span>,</span>
+    
+
+    <span class="article-tags__tag">newyork</span><span>,</span>
+    
+
+    <span class="article-tags__tag">2018</span>
+
+</div>
+
+
+            <!-- author bio -->
+<section class="author-bio">
+
+
+	
+
+	
+	<!-- author is a guest contributor -->
+	<svg class="author-bio__avatar" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__circle" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#circle" ></use>
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#head" ></use>
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#body" ></use>
+    </svg>
+	<span class="author-bio__name">Sean Sullivan</span>
+	
+
+
+</section>
+
+        </footer>
+    </section>
+    <aside class="recirc">
+    <h2 class="header__title">Recent Insights</h2><span class="slug-divider"></span>
+    <a class="header__view-all-link" href="http://tech.hbc.com/categories/index.html">See All</a>
+    <div class="recirc__articles">
+    
+    
+    
+    
+    
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+    
+    
+    <h1 class="snippet__title">
+    <a href="http://tech.hbc.com/2018-01-24-career-structure.html" class="snippet__title__link" title="Career Structure. It doesn't matter. Until it matters.">
+        Career Structure. It doesn't matter. Until it matters.
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="http://tech.hbc.com/categories/#leadership">leadership</a>
+            
+            
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Adrian Trenaman<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">JAN 24, 2018</span>
+    
+    </div>
+    
+        <a href="http://tech.hbc.com/2018-01-24-career-structure.html" class="snippet__excerpt__link" title="Career Structure. It doesn't matter. Until it matters.">
+            <p class="snippet__excerpt">
+            In this article, I’m going to talk about career structure, career development, and career titles in a tech organisation. This post is more about organisational development than it is about technology; however, on the grounds that the health of your architecture and technology choices will be somewhat isomorphic to the health of your organisation, I believe this to be a worthwhile read for any engineering leader. I’m also writing this...
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+    
+    
+    <h1 class="snippet__title">
+    <a href="http://tech.hbc.com/2018-01-16-sundial-aws-emr-integration.html" class="snippet__title__link" title="Sundial AWS EMR Integration">
+        Sundial AWS EMR Integration
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="http://tech.hbc.com/categories/#aws">aws</a>
+            
+            
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                    <a class="meta__author-link" href="http://tech.hbc.com/authors/giovanni-gargiulo">
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Giovanni Gargiulo<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                    </a><span class="meta__author__job-title">, Staff Engineer</span>
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">JAN 16, 2018</span>
+    
+    </div>
+    
+        <a href="http://tech.hbc.com/2018-01-16-sundial-aws-emr-integration.html" class="snippet__excerpt__link" title="Sundial AWS EMR Integration">
+            <p class="snippet__excerpt">
+            AWS Elastic Map Reduce on Sundial
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+    
+    
+    <h1 class="snippet__title">
+    <a href="http://tech.hbc.com/2018-01-03-instant-voucher-serverless.html" class="snippet__title__link" title="Revitalize Gilt City's Order Processing with Serverless Architecture">
+        Revitalize Gilt City's Order Processing with Serverless Architecture
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="http://tech.hbc.com/categories/#aws">aws</a>
+            
+            
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Liyu Ma<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">JAN 3, 2018</span>
+    
+    </div>
+    
+        <a href="http://tech.hbc.com/2018-01-03-instant-voucher-serverless.html" class="snippet__excerpt__link" title="Revitalize Gilt City's Order Processing with Serverless Architecture">
+            <p class="snippet__excerpt">
+            Instant Vouchers Initiative
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+    
+    
+    <h1 class="snippet__title">
+    <a href="http://tech.hbc.com/2017-12-30-presentations-we-love.html" class="snippet__title__link" title="Presentations we love: 2017">
+        Presentations we love: 2017
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="http://tech.hbc.com/categories/#presentations">presentations</a>
+            
+            
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    <a class="meta__author-link" href="http://tech.hbc.com/authors/hbc-tech">
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->HBC Tech<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    </a>
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">DEC 30, 2017</span>
+    
+    </div>
+    
+        <a href="http://tech.hbc.com/2017-12-30-presentations-we-love.html" class="snippet__excerpt__link" title="Presentations we love: 2017">
+            <p class="snippet__excerpt">
+            2017 was a year of growth and learning at HBC Tech. Our organization embraced new technologies and new ways of building application software.
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    </div>
+</aside>
+
+</article>
+
+</section>
+        <footer class="footer">
+	<svg class="est1670" xmlns="http://www.w3.org/2000/svg">
+		<use class="hbc-tech-logo__use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#est1670" ></use>
+	</svg>
+    <section class="footer__links">
+	<ul class="social-links social-links__list">
+    <li class="social-links__list-item">
+        <a class="social-links__link" target="_blank" rel="next" href="https://www.linkedin.com/company/hbc_digital/">
+            <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
+                <use class="linkedin"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#linkedin"></use>
+            </svg>
+        </a>
+    </li>
+    <li class="social-links__list-item">
+        <a class="social-links__link" target="_blank" rel="next" href="https://twitter.com/hbcdigital/">
+            <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
+                <use class="twitter"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
+            </svg>
+        </a>
+    </li>
+    <li class="social-links__list-item">
+        <a class="social-links__link" target="_blank" rel="next" href="https://www.instagram.com/hbcdigital">
+            <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
+                <use class="instagram"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#instagram"></use>
+            </svg>
+        </a>
+    </li>
+</ul>
+
+	<p class="copyright">&copy; 2018 HBC Tech</i></p>
+	</section>
+</footer>
+
+        <script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/scrollmagic/ScrollMagic.min.js"></script>
+<script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/jekyll-search-js/fetch.js"></script>
+<script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
+<script type="text/javascript" src="http://tech.hbc.com/assets/js/main.js"></script>
+<script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-106560024-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+    </body>
+
+</html>

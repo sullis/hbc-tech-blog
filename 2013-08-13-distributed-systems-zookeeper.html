@@ -1,0 +1,3342 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title> Designing Distributed Systems With ZooKeeper </title>
+
+        <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Designing Distributed Systems With ZooKeeper | HBC Tech</title>
+<meta name="generator" content="Jekyll v3.7.2" />
+<meta property="og:title" content="Designing Distributed Systems With ZooKeeper" />
+<meta name="author" content="HBC Tech" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Let&rsquo;s face it&ndash;designing distributed systems can be tough. There&rsquo;s just no one-size-fits-all tool for creating distributed services: Every distributed application has a unique set of tolerances with regard to reliability, scalability, response time, and other performance factors. At Gilt, our toolbox for supporting distributed service development includes Apache ZooKeeper, RabbitMQ, Kafka and a smattering of distributed data stores. We made these technology choices based on years of hands-on development at Gilt, decades of cumulative experience across our engineering team and (literally) endless internal debate.  By no means are Gilt engineers restricted to using the tools listed above, but most of us stick to using them because together they provide a solid foundation upon which to build a variety of solutions. ZooKeeper in particular has proven to be a fantastic tool for synchronizing distributed systems. For synchronizing data across nodes, it provides a set of APIs with simple and understandable behaviors, which leaves less room for misinterpretation. It also allows engineers to avoid getting bogged down by the common bugs and race conditions inherent to distributed synchronization. If you&rsquo;re not familiar with ZooKeeper, you should check it out. In our experience, we&rsquo;ve found that the most common synchronization tasks boil down to either agreement between nodes, or serializing work. To address these use cases, we use two tools built on top of ZooKeeper: Leader Election and Partitioning. Leader Election It&rsquo;s almost as if ZooKeeper had been designed with Leader Election in mind. In fact, its Recipes Page outlines common Leader Election logic. The common use case is choosing a master node among a set of peers to be responsible for certain decisions. Most implementations will also promptly elect a new leader when necessary. At Gilt, we use a straightforward flavor of Leader Election written by Eric Bowman, our VP Architecture. (Unfortunately, we have not open sourced it at this time, but you shouldn&rsquo;t have much difficulty designing your own flavor of Leader Election based on the ZooKeeper recipe.) To understand how ZooKeeper helps turn a complex task like Leader Election into a relatively trivial exercise, a brief explanation is needed. It&rsquo;s easiest to imagine ZooKeeper as providing a remote filesystem. You can add and remove &ldquo;znodes&rdquo; (akin to files), query znode contents, or watch znodes. A znode can be created ephemerally, such that when the node that created it disconnects, the znode is removed. Clients can also &ldquo;watch&rdquo; znodes and receive notifications when znodes are removed. When these two features are combined, you have the beginnings of a powerful distributed synchronization system. If Leader Election sounds like the solution to your problem, check out Apache Curator. It&rsquo;s a fairly new project with reference implementations for many common ZooKeeper tasks. Partitioning with Ordasity Partitioning is a bit more complicated than Leader Election. Luckily, the folks at Boundary have created Ordasity, a fantastic solution built on ZooKeeper. The idea behind partitioning is that some universe of work needs to be done, and you want to fairly assign that work to the available nodes. One type of &ldquo;work&rdquo; can be a set of incoming requests, such that each request will be serviced by one of the nodes. &ldquo;Hmm&hellip;&rdquo; you say. &ldquo;Why is this better than using a basic load balancer?&rdquo; Answer: It can be a lot smarter! Posit that each request may represent an unpredictable quantity of work. Using Ordasity, you can track how much actual work is assigned to each node and intelligently assign incoming work to the least busy node. In essence, Ordasity enables load balancing based on computational complexity, not requests. But Wait! There&rsquo;s More&hellip; An even more interesting use for partitioning with Ordasity involves segmenting a universe of known work. This is conceptually similar to database sharding. The nodes use Ordasity to divide the universe of known work among themselves. Each time a node is added or removed, Ordasity rebalances the work, ensuring that the universe is fully and discretely assigned. Partitioning with Ordasity has simplified some of our systems by allowing us to impose the requirement that each unit of work is to be handled by, at most, one node at a time. Without this guarantee, we&rsquo;d need an additional database for synchronization. Below is a simplified example of how to use Ordasity to divide up work: import com.twitter.common.zookeeper.ZooKeeperClient import com.boundary.ordasity.{Cluster, ClusterConfig, SmartListener} import java.util.concurrent.{ScheduledThreadPoolExecutor, TimeUnit, ScheduledFuture} import java.util.{HashMap, TimerTask}" />
+<meta property="og:description" content="Let&rsquo;s face it&ndash;designing distributed systems can be tough. There&rsquo;s just no one-size-fits-all tool for creating distributed services: Every distributed application has a unique set of tolerances with regard to reliability, scalability, response time, and other performance factors. At Gilt, our toolbox for supporting distributed service development includes Apache ZooKeeper, RabbitMQ, Kafka and a smattering of distributed data stores. We made these technology choices based on years of hands-on development at Gilt, decades of cumulative experience across our engineering team and (literally) endless internal debate.  By no means are Gilt engineers restricted to using the tools listed above, but most of us stick to using them because together they provide a solid foundation upon which to build a variety of solutions. ZooKeeper in particular has proven to be a fantastic tool for synchronizing distributed systems. For synchronizing data across nodes, it provides a set of APIs with simple and understandable behaviors, which leaves less room for misinterpretation. It also allows engineers to avoid getting bogged down by the common bugs and race conditions inherent to distributed synchronization. If you&rsquo;re not familiar with ZooKeeper, you should check it out. In our experience, we&rsquo;ve found that the most common synchronization tasks boil down to either agreement between nodes, or serializing work. To address these use cases, we use two tools built on top of ZooKeeper: Leader Election and Partitioning. Leader Election It&rsquo;s almost as if ZooKeeper had been designed with Leader Election in mind. In fact, its Recipes Page outlines common Leader Election logic. The common use case is choosing a master node among a set of peers to be responsible for certain decisions. Most implementations will also promptly elect a new leader when necessary. At Gilt, we use a straightforward flavor of Leader Election written by Eric Bowman, our VP Architecture. (Unfortunately, we have not open sourced it at this time, but you shouldn&rsquo;t have much difficulty designing your own flavor of Leader Election based on the ZooKeeper recipe.) To understand how ZooKeeper helps turn a complex task like Leader Election into a relatively trivial exercise, a brief explanation is needed. It&rsquo;s easiest to imagine ZooKeeper as providing a remote filesystem. You can add and remove &ldquo;znodes&rdquo; (akin to files), query znode contents, or watch znodes. A znode can be created ephemerally, such that when the node that created it disconnects, the znode is removed. Clients can also &ldquo;watch&rdquo; znodes and receive notifications when znodes are removed. When these two features are combined, you have the beginnings of a powerful distributed synchronization system. If Leader Election sounds like the solution to your problem, check out Apache Curator. It&rsquo;s a fairly new project with reference implementations for many common ZooKeeper tasks. Partitioning with Ordasity Partitioning is a bit more complicated than Leader Election. Luckily, the folks at Boundary have created Ordasity, a fantastic solution built on ZooKeeper. The idea behind partitioning is that some universe of work needs to be done, and you want to fairly assign that work to the available nodes. One type of &ldquo;work&rdquo; can be a set of incoming requests, such that each request will be serviced by one of the nodes. &ldquo;Hmm&hellip;&rdquo; you say. &ldquo;Why is this better than using a basic load balancer?&rdquo; Answer: It can be a lot smarter! Posit that each request may represent an unpredictable quantity of work. Using Ordasity, you can track how much actual work is assigned to each node and intelligently assign incoming work to the least busy node. In essence, Ordasity enables load balancing based on computational complexity, not requests. But Wait! There&rsquo;s More&hellip; An even more interesting use for partitioning with Ordasity involves segmenting a universe of known work. This is conceptually similar to database sharding. The nodes use Ordasity to divide the universe of known work among themselves. Each time a node is added or removed, Ordasity rebalances the work, ensuring that the universe is fully and discretely assigned. Partitioning with Ordasity has simplified some of our systems by allowing us to impose the requirement that each unit of work is to be handled by, at most, one node at a time. Without this guarantee, we&rsquo;d need an additional database for synchronization. Below is a simplified example of how to use Ordasity to divide up work: import com.twitter.common.zookeeper.ZooKeeperClient import com.boundary.ordasity.{Cluster, ClusterConfig, SmartListener} import java.util.concurrent.{ScheduledThreadPoolExecutor, TimeUnit, ScheduledFuture} import java.util.{HashMap, TimerTask}" />
+<link rel="canonical" href="http://tech.hbc.com/2013-08-13-distributed-systems-zookeeper.html" />
+<meta property="og:url" content="http://tech.hbc.com/2013-08-13-distributed-systems-zookeeper.html" />
+<meta property="og:site_name" content="HBC Tech" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-08-13T15:15:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@HBC Tech" />
+<script type="application/ld+json">
+{"description":"Let&rsquo;s face it&ndash;designing distributed systems can be tough. There&rsquo;s just no one-size-fits-all tool for creating distributed services: Every distributed application has a unique set of tolerances with regard to reliability, scalability, response time, and other performance factors. At Gilt, our toolbox for supporting distributed service development includes Apache ZooKeeper, RabbitMQ, Kafka and a smattering of distributed data stores. We made these technology choices based on years of hands-on development at Gilt, decades of cumulative experience across our engineering team and (literally) endless internal debate.  By no means are Gilt engineers restricted to using the tools listed above, but most of us stick to using them because together they provide a solid foundation upon which to build a variety of solutions. ZooKeeper in particular has proven to be a fantastic tool for synchronizing distributed systems. For synchronizing data across nodes, it provides a set of APIs with simple and understandable behaviors, which leaves less room for misinterpretation. It also allows engineers to avoid getting bogged down by the common bugs and race conditions inherent to distributed synchronization. If you&rsquo;re not familiar with ZooKeeper, you should check it out. In our experience, we&rsquo;ve found that the most common synchronization tasks boil down to either agreement between nodes, or serializing work. To address these use cases, we use two tools built on top of ZooKeeper: Leader Election and Partitioning. Leader Election It&rsquo;s almost as if ZooKeeper had been designed with Leader Election in mind. In fact, its Recipes Page outlines common Leader Election logic. The common use case is choosing a master node among a set of peers to be responsible for certain decisions. Most implementations will also promptly elect a new leader when necessary. At Gilt, we use a straightforward flavor of Leader Election written by Eric Bowman, our VP Architecture. (Unfortunately, we have not open sourced it at this time, but you shouldn&rsquo;t have much difficulty designing your own flavor of Leader Election based on the ZooKeeper recipe.) To understand how ZooKeeper helps turn a complex task like Leader Election into a relatively trivial exercise, a brief explanation is needed. It&rsquo;s easiest to imagine ZooKeeper as providing a remote filesystem. You can add and remove &ldquo;znodes&rdquo; (akin to files), query znode contents, or watch znodes. A znode can be created ephemerally, such that when the node that created it disconnects, the znode is removed. Clients can also &ldquo;watch&rdquo; znodes and receive notifications when znodes are removed. When these two features are combined, you have the beginnings of a powerful distributed synchronization system. If Leader Election sounds like the solution to your problem, check out Apache Curator. It&rsquo;s a fairly new project with reference implementations for many common ZooKeeper tasks. Partitioning with Ordasity Partitioning is a bit more complicated than Leader Election. Luckily, the folks at Boundary have created Ordasity, a fantastic solution built on ZooKeeper. The idea behind partitioning is that some universe of work needs to be done, and you want to fairly assign that work to the available nodes. One type of &ldquo;work&rdquo; can be a set of incoming requests, such that each request will be serviced by one of the nodes. &ldquo;Hmm&hellip;&rdquo; you say. &ldquo;Why is this better than using a basic load balancer?&rdquo; Answer: It can be a lot smarter! Posit that each request may represent an unpredictable quantity of work. Using Ordasity, you can track how much actual work is assigned to each node and intelligently assign incoming work to the least busy node. In essence, Ordasity enables load balancing based on computational complexity, not requests. But Wait! There&rsquo;s More&hellip; An even more interesting use for partitioning with Ordasity involves segmenting a universe of known work. This is conceptually similar to database sharding. The nodes use Ordasity to divide the universe of known work among themselves. Each time a node is added or removed, Ordasity rebalances the work, ensuring that the universe is fully and discretely assigned. Partitioning with Ordasity has simplified some of our systems by allowing us to impose the requirement that each unit of work is to be handled by, at most, one node at a time. Without this guarantee, we&rsquo;d need an additional database for synchronization. Below is a simplified example of how to use Ordasity to divide up work: import com.twitter.common.zookeeper.ZooKeeperClient import com.boundary.ordasity.{Cluster, ClusterConfig, SmartListener} import java.util.concurrent.{ScheduledThreadPoolExecutor, TimeUnit, ScheduledFuture} import java.util.{HashMap, TimerTask}","author":{"@type":"Person","name":"HBC Tech"},"@type":"BlogPosting","url":"http://tech.hbc.com/2013-08-13-distributed-systems-zookeeper.html","headline":"Designing Distributed Systems With ZooKeeper","dateModified":"2013-08-13T15:15:00-05:00","datePublished":"2013-08-13T15:15:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://tech.hbc.com/2013-08-13-distributed-systems-zookeeper.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+        <meta property="og:title" content="Designing Distributed Systems With ZooKeeper" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://tech.hbc.com//2013-08-13-distributed-systems-zookeeper.html" />
+<meta property="og:description" content="Let&amp;rsquo;s face it&amp;ndash;designing distributed systems can be tough. There&amp;rsquo;s just no one-size-fits-all tool for creating distributed services: Every d..." />
+<meta property="og:image" content="http://tech.hbc.com/assets/images/blog/hbc-tech-logo-tipi.jpg" />
+<meta property="og:image:secure_url" content="http://tech.hbc.com/assets/images/" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:alt" content="" />
+
+
+        <link rel="stylesheet" href="http://tech.hbc.com/assets/css/main.css">
+        <link rel="canonical" href="http://tech.hbc.com/2013-08-13-distributed-systems-zookeeper.html">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
+
+        <!-- Icons -->
+        <!-- 16x16 -->
+        <link rel="shortcut icon" href="http://tech.hbc.com/assets/images/favicon.ico">
+    </head>
+
+    <body aria-label="Content">
+        <header id="site-header" class="site-header">
+    <div class="site-header__inner">
+    	<a class="site-header__logo" href="/">
+        	<svg class="hbc-tech-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 52">
+        		<use class="hbc-tech-logo__text" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#hbc-tech-logo"></use>
+            </svg>
+    	</a>
+        <nav id="menu" class="navigation">
+    <svg class="navigation__menu-icon" xmlns="http://www.w3.org/2000/svg">
+        <path class="bar bar__top" d="M0,3 L30,3" />
+        <path class="bar bar__cross-1" d="M0,14 L30,14" />
+        <path class="bar bar__cross-2" d="M0,14 L30,14" />
+        <path class="bar bar__bottom" d="M0,25 L30,25" />
+    </svg>
+	<menu class="menu">
+		<ul class="link-list">
+		
+        
+            <li class="link-list__link-item">
+                <a href="http://tech.hbc.com/" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">Insights</span></a>
+            </li>
+        
+            <li class="link-list__link-item">
+                <a href="http://tech.hbc.com/code" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">Code</span></a>
+            </li>
+        
+            <li class="link-list__link-item">
+                <a href="http://tech.hbc.com/about" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">About</span></a>
+            </li>
+        
+            <li class="link-list__link-item">
+                <a href="http://tech.hbc.com/work-here" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">Work Here</span></a>
+            </li>
+        
+	    </ul>
+	</menu>
+</nav>
+
+        <search id="header-search" class="header-search">
+	<form class="header-search__form" action>
+	  <input type="text" class="header-search__input" id="header-search-input" placeholder=" Search" name="query">
+	</form>
+  	<svg id="header-search__toggle" class="header-search__svg" xmlns="http://www.w3.org/2000/svg" >
+		<path id="leftSearch" class="path path--left-half" d="M11.4842576,23.9891168 C5.09608476,23.7189967 0,18.4546255 0,12 C0,5.54951437 4.85419801,0.113423154 12.4763811,0.0114091479"/>
+		<path id="rightSearch" class="path path--right-half" d="M12.5376167,0.0118279089 C18.9155446,0.293025077 24,5.55274344 24,12 C24,18.4701834 17.7604297,24.3112218 11.1896721,23.9909829"/>
+		<path id="handle" class="path path--handle" d="M20.7485408,20.8914207 L26.8571202,27 L20.7485408,20.8914207"/>
+    </svg>
+    <section class="header-search__results" id="header-search__results"></section>
+</search>
+
+    </div>
+</header>
+
+        <section class="content"><article class="article">
+    <header class="article__header article__header--reveal">
+        <h1 class="header-title" title="Designing Distributed Systems With ZooKeeper">Designing Distributed Systems With ZooKeeper</h1>
+        
+        <span id="no-image-placeholder" class="no-image-placeholder"></span>
+        
+
+        
+        
+        
+            <span class="slug-divider"></span>
+            <span class="article-meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    <a class="article-meta__author__link" href="http://tech.hbc.com/authors/hbc-tech">
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->HBC Tech<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    </a>
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+            <span class="article-meta__date">
+                AUG 13, 2013
+            </span>
+        </div>
+    </header>
+    <section class="article__content article__content--reveal">
+        
+        <div class="article__content__read-time"><span class="read-time" title="Estimated read time">
+  
+  
+    <span class="read-time__text-1">5 min</span>
+    <span class="read-time__text-2">Read</span>
+    <span class="read-time__text-3">Time</span>
+  
+</span>
+</div>
+        <div class="article__content__share-buttons"><ul class="share-buttons">
+    <li class="share-buttons__link-item">
+        <a href="https://twitter.com/intent/tweet?text=http://tech.hbc.com//2013-08-13-distributed-systems-zookeeper.html" class="share-buttons__link" title="Share on Twitter" target="_blank">
+            <svg class="hbc-svg-icon" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon--twitter" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
+            </svg>
+        </a>
+    </li>
+    <li class="share-buttons__link-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://tech.hbc.com/&source=/2013-08-13-distributed-systems-zookeeper.html&title=Designing Distributed Systems With ZooKeeper" class="share-buttons__link" title="Share on Linkedin" target="_blank">
+            <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#linkedin" ></use>
+            </svg>
+        </a>
+    </li>
+    <li class="share-buttons__link-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://tech.hbc.com//2013-08-13-distributed-systems-zookeeper.html" class="share-buttons__link" title="Share on Facebook" target="_blank">
+            <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#facebook" ></use>
+            </svg>
+        </a>
+    </li>
+    <li class="share-buttons__link-item">
+        <a href="https://www.reddit.com/submit?url=http://tech.hbc.com//2013-08-13-distributed-systems-zookeeper.html" class="share-buttons__link" title="Share on Reddit" target="_blank">
+            <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#reddit" ></use>
+            </svg>
+        </a>
+    </li>
+</ul>
+</div>
+        <div class="article__content__body"><p>Let&rsquo;s face it&ndash;designing distributed systems can be tough. There&rsquo;s just no one-size-fits-all tool for creating distributed services: Every distributed application has a unique set of tolerances with regard to reliability, scalability, response time, and other performance factors. At Gilt, our toolbox for supporting distributed service development includes Apache <a href="http://zookeeper.apache.org/" target="_blank">ZooKeeper</a>, <a href="http://www.rabbitmq.com/" target="_blank">RabbitMQ</a>, <a href="http://kafka.apache.org/" target="_blank">Kafka</a> and a smattering of distributed data stores. We made these technology choices based on years of hands-on development at Gilt, decades of cumulative experience across our engineering team and (literally) endless internal debate. </p>
+<p>By no means are Gilt engineers restricted to using the tools listed above, but most of us stick to using them because together they provide a solid foundation upon which to build a variety of solutions. <a href="http://zookeeper.apache.org" target="_blank">ZooKeeper</a> in particular has proven to be a fantastic tool for synchronizing distributed systems. For synchronizing data across nodes, it provides a set of APIs with simple and understandable behaviors, which leaves less room for misinterpretation. It also allows engineers to avoid getting bogged down by the common bugs and race conditions inherent to distributed synchronization. If you&rsquo;re not familiar with ZooKeeper, you should check it out.</p>
+<p>In our experience, we&rsquo;ve found that the most common synchronization tasks boil down to either agreement between nodes, or serializing work. To address these use cases, we use two tools built on top of ZooKeeper: Leader Election and Partitioning.</p>
+<h3>Leader Election</h3>
+<p>It&rsquo;s almost as if ZooKeeper had been designed with Leader Election in mind. In fact, its <a href="http://zookeeper.apache.org/doc/trunk/recipes.html#sc_leaderElection" title="Apache ZooKeeper Recipes" target="_blank">Recipes Page</a> outlines common Leader Election logic. The common use case is choosing a master node among a set of peers to be responsible for certain decisions. Most implementations will also promptly elect a new leader when necessary. At Gilt, we use a straightforward flavor of Leader Election written by <a href="http://twitter.com/ebowman" title="Eric Bowman's Twitter" target="_blank">Eric Bowman</a>, our VP Architecture. (Unfortunately, we have not open sourced it at this time, but you shouldn&rsquo;t have much difficulty designing your own flavor of Leader Election based on the ZooKeeper recipe.)</p>
+<p>To understand how ZooKeeper helps turn a complex task like Leader Election into a relatively trivial exercise, a brief explanation is needed. It&rsquo;s easiest to imagine ZooKeeper as providing a remote filesystem. You can add and remove &ldquo;znodes&rdquo; (akin to files), query znode contents, or watch znodes. A znode can be created ephemerally, such that when the node that created it disconnects, the znode is removed. Clients can also &ldquo;watch&rdquo; znodes and receive notifications when znodes are removed. When these two features are combined, you have the beginnings of a powerful distributed synchronization system.</p>
+<p>If Leader Election sounds like the solution to your problem, check out <a href="http://curator.incubator.apache.org" target="_blank">Apache Curator</a>. It&rsquo;s a fairly new project with reference implementations for many common ZooKeeper tasks.</p>
+<h3>Partitioning with Ordasity</h3>
+<p>Partitioning is a bit more complicated than Leader Election. Luckily, the folks at <a href="http://boundary.com" target="_blank">Boundary</a> have created <a href="https://github.com/boundary/ordasity" title="Ordasity on GitHub" target="_blank">Ordasity</a>, a fantastic solution built on ZooKeeper.</p>
+<p>The idea behind partitioning is that some universe of work needs to be done, and you want to fairly assign that work to the available nodes. One type of &ldquo;work&rdquo; can be a set of incoming requests, such that each request will be serviced by one of the nodes. &ldquo;Hmm&hellip;&rdquo; you say. &ldquo;Why is this better than using a basic load balancer?&rdquo; <em>Answer: It can be a lot smarter!</em></p>
+<p>Posit that each request may represent an unpredictable quantity of work. Using Ordasity, you can track how much actual work is assigned to each node and intelligently assign incoming work to the least busy node. In essence, Ordasity enables load balancing based on computational complexity, not requests.</p>
+<h3>But Wait! There&rsquo;s More&hellip;</h3>
+<p>An even more interesting use for partitioning with Ordasity involves segmenting a universe of known work. This is conceptually similar to database sharding. The nodes use Ordasity to divide the universe of known work among themselves. Each time a node is added or removed, Ordasity rebalances the work, ensuring that the universe is fully and discretely assigned.</p>
+<p>Partitioning with Ordasity has simplified some of our systems by allowing us to impose the requirement that each unit of work is to be handled by, at most, one node at a time. Without this guarantee, we&rsquo;d need an additional database for synchronization.</p>
+<p>Below is a simplified example of how to use Ordasity to divide up work:</p>
+<pre><code class="lang-scala">import com.twitter.common.zookeeper.ZooKeeperClient
+import com.boundary.ordasity.{Cluster, ClusterConfig, SmartListener}
+import java.util.concurrent.{ScheduledThreadPoolExecutor, TimeUnit, ScheduledFuture}
+import java.util.{HashMap, TimerTask}
+
+val pool = new ScheduledThreadPoolExecutor(1)
+
+val nodeId = java.util.UUID.randomUUID().toString
+
+val config = new ClusterConfig().setHosts("zookeeper.gilt.com:2181").
+  setNodeId(nodeId)
+
+val listener = new ClusterListener {
+  def onJoin(client: ZooKeeperClient) = {
+    println("Connected to ZooKeeper as %s".format(nodeId))
+  }
+  
+  def onLeave() = {
+    println("Disconnected to ZooKeeper")
+  }
+
+  def startWork(workUnit: String) = {
+    val task = new TimerTask {
+      def run() = println("Workin' on %s".format(workUnit))
+    }
+    
+    val future = pool.scheduleAtFixedRate(task, 0, 1, TimeUnit.SECONDS)
+	
+    futures.put(workUnit, future)
+  }
+
+  def shutdownWork(workUnit: String) {
+    futures.get(workUnit).cancel(true)
+    println("Stopped working on %s".format(workUnit))
+  }
+}
+
+val clustar = new Cluster("example_service", listener, config)
+
+clustar.join()</code></pre>
+<h3>Want To Know More?</h3>
+<p>ZooKeeper and the tools built on top of it form an important piece of Gilt&rsquo;s distributed computing architecture. In a future post, I&rsquo;ll describe some of the other distributed technologies and methodologies that we use. In the meantime, if you have questions or suggestions for a future topic – or just want to keep up with the most interesting engineer in NYC – find me on Twitter: <a href="http://twitter.com/adkap" title="Adam Kaplan's Twitter" target="_blank">@adkap</a>.</p>
+</div>
+        <footer class="article__content__footer">
+            
+<div class="article-tags">
+
+    <span class="article-tags__tag">zookeeper</span><span>,</span>
+    
+
+    <span class="article-tags__tag">ordasity</span><span>,</span>
+    
+
+    <span class="article-tags__tag">distributedcomputing</span><span>,</span>
+    
+
+    <span class="article-tags__tag">apache</span><span>,</span>
+    
+
+    <span class="article-tags__tag">open source</span><span>,</span>
+    
+
+    <span class="article-tags__tag">Eric Bowman</span><span>,</span>
+    
+
+    <span class="article-tags__tag">leader election</span><span>,</span>
+    
+
+    <span class="article-tags__tag">partitioning</span><span>,</span>
+    
+
+    <span class="article-tags__tag">znodes</span><span>,</span>
+    
+
+    <span class="article-tags__tag">boundary</span><span>,</span>
+    
+
+    <span class="article-tags__tag">database sharding</span>
+
+</div>
+
+
+            <!-- author bio -->
+<section class="author-bio">
+
+
+	
+
+	
+	<!-- author is a known contributor -->
+		
+		<svg class="author-bio__avatar" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+	        <use class="hbc-svg-icon hbc-svg-icon--avatar__circle" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#circle" ></use>
+	        <use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#head" ></use>
+	        <use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#body" ></use>
+	    </svg>
+		
+
+		
+		<p><a class="author-bio__link" href="http://tech.hbc.com/authors/hbc-tech">HBC Tech</a>
+
+		
+		<p class="author-bio__bio">We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord & Taylor and The Bay.
+</p>
+		
+
+	
+
+
+</section>
+
+        </footer>
+    </section>
+    <aside class="recirc">
+    <h2 class="header__title">Recent Insights</h2><span class="slug-divider"></span>
+    <a class="header__view-all-link" href="http://tech.hbc.com/categories/index.html">See All</a>
+    <div class="recirc__articles">
+    
+    
+    
+    
+    
+    
+
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+    
+    
+    <h1 class="snippet__title">
+    <a href="http://tech.hbc.com/2017-12-30-presentations-we-love.html" class="snippet__title__link" title="Presentations we love: 2017">
+        Presentations we love: 2017
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="http://tech.hbc.com/categories/#presentations">presentations</a>
+            
+            
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    <a class="meta__author-link" href="http://tech.hbc.com/authors/hbc-tech">
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->HBC Tech<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    </a>
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">DEC 30, 2017</span>
+    
+    </div>
+    
+        <a href="http://tech.hbc.com/2017-12-30-presentations-we-love.html" class="snippet__excerpt__link" title="Presentations we love: 2017">
+            <p class="snippet__excerpt">
+            2017 was a year of growth and learning at HBC Tech. Our organization embraced new technologies and new ways of building application software.
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+    
+    
+    <h1 class="snippet__title">
+    <a href="http://tech.hbc.com/2017-08-10-midyear-recap.html" class="snippet__title__link" title="HBC Tech Talks: February 2017 through July 2017">
+        HBC Tech Talks: February 2017 through July 2017
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="http://tech.hbc.com/category/events">events</a>
+            
+            
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    <a class="meta__author-link" href="http://tech.hbc.com/authors/hbc-tech">
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->HBC Tech<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    </a>
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">AUG 10, 2017</span>
+    
+    </div>
+    
+        <a href="http://tech.hbc.com/2017-08-10-midyear-recap.html" class="snippet__excerpt__link" title="HBC Tech Talks: February 2017 through July 2017">
+            <p class="snippet__excerpt">
+            We’ve had a busy 2017 at HBC. The great work of our teams has created opportunities to share what we’ve learned with audiences around the world. This year our folks have been on stage in Austin, Sydney, Portland, Seattle, San Diego, Boston, London, Israel and on our home turf in NYC and Dublin. The talks have covered deep learning, design thinking, data streaming and developer experience to name just a...
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+    
+    
+    <h1 class="snippet__title">
+    <a href="http://tech.hbc.com/2017-06-29-open-source-friday.html" class="snippet__title__link" title="Open Source Friday">
+        Open Source Friday
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="http://tech.hbc.com/category/culture">culture</a>
+            
+            
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    <a class="meta__author-link" href="http://tech.hbc.com/authors/hbc-tech">
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->HBC Tech<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    </a>
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">JUN 29, 2017</span>
+    
+    </div>
+    
+        <a href="http://tech.hbc.com/2017-06-29-open-source-friday.html" class="snippet__excerpt__link" title="Open Source Friday">
+            <p class="snippet__excerpt">
+            
+From the 54 public repos maintained at code.gilt.com to the name of our tech blog (displayed in this tab’s header), open source has been part of our team’s DNA for years. Check out this blog post from 2015 if you’re not convinced.
+
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+    
+    
+    <h1 class="snippet__title">
+    <a href="http://tech.hbc.com/2017-06-12-hbc-at-qcon.html" class="snippet__title__link" title="Hudson's Bay Company at QCon">
+        Hudson's Bay Company at QCon
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="http://tech.hbc.com/category/events">events</a>
+            
+            
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    <a class="meta__author-link" href="http://tech.hbc.com/authors/hbc-tech">
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->HBC Tech<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    </a>
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">JUN 12, 2017</span>
+    
+    </div>
+    
+        <a href="http://tech.hbc.com/2017-06-12-hbc-at-qcon.html" class="snippet__excerpt__link" title="Hudson's Bay Company at QCon">
+            <p class="snippet__excerpt">
+            Heading to QCon? Don’t miss these two sessions! If you can’t make it, stay tuned here for slides and recordings from the conference.
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    </div>
+</aside>
+
+</article>
+
+</section>
+        <footer class="footer">
+	<svg class="est1670" xmlns="http://www.w3.org/2000/svg">
+		<use class="hbc-tech-logo__use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#est1670" ></use>
+	</svg>
+    <section class="footer__links">
+	<ul class="social-links social-links__list">
+    <li class="social-links__list-item">
+        <a class="social-links__link" target="_blank" rel="next" href="https://www.linkedin.com/company/hbc_digital/">
+            <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
+                <use class="linkedin"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#linkedin"></use>
+            </svg>
+        </a>
+    </li>
+    <li class="social-links__list-item">
+        <a class="social-links__link" target="_blank" rel="next" href="https://twitter.com/hbcdigital/">
+            <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
+                <use class="twitter"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
+            </svg>
+        </a>
+    </li>
+    <li class="social-links__list-item">
+        <a class="social-links__link" target="_blank" rel="next" href="https://www.instagram.com/hbcdigital">
+            <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
+                <use class="instagram"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#instagram"></use>
+            </svg>
+        </a>
+    </li>
+</ul>
+
+	<p class="copyright">&copy; 2018 HBC Tech</i></p>
+	</section>
+</footer>
+
+        <script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/scrollmagic/ScrollMagic.min.js"></script>
+<script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/jekyll-search-js/fetch.js"></script>
+<script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
+<script type="text/javascript" src="http://tech.hbc.com/assets/js/main.js"></script>
+<script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-106560024-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+    </body>
+
+</html>
