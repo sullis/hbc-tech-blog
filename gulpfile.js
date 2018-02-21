@@ -13,7 +13,6 @@ var prefix       = require('gulp-autoprefixer');
 var pump         = require('pump');
 var cp           = require('child_process');
 var fs           = require('fs');
-var ghPages      = require('gulp-gh-pages');
 var extract      = require('gulp-html-extract');
 var jekyll       = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var messages     = {
@@ -130,6 +129,7 @@ gulp.task('optimize-js-prod', ['optimize-css-prod'], function() {
         notify({ message: 'JS-PROD task complete' })
         ]);
 });
+
 gulp.task('optimize-html-prod', ['optimize-js-prod'], function() {
 	return gulp.src('_site/**/*.html')
 
@@ -147,13 +147,9 @@ gulp.task('optimize-html-prod', ['optimize-js-prod'], function() {
 		.pipe(gulp.dest('_site/'))
     .pipe(notify({ message: 'HTML-PROD task complete' }));
 });
-gulp.task('push-to-gh-pages', ['optimize-html-prod'], function() {
-  return gulp.src('./_site/**/*')
-    .pipe(ghPages());
-});
-gulp.task('deploy',
+
+gulp.task('build',
   ['jekyll-build-prod',
     'optimize-css-prod',
     'optimize-js-prod',
-    'optimize-html-prod',
-    'push-to-gh-pages']);
+    'optimize-html-prod']);

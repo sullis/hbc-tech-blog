@@ -89,7 +89,7 @@ exclude:
 # Plugin settings
 plugins:
   - jekyll-feed
-  - octopress-autoprefixer
+  # - octopress-autoprefixer
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-seo-tag
