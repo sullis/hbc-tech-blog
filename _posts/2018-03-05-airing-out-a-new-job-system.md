@@ -1,15 +1,15 @@
 ---
-layout: post
 title: "Airing out a new job system"
-author: Terry McCartan
+description: Lessons learned from implementing Airflow as a job system for Data
+author:
+- Terry McCartan
 date: '2018-03-05'
 categories:
-- data
-- docker
-- aws
+- data science
 tags:
 - airflow
 - aws
+- docker
 - tech
 - data
 - etl
