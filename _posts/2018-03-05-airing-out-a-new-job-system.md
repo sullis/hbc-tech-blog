@@ -14,6 +14,8 @@ tags:
 - data
 - etl
 - scheduling
+image:
+  feature: airing-out-a-new-job-system/feature-image-airflow.jpg
 ---
 
 # Airing out a new Job system
