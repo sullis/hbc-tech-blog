@@ -15,7 +15,8 @@ cd hbc-tech-blog
 git checkout -b the-name-of-your-branch
 ```
 3. Follow our [post content guidelines](./docs/contributing.md). 
-4. Upload the new branch and submit a pull request.
+4. Push the new branch
+5. Submit a pull request against the `master` branch.
 
 ### Previewing Your Post
 Preview your post by running `jekyll serve` from within the root folder of this package.
