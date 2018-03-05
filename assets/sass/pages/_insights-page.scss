@@ -28,7 +28,7 @@
 			    	position: absolute;
 			    	height: 100%;
 			    	width: 100%;
-			    	background: linear-gradient(rgba(0,0,0,0.2) 83%, rgba(0,0,0,0.7) 100%);
+			    	background: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 83%, rgba(0,0,0,0.7) 100%);
 			    }
 			}
 
@@ -54,7 +54,8 @@
 			    grid-row: 3 / 4;
 			    line-height: 110%;
 				margin: 10px 0;
-				@include render-type-style(headline-2, $type-styles);
+				@include render-type-style(headline-1, $type-styles);
+				font-size: 40px;
 			    z-index: 1;
 
 				&__link {
@@ -80,6 +81,7 @@
 				// background-color: $hbc-white;
 				z-index: 1;
 				color: white;
+				flex-flow: column;
 
 				.meta__category-link {
 					background-color: $hbc-white;
@@ -87,6 +89,7 @@
 					margin-right: 4px;
 					color: $hbc-highlight;
 				    @include render-type-style(slug-1, $type-styles);
+				    border: 0;
 					text-decoration: none;
 					transition: color 150ms ease-out, background-color 150ms ease-out;
 
@@ -104,18 +107,30 @@
 						color: $hbc-highlight;
 					}
 				}
-
-				.meta__author__job-title {
-					display: none;
-				}
-
-				.slug-divider {
-					border-color: rgba($hbc-white, 0.5);
-				}
 			}
 
 			&--reveal {
 				top: 0;
+			}
+		}
+	}
+
+	&__featured,
+	&__sub-featured,
+	&__remaining {
+
+		.snippet {
+			&__meta {
+				flex-flow: column;
+
+				.meta__author {
+					padding: 8px 0;
+				}
+
+				.slug-divider,
+				.meta__author__job-title {
+					display: none;
+				}
 			}
 		}
 	}
@@ -137,8 +152,8 @@
 		    	padding-bottom: 0;
 		    }
 
-			.meta__author__job-title {
-				display: none;
+			&__meta {
+			    margin-bottom: 20px;
 			}
 		}
 	}
@@ -174,16 +189,12 @@
 		}
 	}
 
-	// small landscape
+	// small & medium landscape
 	@include media('>=small', '<medium', 'landscape') {
 	    &__featured {
 
 	    	.snippet {
 			    max-height: 60vh;
-			    
-				.snippet__title {
-					@include render-type-style(headline-2, $type-styles);
-				}
 
 			    &__feature-image,
 			    &__no-image-placeholder {
@@ -224,9 +235,15 @@
 			    &__feature-image,
 			    &__no-image-placeholder {
 					// min-width: unset;
-					// max-height: unset;
+					max-height: unset;
 					max-width: 100%;
 			    }
+				
+				&__meta {
+					.slug-divider {
+						border-color: rgba($hbc-white, 0.5);
+					}
+				}
 			}
 		}
 
@@ -236,8 +253,16 @@
 
 			.snippet {
 				
-				.meta__author__job-title {
-					display: inline-flex;
+				&__meta {
+					flex-flow: row;
+
+					.slug-divider {
+						display: inline-flex;
+					}
+
+					.meta__author__job-title {
+						display: inline-flex;
+					}
 				}
 			}
 		}

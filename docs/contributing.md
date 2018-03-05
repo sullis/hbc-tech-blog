@@ -1,5 +1,20 @@
 # Contribution Guidelines
 
+Download the latest copy of the blog
+```
+git clone https://github.com/saksdirect/hbc-tech-blog
+cd hbc-tech-blog
+```
+Create a new branch for your post.
+
+```
+git checkout -b the-name-of-your-branch
+```
+ 
+## Create A Markdown File For Your Post
+Use the following naming convention for your file: `YYYY-MM-DD-your-post-name.md`.
+Your post markdown file should begin with `front matter`. This will define some basic attributes, see the example below to guide you. Save the **markdown** file in the `_posts` directory.
+
 ## Post Front Matter
 Each post contains front matter, a header section with some auto-generated metadata (layout, title, author, date, categories, tags). Please always add the metadata as follows:
 
@@ -16,7 +31,7 @@ tags:
 - tags
 - here
 image:
-  feature: https://pbs.twimg.com/media/DEIosBJWAAAj87h.jpg
+  feature: assets-folder-named-to-match-your-post/name-of-your-image.jpg
   credit: ~
   creditlink: ~
 ```
@@ -25,10 +40,30 @@ image:
 - `description`: String, A short description of the page's content. Used for snippets in the article listing and in search engine results.
 - `author`: Yaml list, can be more than one.
 - `date`: String, YYYY-MM-DD format
-- `categories`: Yaml list, Must be one of the following [categories](/_data/categories.md). Use tags for additional topic refinement.
+- `categories`: Yaml list, Must be one of the following [categories](/_data/categories.md).
 - `tags`: Yaml list
 - `image:
-	 feature:` Yaml string. Image name or image url
+   feature:` Yaml string. image path or url
+
+### Post Categories & Tags
+Categories are used for navigation, ideally should be a short list. They also provide a quick overview to the content found on our blog. Limit your post category to one from the list below. Use tags for additional topic refinement. If you feel like your post can't be filed under one of these, we can create a new one. 
+
+Tags are a free-form list. They're not used for navigation currently, but are parsed through the site search. These may become links in a future update.
+
+#### Predefined Categories
+
+```
+back-end
+data-science
+events
+infrastructure
+product
+culture
+design
+front-end
+mobile
+```
+
 
 ### Post Excerpts
 Jekyll grabs post excerpts from the first paragraph by default. Tailor your post excerpt by using the '<!--more-->' excerpt separator. Limit post excerpts to less than 40 words or 200 characters.
