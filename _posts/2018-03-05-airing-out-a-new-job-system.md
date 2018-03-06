@@ -1,5 +1,5 @@
 ---
-title: "Airing out a new job system"
+title: "Airing Out A New Job System"
 description: Lessons learned from implementing Airflow as a job system for Data
 author:
 - Terry McCartan
@@ -18,10 +18,8 @@ image:
   feature: airing-out-a-new-job-system/feature-image-airflow.jpg
 ---
 
-# Airing out a new Job system
-
 In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow. 
-We undertook the decision to overhaul our job orchestration system a few months ago due to a number of reason but have now successfully migrated all our data ingestion jobs to the new system.
+We undertook the decision to overhaul our job orchestration system a few months ago due to a number of reasons but have now successfully migrated all our data ingestion jobs to the new system.
 
 Firstly a little bit about our team. The Data Team at Gilt is responsible for constructing, delivering, and supporting all systems and services which enable self-service analytics
 and data science across all banners and all functions at Hudson's Bay Corp (HBC).
@@ -109,7 +107,7 @@ We are eagerly awaiting the improved DAG deployment system thats coming to Airfl
 The Data teams roadmap has multiple exciting challenges to solve from ingestion, transformation to loading. 
 Having our Airflow setup, we feel we are in a good position now to tackle these problems.
 
-A big callout to [Daniel Mateus Pires](https://github.com/dmateusp) who acted as our go to person in all things Airflow flow.
+A big callout to [Daniel Mateus Pires](https://github.com/dmateusp) who acted as our go to person in all things Airflow.
 
 Over the new month or so we are really going to ramp up and if you’re interested in helping us solve these problems, take a look at our careers page [here](https://www.linkedin.com/jobs/search/?f_C=167354%2C1453743&locationId=OTHERS.worldwide) and get in touch.
 
