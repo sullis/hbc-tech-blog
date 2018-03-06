@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title> Airing out a new job system </title>
+        <title> Airing Out A New Job System </title>
 
         <!-- Begin Jekyll SEO tag v2.4.0 -->
-<title>Airing out a new job system | HBC Tech</title>
+<title>Airing Out A New Job System | HBC Tech</title>
 <meta name="generator" content="Jekyll v3.7.3" />
-<meta property="og:title" content="Airing out a new job system" />
+<meta property="og:title" content="Airing Out A New Job System" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Lessons learned from implementing Airflow as a job system for Data" />
 <meta property="og:description" content="Lessons learned from implementing Airflow as a job system for Data" />
@@ -22,13 +22,13 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@" />
 <script type="application/ld+json">
-{"description":"Lessons learned from implementing Airflow as a job system for Data","@type":"BlogPosting","url":"http://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html","headline":"Airing out a new job system","dateModified":"2018-03-05T00:00:00-05:00","datePublished":"2018-03-05T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html"},"@context":"http://schema.org"}</script>
+{"description":"Lessons learned from implementing Airflow as a job system for Data","@type":"BlogPosting","url":"http://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html","headline":"Airing Out A New Job System","dateModified":"2018-03-05T00:00:00-05:00","datePublished":"2018-03-05T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-        <meta property="og:title" content="Airing out a new job system" />
+        <meta property="og:title" content="Airing Out A New Job System" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://tech.hbc.com//2018-03-05-airing-out-a-new-job-system.html" />
-<meta property="og:description" content="Airing out a new Job system" />
+<meta property="og:description" content="In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow. We undertook the d..." />
 <meta property="og:image" content="http://tech.hbc.com/assets/images/blog/hbc-tech-logo-tipi.jpg" />
 <meta property="og:image:secure_url" content="http://tech.hbc.com/assets/images/airing-out-a-new-job-system/feature-image-airflow.jpg" />
 <meta property="og:image:type" content="image/jpeg" />
@@ -112,10 +112,10 @@
 
         <section class="content"><article class="article">
     <header class="article__header article__header--reveal">
-        <h1 class="header-title" title="Airing out a new job system">Airing out a new job system</h1>
+        <h1 class="header-title" title="Airing Out A New Job System">Airing Out A New Job System</h1>
         
         
-        <img class="hero-image" title="Airing out a new job system" src="http://tech.hbc.com/assets/images/airing-out-a-new-job-system/feature-image-airflow.jpg" />
+        <img class="hero-image" title="Airing Out A New Job System" src="http://tech.hbc.com/assets/images/airing-out-a-new-job-system/feature-image-airflow.jpg" />
         
         
 
@@ -183,7 +183,7 @@
         </a>
     </li>
     <li class="share-buttons__link-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://tech.hbc.com/&source=/2018-03-05-airing-out-a-new-job-system.html&title=Airing out a new job system" class="share-buttons__link" title="Share on Linkedin" target="_blank">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://tech.hbc.com/&source=/2018-03-05-airing-out-a-new-job-system.html&title=Airing Out A New Job System" class="share-buttons__link" title="Share on Linkedin" target="_blank">
             <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
                 <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#linkedin" ></use>
             </svg>
@@ -205,10 +205,8 @@
     </li>
 </ul>
 </div>
-        <div class="article__content__body"><h1 id="airing-out-a-new-job-system">Airing out a new Job system</h1>
-
-<p>In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow. 
-We undertook the decision to overhaul our job orchestration system a few months ago due to a number of reason but have now successfully migrated all our data ingestion jobs to the new system.</p>
+        <div class="article__content__body"><p>In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow. 
+We undertook the decision to overhaul our job orchestration system a few months ago due to a number of reasons but have now successfully migrated all our data ingestion jobs to the new system.</p>
 
 <p>Firstly a little bit about our team. The Data Team at Gilt is responsible for constructing, delivering, and supporting all systems and services which enable self-service analytics
 and data science across all banners and all functions at Hudson’s Bay Corp (HBC).
@@ -298,7 +296,7 @@ We are eagerly awaiting the improved DAG deployment system thats coming to Airfl
 <p>The Data teams roadmap has multiple exciting challenges to solve from ingestion, transformation to loading. 
 Having our Airflow setup, we feel we are in a good position now to tackle these problems.</p>
 
-<p>A big callout to <a href="https://github.com/dmateusp">Daniel Mateus Pires</a> who acted as our go to person in all things Airflow flow.</p>
+<p>A big callout to <a href="https://github.com/dmateusp">Daniel Mateus Pires</a> who acted as our go to person in all things Airflow.</p>
 
 <p>Over the new month or so we are really going to ramp up and if you’re interested in helping us solve these problems, take a look at our careers page <a href="https://www.linkedin.com/jobs/search/?f_C=167354%2C1453743&amp;locationId=OTHERS.worldwide">here</a> and get in touch.</p>
 

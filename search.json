@@ -1,12 +1,12 @@
 [
     
     {
-        "title": "Airing out a new job system",
+        "title": "Airing Out A New Job System",
         "date": "MAR 5 2018",
         "author": "[&quot;Terry McCartan&quot;]",
         "category": "data science",
         "tags": "airflow aws docker",
-        "excerpt": "Airing out a new Job system",
+        "excerpt": "In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow. We undertook the decision to overhaul our job orchestration system a few months ago due to a number of reasons but have now successfully migrated all our data ingestion jobs to the new system.",
         "url": "/2018-03-05-airing-out-a-new-job-system.html"
     },
     
