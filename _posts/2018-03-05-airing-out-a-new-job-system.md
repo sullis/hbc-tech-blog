@@ -1,5 +1,5 @@
 ---
-title: "Airing out a new job system"
+title: "Airing Out A New Job System"
 description: Lessons learned from implementing Airflow as a job system for Data
 author:
 - Terry McCartan
@@ -17,8 +17,6 @@ tags:
 image:
   feature: airing-out-a-new-job-system/feature-image-airflow.jpg
 ---
-
-# Airing out a new Job system
 
 In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow. 
 We undertook the decision to overhaul our job orchestration system a few months ago due to a number of reason but have now successfully migrated all our data ingestion jobs to the new system.

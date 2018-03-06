@@ -12,6 +12,7 @@ git checkout -b the-name-of-your-branch
 ```
  
 ## Create A Markdown File For Your Post
+We've provided a [post starter file](./post-starter-file.md) to make life a little easier.
 Use the following naming convention for your file: `YYYY-MM-DD-your-post-name.md`.
 Your post markdown file should begin with `front matter`. This will define some basic attributes, see the example below to guide you. Save the **markdown** file in the `_posts` directory.
 
@@ -40,7 +41,7 @@ image:
 - `description`: String, A short description of the page's content. Used for snippets in the article listing and in search engine results.
 - `author`: Yaml list, can be more than one.
 - `date`: String, YYYY-MM-DD format
-- `categories`: Yaml list, Must be one of the following [categories](/_data/categories.md).
+- `categories`: Yaml list, Must be one of the following [categories](./contributing.md#predefined-categories).
 - `tags`: Yaml list
 - `image:
    feature:` Yaml string. image path or url
@@ -77,13 +78,14 @@ Not a requirement, but it's strongly encouraged to include a feature image to yo
 #### Content Guidelines
 - avoid using text/headlines in an image
 - use simple, high quality images
-- crop images at 4:3 (Landscape)
+- crop images at 16:9 (Landscape)
 - use images with a central point of focus
 
 #### Image Sizes
 Providing images that are 2880px wide will support high resolution screens. Currently, we don't have a CDN in place to optimize images for mobile devices.
 
-- Min image width 2880px
+- Min image width *2880px*
+- Min image height: *800px*
 - JPG format
 - Lossy compression
 - Save images as “optimized for web” in tools such as Photoshop

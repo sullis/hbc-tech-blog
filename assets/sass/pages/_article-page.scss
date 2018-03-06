@@ -30,7 +30,8 @@
 			z-index: 1;
 			align-self: end;
 			text-shadow: 0 2px 5px rgba($hbc-black, 0.5);
-			@include render-type-style(headline-2, $type-styles);
+			@include render-type-style(headline-1, $type-styles);
+			font-size: 40px;
 	    }
 
 	    .no-image-placeholder {
@@ -56,6 +57,7 @@
 	        display: flex;
 		    align-items: baseline;
 			z-index: 1;
+			flex-flow: column;			
 
 			&__category {
 				background-color: $hbc-white;
@@ -63,6 +65,7 @@
 				margin-right: 4px;
 				color: $hbc-highlight;
 			    @include render-type-style(slug-1, $type-styles);
+			    border: 0;
 				text-decoration: none;
 				transition: color 150ms ease-out, background-color 150ms ease-out;
 
@@ -73,6 +76,7 @@
 			}
 
 			&__author {
+				padding: 8px 0;
 				color: white;
 				@include render-type-style(label-2, $type-styles);
 
@@ -84,7 +88,7 @@
 				}
 
 				&__job-title {
-					display: none;
+					@include render-type-style(label-2, $type-styles);
 				}
 			}
 
@@ -94,7 +98,7 @@
 			}
 
 			.slug-divider {
-				border-color: rgba($hbc-white, 0.5);
+				display: none;
 			}
 		}
 	}
@@ -260,12 +264,11 @@
 			}
 
 			.article-meta {
+				flex-flow: row;
 
-				&__author {
-					&__job-title {
-						display: inline-flex;
-						@include render-type-style(label-2, $type-styles);
-					}
+				.slug-divider {
+					display: inline-flex;
+					border-color: rgba($hbc-white, 0.5);
 				}
 			}
 		}

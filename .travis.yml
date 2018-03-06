@@ -1,35 +1,28 @@
 language: ruby
 rvm:
 - 2.3.3
-
-# Assume bundler is being used, therefore
-# the `install` step will run `bundle install` by default.
-install:
+install: 
 script: jekyll build
-
 branches:
   only:
-    - master
-
+  - master
 notifications:
   slack:
     on_success: always
-    # on_failure: never
-    template:
-      - "Kudos to %{author} for contributing to the Tech Blog! \nTheir PR <%{pull_request_url}|#%{pull_request_number}> has %{result} build. \nWhy not give them some help merging it!"
+    # template:
+    # - "Kudos to %{author} for contributing to the Tech Blog! \nTheir PR <%{pull_request_url}|#%{pull_request_number}>
+    #   has %{result} build. \nWhy not give them some help merging it!"
     rooms:
-      - hbcdigital:BAtbJggqijzhCUrMoe2CzAJG#evangelism
+      secure: Fak/irVA0i11R+CnYAlpKPDpz70x1Eu46oBTpVG85Kg1gOuBzkbKFgHbvSCFoC6KAt5mJc5HfsTi8SmAOIx7FwhsN3H1IY9w2j+P61SojESbQLZ0cu/AbWNP7049JNapzOUdf2xwifvLH1eWT0//c0l6dZxv/Aal/PxXiindS7wB0OxaxA3AZLeIK1P80p9MnnnEWcL8nUZuvpJY+gTYwRa3Qhmzg4xvAFvZrKCmdEdVoB9D4sdWGFH4j4t4yls4uiKZ7Q0nDQpGSBY6l/9smFGoaqmdFcWbJ0bxCpJrF8fzd2T5jdUCM3lfNO26dGsVK2RsI3kulz48+8xwRpPweqoOQTJRoPSehqOUuAyDSjQfMdfcXzFcjhlfMlkTRtftqjnbkTdxq6d7cVofpojpCrS2B+TYM4zQk4RZVkxumbsth6dAFwFNwzbSquUFSLURey0mvjkUc/Udp7ccbzBHqkVQzM71mGws+zchltDTNIJW2S1JR8pXllJEZtvxD6OEnAGhDgikbocVkyNl8HUCgM9/A3ew3XPWaT18h+Vn3lukF3Bxr4CK3OL9eC2S3lGYzLrMJDbORabQPbTWl5sHr4D2FeTSatIFX+nGB1WCNFnEEzadU5IYt+A/zgVAtlw6D9GJ+w/+I3XAYFn+3X5ttAfAN2zpv/zpjlmP1//5IqE=
 env:
   global:
-  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
-
-sudo: false # route your build to the container-based infrastructure for a faster build
-
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+sudo: false
 deploy:
   provider: pages
   local-dir: _site
   skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in travis-ci dashboard, marked secure
+  github-token: "$GITHUB_TOKEN"
   keep-history: true
   on:
     branch: master

@@ -76,12 +76,8 @@
 				grid-column: 2 / 3;
 			    grid-row: 4 / 4;
 			    margin-bottom: 40px;
-			 //    padding: 0 10px 0 10px;
-			 //    width: fit-content;
-				// background-color: $hbc-white;
 				z-index: 1;
 				color: white;
-				flex-flow: column;
 
 				.meta__category-link {
 					background-color: $hbc-white;
@@ -127,8 +123,7 @@
 					padding: 8px 0;
 				}
 
-				.slug-divider,
-				.meta__author__job-title {
+				.slug-divider {
 					display: none;
 				}
 			}
@@ -257,10 +252,6 @@
 					flex-flow: row;
 
 					.slug-divider {
-						display: inline-flex;
-					}
-
-					.meta__author__job-title {
 						display: inline-flex;
 					}
 				}
