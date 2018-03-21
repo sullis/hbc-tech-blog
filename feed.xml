@@ -1,5 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.7.3">Jekyll</generator><link href="http://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2018-03-21T06:51:50-05:00</updated><id>http://tech.hbc.com/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
-</subtitle><entry><title>Airing Out A New Job System</title><link href="http://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" rel="alternate" type="text/html" title="Airing Out A New Job System" /><published>2018-03-05T00:00:00-05:00</published><updated>2018-03-05T00:00:00-05:00</updated><id>http://tech.hbc.com/airing-out-a-new-job-system</id><content type="html" xml:base="http://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html">&lt;p&gt;In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow. 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.7.3">Jekyll</generator><link href="http://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2018-03-21T13:53:29-05:00</updated><id>http://tech.hbc.com/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+</subtitle><entry><title>The Tech Blog is Dead. Long Live the Tech Blog</title><link href="http://tech.hbc.com/2018-03-21-the-tech-blog-is-dead-long-live-the-tech-blog.html" rel="alternate" type="text/html" title="The Tech Blog is Dead. Long Live the Tech Blog" /><published>2018-03-21T00:00:00-05:00</published><updated>2018-03-21T00:00:00-05:00</updated><id>http://tech.hbc.com/the-tech-blog-is-dead-long-live-the-tech-blog</id><content type="html" xml:base="http://tech.hbc.com/2018-03-21-the-tech-blog-is-dead-long-live-the-tech-blog.html">&lt;h1 id=&quot;the-hbc-tech-blog-you-will-never-find-a-more-wretched-hive-of-tech-and-miscellany&quot;&gt;The HBC Tech Blog: “You will never find a more wretched hive of tech and miscellany.”&lt;/h1&gt;
+
+&lt;p&gt;There’s an urban legend that maintains that your body replaces its cells
+every seven years. It turns out that’s not quite true; yet, the sentiment is
+inspiring, and matches some advice my college professor once offered: every
+seven years or so, &lt;em&gt;reinvent yourself&lt;/em&gt;. We’re excited today to announce that,
+after seven years of tech.gilt.com, we’re reinventing the Gilt Tech Blog:
+welcome, friends, to the &lt;em&gt;HBC Tech Blog&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can continue to expect the same mix of insight, fun and tech miscellany
+since our first post on &lt;a href=&quot;http://tech.hbc.com/2011-02-08-tips-for-optimizing-iphone-ipad-applications.html&quot; target=&quot;_blank&quot;&gt;tips of optimising iPhone applications&lt;/a&gt; back in 2011.
+Since then, we’ve enjoyed insights like &lt;a href=&quot;http://tech.hbc.com/2011-03-02-the-rule-of-4.html&quot; target=&quot;_blank&quot;&gt;the rule of four&lt;/a&gt;; &lt;a href=&quot;http://tech.hbc.com/2013-03-26-26-3-13-todays-noon-outage-and-what-were-doing.html&quot; target=&quot;_blank&quot;&gt;contrite
+apologies on unintended outages&lt;/a&gt;; &lt;a href=&quot;http://tech.hbc.com/2017-01-25-perfect-overnight-cold-brew.html&quot; target=&quot;_blank&quot;&gt;notes on how to make the perfect overnight
+cold-brew&lt;/a&gt;; &lt;a href=&quot;http://tech.hbc.com/2014-10-17-haiku-by-the-gilt-tech-team-in-japan.html&quot; target=&quot;_blank&quot;&gt;the art of delivering the weekly tech update via Haiku&lt;/a&gt;; and, the
+infamous &lt;a href=&quot;http://tech.hbc.com/2014-10-29-stilettos-by-state-a-gilt-infographic-while.html&quot; target=&quot;_blank&quot;&gt;infographic of US stiletto heel-size preference by-state&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We hope you like the new look and new layout; big thanks to our in-house design
+team! Now, if we still have your attention, read on to learn why we bother
+writing a tech blog at all, and how we go about about it.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-makes-a-good-tech-blog-freedom-gateway-drugs-and-raw-desire&quot;&gt;What makes a good tech blog? Freedom, gateway drugs, and raw desire.&lt;/h1&gt;
+
+&lt;p&gt;While our organisation’s cell structure has changed over time, our core DNA
+remains the same: we’ve always taken joy in contributing to the wider tech
+community, be it through speaking, writing or coding in an open and transparent
+way. That said, it’s good to take this opportunity to perform a retrospective
+and ask some key questions: why bother writing a tech blog? How do we know it’s
+working? And, if you’re a tech team considering creating your own blog, how
+should you go about doing it?&lt;/p&gt;
+
+&lt;p&gt;The Gilt Tech Blog started as an experiment in freedom of expression: we granted
+everyone in Gilt Tech access to publish to the blog (then hosted in Tumblr),
+without any need for permission or review. The bet was simple: we’d make it easy
+for the team to publish their thoughts, and trust them to write content that was
+worthwhile and interesting. The public nature of the blog would ensure that
+contributions were accurate, fair, and high-quality. Our engineers had already
+noted that when writing code for open-source projects, the quality of the code
+was always &lt;em&gt;higher&lt;/em&gt; than internal code; we figured the same dynamic would apply
+to our writing. That bet paid off: we’ve had many contributions from across our
+engineering, product, data, UX and product teams of very high quality.&lt;/p&gt;
+
+&lt;p&gt;When we moved the blog to Github Pages, our publication process matured
+to a ‘pull request’ model. Authors write articles using Markdown, and can
+commit ‘gh-pages’ branch to publish immediately, or, seek critical
+review first through Github’s review mechanism. Generally, our approach to
+reviewing either code or content is to give transparent and constructive
+feedback, that the author can choose to ignore or take on board. More often than
+not, the author takes any critique on board, and the quality of the final
+article is better than what one mind alone could produce.&lt;/p&gt;
+
+&lt;p&gt;The combination of distributed editorial freedom and Github Pages makes the
+mechanics of publishing easy. The next challenge is: how do you generate the
+content? Looking back there were a couple of things we did to build blogging
+into the tech culture.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Encourage&lt;/em&gt;: most likely, if you’re still reading, you’ve already got an
+interest in setting up your own blog. That means you have a few ideas
+for your first articles, and an initial seed-group of authors. Get stuck
+in and get your first articles out there.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Celebrate&lt;/em&gt;; as articles get shared, posted and liked, share that feedback with
+your wider tech team. Nothing breeds success like success.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Nudge&lt;/em&gt;: We found that, while a core crew were prolific in their contributions,
+we had a wider group of people in the organisation who had stories to tell but
+couldn’t get over the hurdle of writing that first article. At the time, we had
+a dedicated Tech Evangelist, and one of the great things she did was &lt;em&gt;nudge&lt;/em&gt;
+people. She’d watch out for features releases, new technologies we were dabbling
+in, cultural stories, and off-the-wall observations. Our ‘5@4’ meetings and
+all-hands presentations turned out to be one of the ‘gateway drugs’ to blogging:
+anyone who presented at these meetings had already done the legwork to create a
+narrative around something interesting they were working on. We found that all
+we needed was a little nudge, and a couple of hours work, to turn that gem into
+a blog post.&lt;/p&gt;
+
+&lt;p&gt;In the early days, we used to track the blog using KPIs like number of views,
+number of likes, number of articles per month, etc. We don’t tend to do that
+anymore; still, we do get excited when we see a post getting lots of likes!
+At this stage, the blog runs itself. That’s a great result. Think about it:
+in January of 2018 we had four articles posted &lt;em&gt;without asking, nudging,
+pestering, or cajoling anyone&lt;/em&gt;. It’s pretty much down now to the team’s raw
+desire to share what they’re learning. The blog has become the ultimate,
+authentic, organisational expression of “this is who we are, this is what we
+do.”&lt;/p&gt;
+
+&lt;p&gt;To our authors, thank you. To our readers, thanks for hanging with us, and, we
+hope you continue to enjoy the ride. And, to anyone out there setting up your
+own tech blog, we hope the advice above is helpful in getting started.&lt;/p&gt;</content><author><name>Adrian Trenaman</name></author><category term="blogging" /><category term="culture" /><category term="brand" /><summary>The HBC Tech Blog: “You will never find a more wretched hive of tech and miscellany.”</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://tech.hbc.com{&quot;feature&quot;=&gt;&quot;the-tech-blog-is-dead-long-live-the-tech-blog/Kuopio_logs.jpg&quot;}" /></entry><entry><title>Airing Out A New Job System</title><link href="http://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" rel="alternate" type="text/html" title="Airing Out A New Job System" /><published>2018-03-05T00:00:00-05:00</published><updated>2018-03-05T00:00:00-05:00</updated><id>http://tech.hbc.com/airing-out-a-new-job-system</id><content type="html" xml:base="http://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html">&lt;p&gt;In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow. 
 We undertook the decision to overhaul our job orchestration system a few months ago due to a number of reasons but have now successfully migrated all our data ingestion jobs to the new system.&lt;/p&gt;
 
 &lt;p&gt;Firstly a little bit about our team. The Data Team at Gilt is responsible for constructing, delivering, and supporting all systems and services which enable self-service analytics
@@ -1016,51 +1103,4 @@ The event is organized by the Dublin Scala Usergroup in cooperation with Dublin 
 
 &lt;p align=&quot;center&quot;&gt;
 &lt;img src=&quot;./assets/images/team-rookie-2017/mike.JPG&quot; width=&quot;940&quot; /&gt;
-&lt;/p&gt;</content><author><name>Team Rookie</name></author><category term="internship" /><category term="web" /><category term="team rookie" /><summary>Who We Are</summary></entry><entry><title>HBC Tech Talks: February 2017 through July 2017</title><link href="http://tech.hbc.com/2017-08-10-midyear-recap.html" rel="alternate" type="text/html" title="HBC Tech Talks: February 2017 through July 2017" /><published>2017-08-10T00:00:00-05:00</published><updated>2017-08-10T00:00:00-05:00</updated><id>http://tech.hbc.com/midyear-recap</id><content type="html" xml:base="http://tech.hbc.com/2017-08-10-midyear-recap.html">&lt;p&gt;We’ve had a busy 2017 at HBC. The great work of our teams has created opportunities to share what we’ve learned with audiences around the world. This year our folks have been on stage in Austin, Sydney, Portland, Seattle, San Diego, Boston, London, Israel and on our home turf in NYC and Dublin. The talks have covered deep learning, design thinking, data streaming and developer experience to name just a few.
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/zkRer6r.png&quot; alt=&quot;Sera Chin and Yi Cao spoke at the NYC Scrum User Group about HBC's Design Sprints&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Lucky for you, if you haven’t been able to check out our talks in person, we’ve compiled the decks and videos from a bunch of our talks right here. Enjoy!&lt;/p&gt;
-
-&lt;h3 id=&quot;february&quot;&gt;February&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Sean Sullivan spoke at the Portland Java User Group about &lt;a href=&quot;https://speakerdeck.com/sullis/e-commerce-under-the-hood&quot;&gt;Gilt’s E-Commerce Platform&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Mikhail Girkin spoke at the Reactive Systems Meetup in Dublin about &lt;a href=&quot;https://www.slideshare.net/MikhailGirkin/streaming-data-to-s3-using-akka-streams&quot;&gt;Streaming Data to s3 Using Akka Streams&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;march&quot;&gt;March&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Ryan Martin spoke at AWS Architecture Week in NYC.&lt;/li&gt;
-  &lt;li&gt;Ugo Mantrangalo presented at the Microservices Meetup in Dublin about &lt;a href=&quot;https://umatrangolo.github.io/go-microservices-deck/&quot;&gt;Writing Microservices in Go&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Dana Pylayeva lead a workshop entitled &lt;a href=&quot;https://www.slideshare.net/danapylayeva/growing-by-sharing-workshop-at-sgcal&quot;&gt;Growing by Sharing: Transitioning a Group to a Self-Directed Model&lt;/a&gt; at the NYC Scrum User Group in March and the Scrum Gathering in San Diego in April.&lt;/li&gt;
-  &lt;li&gt;Jose Martinez and Ed Perry spoke at the Elastic NYC User Group Meetup.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;april&quot;&gt;April&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Adrian Trenaman spoke at the AWS Dublin User Group about &lt;a href=&quot;https://www.slideshare.net/trenaman/serverless-hbc-digital-real-world-explorations-of-lambda-aws-meetup-april-4th-2017&quot;&gt;Serverless Architectures&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Dana Pylayeva lead a workshop on &lt;a href=&quot;https://www.slideshare.net/danapylayeva/aatc-gamifying-devops-with-lego-and-chocolate-game&quot;&gt;Gamifying DevOps with Chocolate and Legos&lt;/a&gt; at the Agile Alliance Technical Conference in Boston.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;may&quot;&gt;May&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Sean Sullivan spoke at the Portland Java User Group about &lt;a href=&quot;https://speakerdeck.com/sullis/payment-processing-at-gilt-dot-com&quot;&gt;Payment Processing at Gilt&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Evan Maloney spoke at the Brooklyn Swift Meetup about &lt;a href=&quot;https://vimeo.com/217236459&quot;&gt;Gilt’s 8 Year Codebase Evolution&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;june&quot;&gt;June&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Mike Hansen spoke at QCon about &lt;a href=&quot;https://www.infoq.com/presentations/hbc-digital-streaming&quot;&gt;Streaming Architectures&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Adrian Trenaman spoke at QCon about &lt;a href=&quot;https://www.infoq.com/news/2017/07/remove-friction-dev-ex&quot;&gt;Removing Friction in the Developer Experience&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Gregor Heine spoke at the Dublin Microservices Meetup about &lt;a href=&quot;https://www.youtube.com/watch?v=Sx_0HlJPTVQ&quot;&gt;Making Microservice deployments to AWS a breeze with Nova&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Pau Carré Cardona spoke a the O’Reilly AI Conference in NYC and the Deep Learning in Retail Summit in London about &lt;a href=&quot;https://cdn.oreillystatic.com/en/assets/1/event/258/Deep%20learning%20in%20the%20fashion%20industry%20Presentation.pdf&quot;&gt;Deep Learning in the Fashion Industry&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;july&quot;&gt;July&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Sean Sullivan spoke at &lt;a href=&quot;https://speakerdeck.com/sullis/api-builder-scala-up-north-2017&quot;&gt;Scala Up North&lt;/a&gt; and the &lt;a href=&quot;https://speakerdeck.com/sullis/apibuilder&quot;&gt;Portland Java User Group&lt;/a&gt; about ApiBuilder.&lt;/li&gt;
-  &lt;li&gt;Sophie Huang spoke at the Customer Love Summit in Seattle.&lt;/li&gt;
-  &lt;li&gt;Kyla Robinson gave a keynote on Key to Success: Creating A Mobile–First Mentality.&lt;/li&gt;
-  &lt;li&gt;Sera Chin and Yi Cao spoke at the NYC Scrum User Group about HBC’s Design Sprints.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>HBC Tech</name></author><category term="meetups" /><category term="conferences" /><category term="evangelism" /><summary>We’ve had a busy 2017 at HBC. The great work of our teams has created opportunities to share what we’ve learned with audiences around the world. This year our folks have been on stage in Austin, Sydney, Portland, Seattle, San Diego, Boston, London, Israel and on our home turf in NYC and Dublin. The talks have covered deep learning, design thinking, data streaming and developer experience to name just a few.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://tech.hbc.com{&quot;feature&quot;=&gt;&quot;http://i.imgur.com/zkRer6r.png&quot;, &quot;credit&quot;=&gt;nil, &quot;creditlink&quot;=&gt;nil}" /></entry></feed>
+&lt;/p&gt;</content><author><name>Team Rookie</name></author><category term="internship" /><category term="web" /><category term="team rookie" /><summary>Who We Are</summary></entry></feed>
