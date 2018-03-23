@@ -144,7 +144,7 @@ gulp.task('optimize-html-prod', ['optimize-js-prod'], function() {
     .pipe(minifyHTML({
       quotes: true
     }))
-		.pipe(gulp.dest('_site/'))
+	.pipe(gulp.dest('_site/'))
     .pipe(notify({ message: 'HTML-PROD task complete' }));
 });
 
