@@ -1,8 +1,12 @@
-var GH_API_URI = "https://api.github.com"
-
+var GH_API_URI = "https://api.github.com";
 var REPOS_PER_ROW = 3;
-
 var repos = [ ];
+var nonOrg_repo_sources = [
+  {
+    "user": "gringoireDM",
+    "repo": "LNZCollectionLayouts"
+  }
+];
 
 $(document).ready(function() {
   loadRepos(1);
@@ -15,7 +19,9 @@ function loadRepos(page) {
         repos = repos.concat(result);
         loadRepos(page + 1);
       }
-      else {
+      else if(nonOrg_repo_sources[0]) {
+        loadNonGiltRepos();
+      } else {
         addRepos(repos);
       }
     }).fail(function(xhr,textStatus,error) {
@@ -27,6 +33,27 @@ function loadRepos(page) {
       //getResponseHeader("X-RateLimit-Remaining"
       //getResponseHeader("X-RateLimit-Limit")
     });
+}
+
+// add open source repos from other sources to the repos array
+function loadNonGiltRepos() {
+  var repoCount = 0;
+  nonOrg_repo_sources.forEach((element,index) => {
+    $.getJSON(GH_API_URI + '/repos/' + nonOrg_repo_sources[index].user + '/' +  nonOrg_repo_sources[index].repo,
+    (result) => {
+        repos = repos.concat(result);
+          repoCount++;
+          if (repoCount === nonOrg_repo_sources.length) {
+            addRepos(repos);
+          }
+    }).fail((xhr,textStatus,error) => {
+      $("#loading").addClass("networkError").text("An error occurred while communicating with GitHub.");
+      if (xhr.responseJSON && xhr.responseJSON["message"]) {
+        $("<div>").text("(" + xhr.responseJSON["message"] + ")").appendTo($("#loading"));
+      }
+      $("#fallback").removeClass("hidden");
+    });
+  });
 }
 
 function addRepos(repos) {
