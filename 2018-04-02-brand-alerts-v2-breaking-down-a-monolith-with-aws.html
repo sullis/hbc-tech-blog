@@ -1,0 +1,2245 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title> Brand Alerts V2: Breaking Down a Monolith with AWS </title>
+
+        <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Brand Alerts V2: Breaking Down a Monolith with AWS | HBC Tech</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Brand Alerts V2: Breaking Down a Monolith with AWS" />
+<meta name="author" content="Kinshuk Varshney" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this blog, I share our new Brand Alerts V2 architecture detailing some of the new AWS powered components." />
+<meta property="og:description" content="In this blog, I share our new Brand Alerts V2 architecture detailing some of the new AWS powered components." />
+<link rel="canonical" href="http://tech.hbc.com/2018-04-02-brand-alerts-v2-breaking-down-a-monolith-with-aws.html" />
+<meta property="og:url" content="http://tech.hbc.com/2018-04-02-brand-alerts-v2-breaking-down-a-monolith-with-aws.html" />
+<meta property="og:site_name" content="HBC Tech" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-04-02T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@Kinshuk Varshney" />
+<script type="application/ld+json">
+{"description":"In this blog, I share our new Brand Alerts V2 architecture detailing some of the new AWS powered components.","author":{"@type":"Person","name":"Kinshuk Varshney"},"@type":"BlogPosting","url":"http://tech.hbc.com/2018-04-02-brand-alerts-v2-breaking-down-a-monolith-with-aws.html","headline":"Brand Alerts V2: Breaking Down a Monolith with AWS","dateModified":"2018-04-02T00:00:00-05:00","datePublished":"2018-04-02T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://tech.hbc.com/2018-04-02-brand-alerts-v2-breaking-down-a-monolith-with-aws.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+        <meta property="og:title" content="Brand Alerts V2: Breaking Down a Monolith with AWS" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://tech.hbc.com//2018-04-02-brand-alerts-v2-breaking-down-a-monolith-with-aws.html" />
+<meta property="og:description" content="Recently, team T-Rex worked on the re-architecture of the Brand Alerts back end system, a project which we named Brand Alerts V2. In this blog, I share our n..." />
+<meta property="og:image" content="http://tech.hbc.com/assets/images/blog/hbc-tech-logo-tipi.jpg" />
+<meta property="og:image:secure_url" content="http://tech.hbc.com/assets/images/" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:alt" content="" />
+
+
+        <link rel="stylesheet" href="http://tech.hbc.com/assets/css/main.css">
+        <link rel="canonical" href="http://tech.hbc.com/2018-04-02-brand-alerts-v2-breaking-down-a-monolith-with-aws.html">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
+
+        <!-- Icons -->
+        <!-- 16x16 -->
+        <link rel="shortcut icon" href="http://tech.hbc.com/assets/images/favicon.ico">
+    </head>
+
+    <body aria-label="Content">
+        <header id="site-header" class="site-header">
+    <div class="site-header__inner">
+    	<a class="site-header__logo" href="/">
+        	<svg class="hbc-tech-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 52">
+        		<use class="hbc-tech-logo__text" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#hbc-tech-logo"></use>
+            </svg>
+    	</a>
+        <nav id="menu" class="navigation">
+    <svg class="navigation__menu-icon" xmlns="http://www.w3.org/2000/svg">
+        <path class="bar bar__top" d="M0,3 L30,3" />
+        <path class="bar bar__cross-1" d="M0,14 L30,14" />
+        <path class="bar bar__cross-2" d="M0,14 L30,14" />
+        <path class="bar bar__bottom" d="M0,25 L30,25" />
+    </svg>
+	<menu class="menu">
+		<ul class="link-list">
+		
+        
+            <li class="link-list__link-item">
+                <a href="http://tech.hbc.com/" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">Insights</span></a>
+            </li>
+        
+            <li class="link-list__link-item">
+                <a href="http://tech.hbc.com/code" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">Code</span></a>
+            </li>
+        
+            <li class="link-list__link-item">
+                <a href="http://tech.hbc.com/about" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">About</span></a>
+            </li>
+        
+            <li class="link-list__link-item">
+                <a href="http://tech.hbc.com/work-here" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">Work Here</span></a>
+            </li>
+        
+	    </ul>
+	</menu>
+</nav>
+
+        <search id="header-search" class="header-search">
+	<form class="header-search__form" action>
+	  <input type="text" class="header-search__input" id="header-search-input" placeholder=" Search" name="query">
+	</form>
+  	<svg id="header-search__toggle" class="header-search__svg" xmlns="http://www.w3.org/2000/svg" >
+		<path id="leftSearch" class="path path--left-half" d="M11.4842576,23.9891168 C5.09608476,23.7189967 0,18.4546255 0,12 C0,5.54951437 4.85419801,0.113423154 12.4763811,0.0114091479"/>
+		<path id="rightSearch" class="path path--right-half" d="M12.5376167,0.0118279089 C18.9155446,0.293025077 24,5.55274344 24,12 C24,18.4701834 17.7604297,24.3112218 11.1896721,23.9909829"/>
+		<path id="handle" class="path path--handle" d="M20.7485408,20.8914207 L26.8571202,27 L20.7485408,20.8914207"/>
+    </svg>
+    <section class="header-search__results" id="header-search__results"></section>
+</search>
+
+    </div>
+</header>
+
+        <section class="content"><article class="article">
+    <header class="article__header article__header--reveal">
+        <h1 class="header-title" title="Brand Alerts V2: Breaking Down a Monolith with AWS">Brand Alerts V2: Breaking Down a Monolith with AWS</h1>
+        
+        <span id="no-image-placeholder" class="no-image-placeholder"></span>
+        
+
+        
+            
+        <div class="article-meta">
+            
+            <a href="http://tech.hbc.com/category/back-end" class="article-meta__category">back end</a>
+            
+        
+        
+        
+            <span class="slug-divider"></span>
+            <span class="article-meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Kinshuk Varshney<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+            <span class="article-meta__date">
+                APR 2, 2018
+            </span>
+        </div>
+    </header>
+    <section class="article__content article__content--reveal">
+        
+        <div class="article__content__read-time"><span class="read-time" title="Estimated read time">
+  
+  
+    <span class="read-time__text-1">7 min</span>
+    <span class="read-time__text-2">Read</span>
+    <span class="read-time__text-3">Time</span>
+  
+</span>
+</div>
+        <div class="article__content__share-buttons"><ul class="share-buttons">
+    <li class="share-buttons__link-item">
+        <a href="https://twitter.com/intent/tweet?text=http://tech.hbc.com//2018-04-02-brand-alerts-v2-breaking-down-a-monolith-with-aws.html" class="share-buttons__link" title="Share on Twitter" target="_blank">
+            <svg class="hbc-svg-icon" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon--twitter" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
+            </svg>
+        </a>
+    </li>
+    <li class="share-buttons__link-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://tech.hbc.com/&source=/2018-04-02-brand-alerts-v2-breaking-down-a-monolith-with-aws.html&title=Brand Alerts V2: Breaking Down a Monolith with AWS" class="share-buttons__link" title="Share on Linkedin" target="_blank">
+            <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#linkedin" ></use>
+            </svg>
+        </a>
+    </li>
+    <li class="share-buttons__link-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://tech.hbc.com//2018-04-02-brand-alerts-v2-breaking-down-a-monolith-with-aws.html" class="share-buttons__link" title="Share on Facebook" target="_blank">
+            <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#facebook" ></use>
+            </svg>
+        </a>
+    </li>
+    <li class="share-buttons__link-item">
+        <a href="https://www.reddit.com/submit?url=http://tech.hbc.com//2018-04-02-brand-alerts-v2-breaking-down-a-monolith-with-aws.html" class="share-buttons__link" title="Share on Reddit" target="_blank">
+            <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#reddit" ></use>
+            </svg>
+        </a>
+    </li>
+</ul>
+</div>
+        <div class="article__content__body"><p>Recently, team T-Rex worked on the re-architecture of the
+Brand Alerts back end system, a project which we named Brand Alerts V2.
+In this blog, I share our new architecture detailing some of the new AWS
+powered components.</p>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>Brand Alerts V2 breaks down the monolithic architecture of Brand Alerts
+V1, into small, independent micro services. It enhances flexibility and
+extensibility of the system, not to forget, facilitates agile development,
+continuous integration and delivery. It also addresses some of our recent
+pain points- database and thread scheduling issues, resulting at times
+in non delivery of brand alert emails. Our intent was to delegate much
+of the boilerplate work to AWS tools and services, which are built to
+handle these use cases in tried and tested fashion and at scale.</p>
+
+<h1 id="what-are-brand-alerts">What Are Brand Alerts?</h1>
+
+<p>Before I go any further, let me describe what Brand Alerts are.</p>
+
+<p>Brand Alerts are emails sent to Gilt members notifying them of an upcoming
+sale on a brand of their liking. A brand alert email is the ideal way to
+beat the crowd and avail deep discounts on high-end fashion
+brands. A typical brand alert email is sent in the evening (usually
+around 6 PM) a day prior to when the brand goes on sale.</p>
+
+<p>It should also be noted that Brand Alert emails have one of the highest
+click-through rates (among all our triggered emails) and so business is
+always looking to enhance and experiment, in order to squeeze more out
+of these emails.</p>
+
+<h1 id="high-level-technical-components">High Level Technical Components</h1>
+
+<p>A good first step in system design is to chalk out the various building
+blocks. Here are the high level technical components that constitute the
+Brand Alerts system-</p>
+
+<ol>
+  <li>
+    <p>Front End- for Marketing team to create, visualize brand alert email</p>
+  </li>
+  <li>
+    <p>Database- to store a brand alert record (with brands, sales and their relevant info)</p>
+  </li>
+  <li>
+    <p>Data access layer for the database</p>
+  </li>
+  <li>
+    <p>Brand Alerts API- that other components can call to manage or get information on brand alerts</p>
+  </li>
+  <li>
+    <p>Generate audience (business logic component)</p>
+  </li>
+  <li>
+    <p>Render HTML (business logic component)</p>
+  </li>
+  <li>
+    <p>Send emails (business logic component)</p>
+  </li>
+  <li>
+    <p>Job scheduler for components 5-7</p>
+  </li>
+</ol>
+
+<h1 id="brand-alerts-v1">Brand Alerts V1</h1>
+
+<p>Before I introduce the V2 architecture, let me establish a baseline by
+talking about Brand Alerts V1. Here is the architecture diagram (with
+the distribution of aforementioned eight components)-</p>
+
+<p><img src="./assets/images/brand-alerts-v2-breaking-down-a-monolith-with-aws/brand-alerts-v1-arch.png" alt="alt text" /></p>
+
+<p>The service (<code class="highlighter-rouge">svc-email-brand-alert</code>) is a Scala app based on standard
+core-server-client model. As is evident from the diagram, this
+component is doing a lot of heavy lifting. In addition to holding all the
+business logic on how to generate audience and render HTML, it is also a
+data access layer, an API (client module) and job scheduler (through a
+separate <code class="highlighter-rouge">Scheduler</code> thread using Java’s <code class="highlighter-rouge">ExecutionService</code>).</p>
+
+<p>Although most of the codebase is located inside one repo, this monolithic
+architecture faces several disadvantages. It is complex, difficult to
+maintain and troubleshoot by new team members, difficult to test in smaller
+pieces and has multiple single points of failure that can bring down the
+whole system.</p>
+
+<h1 id="brand-alerts-v2">Brand Alerts V2</h1>
+
+<p>Allow me to introduce Brand Alerts V2 with the following architecture
+diagram (again, with markings for the eight technical components)-</p>
+
+<p><img src="./assets/images/brand-alerts-v2-breaking-down-a-monolith-with-aws/brand-alerts-v2-arch.png" alt="alt text" /></p>
+
+<p>At first glance, one notices a lot more boxes and arrows. I can assure
+you that this is a good thing. The monolithic service piece of V1 has now
+been broken down into several smaller pieces, each of which is doing one
+or maximum two things and is doing it rather well. These are small, yet
+powerful components with baked in scalability and cohesiveness, being part
+of the AWS family.</p>
+
+<h1 id="new-components">New Components</h1>
+
+<p>Next, let me elaborate on some of the newly born, super-charged components.</p>
+
+<h2 id="brand-alerts-job">Brand Alerts Job</h2>
+
+<p>The core component of the brand alerts process is <code class="highlighter-rouge">trex-job-brand-alerts</code>.
+The job is written in Scala and is scheduled via AWS Batch (Sundial) to
+run at a regular interval. No more maintaining our own <code class="highlighter-rouge">Scheduler</code> thread!</p>
+
+<p>When the job starts, a two step process is triggered. First, an audience
+is generated for each sale/brand in the brand alert. A call is made to
+Affinity API to get users who have an ‘affinity for the brand’. This set
+of users is then filtered based on the user’s subscription to the brand
+alert email and also to preserve his/her brand alert email receive limit
+(cadence check). In the second step, a brand alert event message
+is constructed corresponding to each user in the filtered
+set and is sent to the <code class="highlighter-rouge">consumer-email-brand-alert</code> SQS queue.</p>
+
+<p>As previously stated, the Brand Alerts job is configured to run via
+<a href="https://github.com/gilt/sundial">Sundial</a>. Sundial, created by Gilt
+engineers, is an open source tool build on top
+of AWS Batch. This tool enhances AWS Batch capabilities by providing
+features such as job scheduling, multi job dependency management,
+job dashboard, etc. All job settings are configurable and reside in
+<code class="highlighter-rouge">bin/job-config.template.json</code>. These include maximum runtime, number of
+retries, PagerDuty alerts (in case of job failure), to name a few.</p>
+
+<h2 id="brand-alerts-api">Brand Alerts API</h2>
+
+<p>The API for Brand Alerts V2 (<code class="highlighter-rouge">api-brand-alert</code>) is written in Python and
+is an AWS Lambda, built using <a href="https://github.com/aws/chalice">Chalice</a>
+(which also provides a complimentary AWS API Gateway layering in front
+of AWS Lambda).</p>
+
+<p>AWS Lambda provides a lightweight, “server-less” environment to host the
+API’s endpoints, which are used to manage the lifecycle of a brand alert,
+from creation to deletion. API Gateway, on the other hand, manages the
+lifecycle of the API itself and provides valuable features such as access
+control and traffic monitoring.</p>
+
+<p>In the root folder of the project, an <code class="highlighter-rouge">api.json</code> file details resources
+and data models of the API and is uploaded to
+<a href="https://app.apibuilder.io/gilt/api-brand-alert/latest">API Builder</a>
+for versioning and client generation.</p>
+
+<p>This component also acts as the Data Access Layer to the DynamoDB
+database. This ensures that no other component has direct access to the
+database, and that any component that needs to interact with the
+database must go through the API.
+<a href="http://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html">Boto3</a>
+library is used to obtain a Python client for DynamoDB.</p>
+
+<h2 id="brand-alerts-consumer">Brand Alerts Consumer</h2>
+
+<p>The brand alert event messages sent to <code class="highlighter-rouge">consumer-email-brand-alert</code> queue
+are picked up by <code class="highlighter-rouge">BrandAlertConsumer</code> (in <code class="highlighter-rouge">consumer-email</code>). The consumer
+polls for messages at a configurable interval. On finding a message in
+the queue, the consumer first renders an HTML body from the information
+contained in the message. Subsequently, it creates an object wrapper for
+the HTML body and sends it to <code class="highlighter-rouge">email-gateway</code> (which then sends it to
+our Email Service Provider (ESP), SparkPost, for delivery).</p>
+
+<p>The <code class="highlighter-rouge">consumer-email-brand-alert</code> queue is an Amazon SQS queue and has an
+associated Dead Letter Queue (DLQ) for message persistence in case of
+failure. This lightweight component is fast, secure, reliable and can
+scale elastically.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Since its Production launch in early February, Brand Alerts V2 has been
+running smoothly, without fail, every day, in a timely, reliable manner.
+The new architecture has emboldened Business, Product and Tech to
+outline future iterations, packing more features than ever before.</p>
+
+<p>For the Tech team, this effort was a win on many levels. We were able to
+envision and bring to fruition a micro services architecture, which
+promises to be a step up from its previous iteration in all aspects.
+In the process, through our research and experimentation, we acquired
+knowledge of various AWS tools and other third party libraries.</p>
+
+<p>Finally, AWS, with its vast set of tools and services, is instrumental
+in building powerful, resilient software. We should invest time and
+resources in finding the right tools for the job; I promise you it is
+well worth the effort.</p>
+
+</div>
+        <footer class="article__content__footer">
+            
+<div class="article-tags">
+
+    <span class="article-tags__tag">aws</span><span>,</span>
+    
+
+    <span class="article-tags__tag">batch</span><span>,</span>
+    
+
+    <span class="article-tags__tag">lambda</span><span>,</span>
+    
+
+    <span class="article-tags__tag">api gateway</span><span>,</span>
+    
+
+    <span class="article-tags__tag">sqs</span><span>,</span>
+    
+
+    <span class="article-tags__tag">dynamo</span><span>,</span>
+    
+
+    <span class="article-tags__tag">sundial</span><span>,</span>
+    
+
+    <span class="article-tags__tag">trex</span><span>,</span>
+    
+
+    <span class="article-tags__tag">email</span><span>,</span>
+    
+
+    <span class="article-tags__tag">architecture</span>
+
+</div>
+
+
+            <!-- author bio -->
+<section class="author-bio">
+
+
+	
+
+	
+	<!-- author is a guest contributor -->
+	<svg class="author-bio__avatar" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__circle" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#circle" ></use>
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#head" ></use>
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#body" ></use>
+    </svg>
+	<span class="author-bio__name">Kinshuk Varshney</span>
+	
+
+
+</section>
+
+        </footer>
+    </section>
+    <aside class="recirc">
+    <h2 class="header__title">Recent Insights</h2><span class="slug-divider"></span>
+    <a class="header__view-all-link" href="http://tech.hbc.com/categories/index.html">See All</a>
+    <div class="recirc__articles">
+    
+    
+    
+    
+    
+    
+
+    
+        
+    
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+    
+    
+    <h1 class="snippet__title">
+    <a href="http://tech.hbc.com/2016-08-21-scala-fedex.html" class="snippet__title__link" title="New open source project: scala-fedex">
+        New open source project: scala-fedex
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="http://tech.hbc.com/category/back-end">back end</a>
+            
+            
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Ryan Caloras<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">AUG 21, 2016</span>
+    
+    </div>
+    
+        <a href="http://tech.hbc.com/2016-08-21-scala-fedex.html" class="snippet__excerpt__link" title="New open source project: scala-fedex">
+            <p class="snippet__excerpt">
+            
+  
+  
+
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+    
+    
+    <h1 class="snippet__title">
+    <a href="http://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html" class="snippet__title__link" title="Negative Sampling (in Numpy)">
+        Negative Sampling (in Numpy)
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="http://tech.hbc.com/category/data-science">data science</a>
+            
+            
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Jason Tam<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">MAR 23, 2018</span>
+    
+    </div>
+    
+        <a href="http://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html" class="snippet__excerpt__link" title="Negative Sampling (in Numpy)">
+            <p class="snippet__excerpt">
+            Alright, time to have some fun exploring efficient negative sampling implementations in NumPy…
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+    
+    
+    <h1 class="snippet__title">
+    <a href="http://tech.hbc.com/2018-03-21-the-tech-blog-is-dead-long-live-the-tech-blog.html" class="snippet__title__link" title="The Tech Blog is Dead. Long Live the Tech Blog">
+        The Tech Blog is Dead. Long Live the Tech Blog
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="http://tech.hbc.com/category/culture">culture</a>
+            
+            
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                    <a class="meta__author-link" href="http://tech.hbc.com/authors/adrian-trenaman">
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Adrian Trenaman<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                    </a><span class="meta__author__job-title">, SVP Engineering</span>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">MAR 21, 2018</span>
+    
+    </div>
+    
+        <a href="http://tech.hbc.com/2018-03-21-the-tech-blog-is-dead-long-live-the-tech-blog.html" class="snippet__excerpt__link" title="The Tech Blog is Dead. Long Live the Tech Blog">
+            <p class="snippet__excerpt">
+            The HBC Tech Blog: “You will never find a more wretched hive of tech and miscellany.”
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+    
+    
+    <h1 class="snippet__title">
+    <a href="http://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" class="snippet__title__link" title="Airing Out A New Job System">
+        Airing Out A New Job System
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="http://tech.hbc.com/category/data-science">data science</a>
+            
+            
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Terry McCartan<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">MAR 5, 2018</span>
+    
+    </div>
+    
+        <a href="http://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" class="snippet__excerpt__link" title="Airing Out A New Job System">
+            <p class="snippet__excerpt">
+            In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow. 
+We undertook the decision to overhaul our job orchestration system a few months ago due to a number of reasons but have now successfully migrated all our data ingestion jobs to the new system.
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    </div>
+</aside>
+
+</article>
+
+</section>
+        <footer class="footer">
+	<svg class="est1670" xmlns="http://www.w3.org/2000/svg">
+		<use class="hbc-tech-logo__use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#est1670" ></use>
+	</svg>
+    <section class="footer__links">
+	<ul class="social-links social-links__list">
+    <li class="social-links__list-item">
+        <a class="social-links__link" target="_blank" rel="next" href="https://www.linkedin.com/company/hbc_digital/">
+            <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
+                <use class="linkedin"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#linkedin"></use>
+            </svg>
+        </a>
+    </li>
+    <li class="social-links__list-item">
+        <a class="social-links__link" target="_blank" rel="next" href="https://twitter.com/hbcdigital/">
+            <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
+                <use class="twitter"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
+            </svg>
+        </a>
+    </li>
+    <li class="social-links__list-item">
+        <a class="social-links__link" target="_blank" rel="next" href="https://www.instagram.com/hbcdigital">
+            <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
+                <use class="instagram"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#instagram"></use>
+            </svg>
+        </a>
+    </li>
+</ul>
+
+	<p class="copyright">&copy; 2018 HBC Tech</i></p>
+	</section>
+</footer>
+
+        <script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/scrollmagic/ScrollMagic.min.js"></script>
+<script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/jekyll-search-js/fetch.js"></script>
+<script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
+<script type="text/javascript" src="http://tech.hbc.com/assets/js/main.js"></script>
+<script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-106560024-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+    </body>
+
+</html>

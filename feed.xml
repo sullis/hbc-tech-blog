@@ -1,5 +1,191 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.7.3">Jekyll</generator><link href="http://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2018-03-28T08:47:16-05:00</updated><id>http://tech.hbc.com/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
-</subtitle><entry><title>Negative Sampling (in Numpy)</title><link href="http://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html" rel="alternate" type="text/html" title="Negative Sampling (in Numpy)" /><published>2018-03-23T00:00:00-05:00</published><updated>2018-03-23T00:00:00-05:00</updated><id>http://tech.hbc.com/negative-sampling-in-numpy</id><content type="html" xml:base="http://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html">&lt;p&gt;&lt;em&gt;Alright, time to have some fun exploring efficient negative sampling implementations in NumPy…&lt;/em&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.7.3">Jekyll</generator><link href="http://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2018-04-02T11:28:03-05:00</updated><id>http://tech.hbc.com/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+</subtitle><entry><title>Brand Alerts V2: Breaking Down a Monolith with AWS</title><link href="http://tech.hbc.com/2018-04-02-brand-alerts-v2-breaking-down-a-monolith-with-aws.html" rel="alternate" type="text/html" title="Brand Alerts V2: Breaking Down a Monolith with AWS" /><published>2018-04-02T00:00:00-05:00</published><updated>2018-04-02T00:00:00-05:00</updated><id>http://tech.hbc.com/brand-alerts-v2-breaking-down-a-monolith-with-aws</id><content type="html" xml:base="http://tech.hbc.com/2018-04-02-brand-alerts-v2-breaking-down-a-monolith-with-aws.html">&lt;p&gt;Recently, team T-Rex worked on the re-architecture of the
+Brand Alerts back end system, a project which we named Brand Alerts V2.
+In this blog, I share our new architecture detailing some of the new AWS
+powered components.&lt;/p&gt;
+
+&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+
+&lt;p&gt;Brand Alerts V2 breaks down the monolithic architecture of Brand Alerts
+V1, into small, independent micro services. It enhances flexibility and
+extensibility of the system, not to forget, facilitates agile development,
+continuous integration and delivery. It also addresses some of our recent
+pain points- database and thread scheduling issues, resulting at times
+in non delivery of brand alert emails. Our intent was to delegate much
+of the boilerplate work to AWS tools and services, which are built to
+handle these use cases in tried and tested fashion and at scale.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-are-brand-alerts&quot;&gt;What Are Brand Alerts?&lt;/h1&gt;
+
+&lt;p&gt;Before I go any further, let me describe what Brand Alerts are.&lt;/p&gt;
+
+&lt;p&gt;Brand Alerts are emails sent to Gilt members notifying them of an upcoming
+sale on a brand of their liking. A brand alert email is the ideal way to
+beat the crowd and avail deep discounts on high-end fashion
+brands. A typical brand alert email is sent in the evening (usually
+around 6 PM) a day prior to when the brand goes on sale.&lt;/p&gt;
+
+&lt;p&gt;It should also be noted that Brand Alert emails have one of the highest
+click-through rates (among all our triggered emails) and so business is
+always looking to enhance and experiment, in order to squeeze more out
+of these emails.&lt;/p&gt;
+
+&lt;h1 id=&quot;high-level-technical-components&quot;&gt;High Level Technical Components&lt;/h1&gt;
+
+&lt;p&gt;A good first step in system design is to chalk out the various building
+blocks. Here are the high level technical components that constitute the
+Brand Alerts system-&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Front End- for Marketing team to create, visualize brand alert email&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Database- to store a brand alert record (with brands, sales and their relevant info)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Data access layer for the database&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Brand Alerts API- that other components can call to manage or get information on brand alerts&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Generate audience (business logic component)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Render HTML (business logic component)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Send emails (business logic component)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Job scheduler for components 5-7&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;brand-alerts-v1&quot;&gt;Brand Alerts V1&lt;/h1&gt;
+
+&lt;p&gt;Before I introduce the V2 architecture, let me establish a baseline by
+talking about Brand Alerts V1. Here is the architecture diagram (with
+the distribution of aforementioned eight components)-&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;./assets/images/brand-alerts-v2-breaking-down-a-monolith-with-aws/brand-alerts-v1-arch.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The service (&lt;code class=&quot;highlighter-rouge&quot;&gt;svc-email-brand-alert&lt;/code&gt;) is a Scala app based on standard
+core-server-client model. As is evident from the diagram, this
+component is doing a lot of heavy lifting. In addition to holding all the
+business logic on how to generate audience and render HTML, it is also a
+data access layer, an API (client module) and job scheduler (through a
+separate &lt;code class=&quot;highlighter-rouge&quot;&gt;Scheduler&lt;/code&gt; thread using Java’s &lt;code class=&quot;highlighter-rouge&quot;&gt;ExecutionService&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;Although most of the codebase is located inside one repo, this monolithic
+architecture faces several disadvantages. It is complex, difficult to
+maintain and troubleshoot by new team members, difficult to test in smaller
+pieces and has multiple single points of failure that can bring down the
+whole system.&lt;/p&gt;
+
+&lt;h1 id=&quot;brand-alerts-v2&quot;&gt;Brand Alerts V2&lt;/h1&gt;
+
+&lt;p&gt;Allow me to introduce Brand Alerts V2 with the following architecture
+diagram (again, with markings for the eight technical components)-&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;./assets/images/brand-alerts-v2-breaking-down-a-monolith-with-aws/brand-alerts-v2-arch.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At first glance, one notices a lot more boxes and arrows. I can assure
+you that this is a good thing. The monolithic service piece of V1 has now
+been broken down into several smaller pieces, each of which is doing one
+or maximum two things and is doing it rather well. These are small, yet
+powerful components with baked in scalability and cohesiveness, being part
+of the AWS family.&lt;/p&gt;
+
+&lt;h1 id=&quot;new-components&quot;&gt;New Components&lt;/h1&gt;
+
+&lt;p&gt;Next, let me elaborate on some of the newly born, super-charged components.&lt;/p&gt;
+
+&lt;h2 id=&quot;brand-alerts-job&quot;&gt;Brand Alerts Job&lt;/h2&gt;
+
+&lt;p&gt;The core component of the brand alerts process is &lt;code class=&quot;highlighter-rouge&quot;&gt;trex-job-brand-alerts&lt;/code&gt;.
+The job is written in Scala and is scheduled via AWS Batch (Sundial) to
+run at a regular interval. No more maintaining our own &lt;code class=&quot;highlighter-rouge&quot;&gt;Scheduler&lt;/code&gt; thread!&lt;/p&gt;
+
+&lt;p&gt;When the job starts, a two step process is triggered. First, an audience
+is generated for each sale/brand in the brand alert. A call is made to
+Affinity API to get users who have an ‘affinity for the brand’. This set
+of users is then filtered based on the user’s subscription to the brand
+alert email and also to preserve his/her brand alert email receive limit
+(cadence check). In the second step, a brand alert event message
+is constructed corresponding to each user in the filtered
+set and is sent to the &lt;code class=&quot;highlighter-rouge&quot;&gt;consumer-email-brand-alert&lt;/code&gt; SQS queue.&lt;/p&gt;
+
+&lt;p&gt;As previously stated, the Brand Alerts job is configured to run via
+&lt;a href=&quot;https://github.com/gilt/sundial&quot;&gt;Sundial&lt;/a&gt;. Sundial, created by Gilt
+engineers, is an open source tool build on top
+of AWS Batch. This tool enhances AWS Batch capabilities by providing
+features such as job scheduling, multi job dependency management,
+job dashboard, etc. All job settings are configurable and reside in
+&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/job-config.template.json&lt;/code&gt;. These include maximum runtime, number of
+retries, PagerDuty alerts (in case of job failure), to name a few.&lt;/p&gt;
+
+&lt;h2 id=&quot;brand-alerts-api&quot;&gt;Brand Alerts API&lt;/h2&gt;
+
+&lt;p&gt;The API for Brand Alerts V2 (&lt;code class=&quot;highlighter-rouge&quot;&gt;api-brand-alert&lt;/code&gt;) is written in Python and
+is an AWS Lambda, built using &lt;a href=&quot;https://github.com/aws/chalice&quot;&gt;Chalice&lt;/a&gt;
+(which also provides a complimentary AWS API Gateway layering in front
+of AWS Lambda).&lt;/p&gt;
+
+&lt;p&gt;AWS Lambda provides a lightweight, “server-less” environment to host the
+API’s endpoints, which are used to manage the lifecycle of a brand alert,
+from creation to deletion. API Gateway, on the other hand, manages the
+lifecycle of the API itself and provides valuable features such as access
+control and traffic monitoring.&lt;/p&gt;
+
+&lt;p&gt;In the root folder of the project, an &lt;code class=&quot;highlighter-rouge&quot;&gt;api.json&lt;/code&gt; file details resources
+and data models of the API and is uploaded to
+&lt;a href=&quot;https://app.apibuilder.io/gilt/api-brand-alert/latest&quot;&gt;API Builder&lt;/a&gt;
+for versioning and client generation.&lt;/p&gt;
+
+&lt;p&gt;This component also acts as the Data Access Layer to the DynamoDB
+database. This ensures that no other component has direct access to the
+database, and that any component that needs to interact with the
+database must go through the API.
+&lt;a href=&quot;http://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html&quot;&gt;Boto3&lt;/a&gt;
+library is used to obtain a Python client for DynamoDB.&lt;/p&gt;
+
+&lt;h2 id=&quot;brand-alerts-consumer&quot;&gt;Brand Alerts Consumer&lt;/h2&gt;
+
+&lt;p&gt;The brand alert event messages sent to &lt;code class=&quot;highlighter-rouge&quot;&gt;consumer-email-brand-alert&lt;/code&gt; queue
+are picked up by &lt;code class=&quot;highlighter-rouge&quot;&gt;BrandAlertConsumer&lt;/code&gt; (in &lt;code class=&quot;highlighter-rouge&quot;&gt;consumer-email&lt;/code&gt;). The consumer
+polls for messages at a configurable interval. On finding a message in
+the queue, the consumer first renders an HTML body from the information
+contained in the message. Subsequently, it creates an object wrapper for
+the HTML body and sends it to &lt;code class=&quot;highlighter-rouge&quot;&gt;email-gateway&lt;/code&gt; (which then sends it to
+our Email Service Provider (ESP), SparkPost, for delivery).&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;consumer-email-brand-alert&lt;/code&gt; queue is an Amazon SQS queue and has an
+associated Dead Letter Queue (DLQ) for message persistence in case of
+failure. This lightweight component is fast, secure, reliable and can
+scale elastically.&lt;/p&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;Since its Production launch in early February, Brand Alerts V2 has been
+running smoothly, without fail, every day, in a timely, reliable manner.
+The new architecture has emboldened Business, Product and Tech to
+outline future iterations, packing more features than ever before.&lt;/p&gt;
+
+&lt;p&gt;For the Tech team, this effort was a win on many levels. We were able to
+envision and bring to fruition a micro services architecture, which
+promises to be a step up from its previous iteration in all aspects.
+In the process, through our research and experimentation, we acquired
+knowledge of various AWS tools and other third party libraries.&lt;/p&gt;
+
+&lt;p&gt;Finally, AWS, with its vast set of tools and services, is instrumental
+in building powerful, resilient software. We should invest time and
+resources in finding the right tools for the job; I promise you it is
+well worth the effort.&lt;/p&gt;</content><author><name>Kinshuk Varshney</name></author><category term="aws" /><category term="batch" /><category term="lambda" /><category term="api gateway" /><category term="sqs" /><category term="dynamo" /><category term="sundial" /><category term="trex" /><category term="email" /><category term="architecture" /><summary>Recently, team T-Rex worked on the re-architecture of the
+Brand Alerts back end system, a project which we named Brand Alerts V2.
+In this blog, I share our new architecture detailing some of the new AWS
+powered components.</summary></entry><entry><title>Negative Sampling (in Numpy)</title><link href="http://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html" rel="alternate" type="text/html" title="Negative Sampling (in Numpy)" /><published>2018-03-23T00:00:00-05:00</published><updated>2018-03-23T00:00:00-05:00</updated><id>http://tech.hbc.com/negative-sampling-in-numpy</id><content type="html" xml:base="http://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html">&lt;p&gt;&lt;em&gt;Alright, time to have some fun exploring efficient negative sampling implementations in NumPy…&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Negative sampling is a technique used to train machine learning models that generally have several order of magnitudes more negative observations compared to positive ones. And in most cases, these negative observations are not given to us explicitly and instead, must be generated somehow. Today, I think the most prevalent usages of negative sampling is in training Word2Vec (or similar) and in training implicit recommendation systems (BPR). In this post, I’m going to frame the problem under the recommendation system setting — sorry NLP fans.&lt;/p&gt;
 
@@ -1173,55 +1359,4 @@ We’re launching a new way for customers to onboard with a stylist in the Saks 
 &lt;p&gt;Store associates don’t have time to sift through inventory to provide personalized recommendations to each of their clients, or to personally get to know each new customer coming through the doors. They need insights regularly delivered to them that they can take immediate action on. For example, suggestions for follow up, new arrivals, upcoming events, or personal notes that can be searched and added to tasks. Machine learning can be implemented with product recommendations at the customer level as well as at the group level of customers with similar affinities.
 Perhaps most importantly, ideally all of these activities would exist in a unified stylist tool. We should provide a seamless integration of their CRM tool and point of sale so that associates can checkout a customer and add notes to follow up efficiently without switching between systems.
 After more than 30 interviews with our Saks Fifth Avenue retail associates, these opportunities to improve their experience became quite clear. Some of these challenges are beyond design, but through workshops, research, prototyping and iteration, we can assist in identifying the priorities for business, product and all other teams involved.
-Associates are our customers too. They are the thread that ties together all of the services offered by Saks, and they represent the brand. We should be doing everything in our power to make their lives easier and to nurture their client relationships.&lt;/p&gt;</content><author><name>Elizabeth Pizzuti</name></author><category term="retail" /><category term="user experience" /><category term="product design" /><category term="user research" /><category term="retail technology" /><summary>At HBC Tech, one of the company’s current initiatives is to bridge the divide between the physical and digital experience. Saks Fifth Avenue has a considerable network of retail locations throughout the US, and our goal is to use technology to entice more people into these stores. More specifically, one initiative focuses on connecting new and existing Saks customers with our style professionals on the retail floor.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://tech.hbc.com{&quot;feature&quot;=&gt;&quot;rethinking-retail-4-oportunities/rethinking-retail.jpg&quot;, &quot;credit&quot;=&gt;nil, &quot;creditlink&quot;=&gt;nil}" /></entry><entry><title>Dublin Scala Spree</title><link href="http://tech.hbc.com/2017-09-11-dublin-scala-spree.html" rel="alternate" type="text/html" title="Dublin Scala Spree" /><published>2017-09-11T00:00:00-05:00</published><updated>2017-09-11T00:00:00-05:00</updated><id>http://tech.hbc.com/dublin-scala-spree</id><content type="html" xml:base="http://tech.hbc.com/2017-09-11-dublin-scala-spree.html">&lt;p&gt;This Friday the Gilt/HBC Digital Dublin office will be hosting the first ever Dublin Scala Spree, a day-long Scala Open Source Hackathon. 
-The event is organized by the Dublin Scala Usergroup in cooperation with Dublin Functional Kubs and the Scala Center at EPFL in Lausanne, Switzerland.
-&lt;!--more--&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Date &amp;amp; Time:&lt;/strong&gt; Friday, 15th September, 10am - 4pm&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Location:&lt;/strong&gt; Gilt/HBC Digital Office, Shelbourne Rd., Dublin 4, Ireland&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Sign-Up:&lt;/strong&gt; Please register for the event via the &lt;a href=&quot;https://www.meetup.com/Dublin-Scala-users-group/events/242952081&quot;&gt;Dublin Scala Users Group&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Organizers:&lt;/strong&gt; Dublin Scala Meetup and Dublin Functional Kubs in cooperation with the Scala Center @ EPFL in Lausanne&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;what-is-a-scala-spree&quot;&gt;What is a Scala Spree?&lt;/h3&gt;
-&lt;p&gt;Scala Spree is a free community event aiming to popularize Open Source Software. It brings together Open Source authors, 
-maintainers and software engineers willing to contribute to OSS projects. Under the guidance of seasoned experts, newcomers learn about the inner 
-working of some popular tools and Scala libraries, and contribute to make them even better. For library authors, it’s an opportunity to improve 
-their tools and get fresh feedback. For attendees it is a unique opportunity to lean more about Scala, contribute to Open Source Software and 
-expand their skills. And for everyone it’s a great opportunity to meet and have fun!&lt;/p&gt;
-
-&lt;h3 id=&quot;featured-projects&quot;&gt;Featured Projects&lt;/h3&gt;
-&lt;p&gt;For this week’s Spree we have the following special guests and their OSS projects:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.scala-sbt.org&quot;&gt;sbt and zinc&lt;/a&gt; - Jorge Vicente Cantero &lt;a href=&quot;https://twitter.com/jvican&quot;&gt;@jvican&lt;/a&gt; (&lt;a href=&quot;https://scala.epfl.ch&quot;&gt;Scala Center&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.apibuilder.io&quot;&gt;API Builder&lt;/a&gt; - Michael Bryzek &lt;a href=&quot;https://twitter.com/mbryzek&quot;&gt;@mbryzek&lt;/a&gt; (&lt;a href=&quot;https://www.flow.io&quot;&gt;Flow.io&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/gilt?q=gfc&quot;&gt;Gilt Foundation Classes&lt;/a&gt; - Gregor Heine &lt;a href=&quot;https://twitter.com/greheine&quot;&gt;@greheine&lt;/a&gt; (&lt;a href=&quot;http://tech.gilt.com&quot;&gt;HBC Digital&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;If you have a Scala open source project that you would like to feature at the Spree, please get in touch with the &lt;a href=&quot;https://www.meetup.com/Dublin-Scala-users-group&quot;&gt;Dublin Scala Users Group organizers&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Like all Dublin Scala Community events, Scala Spree is free of charge and the only real requirement is an open mind and the will to contribute! 
-– Apart from bringing your own computer to use, but chances are you figured that out already.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;duration-and-pace&quot;&gt;Duration and pace&lt;/h3&gt;
-&lt;p&gt;To begin with, maintainers gather together in front of all the contributors to briefly explain their projects and tickets in one minute. 
-The idea is to give a good high-level explanation to motivate participants without going into too much detail. When they are done, participants 
-approach the projects they are most interested in and get it contact with the maintainers. At this point, maintainers usually listen to the 
-participants’ experience and provide personal guidance on tickets that would suit them. 
-Then, the fun begins! Participants start hacking on their projects and maintainers review PRs as they come, assisting participants when they ask 
-for help. We encourage maintainers to merge as many PRs as possible in the place, for two reasons: 
-Participants get a small token of appreciation from the Scala Center. It increases the motivation of the participants. If participants get the 
-first PR merged, they are invited to continue solving issues until they are happy with their work! 
-At the middle of the spree, we will provide free lunch and refreshments. 
-Participants can leave the event at any time they want. When the time approaches the end, everyone starts to wrap up: participants finish their 
-PRs while maintainers finish their reviews, and organizers of the spree give away swag.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Places will be strictly limited and will be allocated on a first come first served basis. 
-Registration through the &lt;a href=&quot;https://www.meetup.com/Dublin-Scala-users-group/events/242952081&quot;&gt;Dublin Scala Users Group&lt;/a&gt; is required and only successfull RSVPs can attend.&lt;/strong&gt;&lt;/p&gt;</content><author><name>Gregor Heine</name></author><category term="open source" /><category term="hackathon" /><category term="culture" /><category term="community" /><category term="meetups" /><summary>This Friday the Gilt/HBC Digital Dublin office will be hosting the first ever Dublin Scala Spree, a day-long Scala Open Source Hackathon. 
-The event is organized by the Dublin Scala Usergroup in cooperation with Dublin Functional Kubs and the Scala Center at EPFL in Lausanne, Switzerland.
-
-
-  Date &amp;amp; Time: Friday, 15th September, 10am - 4pm
-  Location: Gilt/HBC Digital Office, Shelbourne Rd., Dublin 4, Ireland
-  Sign-Up: Please register for the event via the Dublin Scala Users Group
-  Organizers: Dublin Scala Meetup and Dublin Functional Kubs in cooperation with the Scala Center @ EPFL in Lausanne</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://tech.hbc.com{&quot;feature&quot;=&gt;&quot;https://pbs.twimg.com/media/DEIosBJWAAAj87h.jpg&quot;, &quot;credit&quot;=&gt;nil, &quot;creditlink&quot;=&gt;nil}" /></entry></feed>
+Associates are our customers too. They are the thread that ties together all of the services offered by Saks, and they represent the brand. We should be doing everything in our power to make their lives easier and to nurture their client relationships.&lt;/p&gt;</content><author><name>Elizabeth Pizzuti</name></author><category term="retail" /><category term="user experience" /><category term="product design" /><category term="user research" /><category term="retail technology" /><summary>At HBC Tech, one of the company’s current initiatives is to bridge the divide between the physical and digital experience. Saks Fifth Avenue has a considerable network of retail locations throughout the US, and our goal is to use technology to entice more people into these stores. More specifically, one initiative focuses on connecting new and existing Saks customers with our style professionals on the retail floor.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://tech.hbc.com{&quot;feature&quot;=&gt;&quot;rethinking-retail-4-oportunities/rethinking-retail.jpg&quot;, &quot;credit&quot;=&gt;nil, &quot;creditlink&quot;=&gt;nil}" /></entry></feed>
