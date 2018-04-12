@@ -17,4 +17,11 @@ image:
   creditlink: ~
 ---
 
-Lorem ipsum, foo bar.
+The simplest way to understand the importance of website acessiblility is to fire up a browser and put on a blindfold. Without a sense of sight, you're relying on screenreaders.
+
+
+Introduction to ARIA
+
+
+A technique called roving tabindex.
+Roving tabindex works by setting tabindex to -1 for all children except the currently-active one
