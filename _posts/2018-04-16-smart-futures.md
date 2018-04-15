@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Why you should volunteer for Smart Futures"
 author: Daniel Mateus Pires
 
@@ -15,13 +14,11 @@ tags:
 - volunteering
 ---
 
-# Why you should volunteer for Smart Futures
-
 With so many great tech initiatives out there and limited time to contribute, it can be a though choice for a volunteer to pick one (or a few) initiatives to get involved with.
 
 Different initiatives target different issues (e.g. diversity, education) and as a volunteer your tasks will vary (e.g. teach children, present to adults, organise). 
 
-## How to pick an initiative 
+# How to pick an initiative 
 
 There are 4 questions I would ask myself as a volunteer looking to get involved; I expect the answers to be very subjective, but I included my answers for reference:
   1. what issues matter the most to me ?
@@ -49,7 +46,7 @@ You could also get inspired on existing initiatives like [Smart Futures](http://
 
 
 
-## What is Smart Futures
+# What is Smart Futures
 
 [Smart Futures](http://www.smartfutures.ie/)'s objective is getting children interested in [S.T.E.M](https://en.wikipedia.org/wiki/Science,_technology,_engineering,_and_mathematics) subjects in secondary school and at third level.
 It is coordinated by the [Science Foundation Ireland](http://www.sfi.ie/).
@@ -60,7 +57,7 @@ There are two types of events:
 
 You have no obligations of frequency, you only have to contact [Smart Futures](http://www.smartfutures.ie/) when you give a presentation to a school to help them map what schools are getting visited.
 
-## Why it's awesome
+# Why it's awesome
 
 What is important about the initiative is that **you** are going to the schools.
 
@@ -72,7 +69,7 @@ To quote the website:
 
 >Many students have no access to anyone working in science and technology, or may not know anyone that went to college.
 
-## Our experience
+# Our experience
 
 [Jake Whelan](https://ie.linkedin.com/in/jakewhelan) and I have given 2 presentations to classes of ~50 children aged 10-11.
 
@@ -86,7 +83,7 @@ It allowed us to introduce them to variables, if statements and even events (a c
 
 The presentation format is not enforced by [Smart Futures](http://www.smartfutures.ie/), and you should adapt your presentation to the audience (age) but also to what you're confortable presenting!
 
-### Our tips
+## Our tips
 
 Show the simplest example of code and encourage the children to ask questions about it; it is probably the first time they are exposed to it so, if no question is asked, ask them questions about the code! (e.g what happens if I change this, how does the program know what to do when using this function)
 
@@ -94,10 +91,10 @@ Let them ask questions about the applications they use every day.
 
 Send resources to the teachers after the presentation, so if children were interested during the presentation there is some follow up. (My favorites are [Code.org](https://code.org/) and [Scratch](https://scratch.mit.edu/))
 
-## How do I get involved
+# How do I get involved
 
 You can get involved individually or as a company by contacting [smartfutures@sfi.ie](smartfutures@sfi.ie), you will be invited to a presentation about the initiative and be registered as a volunteer.
 
-## Help us find schools
+# Help us find schools
 
 If you are a parent, or part of a school council, you can help us by reaching out to teachers/principals who would be interested in having us present to their students (in the Dublin area).
