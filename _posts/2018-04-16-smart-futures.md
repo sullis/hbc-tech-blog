@@ -2,17 +2,17 @@
 layout: post
 title: "Why you should volunteer for Smart Futures"
 author: Daniel Mateus Pires
-date: '2018-03-0X'
-categories: 'initiatives'
+
+date: '2018-04-16'
+
+categories:
+- culture
+#
 tags:
 - stem
 - initiatives
 - children
 - volunteering
-- tech
-- school
-- 2018
-- Ireland
 ---
 
 # Why you should volunteer for Smart Futures
