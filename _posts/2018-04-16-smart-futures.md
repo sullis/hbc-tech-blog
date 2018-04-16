@@ -38,7 +38,7 @@ There are 4 questions I would ask myself as a volunteer looking to get involved;
         
   4. Is there an existing initiative aligning with my goal ?
         
-        Yes at least 2 that I know of: [CodeDojo](https://coderdojo.com/) and [Smart Futures](http://www.smartfutures.ie/)
+        Yes at least 2 that I know of: [CoderDojo](https://coderdojo.com/) and [Smart Futures](http://www.smartfutures.ie/)
         
 Depending on where you live and where you work, you will have more or less options; but keep in mind that some initiatives like [CodeDojo](https://coderdojo.com/) will help you set up local Computing classes and have a lot of resources that can help you.
 
