@@ -12,6 +12,10 @@ tags:
 - initiatives
 - children
 - volunteering
+image:
+  feature: smart-futures/smart-futures-unsplash.jpg
+  credit: Photo by pan xiaozhen on Unsplash
+  creditlink: https://unsplash.com/photos/R4FEbUWOTPQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 ---
 
 With so many great tech initiatives out there and limited time to contribute, it can be a tough choice for a volunteer to pick one (or a few) initiatives to get involved with.
