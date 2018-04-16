@@ -23,7 +23,9 @@ Different initiatives target different issues (e.g. diversity, education) and as
 There are 4 questions I would ask myself as a volunteer looking to get involved; I expect the answers to be very subjective, but I included my answers for reference:
   1. What issues matter the most to me ?
         
-        students choosing CS (Computer Science) in college do not have a concrete idea of what CS is, I found that many class-mates were deceived as they had a false and stereotypical expectation of what CS would be; on the other side: many highschool class-mates never even considered CS either (for the same reason) and might have missed a passion!
+        Students choosing CS (Computer Science) in college do not have a concrete idea of what CS is.
+         
+        I found that many class-mates were deceived as they had a false and stereotypical expectation of what CS would be. On the other side, many highschool class-mates never even considered CS either (for the same reason) and might have missed a passion!
         
         I want to educate students about CS to break stereotypes and allow them to make an informed choice.
         
@@ -40,7 +42,7 @@ There are 4 questions I would ask myself as a volunteer looking to get involved;
         
         Yes at least 2 that I know of: [CoderDojo](https://coderdojo.com/) and [Smart Futures](http://www.smartfutures.ie/)
         
-Depending on where you live and where you work, you will have more or less options; but keep in mind that some initiatives like [CodeDojo](https://coderdojo.com/) will help you set up local Computing classes and have a lot of resources that can help you.
+Depending on where you live and where you work, you will have more or less options; but keep in mind that some initiatives like [CoderDojo](https://coderdojo.com/) will help you set up local Computing classes and have a lot of resources that can help you.
 
 You could also get inspired on existing initiatives like [Smart Futures](http://www.smartfutures.ie/) which is Ireland-based to create a similar program in your country of residence.
 
