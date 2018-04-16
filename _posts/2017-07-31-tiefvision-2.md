@@ -14,7 +14,7 @@ tags:
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
 Previously we've written about about [Tiefvision
-](http://tech.gilt.com/machine/learning,/deep/learning/2016/12/22/deep-learning-at-gilt),
+](http://tech.hbc.com/2016-12-22-deep-learning-at-gilt.html),
 a technical demo showcasing the ability to automatically find similar
 dresses to a particular one of interest. For example:
 
