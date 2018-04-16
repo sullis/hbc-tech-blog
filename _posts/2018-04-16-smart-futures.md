@@ -14,7 +14,7 @@ tags:
 - volunteering
 ---
 
-With so many great tech initiatives out there and limited time to contribute, it can be a though choice for a volunteer to pick one (or a few) initiatives to get involved with.
+With so many great tech initiatives out there and limited time to contribute, it can be a tough choice for a volunteer to pick one (or a few) initiatives to get involved with.
 
 Different initiatives target different issues (e.g. diversity, education) and as a volunteer your tasks will vary (e.g. teach children, present to adults, organise). 
 
