@@ -1,6 +1,16 @@
 [
     
     {
+        "title": "A Non-Technical Guide to Posting to the Tech Blog",
+        "date": "APR 12 2018",
+        "author": "[&quot;Jaret Stezelberger&quot;]",
+        "category": "Culture",
+        "tags": "Tech Blog Culture ",
+        "excerpt": "Our tech organization is obviously made up of more than just developers.  Non-developers have great insight from their work too! This post is a nudge to all my fellow colleagues who are also doing amazing work and would like to share, but feel intimitated by the pull request process.",
+        "url": "/2018-04-12-non-technical-guide-to-posting-to-the-blog.html"
+    },
+    
+    {
         "title": "Brand Alerts V2: Breaking Down a Monolith with AWS",
         "date": "APR 2 2018",
         "author": "Kinshuk Varshney",

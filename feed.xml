@@ -1,5 +1,142 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.7.3">Jekyll</generator><link href="http://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2018-04-13T09:14:53-05:00</updated><id>http://tech.hbc.com/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
-</subtitle><entry><title>Brand Alerts V2: Breaking Down a Monolith with AWS</title><link href="http://tech.hbc.com/2018-04-02-brand-alerts-v2-breaking-down-a-monolith-with-aws.html" rel="alternate" type="text/html" title="Brand Alerts V2: Breaking Down a Monolith with AWS" /><published>2018-04-02T00:00:00-05:00</published><updated>2018-04-02T00:00:00-05:00</updated><id>http://tech.hbc.com/brand-alerts-v2-breaking-down-a-monolith-with-aws</id><content type="html" xml:base="http://tech.hbc.com/2018-04-02-brand-alerts-v2-breaking-down-a-monolith-with-aws.html">&lt;p&gt;Recently, team T-Rex worked on the re-architecture of the
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.7.3">Jekyll</generator><link href="http://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2018-04-17T14:11:16-05:00</updated><id>http://tech.hbc.com/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+</subtitle><entry><title>A Non-Technical Guide to Posting to the Tech Blog</title><link href="http://tech.hbc.com/2018-04-12-non-technical-guide-to-posting-to-the-blog.html" rel="alternate" type="text/html" title="A Non-Technical Guide to Posting to the Tech Blog" /><published>2018-04-12T00:00:00-05:00</published><updated>2018-04-12T00:00:00-05:00</updated><id>http://tech.hbc.com/non-technical-guide-to-posting-to-the-blog</id><content type="html" xml:base="http://tech.hbc.com/2018-04-12-non-technical-guide-to-posting-to-the-blog.html">&lt;p&gt;Our tech organization is obviously made up of more than just developers.  Non-developers have great insight from their work too! This post is a nudge to all my fellow colleagues who are also doing amazing work and would like to share, but feel intimitated by the pull request process.&lt;/p&gt;
+
+&lt;p&gt;Are you a techie? We have a guide for developers &lt;a href=&quot;https://github.com/saksdirect/hbc-tech-blog/blob/master/docs/contributing.md&quot;&gt;here&lt;/a&gt;, for everyone else, read on.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-1-write-your-post&quot;&gt;Step 1: Write Your Post&lt;/h2&gt;
+
+&lt;p&gt;Writing is probably the hardest part of this whole thing. All you need to do is open a new Google Doc and type one letter after the other. Organize your thoughts by utilizing built in text headings; ie: bulleted lists, and text styles already available in Google Docs. As an example, take a look at &lt;a href=&quot;https://docs.google.com/document/d/1Gdu5oIoqV7FuIdjkWK8rshUEeBPQ0uUm2RZ3RuPc850/edit?usp=sharing&quot;&gt;the doc used to create this post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;./assets/images/blog-post-how-to/headings.png&quot; alt=&quot;Sample Headings&quot; title=&quot;Sample Headings&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;step-2-add-some-images&quot;&gt;Step 2: Add Some Images&lt;/h2&gt;
+
+&lt;p&gt;People like pictures! Illustrate your ideas with a few images, screen captures, or even cat GIFs if appropriate. Insert your images via the toolbar in Google Docs, but keep the original assets handy, we’ll need to upload them to Github and adjust the image paths later. Don’t worry about the technical stuff yet, just keep writing.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-3-convert-your-google-doc-to-markdown&quot;&gt;Step 3: Convert Your Google Doc to Markdown&lt;/h2&gt;
+
+&lt;p&gt;The Markdown stuff helps some web applications format text, create links, and embed images. Don’t be scared, most of the conversion can be automated for you. There is a Google Docs Add-on called, you guessed it, Google Docs To Markdown, or GD2md for short. Follow &lt;a href=&quot;https://chrome.google.com/webstore/detail/gd2md-html/igffnbdfnodiaphfmfaiiaegmoljbghf?utm_source=permalink&quot;&gt;this link&lt;/a&gt; to add it to your Google Drive.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://chrome.google.com/webstore/detail/gd2md-html/igffnbdfnodiaphfmfaiiaegmoljbghf?utm_source=permalink&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;./assets/images/blog-post-how-to/gd-to-md.png&quot; alt=&quot;gd-to-md&quot; title=&quot;gd-to-md&quot; class=&quot;center-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;when-youre-happy-with-what-youve-written-follow-the-steps-below&quot;&gt;When you’re happy with what you’ve written, follow the steps below:&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;From the Google Docs &lt;strong&gt;Add-ons&lt;/strong&gt; menu, select &lt;strong&gt;GD2md-html &amp;gt; Convert&lt;/strong&gt;. The sidebar window opens.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Use the Markdown button in the sidebar window to convert your document to Markdown. If you select part of the document, GD2md-html will convert only the selection. Otherwise it will convert the entire document. Click the Docs link for more information.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Preview your post by copying and pasting the text from the sidebar into an online editor like &lt;a href=&quot;https://stackedit.io/&quot;&gt;Stack Edit&lt;/a&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You’ll see there are a few extra lines of text added during the conversion. These can safely be removed, as they’re just warnings about image paths needing to be corrected. We’ll tackle these changes later.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;step-4-add-some-yaml&quot;&gt;Step 4: Add Some YAML&lt;/h2&gt;
+
+&lt;p&gt;We use YAML formatting to store information about each post ie: title, post date, category, etc. Copy the snippet below and change the values according to your post. &lt;em&gt;(make sure to copy the 3 dashes at the beginning and ending)&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;---
+title: A Non-Technical Guide to Posting to the Tech Blog.
+description: Step by step instructions explaining how to post to the tech blog without requiring a degree in computer science.
+author: Jaret Stezelberger
+date: 2018-04-12
+categories:
+- Culture
+tags: 
+- Tech Blog
+- How To
+- Culture
+---
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;step-5-upload-everything-to-github&quot;&gt;Step 5: Upload Everything To Github&lt;/h2&gt;
+
+&lt;p&gt;If you don’t already have GitHub account, get one &lt;a href=&quot;https://github.com/&quot;&gt;here&lt;/a&gt;. It’s the modern library card! Once you’re signed into your Github Account, you’re just a few simple steps away from posting.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Copy (Fork) HBC Tech Blog To Your GitHub Account&lt;/li&gt;
+  &lt;li&gt;Create A Copy For Your New Work (Create a New Branch)&lt;/li&gt;
+  &lt;li&gt;Add Your Post File and Then Save (Commit) it&lt;/li&gt;
+  &lt;li&gt;If Needed, Upload A Folder of Assets (Another Commit)&lt;/li&gt;
+  &lt;li&gt;Let The Team Know You’re Ready to Publish (Create A New Pull Request in GitHub)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;heres-a-closer-look-at-those-steps-one-by-one&quot;&gt;Here’s a closer look at those steps one by one:&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 5.1&lt;/strong&gt; Fork It&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;./assets/images/blog-post-how-to/01-fork-button.png&quot; alt=&quot;Fork The Blog Repo&quot; title=&quot;Fork the Blog Repo&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 5.2&lt;/strong&gt; Create A Branch For Your New Post&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;./assets/images/blog-post-how-to/02-create-new-branch.png&quot; alt=&quot;Create A New Branch&quot; title=&quot;Create A New Branch&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 5.3&lt;/strong&gt; Navigate to the Posts Folder&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;./assets/images/blog-post-how-to/03-navigate-to-posts-directory.png&quot; alt=&quot;Navigate to the Posts Directory&quot; title=&quot;Navigate to the Posts Directory&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 5.4&lt;/strong&gt; Create Your Post File&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;./assets/images/blog-post-how-to/04-create-new-file.png&quot; alt=&quot;Create a New File&quot; title=&quot;Create a New File&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 5.5&lt;/strong&gt; Save Your Changes&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;./assets/images/blog-post-how-to/05-commit-new-file.png&quot; alt=&quot;Commit Your File&quot; title=&quot;Commit Your File&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 5.6&lt;/strong&gt; Add Your Images&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;./assets/images/blog-post-how-to/06-navigate-to-images-directory.png&quot; alt=&quot;Navigate to the Images Directory&quot; title=&quot;Navigate to the Images Directory&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 5.7&lt;/strong&gt; Upload your images&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;./assets/images/blog-post-how-to/07-upload-your-images.png&quot; alt=&quot;Upload Your Images&quot; title=&quot;Upload Your Images&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 5.8&lt;/strong&gt; Update Image Your Paths&lt;/p&gt;
+
+&lt;p&gt;In the previous step, converting your Google Doc to Markdown, image paths were set with placeholders. You’ll need to change these to correctly match the &lt;strong&gt;folder&lt;/strong&gt; and &lt;strong&gt;file&lt;/strong&gt; names you’ve uploaded to GitHub.&lt;/p&gt;
+
+&lt;p&gt;In our example above they would change from:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;![alt_text](images/blog-post-how-to0.png &quot;image_tooltip&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;to&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;![Fork The Blog Repo](./assets/images/blog-post-how-to/01-fork-button.png &quot;Fork the Blog Repo&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 5.9&lt;/strong&gt; Create a New Pull Request&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;./assets/images/blog-post-how-to/08-create-pull-request.png&quot; alt=&quot;Create Your Pull Request&quot; title=&quot;Create Your Pull Request&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Hopefully, after reading this post, the tech blog has been demystified and the few technical things around markdown conversion and fixing image paths won’t scare you away. If you get stuck, try looking for your answer in the documentation &lt;a href=&quot;https://github.com/saksdirect/hbc-tech-blog/blob/master/docs/contributing.md&quot;&gt;here&lt;/a&gt;. If you need help with Markdown, there are a ton of resources online. &lt;a href=&quot;https://stackedit.io/&quot;&gt;Stack Edit&lt;/a&gt; is your friend.&lt;/p&gt;</content><author><name>[&quot;Jaret Stezelberger&quot;]</name></author><category term="Tech Blog" /><category term="Culture" /><summary>Our tech organization is obviously made up of more than just developers.  Non-developers have great insight from their work too! This post is a nudge to all my fellow colleagues who are also doing amazing work and would like to share, but feel intimitated by the pull request process.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://tech.hbc.com{&quot;feature&quot;=&gt;nil, &quot;credit&quot;=&gt;nil, &quot;creditlink&quot;=&gt;nil}" /></entry><entry><title>Brand Alerts V2: Breaking Down a Monolith with AWS</title><link href="http://tech.hbc.com/2018-04-02-brand-alerts-v2-breaking-down-a-monolith-with-aws.html" rel="alternate" type="text/html" title="Brand Alerts V2: Breaking Down a Monolith with AWS" /><published>2018-04-02T00:00:00-05:00</published><updated>2018-04-02T00:00:00-05:00</updated><id>http://tech.hbc.com/brand-alerts-v2-breaking-down-a-monolith-with-aws</id><content type="html" xml:base="http://tech.hbc.com/2018-04-02-brand-alerts-v2-breaking-down-a-monolith-with-aws.html">&lt;p&gt;Recently, team T-Rex worked on the re-architecture of the
 Brand Alerts back end system, a project which we named Brand Alerts V2.
 In this blog, I share our new architecture detailing some of the new AWS
 powered components.&lt;/p&gt;
@@ -1335,28 +1472,4 @@ Jobs running on dynamic cluster are affected by the same issue. We’ve managed 
 &lt;h2 id=&quot;promcon-2017&quot;&gt;Promcon 2017&lt;/h2&gt;
 &lt;p&gt;Giovanni Gargiulo (&lt;a href=&quot;https://twitter.com/giannigar&quot;&gt;@giannigar&lt;/a&gt;) at Promcon 2017 (Munich)&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=btnXuFLcpS8&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/btnXuFLcpS8/0.jpg&quot; alt=&quot;giovanni-gargiulo-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>HBC Tech</name></author><category term="community" /><category term="conferences" /><category term="qcon" /><category term="aws" /><category term="cloud" /><category term="2017" /><summary>2017 was a year of growth and learning at HBC Tech. Our organization embraced new technologies and new ways of building application software.</summary></entry><entry><title>Rethinking Retail: 4 Opportunities to Upgrade the Associate Experience</title><link href="http://tech.hbc.com/2017-11-24-rethinking-retail-4-oportunities.html" rel="alternate" type="text/html" title="Rethinking Retail: 4 Opportunities to Upgrade the Associate Experience" /><published>2017-11-24T00:00:00-05:00</published><updated>2017-11-24T00:00:00-05:00</updated><id>http://tech.hbc.com/rethinking-retail-4-oportunities</id><content type="html" xml:base="http://tech.hbc.com/2017-11-24-rethinking-retail-4-oportunities.html">&lt;p&gt;At HBC Tech, one of the company’s current initiatives is to bridge the divide between the physical and digital experience. Saks Fifth Avenue has a considerable network of retail locations throughout the US, and our goal is to use technology to entice more people into these stores. More specifically, one initiative focuses on connecting new and existing Saks customers with our style professionals on the retail floor.&lt;/p&gt;
-
-&lt;p&gt;How does the design team go about tackling this challenge? The first thing we do is map out the full customer journey from beginning to end — device-agnostic, channel-agnostic. We create a view of the distinct elements that make up the customer journey, in order to devise an approach to provide a better experience for each touchpoint. Research helps to inform the customer journey, and for this initiative we’ve conducted many customer and associate interviews in order to get to the heart of their challenges and how we can help.&lt;/p&gt;
-
-&lt;p&gt;We have two types of customers to design for in this case — the associate who works in the retail store and provides styling advice to the customer, and the Saks customer themselves. There are a few points in the journey where these two users intersect.
-Customers may have an event coming up that they need to dress for, or they might be looking for that impossible-to-find Fendi backpack. They might deep down really want a new fashionable friend that they can get advice from on the daily. In these moments, they will be more likely to reach out to a retail associate for help.&lt;/p&gt;
-
-&lt;p&gt;Associates are style professionals who thoughtfully build their client book month after month and meticulously style and assist their regular clients. They want to provide the best possible service to Saks customers and drive sales. There are some common pain points that came up again and again in the interviews, and design can help to solve some of them.
-These are four core opportunities to make the retail associate workflow more seamless, structured and analytical.&lt;/p&gt;
-
-&lt;h3 id=&quot;1-one-view-of-the-customer&quot;&gt;1. One view of the customer&lt;/h3&gt;
-&lt;p&gt;Visibility into the customer’s previous orders, style affinities, brands they follow, sizes and online activity will give associates the information they need to provide the best advice to customers. Most importantly, associates need to be able to access this information on their personal devices as customer requests don’t stop after business hours.&lt;/p&gt;
-
-&lt;h3 id=&quot;2-client-acquisition&quot;&gt;2. Client acquisition&lt;/h3&gt;
-&lt;p&gt;Associates need to have the ability to accept digital leads in one system — the same system that they add new clients to that they meet in the store. We want to provide as much information about the customer up front to allow them to successfully work with the customer.
-We’re launching a new way for customers to onboard with a stylist in the Saks app soon, however to scale the styling service, we’re also talking about automation. Some companies are turning to chatbots to help customers narrow down their requests before connecting with a styling professional. This boosts the efficiency of customer service for companies, while also potentially leading to a more accurate match with a stylist.&lt;/p&gt;
-
-&lt;h3 id=&quot;3-inventory&quot;&gt;3. Inventory&lt;/h3&gt;
-&lt;p&gt;Visibility into online and in-store inventory is a must. It should be clear to Associates what they can pull from the store racks vs what they need to send a link to online. This visibility should extend to other store locations and beyond. What if there were even further transparency of global inventory levels of a product? This would benefit customers as they could find anything they’re looking for through Saks stores, and it would benefit associates by boosting sales.&lt;/p&gt;
-
-&lt;h3 id=&quot;4-automation&quot;&gt;4. Automation&lt;/h3&gt;
-&lt;p&gt;Store associates don’t have time to sift through inventory to provide personalized recommendations to each of their clients, or to personally get to know each new customer coming through the doors. They need insights regularly delivered to them that they can take immediate action on. For example, suggestions for follow up, new arrivals, upcoming events, or personal notes that can be searched and added to tasks. Machine learning can be implemented with product recommendations at the customer level as well as at the group level of customers with similar affinities.
-Perhaps most importantly, ideally all of these activities would exist in a unified stylist tool. We should provide a seamless integration of their CRM tool and point of sale so that associates can checkout a customer and add notes to follow up efficiently without switching between systems.
-After more than 30 interviews with our Saks Fifth Avenue retail associates, these opportunities to improve their experience became quite clear. Some of these challenges are beyond design, but through workshops, research, prototyping and iteration, we can assist in identifying the priorities for business, product and all other teams involved.
-Associates are our customers too. They are the thread that ties together all of the services offered by Saks, and they represent the brand. We should be doing everything in our power to make their lives easier and to nurture their client relationships.&lt;/p&gt;</content><author><name>Elizabeth Pizzuti</name></author><category term="retail" /><category term="user experience" /><category term="product design" /><category term="user research" /><category term="retail technology" /><summary>At HBC Tech, one of the company’s current initiatives is to bridge the divide between the physical and digital experience. Saks Fifth Avenue has a considerable network of retail locations throughout the US, and our goal is to use technology to entice more people into these stores. More specifically, one initiative focuses on connecting new and existing Saks customers with our style professionals on the retail floor.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://tech.hbc.com{&quot;feature&quot;=&gt;&quot;rethinking-retail-4-oportunities/rethinking-retail.jpg&quot;, &quot;credit&quot;=&gt;nil, &quot;creditlink&quot;=&gt;nil}" /></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=btnXuFLcpS8&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/btnXuFLcpS8/0.jpg&quot; alt=&quot;giovanni-gargiulo-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>HBC Tech</name></author><category term="community" /><category term="conferences" /><category term="qcon" /><category term="aws" /><category term="cloud" /><category term="2017" /><summary>2017 was a year of growth and learning at HBC Tech. Our organization embraced new technologies and new ways of building application software.</summary></entry></feed>
