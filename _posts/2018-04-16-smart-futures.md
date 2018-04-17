@@ -50,8 +50,6 @@ Depending on where you live and where you work, you will have more or less optio
 
 You could also get inspired on existing initiatives like [Smart Futures](http://www.smartfutures.ie/) which is Ireland-based to create a similar program in your country of residence.
 
-
-
 # What is Smart Futures
 
 [Smart Futures](http://www.smartfutures.ie/)'s objective is getting children interested in [S.T.E.M](https://en.wikipedia.org/wiki/Science,_technology,_engineering,_and_mathematics) subjects in secondary school and at third level.
@@ -63,15 +61,28 @@ There are two types of events:
 
 You have no obligations of frequency, you only have to contact [Smart Futures](http://www.smartfutures.ie/) when you give a presentation to a school to help them map what schools are getting visited.
 
-# Why it's awesome
+# Why it's important 
 
-What is important about the initiative is that **you** are going to the schools.
+## Students want to fit in
 
-The children you are talking to haven't been signed up to a coding class, they can come from all backgrounds and might have no relatives working in the industry.
+In a [survey](http://www.smartfutures.ie/sites/default/files/resources/STEM%20survey%20results%20infographic%20update.pdf), Smart Futures asked 2,000 first year students across Ireland about what influenced them when selecting their college course:
+62% of student said 'fitting in' was the main reason for their choice !
 
-It is an opportunity for them to picture concretely what Tech is, get excited about projects they could work on and get some answers about the inner workings of applications they use every day (at a high level)!
+You can help break stereotypes; make students see the vast range of careers in S.T.E.M. There are so many radically different careers in Technology alone it is hard to imagine that someone would not 'fit in', but it is also very hard to picture some of those roles as a child (without an awesome volunteer to help).
 
-To quote the website:
+## Children need role models
+
+Diversity has been a main topic in Tech industry issues related talks in the past few years. [CoderDojo](https://coderdojo.com/) have shown in their 2017 [survey](https://coderdojo.com/news/2018/03/26/coderdojo-annual-survey-results-2017/) that the percentage of girl students (29%) match the number of girl mentors (29%) and they were left wondering if there was some correlation..
+
+Children want to identify with their role models; the example above is about gender but we need mentors with all kinds of personalities and backgrounds.
+
+You might be the special role model that a child needed to find her/his passion. 
+
+## Going to the schools
+
+Events and coding classes need to be very well advertised to appeal to children that have no interest in Tech (yet) or 'non Tech-aware' parents. Going to the classes you are talking to everyone, including these students! It is truly a unique chance for them. 
+
+To quote the Smart Futures website:
 
 >Many students have no access to anyone working in science and technology, or may not know anyone that went to college.
 
@@ -85,11 +96,12 @@ Our presentation kept the introductions short, we showed a very simple JavaScrip
 
 The little game was a very simplified version of [Cookie clicker](orteil.dashnet.org/cookieclicker/), a web-page showed a cookie and a number that incremented every time you clicked on the cookie. We spent as much time as needed an let the children ask all the questions they had in order to understand how the code worked.
 
+You can find the code for the game on [GitHub](https://github.com/jakewhelan/sfi-cookie-clicker/).
+
 It allowed us to introduce them to variables, if statements and even events (a click). So, then, we let them ask us about applications they use every day and we can use those fundamental building blocks to be concrete in our explanations.
 
 The presentation format is not enforced by [Smart Futures](http://www.smartfutures.ie/), and you should adapt your presentation to the audience (age) but also to what you're comfortable presenting!
 
-## Our tips
 
 Show the simplest example of code and encourage the children to ask questions about it; it is probably the first time they are exposed to it so, if no question is asked, ask them questions about the code! (e.g what happens if I change this, how does the program know what to do when using this function)
 
