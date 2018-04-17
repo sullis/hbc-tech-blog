@@ -1,6 +1,8 @@
 // type styles for post content
 .article__content__body {
-
+	strong {
+		font-weight: 700;
+	}
 	p a, 
 	li a {
 		line-height: 0;
@@ -11,7 +13,7 @@
 		}
 	}
 
-	p ~ ul {
+	p ~ ul, p ~ ol {
 		margin-bottom: 40px;
 		@include media('<medium') {
 			padding-left: 20px;
@@ -24,7 +26,8 @@
 
     p, 
 	li,
-	p ~ ul {
+	p ~ ul,
+	p ~ ol {
 		font-size: 18px;
 		font-family: $hbc-font-family-02;
 		font-weight: 300;
@@ -101,7 +104,7 @@
 			font-style: italic;
 		}
 
-		ul {
+		ul, ol {
 			padding-left: 20px;
 			margin-top: 0;
 
