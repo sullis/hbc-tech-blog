@@ -87,7 +87,7 @@ The little game was a very simplified version of [Cookie clicker](orteil.dashnet
 
 It allowed us to introduce them to variables, if statements and even events (a click). So, then, we let them ask us about applications they use every day and we can use those fundamental building blocks to be concrete in our explanations.
 
-The presentation format is not enforced by [Smart Futures](http://www.smartfutures.ie/), and you should adapt your presentation to the audience (age) but also to what you're confortable presenting!
+The presentation format is not enforced by [Smart Futures](http://www.smartfutures.ie/), and you should adapt your presentation to the audience (age) but also to what you're comfortable presenting!
 
 ## Our tips
 
