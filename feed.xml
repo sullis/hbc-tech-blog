@@ -1,5 +1,177 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.7.3">Jekyll</generator><link href="http://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2018-04-17T14:27:43-05:00</updated><id>http://tech.hbc.com/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
-</subtitle><entry><title>A Non-Technical Guide to Posting to the Tech Blog</title><link href="http://tech.hbc.com/2018-04-12-non-technical-guide-to-posting-to-the-blog.html" rel="alternate" type="text/html" title="A Non-Technical Guide to Posting to the Tech Blog" /><published>2018-04-12T00:00:00-05:00</published><updated>2018-04-12T00:00:00-05:00</updated><id>http://tech.hbc.com/non-technical-guide-to-posting-to-the-blog</id><content type="html" xml:base="http://tech.hbc.com/2018-04-12-non-technical-guide-to-posting-to-the-blog.html">&lt;p&gt;Our tech organization is obviously made up of more than just developers.  Non-developers have great insight from their work too! This post is a nudge to all my fellow colleagues who are also doing amazing work and would like to share, but feel intimitated by the pull request process.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.0">Jekyll</generator><link href="http://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2018-04-20T11:07:02-05:00</updated><id>http://tech.hbc.com/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+</subtitle><entry><title>Why you should volunteer for Smart Futures</title><link href="http://tech.hbc.com/2018-04-20-smart-futures.html" rel="alternate" type="text/html" title="Why you should volunteer for Smart Futures" /><published>2018-04-20T00:00:00-05:00</published><updated>2018-04-20T00:00:00-05:00</updated><id>http://tech.hbc.com/smart-futures</id><content type="html" xml:base="http://tech.hbc.com/2018-04-20-smart-futures.html">&lt;p&gt;Dublin is a great place for volunteering in Tech initiatives !&lt;/p&gt;
+
+&lt;p&gt;Two years ago I started mentoring in a &lt;a href=&quot;https://coderdojo.com/&quot;&gt;CoderDojo&lt;/a&gt;, and, at HBC we recently joined the &lt;a href=&quot;http://www.smartfutures.ie/&quot;&gt;Smart Futures&lt;/a&gt; initiative.&lt;/p&gt;
+
+&lt;p&gt;So, I want to share with you some volunteering tips, lessons learned along the way, and why we joined &lt;a href=&quot;http://www.smartfutures.ie/&quot;&gt;Smart Futures&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;how-to-pick-an-initiative&quot;&gt;How to pick an initiative&lt;/h1&gt;
+
+&lt;p&gt;With so many great tech initiatives out there and limited time to contribute, it can be a tough choice for a volunteer to pick one (or a few) initiatives to get involved with.&lt;/p&gt;
+
+&lt;p&gt;Different initiatives target different issues (e.g. diversity, education) and as a volunteer your tasks will vary (e.g. teaching children, presenting to adults, organising events).&lt;/p&gt;
+
+&lt;h2 id=&quot;4-questions-to-ask-yourself&quot;&gt;4 questions to ask yourself&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;answers should be very subjective but I included mine for reference&lt;/em&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;What issues matter the most to me ?&lt;/p&gt;
+
+    &lt;p&gt;Students choosing CS (Computer Science) in college do not have a concrete idea of what CS is.&lt;/p&gt;
+
+    &lt;p&gt;I found that many class-mates were deceived as they had a false and stereotypical expectation of what CS would be. On the other side, many highschool class-mates never even considered CS either (for the same reason) and might have missed a passion!&lt;/p&gt;
+
+    &lt;p&gt;Therefore, I want to educate students about CS to break stereotypes and allow them to make an informed choice.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;How can I address those issues ?&lt;/p&gt;
+
+    &lt;p&gt;I can use my CS knowledge and experience working in Tech to inform students&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Do I have other expectations about my volunteering experience ?&lt;/p&gt;
+
+    &lt;p&gt;I like teaching, explaining to children and presenting in general&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Is there an existing initiative aligning with my goals and expectations ?&lt;/p&gt;
+
+    &lt;p&gt;Yes, at least 2 that I know of: &lt;a href=&quot;https://coderdojo.com/&quot;&gt;CoderDojo&lt;/a&gt; and &lt;a href=&quot;http://www.smartfutures.ie/&quot;&gt;Smart Futures&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;starting-your-own&quot;&gt;Starting your own&lt;/h2&gt;
+
+&lt;p&gt;Joining an existing initiative is great: you get to learn from volunteers with more experience and the overhead of running an association (e.g. paperwork) is done for you.&lt;/p&gt;
+
+&lt;p&gt;But.. depending on where you live / where you work, there might not be an option that suits you. And in the case that you are starting your own: many initiatives make resources available to the public through their website, and you can connect with their community of volunteers through their communication channels (&lt;a href=&quot;https://slack.com/&quot;&gt;Slack&lt;/a&gt; / email).&lt;/p&gt;
+
+&lt;p&gt;Some initiatives like &lt;a href=&quot;https://coderdojo.com/&quot;&gt;CoderDojo&lt;/a&gt; are international initiatives and will help you set up your own coding classes.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-is-smart-futures&quot;&gt;What is Smart Futures&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.smartfutures.ie/&quot;&gt;Smart Futures&lt;/a&gt;’ objective is getting children interested in &lt;a href=&quot;https://en.wikipedia.org/wiki/Science,_technology,_engineering,_and_mathematics&quot;&gt;S.T.E.M&lt;/a&gt; subjects in secondary school and at third level.
+It is coordinated by the &lt;a href=&quot;http://www.sfi.ie/&quot;&gt;Science Foundation Ireland&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;There are two types of events:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;you contacting directly schools or highschools to give talks / presentations / workshops to classes, the format is free&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.smartfutures.ie/&quot;&gt;Smart Futures&lt;/a&gt; asking you to send some volunteers to participate at events they are organising (occasional)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You have no obligations of frequency, you only have to contact &lt;a href=&quot;http://www.smartfutures.ie/&quot;&gt;Smart Futures&lt;/a&gt; when you give a presentation to a school to help them map what schools are getting visited.&lt;/p&gt;
+
+&lt;h1 id=&quot;why-its-important&quot;&gt;Why it’s important&lt;/h1&gt;
+
+&lt;h2 id=&quot;students-want-to-fit-in&quot;&gt;Students want to fit in&lt;/h2&gt;
+
+&lt;p&gt;In a &lt;a href=&quot;http://www.smartfutures.ie/sites/default/files/resources/STEM%20survey%20results%20infographic%20update.pdf&quot;&gt;survey&lt;/a&gt;, &lt;a href=&quot;http://www.smartfutures.ie/&quot;&gt;Smart Futures&lt;/a&gt; asked 2,000 first year students across Ireland about what influenced them when selecting their college course:
+62% of student said ‘fitting in’ was the main reason for their choice !&lt;/p&gt;
+
+&lt;p&gt;You can help break stereotypes; make students see the vast range of careers in S.T.E.M. There are so many radically different careers in Technology alone it is hard to imagine that someone would not ‘fit in’, but it is also very hard to picture some of those roles as a child (without an awesome volunteer to help).&lt;/p&gt;
+
+&lt;h2 id=&quot;children-need-role-models&quot;&gt;Children need role models&lt;/h2&gt;
+
+&lt;p&gt;Diversity has been a main topic in Tech industry issues related talks in the past few years. &lt;a href=&quot;https://coderdojo.com/&quot;&gt;CoderDojo&lt;/a&gt; have shown in their 2017 &lt;a href=&quot;https://coderdojo.com/news/2018/03/26/coderdojo-annual-survey-results-2017/&quot;&gt;survey&lt;/a&gt; that the percentage of girl students (29%) match the number of girl mentors (29%) and they were left wondering if there was some correlation..&lt;/p&gt;
+
+&lt;p&gt;Children want to identify with their role models; the example above is about gender but we need mentors with all kinds of personalities and backgrounds.&lt;/p&gt;
+
+&lt;h2 id=&quot;going-to-the-schools&quot;&gt;Going to the schools&lt;/h2&gt;
+
+&lt;p&gt;Events and coding classes need to be very well advertised to appeal to children that have no interest in Tech (yet) or ‘non Tech-aware’ parents. Going to the classes you are talking to everyone, including these students! It is truly a unique chance for them.&lt;/p&gt;
+
+&lt;p&gt;To quote the &lt;a href=&quot;http://www.smartfutures.ie/&quot;&gt;Smart Futures&lt;/a&gt; website:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Many students have no access to anyone working in science and technology, or may not know anyone that went to college.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;our-experience&quot;&gt;Our experience&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://ie.linkedin.com/in/jakewhelan&quot;&gt;Jake Whelan&lt;/a&gt; and I have given 2 presentations to classes of ~50 children aged 10-11, here’s some take-aways from  preparing and giving those presentations.&lt;/p&gt;
+
+&lt;h2 id=&quot;presentation-format&quot;&gt;Presentation format&lt;/h2&gt;
+
+&lt;p&gt;The presentation format is not enforced by &lt;a href=&quot;http://www.smartfutures.ie/&quot;&gt;Smart Futures&lt;/a&gt;, although there is an &lt;a href=&quot;http://www.smartfutures.ie/sites/default/files/resources/Sample%20%20Smart%20Futures%20School%20%20Presentation%20Template.pdf&quot;&gt;example&lt;/a&gt; on their website.&lt;/p&gt;
+
+&lt;p&gt;Nonetheless: personalise it to create a format that works for you, make it interactive and adapt the presentation to the age of your audience (a 10 yrs old is probably not interested in eCommerce)&lt;/p&gt;
+
+&lt;h2 id=&quot;should-you-talk-about-your-company-&quot;&gt;Should you talk about your company ?&lt;/h2&gt;
+
+&lt;p&gt;Children want concrete examples, and it is easy to go in details when talking about your daily life.&lt;/p&gt;
+
+&lt;p&gt;However, you need to take your audience into consideration. For example: our roles are linked to online shopping; but a 10-11 yrs old will probably never have purchased anything on an eCommerce website!&lt;/p&gt;
+
+&lt;p&gt;We decided to let the children know they could ask questions about applications unrelated to eCommerce that they use every day (e.g. in these classes Snapchat was very popular).&lt;/p&gt;
+
+&lt;h2 id=&quot;dont-be-shy-show-some-code&quot;&gt;Don’t be shy: show some code!&lt;/h2&gt;
+
+&lt;p&gt;We firmly believe that showing a simple snippet of code, explaining in details pieces of logic, asking the students questions about it and making them guess what specific parts are doing, is key to demystify what application development really is.&lt;/p&gt;
+
+&lt;p&gt;But first you need to introduce the concept of coding itself, so here’s a rough transcript of how we explained it to 10-11 yrs old:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;When talking to a person you use a language to communicate ideas to that person. There are many “human languages”: Irish, English, French.. 
+But a machine only understands 0s and 1s and it would be very hard for humans to communicate ideas only using 0s and 1s; so, coding languages were created: an intermediate that follows very strict rules for the machine to be able to convert it to 0s and 1s and just like in “human languages”, there are many coding languages: JavaScript, Python, Scala, Java etc..&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Our coding example is a little game, which is based on a very simplified version of &lt;a href=&quot;orteil.dashnet.org/cookieclicker/&quot;&gt;Cookie clicker&lt;/a&gt; (it was very popular among children 1-2 yrs ago).&lt;/p&gt;
+
+&lt;p&gt;A web-page shows a cookie and a number that increments every time you click on the it. We spend as much time as needed an let the children ask all the questions they have in order to understand how the code works.&lt;/p&gt;
+
+&lt;p&gt;2 questions we got:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Do you have to learn all the different languages ?&lt;/p&gt;
+
+    &lt;p&gt;Great occasion to point out that languages are very similar in their structure and follow the same logic&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Why do the words have different colors ?&lt;/p&gt;
+
+    &lt;p&gt;Coding languages follow very specific rules so each word has a role like variables, values, keywords etc.. just like we have verbs, nouns and adverbs! So the text editors we use color the words for us to help differentiate between the different roles.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It is very encouraging to hear such practical questions being asked (like they could picture themselves coding already!)&lt;/p&gt;
+
+&lt;p&gt;The goal of this little example is not to teach them how to code but to:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;see a very concrete example (write code and see the result on the web page)&lt;/li&gt;
+  &lt;li&gt;demystify code&lt;/li&gt;
+  &lt;li&gt;explain some concepts that are the building blocks of coding, like conditions and variables; which can be used later-on to give concrete explanations about how certain features of the applications they are familiar with, work (at a high level)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can find the code for the game on &lt;a href=&quot;https://github.com/jakewhelan/sfi-cookie-clicker/&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;make-some-time-at-the-end&quot;&gt;Make some time at the end&lt;/h2&gt;
+
+&lt;p&gt;We always make sure to leave at least 1/3 of the time for questions at the end. The questions can be about anything!&lt;/p&gt;
+
+&lt;p&gt;You showed code and the children now have a concrete idea of what development is like. What should happen is that they want to tie-up what they just learned with applications they are familiar with.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;e.g. How does a website know my username is already taken when I create an account ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Children will have a concept of storing files in a computer (which can be used to explain databases), and, thanks to the previous demo they now have an understanding of conditionals and variables ! That is enough to explain many features at a high level.&lt;/p&gt;
+
+&lt;p&gt;This “Ask me anything” session at the end does a good job at shifting the way the students look at applications they use every day: now they do not accept them to be “black-boxes” anymore and look to understand how they work.&lt;/p&gt;
+
+&lt;h2 id=&quot;follow-up&quot;&gt;Follow up&lt;/h2&gt;
+
+&lt;p&gt;Send resources to the teachers after the presentation, you might have sparked interests for programming so make sure they know where to go.&lt;/p&gt;
+
+&lt;p&gt;My favorites are &lt;a href=&quot;https://code.org/&quot;&gt;Code.org&lt;/a&gt; and &lt;a href=&quot;https://scratch.mit.edu/&quot;&gt;Scratch&lt;/a&gt;, but I also recommend children to ask their parents to sign them up for &lt;a href=&quot;https://coderdojo.com/&quot;&gt;CoderDojo&lt;/a&gt; (which is free)&lt;/p&gt;
+
+&lt;h1 id=&quot;how-do-i-get-involved&quot;&gt;How do I get involved&lt;/h1&gt;
+
+&lt;p&gt;You can get involved individually or as a company by contacting &lt;a href=&quot;smartfutures@sfi.ie&quot;&gt;smartfutures@sfi.ie&lt;/a&gt;, you will be invited to a presentation about the initiative and be registered as a volunteer.&lt;/p&gt;
+
+&lt;h1 id=&quot;help-us-find-schools&quot;&gt;Help us find schools&lt;/h1&gt;
+
+&lt;p&gt;If you are a parent, or part of a school council, you can help us by reaching out to teachers/principals who would be interested in having us present to their students (in the Dublin area).&lt;/p&gt;</content><author><name>Daniel Mateus Pires</name></author><category term="stem" /><category term="initiatives" /><category term="children" /><category term="volunteering" /><summary>Dublin is a great place for volunteering in Tech initiatives !</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://tech.hbc.com{&quot;feature&quot;=&gt;&quot;smart-futures/smart-futures-unsplash.jpg&quot;, &quot;credit&quot;=&gt;&quot;Photo by pan xiaozhen on Unsplash&quot;, &quot;creditlink&quot;=&gt;&quot;https://unsplash.com/photos/R4FEbUWOTPQ?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&quot;}" /></entry><entry><title>A Non-Technical Guide to Posting to the Tech Blog</title><link href="http://tech.hbc.com/2018-04-12-non-technical-guide-to-posting-to-the-blog.html" rel="alternate" type="text/html" title="A Non-Technical Guide to Posting to the Tech Blog" /><published>2018-04-12T00:00:00-05:00</published><updated>2018-04-12T00:00:00-05:00</updated><id>http://tech.hbc.com/non-technical-guide-to-posting-to-the-blog</id><content type="html" xml:base="http://tech.hbc.com/2018-04-12-non-technical-guide-to-posting-to-the-blog.html">&lt;p&gt;Our tech organization is obviously made up of more than just developers.  Non-developers have great insight from their work too! This post is a nudge to all my fellow colleagues who are also doing amazing work and would like to share, but feel intimitated by the pull request process.&lt;/p&gt;
 
 &lt;p&gt;Are you a techie? We have a guide for developers &lt;a href=&quot;https://github.com/saksdirect/hbc-tech-blog/blob/master/docs/contributing.md&quot;&gt;here&lt;/a&gt;, for everyone else, read on.&lt;/p&gt;
 
@@ -1405,71 +1577,4 @@ Jobs running on dynamic cluster are affected by the same issue. We’ve managed 
 &lt;p&gt;In the context of AWS Enterprise Support, we (Team Marconi) had a productive meeting directly with the AWS Step Functions Product Manager during which we have suggested our list of improvements. It was gratifying to hear that most of these are already or will be included in their development roadmap.&lt;/p&gt;
 
 &lt;h3 id=&quot;future-work&quot;&gt;Future Work&lt;/h3&gt;
-&lt;p&gt;From an architecture perspective, we are trying to standardize a continous delivery process for our serverless components. At the moment, what we have is “poor man’s CI/CD” - some bash/node scripts which use AWS CloudFormation SDK to provision resources. There are various tools available either from AWS or the serverless community such as &lt;a href=&quot;https://www.terraform.io/&quot;&gt;Terraform&lt;/a&gt;, &lt;a href=&quot;https://aws.amazon.com/documentation/codepipeline/&quot;&gt;CodePipeline&lt;/a&gt; that we are trying to integrate with to provide a frictionless path to production.&lt;/p&gt;</content><author><name>Liyu Ma</name></author><category term="aws" /><category term="serverless" /><category term="lambda" /><category term="step function" /><category term="gilt city" /><category term="order processing" /><summary>Instant Vouchers Initiative</summary></entry><entry><title>Presentations we love: 2017</title><link href="http://tech.hbc.com/2017-12-30-presentations-we-love.html" rel="alternate" type="text/html" title="Presentations we love: 2017" /><published>2017-12-30T00:00:00-05:00</published><updated>2017-12-30T00:00:00-05:00</updated><id>http://tech.hbc.com/presentations-we-love</id><content type="html" xml:base="http://tech.hbc.com/2017-12-30-presentations-we-love.html">&lt;p&gt;2017 was a year of growth and learning at HBC Tech. Our organization embraced new technologies and new ways of building application software.&lt;/p&gt;
-
-&lt;p&gt;As the year comes to an end, let’s recognize some notable technical presentations from 2017.&lt;/p&gt;
-
-&lt;h2 id=&quot;kubernetes-project-update&quot;&gt;Kubernetes Project update&lt;/h2&gt;
-&lt;p&gt;Kelsey Hightower (&lt;a href=&quot;https://twitter.com/kelseyhightower&quot;&gt;@kelseyhightower&lt;/a&gt;) at KubeCon 2017&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=07jq-5VbBVQ&quot; title=&quot;Kubernetes Project update&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/07jq-5VbBVQ/0.jpg&quot; alt=&quot;Kelsey Hightower video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;production-designing-for-testability&quot;&gt;Production: Designing for testability&lt;/h2&gt;
-&lt;p&gt;Mike Bryzek (&lt;a href=&quot;https://twitter.com/mbryzek&quot;&gt;@mbryzek&lt;/a&gt;) at QCon New York 2017&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=z-ATZTUgaAo&quot; title=&quot;Production: Designing for testability&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/z-ATZTUgaAo/0.jpg&quot; alt=&quot;Mike Bryzek video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;streaming-microservices-contracts--compatibility&quot;&gt;Streaming Microservices: Contracts &amp;amp; Compatibility&lt;/h2&gt;
-&lt;p&gt;Gwen Shapira (&lt;a href=&quot;https://twitter.com/gwenshap&quot;&gt;@gwenshap&lt;/a&gt;) at QCon New York 2017&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.infoq.com/presentations/contracts-streaming-microservices&quot;&gt;&lt;img src=&quot;./assets/images/presentations-we-love-2017/gwen-shapira-contracts-and-compatibility-480.png&quot; alt=&quot;contracts-streaming-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;spinnaker-and-the-culture-behind-the-tech&quot;&gt;Spinnaker and the Culture Behind the Tech&lt;/h2&gt;
-&lt;p&gt;Dianne Marsh (&lt;a href=&quot;https://twitter.com/dmarsh&quot;&gt;@dmarsh&lt;/a&gt;) at KubeCon 2017&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=mfFtfaulCtg&quot; title=&quot;Spinnaker and the culture behind the tech&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/mfFtfaulCtg/0.jpg&quot; alt=&quot;Dianne Marsh video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;embracing-change-without-breaking-the-world&quot;&gt;Embracing Change without breaking the world&lt;/h2&gt;
-&lt;p&gt;Jim Flanagan and Kyle Thomson at AWS re:invent 2017&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=kJq81Y7OEx4&quot; title=&quot;Video Title&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/kJq81Y7OEx4/0.jpg&quot; alt=&quot;AWS Embracing Change&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;developing-applications-on-aws-in-the-jvm&quot;&gt;Developing Applications on AWS in the JVM&lt;/h2&gt;
-&lt;p&gt;Kyle Thomson (&lt;a href=&quot;https://github.com/kiiadi&quot;&gt;@kiiadi&lt;/a&gt;) at AWS re:invent 2017&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=byRois3s5Yc&quot; title=&quot;Video Title&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/byRois3s5Yc/0.jpg&quot; alt=&quot;AWS JVM&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;chaos-engineering-at-netflix&quot;&gt;Chaos Engineering at Netflix&lt;/h2&gt;
-&lt;p&gt;Nora Jones (&lt;a href=&quot;https://twitter.com/nora_js&quot;&gt;@nora_js&lt;/a&gt;) at AWS re:invent 2017&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=LaKGx0dAUlo&quot; title=&quot;Video Title&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/LaKGx0dAUlo/0.jpg&quot; alt=&quot;Chaos Engineering at Netflix&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;apibuilder&quot;&gt;apibuilder&lt;/h2&gt;
-&lt;p&gt;Sean Sullivan (&lt;a href=&quot;https://twitter.com/tinyrobots&quot;&gt;@tinyrobots&lt;/a&gt;) at Scala Up North 2017&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/sullis/api-builder-scala-up-north-2017&quot;&gt;&lt;img src=&quot;./assets/images/presentations-we-love-2017/sean-sullivan-apibuilder-july-2017-480.png&quot; alt=&quot;apibuilder-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;managing-data-in-microservices&quot;&gt;Managing Data in Microservices&lt;/h2&gt;
-&lt;p&gt;Randy Shoup (&lt;a href=&quot;https://twitter.com/randyshoup&quot;&gt;@randyshoup&lt;/a&gt;) at QCon New York 2017&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=E8-e-3fRHBw&quot; title=&quot;Video Title&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/E8-e-3fRHBw/0.jpg&quot; alt=&quot;Randy Shoup - Managing Data&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;crushing-tech-debt-through-automation-at-coinbase&quot;&gt;Crushing Tech Debt Through Automation at Coinbase&lt;/h2&gt;
-&lt;p&gt;Rob Witoff  (&lt;a href=&quot;https://twitter.com/rwitoff&quot;&gt;@rwitoff&lt;/a&gt;) at QCon London 2017&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=KaK2lAj1B-Q&quot; title=&quot;Video Title&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/KaK2lAj1B-Q/0.jpg&quot; alt=&quot;Rob Witoff - Tech Debt&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;gilts-ios-codebase-evolution&quot;&gt;Gilt’s iOS codebase evolution&lt;/h2&gt;
-&lt;p&gt;Evan Maloney (&lt;a href=&quot;https://twitter.com/_emaloney_&quot;&gt;@_emaloney_&lt;/a&gt;) at the Brooklyn Swift Developers Meetup&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://vimeo.com/217236459&quot;&gt;&lt;img src=&quot;./assets/images/presentations-we-love-2017/evan-maloney-ios-swift-gilt-2017-480.png&quot; alt=&quot;evan-maloney-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;apache-struts-and-the-equifax-data-breach&quot;&gt;Apache Struts and the Equifax Data Breach&lt;/h2&gt;
-&lt;p&gt;Sean Sullivan (&lt;a href=&quot;https://twitter.com/tinyrobots&quot;&gt;@tinyrobots&lt;/a&gt;) at the Portland Java User Group&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/sullis/apache-struts-and-the-equifax-data-breach&quot;&gt;&lt;img src=&quot;./assets/images/presentations-we-love-2017/sean-sullivan-struts-and-equifax-october-2017-480.png&quot; alt=&quot;struts-equifax-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;promcon-2017&quot;&gt;Promcon 2017&lt;/h2&gt;
-&lt;p&gt;Giovanni Gargiulo (&lt;a href=&quot;https://twitter.com/giannigar&quot;&gt;@giannigar&lt;/a&gt;) at Promcon 2017 (Munich)&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=btnXuFLcpS8&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/btnXuFLcpS8/0.jpg&quot; alt=&quot;giovanni-gargiulo-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>HBC Tech</name></author><category term="community" /><category term="conferences" /><category term="qcon" /><category term="aws" /><category term="cloud" /><category term="2017" /><summary>2017 was a year of growth and learning at HBC Tech. Our organization embraced new technologies and new ways of building application software.</summary></entry></feed>
+&lt;p&gt;From an architecture perspective, we are trying to standardize a continous delivery process for our serverless components. At the moment, what we have is “poor man’s CI/CD” - some bash/node scripts which use AWS CloudFormation SDK to provision resources. There are various tools available either from AWS or the serverless community such as &lt;a href=&quot;https://www.terraform.io/&quot;&gt;Terraform&lt;/a&gt;, &lt;a href=&quot;https://aws.amazon.com/documentation/codepipeline/&quot;&gt;CodePipeline&lt;/a&gt; that we are trying to integrate with to provide a frictionless path to production.&lt;/p&gt;</content><author><name>Liyu Ma</name></author><category term="aws" /><category term="serverless" /><category term="lambda" /><category term="step function" /><category term="gilt city" /><category term="order processing" /><summary>Instant Vouchers Initiative</summary></entry></feed>
