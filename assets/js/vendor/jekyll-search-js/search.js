@@ -29,14 +29,14 @@ class jekyllSearch {
             return `
             <section class="snippet snippet--reveal">
                 <div class="snippet__meta">
-                    <a class="meta__category-link" href="http://tech.hbc.com/category/${item.category}">${item.category}</a>
+                    <a class="meta__category-link" href="/categories/#${item.category}">${item.category}</a>
                     <span class="slug-divider"></span>
                     <span class="meta__author">${item.author}</span>
                     <span class="slug-divider"></span>
                     <span class="meta__date">${item.date}</span>
                 </div>
-                <h1 class="snippet__title"><a class="snippet__title__link" title="${item.title}" href="http://tech.hbc.com${item.url}">${item.title}</a></h1>
-                <a class="snippet__excerpt__link" href="http://tech.hbc.com/${item.url}"><p class="snippet__excerpt">${item.excerpt}</p></a>
+                <h1 class="snippet__title"><a class="snippet__title__link" title="${item.title}" href="${item.url}">${item.title}</a></h1>
+                <a class="snippet__excerpt__link" href="/${item.url}"><p class="snippet__excerpt">${item.excerpt}</p></a>
             </section>`;
         }).join('');
 
