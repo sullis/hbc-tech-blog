@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded',function() {
         init: function() {
 
             const headerSearch = new jekyllSearch(
-                'http://tech.hbc.com/search.json',
+                'https://tech.hbc.com/search.json',
                 '#header-search-input',
                 '#header-search__results'
             );

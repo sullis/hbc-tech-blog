@@ -9,14 +9,14 @@
 
         <!-- Begin Jekyll SEO tag v2.4.0 -->
 <title>Importing Google Trends data | HBC Tech</title>
-<meta name="generator" content="Jekyll v3.8.0" />
+<meta name="generator" content="Jekyll v3.8.1" />
 <meta property="og:title" content="Importing Google Trends data" />
 <meta name="author" content="Igor Elbert" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Google Trends offers a trove of data for analysis. It&rsquo;s not used nearly enough partially because good folks at Google did not provide an API to access the data. You can play with Trends in you browser, embed it into your webpages but it’s not that simple to get the raw data behind it to use it in your analysis. There is a number of packages in Python, Perl, or R that pull the data for you but none of them did when I needed: compare hundreds of trends against each other. You see, not contend with the lack of API Google returns trends on 1 to 100 scale so it’s hard to compare numbers for many different trends. You can plot several trends on the same graph but you will not be able to tell how they stand relative to another set of trends. For example: Above: “Game of Thrones” vs. “House of Cards”.Below: “Orange is New Black” vs. “The Newsroom”  Since each set is rescaled there is no way to tell how “House&hellip;” stands against “Orange&hellip;”  I needed to get the trends for hundreds of fashion brands Gilt deals with and compare them against each other. The logical solution seemed to use one search term as a baseline in every set and then rescale the results relative to a baseline term. I borrowed heavily from GTrendsR package and came up with a script in R that pulls trends and rescales them relative to baseline. It took some hacking: I took Google Trends export link that looks something like www.google.com/trends/embed.js?hl=en-US&amp;q=/m/06bkdx,+/m/0tlwzvq,+/m/0b6hm_f,+/m/0c5_m3,+/m/0f4w93&amp;geo=US&amp;date=2/2013+25m&amp;cmpt=q&amp;tz&amp;tz&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5 and after looking at various export options found the one (export=3) that returns raw data in JSON-like string. For example: http://www.google.com/trends/fetchComponent?q=%2Fm%2F06bkdx%2C%2Fm%2F0624dh&amp;date=today%207-d&amp;geo=US&amp;cat=0-18&amp;cid=TIMESERIES_GRAPH_0&amp;export=3 returns: // Data table response google.visualization.Query.setResponse( {&quot;version&quot;:&quot;0.6&quot;,&quot;status&quot;:&quot;ok&quot;,&quot;sig&quot;:&quot;881376537&quot;, &quot;table&quot;:{&quot;cols&quot;:[ {&quot;id&quot;:&quot;date&quot;,&quot;label&quot;:&quot;Date&quot;,&quot;type&quot;:&quot;date&quot;,&quot;pattern&quot;:&quot;&quot;}, {&quot;id&quot;:&quot;query0&quot;,&quot;label&quot;:&quot;Agent Provocateur&quot;,&quot;type&quot;:&quot;number&quot;,&quot;pattern&quot;:&quot;&quot;}, {&quot;id&quot;:&quot;query1&quot;,&quot;label&quot;:&quot;Kate Spade&quot;,&quot;type&quot;:&quot;number&quot;,&quot;pattern&quot;:&quot;&quot;} ], &quot;rows&quot;:[{&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,18),&quot;f&quot;:&quot;Saturday, April 18, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;},{&quot;v&quot;:77.0,&quot;f&quot;:&quot;77&quot;} ]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,19),&quot;f&quot;:&quot;Sunday, April 19, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;},{&quot;v&quot;:100.0,&quot;f&quot;:&quot;100&quot;} ]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,20),&quot;f&quot;:&quot;Monday, April 20, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;}, {&quot;v&quot;:65.0,&quot;f&quot;:&quot;65&quot;}]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,21),&quot;f&quot;:&quot;Tuesday, April 21, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;},{&quot;v&quot;:62.0,&quot;f&quot;:&quot;62&quot;} ]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,22),&quot;f&quot;:&quot;Wednesday, April 22, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;},{&quot;v&quot;:57.0,&quot;f&quot;:&quot;57&quot;} ]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,23),&quot;f&quot;:&quot;Thursday, April 23, 2015&quot;}, , {&quot;v&quot;:null} ]},{&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,24),&quot;f&quot;:&quot;Friday, April 24, 2015&quot;}, , {&quot;v&quot;:null} ]}]}}); Which is turned into a valid JSON with 4 lines of R code and then parsed into R data structures with rjson package. The result looks like: And can now be analyzed, plotted, and joined with other data. Because of the powers of SQL/MapReduce in our Teradata Aster database we can pull the trends and join with our relational data on the fly in SQL: SELECT *FROM STREAM (       ON (SELECT brand_name from dim_brands)       PARTITION BY brand_name       SCRIPT(&lsquo;GTrends_MR.R&rsquo;)       OUTPUTS(&#39;week DATE, term VARCHAR, trend INTEGER&rsquo;)) Any comments on Google Trends, R style and overall approach are appreciated. Happy trending!" />
 <meta property="og:description" content="Google Trends offers a trove of data for analysis. It&rsquo;s not used nearly enough partially because good folks at Google did not provide an API to access the data. You can play with Trends in you browser, embed it into your webpages but it’s not that simple to get the raw data behind it to use it in your analysis. There is a number of packages in Python, Perl, or R that pull the data for you but none of them did when I needed: compare hundreds of trends against each other. You see, not contend with the lack of API Google returns trends on 1 to 100 scale so it’s hard to compare numbers for many different trends. You can plot several trends on the same graph but you will not be able to tell how they stand relative to another set of trends. For example: Above: “Game of Thrones” vs. “House of Cards”.Below: “Orange is New Black” vs. “The Newsroom”  Since each set is rescaled there is no way to tell how “House&hellip;” stands against “Orange&hellip;”  I needed to get the trends for hundreds of fashion brands Gilt deals with and compare them against each other. The logical solution seemed to use one search term as a baseline in every set and then rescale the results relative to a baseline term. I borrowed heavily from GTrendsR package and came up with a script in R that pulls trends and rescales them relative to baseline. It took some hacking: I took Google Trends export link that looks something like www.google.com/trends/embed.js?hl=en-US&amp;q=/m/06bkdx,+/m/0tlwzvq,+/m/0b6hm_f,+/m/0c5_m3,+/m/0f4w93&amp;geo=US&amp;date=2/2013+25m&amp;cmpt=q&amp;tz&amp;tz&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5 and after looking at various export options found the one (export=3) that returns raw data in JSON-like string. For example: http://www.google.com/trends/fetchComponent?q=%2Fm%2F06bkdx%2C%2Fm%2F0624dh&amp;date=today%207-d&amp;geo=US&amp;cat=0-18&amp;cid=TIMESERIES_GRAPH_0&amp;export=3 returns: // Data table response google.visualization.Query.setResponse( {&quot;version&quot;:&quot;0.6&quot;,&quot;status&quot;:&quot;ok&quot;,&quot;sig&quot;:&quot;881376537&quot;, &quot;table&quot;:{&quot;cols&quot;:[ {&quot;id&quot;:&quot;date&quot;,&quot;label&quot;:&quot;Date&quot;,&quot;type&quot;:&quot;date&quot;,&quot;pattern&quot;:&quot;&quot;}, {&quot;id&quot;:&quot;query0&quot;,&quot;label&quot;:&quot;Agent Provocateur&quot;,&quot;type&quot;:&quot;number&quot;,&quot;pattern&quot;:&quot;&quot;}, {&quot;id&quot;:&quot;query1&quot;,&quot;label&quot;:&quot;Kate Spade&quot;,&quot;type&quot;:&quot;number&quot;,&quot;pattern&quot;:&quot;&quot;} ], &quot;rows&quot;:[{&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,18),&quot;f&quot;:&quot;Saturday, April 18, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;},{&quot;v&quot;:77.0,&quot;f&quot;:&quot;77&quot;} ]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,19),&quot;f&quot;:&quot;Sunday, April 19, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;},{&quot;v&quot;:100.0,&quot;f&quot;:&quot;100&quot;} ]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,20),&quot;f&quot;:&quot;Monday, April 20, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;}, {&quot;v&quot;:65.0,&quot;f&quot;:&quot;65&quot;}]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,21),&quot;f&quot;:&quot;Tuesday, April 21, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;},{&quot;v&quot;:62.0,&quot;f&quot;:&quot;62&quot;} ]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,22),&quot;f&quot;:&quot;Wednesday, April 22, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;},{&quot;v&quot;:57.0,&quot;f&quot;:&quot;57&quot;} ]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,23),&quot;f&quot;:&quot;Thursday, April 23, 2015&quot;}, , {&quot;v&quot;:null} ]},{&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,24),&quot;f&quot;:&quot;Friday, April 24, 2015&quot;}, , {&quot;v&quot;:null} ]}]}}); Which is turned into a valid JSON with 4 lines of R code and then parsed into R data structures with rjson package. The result looks like: And can now be analyzed, plotted, and joined with other data. Because of the powers of SQL/MapReduce in our Teradata Aster database we can pull the trends and join with our relational data on the fly in SQL: SELECT *FROM STREAM (       ON (SELECT brand_name from dim_brands)       PARTITION BY brand_name       SCRIPT(&lsquo;GTrends_MR.R&rsquo;)       OUTPUTS(&#39;week DATE, term VARCHAR, trend INTEGER&rsquo;)) Any comments on Google Trends, R style and overall approach are appreciated. Happy trending!" />
-<link rel="canonical" href="http://tech.hbc.com/2015-05-11-importing-google-trends-data.html" />
-<meta property="og:url" content="http://tech.hbc.com/2015-05-11-importing-google-trends-data.html" />
+<link rel="canonical" href="https://tech.hbc.com/2015-05-11-importing-google-trends-data.html" />
+<meta property="og:url" content="https://tech.hbc.com/2015-05-11-importing-google-trends-data.html" />
 <meta property="og:site_name" content="HBC Tech" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2015-05-11T12:26:01-05:00" />
@@ -24,26 +24,26 @@
 <meta name="twitter:site" content="@" />
 <meta name="twitter:creator" content="@Igor Elbert" />
 <script type="application/ld+json">
-{"description":"Google Trends offers a trove of data for analysis. It&rsquo;s not used nearly enough partially because good folks at Google did not provide an API to access the data. You can play with Trends in you browser, embed it into your webpages but it’s not that simple to get the raw data behind it to use it in your analysis. There is a number of packages in Python, Perl, or R that pull the data for you but none of them did when I needed: compare hundreds of trends against each other. You see, not contend with the lack of API Google returns trends on 1 to 100 scale so it’s hard to compare numbers for many different trends. You can plot several trends on the same graph but you will not be able to tell how they stand relative to another set of trends. For example: Above: “Game of Thrones” vs. “House of Cards”.Below: “Orange is New Black” vs. “The Newsroom”  Since each set is rescaled there is no way to tell how “House&hellip;” stands against “Orange&hellip;”  I needed to get the trends for hundreds of fashion brands Gilt deals with and compare them against each other. The logical solution seemed to use one search term as a baseline in every set and then rescale the results relative to a baseline term. I borrowed heavily from GTrendsR package and came up with a script in R that pulls trends and rescales them relative to baseline. It took some hacking: I took Google Trends export link that looks something like www.google.com/trends/embed.js?hl=en-US&amp;q=/m/06bkdx,+/m/0tlwzvq,+/m/0b6hm_f,+/m/0c5_m3,+/m/0f4w93&amp;geo=US&amp;date=2/2013+25m&amp;cmpt=q&amp;tz&amp;tz&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5 and after looking at various export options found the one (export=3) that returns raw data in JSON-like string. For example: http://www.google.com/trends/fetchComponent?q=%2Fm%2F06bkdx%2C%2Fm%2F0624dh&amp;date=today%207-d&amp;geo=US&amp;cat=0-18&amp;cid=TIMESERIES_GRAPH_0&amp;export=3 returns: // Data table response google.visualization.Query.setResponse( {&quot;version&quot;:&quot;0.6&quot;,&quot;status&quot;:&quot;ok&quot;,&quot;sig&quot;:&quot;881376537&quot;, &quot;table&quot;:{&quot;cols&quot;:[ {&quot;id&quot;:&quot;date&quot;,&quot;label&quot;:&quot;Date&quot;,&quot;type&quot;:&quot;date&quot;,&quot;pattern&quot;:&quot;&quot;}, {&quot;id&quot;:&quot;query0&quot;,&quot;label&quot;:&quot;Agent Provocateur&quot;,&quot;type&quot;:&quot;number&quot;,&quot;pattern&quot;:&quot;&quot;}, {&quot;id&quot;:&quot;query1&quot;,&quot;label&quot;:&quot;Kate Spade&quot;,&quot;type&quot;:&quot;number&quot;,&quot;pattern&quot;:&quot;&quot;} ], &quot;rows&quot;:[{&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,18),&quot;f&quot;:&quot;Saturday, April 18, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;},{&quot;v&quot;:77.0,&quot;f&quot;:&quot;77&quot;} ]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,19),&quot;f&quot;:&quot;Sunday, April 19, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;},{&quot;v&quot;:100.0,&quot;f&quot;:&quot;100&quot;} ]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,20),&quot;f&quot;:&quot;Monday, April 20, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;}, {&quot;v&quot;:65.0,&quot;f&quot;:&quot;65&quot;}]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,21),&quot;f&quot;:&quot;Tuesday, April 21, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;},{&quot;v&quot;:62.0,&quot;f&quot;:&quot;62&quot;} ]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,22),&quot;f&quot;:&quot;Wednesday, April 22, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;},{&quot;v&quot;:57.0,&quot;f&quot;:&quot;57&quot;} ]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,23),&quot;f&quot;:&quot;Thursday, April 23, 2015&quot;}, , {&quot;v&quot;:null} ]},{&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,24),&quot;f&quot;:&quot;Friday, April 24, 2015&quot;}, , {&quot;v&quot;:null} ]}]}}); Which is turned into a valid JSON with 4 lines of R code and then parsed into R data structures with rjson package. The result looks like: And can now be analyzed, plotted, and joined with other data. Because of the powers of SQL/MapReduce in our Teradata Aster database we can pull the trends and join with our relational data on the fly in SQL: SELECT *FROM STREAM (       ON (SELECT brand_name from dim_brands)       PARTITION BY brand_name       SCRIPT(&lsquo;GTrends_MR.R&rsquo;)       OUTPUTS(&#39;week DATE, term VARCHAR, trend INTEGER&rsquo;)) Any comments on Google Trends, R style and overall approach are appreciated. Happy trending!","author":{"@type":"Person","name":"Igor Elbert"},"@type":"BlogPosting","url":"http://tech.hbc.com/2015-05-11-importing-google-trends-data.html","headline":"Importing Google Trends data","dateModified":"2015-05-11T12:26:01-05:00","datePublished":"2015-05-11T12:26:01-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://tech.hbc.com/2015-05-11-importing-google-trends-data.html"},"@context":"http://schema.org"}</script>
+{"description":"Google Trends offers a trove of data for analysis. It&rsquo;s not used nearly enough partially because good folks at Google did not provide an API to access the data. You can play with Trends in you browser, embed it into your webpages but it’s not that simple to get the raw data behind it to use it in your analysis. There is a number of packages in Python, Perl, or R that pull the data for you but none of them did when I needed: compare hundreds of trends against each other. You see, not contend with the lack of API Google returns trends on 1 to 100 scale so it’s hard to compare numbers for many different trends. You can plot several trends on the same graph but you will not be able to tell how they stand relative to another set of trends. For example: Above: “Game of Thrones” vs. “House of Cards”.Below: “Orange is New Black” vs. “The Newsroom”  Since each set is rescaled there is no way to tell how “House&hellip;” stands against “Orange&hellip;”  I needed to get the trends for hundreds of fashion brands Gilt deals with and compare them against each other. The logical solution seemed to use one search term as a baseline in every set and then rescale the results relative to a baseline term. I borrowed heavily from GTrendsR package and came up with a script in R that pulls trends and rescales them relative to baseline. It took some hacking: I took Google Trends export link that looks something like www.google.com/trends/embed.js?hl=en-US&amp;q=/m/06bkdx,+/m/0tlwzvq,+/m/0b6hm_f,+/m/0c5_m3,+/m/0f4w93&amp;geo=US&amp;date=2/2013+25m&amp;cmpt=q&amp;tz&amp;tz&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5 and after looking at various export options found the one (export=3) that returns raw data in JSON-like string. For example: http://www.google.com/trends/fetchComponent?q=%2Fm%2F06bkdx%2C%2Fm%2F0624dh&amp;date=today%207-d&amp;geo=US&amp;cat=0-18&amp;cid=TIMESERIES_GRAPH_0&amp;export=3 returns: // Data table response google.visualization.Query.setResponse( {&quot;version&quot;:&quot;0.6&quot;,&quot;status&quot;:&quot;ok&quot;,&quot;sig&quot;:&quot;881376537&quot;, &quot;table&quot;:{&quot;cols&quot;:[ {&quot;id&quot;:&quot;date&quot;,&quot;label&quot;:&quot;Date&quot;,&quot;type&quot;:&quot;date&quot;,&quot;pattern&quot;:&quot;&quot;}, {&quot;id&quot;:&quot;query0&quot;,&quot;label&quot;:&quot;Agent Provocateur&quot;,&quot;type&quot;:&quot;number&quot;,&quot;pattern&quot;:&quot;&quot;}, {&quot;id&quot;:&quot;query1&quot;,&quot;label&quot;:&quot;Kate Spade&quot;,&quot;type&quot;:&quot;number&quot;,&quot;pattern&quot;:&quot;&quot;} ], &quot;rows&quot;:[{&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,18),&quot;f&quot;:&quot;Saturday, April 18, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;},{&quot;v&quot;:77.0,&quot;f&quot;:&quot;77&quot;} ]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,19),&quot;f&quot;:&quot;Sunday, April 19, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;},{&quot;v&quot;:100.0,&quot;f&quot;:&quot;100&quot;} ]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,20),&quot;f&quot;:&quot;Monday, April 20, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;}, {&quot;v&quot;:65.0,&quot;f&quot;:&quot;65&quot;}]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,21),&quot;f&quot;:&quot;Tuesday, April 21, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;},{&quot;v&quot;:62.0,&quot;f&quot;:&quot;62&quot;} ]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,22),&quot;f&quot;:&quot;Wednesday, April 22, 2015&quot;}, {&quot;v&quot;:0.0,&quot;f&quot;:&quot;0&quot;},{&quot;v&quot;:57.0,&quot;f&quot;:&quot;57&quot;} ]}, {&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,23),&quot;f&quot;:&quot;Thursday, April 23, 2015&quot;}, , {&quot;v&quot;:null} ]},{&quot;c&quot;:[ {&quot;v&quot;:new Date(2015,3,24),&quot;f&quot;:&quot;Friday, April 24, 2015&quot;}, , {&quot;v&quot;:null} ]}]}}); Which is turned into a valid JSON with 4 lines of R code and then parsed into R data structures with rjson package. The result looks like: And can now be analyzed, plotted, and joined with other data. Because of the powers of SQL/MapReduce in our Teradata Aster database we can pull the trends and join with our relational data on the fly in SQL: SELECT *FROM STREAM (       ON (SELECT brand_name from dim_brands)       PARTITION BY brand_name       SCRIPT(&lsquo;GTrends_MR.R&rsquo;)       OUTPUTS(&#39;week DATE, term VARCHAR, trend INTEGER&rsquo;)) Any comments on Google Trends, R style and overall approach are appreciated. Happy trending!","author":{"@type":"Person","name":"Igor Elbert"},"@type":"BlogPosting","url":"https://tech.hbc.com/2015-05-11-importing-google-trends-data.html","headline":"Importing Google Trends data","dateModified":"2015-05-11T12:26:01-05:00","datePublished":"2015-05-11T12:26:01-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.hbc.com/2015-05-11-importing-google-trends-data.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
         <meta property="og:title" content="Importing Google Trends data" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://tech.hbc.com//2015-05-11-importing-google-trends-data.html" />
+<meta property="og:url" content="https://tech.hbc.com//2015-05-11-importing-google-trends-data.html" />
 <meta property="og:description" content="Google Trends offers a trove of data for analysis. It&amp;rsquo;s not used nearly enough partially because good folks at Google did not provide an API to access ..." />
-<meta property="og:image" content="http://tech.hbc.com/assets/images/blog/hbc-tech-logo-tipi.jpg" />
-<meta property="og:image:secure_url" content="http://tech.hbc.com/assets/images/" />
+<meta property="og:image" content="https://tech.hbc.com/assets/images/blog/hbc-tech-logo-tipi.jpg" />
+<meta property="og:image:secure_url" content="https://tech.hbc.com/assets/images/" />
 <meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:alt" content="" />
 
 
-        <link rel="stylesheet" href="http://tech.hbc.com/assets/css/main.css">
-        <link rel="canonical" href="http://tech.hbc.com/2015-05-11-importing-google-trends-data.html">
+        <link rel="stylesheet" href="https://tech.hbc.com/assets/css/main.css">
+        <link rel="canonical" href="https://tech.hbc.com/2015-05-11-importing-google-trends-data.html">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
 
         <!-- Icons -->
         <!-- 16x16 -->
-        <link rel="shortcut icon" href="http://tech.hbc.com/assets/images/favicon.ico">
+        <link rel="shortcut icon" href="https://tech.hbc.com/assets/images/favicon.ico">
     </head>
 
     <body aria-label="Content">
@@ -51,7 +51,7 @@
     <div class="site-header__inner">
     	<a class="site-header__logo" href="/">
         	<svg class="hbc-tech-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 52">
-        		<use class="hbc-tech-logo__text" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#hbc-tech-logo"></use>
+        		<use class="hbc-tech-logo__text" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#hbc-tech-logo"></use>
             </svg>
     	</a>
         <nav id="menu" class="navigation">
@@ -66,28 +66,28 @@
 		
         
             <li class="link-list__link-item">
-                <a href="http://tech.hbc.com/" class="link-list__link
+                <a href="https://tech.hbc.com/" class="link-list__link
             
             ">
                 <span class="link-list__link-highlight">Insights</span></a>
             </li>
         
             <li class="link-list__link-item">
-                <a href="http://tech.hbc.com/code" class="link-list__link
+                <a href="https://tech.hbc.com/code" class="link-list__link
             
             ">
                 <span class="link-list__link-highlight">Code</span></a>
             </li>
         
             <li class="link-list__link-item">
-                <a href="http://tech.hbc.com/about" class="link-list__link
+                <a href="https://tech.hbc.com/about" class="link-list__link
             
             ">
                 <span class="link-list__link-highlight">About</span></a>
             </li>
         
             <li class="link-list__link-item">
-                <a href="http://tech.hbc.com/work-here" class="link-list__link
+                <a href="https://tech.hbc.com/work-here" class="link-list__link
             
             ">
                 <span class="link-list__link-highlight">Work Here</span></a>
@@ -123,7 +123,7 @@
             
         <div class="article-meta">
             
-            <a href="http://tech.hbc.com/category/data-science" class="article-meta__category">data science</a>
+            <a href="https://tech.hbc.com/category/data-science" class="article-meta__category">data science</a>
             
         
         
@@ -180,30 +180,30 @@
 </div>
         <div class="article__content__share-buttons"><ul class="share-buttons">
     <li class="share-buttons__link-item">
-        <a href="https://twitter.com/intent/tweet?text=http://tech.hbc.com//2015-05-11-importing-google-trends-data.html" class="share-buttons__link" title="Share on Twitter" target="_blank">
+        <a href="https://twitter.com/intent/tweet?text=https://tech.hbc.com//2015-05-11-importing-google-trends-data.html" class="share-buttons__link" title="Share on Twitter" target="_blank">
             <svg class="hbc-svg-icon" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
-                <use class="hbc-svg-icon--twitter" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
+                <use class="hbc-svg-icon--twitter" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
             </svg>
         </a>
     </li>
     <li class="share-buttons__link-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://tech.hbc.com/&source=/2015-05-11-importing-google-trends-data.html&title=Importing Google Trends data" class="share-buttons__link" title="Share on Linkedin" target="_blank">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.hbc.com/&source=/2015-05-11-importing-google-trends-data.html&title=Importing Google Trends data" class="share-buttons__link" title="Share on Linkedin" target="_blank">
             <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
-                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#linkedin" ></use>
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#linkedin" ></use>
             </svg>
         </a>
     </li>
     <li class="share-buttons__link-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://tech.hbc.com//2015-05-11-importing-google-trends-data.html" class="share-buttons__link" title="Share on Facebook" target="_blank">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tech.hbc.com//2015-05-11-importing-google-trends-data.html" class="share-buttons__link" title="Share on Facebook" target="_blank">
             <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
-                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#facebook" ></use>
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#facebook" ></use>
             </svg>
         </a>
     </li>
     <li class="share-buttons__link-item">
-        <a href="https://www.reddit.com/submit?url=http://tech.hbc.com//2015-05-11-importing-google-trends-data.html" class="share-buttons__link" title="Share on Reddit" target="_blank">
+        <a href="https://www.reddit.com/submit?url=https://tech.hbc.com//2015-05-11-importing-google-trends-data.html" class="share-buttons__link" title="Share on Reddit" target="_blank">
             <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
-                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#reddit" ></use>
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#reddit" ></use>
             </svg>
         </a>
     </li>
@@ -274,9 +274,9 @@ google.visualization.Query.setResponse(
 	
 	<!-- author is a guest contributor -->
 	<svg class="author-bio__avatar" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
-        <use class="hbc-svg-icon hbc-svg-icon--avatar__circle" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#circle" ></use>
-        <use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#head" ></use>
-        <use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#body" ></use>
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__circle" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#circle" ></use>
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#head" ></use>
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#body" ></use>
     </svg>
 	<span class="author-bio__name">Igor Elbert</span>
 	
@@ -288,7 +288,7 @@ google.visualization.Query.setResponse(
     </section>
     <aside class="recirc">
     <h2 class="header__title">Recent Insights</h2><span class="slug-divider"></span>
-    <a class="header__view-all-link" href="http://tech.hbc.com/categories/index.html">See All</a>
+    <a class="header__view-all-link" href="https://tech.hbc.com/categories/index.html">See All</a>
     <div class="recirc__articles">
     
     
@@ -310,7 +310,7 @@ google.visualization.Query.setResponse(
     
     
     <h1 class="snippet__title">
-    <a href="http://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html" class="snippet__title__link" title="Negative Sampling (in Numpy)">
+    <a href="https://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html" class="snippet__title__link" title="Negative Sampling (in Numpy)">
         Negative Sampling (in Numpy)
     </a>
     </h1>
@@ -322,7 +322,7 @@ google.visualization.Query.setResponse(
             
 
             
-                <a class="meta__category-link" href="http://tech.hbc.com/category/data-science">data science</a>
+                <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
             
             
             <span class="slug-divider"></span>
@@ -369,7 +369,7 @@ google.visualization.Query.setResponse(
     
     </div>
     
-        <a href="http://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html" class="snippet__excerpt__link" title="Negative Sampling (in Numpy)">
+        <a href="https://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html" class="snippet__excerpt__link" title="Negative Sampling (in Numpy)">
             <p class="snippet__excerpt">
             Alright, time to have some fun exploring efficient negative sampling implementations in NumPy…
 
@@ -392,7 +392,7 @@ google.visualization.Query.setResponse(
     
     
     <h1 class="snippet__title">
-    <a href="http://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" class="snippet__title__link" title="Airing Out A New Job System">
+    <a href="https://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" class="snippet__title__link" title="Airing Out A New Job System">
         Airing Out A New Job System
     </a>
     </h1>
@@ -404,7 +404,7 @@ google.visualization.Query.setResponse(
             
 
             
-                <a class="meta__category-link" href="http://tech.hbc.com/category/data-science">data science</a>
+                <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
             
             
             <span class="slug-divider"></span>
@@ -451,7 +451,7 @@ google.visualization.Query.setResponse(
     
     </div>
     
-        <a href="http://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" class="snippet__excerpt__link" title="Airing Out A New Job System">
+        <a href="https://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" class="snippet__excerpt__link" title="Airing Out A New Job System">
             <p class="snippet__excerpt">
             In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow. 
 We undertook the decision to overhaul our job orchestration system a few months ago due to a number of reasons but have now successfully migrated all our data ingestion jobs to the new system.
@@ -475,7 +475,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
     
     
     <h1 class="snippet__title">
-    <a href="http://tech.hbc.com/2017-08-04-sundial-batch.html" class="snippet__title__link" title="Sundial or AWS Batch, Why not both?">
+    <a href="https://tech.hbc.com/2017-08-04-sundial-batch.html" class="snippet__title__link" title="Sundial or AWS Batch, Why not both?">
         Sundial or AWS Batch, Why not both?
     </a>
     </h1>
@@ -487,7 +487,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
             
 
             
-                <a class="meta__category-link" href="http://tech.hbc.com/category/data-science">data science</a>
+                <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
             
             
             <span class="slug-divider"></span>
@@ -534,7 +534,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
     
     </div>
     
-        <a href="http://tech.hbc.com/2017-08-04-sundial-batch.html" class="snippet__excerpt__link" title="Sundial or AWS Batch, Why not both?">
+        <a href="https://tech.hbc.com/2017-08-04-sundial-batch.html" class="snippet__excerpt__link" title="Sundial or AWS Batch, Why not both?">
             <p class="snippet__excerpt">
             About a year ago, we (the Gilt/HBC personalization team) open sourced Sundial , a batch job orchestration system leveraging Amazon EC2 Container Service.
 
@@ -557,7 +557,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
     
     
     <h1 class="snippet__title">
-    <a href="http://tech.hbc.com/2017-07-31-tiefvision-2.html" class="snippet__title__link" title="Visually Similar Recommendations">
+    <a href="https://tech.hbc.com/2017-07-31-tiefvision-2.html" class="snippet__title__link" title="Visually Similar Recommendations">
         Visually Similar Recommendations
     </a>
     </h1>
@@ -569,7 +569,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
             
 
             
-                <a class="meta__category-link" href="http://tech.hbc.com/category/data-science">data science</a>
+                <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
             
             
             <span class="slug-divider"></span>
@@ -616,7 +616,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
     
     </div>
     
-        <a href="http://tech.hbc.com/2017-07-31-tiefvision-2.html" class="snippet__excerpt__link" title="Visually Similar Recommendations">
+        <a href="https://tech.hbc.com/2017-07-31-tiefvision-2.html" class="snippet__excerpt__link" title="Visually Similar Recommendations">
             <p class="snippet__excerpt">
             
 
@@ -2029,28 +2029,28 @@ We undertook the decision to overhaul our job orchestration system a few months 
 </section>
         <footer class="footer">
 	<svg class="est1670" xmlns="http://www.w3.org/2000/svg">
-		<use class="hbc-tech-logo__use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#est1670" ></use>
+		<use class="hbc-tech-logo__use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#est1670" ></use>
 	</svg>
     <section class="footer__links">
 	<ul class="social-links social-links__list">
     <li class="social-links__list-item">
         <a class="social-links__link" target="_blank" rel="next" href="https://www.linkedin.com/company/hbc_digital/">
             <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
-                <use class="linkedin"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#linkedin"></use>
+                <use class="linkedin"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#linkedin"></use>
             </svg>
         </a>
     </li>
     <li class="social-links__list-item">
         <a class="social-links__link" target="_blank" rel="next" href="https://twitter.com/hbcdigital/">
             <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
-                <use class="twitter"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
+                <use class="twitter"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
             </svg>
         </a>
     </li>
     <li class="social-links__list-item">
         <a class="social-links__link" target="_blank" rel="next" href="https://www.instagram.com/hbcdigital">
             <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
-                <use class="instagram"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#instagram"></use>
+                <use class="instagram"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#instagram"></use>
             </svg>
         </a>
     </li>
@@ -2060,11 +2060,11 @@ We undertook the decision to overhaul our job orchestration system a few months 
 	</section>
 </footer>
 
-        <script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/scrollmagic/ScrollMagic.min.js"></script>
-<script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/jekyll-search-js/fetch.js"></script>
-<script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
-<script type="text/javascript" src="http://tech.hbc.com/assets/js/main.js"></script>
-<script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+        <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/scrollmagic/ScrollMagic.min.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/fetch.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->

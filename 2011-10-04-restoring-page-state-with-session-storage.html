@@ -9,14 +9,14 @@
 
         <!-- Begin Jekyll SEO tag v2.4.0 -->
 <title>Restoring Page State with Session Storage | HBC Tech</title>
-<meta name="generator" content="Jekyll v3.8.0" />
+<meta name="generator" content="Jekyll v3.8.1" />
 <meta property="og:title" content="Restoring Page State with Session Storage" />
 <meta name="author" content="HBC Tech" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Managing the back button on the web is hard, especially remembering the previous page&rsquo;s state when the back button is used. Fragment identifiers can be a solution, and there are some great plugins out there which use that method. However, there&rsquo;s only one URL fragment, so identifiers need to be carefully namespaced to avoid collisions and the fragment in the URL becomes detritus that affects bookmarking, along with looking unpleasant and confusing to the user. On Gilt&rsquo;s new site, Park &amp; Bond, I wanted to stay away from fragment identifiers (/products/denim#color=blue), in keeping with Gilt&rsquo;s commitment to forward-thinking front end engineering practices. We believe in progressive enhancement at Gilt, and I was able to make use of HTML5 sessionStorage to provide a better experience for our customers. Though there is no way to know for absolutely certain, one way to know if a user has hit the back button is to configure caching correctly on the server, and then determine whether the browser is using cached HTML or a new page request. The HTTP 1.1 specification, section 13.13, states that a &ldquo;history mechanism is meant to show exactly what the user saw at the time when the resource was retrieved.&rdquo; Chrome and IE, and usually Firefox, behave basically the same in using cached HTML where it makes sense, and re-executing JavaScript. Firefox sometimes shows the last state of the page without executing script, so in that case it&rsquo;s not necessary to do anything. If a unique page token is added to the HTML of each page view, it is possible both to store information unique to that token and to use its value to determine whether the page has been viewed before. I use a data attribute on the HTML element to store this server-generated token. I built a small JavaScript object called Gilt.pageToken to provide an API for storing values on a page token key using sessionStorage. Using the session, there&rsquo;s little risk of overloading the browser&rsquo;s storage limits and no way we will restore things we don&rsquo;t want to restore if the user comes back the next day in a different browser tab. The API is simple: Gilt.pageToken.get(&#39;key&#39;); Gilt.pageToken.set(&#39;key&#39;, value); The value can be anything; it is transformed into a sessionStorage string with JSON.stringify(). So, how is this useful? The product listing page on Park &amp; Bond allows continual scrolling, making additional ajax requests as the user goes down the page. If a user clicks on a product, goes to its detail page, and then goes back to the listing page, the user expects the page to restore its previous state, including any active facets and the scrolled-to additional products. However, the browser&rsquo;s HTML cache will not have this information, since the page load included only the first set of products and facets. So, when the user clicks a product, Gilt.pageToken is used to store the scroll position (as a vertical offset integer) and the query object that holds the facets which were active at the time of the click. When the user hits back, Gilt.pageToken looks up those values by the current page token key. If that key exists in sessionStorage and has values, those values are used to restore the page state. The session storage pageToken object after a few page views might look something like this: { &quot;PT131741761614767&quot;: { &quot;rotatorStatus&quot;:&quot;3&quot; }," />
 <meta property="og:description" content="Managing the back button on the web is hard, especially remembering the previous page&rsquo;s state when the back button is used. Fragment identifiers can be a solution, and there are some great plugins out there which use that method. However, there&rsquo;s only one URL fragment, so identifiers need to be carefully namespaced to avoid collisions and the fragment in the URL becomes detritus that affects bookmarking, along with looking unpleasant and confusing to the user. On Gilt&rsquo;s new site, Park &amp; Bond, I wanted to stay away from fragment identifiers (/products/denim#color=blue), in keeping with Gilt&rsquo;s commitment to forward-thinking front end engineering practices. We believe in progressive enhancement at Gilt, and I was able to make use of HTML5 sessionStorage to provide a better experience for our customers. Though there is no way to know for absolutely certain, one way to know if a user has hit the back button is to configure caching correctly on the server, and then determine whether the browser is using cached HTML or a new page request. The HTTP 1.1 specification, section 13.13, states that a &ldquo;history mechanism is meant to show exactly what the user saw at the time when the resource was retrieved.&rdquo; Chrome and IE, and usually Firefox, behave basically the same in using cached HTML where it makes sense, and re-executing JavaScript. Firefox sometimes shows the last state of the page without executing script, so in that case it&rsquo;s not necessary to do anything. If a unique page token is added to the HTML of each page view, it is possible both to store information unique to that token and to use its value to determine whether the page has been viewed before. I use a data attribute on the HTML element to store this server-generated token. I built a small JavaScript object called Gilt.pageToken to provide an API for storing values on a page token key using sessionStorage. Using the session, there&rsquo;s little risk of overloading the browser&rsquo;s storage limits and no way we will restore things we don&rsquo;t want to restore if the user comes back the next day in a different browser tab. The API is simple: Gilt.pageToken.get(&#39;key&#39;); Gilt.pageToken.set(&#39;key&#39;, value); The value can be anything; it is transformed into a sessionStorage string with JSON.stringify(). So, how is this useful? The product listing page on Park &amp; Bond allows continual scrolling, making additional ajax requests as the user goes down the page. If a user clicks on a product, goes to its detail page, and then goes back to the listing page, the user expects the page to restore its previous state, including any active facets and the scrolled-to additional products. However, the browser&rsquo;s HTML cache will not have this information, since the page load included only the first set of products and facets. So, when the user clicks a product, Gilt.pageToken is used to store the scroll position (as a vertical offset integer) and the query object that holds the facets which were active at the time of the click. When the user hits back, Gilt.pageToken looks up those values by the current page token key. If that key exists in sessionStorage and has values, those values are used to restore the page state. The session storage pageToken object after a few page views might look something like this: { &quot;PT131741761614767&quot;: { &quot;rotatorStatus&quot;:&quot;3&quot; }," />
-<link rel="canonical" href="http://tech.hbc.com/2011-10-04-restoring-page-state-with-session-storage.html" />
-<meta property="og:url" content="http://tech.hbc.com/2011-10-04-restoring-page-state-with-session-storage.html" />
+<link rel="canonical" href="https://tech.hbc.com/2011-10-04-restoring-page-state-with-session-storage.html" />
+<meta property="og:url" content="https://tech.hbc.com/2011-10-04-restoring-page-state-with-session-storage.html" />
 <meta property="og:site_name" content="HBC Tech" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2011-10-04T15:07:09-05:00" />
@@ -24,26 +24,26 @@
 <meta name="twitter:site" content="@" />
 <meta name="twitter:creator" content="@HBC Tech" />
 <script type="application/ld+json">
-{"description":"Managing the back button on the web is hard, especially remembering the previous page&rsquo;s state when the back button is used. Fragment identifiers can be a solution, and there are some great plugins out there which use that method. However, there&rsquo;s only one URL fragment, so identifiers need to be carefully namespaced to avoid collisions and the fragment in the URL becomes detritus that affects bookmarking, along with looking unpleasant and confusing to the user. On Gilt&rsquo;s new site, Park &amp; Bond, I wanted to stay away from fragment identifiers (/products/denim#color=blue), in keeping with Gilt&rsquo;s commitment to forward-thinking front end engineering practices. We believe in progressive enhancement at Gilt, and I was able to make use of HTML5 sessionStorage to provide a better experience for our customers. Though there is no way to know for absolutely certain, one way to know if a user has hit the back button is to configure caching correctly on the server, and then determine whether the browser is using cached HTML or a new page request. The HTTP 1.1 specification, section 13.13, states that a &ldquo;history mechanism is meant to show exactly what the user saw at the time when the resource was retrieved.&rdquo; Chrome and IE, and usually Firefox, behave basically the same in using cached HTML where it makes sense, and re-executing JavaScript. Firefox sometimes shows the last state of the page without executing script, so in that case it&rsquo;s not necessary to do anything. If a unique page token is added to the HTML of each page view, it is possible both to store information unique to that token and to use its value to determine whether the page has been viewed before. I use a data attribute on the HTML element to store this server-generated token. I built a small JavaScript object called Gilt.pageToken to provide an API for storing values on a page token key using sessionStorage. Using the session, there&rsquo;s little risk of overloading the browser&rsquo;s storage limits and no way we will restore things we don&rsquo;t want to restore if the user comes back the next day in a different browser tab. The API is simple: Gilt.pageToken.get(&#39;key&#39;); Gilt.pageToken.set(&#39;key&#39;, value); The value can be anything; it is transformed into a sessionStorage string with JSON.stringify(). So, how is this useful? The product listing page on Park &amp; Bond allows continual scrolling, making additional ajax requests as the user goes down the page. If a user clicks on a product, goes to its detail page, and then goes back to the listing page, the user expects the page to restore its previous state, including any active facets and the scrolled-to additional products. However, the browser&rsquo;s HTML cache will not have this information, since the page load included only the first set of products and facets. So, when the user clicks a product, Gilt.pageToken is used to store the scroll position (as a vertical offset integer) and the query object that holds the facets which were active at the time of the click. When the user hits back, Gilt.pageToken looks up those values by the current page token key. If that key exists in sessionStorage and has values, those values are used to restore the page state. The session storage pageToken object after a few page views might look something like this: { &quot;PT131741761614767&quot;: { &quot;rotatorStatus&quot;:&quot;3&quot; },","author":{"@type":"Person","name":"HBC Tech"},"@type":"BlogPosting","url":"http://tech.hbc.com/2011-10-04-restoring-page-state-with-session-storage.html","headline":"Restoring Page State with Session Storage","dateModified":"2011-10-04T15:07:09-05:00","datePublished":"2011-10-04T15:07:09-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://tech.hbc.com/2011-10-04-restoring-page-state-with-session-storage.html"},"@context":"http://schema.org"}</script>
+{"description":"Managing the back button on the web is hard, especially remembering the previous page&rsquo;s state when the back button is used. Fragment identifiers can be a solution, and there are some great plugins out there which use that method. However, there&rsquo;s only one URL fragment, so identifiers need to be carefully namespaced to avoid collisions and the fragment in the URL becomes detritus that affects bookmarking, along with looking unpleasant and confusing to the user. On Gilt&rsquo;s new site, Park &amp; Bond, I wanted to stay away from fragment identifiers (/products/denim#color=blue), in keeping with Gilt&rsquo;s commitment to forward-thinking front end engineering practices. We believe in progressive enhancement at Gilt, and I was able to make use of HTML5 sessionStorage to provide a better experience for our customers. Though there is no way to know for absolutely certain, one way to know if a user has hit the back button is to configure caching correctly on the server, and then determine whether the browser is using cached HTML or a new page request. The HTTP 1.1 specification, section 13.13, states that a &ldquo;history mechanism is meant to show exactly what the user saw at the time when the resource was retrieved.&rdquo; Chrome and IE, and usually Firefox, behave basically the same in using cached HTML where it makes sense, and re-executing JavaScript. Firefox sometimes shows the last state of the page without executing script, so in that case it&rsquo;s not necessary to do anything. If a unique page token is added to the HTML of each page view, it is possible both to store information unique to that token and to use its value to determine whether the page has been viewed before. I use a data attribute on the HTML element to store this server-generated token. I built a small JavaScript object called Gilt.pageToken to provide an API for storing values on a page token key using sessionStorage. Using the session, there&rsquo;s little risk of overloading the browser&rsquo;s storage limits and no way we will restore things we don&rsquo;t want to restore if the user comes back the next day in a different browser tab. The API is simple: Gilt.pageToken.get(&#39;key&#39;); Gilt.pageToken.set(&#39;key&#39;, value); The value can be anything; it is transformed into a sessionStorage string with JSON.stringify(). So, how is this useful? The product listing page on Park &amp; Bond allows continual scrolling, making additional ajax requests as the user goes down the page. If a user clicks on a product, goes to its detail page, and then goes back to the listing page, the user expects the page to restore its previous state, including any active facets and the scrolled-to additional products. However, the browser&rsquo;s HTML cache will not have this information, since the page load included only the first set of products and facets. So, when the user clicks a product, Gilt.pageToken is used to store the scroll position (as a vertical offset integer) and the query object that holds the facets which were active at the time of the click. When the user hits back, Gilt.pageToken looks up those values by the current page token key. If that key exists in sessionStorage and has values, those values are used to restore the page state. The session storage pageToken object after a few page views might look something like this: { &quot;PT131741761614767&quot;: { &quot;rotatorStatus&quot;:&quot;3&quot; },","author":{"@type":"Person","name":"HBC Tech"},"@type":"BlogPosting","url":"https://tech.hbc.com/2011-10-04-restoring-page-state-with-session-storage.html","headline":"Restoring Page State with Session Storage","dateModified":"2011-10-04T15:07:09-05:00","datePublished":"2011-10-04T15:07:09-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.hbc.com/2011-10-04-restoring-page-state-with-session-storage.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
         <meta property="og:title" content="Restoring Page State with Session Storage" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://tech.hbc.com//2011-10-04-restoring-page-state-with-session-storage.html" />
+<meta property="og:url" content="https://tech.hbc.com//2011-10-04-restoring-page-state-with-session-storage.html" />
 <meta property="og:description" content="Managing the back button on the web is hard, especially remembering the previous page&amp;rsquo;s state when the back button is used. Fragment identifiers can be..." />
-<meta property="og:image" content="http://tech.hbc.com/assets/images/blog/hbc-tech-logo-tipi.jpg" />
-<meta property="og:image:secure_url" content="http://tech.hbc.com/assets/images/" />
+<meta property="og:image" content="https://tech.hbc.com/assets/images/blog/hbc-tech-logo-tipi.jpg" />
+<meta property="og:image:secure_url" content="https://tech.hbc.com/assets/images/" />
 <meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:alt" content="" />
 
 
-        <link rel="stylesheet" href="http://tech.hbc.com/assets/css/main.css">
-        <link rel="canonical" href="http://tech.hbc.com/2011-10-04-restoring-page-state-with-session-storage.html">
+        <link rel="stylesheet" href="https://tech.hbc.com/assets/css/main.css">
+        <link rel="canonical" href="https://tech.hbc.com/2011-10-04-restoring-page-state-with-session-storage.html">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
 
         <!-- Icons -->
         <!-- 16x16 -->
-        <link rel="shortcut icon" href="http://tech.hbc.com/assets/images/favicon.ico">
+        <link rel="shortcut icon" href="https://tech.hbc.com/assets/images/favicon.ico">
     </head>
 
     <body aria-label="Content">
@@ -51,7 +51,7 @@
     <div class="site-header__inner">
     	<a class="site-header__logo" href="/">
         	<svg class="hbc-tech-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 52">
-        		<use class="hbc-tech-logo__text" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#hbc-tech-logo"></use>
+        		<use class="hbc-tech-logo__text" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#hbc-tech-logo"></use>
             </svg>
     	</a>
         <nav id="menu" class="navigation">
@@ -66,28 +66,28 @@
 		
         
             <li class="link-list__link-item">
-                <a href="http://tech.hbc.com/" class="link-list__link
+                <a href="https://tech.hbc.com/" class="link-list__link
             
             ">
                 <span class="link-list__link-highlight">Insights</span></a>
             </li>
         
             <li class="link-list__link-item">
-                <a href="http://tech.hbc.com/code" class="link-list__link
+                <a href="https://tech.hbc.com/code" class="link-list__link
             
             ">
                 <span class="link-list__link-highlight">Code</span></a>
             </li>
         
             <li class="link-list__link-item">
-                <a href="http://tech.hbc.com/about" class="link-list__link
+                <a href="https://tech.hbc.com/about" class="link-list__link
             
             ">
                 <span class="link-list__link-highlight">About</span></a>
             </li>
         
             <li class="link-list__link-item">
-                <a href="http://tech.hbc.com/work-here" class="link-list__link
+                <a href="https://tech.hbc.com/work-here" class="link-list__link
             
             ">
                 <span class="link-list__link-highlight">Work Here</span></a>
@@ -137,7 +137,7 @@
                     
                 
                     
-                    <a class="article-meta__author__link" href="http://tech.hbc.com/authors/hbc-tech">
+                    <a class="article-meta__author__link" href="https://tech.hbc.com/authors/hbc-tech">
                     
                 
                 <!-- render the author name regardless if they're a featured author -->HBC Tech<!-- if author exists in site.authors, close link to author's page -->
@@ -178,30 +178,30 @@
 </div>
         <div class="article__content__share-buttons"><ul class="share-buttons">
     <li class="share-buttons__link-item">
-        <a href="https://twitter.com/intent/tweet?text=http://tech.hbc.com//2011-10-04-restoring-page-state-with-session-storage.html" class="share-buttons__link" title="Share on Twitter" target="_blank">
+        <a href="https://twitter.com/intent/tweet?text=https://tech.hbc.com//2011-10-04-restoring-page-state-with-session-storage.html" class="share-buttons__link" title="Share on Twitter" target="_blank">
             <svg class="hbc-svg-icon" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
-                <use class="hbc-svg-icon--twitter" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
+                <use class="hbc-svg-icon--twitter" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
             </svg>
         </a>
     </li>
     <li class="share-buttons__link-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://tech.hbc.com/&source=/2011-10-04-restoring-page-state-with-session-storage.html&title=Restoring Page State with Session Storage" class="share-buttons__link" title="Share on Linkedin" target="_blank">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.hbc.com/&source=/2011-10-04-restoring-page-state-with-session-storage.html&title=Restoring Page State with Session Storage" class="share-buttons__link" title="Share on Linkedin" target="_blank">
             <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
-                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#linkedin" ></use>
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#linkedin" ></use>
             </svg>
         </a>
     </li>
     <li class="share-buttons__link-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://tech.hbc.com//2011-10-04-restoring-page-state-with-session-storage.html" class="share-buttons__link" title="Share on Facebook" target="_blank">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tech.hbc.com//2011-10-04-restoring-page-state-with-session-storage.html" class="share-buttons__link" title="Share on Facebook" target="_blank">
             <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
-                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#facebook" ></use>
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#facebook" ></use>
             </svg>
         </a>
     </li>
     <li class="share-buttons__link-item">
-        <a href="https://www.reddit.com/submit?url=http://tech.hbc.com//2011-10-04-restoring-page-state-with-session-storage.html" class="share-buttons__link" title="Share on Reddit" target="_blank">
+        <a href="https://www.reddit.com/submit?url=https://tech.hbc.com//2011-10-04-restoring-page-state-with-session-storage.html" class="share-buttons__link" title="Share on Reddit" target="_blank">
             <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
-                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#reddit" ></use>
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#reddit" ></use>
             </svg>
         </a>
     </li>
@@ -272,14 +272,14 @@ Gilt.pageToken.set('key', value);</code></pre>
 	<!-- author is a known contributor -->
 		
 		<svg class="author-bio__avatar" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
-	        <use class="hbc-svg-icon hbc-svg-icon--avatar__circle" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#circle" ></use>
-	        <use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#head" ></use>
-	        <use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#body" ></use>
+	        <use class="hbc-svg-icon hbc-svg-icon--avatar__circle" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#circle" ></use>
+	        <use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#head" ></use>
+	        <use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#body" ></use>
 	    </svg>
 		
 
 		
-		<p><a class="author-bio__link" href="http://tech.hbc.com/authors/hbc-tech">HBC Tech</a>
+		<p><a class="author-bio__link" href="https://tech.hbc.com/authors/hbc-tech">HBC Tech</a>
 
 		
 		<p class="author-bio__bio">We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord & Taylor and The Bay.
@@ -295,7 +295,7 @@ Gilt.pageToken.set('key', value);</code></pre>
     </section>
     <aside class="recirc">
     <h2 class="header__title">Recent Insights</h2><span class="slug-divider"></span>
-    <a class="header__view-all-link" href="http://tech.hbc.com/categories/index.html">See All</a>
+    <a class="header__view-all-link" href="https://tech.hbc.com/categories/index.html">See All</a>
     <div class="recirc__articles">
     
     
@@ -315,7 +315,7 @@ Gilt.pageToken.set('key', value);</code></pre>
     
     
     <h1 class="snippet__title">
-    <a href="http://tech.hbc.com/2017-12-30-presentations-we-love.html" class="snippet__title__link" title="Presentations we love: 2017">
+    <a href="https://tech.hbc.com/2017-12-30-presentations-we-love.html" class="snippet__title__link" title="Presentations we love: 2017">
         Presentations we love: 2017
     </a>
     </h1>
@@ -327,7 +327,7 @@ Gilt.pageToken.set('key', value);</code></pre>
             
 
             
-                <a class="meta__category-link" href="http://tech.hbc.com/categories/#presentations">presentations</a>
+                <a class="meta__category-link" href="https://tech.hbc.com/categories/#presentations">presentations</a>
             
             
             <span class="slug-divider"></span>
@@ -350,7 +350,7 @@ Gilt.pageToken.set('key', value);</code></pre>
                     
                 
                     
-                    <a class="meta__author-link" href="http://tech.hbc.com/authors/hbc-tech">
+                    <a class="meta__author-link" href="https://tech.hbc.com/authors/hbc-tech">
                     
                 
                 <!-- render the author name regardless if they're a featured author -->HBC Tech<!-- if author exists in site.authors, close link to author's page -->
@@ -378,7 +378,7 @@ Gilt.pageToken.set('key', value);</code></pre>
     
     </div>
     
-        <a href="http://tech.hbc.com/2017-12-30-presentations-we-love.html" class="snippet__excerpt__link" title="Presentations we love: 2017">
+        <a href="https://tech.hbc.com/2017-12-30-presentations-we-love.html" class="snippet__excerpt__link" title="Presentations we love: 2017">
             <p class="snippet__excerpt">
             2017 was a year of growth and learning at HBC Tech. Our organization embraced new technologies and new ways of building application software.
 
@@ -401,7 +401,7 @@ Gilt.pageToken.set('key', value);</code></pre>
     
     
     <h1 class="snippet__title">
-    <a href="http://tech.hbc.com/2017-08-10-midyear-recap.html" class="snippet__title__link" title="HBC Tech Talks: February 2017 through July 2017">
+    <a href="https://tech.hbc.com/2017-08-10-midyear-recap.html" class="snippet__title__link" title="HBC Tech Talks: February 2017 through July 2017">
         HBC Tech Talks: February 2017 through July 2017
     </a>
     </h1>
@@ -413,7 +413,7 @@ Gilt.pageToken.set('key', value);</code></pre>
             
 
             
-                <a class="meta__category-link" href="http://tech.hbc.com/category/events">events</a>
+                <a class="meta__category-link" href="https://tech.hbc.com/category/events">events</a>
             
             
             <span class="slug-divider"></span>
@@ -436,7 +436,7 @@ Gilt.pageToken.set('key', value);</code></pre>
                     
                 
                     
-                    <a class="meta__author-link" href="http://tech.hbc.com/authors/hbc-tech">
+                    <a class="meta__author-link" href="https://tech.hbc.com/authors/hbc-tech">
                     
                 
                 <!-- render the author name regardless if they're a featured author -->HBC Tech<!-- if author exists in site.authors, close link to author's page -->
@@ -464,7 +464,7 @@ Gilt.pageToken.set('key', value);</code></pre>
     
     </div>
     
-        <a href="http://tech.hbc.com/2017-08-10-midyear-recap.html" class="snippet__excerpt__link" title="HBC Tech Talks: February 2017 through July 2017">
+        <a href="https://tech.hbc.com/2017-08-10-midyear-recap.html" class="snippet__excerpt__link" title="HBC Tech Talks: February 2017 through July 2017">
             <p class="snippet__excerpt">
             We’ve had a busy 2017 at HBC. The great work of our teams has created opportunities to share what we’ve learned with audiences around the world. This year our folks have been on stage in Austin, Sydney, Portland, Seattle, San Diego, Boston, London, Israel and on our home turf in NYC and Dublin. The talks have covered deep learning, design thinking, data streaming and developer experience to name just a...
             </p>
@@ -485,7 +485,7 @@ Gilt.pageToken.set('key', value);</code></pre>
     
     
     <h1 class="snippet__title">
-    <a href="http://tech.hbc.com/2017-06-29-open-source-friday.html" class="snippet__title__link" title="Open Source Friday">
+    <a href="https://tech.hbc.com/2017-06-29-open-source-friday.html" class="snippet__title__link" title="Open Source Friday">
         Open Source Friday
     </a>
     </h1>
@@ -497,7 +497,7 @@ Gilt.pageToken.set('key', value);</code></pre>
             
 
             
-                <a class="meta__category-link" href="http://tech.hbc.com/category/culture">culture</a>
+                <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
             
             
             <span class="slug-divider"></span>
@@ -520,7 +520,7 @@ Gilt.pageToken.set('key', value);</code></pre>
                     
                 
                     
-                    <a class="meta__author-link" href="http://tech.hbc.com/authors/hbc-tech">
+                    <a class="meta__author-link" href="https://tech.hbc.com/authors/hbc-tech">
                     
                 
                 <!-- render the author name regardless if they're a featured author -->HBC Tech<!-- if author exists in site.authors, close link to author's page -->
@@ -548,7 +548,7 @@ Gilt.pageToken.set('key', value);</code></pre>
     
     </div>
     
-        <a href="http://tech.hbc.com/2017-06-29-open-source-friday.html" class="snippet__excerpt__link" title="Open Source Friday">
+        <a href="https://tech.hbc.com/2017-06-29-open-source-friday.html" class="snippet__excerpt__link" title="Open Source Friday">
             <p class="snippet__excerpt">
             
 From the 54 public repos maintained at code.gilt.com to the name of our tech blog (displayed in this tab’s header), open source has been part of our team’s DNA for years. Check out this blog post from 2015 if you’re not convinced.
@@ -573,7 +573,7 @@ From the 54 public repos maintained at code.gilt.com to the name of our tech blo
     
     
     <h1 class="snippet__title">
-    <a href="http://tech.hbc.com/2017-06-12-hbc-at-qcon.html" class="snippet__title__link" title="Hudson's Bay Company at QCon">
+    <a href="https://tech.hbc.com/2017-06-12-hbc-at-qcon.html" class="snippet__title__link" title="Hudson's Bay Company at QCon">
         Hudson's Bay Company at QCon
     </a>
     </h1>
@@ -585,7 +585,7 @@ From the 54 public repos maintained at code.gilt.com to the name of our tech blo
             
 
             
-                <a class="meta__category-link" href="http://tech.hbc.com/category/events">events</a>
+                <a class="meta__category-link" href="https://tech.hbc.com/category/events">events</a>
             
             
             <span class="slug-divider"></span>
@@ -608,7 +608,7 @@ From the 54 public repos maintained at code.gilt.com to the name of our tech blo
                     
                 
                     
-                    <a class="meta__author-link" href="http://tech.hbc.com/authors/hbc-tech">
+                    <a class="meta__author-link" href="https://tech.hbc.com/authors/hbc-tech">
                     
                 
                 <!-- render the author name regardless if they're a featured author -->HBC Tech<!-- if author exists in site.authors, close link to author's page -->
@@ -636,7 +636,7 @@ From the 54 public repos maintained at code.gilt.com to the name of our tech blo
     
     </div>
     
-        <a href="http://tech.hbc.com/2017-06-12-hbc-at-qcon.html" class="snippet__excerpt__link" title="Hudson's Bay Company at QCon">
+        <a href="https://tech.hbc.com/2017-06-12-hbc-at-qcon.html" class="snippet__excerpt__link" title="Hudson's Bay Company at QCon">
             <p class="snippet__excerpt">
             Heading to QCon? Don’t miss these two sessions! If you can’t make it, stay tuned here for slides and recordings from the conference.
 
@@ -4655,28 +4655,28 @@ From the 54 public repos maintained at code.gilt.com to the name of our tech blo
 </section>
         <footer class="footer">
 	<svg class="est1670" xmlns="http://www.w3.org/2000/svg">
-		<use class="hbc-tech-logo__use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#est1670" ></use>
+		<use class="hbc-tech-logo__use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#est1670" ></use>
 	</svg>
     <section class="footer__links">
 	<ul class="social-links social-links__list">
     <li class="social-links__list-item">
         <a class="social-links__link" target="_blank" rel="next" href="https://www.linkedin.com/company/hbc_digital/">
             <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
-                <use class="linkedin"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#linkedin"></use>
+                <use class="linkedin"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#linkedin"></use>
             </svg>
         </a>
     </li>
     <li class="social-links__list-item">
         <a class="social-links__link" target="_blank" rel="next" href="https://twitter.com/hbcdigital/">
             <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
-                <use class="twitter"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
+                <use class="twitter"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
             </svg>
         </a>
     </li>
     <li class="social-links__list-item">
         <a class="social-links__link" target="_blank" rel="next" href="https://www.instagram.com/hbcdigital">
             <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
-                <use class="instagram"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#instagram"></use>
+                <use class="instagram"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#instagram"></use>
             </svg>
         </a>
     </li>
@@ -4686,11 +4686,11 @@ From the 54 public repos maintained at code.gilt.com to the name of our tech blo
 	</section>
 </footer>
 
-        <script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/scrollmagic/ScrollMagic.min.js"></script>
-<script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/jekyll-search-js/fetch.js"></script>
-<script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
-<script type="text/javascript" src="http://tech.hbc.com/assets/js/main.js"></script>
-<script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+        <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/scrollmagic/ScrollMagic.min.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/fetch.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->

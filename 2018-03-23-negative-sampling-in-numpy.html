@@ -9,14 +9,14 @@
 
         <!-- Begin Jekyll SEO tag v2.4.0 -->
 <title>Negative Sampling (in Numpy) | HBC Tech</title>
-<meta name="generator" content="Jekyll v3.8.0" />
+<meta name="generator" content="Jekyll v3.8.1" />
 <meta property="og:title" content="Negative Sampling (in Numpy)" />
 <meta name="author" content="Jason Tam" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Alright, time to have some fun exploring efficient negative sampling implementations in NumPy…" />
 <meta property="og:description" content="Alright, time to have some fun exploring efficient negative sampling implementations in NumPy…" />
-<link rel="canonical" href="http://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html" />
-<meta property="og:url" content="http://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html" />
+<link rel="canonical" href="https://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html" />
+<meta property="og:url" content="https://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html" />
 <meta property="og:site_name" content="HBC Tech" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2018-03-23T00:00:00-05:00" />
@@ -24,26 +24,26 @@
 <meta name="twitter:site" content="@" />
 <meta name="twitter:creator" content="@Jason Tam" />
 <script type="application/ld+json">
-{"description":"Alright, time to have some fun exploring efficient negative sampling implementations in NumPy…","author":{"@type":"Person","name":"Jason Tam"},"@type":"BlogPosting","url":"http://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html","headline":"Negative Sampling (in Numpy)","dateModified":"2018-03-23T00:00:00-05:00","datePublished":"2018-03-23T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html"},"@context":"http://schema.org"}</script>
+{"description":"Alright, time to have some fun exploring efficient negative sampling implementations in NumPy…","author":{"@type":"Person","name":"Jason Tam"},"@type":"BlogPosting","url":"https://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html","headline":"Negative Sampling (in Numpy)","dateModified":"2018-03-23T00:00:00-05:00","datePublished":"2018-03-23T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
         <meta property="og:title" content="Negative Sampling (in Numpy)" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://tech.hbc.com//2018-03-23-negative-sampling-in-numpy.html" />
+<meta property="og:url" content="https://tech.hbc.com//2018-03-23-negative-sampling-in-numpy.html" />
 <meta property="og:description" content="Alright, time to have some fun exploring efficient negative sampling implementations in NumPy…" />
-<meta property="og:image" content="http://tech.hbc.com/assets/images/blog/hbc-tech-logo-tipi.jpg" />
-<meta property="og:image:secure_url" content="http://tech.hbc.com/assets/images/" />
+<meta property="og:image" content="https://tech.hbc.com/assets/images/blog/hbc-tech-logo-tipi.jpg" />
+<meta property="og:image:secure_url" content="https://tech.hbc.com/assets/images/" />
 <meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:alt" content="" />
 
 
-        <link rel="stylesheet" href="http://tech.hbc.com/assets/css/main.css">
-        <link rel="canonical" href="http://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html">
+        <link rel="stylesheet" href="https://tech.hbc.com/assets/css/main.css">
+        <link rel="canonical" href="https://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
 
         <!-- Icons -->
         <!-- 16x16 -->
-        <link rel="shortcut icon" href="http://tech.hbc.com/assets/images/favicon.ico">
+        <link rel="shortcut icon" href="https://tech.hbc.com/assets/images/favicon.ico">
     </head>
 
     <body aria-label="Content">
@@ -51,7 +51,7 @@
     <div class="site-header__inner">
     	<a class="site-header__logo" href="/">
         	<svg class="hbc-tech-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 52">
-        		<use class="hbc-tech-logo__text" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#hbc-tech-logo"></use>
+        		<use class="hbc-tech-logo__text" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#hbc-tech-logo"></use>
             </svg>
     	</a>
         <nav id="menu" class="navigation">
@@ -66,28 +66,28 @@
 		
         
             <li class="link-list__link-item">
-                <a href="http://tech.hbc.com/" class="link-list__link
+                <a href="https://tech.hbc.com/" class="link-list__link
             
             ">
                 <span class="link-list__link-highlight">Insights</span></a>
             </li>
         
             <li class="link-list__link-item">
-                <a href="http://tech.hbc.com/code" class="link-list__link
+                <a href="https://tech.hbc.com/code" class="link-list__link
             
             ">
                 <span class="link-list__link-highlight">Code</span></a>
             </li>
         
             <li class="link-list__link-item">
-                <a href="http://tech.hbc.com/about" class="link-list__link
+                <a href="https://tech.hbc.com/about" class="link-list__link
             
             ">
                 <span class="link-list__link-highlight">About</span></a>
             </li>
         
             <li class="link-list__link-item">
-                <a href="http://tech.hbc.com/work-here" class="link-list__link
+                <a href="https://tech.hbc.com/work-here" class="link-list__link
             
             ">
                 <span class="link-list__link-highlight">Work Here</span></a>
@@ -123,7 +123,7 @@
             
         <div class="article-meta">
             
-            <a href="http://tech.hbc.com/category/data-science" class="article-meta__category">data science</a>
+            <a href="https://tech.hbc.com/category/data-science" class="article-meta__category">data science</a>
             
         
         
@@ -180,30 +180,30 @@
 </div>
         <div class="article__content__share-buttons"><ul class="share-buttons">
     <li class="share-buttons__link-item">
-        <a href="https://twitter.com/intent/tweet?text=http://tech.hbc.com//2018-03-23-negative-sampling-in-numpy.html" class="share-buttons__link" title="Share on Twitter" target="_blank">
+        <a href="https://twitter.com/intent/tweet?text=https://tech.hbc.com//2018-03-23-negative-sampling-in-numpy.html" class="share-buttons__link" title="Share on Twitter" target="_blank">
             <svg class="hbc-svg-icon" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
-                <use class="hbc-svg-icon--twitter" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
+                <use class="hbc-svg-icon--twitter" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
             </svg>
         </a>
     </li>
     <li class="share-buttons__link-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://tech.hbc.com/&source=/2018-03-23-negative-sampling-in-numpy.html&title=Negative Sampling (in Numpy)" class="share-buttons__link" title="Share on Linkedin" target="_blank">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.hbc.com/&source=/2018-03-23-negative-sampling-in-numpy.html&title=Negative Sampling (in Numpy)" class="share-buttons__link" title="Share on Linkedin" target="_blank">
             <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
-                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#linkedin" ></use>
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#linkedin" ></use>
             </svg>
         </a>
     </li>
     <li class="share-buttons__link-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://tech.hbc.com//2018-03-23-negative-sampling-in-numpy.html" class="share-buttons__link" title="Share on Facebook" target="_blank">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tech.hbc.com//2018-03-23-negative-sampling-in-numpy.html" class="share-buttons__link" title="Share on Facebook" target="_blank">
             <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
-                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#facebook" ></use>
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#facebook" ></use>
             </svg>
         </a>
     </li>
     <li class="share-buttons__link-item">
-        <a href="https://www.reddit.com/submit?url=http://tech.hbc.com//2018-03-23-negative-sampling-in-numpy.html" class="share-buttons__link" title="Share on Reddit" target="_blank">
+        <a href="https://www.reddit.com/submit?url=https://tech.hbc.com//2018-03-23-negative-sampling-in-numpy.html" class="share-buttons__link" title="Share on Reddit" target="_blank">
             <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
-                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#reddit" ></use>
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#reddit" ></use>
             </svg>
         </a>
     </li>
@@ -442,9 +442,9 @@ We know how many negative items are available to be sampled since we have the si
 	
 	<!-- author is a guest contributor -->
 	<svg class="author-bio__avatar" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
-        <use class="hbc-svg-icon hbc-svg-icon--avatar__circle" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#circle" ></use>
-        <use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#head" ></use>
-        <use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#body" ></use>
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__circle" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#circle" ></use>
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#head" ></use>
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#body" ></use>
     </svg>
 	<span class="author-bio__name">Jason Tam</span>
 	
@@ -456,7 +456,7 @@ We know how many negative items are available to be sampled since we have the si
     </section>
     <aside class="recirc">
     <h2 class="header__title">Recent Insights</h2><span class="slug-divider"></span>
-    <a class="header__view-all-link" href="http://tech.hbc.com/categories/index.html">See All</a>
+    <a class="header__view-all-link" href="https://tech.hbc.com/categories/index.html">See All</a>
     <div class="recirc__articles">
     
     
@@ -480,7 +480,7 @@ We know how many negative items are available to be sampled since we have the si
     
     
     <h1 class="snippet__title">
-    <a href="http://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" class="snippet__title__link" title="Airing Out A New Job System">
+    <a href="https://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" class="snippet__title__link" title="Airing Out A New Job System">
         Airing Out A New Job System
     </a>
     </h1>
@@ -492,7 +492,7 @@ We know how many negative items are available to be sampled since we have the si
             
 
             
-                <a class="meta__category-link" href="http://tech.hbc.com/category/data-science">data science</a>
+                <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
             
             
             <span class="slug-divider"></span>
@@ -539,7 +539,7 @@ We know how many negative items are available to be sampled since we have the si
     
     </div>
     
-        <a href="http://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" class="snippet__excerpt__link" title="Airing Out A New Job System">
+        <a href="https://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" class="snippet__excerpt__link" title="Airing Out A New Job System">
             <p class="snippet__excerpt">
             In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow. 
 We undertook the decision to overhaul our job orchestration system a few months ago due to a number of reasons but have now successfully migrated all our data ingestion jobs to the new system.
@@ -563,7 +563,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
     
     
     <h1 class="snippet__title">
-    <a href="http://tech.hbc.com/2017-08-04-sundial-batch.html" class="snippet__title__link" title="Sundial or AWS Batch, Why not both?">
+    <a href="https://tech.hbc.com/2017-08-04-sundial-batch.html" class="snippet__title__link" title="Sundial or AWS Batch, Why not both?">
         Sundial or AWS Batch, Why not both?
     </a>
     </h1>
@@ -575,7 +575,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
             
 
             
-                <a class="meta__category-link" href="http://tech.hbc.com/category/data-science">data science</a>
+                <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
             
             
             <span class="slug-divider"></span>
@@ -622,7 +622,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
     
     </div>
     
-        <a href="http://tech.hbc.com/2017-08-04-sundial-batch.html" class="snippet__excerpt__link" title="Sundial or AWS Batch, Why not both?">
+        <a href="https://tech.hbc.com/2017-08-04-sundial-batch.html" class="snippet__excerpt__link" title="Sundial or AWS Batch, Why not both?">
             <p class="snippet__excerpt">
             About a year ago, we (the Gilt/HBC personalization team) open sourced Sundial , a batch job orchestration system leveraging Amazon EC2 Container Service.
 
@@ -645,7 +645,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
     
     
     <h1 class="snippet__title">
-    <a href="http://tech.hbc.com/2017-07-31-tiefvision-2.html" class="snippet__title__link" title="Visually Similar Recommendations">
+    <a href="https://tech.hbc.com/2017-07-31-tiefvision-2.html" class="snippet__title__link" title="Visually Similar Recommendations">
         Visually Similar Recommendations
     </a>
     </h1>
@@ -657,7 +657,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
             
 
             
-                <a class="meta__category-link" href="http://tech.hbc.com/category/data-science">data science</a>
+                <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
             
             
             <span class="slug-divider"></span>
@@ -704,7 +704,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
     
     </div>
     
-        <a href="http://tech.hbc.com/2017-07-31-tiefvision-2.html" class="snippet__excerpt__link" title="Visually Similar Recommendations">
+        <a href="https://tech.hbc.com/2017-07-31-tiefvision-2.html" class="snippet__excerpt__link" title="Visually Similar Recommendations">
             <p class="snippet__excerpt">
             
 
@@ -727,7 +727,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
     
     
     <h1 class="snippet__title">
-    <a href="http://tech.hbc.com/2017-04-12-pau-carre-cardona-at-oreilly-ai-conference.html" class="snippet__title__link" title="Pau Carré Cardona To Speak at O'Reilly AI Conference">
+    <a href="https://tech.hbc.com/2017-04-12-pau-carre-cardona-at-oreilly-ai-conference.html" class="snippet__title__link" title="Pau Carré Cardona To Speak at O'Reilly AI Conference">
         Pau Carré Cardona To Speak at O'Reilly AI Conference
     </a>
     </h1>
@@ -739,7 +739,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
             
 
             
-                <a class="meta__category-link" href="http://tech.hbc.com/category/data-science">data science</a>
+                <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
             
             
             <span class="slug-divider"></span>
@@ -786,7 +786,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
     
     </div>
     
-        <a href="http://tech.hbc.com/2017-04-12-pau-carre-cardona-at-oreilly-ai-conference.html" class="snippet__excerpt__link" title="Pau Carré Cardona To Speak at O'Reilly AI Conference">
+        <a href="https://tech.hbc.com/2017-04-12-pau-carre-cardona-at-oreilly-ai-conference.html" class="snippet__excerpt__link" title="Pau Carré Cardona To Speak at O'Reilly AI Conference">
             <p class="snippet__excerpt">
             The O’Reilly Artificial Intelligence Conference is coming to New York City in June. From June 27-29, the top minds in AI will be meeting for “a deep dive into emerging AI techniques and technologies with a focus on how to use it in real-world implementations.”
 
@@ -2197,28 +2197,28 @@ We undertook the decision to overhaul our job orchestration system a few months 
 </section>
         <footer class="footer">
 	<svg class="est1670" xmlns="http://www.w3.org/2000/svg">
-		<use class="hbc-tech-logo__use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#est1670" ></use>
+		<use class="hbc-tech-logo__use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#est1670" ></use>
 	</svg>
     <section class="footer__links">
 	<ul class="social-links social-links__list">
     <li class="social-links__list-item">
         <a class="social-links__link" target="_blank" rel="next" href="https://www.linkedin.com/company/hbc_digital/">
             <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
-                <use class="linkedin"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#linkedin"></use>
+                <use class="linkedin"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#linkedin"></use>
             </svg>
         </a>
     </li>
     <li class="social-links__list-item">
         <a class="social-links__link" target="_blank" rel="next" href="https://twitter.com/hbcdigital/">
             <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
-                <use class="twitter"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
+                <use class="twitter"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
             </svg>
         </a>
     </li>
     <li class="social-links__list-item">
         <a class="social-links__link" target="_blank" rel="next" href="https://www.instagram.com/hbcdigital">
             <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
-                <use class="instagram"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tech.hbc.com/assets/images/hbc-icons.svg#instagram"></use>
+                <use class="instagram"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#instagram"></use>
             </svg>
         </a>
     </li>
@@ -2228,11 +2228,11 @@ We undertook the decision to overhaul our job orchestration system a few months 
 	</section>
 </footer>
 
-        <script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/scrollmagic/ScrollMagic.min.js"></script>
-<script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/jekyll-search-js/fetch.js"></script>
-<script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
-<script type="text/javascript" src="http://tech.hbc.com/assets/js/main.js"></script>
-<script type="text/javascript" src="http://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+        <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/scrollmagic/ScrollMagic.min.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/fetch.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
