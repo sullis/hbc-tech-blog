@@ -1,5 +1,145 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.1">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2018-05-02T12:53:15-05:00</updated><id>https://tech.hbc.com/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
-</subtitle><entry><title>Why you should volunteer for Smart Futures</title><link href="https://tech.hbc.com/2018-04-20-smart-futures.html" rel="alternate" type="text/html" title="Why you should volunteer for Smart Futures" /><published>2018-04-20T00:00:00-05:00</published><updated>2018-04-20T00:00:00-05:00</updated><id>https://tech.hbc.com/smart-futures</id><content type="html" xml:base="https://tech.hbc.com/2018-04-20-smart-futures.html">&lt;p&gt;Dublin is a great place for volunteering in Tech initiatives !&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.2">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2018-05-30T14:59:35-05:00</updated><id>https://tech.hbc.com/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+</subtitle><entry><title>ODSC Workshop on Experimental Reproducibility in Data Science</title><link href="https://tech.hbc.com/2018-05-07-experimental-reproducibility-in-data-science.html" rel="alternate" type="text/html" title="ODSC Workshop on Experimental Reproducibility in Data Science" /><published>2018-05-07T00:00:00-05:00</published><updated>2018-05-07T00:00:00-05:00</updated><id>https://tech.hbc.com/experimental-reproducibility-in-data-science</id><content type="html" xml:base="https://tech.hbc.com/2018-05-07-experimental-reproducibility-in-data-science.html">&lt;p&gt;On May 2nd, we presented at the &lt;a href=&quot;https://odsc.com/boston&quot;&gt;Open Data Science Conference&lt;/a&gt; in Boston, MA. We demonstrated 
+how to build a machine learning project from scratch with &lt;a href=&quot;https://github.com/IDSIA/sacred&quot;&gt;Sacred&lt;/a&gt;, an open source 
+library for experiment tracking, and how to view the results using 
+&lt;a href=&quot;https://github.com/chovanecm/sacredboard&quot;&gt;Sacredboard&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;workshop-abstract&quot;&gt;Workshop Abstract&lt;/h1&gt;
+
+&lt;p&gt;There are ways to incorporate experimental reproducibility into machine learning projects that are clean and lightweight.
+In this introductory level workshop, we demonstrate how to use Sacred to motivate reproducible research and 
+experiment monitoring in machine learning. We discuss how this enables any data scientist to provide a solution 
+(a model or set of predictions) to any problem, compare their solution to previous models results on the same test 
+data, and select the best model for production. Finally, we provide examples of machine learning problems in retail 
+and demonstrate how data scientists can easily work across multiple problems.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-is-experimental-reproducibility&quot;&gt;What is Experimental Reproducibility&lt;/h1&gt;
+
+&lt;p&gt;Specifying the inputs, contexts, and steps involved in producing a result such that one can execute those
+instructions &lt;em&gt;and&lt;/em&gt; produce the same result.&lt;/p&gt;
+
+&lt;h1 id=&quot;machine-learning-is-experiments&quot;&gt;Machine Learning is Experiments&lt;/h1&gt;
+
+&lt;p&gt;You might be thinking, what is the connection between machine learning and experiments? Well, every time we build a 
+model, we’re making hypotheses on which data to use for training and testing, pre-processing steps to apply, features 
+and/or architectures to engineer, and learning algorithm(s) to use that will best fit our training data and generalize 
+to unseen data.&lt;/p&gt;
+
+&lt;p&gt;Additionally, we’re running these experiments from dynamic and (sometimes) complex code bases, on computing environments
+with a whole another host of specifications.&lt;/p&gt;
+
+&lt;p&gt;So, while we are not working in a wetlab, we’re definitely running experiments and making many decisions that should 
+be recorded!&lt;/p&gt;
+
+&lt;h1 id=&quot;why-do-we-need-an-approach-to-this&quot;&gt;Why do we need an approach to this&lt;/h1&gt;
+
+&lt;p&gt;Adhoc efforts at tracking experiments are &lt;strong&gt;incomplete&lt;/strong&gt;, and &lt;strong&gt;messy&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Incomplete&lt;/strong&gt;: It becomes very hard to annotate everything that we want to track: the version of the code we’re 
+running; logging the config that we’re using for a particular run of an experiment (from the steps used for 
+preprocessing to the hyperparameters used in the model); the specifications of the host where the experiment is run; 
+and so on…&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Messy&lt;/strong&gt;: We want this information to be logged in such a way that we can easily add new parameters to track (without 
+having to change a lot of code) and search through experiments that we’ve already tried. Looking through pages of a 
+notebook, or scanning excel sheets stored in various folders is not an efficient and desirable way to do this.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-should-we-track-to-make-machine-learning-reproducible&quot;&gt;What should we track to make Machine Learning reproducible?&lt;/h1&gt;
+
+&lt;p&gt;We suggest tracking the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Version Control: What is the git hash of the repository when we run the experiment? Is the code that was run in a 
+&lt;em&gt;dirty&lt;/em&gt; state (some local changes)? To take this a step further, can we just store the source code that we ran?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Config: This might include (but is not limited to) which data is loaded for training/testing, preprocessing steps, 
+learning algorithms, hyperparameters, etc&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Seed: Set/store a global seed so that any functions that have some randomness yield consistent results.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Results: Store the performance of each run so that we can compare different experimental runs
+and select the best model. For certain models, we may also want to track its performance for each training 
+step.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;enter-sacred&quot;&gt;Enter Sacred&lt;/h1&gt;
+
+&lt;p&gt;Sacred makes this possible. Sacred is a tool that is designed to introduce experimental reproducibility into 
+projects with very little overhead. There’s 3 actors in the Sacred ecosystem: &lt;strong&gt;Ingredients&lt;/strong&gt;, &lt;strong&gt;Experiments&lt;/strong&gt;, and 
+&lt;strong&gt;Observers&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;We can define &lt;strong&gt;Ingredients&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Sacred&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Ingredient&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;name_ingredient&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Ingredient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@name_ingredient.config&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Jane&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Doe&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@name_ingredient.capture&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fullname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Jane&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Doe&quot;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We can define an &lt;strong&gt;Experiment&lt;/strong&gt; that uses Ingredients to produce some outcome that we wish to record:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Sacred&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Experiment&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;my_ingredients&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name_ingredient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fullname&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;greeting_ex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Experiment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'greeting_experiment'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ingredients&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name_ingredient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@greeting_ex.config&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;greeting&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@greeting_ex.automain&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;greeting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;greeting&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;, &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fullname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Finally, we can run this experiment from the command line with an &lt;strong&gt;Observer&lt;/strong&gt; (e.g. a mongo server), which will record 
+everything we have explicitly indicated that we wish to track (any parameter defined in a function with an 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;@Ingredient.config&lt;/code&gt; decorator), along with what Sacred implicitly tracks (source code, version control info, seed, 
+host info, etc). Assuming the experiment code above is written in a file called &lt;code class=&quot;highlighter-rouge&quot;&gt;greeting_experiment.py&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python greeting_experiment.py &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; sacred
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;-m sacred&lt;/code&gt; parameter specifies that the observer should record everything to the sacred db in a local mongo 
+instance. Sacred has a powerful command line tool in which we can modify the values of parameters before an experiment 
+run.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python greeting_experiment.py &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; sacred with greeting_experiment.greeting&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Goodbye
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will return the result &lt;code class=&quot;highlighter-rouge&quot;&gt;Goodbye, Jane Doe&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Sacred is an extremely lightweight and powerful tool - we urge you to check out 
+&lt;a href=&quot;https://github.com/IDSIA/sacred&quot;&gt;Sacred&lt;/a&gt;, and our presentation materials for more examples of how to use Sacred in 
+machine learning with a variety of examples including hyperparmater optimization and model blending.&lt;/p&gt;
+
+&lt;h2 id=&quot;materials&quot;&gt;Materials&lt;/h2&gt;
+
+&lt;p&gt;Examples using Sacred to do reproducible machine learning on &lt;a href=&quot;https://www.kaggle.com/c/titanic&quot;&gt;titanic survivorship&lt;/a&gt; 
+are available here:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/gilt/odsc-2018&quot;&gt;Repository&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/gilt/odsc-2018/blob/master/slides.pdf&quot;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>[&quot;Karthik Rajasethupathy&quot;, &quot;Jason Tam&quot;]</name></author><category term="sacred" /><category term="data science" /><category term="python" /><category term="odsc2018" /><category term="workshop" /><category term="conferences" /><summary>On May 2nd, we presented at the Open Data Science Conference in Boston, MA. We demonstrated 
+how to build a machine learning project from scratch with Sacred, an open source 
+library for experiment tracking, and how to view the results using 
+Sacredboard.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tech.hbc.com{&quot;feature&quot;=&gt;&quot;experimental-reproducibility/experimental-reproducibility-unsplash.jpg&quot;, &quot;credit&quot;=&gt;&quot;Photo by Katie Smith on Unsplash&quot;, &quot;creditlink&quot;=&gt;&quot;https://unsplash.com/photos/uQs1802D0CQ&quot;}" /></entry><entry><title>Why you should volunteer for Smart Futures</title><link href="https://tech.hbc.com/2018-04-20-smart-futures.html" rel="alternate" type="text/html" title="Why you should volunteer for Smart Futures" /><published>2018-04-20T00:00:00-05:00</published><updated>2018-04-20T00:00:00-05:00</updated><id>https://tech.hbc.com/smart-futures</id><content type="html" xml:base="https://tech.hbc.com/2018-04-20-smart-futures.html">&lt;p&gt;Dublin is a great place for volunteering in Tech initiatives !&lt;/p&gt;
 
 &lt;p&gt;Two years ago I started mentoring in a &lt;a href=&quot;https://coderdojo.com/&quot;&gt;CoderDojo&lt;/a&gt;, and, at HBC we recently joined the &lt;a href=&quot;http://www.smartfutures.ie/&quot;&gt;Smart Futures&lt;/a&gt; initiative.&lt;/p&gt;
 
@@ -1392,189 +1532,4 @@ AWS did not build any api on top of it, once a job is scheduled on an existing E
 correct application id and issue a yarn kill command. We decided to not implement this feature because it would have greatly over complicated the job definition.
 Jobs running on dynamic cluster are affected by the same issue. We’ve managed to still implement this feature by simply killing the whole EMR cluster.&lt;/p&gt;
 
-&lt;p&gt;The second limitation is about live logs. As previously mentioned live logs are not implemented out of the box. Developers require to stream logs to Cloudwatch Logs and set log group and log name in the task definition.&lt;/p&gt;</content><author><name>Giovanni Gargiulo</name></author><category term="aws" /><category term="data" /><category term="sundial" /><category term="etl" /><category term="scheduling" /><category term="machine learning" /><summary>AWS Elastic Map Reduce on Sundial</summary></entry><entry><title>Revitalize Gilt City’s Order Processing with Serverless Architecture</title><link href="https://tech.hbc.com/2018-01-03-instant-voucher-serverless.html" rel="alternate" type="text/html" title="Revitalize Gilt City's Order Processing with Serverless Architecture" /><published>2018-01-03T00:00:00-05:00</published><updated>2018-01-03T00:00:00-05:00</updated><id>https://tech.hbc.com/instant-voucher-serverless</id><content type="html" xml:base="https://tech.hbc.com/2018-01-03-instant-voucher-serverless.html">&lt;h1 id=&quot;instant-vouchers-initiative&quot;&gt;Instant Vouchers Initiative&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.gilt.com/city/&quot;&gt;Gilt City&lt;/a&gt; is Gilt’s high-end voucher portal that offers localised discounts on exclusive lifestyle experiences in dining, entertainment, beauty, fitness etc to our 3.4 million members across 13 U.S. cities. Gilt City’s legacy order processing backend is a scheduled-job based architecture in which functionality such as fraud scan, payment authorisation, order fulfillment are assigned to independent jobs that process orders in batches according to order status. Though this architecture can scale to meet peak time workload and provides some level of resilience (failed orders are retried the next time the job runs), it inevitably includes some idle time i.e. wait for the next job to pick up an order from the previous job. The resulting average processing time could add up to 15 minutes.&lt;/p&gt;
-
-&lt;p&gt;Since many of Gilt City’s offers are of an impulsive nature and time-sensitive, long processing time becomes a clear bottleneck to user experience. Team Marconi in Gilt have been driving the work on the Instant Vouchers Initiative for the past few months ago, in an effort to re-architect the backend of order processing using the latest cloud technologies. We believe that by reducing this wait time, it will significantly boost overall shopping experience and enable immediate use of vouchers and, in turn, it allows for new features such as location-based push notifications.&lt;/p&gt;
-
-&lt;h1 id=&quot;an-event-driven-serverless-architecture&quot;&gt;An Event Driven, Serverless Architecture&lt;/h1&gt;
-
-&lt;p&gt;It is never easy to rewrite (or replace) a mission critical system. In our case, we have to keep the existing monolithic Ruby on Rails app running while spinning up a new pipeline. We took the strangler pattern (see this &lt;a href=&quot;https://martinfowler.com/bliki/StranglerApplication.html&quot;&gt;Martin Fowler article&lt;/a&gt; for an explanation) and built a new API layer for processing individual orders around the existing batch-processing, job-based system in the same Rails app. With this approach, the legacy job-based system gradually receives less traffic and becomes a fallback safety net to catch and retry failed orders from the instant processing pipeline.&lt;/p&gt;
-
-&lt;p&gt;The new instant order pipeline starts with the &lt;strong&gt;checkout system&lt;/strong&gt; publishing a notification to an SNS topic whenever it creates an order object. An order notification contains the order ID to allow event subscribers to look up the order object in the order key-value store. An AWS Lambda application &lt;strong&gt;order-notification-dispatcher&lt;/strong&gt; subscribes to this SNS topic and kicks off the processing by invoking an AWS Step Functions resource. See below a simplified architecture diagram of the order processing system.&lt;/p&gt;
-
-&lt;p&gt;The architecture leverages Lambda and Step Functions from the AWS Serverless suite to build several key components. At HBC, different teams have started embracing a serverless paradigm to build production applications. There are many benefits of adopting a serverless paradigm, such as abstraction from infrastructure, out-of-the-box scalability, and an on-demand cost model just to name a few. Compared to the alternative of building and maintaining an array of EC2/container instances, a serverless architecture goes a step beyond microservices to allow an even faster development iteration cycle. With the use of Step Functions as an orchestration engine, it is much easier to facilitate interaction between Lambda applications.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/2FYlarr.png&quot; alt=&quot;alt text&quot; title=&quot;Instant Order Processing Architecture&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;aws-step-functions-for-lambda-orchestration&quot;&gt;AWS Step Functions for Lambda Orchestration&lt;/h1&gt;
-
-&lt;p&gt;As mentioned above, AWS Step Functions is an orchestration service that makes it easy to coordinate stateless Lambda applications by establishing a specification to transition application states. Behind the scenes, it is depicted as a state machine constructed with the JSON-based &lt;a href=&quot;https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html&quot;&gt;Amazon States Language&lt;/a&gt;. See below a sample execution from the order-processing step function.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/RWakgNC.png&quot; alt=&quot;alt text&quot; title=&quot;An successful Step Function execution example&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;inside-step-functions&quot;&gt;Inside Step Functions&lt;/h3&gt;
-
-&lt;p&gt;At the top level the specification includes various types of &lt;a href=&quot;https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-states.html&quot;&gt;States&lt;/a&gt;, such as &lt;code class=&quot;highlighter-rouge&quot;&gt;Task&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Choice&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Wait&lt;/code&gt;, to be used to compose simple business logic to transition application state. Inside a &lt;code class=&quot;highlighter-rouge&quot;&gt;Task&lt;/code&gt; State, an AWS Lambda ARN can be specified to be invoked. The output of the Lambda will be directed as input to next State. This is an excerpt from the order-processing state machine:&lt;/p&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Comment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Order processing state machine&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;StartAt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ChangeOrderStatus&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;States&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ChangeOrderStatus&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Task&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Resource&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;arn:aws:lambda:us-east-1:1234567890:function:start-order-processing:2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TimeoutSeconds&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FraudScan&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FraudScan&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Task&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Resource&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;arn:aws:lambda:us-east-1:1234567890:function:fraud-scan:2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TimeoutSeconds&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;      
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsFraudOrder&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsFraudOrder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Choice&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Choices&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Variable&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;$.fraud_verdict&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;StringEquals&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cleared&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AuthorizePayment&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Variable&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;$.fraud_verdict&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;StringEquals&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;fraud&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FraudOrderTerminal&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;      
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AuthorizePayment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Task&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Resource&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;arn:aws:lambda:us-east-1:1234567890:function:authorize-payments:2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TimeoutSeconds&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;      
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;WarehouseChoice&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FraudOrderTerminal&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Pass&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;      
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Result&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;This is the ending state for a fraud order&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;End&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;polling-and-retry-on-errors&quot;&gt;Polling and Retry on Errors&lt;/h3&gt;
-
-&lt;p&gt;A serverless paradigm fits really well in situations where computation completes within a short time (ideally seconds). However, sometimes we still need to run a task that will take slightly longer. For example, in our pipeline, we need to keep polling a service endpoint for a fraud-scan result, since it is an async process. We implemented this by defining a retry counter &lt;code class=&quot;highlighter-rouge&quot;&gt;get_fraud_status_retries&lt;/code&gt; within a &lt;code class=&quot;highlighter-rouge&quot;&gt;Choice&lt;/code&gt; state and set a max attempt count of 60 to terminate retries.&lt;/p&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsFraudOrder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Choice&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Choices&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Variable&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;$.fraud_verdict&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;StringEquals&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cleared&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AuthorizePayment&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Variable&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;$.fraud_verdict&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;StringEquals&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;fraud&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FraudOrderTerminal&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;        
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Variable&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;$.get_fraud_status_retries&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;NumericLessThanEquals&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FraudScanWait&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Variable&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;$.get_fraud_status_retries&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;NumericGreaterThan&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FraudStatusUnavailableTerminal&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;      
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;It is also critical to make cloud applications resilient to errors such as network timeouts. Step Functions provides error handling to allow catching/retrying of some predefined errors as well as customised Lambda error types. You can specify different retry strategies with properties such as &lt;code class=&quot;highlighter-rouge&quot;&gt;MaxAttempts&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;BackoffRate&lt;/code&gt;. See the below example where we implemented a retry mechanism for different errors in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Task&lt;/code&gt; state to create redemption codes:&lt;/p&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreateRedemptionCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Task&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Resource&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;arn:aws:lambda:us-east-1:1234567890:function:create-redemption-code:3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TimeoutSeconds&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FulfillElectronicOrder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Retry&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ErrorEquals&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GatewayTimeoutError&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IntervalSeconds&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MaxAttempts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Catch&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;            
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ErrorEquals&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;States.ALL&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CatchMissingRedemptionCode&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;immutable-deployment--partial-rollout&quot;&gt;Immutable Deployment &amp;amp; Partial Rollout&lt;/h1&gt;
-
-&lt;p&gt;Deploying a mission critical service to a production environment is always a nervous process. At HBC we advocate immutable deployments whenever possible and leverage A/B testing to help us roll out new features to customers in a gradual manner. In a serverless world, it is a little different, since most of the infrastructure management is abstracted away.&lt;/p&gt;
-
-&lt;h3 id=&quot;lambda-versioning&quot;&gt;Lambda Versioning&lt;/h3&gt;
-&lt;p&gt;AWS Lambda’s &lt;a href=&quot;https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html&quot;&gt;versioning feature&lt;/a&gt; provides the ability to make Lambda functions immutable by taking a snapshot of the function (aka publishing a version). We really like this, since it ensures the Lambda function artifact as well as environment variables remain immutable once published. Note that in the above code snippets of state machine JSON, the ARN specified for each Lambda resource is Lambda version ARN instead of function ARN. We also use Lambda’s &lt;a href=&quot;https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html&quot;&gt;aliasing feature&lt;/a&gt; to have a &lt;code class=&quot;highlighter-rouge&quot;&gt;prod&lt;/code&gt; alias mapped to the current production version, with immutable environment variables:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Rj7UeTy.png&quot; alt=&quot;alt text&quot; title=&quot;Lambda Alias Mapping&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;With aliasing we can easily roll back to a previous Lambda version in case of an unexpected production failure.&lt;/p&gt;
-
-&lt;h3 id=&quot;bluegreen-stacks&quot;&gt;Blue/Green Stacks&lt;/h3&gt;
-
-&lt;p&gt;So we have immutable Lambda functions, but we still want to make our Step Functions (SF) immutable. We decided to create a new SF resource every time we release it, meanwhile the old SF resource remains unchanged. Since AWS does not currently provide a versioning feature for Step Functions, we included semantic versioning in the SF name e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;order-processing-v0.0.6&lt;/code&gt;. With both new and old versions (including historical SFs) we are able to apply a blue/green deployment and rollback procedure.&lt;/p&gt;
-
-&lt;p&gt;To route orders to either blue/green stack, we make the &lt;strong&gt;order-notification-dispatcher&lt;/strong&gt; Lambda the de facto router by providing blue/green versions of SF as its &lt;a href=&quot;https://docs.aws.amazon.com/lambda/latest/dg/env_variables.html&quot;&gt;environment variables&lt;/a&gt;. Here is the Node.js code to read the stack environment variables:&lt;/p&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stateMachineBlueVer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;STATE_MACHINE_BLUE_VER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stateMachineGreenVer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;STATE_MACHINE_GREEN_VER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;With fetched state machine stack version we can compose Step Function ARN with predefined format, then start a new execution with AWS sdk Step Function api:&lt;/p&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stateMachineVersion&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Read from environment vars&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dispatch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;orderJson&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;orderId&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;orderJson&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;order_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stateMachine&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;preProcessingStepFunctionPrefix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stateMachineVersion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
-  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;params&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;stateMachineArn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stateMachine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;orderId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;orderJson&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;  
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AWS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;StepFunctions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;startExecution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;partial-rollout&quot;&gt;Partial Rollout&lt;/h3&gt;
-
-&lt;p&gt;We make the &lt;strong&gt;order-notification-dispatcher&lt;/strong&gt; query our a/b test engine to have simple routing logic for each order notification, so that it can shift traffic to either the blue/green Step Function stack according to test/control group the order falls into. Also note that AWS recently released a nice &lt;a href=&quot;https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html&quot;&gt;traffic shifting&lt;/a&gt; feature for Lambda applications. However, we didn’t use it as our a/b test engine provides finer-grain control which allows us to target certain groups such as HBC’s internal employees. Here is a diagram depicting the partial rollout process for new Step Function resources:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/ZSyvoJ1.png&quot; alt=&quot;alt text&quot; title=&quot;Partial Rollout Process&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
-
-&lt;h3 id=&quot;what-we-have-achieved&quot;&gt;What We Have Achieved&lt;/h3&gt;
-
-&lt;p&gt;As of today all of Gilt City’s orders have been directed to the instant processing pipeline, which shortens the majority of orders’ processing time from over 15 minutes to a few seconds. We are looking to expand the system to take over more workload including physical products to bring the instant order user experience to a wider customer base.&lt;/p&gt;
-
-&lt;h3 id=&quot;step-functions-limitations&quot;&gt;Step Functions Limitations&lt;/h3&gt;
-
-&lt;p&gt;From our development exerience using AWS Step Functions we discovered some limitations of this service. First of all, it lacks of a feature like a &lt;code class=&quot;highlighter-rouge&quot;&gt;Map&lt;/code&gt; state which would take a list of input objects and transform it to another list of result objects. A possible solution could be allowing invocation of a sub SF multiple times. In our case, an order object can be split into multiple order objects depending on the items in the original order. Unfortuntely SF does not offer a State type that can map a dynamic number of elements. We eventually made the workaround by creating an &lt;strong&gt;order-pre-processing&lt;/strong&gt; SF and make it invoke the &lt;strong&gt;order-processing&lt;/strong&gt; SF multiple times to process those ‘split’ orders.&lt;/p&gt;
-
-&lt;p&gt;Secondly, we hope AWS can provide versioning/aliasing for Step Functions so we can gain immutability out of the box instead of forcing immutability on our side. Any support for blue/green deployment would be even better.&lt;/p&gt;
-
-&lt;p&gt;Also, we expect AWS to provide better filtering/searching abilities on the Step Functions dashboard so we can gain some fundamental data analytics from historical executions. This could be obtained by declaring some “searchable” fields and relative types in the SF definition.&lt;/p&gt;
-
-&lt;p&gt;In the context of AWS Enterprise Support, we (Team Marconi) had a productive meeting directly with the AWS Step Functions Product Manager during which we have suggested our list of improvements. It was gratifying to hear that most of these are already or will be included in their development roadmap.&lt;/p&gt;
-
-&lt;h3 id=&quot;future-work&quot;&gt;Future Work&lt;/h3&gt;
-&lt;p&gt;From an architecture perspective, we are trying to standardize a continous delivery process for our serverless components. At the moment, what we have is “poor man’s CI/CD” - some bash/node scripts which use AWS CloudFormation SDK to provision resources. There are various tools available either from AWS or the serverless community such as &lt;a href=&quot;https://www.terraform.io/&quot;&gt;Terraform&lt;/a&gt;, &lt;a href=&quot;https://aws.amazon.com/documentation/codepipeline/&quot;&gt;CodePipeline&lt;/a&gt; that we are trying to integrate with to provide a frictionless path to production.&lt;/p&gt;</content><author><name>Liyu Ma</name></author><category term="aws" /><category term="serverless" /><category term="lambda" /><category term="step function" /><category term="gilt city" /><category term="order processing" /><summary>Instant Vouchers Initiative</summary></entry></feed>
+&lt;p&gt;The second limitation is about live logs. As previously mentioned live logs are not implemented out of the box. Developers require to stream logs to Cloudwatch Logs and set log group and log name in the task definition.&lt;/p&gt;</content><author><name>Giovanni Gargiulo</name></author><category term="aws" /><category term="data" /><category term="sundial" /><category term="etl" /><category term="scheduling" /><category term="machine learning" /><summary>AWS Elastic Map Reduce on Sundial</summary></entry></feed>

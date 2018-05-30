@@ -1,0 +1,2234 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title> ODSC Workshop on Experimental Reproducibility in Data Science </title>
+
+        <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>ODSC Workshop on Experimental Reproducibility in Data Science | HBC Tech</title>
+<meta name="generator" content="Jekyll v3.8.2" />
+<meta property="og:title" content="ODSC Workshop on Experimental Reproducibility in Data Science" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="On May 2nd, we presented at the Open Data Science Conference in Boston, MA. We demonstrated how to build a machine learning project from scratch with Sacred, an open source library for experiment tracking, and how to view the results using Sacredboard." />
+<meta property="og:description" content="On May 2nd, we presented at the Open Data Science Conference in Boston, MA. We demonstrated how to build a machine learning project from scratch with Sacred, an open source library for experiment tracking, and how to view the results using Sacredboard." />
+<link rel="canonical" href="https://tech.hbc.com/2018-05-07-experimental-reproducibility-in-data-science.html" />
+<meta property="og:url" content="https://tech.hbc.com/2018-05-07-experimental-reproducibility-in-data-science.html" />
+<meta property="og:site_name" content="HBC Tech" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-07T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<script type="application/ld+json">
+{"description":"On May 2nd, we presented at the Open Data Science Conference in Boston, MA. We demonstrated how to build a machine learning project from scratch with Sacred, an open source library for experiment tracking, and how to view the results using Sacredboard.","@type":"BlogPosting","url":"https://tech.hbc.com/2018-05-07-experimental-reproducibility-in-data-science.html","headline":"ODSC Workshop on Experimental Reproducibility in Data Science","dateModified":"2018-05-07T00:00:00-05:00","datePublished":"2018-05-07T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.hbc.com/2018-05-07-experimental-reproducibility-in-data-science.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+        <meta property="og:title" content="ODSC Workshop on Experimental Reproducibility in Data Science" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tech.hbc.com//2018-05-07-experimental-reproducibility-in-data-science.html" />
+<meta property="og:description" content="On May 2nd, we presented at the Open Data Science Conference in Boston, MA. We demonstrated how to build a machine learning project from scratch with Sacred,..." />
+<meta property="og:image" content="https://tech.hbc.com/assets/images/blog/hbc-tech-logo-tipi.jpg" />
+<meta property="og:image:secure_url" content="https://tech.hbc.com/assets/images/experimental-reproducibility/experimental-reproducibility-unsplash.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:alt" content="experimental-reproducibility/experimental-reproducibility-unsplash.jpg" />
+
+
+        <link rel="stylesheet" href="https://tech.hbc.com/assets/css/main.css">
+        <link rel="canonical" href="https://tech.hbc.com/2018-05-07-experimental-reproducibility-in-data-science.html">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
+
+        <!-- Icons -->
+        <!-- 16x16 -->
+        <link rel="shortcut icon" href="https://tech.hbc.com/assets/images/favicon.ico">
+    </head>
+
+    <body aria-label="Content">
+        <header id="site-header" class="site-header">
+    <div class="site-header__inner">
+    	<a class="site-header__logo" href="/">
+        	<svg class="hbc-tech-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 52">
+        		<use class="hbc-tech-logo__text" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#hbc-tech-logo"></use>
+            </svg>
+    	</a>
+        <nav id="menu" class="navigation">
+    <svg class="navigation__menu-icon" xmlns="http://www.w3.org/2000/svg">
+        <path class="bar bar__top" d="M0,3 L30,3" />
+        <path class="bar bar__cross-1" d="M0,14 L30,14" />
+        <path class="bar bar__cross-2" d="M0,14 L30,14" />
+        <path class="bar bar__bottom" d="M0,25 L30,25" />
+    </svg>
+	<menu class="menu">
+		<ul class="link-list">
+		
+        
+            <li class="link-list__link-item">
+                <a href="https://tech.hbc.com/" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">Insights</span></a>
+            </li>
+        
+            <li class="link-list__link-item">
+                <a href="https://tech.hbc.com/code" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">Code</span></a>
+            </li>
+        
+            <li class="link-list__link-item">
+                <a href="https://tech.hbc.com/about" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">About</span></a>
+            </li>
+        
+            <li class="link-list__link-item">
+                <a href="https://tech.hbc.com/work-here" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">Work Here</span></a>
+            </li>
+        
+	    </ul>
+	</menu>
+</nav>
+
+        <search id="header-search" class="header-search">
+	<form class="header-search__form" action>
+	  <input type="text" class="header-search__input" id="header-search-input" placeholder=" Search" name="query">
+	</form>
+  	<svg id="header-search__toggle" class="header-search__svg" xmlns="http://www.w3.org/2000/svg" >
+		<path id="leftSearch" class="path path--left-half" d="M11.4842576,23.9891168 C5.09608476,23.7189967 0,18.4546255 0,12 C0,5.54951437 4.85419801,0.113423154 12.4763811,0.0114091479"/>
+		<path id="rightSearch" class="path path--right-half" d="M12.5376167,0.0118279089 C18.9155446,0.293025077 24,5.55274344 24,12 C24,18.4701834 17.7604297,24.3112218 11.1896721,23.9909829"/>
+		<path id="handle" class="path path--handle" d="M20.7485408,20.8914207 L26.8571202,27 L20.7485408,20.8914207"/>
+    </svg>
+    <section class="header-search__results" id="header-search__results"></section>
+</search>
+
+    </div>
+</header>
+
+        <section class="content"><article class="article">
+    <header class="article__header article__header--reveal">
+        <h1 class="header-title" title="ODSC Workshop on Experimental Reproducibility in Data Science">ODSC Workshop on Experimental Reproducibility in Data Science</h1>
+        
+        
+        <img class="hero-image" title="ODSC Workshop on Experimental Reproducibility in Data Science" src="https://tech.hbc.com/assets/images/experimental-reproducibility/experimental-reproducibility-unsplash.jpg" />
+        
+        
+
+        
+            
+        <div class="article-meta">
+            
+            <a href="https://tech.hbc.com/category/data-science" class="article-meta__category">data science</a>
+            
+        
+        
+        
+            <span class="slug-divider"></span>
+            <span class="article-meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Karthik Rajasethupathy<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                <span>,</span>
+                
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Jason Tam<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+            <span class="article-meta__date">
+                MAY 7, 2018
+            </span>
+        </div>
+    </header>
+    <section class="article__content article__content--reveal">
+        
+        <div class="article__content__read-time"><span class="read-time" title="Estimated read time">
+  
+  
+    <span class="read-time__text-1">5 min</span>
+    <span class="read-time__text-2">Read</span>
+    <span class="read-time__text-3">Time</span>
+  
+</span>
+</div>
+        <div class="article__content__share-buttons"><ul class="share-buttons">
+    <li class="share-buttons__link-item">
+        <a href="https://twitter.com/intent/tweet?text=https://tech.hbc.com//2018-05-07-experimental-reproducibility-in-data-science.html" class="share-buttons__link" title="Share on Twitter" target="_blank">
+            <svg class="hbc-svg-icon" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon--twitter" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
+            </svg>
+        </a>
+    </li>
+    <li class="share-buttons__link-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.hbc.com/&source=/2018-05-07-experimental-reproducibility-in-data-science.html&title=ODSC Workshop on Experimental Reproducibility in Data Science" class="share-buttons__link" title="Share on Linkedin" target="_blank">
+            <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#linkedin" ></use>
+            </svg>
+        </a>
+    </li>
+    <li class="share-buttons__link-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tech.hbc.com//2018-05-07-experimental-reproducibility-in-data-science.html" class="share-buttons__link" title="Share on Facebook" target="_blank">
+            <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#facebook" ></use>
+            </svg>
+        </a>
+    </li>
+    <li class="share-buttons__link-item">
+        <a href="https://www.reddit.com/submit?url=https://tech.hbc.com//2018-05-07-experimental-reproducibility-in-data-science.html" class="share-buttons__link" title="Share on Reddit" target="_blank">
+            <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#reddit" ></use>
+            </svg>
+        </a>
+    </li>
+</ul>
+</div>
+        <div class="article__content__body"><p>On May 2nd, we presented at the <a href="https://odsc.com/boston">Open Data Science Conference</a> in Boston, MA. We demonstrated 
+how to build a machine learning project from scratch with <a href="https://github.com/IDSIA/sacred">Sacred</a>, an open source 
+library for experiment tracking, and how to view the results using 
+<a href="https://github.com/chovanecm/sacredboard">Sacredboard</a>.</p>
+
+<h1 id="workshop-abstract">Workshop Abstract</h1>
+
+<p>There are ways to incorporate experimental reproducibility into machine learning projects that are clean and lightweight.
+In this introductory level workshop, we demonstrate how to use Sacred to motivate reproducible research and 
+experiment monitoring in machine learning. We discuss how this enables any data scientist to provide a solution 
+(a model or set of predictions) to any problem, compare their solution to previous models results on the same test 
+data, and select the best model for production. Finally, we provide examples of machine learning problems in retail 
+and demonstrate how data scientists can easily work across multiple problems.</p>
+
+<h1 id="what-is-experimental-reproducibility">What is Experimental Reproducibility</h1>
+
+<p>Specifying the inputs, contexts, and steps involved in producing a result such that one can execute those
+instructions <em>and</em> produce the same result.</p>
+
+<h1 id="machine-learning-is-experiments">Machine Learning is Experiments</h1>
+
+<p>You might be thinking, what is the connection between machine learning and experiments? Well, every time we build a 
+model, we’re making hypotheses on which data to use for training and testing, pre-processing steps to apply, features 
+and/or architectures to engineer, and learning algorithm(s) to use that will best fit our training data and generalize 
+to unseen data.</p>
+
+<p>Additionally, we’re running these experiments from dynamic and (sometimes) complex code bases, on computing environments
+with a whole another host of specifications.</p>
+
+<p>So, while we are not working in a wetlab, we’re definitely running experiments and making many decisions that should 
+be recorded!</p>
+
+<h1 id="why-do-we-need-an-approach-to-this">Why do we need an approach to this</h1>
+
+<p>Adhoc efforts at tracking experiments are <strong>incomplete</strong>, and <strong>messy</strong>.</p>
+
+<p><strong>Incomplete</strong>: It becomes very hard to annotate everything that we want to track: the version of the code we’re 
+running; logging the config that we’re using for a particular run of an experiment (from the steps used for 
+preprocessing to the hyperparameters used in the model); the specifications of the host where the experiment is run; 
+and so on…</p>
+
+<p><strong>Messy</strong>: We want this information to be logged in such a way that we can easily add new parameters to track (without 
+having to change a lot of code) and search through experiments that we’ve already tried. Looking through pages of a 
+notebook, or scanning excel sheets stored in various folders is not an efficient and desirable way to do this.</p>
+
+<h1 id="what-should-we-track-to-make-machine-learning-reproducible">What should we track to make Machine Learning reproducible?</h1>
+
+<p>We suggest tracking the following:</p>
+
+<ul>
+  <li>
+    <p>Version Control: What is the git hash of the repository when we run the experiment? Is the code that was run in a 
+<em>dirty</em> state (some local changes)? To take this a step further, can we just store the source code that we ran?</p>
+  </li>
+  <li>
+    <p>Config: This might include (but is not limited to) which data is loaded for training/testing, preprocessing steps, 
+learning algorithms, hyperparameters, etc</p>
+  </li>
+  <li>
+    <p>Seed: Set/store a global seed so that any functions that have some randomness yield consistent results.</p>
+  </li>
+  <li>
+    <p>Results: Store the performance of each run so that we can compare different experimental runs
+and select the best model. For certain models, we may also want to track its performance for each training 
+step.</p>
+  </li>
+</ul>
+
+<h1 id="enter-sacred">Enter Sacred</h1>
+
+<p>Sacred makes this possible. Sacred is a tool that is designed to introduce experimental reproducibility into 
+projects with very little overhead. There’s 3 actors in the Sacred ecosystem: <strong>Ingredients</strong>, <strong>Experiments</strong>, and 
+<strong>Observers</strong>.</p>
+
+<p>We can define <strong>Ingredients</strong>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">Sacred</span> <span class="kn">import</span> <span class="n">Ingredient</span>
+
+<span class="n">name_ingredient</span> <span class="o">=</span> <span class="n">Ingredient</span><span class="p">(</span><span class="s">'name'</span><span class="p">)</span>
+
+<span class="nd">@name_ingredient.config</span>
+<span class="k">def</span> <span class="nf">config</span><span class="p">():</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="s">"Jane"</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="s">"Doe"</span>
+
+<span class="nd">@name_ingredient.capture</span>
+<span class="k">def</span> <span class="nf">fullname</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">"Jane"</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="s">"Doe"</span>
+
+</code></pre></div></div>
+
+<p>We can define an <strong>Experiment</strong> that uses Ingredients to produce some outcome that we wish to record:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">Sacred</span> <span class="kn">import</span> <span class="n">Experiment</span>
+<span class="kn">from</span> <span class="nn">my_ingredients</span> <span class="kn">import</span> <span class="n">name_ingredient</span><span class="p">,</span> <span class="n">fullname</span>
+
+<span class="n">greeting_ex</span> <span class="o">=</span> <span class="n">Experiment</span><span class="p">(</span><span class="s">'greeting_experiment'</span><span class="p">,</span> <span class="n">ingredients</span><span class="o">=</span><span class="p">[</span><span class="n">name_ingredient</span><span class="p">])</span>
+
+<span class="nd">@greeting_ex.config</span>
+<span class="k">def</span> <span class="nf">config</span><span class="p">():</span>
+    <span class="n">greeting</span> <span class="o">=</span> <span class="s">"Hello"</span>
+
+<span class="nd">@greeting_ex.automain</span>
+<span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">greeting</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">greeting</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="n">fullname</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<p>Finally, we can run this experiment from the command line with an <strong>Observer</strong> (e.g. a mongo server), which will record 
+everything we have explicitly indicated that we wish to track (any parameter defined in a function with an 
+<code class="highlighter-rouge">@Ingredient.config</code> decorator), along with what Sacred implicitly tracks (source code, version control info, seed, 
+host info, etc). Assuming the experiment code above is written in a file called <code class="highlighter-rouge">greeting_experiment.py</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python greeting_experiment.py <span class="nt">-m</span> sacred
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">-m sacred</code> parameter specifies that the observer should record everything to the sacred db in a local mongo 
+instance. Sacred has a powerful command line tool in which we can modify the values of parameters before an experiment 
+run.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python greeting_experiment.py <span class="nt">-m</span> sacred with greeting_experiment.greeting<span class="o">=</span>Goodbye
+</code></pre></div></div>
+
+<p>This will return the result <code class="highlighter-rouge">Goodbye, Jane Doe</code>.</p>
+
+<p>Sacred is an extremely lightweight and powerful tool - we urge you to check out 
+<a href="https://github.com/IDSIA/sacred">Sacred</a>, and our presentation materials for more examples of how to use Sacred in 
+machine learning with a variety of examples including hyperparmater optimization and model blending.</p>
+
+<h2 id="materials">Materials</h2>
+
+<p>Examples using Sacred to do reproducible machine learning on <a href="https://www.kaggle.com/c/titanic">titanic survivorship</a> 
+are available here:</p>
+
+<ul>
+  <li><a href="https://github.com/gilt/odsc-2018">Repository</a></li>
+  <li><a href="https://github.com/gilt/odsc-2018/blob/master/slides.pdf">Slides</a></li>
+</ul>
+</div>
+        <footer class="article__content__footer">
+            
+<div class="article-tags">
+
+    <span class="article-tags__tag">sacred</span><span>,</span>
+    
+
+    <span class="article-tags__tag">data science</span><span>,</span>
+    
+
+    <span class="article-tags__tag">python</span><span>,</span>
+    
+
+    <span class="article-tags__tag">odsc2018</span><span>,</span>
+    
+
+    <span class="article-tags__tag">workshop</span><span>,</span>
+    
+
+    <span class="article-tags__tag">conferences</span>
+
+</div>
+
+
+            <!-- author bio -->
+<section class="author-bio">
+
+
+	
+
+	
+	<!-- author is a guest contributor -->
+	<svg class="author-bio__avatar" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__circle" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#circle" ></use>
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#head" ></use>
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#body" ></use>
+    </svg>
+	<span class="author-bio__name">Karthik Rajasethupathy</span>
+	
+
+
+	
+
+	
+	<!-- author is a guest contributor -->
+	<svg class="author-bio__avatar" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__circle" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#circle" ></use>
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#head" ></use>
+        <use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#body" ></use>
+    </svg>
+	<span class="author-bio__name">Jason Tam</span>
+	
+
+
+</section>
+
+        </footer>
+    </section>
+    <aside class="recirc">
+    <h2 class="header__title">Recent Insights</h2><span class="slug-divider"></span>
+    <a class="header__view-all-link" href="https://tech.hbc.com/categories/index.html">See All</a>
+    <div class="recirc__articles">
+    
+    
+    
+    
+    
+    
+
+    
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+    
+    
+    <h1 class="snippet__title">
+    <a href="https://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html" class="snippet__title__link" title="Negative Sampling (in Numpy)">
+        Negative Sampling (in Numpy)
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
+            
+            
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Jason Tam<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">MAR 23, 2018</span>
+    
+    </div>
+    
+        <a href="https://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html" class="snippet__excerpt__link" title="Negative Sampling (in Numpy)">
+            <p class="snippet__excerpt">
+            Alright, time to have some fun exploring efficient negative sampling implementations in NumPy…
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+    
+    
+    <h1 class="snippet__title">
+    <a href="https://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" class="snippet__title__link" title="Airing Out A New Job System">
+        Airing Out A New Job System
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
+            
+            
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Terry McCartan<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">MAR 5, 2018</span>
+    
+    </div>
+    
+        <a href="https://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" class="snippet__excerpt__link" title="Airing Out A New Job System">
+            <p class="snippet__excerpt">
+            In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow. 
+We undertook the decision to overhaul our job orchestration system a few months ago due to a number of reasons but have now successfully migrated all our data ingestion jobs to the new system.
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+    
+    
+    <h1 class="snippet__title">
+    <a href="https://tech.hbc.com/2017-08-04-sundial-batch.html" class="snippet__title__link" title="Sundial or AWS Batch, Why not both?">
+        Sundial or AWS Batch, Why not both?
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
+            
+            
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Kevin O'Riordan<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">AUG 4, 2017</span>
+    
+    </div>
+    
+        <a href="https://tech.hbc.com/2017-08-04-sundial-batch.html" class="snippet__excerpt__link" title="Sundial or AWS Batch, Why not both?">
+            <p class="snippet__excerpt">
+            About a year ago, we (the Gilt/HBC personalization team) open sourced Sundial , a batch job orchestration system leveraging Amazon EC2 Container Service.
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+    
+    
+    <h1 class="snippet__title">
+    <a href="https://tech.hbc.com/2017-07-31-tiefvision-2.html" class="snippet__title__link" title="Visually Similar Recommendations">
+        Visually Similar Recommendations
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
+            
+            
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Chris Curro<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">JUL 31, 2017</span>
+    
+    </div>
+    
+        <a href="https://tech.hbc.com/2017-07-31-tiefvision-2.html" class="snippet__excerpt__link" title="Visually Similar Recommendations">
+            <p class="snippet__excerpt">
+            
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    </div>
+</aside>
+
+</article>
+
+</section>
+        <footer class="footer">
+	<svg class="est1670" xmlns="http://www.w3.org/2000/svg">
+		<use class="hbc-tech-logo__use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#est1670" ></use>
+	</svg>
+    <section class="footer__links">
+	<ul class="social-links social-links__list">
+    <li class="social-links__list-item">
+        <a class="social-links__link" target="_blank" rel="next" href="https://www.linkedin.com/company/hbc_digital/">
+            <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
+                <use class="linkedin"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#linkedin"></use>
+            </svg>
+        </a>
+    </li>
+    <li class="social-links__list-item">
+        <a class="social-links__link" target="_blank" rel="next" href="https://twitter.com/hbcdigital/">
+            <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
+                <use class="twitter"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
+            </svg>
+        </a>
+    </li>
+    <li class="social-links__list-item">
+        <a class="social-links__link" target="_blank" rel="next" href="https://www.instagram.com/hbcdigital">
+            <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
+                <use class="instagram"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#instagram"></use>
+            </svg>
+        </a>
+    </li>
+</ul>
+
+	<p class="copyright">&copy; 2018 HBC Tech</i></p>
+	</section>
+</footer>
+
+        <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/scrollmagic/ScrollMagic.min.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/fetch.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-106560024-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+    </body>
+
+</html>
