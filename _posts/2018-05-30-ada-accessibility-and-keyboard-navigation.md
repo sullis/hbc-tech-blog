@@ -3,7 +3,7 @@ title: Building A Better Keyboard Navigation
 description: Zen and the art of the focus ring. What I learned while making our navigation more accessible with a keyboard.
 author: 
 - Jaret Stezelberger
-date: 2018-04-12
+date: 2018-05-30
 categories:
 - front end
 tags:
@@ -13,9 +13,9 @@ tags:
 - ADA
 - Javascript
 image:
-  feature: ~
-  credit: ~
-  creditlink: ~
+  feature: ada-keyboard-navigation/senses.png
+  credit: Photo by Dan Gold on Unsplash
+  creditlink: https://unsplash.com/photos/NiNmbsheZIg
 ---
 
 The simplest way to understand the importance of web accessibility is to open a web browser, put on a blindfold, and try navigating a website. Despite a small percentage of users with disabilities, their human right to navigate the internet still stands. In this post I'll share some of my learnings from making our navigation more accessible.
