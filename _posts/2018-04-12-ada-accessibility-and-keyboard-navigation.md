@@ -18,11 +18,10 @@ image:
   creditlink: ~
 ---
 
-The simplest way to understand the importance of web acessiblility is to open a web browser, put on a blindfold, and try navigating a website. Despite a small percentage of users with disabilities, thier human right to navigate the internet still stands. In this post I'll share some of my learnings from making our navigation more accessible.
+The simplest way to understand the importance of web accessibility is to open a web browser, put on a blindfold, and try navigating a website. Despite a small percentage of users with disabilities, their human right to navigate the internet still stands. In this post I'll share some of my learnings from making our navigation more accessible.
 
-## W3C Reccomendations for Accessibility
-
-Not familiar with this type of work, I referred to [WAI-ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices-1.1/#menu), and found the following reccomendations helpful. *Just in case, WAI stans for "Web Accessibility Initiative", and ARIA stands for "Accessible Rich Internet Application".*
+## W3C Recommendations for Accessibility
+Not familiar with this type of work, I referred to [WAI-ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices-1.1/#menu), and found the following recommendations helpful. *Just in case, WAI stans for "Web Accessibility Initiative", and ARIA stands for "Accessible Rich Internet Application".*
 
 - Leverage WAI-ARIA Roles, States, and Properties 
 - Manage Focus Inside Composite Elements
@@ -30,7 +29,7 @@ Not familiar with this type of work, I referred to [WAI-ARIA Authoring Practices
 
 	
 ### 1. Leverage Roles, States, & Properties 
-Landmark roles are are defined by many of the [HTML5 elements](https://www.w3.org/TR/2017/NOTE-wai-aria-practices-1.1-20171214/examples/landmarks/HTML5.html), For example, the `<nav>` element gets the aria role `navigation`, by default. These default roles aid assitive technologies used to browse web pages, but to make our markup more accessible, we need to also utilize aria states.
+Landmark roles are defined by many of the [HTML5 elements](https://www.w3.org/TR/2017/NOTE-wai-aria-practices-1.1-20171214/examples/landmarks/HTML5.html). For example, the `<nav>` element gets the aria role `navigation`, by default. These default roles aid assistive technologies used to browse web pages, but to make our markup more accessible, we need to also utilize aria states.
 
 Aria states like `aria-haspopup` or `aria-expanded` are what every screen reader dreams of. Using `aria-haspopup` lets screen readers know there's a submenu available. The `aria-expanded` attribute will indicate to a screen reader that a menu is expanded or callapsed, it's also great for applying UI changes with CSS, ie; opening and closing flyout menus that are being interacted with.
 
@@ -40,21 +39,21 @@ Aria states like `aria-haspopup` or `aria-expanded` are what every screen reader
 }
 ```
 
-When testing with screen readers, there were some less than useful audio feeback around the number of items in a popup menu. The screen reader didn't make it completely clear how man items were being displayed in a submenu. This was caused by various levels of nested `<UL>` elements. Stuck with our existing HTML markup for now, changing the role of each anchor element from `link` to `menuitem` produced more relevant audio feeback. I raised the idea of ditching the traditional navigation `<ul>` markup in favor of a `<span>` containing a bunch of `<a>` elements. Given everything has the correct aria attirbutes, i didn't forsee any issues, but it seams the internet still favors `<ul>` for nav structures. 
+When testing with screen readers, there were some less than useful audio feedback around the number of items in a popup menu. The screen reader didn't make it completely clear how many items were being displayed in a submenu. This was caused by various levels of nested `<ul>` elements. Stuck with our existing HTML markup for now, changing the role of each anchor element from `link` to `menuitem` produced more relevant audio feedback. I raised the idea of ditching the traditional navigation `<ul>` markup in favor of a `<span>` containing a bunch of `<a>` elements. Given everything has the correct aria attributes, I didn't forsee any issues, but it seems the internet still favors `<ul>` for nav structures. 
 
 
 ### 2. Manage the Focus Ring. (own it, don't hide it)
 Not every element on a page needs to be in the "tab order", but all interactive elements should be focusable through scripting. It's obviously not a good idea to manually set the 'tab-index' property, but setting it to '-1' allows us to focus that element with javascript. Regardless if it's a focusable elemement by default. Changing `tab-index` from -1 to 0, or using the "Roving Tab Index", is a great way to manage the focus ring and tab sequence. This also helps isolate parts of a form or a page into focusable groups, minimizing the number of tab stops to navigate. The other way is using the `aria-activedescendant`, but the benefit of `tab-index` is the user agent will scroll to bring the element into view if it's not. 
 
-WAI-ARIA Authoring Practices reccomends the tab sequence should include only one focusable element of a composite UI component. Or, the element that is to be included in the tab sequence has tabindex of "0" and all other focusable elements contained in the composite component have tabindex of "-1". For example, a nav item in a menu bar. Once a composite component contains focus, the menu bar in this case, pressing the enter key will shift focus to the first element inside of it and keys other than Tab and Shift + Tab will move focus among its focusable elements. See the section on "expected keyboard navigation" below.
+WAI-ARIA Authoring Practices recommends the tab sequence should include only one focusable element of a composite UI component. Or, the element that is to be included in the tab sequence has tabindex of "0" and all other focusable elements contained in the composite component have tabindex of "-1". For example, a nav item in a menu bar. Once a composite component contains focus, the menu bar in this case, pressing the enter key will shift focus to the first element inside of it and keys other than Tab and Shift + Tab will move focus among its focusable elements. See the section on "expected keyboard navigation" below.
 
-The important thing to highlight here, is that this technique removes unnessecary elements from the natural tab sequence, simplifying the user experience for keyboard users by not focusing every single element while tabing through a page. Instead, users can tab from component to component, choosing to dive deeper or move on. This creates a more efficient navigation and limits the number of key presses required to get to a specific part of the page. If a user is using a mouth stick to type, this is extemely helpful.  
+The important thing to highlight here, is that this technique removes unneccesary elements from the natural tab sequence, simplifying the user experience for keyboard users by not focusing every single element while tabing through a page. Instead, users can tab from component to component, choosing to dive deeper or move on. This creates a more efficient navigation and limits the number of key presses required to get to a specific part of the page. If a user is using a mouth stick to type, this is extemely helpful.  
 
 You can learn more about this technique in [5.5 Keyboard Navigation Between Components (The Tab Sequence)](https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_general_between)
 and [5.6 Keyboard Navigation Inside Components](https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_general_within).
 
 ### 3. Create Expected Keyboard Navigation
-When the user decides to dive deeper into a composite component, there are some standard key strokes and expected functionality. Some of these may not be familiar to mouse users, but are to users relying on the keyboard. W3C specifies the following keys and actions when developing a keyboard interface. A few have optional reccomendations, but specify that it's up to the author to decide. Bottom line here is to maintain a consistent functionality across your application and it's composite components. Also, making sure to move the focus ring in an expected direction or location. 
+When the user decides to dive deeper into a composite component, there are some standard key strokes and expected functionality. Some of these may not be familiar to mouse users, but are to users relying on the keyboard. W3C specifies the following keys and actions when developing a keyboard interface. A few have optional recommendations, but specify that it's up to the author to decide. Bottom line here is to maintain a consistent functionality across your application and its composite components. Also, making sure to move the focus ring in an expected direction or location. 
 
 Key              | Action                          
 -----------------|----------------------------------------------------
@@ -80,7 +79,7 @@ Below is a quick screen capture demonstrating the roving tab index technique.
 <video width="100%" autoplay="true" loop="true" name="keyboard navigation demo" src="./assets/images/ada-keyboard-navigation/keyboard-navigation-demo.mov" style="margin-top: 40px; border-bottom: solid 1px #ccc;"></video>
 
 ### Challenges
-1. In our submenus, few links in our small breakpoint menu are hidden from our large breakpoint. We needed a `setTimeout()` to put a break in the order of operations so the browser would parse the CSS and then apply our keyboard navigation code. This allowed us use 'getComputedStyle()' to skip over any elements that had `display: none;`. Otherwise, the hidden elements broke our tab sequence because the script indexed the anchor in the DOM, but because it was hidden there was nothing to focus.
+1. In our submenus, few links in our small breakpoint menu are hidden from our large breakpoint. We needed a `setTimeout()` to put a break in the order of operations so the browser would parse the CSS and then apply our keyboard navigation code. This allowed us to use 'getComputedStyle()' to skip over any elements that had `display: none;`. Otherwise, the hidden elements broke our tab sequence because the script indexed the hidden anchor elements in the DOM. Because they were hidden there was nothing to focus next in the tab order.
 
 2. Another `setTimeout()` was needed to properly focus the first item when a submenu was opened. This was because of our "fancy" transition on the submenu `<ul>` from `opacity: 0` to `opactiy: 1`. A similar problem again, focusing an item isn't possible if it's hidden, so we needed to pause our script to let that transition to run, allow the browser to render the changes and report them back, allowing javascript to get the latest, updated styles. 
 
@@ -88,10 +87,10 @@ Below is a quick screen capture demonstrating the roving tab index technique.
 
 4. Smaller breakpoints still need to be included and we have to go back and work on this. It's possible a user may have a bluetooth keyboard connected to a tablet.
 
-### Conclusions
-It's fairly easy to make your navigation more keyboard friendly and there are some great resources from the Web Accessibility Initiative that will help you do it. Going through this exercise exposed a few areas we could apply this same logic and improve our site's overall accessibility. This work also highlighted the need to internally communicate this persepctive in our [styleguide](https://styleguide.hbc.com) so our teams designing and developing new components can be aligned.
+### Conclusions & Next Steps
+It's fairly easy to make your site's navigation more keyboard friendly and there are some great resources from the Web Accessibility Initiative that will help you do it. Going through this exercise exposed a few areas we could apply this same logic and improve our site's overall accessibility. This work also highlighted the need to internally communicate this perspective in our [styleguide](https://styleguide.hbc.com) so our design and development teams can make sure we build things in an accessible way. We'll be launching our new header for [thebay.com](thebay.com) in the coming months and eventually to all our sites. 
 - Web Accessibility is a human right
 - Create efficient keyboard navigation patterns
 - Limit the number of key presses required to get to a specific part of the page
 
-So, if you're updating your site's navigation, hopefully what I've shared from our experience will help you make your nav more accessible to users who rely on a keyboard to surf the web.
+So, if you're updating your site's navigation, hopefully what we've shared from our experience will help you make your nav more accessible to users who rely on a keyboard to surf the web.

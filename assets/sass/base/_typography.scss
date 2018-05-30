@@ -115,7 +115,7 @@ h6 {
   font-family: $hbc-font-family-02;
   font-weight: 700;
   color: $hbc-gray-4;
-  margin: 40px 0 0 0;
+  margin: 40px 0 0;
 }
 
 strong {
@@ -127,6 +127,6 @@ p {
 	line-height: 145%;
 	color: $hbc-gray-3;
 	@include render-type-style(base, $type-styles);
-  margin: 10px 0 0 0;
+  margin: 10px 0 0;
 }
 
