@@ -1,6 +1,16 @@
 [
     
     {
+        "title": "Building A Better Keyboard Navigation",
+        "date": "MAY 30 2018",
+        "author": "[&quot;Jaret Stezelberger&quot;]",
+        "category": "front end",
+        "tags": "WAI-ARIA Accessibility Navigation",
+        "excerpt": "The simplest way to understand the importance of web accessibility is to open a web browser, put on a blindfold, and try navigating a website. Despite a small percentage of users with disabilities, their human right to navigate the internet still stands. In this post I’ll share some of my learnings from making our navigation more accessible.",
+        "url": "/2018-05-30-ada-accessibility-and-keyboard-navigation.html"
+    },
+    
+    {
         "title": "ODSC Workshop on Experimental Reproducibility in Data Science",
         "date": "MAY 7 2018",
         "author": "[&quot;Karthik Rajasethupathy&quot;, &quot;Jason Tam&quot;]",

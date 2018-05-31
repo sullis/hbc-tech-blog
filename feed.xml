@@ -1,5 +1,128 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.2">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2018-05-30T14:59:35-05:00</updated><id>https://tech.hbc.com/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
-</subtitle><entry><title>ODSC Workshop on Experimental Reproducibility in Data Science</title><link href="https://tech.hbc.com/2018-05-07-experimental-reproducibility-in-data-science.html" rel="alternate" type="text/html" title="ODSC Workshop on Experimental Reproducibility in Data Science" /><published>2018-05-07T00:00:00-05:00</published><updated>2018-05-07T00:00:00-05:00</updated><id>https://tech.hbc.com/experimental-reproducibility-in-data-science</id><content type="html" xml:base="https://tech.hbc.com/2018-05-07-experimental-reproducibility-in-data-science.html">&lt;p&gt;On May 2nd, we presented at the &lt;a href=&quot;https://odsc.com/boston&quot;&gt;Open Data Science Conference&lt;/a&gt; in Boston, MA. We demonstrated 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.2">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2018-05-31T10:51:09-05:00</updated><id>https://tech.hbc.com/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+</subtitle><entry><title>Building A Better Keyboard Navigation</title><link href="https://tech.hbc.com/2018-05-30-ada-accessibility-and-keyboard-navigation.html" rel="alternate" type="text/html" title="Building A Better Keyboard Navigation" /><published>2018-05-30T00:00:00-05:00</published><updated>2018-05-30T00:00:00-05:00</updated><id>https://tech.hbc.com/ada-accessibility-and-keyboard-navigation</id><content type="html" xml:base="https://tech.hbc.com/2018-05-30-ada-accessibility-and-keyboard-navigation.html">&lt;p&gt;The simplest way to understand the importance of web accessibility is to open a web browser, put on a blindfold, and try navigating a website. Despite a small percentage of users with disabilities, their human right to navigate the internet still stands. In this post I’ll share some of my learnings from making our navigation more accessible.&lt;/p&gt;
+
+&lt;h2 id=&quot;w3c-recommendations-for-accessibility&quot;&gt;W3C Recommendations for Accessibility&lt;/h2&gt;
+&lt;p&gt;Not familiar with this type of work, I referred to &lt;a href=&quot;https://www.w3.org/TR/wai-aria-practices-1.1/#menu&quot;&gt;WAI-ARIA Authoring Practices&lt;/a&gt;, and found the following recommendations helpful. &lt;em&gt;Just in case, WAI stans for “Web Accessibility Initiative”, and ARIA stands for “Accessible Rich Internet Application”.&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Leverage WAI-ARIA Roles, States, and Properties&lt;/li&gt;
+  &lt;li&gt;Manage Focus Inside Composite Elements&lt;/li&gt;
+  &lt;li&gt;All Components Need To Be Reachable Via The Keyboard&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;1-leverage-roles-states--properties&quot;&gt;1. Leverage Roles, States, &amp;amp; Properties&lt;/h3&gt;
+&lt;p&gt;Landmark roles are defined by many of the &lt;a href=&quot;https://www.w3.org/TR/2017/NOTE-wai-aria-practices-1.1-20171214/examples/landmarks/HTML5.html&quot;&gt;HTML5 elements&lt;/a&gt;. For example, the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;nav&amp;gt;&lt;/code&gt; element gets the aria role &lt;code class=&quot;highlighter-rouge&quot;&gt;navigation&lt;/code&gt;, by default. These default roles aid assistive technologies used to browse web pages, but to make our markup more accessible, we need to also utilize aria states.&lt;/p&gt;
+
+&lt;p&gt;Aria states like &lt;code class=&quot;highlighter-rouge&quot;&gt;aria-haspopup&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;aria-expanded&lt;/code&gt; are what every screen reader dreams of. Using &lt;code class=&quot;highlighter-rouge&quot;&gt;aria-haspopup&lt;/code&gt; lets screen readers know there’s a submenu available. The &lt;code class=&quot;highlighter-rouge&quot;&gt;aria-expanded&lt;/code&gt; attribute will indicate to a screen reader that a menu is expanded or callapsed, it’s also great for applying UI changes with CSS, ie; opening and closing flyout menus that are being interacted with.&lt;/p&gt;
+
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.nav_link&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;aria-expanded&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:hover&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When testing with screen readers, there were some less than useful audio feedback around the number of items in a popup menu. The screen reader didn’t make it completely clear how many items were being displayed in a submenu. This was caused by various levels of nested &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; elements. Stuck with our existing HTML markup for now, changing the role of each anchor element from &lt;code class=&quot;highlighter-rouge&quot;&gt;link&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;menuitem&lt;/code&gt; produced more relevant audio feedback. I raised the idea of ditching the traditional navigation &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; markup in favor of a &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;span&amp;gt;&lt;/code&gt; containing a bunch of &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;a&amp;gt;&lt;/code&gt; elements. Given everything has the correct aria attributes, I didn’t forsee any issues, but it seems the internet still favors &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; for nav structures.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-manage-the-focus-ring-own-it-dont-hide-it&quot;&gt;2. Manage the Focus Ring. (own it, don’t hide it)&lt;/h3&gt;
+&lt;p&gt;Not every element on a page needs to be in the “tab order”, but all interactive elements should be focusable through scripting. It’s obviously not a good idea to manually set the ‘tab-index’ property, but setting it to ‘-1’ allows us to focus that element with javascript. Regardless if it’s a focusable elemement by default. Changing &lt;code class=&quot;highlighter-rouge&quot;&gt;tab-index&lt;/code&gt; from -1 to 0, or using the “Roving Tab Index”, is a great way to manage the focus ring and tab sequence. This also helps isolate parts of a form or a page into focusable groups, minimizing the number of tab stops to navigate. The other way is using the &lt;code class=&quot;highlighter-rouge&quot;&gt;aria-activedescendant&lt;/code&gt;, but the benefit of &lt;code class=&quot;highlighter-rouge&quot;&gt;tab-index&lt;/code&gt; is the user agent will scroll to bring the element into view if it’s not.&lt;/p&gt;
+
+&lt;p&gt;WAI-ARIA Authoring Practices recommends the tab sequence should include only one focusable element of a composite UI component. Or, the element that is to be included in the tab sequence has tabindex of “0” and all other focusable elements contained in the composite component have tabindex of “-1”. For example, a nav item in a menu bar. Once a composite component contains focus, the menu bar in this case, pressing the enter key will shift focus to the first element inside of it and keys other than Tab and Shift + Tab will move focus among its focusable elements. See the section on “expected keyboard navigation” below.&lt;/p&gt;
+
+&lt;p&gt;The important thing to highlight here, is that this technique removes unneccesary elements from the natural tab sequence, simplifying the user experience for keyboard users by not focusing every single element while tabing through a page. Instead, users can tab from component to component, choosing to dive deeper or move on. This creates a more efficient navigation and limits the number of key presses required to get to a specific part of the page. If a user is using a mouth stick to type, this is extemely helpful.&lt;/p&gt;
+
+&lt;p&gt;You can learn more about this technique in &lt;a href=&quot;https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_general_between&quot;&gt;5.5 Keyboard Navigation Between Components (The Tab Sequence)&lt;/a&gt;
+and &lt;a href=&quot;https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_general_within&quot;&gt;5.6 Keyboard Navigation Inside Components&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-create-expected-keyboard-navigation&quot;&gt;3. Create Expected Keyboard Navigation&lt;/h3&gt;
+&lt;p&gt;When the user decides to dive deeper into a composite component, there are some standard key strokes and expected functionality. Some of these may not be familiar to mouse users, but are to users relying on the keyboard. W3C specifies the following keys and actions when developing a keyboard interface. A few have optional recommendations, but specify that it’s up to the author to decide. Bottom line here is to maintain a consistent functionality across your application and its composite components. Also, making sure to move the focus ring in an expected direction or location.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Key&lt;/th&gt;
+      &lt;th&gt;Action&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Space or Enter&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Opens the submenu and places focus on its first item.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Down Arrow&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Opens its submenu and places focus on the first item in the submenu.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Up Arrow&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Moves focus to the previous item, optionally wrapping from the first to the last.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Right Arrow&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Moves focus to the next item, optionally wrapping from the last to the first.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Left Arrow&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Moves focus to the previous item, optionally wrapping from the last to the first.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Home&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Moves focus to the first item in the current menu or menubar.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;End&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Moves focus to the last item in the current menu or menubar.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Any key&lt;/strong&gt; that corresponds to a printable character&lt;/td&gt;
+      &lt;td&gt;Moves focus to the next menu item in the current menu whose label begins with that printable character.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Escape&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Closes the menu that contains focus and return focus to the element or context&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tab&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Moves focus to the next element in the tab sequence, and if the item that had focus is not in a menubar, closes its menu and all open parent menu containers.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Shift + Tab&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Moves focus to the previous element in the tab sequence, and if the item that had focus is not in a menubar, closes its menu and all open parent menu containers.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;For the full spec on keyboard navigation, you can refer to the W3C spec &lt;a href=&quot;https://www.w3.org/TR/wai-aria-practices-1.1/#keyboard-interaction-11&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;implementation-tid-bits&quot;&gt;Implementation Tid Bits&lt;/h3&gt;
+&lt;p&gt;We started with the example scripts that W3C provides in their &lt;a href=&quot;https://www.w3.org/TR/wai-aria-practices-1.1/examples/menubar/menubar-1/menubar-1.html&quot;&gt;menubar demos&lt;/a&gt;. These are free to use, fairly simple to follow and made a great starting point. The main class is applied during the React lifecycle at &lt;code class=&quot;highlighter-rouge&quot;&gt;componentDidMount()&lt;/code&gt; and passed our navigation &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;ul&amp;gt;&lt;/code&gt;. It simply traverses the DOM for &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;ul&amp;gt;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;li&amp;gt;&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;a&amp;gt;&lt;/code&gt; elements setting the appropriate states and attributes for each. We added a data-column attribute to our react template to help traverse back up the dom tree to easily provide users with the ability to navigate between columns using the left and right arrow keys.&lt;/p&gt;
+
+&lt;p&gt;Below is a quick screen capture demonstrating the roving tab index technique.&lt;/p&gt;
+&lt;video width=&quot;100%&quot; autoplay=&quot;true&quot; loop=&quot;true&quot; name=&quot;keyboard navigation demo&quot; src=&quot;./assets/images/ada-keyboard-navigation/keyboard-navigation-demo.mov&quot; style=&quot;margin-top: 40px; border-bottom: solid 1px #ccc;&quot;&gt;&lt;/video&gt;
+
+&lt;h3 id=&quot;challenges&quot;&gt;Challenges&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;In our submenus, few links in our small breakpoint menu are hidden from our large breakpoint. We needed a &lt;code class=&quot;highlighter-rouge&quot;&gt;setTimeout()&lt;/code&gt; to put a break in the order of operations so the browser would parse the CSS and then apply our keyboard navigation code. This allowed us to use ‘getComputedStyle()’ to skip over any elements that had &lt;code class=&quot;highlighter-rouge&quot;&gt;display: none;&lt;/code&gt;. Otherwise, the hidden elements broke our tab sequence because the script indexed the hidden anchor elements in the DOM. Because they were hidden there was nothing to focus next in the tab order.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Another &lt;code class=&quot;highlighter-rouge&quot;&gt;setTimeout()&lt;/code&gt; was needed to properly focus the first item when a submenu was opened. This was because of our “fancy” transition on the submenu &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;opacity: 0&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;opactiy: 1&lt;/code&gt;. A similar problem again, focusing an item isn’t possible if it’s hidden, so we needed to pause our script to let that transition to run, allow the browser to render the changes and report them back, allowing javascript to get the latest, updated styles.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Having 2 actions for each nav item, one for the category landing page, and the other for the popup. This isn’t apparent when using a mouse and having the hover effect, but with just a keyboard, it needs to be clear to the user that there are 2 options. For now, we’ve styled the element with a down arrow when it’s in focus, gave the element a role of &lt;code class=&quot;highlighter-rouge&quot;&gt;link&lt;/code&gt;, and an attribute of &lt;code class=&quot;highlighter-rouge&quot;&gt;aria-haspopup&lt;/code&gt;. This provides visual and audio feedback. Optionally, and perhaps a future improvement would be to create a second element to focus and control the popup menu, separating it from the link to the category page. The W3C provides their own guidance on this &lt;a href=&quot;https://www.w3.org/WAI/tutorials/menus/flyout/#flyoutnavkbbtn&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Smaller breakpoints still need to be included and we have to go back and work on this. It’s possible a user may have a bluetooth keyboard connected to a tablet.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;conclusions--next-steps&quot;&gt;Conclusions &amp;amp; Next Steps&lt;/h3&gt;
+&lt;p&gt;It’s fairly easy to make your site’s navigation more keyboard friendly and there are some great resources from the Web Accessibility Initiative that will help you do it. Going through this exercise exposed a few areas we could apply this same logic and improve our site’s overall accessibility. This work also highlighted the need to internally communicate this perspective in our &lt;a href=&quot;https://styleguide.hbc.com&quot;&gt;styleguide&lt;/a&gt; so our design and development teams can make sure we build things in an accessible way. We’ll be launching our new header for &lt;a href=&quot;thebay.com&quot;&gt;thebay.com&lt;/a&gt; in the coming months and eventually to all our sites.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Web Accessibility is a human right&lt;/li&gt;
+  &lt;li&gt;Create efficient keyboard navigation patterns&lt;/li&gt;
+  &lt;li&gt;Limit the number of key presses required to get to a specific part of the page&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So, if you’re updating your site’s navigation, hopefully what we’ve shared from our experience will help you make your nav more accessible to users who rely on a keyboard to surf the web.&lt;/p&gt;</content><author><name>[&quot;Jaret Stezelberger&quot;]</name></author><category term="WAI-ARIA" /><category term="Accessibility" /><category term="Navigation" /><category term="ADA" /><category term="Javascript" /><summary>The simplest way to understand the importance of web accessibility is to open a web browser, put on a blindfold, and try navigating a website. Despite a small percentage of users with disabilities, their human right to navigate the internet still stands. In this post I’ll share some of my learnings from making our navigation more accessible.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tech.hbc.com{&quot;feature&quot;=&gt;&quot;ada-keyboard-navigation/senses.png&quot;, &quot;credit&quot;=&gt;&quot;Photo by Dan Gold on Unsplash&quot;, &quot;creditlink&quot;=&gt;&quot;https://unsplash.com/photos/NiNmbsheZIg&quot;}" /></entry><entry><title>ODSC Workshop on Experimental Reproducibility in Data Science</title><link href="https://tech.hbc.com/2018-05-07-experimental-reproducibility-in-data-science.html" rel="alternate" type="text/html" title="ODSC Workshop on Experimental Reproducibility in Data Science" /><published>2018-05-07T00:00:00-05:00</published><updated>2018-05-07T00:00:00-05:00</updated><id>https://tech.hbc.com/experimental-reproducibility-in-data-science</id><content type="html" xml:base="https://tech.hbc.com/2018-05-07-experimental-reproducibility-in-data-science.html">&lt;p&gt;On May 2nd, we presented at the &lt;a href=&quot;https://odsc.com/boston&quot;&gt;Open Data Science Conference&lt;/a&gt; in Boston, MA. We demonstrated 
 how to build a machine learning project from scratch with &lt;a href=&quot;https://github.com/IDSIA/sacred&quot;&gt;Sacred&lt;/a&gt;, an open source 
 library for experiment tracking, and how to view the results using 
 &lt;a href=&quot;https://github.com/chovanecm/sacredboard&quot;&gt;Sacredboard&lt;/a&gt;.&lt;/p&gt;
@@ -1296,240 +1419,4 @@ We undertook the decision to overhaul our job orchestration system a few months 
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;One final piece of advice: title systems and career paths are frameworks that exist to help us; they’re a tool that should enable us, not restrict us or box us in. While we have leaders-who-code (e.g. directors of engineering optimising our caching architecture), we also have coders-who-lead on some of our teams (e.g. principal engineers leading teams working on a technical area like ElasticSearch); and, this is as it should be. We flex the framework to our needs. And, if we find that this framework breaks, we’ll fix it, and perhaps write another post to let you know what we learnt.&lt;/p&gt;</content><author><name>Adrian Trenaman</name></author><category term="culture" /><category term="career path" /><category term="titles" /><summary>In this article, I’m going to talk about career structure, career development, and career titles in a tech organisation. This post is more about organisational development than it is about technology; however, on the grounds that the health of your architecture and technology choices will be somewhat isomorphic to the health of your organisation, I believe this to be a worthwhile read for any engineering leader. I’m also writing this for anyone who is considering joining HBC Tech, so that they can understand our approach, and the meaning we give to our titles.</summary></entry><entry><title>Sundial AWS EMR Integration</title><link href="https://tech.hbc.com/2018-01-16-sundial-aws-emr-integration.html" rel="alternate" type="text/html" title="Sundial AWS EMR Integration" /><published>2018-01-16T00:00:00-05:00</published><updated>2018-01-16T00:00:00-05:00</updated><id>https://tech.hbc.com/sundial-aws-emr-integration</id><content type="html" xml:base="https://tech.hbc.com/2018-01-16-sundial-aws-emr-integration.html">&lt;h1 id=&quot;aws-elastic-map-reduce-on-sundial&quot;&gt;AWS Elastic Map Reduce on Sundial&lt;/h1&gt;
-
-&lt;p&gt;Today I want to talk about a recent improvement we implemented in &lt;a href=&quot;https://github.com/gilt/sundial&quot;&gt;Sundial&lt;/a&gt;, an Open Source product launched by Gilt in early 2016. With &lt;a href=&quot;https://github.com/gilt/sundial/releases/tag/v2.0.0&quot;&gt;Sundial 2.0.0&lt;/a&gt; it’s now possible to schedule AWS Elastic Map Reduce jobs.&lt;/p&gt;
-
-&lt;p&gt;For those of you who are not familiar with it, &lt;a href=&quot;https://github.com/gilt/sundial&quot;&gt;Sundial&lt;/a&gt; is a batch job scheduler, developed by the Gilt Personalization Team, that works with Amazon ECS and Amazon Batch.&lt;/p&gt;
-
-&lt;p&gt;Before jumping into the nitty gritty details, it’s worth taking a deeper dive into the current batch job processing setup in Gilt and the challenges we have recently started to face.&lt;/p&gt;
-
-&lt;p&gt;We will quickly cover the following areas:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;the current batch jobs setup&lt;/li&gt;
-  &lt;li&gt;batch job scalability&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;batch-processing-today&quot;&gt;Batch processing today&lt;/h2&gt;
-
-&lt;p&gt;Every night, the Gilt Aster data warehouse (DW) is locked down in order to update it with the latest data coming from the relevant area of the business. During this lock, Extract-Transform-Load (&lt;a href=&quot;https://www.webopedia.com/TERM/E/ETL.html&quot;&gt;ETL&lt;/a&gt;) suites, or &lt;a href=&quot;https://www.ironsidegroup.com/2015/03/01/_ETL_-vs-elt-whats-the-big-difference/&quot;&gt;ELT as we prefer to call it&lt;/a&gt;, are
-run. 
-When all the jobs complete, the DW gets unlocked and the normal access to Aster is resumed. There are a number of client systems relying on the DW, most relevant are BI tools, i.e &lt;a href=&quot;https://looker.com/&quot;&gt;Looker&lt;/a&gt;, and Sundial.
-Sundial in particular is used in personalization for scheduling additional jobs and to build Machine Learning models. Since there is no synchronization between Aster and Sundial, occasionally when Aster takes longer to complete, Sundial jobs would fail because of the DW being still locked down or data being stale.&lt;/p&gt;
-
-&lt;h2 id=&quot;performance-degradation&quot;&gt;Performance degradation&lt;/h2&gt;
-
-&lt;p&gt;Because Aster is a shared resource, and the number of jobs relying on it is increasing day by day, in the past few weeks we’ve experienced significant performance degradation.
-This issue is particularly amplified at a specific time of the week, when BI reports are generated. The result is that batch jobs and reports are taking longer and longer to complete. 
-This of course affects developers experience and productivity.&lt;/p&gt;
-
-&lt;h2 id=&quot;emr-adoption&quot;&gt;EMR adoption&lt;/h2&gt;
-
-&lt;p&gt;Because of all the nuisances above, there is additional operational time spent to restart failed jobs. Furthermore, when developing a new model, 
-most of the time is spent extracting and massaging data, rather than focusing on the actual job logic.&lt;/p&gt;
-
-&lt;p&gt;It’s easy to understand that Aster wasn’t a good candidate anymore for us and that we needed to migrate to a better and more &lt;a href=&quot;https://en.wikipedia.org/wiki/Elasticity_(cloud_computing)&quot;&gt;elastic&lt;/a&gt; platform.&lt;/p&gt;
-
-&lt;p&gt;The solution we were looking for should:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;work with multiple data formats&lt;/li&gt;
-  &lt;li&gt;be scalable&lt;/li&gt;
-  &lt;li&gt;be owned by the team&lt;/li&gt;
-  &lt;li&gt;be easy to integrate with our scheduling solution&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;We didn’t have to look far to find a great candidate to solve our problems: Spark running on &lt;a href=&quot;https://aws.amazon.com/emr/&quot;&gt;AWS EMR (Elastic Map Reduce)&lt;/a&gt;. Amazon EMR provides a managed Hadoop framework that makes it easy, fast, and cost-effective to process vast amounts of data across dynamically scalable Amazon EC2 instances. 
-You can also run other popular distributed frameworks such as Apache Spark, HBase, Presto, and Flink in Amazon EMR, and interact with data in other AWS data stores such as Amazon S3 and Amazon DynamoDB.&lt;/p&gt;
-
-&lt;p&gt;A complete list of open source applications (or components) running on AWS ERM can be found &lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;AWS EMR also offers a nice SDK to spin a new dynamic EMR cluster, run a job and tear down resources &lt;em&gt;on the fly&lt;/em&gt; and a cost per second billing system so to make the whole platform very cost efficient.&lt;/p&gt;
-
-&lt;p&gt;The last two perks of using AWS EMR are:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://aws.amazon.com/ec2/spot/&quot;&gt;AWS Spot Instances&lt;/a&gt;: running hardware at a discounted price&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-supported-instance-types.html&quot;&gt;Large variety of hardware&lt;/a&gt;: most of ELT jobs run on commodity hardware, some ML require intensive GPU computation and EMR offers hardware solutions for all of our use cases.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;the-sundial-emr-integration&quot;&gt;The Sundial EMR Integration&lt;/h2&gt;
-
-&lt;p&gt;Since we were already using Sundial for most of our ETL and ML heavy lifting, we decided to extend the Sundial &lt;code class=&quot;highlighter-rouge&quot;&gt;task_definition&lt;/code&gt; and add a new &lt;code class=&quot;highlighter-rouge&quot;&gt;executable&lt;/code&gt;: the &lt;code class=&quot;highlighter-rouge&quot;&gt;emr_command&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Features we’ve implemented are:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;running a Spark EMR job on a pre-existing cluster&lt;/li&gt;
-  &lt;li&gt;running a Spark EMR job on a new created-on-the-fly cluster (and automatic tear down of resources)&lt;/li&gt;
-  &lt;li&gt;choose between &lt;code class=&quot;highlighter-rouge&quot;&gt;on_demand&lt;/code&gt; vs &lt;code class=&quot;highlighter-rouge&quot;&gt;spot&lt;/code&gt; instances&lt;/li&gt;
-  &lt;li&gt;live logs&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In the next two paragraphs I will go through two Sundial EMR task definition examples: the first is a Spark EMR job running on a pre-existing cluster, the second is the same job but running on a dynamically created cluster instead.&lt;/p&gt;
-
-&lt;h3 id=&quot;running-a-job-on-a-pre-existing-emr-cluster&quot;&gt;Running a job on a pre-existing EMR Cluster&lt;/h3&gt;
-
-&lt;p&gt;Launching an EMR job on a pre-existing cluster is really simple, all that you need are some job details and the &lt;code class=&quot;highlighter-rouge&quot;&gt;cluster_id&lt;/code&gt; where you want the job to run.&lt;/p&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;executable&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr_command&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr_cluster&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;existing_emr_cluster&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cluster_id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;j-123ABC456DEF9&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;job_name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MyJobName1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;region&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;us-east-1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;class&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;com.company.job.spark.core.MainClass&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;s3_jar_path&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;s3://my-spark-job-release-bucket/my-job-spark-v1-0-0.jar&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;spark_conf&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;spark.driver.extraJavaOptions=-Denvironment=production&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;args&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;arg1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;arg2&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;s3_log_details&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;log_group_name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;spark-emr-log-group&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;log_stream_name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;spark-emr-log-stream&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The other properties are:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;em&gt;class&lt;/em&gt;: the fully qualified main class of the job, e.g. “com.company.job.spark.core.MainClass”&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;s3_jar_path&lt;/em&gt;: the s3 path to the job jar file e.g “s3://my-spark-job-release-bucket/my-job-spark-v1-0-0.jar”&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;spark_conf&lt;/em&gt;: this is a &lt;strong&gt;list&lt;/strong&gt; of attributes that you can pass to the spark driver, like memory or Java Opts (as per above example)&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;args&lt;/em&gt;: another list of params that will be passed to the &lt;strong&gt;MainClass&lt;/strong&gt; as arguments (as per above example)&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;s3_log_details&lt;/em&gt;: Cloudwatch Log Group and Stream names for your job. See &lt;a href=&quot;#emr-logs&quot;&gt;EMR Logs paragraph&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;emr-logs&quot;&gt;EMR Logs&lt;/h4&gt;
-
-&lt;p&gt;One nice feature of Sundial is the possibility of viewing jobs’ live logs. While AWS Elastic Container Service (ECS) and Batch natively offer 
-a way to access live logs, EMR updates logs only every five minutes on S3 and it cannot be used as feed for live logs. Since there isn’t a straightforward way of fixing this, it is developer’s 
-responsibility to implement the code that streams job’s log to &lt;a href=&quot;https://aws.amazon.com/cloudwatch/&quot;&gt;AWS Cloudwatch Logs&lt;/a&gt;. One way of achieving this is via the &lt;a href=&quot;https://github.com/speedwing/log4j-cloudwatch-appender&quot;&gt;log4j-cloudwatch-appender&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The downside of having jobs running on &lt;em&gt;static&lt;/em&gt; AWS EMR clusters is that you will be paying for it even if no jobs are running. For this reason it would be ideal if we could spin up an EMR cluster &lt;em&gt;on-the-fly&lt;/em&gt;, run a Spark job and then dispose all the resources.&lt;/p&gt;
-
-&lt;p&gt;If you want to know more, well, keep reading!&lt;/p&gt;
-
-&lt;h3 id=&quot;running-a-job-on-a-dynamic-emr-cluster&quot;&gt;Running a job on a dynamic EMR Cluster&lt;/h3&gt;
-
-&lt;p&gt;The Sundial Task definition that uses a dynamic cluster is fairly more complex and gives you some fine grained control when provisioning your cluster. 
-At the same time though, if your jobs don’t require very specific configurations (e.g. permissions, aws market type), sensible default options have been provided so to simplify the 
-Task Definition where possible.&lt;/p&gt;
-
-&lt;p&gt;Let’s dig into the different sections of the json template.&lt;/p&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr_cluster&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;new_emr_cluster&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;My Cluster Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;release_label&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr-5.11.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;applications&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Spark&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;s3_log_uri&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;s3://cluster-log-bucket&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;master_instance&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr_instance_type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;m4.large&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;instance_count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;aws_market&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-           &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;on_demand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;on_demand&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;core_instance&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr_instance_type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;m4.xlarge&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;instance_count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;aws_market&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-           &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;on_demand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;on_demand&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr_service_role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;default_emr_service_role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;EMR_DefaultRole&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr_job_flow_role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;default_emr_job_flow_role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;EMR_EC2_DefaultRole&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ec2_subnet&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;subnet-a123456b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;visible_to_all_users&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The json object name for a &lt;em&gt;dynamic emr cluster&lt;/em&gt; is &lt;code class=&quot;highlighter-rouge&quot;&gt;new_emr_cluster&lt;/code&gt;. It is composed by the following attributes:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;em&gt;name&lt;/em&gt;: The name that will appear on the AWS EMR console&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;release_label&lt;/em&gt;: The EMR version of the cluster to create. Each EMR version maps to specific version of the applications that can run in the EMR cluster. Additional details are available on the &lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html&quot;&gt;AWS EMR components page&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;applications&lt;/em&gt;: The list of applications to launch on the cluster. For a comprehensive list of available applications, visit the &lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html&quot;&gt;AWS EMR components page&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;s3_log_uri&lt;/em&gt;: The s3 bucket where the EMR cluster put their log files. These are both cluster logs as well as &lt;code class=&quot;highlighter-rouge&quot;&gt;stdout&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;stderr&lt;/code&gt; of the EMR job&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;master_instance&lt;/em&gt;: The master node hardware details (see below for more details.)&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;core_instance&lt;/em&gt;: The core node hardware details (see below for more details.)&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;task_instance&lt;/em&gt;: The task node hardware details (see below for more details.)&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;emr_service_role&lt;/em&gt;: The IAM role that Amazon EMR assumes to access AWS resources on your behalf. For more information, see &lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html&quot;&gt;Configure IAM Roles for Amazon EMR&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;emr_job_flow_role&lt;/em&gt;: (Also called instance profile and EC2 role.) Accepts an instance profile that’s associated with the role that you want to use. All EC2 instances in the cluster assume this role. For more information, see &lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-what-is-emr.html&quot;&gt;Create and Use IAM Roles for Amazon EMR&lt;/a&gt; in the Amazon EMR Management Guide&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;ec2_subnet&lt;/em&gt;: The subnet where to spin the EMR cluster. (Optional if the account has only the standard VPC)&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;visible_to_all_users&lt;/em&gt;: Indicates whether the instances in the cluster are visible to all IAM users in the AWS account. If you specify true, all IAM users can view and (if they have permissions) manage the instances. If you specify false, only the IAM user that created the cluster can view and manage it&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;master-core-and-task-instances&quot;&gt;Master, core and task instances&lt;/h4&gt;
-
-&lt;p&gt;An EMR cluster is composed by exactly one master instance, at least one core instance and any number of tasks instances.&lt;/p&gt;
-
-&lt;p&gt;A detailed explanation of the different instance types is available in the &lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-instances.html&quot;&gt;AWS EMR plan instances page&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;For simplicity I’ll paste a snippet of the AWS official documentation:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;master node: The master node manages the cluster and typically runs master components of distributed applications. For example, the master node runs the YARN ResourceManager service to manage resources for applications, as well as the HDFS NameNode service. It also tracks the status of jobs submitted to the cluster and monitors the health of the instance groups. Because there is only one master node, the instance group or instance fleet consists of a single EC2 instance.&lt;/li&gt;
-    &lt;li&gt;core node: Core nodes are managed by the master node. Core nodes run the Data Node daemon to coordinate data storage as part of the Hadoop Distributed File System (HDFS). They also run the Task Tracker daemon and perform other parallel computation tasks on data that installed applications require.&lt;/li&gt;
-    &lt;li&gt;task node: Task nodes are optional. You can use them to add power to perform parallel computation tasks on data, such as Hadoop MapReduce tasks and Spark executors. Task nodes don’t run the Data Node daemon, nor do they store data in HDFS.&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The json below describes configuration details of an EMR master instance:&lt;/p&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;master_instance&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr_instance_type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;m4.large&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;instance_count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;aws_market&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;on_demand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;on_demand&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Please note that there can only be exactly one master node, if a different values is specified in the &lt;code class=&quot;highlighter-rouge&quot;&gt;instance_count&lt;/code&gt;, it is ignored. For other instance group types the 
-value &lt;code class=&quot;highlighter-rouge&quot;&gt;instance_count&lt;/code&gt; represents, as the name says, the number of EC2 instances to launch for that instance type.&lt;/p&gt;
-
-&lt;p&gt;Other attributes are:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;em&gt;emr_instance_type&lt;/em&gt;: the EC2 instance type to use when launching the EMR instance&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;aws_market&lt;/em&gt;: the marketplace to provision instances for this group. It can be either &lt;code class=&quot;highlighter-rouge&quot;&gt;on_demand&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;spot&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;An example of a EMR instance using spot is:&lt;/p&gt;
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;aws_market&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;spot&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;bid_price&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.07&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Where &lt;code class=&quot;highlighter-rouge&quot;&gt;bid_price&lt;/code&gt; is the Spot bid price in dollars.&lt;/p&gt;
-
-&lt;h2 id=&quot;limitations&quot;&gt;Limitations&lt;/h2&gt;
-
-&lt;p&gt;Because of some AWS EMR implementation details, Sundial has two major limitations when it comes to EMR job scheduling.&lt;/p&gt;
-
-&lt;p&gt;The first limitation is that Sundial is not able to stop EMR jobs running on pre-existing clusters. Since jobs on the EMR cluster are scheduled via &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; and since 
-AWS did not build any api on top of it, once a job is scheduled on an existing EMR cluster, in order to kill it, it would be required to ssh on the EC2 instance where the master node is running, query &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; so to find out the
-correct application id and issue a yarn kill command. We decided to not implement this feature because it would have greatly over complicated the job definition.
-Jobs running on dynamic cluster are affected by the same issue. We’ve managed to still implement this feature by simply killing the whole EMR cluster.&lt;/p&gt;
-
-&lt;p&gt;The second limitation is about live logs. As previously mentioned live logs are not implemented out of the box. Developers require to stream logs to Cloudwatch Logs and set log group and log name in the task definition.&lt;/p&gt;</content><author><name>Giovanni Gargiulo</name></author><category term="aws" /><category term="data" /><category term="sundial" /><category term="etl" /><category term="scheduling" /><category term="machine learning" /><summary>AWS Elastic Map Reduce on Sundial</summary></entry></feed>
+&lt;p&gt;One final piece of advice: title systems and career paths are frameworks that exist to help us; they’re a tool that should enable us, not restrict us or box us in. While we have leaders-who-code (e.g. directors of engineering optimising our caching architecture), we also have coders-who-lead on some of our teams (e.g. principal engineers leading teams working on a technical area like ElasticSearch); and, this is as it should be. We flex the framework to our needs. And, if we find that this framework breaks, we’ll fix it, and perhaps write another post to let you know what we learnt.&lt;/p&gt;</content><author><name>Adrian Trenaman</name></author><category term="culture" /><category term="career path" /><category term="titles" /><summary>In this article, I’m going to talk about career structure, career development, and career titles in a tech organisation. This post is more about organisational development than it is about technology; however, on the grounds that the health of your architecture and technology choices will be somewhat isomorphic to the health of your organisation, I believe this to be a worthwhile read for any engineering leader. I’m also writing this for anyone who is considering joining HBC Tech, so that they can understand our approach, and the meaning we give to our titles.</summary></entry></feed>
