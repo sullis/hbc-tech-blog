@@ -4,7 +4,6 @@
 
 // Vendor styles
 @import '../sass/vendor/normalize';
-@import '../sass/vendor/syntax-highlighting';
 @import '../sass/vendor/include-media';
 
 // base
@@ -40,3 +39,6 @@
 @import '../sass/pages/careers-page';
 @import '../sass/pages/search-results';
 @import '../sass/pages/404-page';
+
+// More Vendor Styles
+@import '../sass/vendor/syntax-highlighting';

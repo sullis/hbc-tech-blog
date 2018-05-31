@@ -14,13 +14,13 @@
 	}
 
 	p ~ ul, p ~ ol {
-		margin-bottom: 40px;
+		margin: 20px 0 40px 0;
 		@include media('<medium') {
 			padding-left: 20px;
 		}
 
 		li {
-			margin-bottom: 10px;
+			margin-top: 10px;
 		}
 	}
 
@@ -65,7 +65,7 @@
 		font-style: italic;
 		font-size: 22px;
 		color: $hbc-gray;
-		margin: 0 $content-side-margins;
+		margin: $content-side-margins;
 		padding: 0 $content-side-margins;
 		padding-bottom: $content-side-margins;
 		border-left: dotted 2px $hbc-border;

@@ -105,13 +105,7 @@ $type-styles: (
 	-webkit-font-smoothing: antialiased;
 }
 
-h1 {
-  line-height: 120%;
-  font-family: $hbc-font-family-01;
-  font-weight: 700;
-  color: $hbc-gray-4;
-}
-
+h1,
 h2,
 h3,
 h4,
@@ -121,6 +115,7 @@ h6 {
   font-family: $hbc-font-family-02;
   font-weight: 700;
   color: $hbc-gray-4;
+  margin: 40px 0 0;
 }
 
 strong {
@@ -132,5 +127,6 @@ p {
 	line-height: 145%;
 	color: $hbc-gray-3;
 	@include render-type-style(base, $type-styles);
+  margin: 10px 0 0;
 }
 
