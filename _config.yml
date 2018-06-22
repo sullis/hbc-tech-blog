@@ -12,7 +12,7 @@ description: > # this means to ignore newlines until "baseurl:"
   Saks Off Fifth, Gilt, Lord & Taylor and The Bay.
 baseurl: "" # the subpath of your site, e.g. blog
 url: "https://tech.hbc.com" #the base hostname & protocol for your site. 
-twitter: hbcdigital
+twitter: hbctechteam
 facebook: hbcdigital
 github: hbc-tech
 linkedin: hbc_digital
