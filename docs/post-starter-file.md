@@ -23,8 +23,7 @@ tags:
 # Get Help from our Designers: HBCUXDesign@hbc.com
 # You have no excuses.
 # Image guidelines: https://github.com/saksdirect/hbc-tech-blog/blob/master/docs/contributing.md#feature-images
-image:
-  feature: # path-to-image/file-name.jpg
+feature-image: # path-to-image/file-name.jpg
 ---
 
 <!-- YOUR ARTICLE STARTS HERE  -->

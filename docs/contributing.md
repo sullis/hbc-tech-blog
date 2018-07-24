@@ -10,7 +10,7 @@ Create a new branch for your post.
 ```
 git checkout -b the-name-of-your-branch
 ```
- 
+
 ## Create A Markdown File For Your Post
 We've provided a [post starter file](./post-starter-file.md) to make life a little easier.
 Use the following naming convention for your file: `YYYY-MM-DD-your-post-name.md`.
@@ -22,17 +22,16 @@ Each post contains front matter, a header section with some auto-generated metad
 ```
 title: Your Title Here
 description: A short description of your post in 160 characters or less
-author: 
+author:
 - First Name Last Name
 date: YYYY-MM-DD
 categories:
 - just one please
-tags: 
+tags:
 - your
 - tags
 - here
-image:
-  feature: assets-folder-named-to-match-your-post/name-of-your-image.jpg
+feature-image: assets-folder-named-to-match-your-post/name-of-your-image.jpg
   credit: ~
   creditlink: ~
 ```
@@ -43,11 +42,10 @@ image:
 - `date`: String, YYYY-MM-DD format
 - `categories`: Yaml list, Must be one of the following [categories](./contributing.md#predefined-categories).
 - `tags`: Yaml list
-- `image:
-   feature:` Yaml string. image path or url
+- `feature-image:` Yaml string. image path or url
 
 ### Post Categories & Tags
-Categories are used for navigation, ideally should be a short list. They also provide a quick overview to the content found on our blog. Limit your post category to one from the list below. Use tags for additional topic refinement. If you feel like your post can't be filed under one of these, we can create a new one. 
+Categories are used for navigation, ideally should be a short list. They also provide a quick overview to the content found on our blog. Limit your post category to one from the list below. Use tags for additional topic refinement. If you feel like your post can't be filed under one of these, we can create a new one.
 
 Tags are a free-form list. They're not used for navigation currently, but are parsed through the site search. These may become links in a future update.
 
@@ -95,8 +93,7 @@ Providing images that are 2880px wide will support high resolution screens. Curr
 Images can be served from `/assets/images/`
 
 ```
-image:
-  feature: [folder-named-to-match-your-post]/my-feature-image.jpg
+feature-image: [folder-named-to-match-your-post]/my-feature-image.jpg
   credit: ~
   creditlink: ~
 ```
@@ -105,8 +102,7 @@ image:
 Or you can point to an image stored on a CDN:
 
 ```
-image:
-  feature: https://pbs.twimg.com/media/DEIosBJWAAAj87h.jpg
+feature-image: https://pbs.twimg.com/media/DEIosBJWAAAj87h.jpg
   credit: ~
   creditlink: ~
 ```
@@ -155,7 +151,7 @@ Sometimes you may want to have more control over how your image is displayed on 
 ```
 
 ### Featured Authors
-Featured authors are 
+Featured authors are
 
 Become a featured author by contributing at least 3 articles and adding your bio to the [Featured Authors Collection](/_authors/).
 Save your your bio as `firstName-lastName.html` using hyphen for spaces. Follow the YAML template below for your bio details:
@@ -176,4 +172,3 @@ social-media-profiles:
   handle:
 ---
 ```
-
