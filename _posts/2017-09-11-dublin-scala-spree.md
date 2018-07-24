@@ -11,8 +11,8 @@ tags:
 - community
 - meetups
 feature-image: https://pbs.twimg.com/media/DEIosBJWAAAj87h.jpg
-  credit: ~
-  creditlink: ~
+image-credit: ~
+image-creditlink: ~
 ---
 
 This Friday the Gilt/HBC Digital Dublin office will be hosting the first ever Dublin Scala Spree, a day-long Scala Open Source Hackathon.

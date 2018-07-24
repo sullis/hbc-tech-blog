@@ -9,8 +9,8 @@ tags:
 - conferences
 - evangelism
 feature-image: http://i.imgur.com/zkRer6r.png
-  credit: ~
-  creditlink: ~
+image-credit: ~
+image-creditlink: ~
 ---
 
 We've had a busy 2017 at HBC. The great work of our teams has created opportunities to share what we've learned with audiences around the world. This year our folks have been on stage in Austin, Sydney, Portland, Seattle, San Diego, Boston, London, Israel and on our home turf in NYC and Dublin. The talks have covered deep learning, design thinking, data streaming and developer experience to name just a few.

@@ -13,8 +13,8 @@ tags:
 - children
 - volunteering
 feature-image: smart-futures/smart-futures-unsplash.jpg
-  credit: Photo by pan xiaozhen on Unsplash
-  creditlink: https://unsplash.com/photos/R4FEbUWOTPQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
+image-credit: Photo by pan xiaozhen on Unsplash
+image-creditlink: https://unsplash.com/photos/R4FEbUWOTPQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 ---
 
 Dublin is a great place for volunteering in Tech initiatives !

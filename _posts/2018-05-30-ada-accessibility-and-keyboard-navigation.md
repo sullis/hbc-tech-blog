@@ -13,8 +13,8 @@ tags:
 - ADA
 - Javascript
 feature-image: ada-keyboard-navigation/senses.png
-  credit: Photo by Dan Gold on Unsplash
-  creditlink: https://unsplash.com/photos/NiNmbsheZIg
+image-credit: Photo by Dan Gold on Unsplash
+image-creditlink: https://unsplash.com/photos/NiNmbsheZIg
 ---
 
 The simplest way to understand the importance of web accessibility is to open a web browser, put on a blindfold, and try navigating a website. Despite a small percentage of users with disabilities, their human right to navigate the internet still stands. In this post I'll share some of my learnings from making our navigation more accessible.

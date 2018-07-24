@@ -14,8 +14,8 @@ tags:
 - workshop
 - conferences
 feature-image: experimental-reproducibility/experimental-reproducibility-unsplash.jpg
-  credit: Photo by Katie Smith on Unsplash
-  creditlink: https://unsplash.com/photos/uQs1802D0CQ
+image-credit: Photo by Katie Smith on Unsplash
+image-creditlink: https://unsplash.com/photos/uQs1802D0CQ
 ---
 
 On May 2nd, we presented at the [Open Data Science Conference](https://odsc.com/boston) in Boston, MA. We demonstrated

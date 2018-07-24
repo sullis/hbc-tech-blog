@@ -9,8 +9,8 @@ tags:
 - culture
 - community
 feature-image: ~
-  credit: ~
-  creditlink: ~
+image-credit: ~
+image-creditlink: ~
 ---
 
 

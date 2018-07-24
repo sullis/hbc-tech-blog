@@ -11,8 +11,8 @@ tags:
 - user research
 - retail technology
 feature-image: rethinking-retail-4-oportunities/rethinking-retail.jpg
-  credit: ~
-  creditlink: ~
+image-credit: ~
+image-creditlink: ~
 ---
 
 At HBC Tech, one of the company’s current initiatives is to bridge the divide between the physical and digital experience. Saks Fifth Avenue has a considerable network of retail locations throughout the US, and our goal is to use technology to entice more people into these stores. More specifically, one initiative focuses on connecting new and existing Saks customers with our style professionals on the retail floor.

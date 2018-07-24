@@ -10,8 +10,8 @@ tags:
 - Tech Blog
 - Culture
 feature-image: ~
-  credit: ~
-  creditlink: ~
+image-credit: ~
+image-creditlink: ~
 ---
 Our tech organization is obviously made up of more than just developers.  Non-developers have great insight from their work too! This post is a nudge to all my fellow colleagues who are also doing amazing work and would like to share, but feel intimitated by the pull request process.
 
