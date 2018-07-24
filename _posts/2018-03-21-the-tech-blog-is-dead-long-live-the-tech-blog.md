@@ -8,8 +8,7 @@ tags:
 - blogging
 - culture
 - brand
-image:
-  feature: the-tech-blog-is-dead-long-live-the-tech-blog/Kuopio_logs.jpg
+feature-image: the-tech-blog-is-dead-long-live-the-tech-blog/Kuopio_logs.jpg
 ---
 
 # The HBC Tech Blog: "You will never find a more wretched hive of tech and miscellany."

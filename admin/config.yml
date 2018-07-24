@@ -34,4 +34,5 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Categories", name: "categories", widget: "text"}
+      - {label: "Featured Image", name: "feature-image", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}

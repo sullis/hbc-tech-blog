@@ -2,7 +2,7 @@
 title: "Rethinking Retail: 4 Opportunities to Upgrade the Associate Experience"
 author: Elizabeth Pizzuti
 date: 2017-11-24
-categories: 
+categories:
 - design
 tags:
 - retail
@@ -10,8 +10,7 @@ tags:
 - product design
 - user research
 - retail technology
-image:
-  feature: rethinking-retail-4-oportunities/rethinking-retail.jpg
+feature-image: rethinking-retail-4-oportunities/rethinking-retail.jpg
   credit: ~
   creditlink: ~
 ---
