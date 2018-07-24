@@ -32,8 +32,8 @@ tags:
 - tags
 - here
 feature-image: assets-folder-named-to-match-your-post/name-of-your-image.jpg
-  credit: ~
-  creditlink: ~
+image-credit: ~
+image-creditlink: ~
 ```
 
 - `title`: String, your post title. No need for quotes
@@ -94,8 +94,8 @@ Images can be served from `/assets/images/`
 
 ```
 feature-image: [folder-named-to-match-your-post]/my-feature-image.jpg
-  credit: ~
-  creditlink: ~
+image-credit: ~
+image-creditlink: ~
 ```
 
 
