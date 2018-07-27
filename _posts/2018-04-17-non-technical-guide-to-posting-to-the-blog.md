@@ -1,20 +1,19 @@
 ---
 title: A Non-Technical Guide to Posting to the Tech Blog
 description: Step by step instructions explaining how to post to the tech blog without requiring a degree in computer science.
-author: 
+author:
 - Jaret Stezelberger
 date: 2018-04-12
 categories:
 - Culture
-tags: 
+tags:
 - Tech Blog
 - Culture
-image:
-  feature: ~
-  credit: ~
-  creditlink: ~
+feature-image: ~
+image-credit: ~
+image-creditlink: ~
 ---
-Our tech organization is obviously made up of more than just developers.  Non-developers have great insight from their work too! This post is a nudge to all my fellow colleagues who are also doing amazing work and would like to share, but feel intimitated by the pull request process. 
+Our tech organization is obviously made up of more than just developers.  Non-developers have great insight from their work too! This post is a nudge to all my fellow colleagues who are also doing amazing work and would like to share, but feel intimitated by the pull request process.
 
 Are you a techie? We have a guide for developers [here](https://github.com/saksdirect/hbc-tech-blog/blob/master/docs/contributing.md), for everyone else, read on.
 
@@ -44,7 +43,7 @@ The Markdown stuff helps some web applications format text, create links, and em
 
 2. Use the Markdown button in the sidebar window to convert your document to Markdown. If you select part of the document, GD2md-html will convert only the selection. Otherwise it will convert the entire document. Click the Docs link for more information.
 
-3. Preview your post by copying and pasting the text from the sidebar into an online editor like [Stack Edit](https://stackedit.io/). 
+3. Preview your post by copying and pasting the text from the sidebar into an online editor like [Stack Edit](https://stackedit.io/).
 
 4. You'll see there are a few extra lines of text added during the conversion. These can safely be removed, as they're just warnings about image paths needing to be corrected. We'll tackle these changes later.
 
@@ -60,7 +59,7 @@ author: Jaret Stezelberger
 date: 2018-04-12
 categories:
 - Culture
-tags: 
+tags:
 - Tech Blog
 - How To
 - Culture
@@ -73,7 +72,7 @@ tags:
 
 If you don't already have GitHub account, get one [here](https://github.com/). It's the modern library card! Once you're signed into your Github Account, you're just a few simple steps away from posting.
 
-1. Copy (Fork) HBC Tech Blog To Your GitHub Account 
+1. Copy (Fork) HBC Tech Blog To Your GitHub Account
 2. Create A Copy For Your New Work (Create a New Branch)
 3. Add Your Post File and Then Save (Commit) it
 4. If Needed, Upload A Folder of Assets (Another Commit)
@@ -100,7 +99,7 @@ If you don't already have GitHub account, get one [here](https://github.com/). I
 
 ---
 
-**Step 5.4** Create Your Post File 
+**Step 5.4** Create Your Post File
 
 ![Create a New File](./assets/images/blog-post-how-to/04-create-new-file.png "Create a New File"){:.center-image}
 
@@ -149,5 +148,3 @@ to
 
 ## Summary
 Hopefully, after reading this post, the tech blog has been demystified and the few technical things around markdown conversion and fixing image paths won't scare you away. If you get stuck, try looking for your answer in the documentation [here](https://github.com/saksdirect/hbc-tech-blog/blob/master/docs/contributing.md). If you need help with Markdown, there are a ton of resources online. [Stack Edit](https://stackedit.io/) is your friend.
-
-

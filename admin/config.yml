@@ -1,0 +1,38 @@
+backend:
+  name: git-gateway
+  branch: preview # Branch to update (optional; defaults to master)
+publish_mode: editorial_workflow
+media_folder: assets/images/uploads
+collections:
+  - name: "authors"
+    label: "Authors"
+    folder: "_authors"
+    create: true
+    slug: {{slug}}
+    fields:
+       - {label: "Name", name: "name", widget: "string"}
+       - {label: "Job Title", name: "job-title", widget: "string"}
+       - {label: "Mini Bio", name: "mini-bio", widget: "string"}
+
+  - name: "category"
+    label: "Categories"
+    folder: "_category"
+    create: false
+    slug: {{slug}}
+    fields:
+       - {label: "Name", name: "name", widget: "string"}
+
+  - name: "Posts" # Used in routes, e.g., /admin/collections/blog
+    label: "Posts" # Used in the UI
+    folder: "_posts/"
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Layout", name: "article", widget: "hidden", default: "article"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Categories", name: "categories", widget: "text"}
+      - {label: "Featured Image", name: "feature-image", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown"}

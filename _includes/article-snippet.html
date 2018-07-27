@@ -2,14 +2,14 @@
 {% assign showFeatureImage = include.featureImage %}
 
 <section class="snippet">
-    
+
     {% if showFeatureImage == true  %}
-        {% if post.image.feature %}
+        {% if post.feature-image %}
             <a class="snippet__feature-image__link" href="{{ site.url }}{{ site.baseurl }}{{ post.url }}"><img class="snippet__feature-image" src=
-            {% if post.image.feature contains 'http' %}
-            "{{ post.image.feature }}"
+            {% if post.feature-image contains 'http' %}
+            "{{ post.feature-image }}"
             {% else %}
-            "{{ site.url }}{{ site.baseurl }}/assets/images/{{ post.image.feature }}"
+            "{{ site.url }}{{ site.baseurl }}/assets/images/{{ post.feature-image }}"
             {% endif %}
             alt="{{ post.title }}"></a>
         {% else %}
@@ -37,7 +37,7 @@
             {% else %}
                 <a class="meta__category-link" href="{{ site.url }}{{ site.baseurl }}/categories/#{{ post.categories.first }}">{{post.categories.first}}</a>
             {% endif %}
-            
+
             <span class="slug-divider"></span>
         {% endif %}
     {% endif %}
