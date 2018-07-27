@@ -273,7 +273,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2015-06-10-the-video-from-the-recent-atlassian-webinar.html" class="snippet__title__link" title="Webinar Recap - Is Agile a Competitive Advantage?">
@@ -290,7 +290,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -360,7 +360,7 @@ Want more on how Agile can be a competitive advantage for your company?  Check 
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2015-05-19-is-agile-a-competitive-advantage.html" class="snippet__title__link" title="Is Agile a Competitive Advantage?">
@@ -377,7 +377,7 @@ Want more on how Agile can be a competitive advantage for your company?  Check 
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -444,7 +444,7 @@ Want more on how Agile can be a competitive advantage for your company?  Check 
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2015-05-14-last-chance-to-join-the-meetup-tonight.html" class="snippet__title__link" title="Last Chance to Join the Meetup Tonight!!!">
@@ -461,7 +461,7 @@ Want more on how Agile can be a competitive advantage for your company?  Check 
             
                 <a class="meta__category-link" href="https://tech.hbc.com/categories/#conferences">conferences</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -530,7 +530,7 @@ Want more on how Agile can be a competitive advantage for your company?  Check 
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2015-04-17-were-hosting-the-nycpug-meetup-on-april-21.html" class="snippet__title__link" title="We’re hosting the NYCPUG meetup on April 21!">
@@ -547,7 +547,7 @@ Want more on how Agile can be a competitive advantage for your company?  Check 
             
                 <a class="meta__category-link" href="https://tech.hbc.com/categories/#conferences">conferences</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -2064,6 +2064,7 @@ Want more on how Agile can be a competitive advantage for your company?  Check 
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -2077,6 +2078,19 @@ Want more on how Agile can be a competitive advantage for your company?  Check 
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

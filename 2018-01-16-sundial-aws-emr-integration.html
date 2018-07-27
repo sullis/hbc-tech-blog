@@ -531,7 +531,7 @@ Jobs running on dynamic cluster are affected by the same issue. We’ve managed 
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-02-06-sundial-pagerduty-integration.html" class="snippet__title__link" title="Sundial PagerDuty Integration">
@@ -548,7 +548,7 @@ Jobs running on dynamic cluster are affected by the same issue. We’ve managed 
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -623,7 +623,7 @@ Jobs running on dynamic cluster are affected by the same issue. We’ve managed 
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2018-01-03-instant-voucher-serverless.html" class="snippet__title__link" title="Revitalize Gilt City's Order Processing with Serverless Architecture">
@@ -640,7 +640,7 @@ Jobs running on dynamic cluster are affected by the same issue. We’ve managed 
             
                 <a class="meta__category-link" href="https://tech.hbc.com/categories/#aws">aws</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -709,7 +709,7 @@ Jobs running on dynamic cluster are affected by the same issue. We’ve managed 
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2015-04-16-tips-for-debugging-ec2-container-service.html" class="snippet__title__link" title="Tips for Debugging EC2 Container Service">
@@ -726,7 +726,7 @@ Jobs running on dynamic cluster are affected by the same issue. We’ve managed 
             
                 <a class="meta__category-link" href="https://tech.hbc.com/categories/#aws">aws</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -793,7 +793,7 @@ Jobs running on dynamic cluster are affected by the same issue. We’ve managed 
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2018-05-30-ada-accessibility-and-keyboard-navigation.html" class="snippet__title__link" title="Building A Better Keyboard Navigation">
@@ -810,7 +810,7 @@ Jobs running on dynamic cluster are affected by the same issue. We’ve managed 
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/front-end">front end</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -2306,6 +2306,7 @@ Jobs running on dynamic cluster are affected by the same issue. We’ve managed 
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -2319,6 +2320,19 @@ Jobs running on dynamic cluster are affected by the same issue. We’ve managed 
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

@@ -301,7 +301,7 @@ custom database applications for some of the world’s largest law firms.</p>
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-04-26-april-meetup-recap-and-looking-ahead.html" class="snippet__title__link" title="Meetups: April Recap and What's Happening In May">
@@ -318,7 +318,7 @@ custom database applications for some of the world’s largest law firms.</p>
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/events">events</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -387,7 +387,7 @@ custom database applications for some of the world’s largest law firms.</p>
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2016-12-13-emerson-louriero-at-aws-reinvent.html" class="snippet__title__link" title="From Monolothic to Microservices - Gilt's Journey to Microservices on AWS">
@@ -404,7 +404,7 @@ custom database applications for some of the world’s largest law firms.</p>
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/events">events</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -475,7 +475,7 @@ custom database applications for some of the world’s largest law firms.</p>
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2016-10-24-qcon-new-york-talks.html" class="snippet__title__link" title="Watch Gilt's QCon New York talks">
@@ -492,7 +492,7 @@ custom database applications for some of the world’s largest law firms.</p>
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/events">events</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -563,7 +563,7 @@ custom database applications for some of the world’s largest law firms.</p>
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2016-10-07-where-to-find-our-team-in-october.html" class="snippet__title__link" title="Where to find our team in October">
@@ -580,7 +580,7 @@ custom database applications for some of the world’s largest law firms.</p>
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/events">events</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -2100,6 +2100,7 @@ custom database applications for some of the world’s largest law firms.</p>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -2113,6 +2114,19 @@ custom database applications for some of the world’s largest law firms.</p>
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

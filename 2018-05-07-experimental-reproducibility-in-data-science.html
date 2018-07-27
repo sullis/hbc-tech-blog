@@ -245,18 +245,18 @@
     </li>
 </ul>
 </div>
-        <div class="article__content__body"><p>On May 2nd, we presented at the <a href="https://odsc.com/boston">Open Data Science Conference</a> in Boston, MA. We demonstrated 
-how to build a machine learning project from scratch with <a href="https://github.com/IDSIA/sacred">Sacred</a>, an open source 
-library for experiment tracking, and how to view the results using 
+        <div class="article__content__body"><p>On May 2nd, we presented at the <a href="https://odsc.com/boston">Open Data Science Conference</a> in Boston, MA. We demonstrated
+how to build a machine learning project from scratch with <a href="https://github.com/IDSIA/sacred">Sacred</a>, an open source
+library for experiment tracking, and how to view the results using
 <a href="https://github.com/chovanecm/sacredboard">Sacredboard</a>.</p>
 
 <h1 id="workshop-abstract">Workshop Abstract</h1>
 
 <p>There are ways to incorporate experimental reproducibility into machine learning projects that are clean and lightweight.
-In this introductory level workshop, we demonstrate how to use Sacred to motivate reproducible research and 
-experiment monitoring in machine learning. We discuss how this enables any data scientist to provide a solution 
-(a model or set of predictions) to any problem, compare their solution to previous models results on the same test 
-data, and select the best model for production. Finally, we provide examples of machine learning problems in retail 
+In this introductory level workshop, we demonstrate how to use Sacred to motivate reproducible research and
+experiment monitoring in machine learning. We discuss how this enables any data scientist to provide a solution
+(a model or set of predictions) to any problem, compare their solution to previous models results on the same test
+data, and select the best model for production. Finally, we provide examples of machine learning problems in retail
 and demonstrate how data scientists can easily work across multiple problems.</p>
 
 <h1 id="what-is-experimental-reproducibility">What is Experimental Reproducibility</h1>
@@ -266,28 +266,28 @@ instructions <em>and</em> produce the same result.</p>
 
 <h1 id="machine-learning-is-experiments">Machine Learning is Experiments</h1>
 
-<p>You might be thinking, what is the connection between machine learning and experiments? Well, every time we build a 
-model, we’re making hypotheses on which data to use for training and testing, pre-processing steps to apply, features 
-and/or architectures to engineer, and learning algorithm(s) to use that will best fit our training data and generalize 
+<p>You might be thinking, what is the connection between machine learning and experiments? Well, every time we build a
+model, we’re making hypotheses on which data to use for training and testing, pre-processing steps to apply, features
+and/or architectures to engineer, and learning algorithm(s) to use that will best fit our training data and generalize
 to unseen data.</p>
 
 <p>Additionally, we’re running these experiments from dynamic and (sometimes) complex code bases, on computing environments
 with a whole another host of specifications.</p>
 
-<p>So, while we are not working in a wetlab, we’re definitely running experiments and making many decisions that should 
+<p>So, while we are not working in a wetlab, we’re definitely running experiments and making many decisions that should
 be recorded!</p>
 
 <h1 id="why-do-we-need-an-approach-to-this">Why do we need an approach to this</h1>
 
 <p>Adhoc efforts at tracking experiments are <strong>incomplete</strong>, and <strong>messy</strong>.</p>
 
-<p><strong>Incomplete</strong>: It becomes very hard to annotate everything that we want to track: the version of the code we’re 
-running; logging the config that we’re using for a particular run of an experiment (from the steps used for 
-preprocessing to the hyperparameters used in the model); the specifications of the host where the experiment is run; 
+<p><strong>Incomplete</strong>: It becomes very hard to annotate everything that we want to track: the version of the code we’re
+running; logging the config that we’re using for a particular run of an experiment (from the steps used for
+preprocessing to the hyperparameters used in the model); the specifications of the host where the experiment is run;
 and so on…</p>
 
-<p><strong>Messy</strong>: We want this information to be logged in such a way that we can easily add new parameters to track (without 
-having to change a lot of code) and search through experiments that we’ve already tried. Looking through pages of a 
+<p><strong>Messy</strong>: We want this information to be logged in such a way that we can easily add new parameters to track (without
+having to change a lot of code) and search through experiments that we’ve already tried. Looking through pages of a
 notebook, or scanning excel sheets stored in various folders is not an efficient and desirable way to do this.</p>
 
 <h1 id="what-should-we-track-to-make-machine-learning-reproducible">What should we track to make Machine Learning reproducible?</h1>
@@ -296,11 +296,11 @@ notebook, or scanning excel sheets stored in various folders is not an efficient
 
 <ul>
   <li>
-    <p>Version Control: What is the git hash of the repository when we run the experiment? Is the code that was run in a 
+    <p>Version Control: What is the git hash of the repository when we run the experiment? Is the code that was run in a
 <em>dirty</em> state (some local changes)? To take this a step further, can we just store the source code that we ran?</p>
   </li>
   <li>
-    <p>Config: This might include (but is not limited to) which data is loaded for training/testing, preprocessing steps, 
+    <p>Config: This might include (but is not limited to) which data is loaded for training/testing, preprocessing steps,
 learning algorithms, hyperparameters, etc</p>
   </li>
   <li>
@@ -308,15 +308,15 @@ learning algorithms, hyperparameters, etc</p>
   </li>
   <li>
     <p>Results: Store the performance of each run so that we can compare different experimental runs
-and select the best model. For certain models, we may also want to track its performance for each training 
+and select the best model. For certain models, we may also want to track its performance for each training
 step.</p>
   </li>
 </ul>
 
 <h1 id="enter-sacred">Enter Sacred</h1>
 
-<p>Sacred makes this possible. Sacred is a tool that is designed to introduce experimental reproducibility into 
-projects with very little overhead. There’s 3 actors in the Sacred ecosystem: <strong>Ingredients</strong>, <strong>Experiments</strong>, and 
+<p>Sacred makes this possible. Sacred is a tool that is designed to introduce experimental reproducibility into
+projects with very little overhead. There’s 3 actors in the Sacred ecosystem: <strong>Ingredients</strong>, <strong>Experiments</strong>, and
 <strong>Observers</strong>.</p>
 
 <p>We can define <strong>Ingredients</strong>:</p>
@@ -353,16 +353,16 @@ projects with very little overhead. There’s 3 actors in the Sacred ecosystem: 
 
 </code></pre></div></div>
 
-<p>Finally, we can run this experiment from the command line with an <strong>Observer</strong> (e.g. a mongo server), which will record 
-everything we have explicitly indicated that we wish to track (any parameter defined in a function with an 
-<code class="highlighter-rouge">@Ingredient.config</code> decorator), along with what Sacred implicitly tracks (source code, version control info, seed, 
+<p>Finally, we can run this experiment from the command line with an <strong>Observer</strong> (e.g. a mongo server), which will record
+everything we have explicitly indicated that we wish to track (any parameter defined in a function with an
+<code class="highlighter-rouge">@Ingredient.config</code> decorator), along with what Sacred implicitly tracks (source code, version control info, seed,
 host info, etc). Assuming the experiment code above is written in a file called <code class="highlighter-rouge">greeting_experiment.py</code>:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python greeting_experiment.py <span class="nt">-m</span> sacred
 </code></pre></div></div>
 
-<p>The <code class="highlighter-rouge">-m sacred</code> parameter specifies that the observer should record everything to the sacred db in a local mongo 
-instance. Sacred has a powerful command line tool in which we can modify the values of parameters before an experiment 
+<p>The <code class="highlighter-rouge">-m sacred</code> parameter specifies that the observer should record everything to the sacred db in a local mongo
+instance. Sacred has a powerful command line tool in which we can modify the values of parameters before an experiment
 run.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python greeting_experiment.py <span class="nt">-m</span> sacred with greeting_experiment.greeting<span class="o">=</span>Goodbye
@@ -370,13 +370,13 @@ run.</p>
 
 <p>This will return the result <code class="highlighter-rouge">Goodbye, Jane Doe</code>.</p>
 
-<p>Sacred is an extremely lightweight and powerful tool - we urge you to check out 
-<a href="https://github.com/IDSIA/sacred">Sacred</a>, and our presentation materials for more examples of how to use Sacred in 
+<p>Sacred is an extremely lightweight and powerful tool - we urge you to check out
+<a href="https://github.com/IDSIA/sacred">Sacred</a>, and our presentation materials for more examples of how to use Sacred in
 machine learning with a variety of examples including hyperparmater optimization and model blending.</p>
 
 <h2 id="materials">Materials</h2>
 
-<p>Examples using Sacred to do reproducible machine learning on <a href="https://www.kaggle.com/c/titanic">titanic survivorship</a> 
+<p>Examples using Sacred to do reproducible machine learning on <a href="https://www.kaggle.com/c/titanic">titanic survivorship</a>
 are available here:</p>
 
 <ul>
@@ -463,7 +463,7 @@ are available here:</p>
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html" class="snippet__title__link" title="Negative Sampling (in Numpy)">
@@ -480,7 +480,7 @@ are available here:</p>
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -549,7 +549,7 @@ are available here:</p>
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" class="snippet__title__link" title="Airing Out A New Job System">
@@ -566,7 +566,7 @@ are available here:</p>
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -617,7 +617,7 @@ are available here:</p>
     
         <a href="https://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" class="snippet__excerpt__link" title="Airing Out A New Job System">
             <p class="snippet__excerpt">
-            In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow. 
+            In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow.
 We undertook the decision to overhaul our job orchestration system a few months ago due to a number of reasons but have now successfully migrated all our data ingestion jobs to the new system.
 
 
@@ -636,7 +636,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-08-04-sundial-batch.html" class="snippet__title__link" title="Sundial or AWS Batch, Why not both?">
@@ -653,7 +653,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -722,7 +722,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-07-31-tiefvision-2.html" class="snippet__title__link" title="Visually Similar Recommendations">
@@ -739,7 +739,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -2241,6 +2241,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -2254,6 +2255,19 @@ We undertook the decision to overhaul our job orchestration system a few months 
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

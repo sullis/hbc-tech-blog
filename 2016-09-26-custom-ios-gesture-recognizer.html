@@ -319,7 +319,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-07-07-ios-notifciation-service-extension-tips.html" class="snippet__title__link" title="Advanced tips for building an iOS Notification Service Extension">
@@ -336,7 +336,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/mobile">mobile</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -404,7 +404,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-05-02-saks-app-design-sprint.html" class="snippet__title__link" title="Mobile Design Sprint">
@@ -421,7 +421,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/mobile">mobile</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -492,7 +492,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2015-10-13-apple-tv-tvos-swift-development-focus-engine.html" class="snippet__title__link" title="Using tvOS, the Focus Engine & Swift to build Apple TV apps">
@@ -509,7 +509,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/mobile">mobile</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -582,7 +582,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2015-05-08-java-has-log4j-objective-c-has.html" class="snippet__title__link" title="Java has log4j...Objective-C has CocoaLumberjack...and now Swift has CleanroomLogger">
@@ -599,7 +599,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/mobile">mobile</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -2099,6 +2099,7 @@
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -2112,6 +2113,19 @@
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

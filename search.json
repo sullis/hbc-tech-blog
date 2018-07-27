@@ -16,7 +16,7 @@
         "author": "[&quot;Karthik Rajasethupathy&quot;, &quot;Jason Tam&quot;]",
         "category": "data science",
         "tags": "sacred data science python",
-        "excerpt": "On May 2nd, we presented at the Open Data Science Conference in Boston, MA. We demonstrated how to build a machine learning project from scratch with Sacred, an open source library for experiment tracking, and how to view the results using Sacredboard.",
+        "excerpt": "On May 2nd, we presented at the Open Data Science Conference in Boston, MA. We demonstratedhow to build a machine learning project from scratch with Sacred, an open sourcelibrary for experiment tracking, and how to view the results usingSacredboard.",
         "url": "/2018-05-07-experimental-reproducibility-in-data-science.html"
     },
     
@@ -76,7 +76,7 @@
         "author": "[&quot;Terry McCartan&quot;]",
         "category": "data science",
         "tags": "airflow aws docker",
-        "excerpt": "In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow. We undertook the decision to overhaul our job orchestration system a few months ago due to a number of reasons but have now successfully migrated all our data ingestion jobs to the new system.",
+        "excerpt": "In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow.We undertook the decision to overhaul our job orchestration system a few months ago due to a number of reasons but have now successfully migrated all our data ingestion jobs to the new system.",
         "url": "/2018-03-05-airing-out-a-new-job-system.html"
     },
     
@@ -146,7 +146,7 @@
         "author": "Gregor Heine",
         "category": "events",
         "tags": "open source hackathon culture",
-        "excerpt": "This Friday the Gilt/HBC Digital Dublin office will be hosting the first ever Dublin Scala Spree, a day-long Scala Open Source Hackathon. The event is organized by the Dublin Scala Usergroup in cooperation with Dublin Functional Kubs and the Scala Center at EPFL in Lausanne, Switzerland.  Date &amp; Time: Friday, 15th September, 10am - 4pm  Location: Gilt/HBC Digital Office, Shelbourne Rd., Dublin 4, Ireland  Sign-Up: Please register for the event via the Dublin Scala Users Group  Organizers: Dublin Scala Meetup and Dublin Functional Kubs in cooperation with the Scala Center @ EPFL in Lausanne",
+        "excerpt": "This Friday the Gilt/HBC Digital Dublin office will be hosting the first ever Dublin Scala Spree, a day-long Scala Open Source Hackathon.The event is organized by the Dublin Scala Usergroup in cooperation with Dublin Functional Kubs and the Scala Center at EPFL in Lausanne, Switzerland.  Date &amp; Time: Friday, 15th September, 10am - 4pm  Location: Gilt/HBC Digital Office, Shelbourne Rd., Dublin 4, Ireland  Sign-Up: Please register for the event via the Dublin Scala Users Group  Organizers: Dublin Scala Meetup and Dublin Functional Kubs in cooperation with the Scala Center @ EPFL in Lausanne",
         "url": "/2017-09-11-dublin-scala-spree.html"
     },
     
@@ -5186,7 +5186,7 @@
         "author": "HBC Tech",
         "category": "",
         "tags": "DataDivas Elon Azoulay AlleyNYC",
-        "excerpt": "Here&rsquo;s Gilt Database Administrator/Data Engineer Elon Azoulay presenting at last night&rsquo;s DataDivas meetup at AlleyNYC. Nearly 40 data divas and data dudes from JP Morgan, the New York Public Library, MTV, AOL and other companies turned out to hear Elon discuss how and why he created an open data file that aggregates U.S. Census and American Community Survey data to the zip code level. Also making a strong showing: Gilt&rsquo;s Data team, who contributed additional insights and wry commentary.Thanks to Kaitlin Atkinson and Jacki Buros, DataDivas&rsquo; energetic and super-friendly organizers, for inviting Gilt to present&ndash;and to last night&rsquo;s audience, for making the follow-up Q&amp;A so lively and informative!Photo credit: Gilt Data Engineering Director Geoff Guerdat",
+        "excerpt": "Here&rsquo;s Gilt Database Administrator/Data Engineer Elon Azoulay presenting at last night&rsquo;s DataDivas meetup at AlleyNYC. Nearly 40 data divas and data dudes from JP Morgan, the New York Public Library, MTV, AOL and other companies turned out to hear Elon discuss how and why he created an open data file that aggregates U.S. Census and American Community Survey data to the zip code level. Also making a strong showing: Gilt&rsquo;s Data team, who contributed additional insights and wry commentary.Thanks to Kaitlin Atkinson and Jacki Buros, DataDivas&rsquo; energetic and super-friendly organizers, for inviting Gilt to present&ndash;and to last night&rsquo;s audience, for making the follow-up Q&amp;A so lively and informative!Photo image-credit: Gilt Data Engineering Director Geoff Guerdat",
         "url": "/2013-08-15-datadivas-documented.html"
     },
     

@@ -117,15 +117,12 @@
 		<img class="code-page__hero-image" title="Careers" src="https://tech.hbc.com/assets/images/blog/code/code.jpg" />
 	</header>
 	<section class="code-page__projects">
-		<a class="gilt-api gilt-api--reveal" href="https://dev.gilt.com/" target="_blank" title="Gilt Public Api">
-			<img class="gilt-api__logo" src="https://tech.hbc.com/assets/images/blog/code/gilt-api.png" alt="Gilt Public Api">
-		</a>
 		<a class="styleguide styleguide--reveal" href="https://styleguide.hbc.com/" target="_blank" title="HBC Styleguide">
 			<img class="styleguide__logo" src="https://tech.hbc.com/assets/images/blog/code/hbc-styleguide.png" alt="HBC Styleguide">
 		</a>
 	</section>
 	<section id="all-repos" class="code-page__repos">
-		<h2 class="repos-title">Some of the open source projects we've created</h2>		
+		<h2 class="repos-title">Some of the open source projects we've created</h2>
 		<div id="loading">Loading...</div>
 		<div id="fallback" class="hidden">
 		  <a class="btn" href="https://github.com/gilt">View Gilt's Repositories</a>
@@ -171,6 +168,7 @@
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -184,6 +182,19 @@
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

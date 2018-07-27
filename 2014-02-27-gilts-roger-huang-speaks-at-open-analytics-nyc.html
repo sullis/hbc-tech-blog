@@ -284,7 +284,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-12-30-presentations-we-love.html" class="snippet__title__link" title="Presentations we love: 2017">
@@ -301,7 +301,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/categories/#presentations">presentations</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -374,7 +374,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-08-10-midyear-recap.html" class="snippet__title__link" title="HBC Tech Talks: February 2017 through July 2017">
@@ -391,7 +391,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/events">events</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -462,7 +462,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-06-29-open-source-friday.html" class="snippet__title__link" title="Open Source Friday">
@@ -479,7 +479,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -554,7 +554,7 @@ From the 54 public repos maintained at code.gilt.com to the name of our tech blo
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-06-12-hbc-at-qcon.html" class="snippet__title__link" title="Hudson's Bay Company at QCon">
@@ -571,7 +571,7 @@ From the 54 public repos maintained at code.gilt.com to the name of our tech blo
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/events">events</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -4687,6 +4687,7 @@ From the 54 public repos maintained at code.gilt.com to the name of our tech blo
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -4700,6 +4701,19 @@ From the 54 public repos maintained at code.gilt.com to the name of our tech blo
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

@@ -283,7 +283,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-05-18-pops-up-plant-shop.html" class="snippet__title__link" title="The POps Up Plant Shop">
@@ -300,7 +300,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -369,7 +369,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-05-02-saks-app-design-sprint.html" class="snippet__title__link" title="Mobile Design Sprint">
@@ -386,7 +386,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/mobile">mobile</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -455,7 +455,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-04-25-hbc-digital-sponsoring-bang-bang-con.html" class="snippet__title__link" title="HBC Digital is Sponsoring !!Con">
@@ -472,7 +472,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/events">events</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -541,7 +541,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-04-12-pau-carre-cardona-at-oreilly-ai-conference.html" class="snippet__title__link" title="Pau Carré Cardona To Speak at O'Reilly AI Conference">
@@ -558,7 +558,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -2078,6 +2078,7 @@
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -2091,6 +2092,19 @@
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

@@ -343,7 +343,7 @@ and integrated PagerDuty with Sundial.</p>
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2018-01-16-sundial-aws-emr-integration.html" class="snippet__title__link" title="Sundial AWS EMR Integration">
@@ -360,7 +360,7 @@ and integrated PagerDuty with Sundial.</p>
             
                 <a class="meta__category-link" href="https://tech.hbc.com/categories/#aws">aws</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -435,7 +435,7 @@ and integrated PagerDuty with Sundial.</p>
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-05-19-cloudformation-nanoservice.html" class="snippet__title__link" title="CloudFormation Nanoservice">
@@ -452,7 +452,7 @@ and integrated PagerDuty with Sundial.</p>
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -523,7 +523,7 @@ and integrated PagerDuty with Sundial.</p>
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-01-25-keep-an-eye-on-your-stack-with-cloudwatch-events-lambda.html" class="snippet__title__link" title="Keeping an Extra Eye on Your Stack with CloudWatch Events">
@@ -540,7 +540,7 @@ and integrated PagerDuty with Sundial.</p>
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -609,7 +609,7 @@ and integrated PagerDuty with Sundial.</p>
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2016-04-01-mega-service-gilt.html" class="snippet__title__link" title="Breaking the Mold: Megaservice Architecture at Gilt">
@@ -626,7 +626,7 @@ and integrated PagerDuty with Sundial.</p>
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -2128,6 +2128,7 @@ and integrated PagerDuty with Sundial.</p>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -2141,6 +2142,19 @@ and integrated PagerDuty with Sundial.</p>
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

@@ -466,7 +466,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2018-01-16-sundial-aws-emr-integration.html" class="snippet__title__link" title="Sundial AWS EMR Integration">
@@ -483,7 +483,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/categories/#aws">aws</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -558,7 +558,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2015-04-16-tips-for-debugging-ec2-container-service.html" class="snippet__title__link" title="Tips for Debugging EC2 Container Service">
@@ -575,7 +575,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/categories/#aws">aws</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -642,7 +642,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2018-05-30-ada-accessibility-and-keyboard-navigation.html" class="snippet__title__link" title="Building A Better Keyboard Navigation">
@@ -659,7 +659,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/front-end">front end</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -732,7 +732,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2018-05-07-experimental-reproducibility-in-data-science.html" class="snippet__title__link" title="ODSC Workshop on Experimental Reproducibility in Data Science">
@@ -749,7 +749,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -832,9 +832,9 @@
     
         <a href="https://tech.hbc.com/2018-05-07-experimental-reproducibility-in-data-science.html" class="snippet__excerpt__link" title="ODSC Workshop on Experimental Reproducibility in Data Science">
             <p class="snippet__excerpt">
-            On May 2nd, we presented at the Open Data Science Conference in Boston, MA. We demonstrated 
-how to build a machine learning project from scratch with Sacred, an open source 
-library for experiment tracking, and how to view the results using 
+            On May 2nd, we presented at the Open Data Science Conference in Boston, MA. We demonstrated
+how to build a machine learning project from scratch with Sacred, an open source
+library for experiment tracking, and how to view the results using
 Sacredboard.
 
 
@@ -2274,6 +2274,7 @@ Sacredboard.
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -2287,6 +2288,19 @@ Sacredboard.
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

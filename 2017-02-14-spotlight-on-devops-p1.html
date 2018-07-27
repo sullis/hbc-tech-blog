@@ -326,7 +326,7 @@ Have fun facilitating the game with your teams and please share your learnings.<
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-07-27-large-scale-retro.html" class="snippet__title__link" title="How Large Is YOUR Retrospective?">
@@ -343,7 +343,7 @@ Have fun facilitating the game with your teams and please share your learnings.<
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -417,7 +417,7 @@ If your team operates by The Scrum Guide, your retrospectives likely have less t
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-05-31-self-selection-hbc.html" class="snippet__title__link" title="Let’s run an experiment! Self-selection at HBC Digital">
@@ -434,7 +434,7 @@ If your team operates by The Scrum Guide, your retrospectives likely have less t
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -509,7 +509,7 @@ If your team operates by The Scrum Guide, your retrospectives likely have less t
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2018-04-20-smart-futures.html" class="snippet__title__link" title="Why you should volunteer for Smart Futures">
@@ -526,7 +526,7 @@ If your team operates by The Scrum Guide, your retrospectives likely have less t
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -595,7 +595,7 @@ If your team operates by The Scrum Guide, your retrospectives likely have less t
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2018-03-21-the-tech-blog-is-dead-long-live-the-tech-blog.html" class="snippet__title__link" title="The Tech Blog is Dead. Long Live the Tech Blog">
@@ -612,7 +612,7 @@ If your team operates by The Scrum Guide, your retrospectives likely have less t
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -2144,6 +2144,7 @@ If your team operates by The Scrum Guide, your retrospectives likely have less t
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -2157,6 +2158,19 @@ If your team operates by The Scrum Guide, your retrospectives likely have less t
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

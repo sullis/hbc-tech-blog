@@ -389,7 +389,7 @@ Log.error?.value(err)
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-01-25-perfect-overnight-cold-brew.html" class="snippet__title__link" title="Perfect Overnight Cold Brew">
@@ -406,7 +406,7 @@ Log.error?.value(err)
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -477,7 +477,7 @@ Log.error?.value(err)
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2015-10-13-apple-tv-tvos-swift-development-focus-engine.html" class="snippet__title__link" title="Using tvOS, the Focus Engine & Swift to build Apple TV apps">
@@ -494,7 +494,7 @@ Log.error?.value(err)
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/mobile">mobile</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -569,7 +569,7 @@ Log.error?.value(err)
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2015-03-16-an-update-on-gilts-ios-open-source-awesomeness.html" class="snippet__title__link" title="An update on Gilt’s iOS open-source awesomeness">
@@ -586,7 +586,7 @@ Log.error?.value(err)
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/mobile">mobile</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -659,7 +659,7 @@ Log.error?.value(err)
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-07-07-ios-notifciation-service-extension-tips.html" class="snippet__title__link" title="Advanced tips for building an iOS Notification Service Extension">
@@ -676,7 +676,7 @@ Log.error?.value(err)
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/mobile">mobile</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -2179,6 +2179,7 @@ Log.error?.value(err)
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -2192,6 +2193,19 @@ Log.error?.value(err)
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

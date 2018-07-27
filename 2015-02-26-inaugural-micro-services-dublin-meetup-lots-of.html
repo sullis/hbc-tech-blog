@@ -272,7 +272,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2015-06-18-sean-smith-to-present-at-microservices-day.html" class="snippet__title__link" title="Sean Smith to Present at Microservices Day!">
@@ -289,7 +289,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/categories/#conferences">conferences</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -356,7 +356,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2015-05-14-last-chance-to-join-the-meetup-tonight.html" class="snippet__title__link" title="Last Chance to Join the Meetup Tonight!!!">
@@ -373,7 +373,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/categories/#conferences">conferences</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -440,7 +440,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2015-05-05-solr-gilt-powering-search-and-listing-for-the.html" class="snippet__title__link" title="Solr@Gilt-Powering Search and Listing for the Largest Flash Sale Site in America">
@@ -457,7 +457,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/categories/#conferences">conferences</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -524,7 +524,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2015-04-17-were-hosting-the-nycpug-meetup-on-april-21.html" class="snippet__title__link" title="We’re hosting the NYCPUG meetup on April 21!">
@@ -541,7 +541,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/categories/#conferences">conferences</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -2042,6 +2042,7 @@
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -2055,6 +2056,19 @@
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

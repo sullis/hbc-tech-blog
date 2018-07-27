@@ -341,7 +341,7 @@ can make your solution something that’s a dream to adopt. Voluntarily.</p>
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2018-03-21-the-tech-blog-is-dead-long-live-the-tech-blog.html" class="snippet__title__link" title="The Tech Blog is Dead. Long Live the Tech Blog">
@@ -358,7 +358,7 @@ can make your solution something that’s a dream to adopt. Voluntarily.</p>
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -431,7 +431,7 @@ can make your solution something that’s a dream to adopt. Voluntarily.</p>
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2018-01-24-career-structure.html" class="snippet__title__link" title="Career Structure. It doesn't matter. Until it matters.">
@@ -448,7 +448,7 @@ can make your solution something that’s a dream to adopt. Voluntarily.</p>
             
                 <a class="meta__category-link" href="https://tech.hbc.com/categories/#leadership">leadership</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -521,7 +521,7 @@ can make your solution something that’s a dream to adopt. Voluntarily.</p>
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2016-04-01-mega-service-gilt.html" class="snippet__title__link" title="Breaking the Mold: Megaservice Architecture at Gilt">
@@ -538,7 +538,7 @@ can make your solution something that’s a dream to adopt. Voluntarily.</p>
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -611,7 +611,7 @@ can make your solution something that’s a dream to adopt. Voluntarily.</p>
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2018-04-20-smart-futures.html" class="snippet__title__link" title="Why you should volunteer for Smart Futures">
@@ -628,7 +628,7 @@ can make your solution something that’s a dream to adopt. Voluntarily.</p>
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -2158,6 +2158,7 @@ can make your solution something that’s a dream to adopt. Voluntarily.</p>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -2171,6 +2172,19 @@ can make your solution something that’s a dream to adopt. Voluntarily.</p>
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

@@ -328,7 +328,7 @@ It is coordinated by the <a href="http://www.sfi.ie/">Science Foundation Ireland
 <p>But first you need to introduce the concept of coding itself, so here’s a rough transcript of how we explained it to 10-11 yrs old:</p>
 
 <blockquote>
-  <p>When talking to a person you use a language to communicate ideas to that person. There are many “human languages”: Irish, English, French.. 
+  <p>When talking to a person you use a language to communicate ideas to that person. There are many “human languages”: Irish, English, French..
 But a machine only understands 0s and 1s and it would be very hard for humans to communicate ideas only using 0s and 1s; so, coding languages were created: an intermediate that follows very strict rules for the machine to be able to convert it to 0s and 1s and just like in “human languages”, there are many coding languages: JavaScript, Python, Scala, Java etc..</p>
 </blockquote>
 
@@ -451,7 +451,7 @@ But a machine only understands 0s and 1s and it would be very hard for humans to
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2018-03-21-the-tech-blog-is-dead-long-live-the-tech-blog.html" class="snippet__title__link" title="The Tech Blog is Dead. Long Live the Tech Blog">
@@ -468,7 +468,7 @@ But a machine only understands 0s and 1s and it would be very hard for humans to
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -541,7 +541,7 @@ But a machine only understands 0s and 1s and it would be very hard for humans to
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-07-27-large-scale-retro.html" class="snippet__title__link" title="How Large Is YOUR Retrospective?">
@@ -558,7 +558,7 @@ But a machine only understands 0s and 1s and it would be very hard for humans to
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -632,7 +632,7 @@ If your team operates by The Scrum Guide, your retrospectives likely have less t
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-06-29-open-source-friday.html" class="snippet__title__link" title="Open Source Friday">
@@ -649,7 +649,7 @@ If your team operates by The Scrum Guide, your retrospectives likely have less t
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -724,7 +724,7 @@ From the 54 public repos maintained at code.gilt.com to the name of our tech blo
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-05-31-self-selection-hbc.html" class="snippet__title__link" title="Let’s run an experiment! Self-selection at HBC Digital">
@@ -741,7 +741,7 @@ From the 54 public repos maintained at code.gilt.com to the name of our tech blo
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -2267,6 +2267,7 @@ From the 54 public repos maintained at code.gilt.com to the name of our tech blo
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -2280,6 +2281,19 @@ From the 54 public repos maintained at code.gilt.com to the name of our tech blo
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

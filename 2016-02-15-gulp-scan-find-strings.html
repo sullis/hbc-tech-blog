@@ -303,7 +303,7 @@ or (regular) expression.</p>
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2016-11-16-increasing-build-iq-travis-ci.html" class="snippet__title__link" title="Increasing Build IQ with Travis CI">
@@ -320,7 +320,7 @@ or (regular) expression.</p>
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/front-end">front end</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -394,7 +394,7 @@ between builds.
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2016-11-09-linting-npm-version-conflicts.html" class="snippet__title__link" title="Linting NPM Version Conflicts">
@@ -411,7 +411,7 @@ between builds.
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/front-end">front end</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -484,7 +484,7 @@ it’s still a relevant choice. But what about package version conflicts?
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2016-11-04-running-with-koa-vuejs.html" class="snippet__title__link" title="Running with Scissors: Koa2 and Vue.js">
@@ -501,7 +501,7 @@ it’s still a relevant choice. But what about package version conflicts?
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/front-end">front end</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -575,7 +575,7 @@ scissors I could find and started running.
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2015-08-03-gilt-private-npm-modules-npmjsorg.html" class="snippet__title__link" title="Private NPM Modules&#58; A Song of Fire and Ice">
@@ -592,7 +592,7 @@ scissors I could find and started running.
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/front-end">front end</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -2110,6 +2110,7 @@ scissors I could find and started running.
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -2123,6 +2124,19 @@ scissors I could find and started running.
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

@@ -438,7 +438,7 @@ their visual compatibility.</p>
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2018-05-07-experimental-reproducibility-in-data-science.html" class="snippet__title__link" title="ODSC Workshop on Experimental Reproducibility in Data Science">
@@ -455,7 +455,7 @@ their visual compatibility.</p>
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -538,9 +538,9 @@ their visual compatibility.</p>
     
         <a href="https://tech.hbc.com/2018-05-07-experimental-reproducibility-in-data-science.html" class="snippet__excerpt__link" title="ODSC Workshop on Experimental Reproducibility in Data Science">
             <p class="snippet__excerpt">
-            On May 2nd, we presented at the Open Data Science Conference in Boston, MA. We demonstrated 
-how to build a machine learning project from scratch with Sacred, an open source 
-library for experiment tracking, and how to view the results using 
+            On May 2nd, we presented at the Open Data Science Conference in Boston, MA. We demonstrated
+how to build a machine learning project from scratch with Sacred, an open source
+library for experiment tracking, and how to view the results using
 Sacredboard.
 
 
@@ -559,7 +559,7 @@ Sacredboard.
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html" class="snippet__title__link" title="Negative Sampling (in Numpy)">
@@ -576,7 +576,7 @@ Sacredboard.
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -645,7 +645,7 @@ Sacredboard.
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" class="snippet__title__link" title="Airing Out A New Job System">
@@ -662,7 +662,7 @@ Sacredboard.
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -713,7 +713,7 @@ Sacredboard.
     
         <a href="https://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" class="snippet__excerpt__link" title="Airing Out A New Job System">
             <p class="snippet__excerpt">
-            In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow. 
+            In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow.
 We undertook the decision to overhaul our job orchestration system a few months ago due to a number of reasons but have now successfully migrated all our data ingestion jobs to the new system.
 
 
@@ -732,7 +732,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-08-04-sundial-batch.html" class="snippet__title__link" title="Sundial or AWS Batch, Why not both?">
@@ -749,7 +749,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -2253,6 +2253,7 @@ We undertook the decision to overhaul our job orchestration system a few months 
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -2266,6 +2267,19 @@ We undertook the decision to overhaul our job orchestration system a few months 
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

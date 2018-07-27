@@ -318,7 +318,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-01-25-keep-an-eye-on-your-stack-with-cloudwatch-events-lambda.html" class="snippet__title__link" title="Keeping an Extra Eye on Your Stack with CloudWatch Events">
@@ -335,7 +335,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -406,7 +406,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-05-19-cloudformation-nanoservice.html" class="snippet__title__link" title="CloudFormation Nanoservice">
@@ -423,7 +423,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -492,7 +492,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-02-06-sundial-pagerduty-integration.html" class="snippet__title__link" title="Sundial PagerDuty Integration">
@@ -509,7 +509,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -582,7 +582,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-01-25-keep-an-eye-on-your-stack-with-cloudwatch-events-lambda.html" class="snippet__title__link" title="Keeping an Extra Eye on Your Stack with CloudWatch Events">
@@ -599,7 +599,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -2099,6 +2099,7 @@
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -2112,6 +2113,19 @@
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

@@ -486,7 +486,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2016-02-10-codedeploy-notifications.html" class="snippet__title__link" title="Codedeploy Notifications as a Service">
@@ -503,7 +503,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -572,7 +572,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-05-19-cloudformation-nanoservice.html" class="snippet__title__link" title="CloudFormation Nanoservice">
@@ -589,7 +589,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -658,7 +658,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-02-06-sundial-pagerduty-integration.html" class="snippet__title__link" title="Sundial PagerDuty Integration">
@@ -675,7 +675,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -750,7 +750,7 @@
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2016-04-01-mega-service-gilt.html" class="snippet__title__link" title="Breaking the Mold: Megaservice Architecture at Gilt">
@@ -767,7 +767,7 @@
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -2269,6 +2269,7 @@
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -2282,6 +2283,19 @@
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

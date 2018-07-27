@@ -535,7 +535,7 @@ function onWhitelist(blacklistId, whitelist) {
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-01-05-backoffice-hike.html" class="snippet__title__link" title="BackOffice Hike">
@@ -552,7 +552,7 @@ function onWhitelist(blacklistId, whitelist) {
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -623,7 +623,7 @@ function onWhitelist(blacklistId, whitelist) {
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-02-06-sundial-pagerduty-integration.html" class="snippet__title__link" title="Sundial PagerDuty Integration">
@@ -640,7 +640,7 @@ function onWhitelist(blacklistId, whitelist) {
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -713,7 +713,7 @@ function onWhitelist(blacklistId, whitelist) {
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-01-25-keep-an-eye-on-your-stack-with-cloudwatch-events-lambda.html" class="snippet__title__link" title="Keeping an Extra Eye on Your Stack with CloudWatch Events">
@@ -730,7 +730,7 @@ function onWhitelist(blacklistId, whitelist) {
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -799,7 +799,7 @@ function onWhitelist(blacklistId, whitelist) {
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2016-04-01-mega-service-gilt.html" class="snippet__title__link" title="Breaking the Mold: Megaservice Architecture at Gilt">
@@ -816,7 +816,7 @@ function onWhitelist(blacklistId, whitelist) {
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -2318,6 +2318,7 @@ function onWhitelist(blacklistId, whitelist) {
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -2331,6 +2332,19 @@ function onWhitelist(blacklistId, whitelist) {
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 

@@ -298,7 +298,7 @@ From the 54 public repos maintained at <a href="http://code.gilt.com/">code.gilt
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-12-30-presentations-we-love.html" class="snippet__title__link" title="Presentations we love: 2017">
@@ -315,7 +315,7 @@ From the 54 public repos maintained at <a href="http://code.gilt.com/">code.gilt
             
                 <a class="meta__category-link" href="https://tech.hbc.com/categories/#presentations">presentations</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -388,7 +388,7 @@ From the 54 public repos maintained at <a href="http://code.gilt.com/">code.gilt
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-08-10-midyear-recap.html" class="snippet__title__link" title="HBC Tech Talks: February 2017 through July 2017">
@@ -405,7 +405,7 @@ From the 54 public repos maintained at <a href="http://code.gilt.com/">code.gilt
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/events">events</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -478,7 +478,7 @@ From the 54 public repos maintained at <a href="http://code.gilt.com/">code.gilt
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-06-12-hbc-at-qcon.html" class="snippet__title__link" title="Hudson's Bay Company at QCon">
@@ -495,7 +495,7 @@ From the 54 public repos maintained at <a href="http://code.gilt.com/">code.gilt
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/events">events</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -568,7 +568,7 @@ From the 54 public repos maintained at <a href="http://code.gilt.com/">code.gilt
 
 
 <section class="snippet">
-    
+
     
     <h1 class="snippet__title">
     <a href="https://tech.hbc.com/2017-01-11-nyc-scrum-user-group-meetup.html" class="snippet__title__link" title="NYC Scrum User Group - January 19th">
@@ -585,7 +585,7 @@ From the 54 public repos maintained at <a href="http://code.gilt.com/">code.gilt
             
                 <a class="meta__category-link" href="https://tech.hbc.com/category/events">events</a>
             
-            
+
             <span class="slug-divider"></span>
         
     
@@ -3349,6 +3349,7 @@ From the 54 public repos maintained at <a href="http://code.gilt.com/">code.gilt
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
 <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -3362,6 +3363,19 @@ From the 54 public repos maintained at <a href="http://code.gilt.com/">code.gilt
   ga('send', 'pageview');
 </script>
 
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
     </body>
 
