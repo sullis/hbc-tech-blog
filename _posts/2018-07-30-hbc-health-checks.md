@@ -1,4 +1,3 @@
-```
 ---
 title: Would You Rather be Awesome or Deadly?
 description: Reflection on the evolution of team health checks at HBC.
@@ -11,7 +10,7 @@ tags:
 - Agile
 - teams
 ---
-```
+
 <a href="https://imgur.com/LWn5pja"><img src="https://i.imgur.com/LWn5pja.jpg" title="source: imgur.com" /></a>
 
 Over a year ago we began to experiment with new ways of helping our teams in finding their next improvement opportunities. We started with an assumption that while every team is unique, there must be a way to approach a "team health" conversation in a similar fashion across them all. By using a standardized assessment we also expected to find some areas in which organizational improvements would be beneficial. In our quest for a suitable tool, we borrowed, fine-tuned and iterated to finally arrive at the health checks that fit our needs. This blog post is a reflection on the evolution of team health checks in HBC.
