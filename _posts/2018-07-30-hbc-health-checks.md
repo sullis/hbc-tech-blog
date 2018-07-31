@@ -8,10 +8,9 @@ categories:
 tags:
 - Healthcheck
 - Agile
-- teams
+- Teams
+feature-image: <a href="https://imgur.com/LWn5pja"><img src="https://i.imgur.com/LWn5pja.jpg" title="source: imgur.com" /></a>
 ---
-
-<a href="https://imgur.com/LWn5pja"><img src="https://i.imgur.com/LWn5pja.jpg" title="source: imgur.com" /></a>
 
 Over a year ago we began to experiment with new ways of helping our teams in finding their next improvement opportunities. We started with an assumption that while every team is unique, there must be a way to approach a "team health" conversation in a similar fashion across them all. By using a standardized assessment we also expected to find some areas in which organizational improvements would be beneficial. In our quest for a suitable tool, we borrowed, fine-tuned and iterated to finally arrive at the health checks that fit our needs. This blog post is a reflection on the evolution of team health checks in HBC.
 
@@ -26,9 +25,9 @@ Naturally, our tools have to be flexible enough and work equally well for people
 <a href="https://imgur.com/iHzUVEH"><img src="https://i.imgur.com/iHzUVEHl.png" title="source: imgur.com" /></a>
 
 
-While by itself Kahoot! doesn't generate any visual graphs, with a bit of conditional formatting and macros one can easily turn the raw data extract into something more visually engaging. 
+While by itself Kahoot! doesn't generate any visual graphs, with a bit of conditional formatting and macros one can easily turn the raw data extracted into something more visually engaging. 
 
-The first round of Kahoot! Health Checks was kicked off with 8 teams in September 2016. Based on their feedback, the following four qualities stood out:
+The first round of Kahoot! Health Checks was kicked off with 8 teams in September 2016. Based on their feedback, the following four qualities of this approach stood out the most:
 
 
 ### Fast
@@ -51,14 +50,14 @@ Gamified format, engaging music, bright colors and fun pictures - these are just
 
 ### Accurate
 
-In spite of a relatively simplistic, fast and humorous approach, the results of the survey turned out to be pretty accurate, highlighting the areas of improvements and the areas that the teams felt good about. 
+In spite of a relatively simplistic, fast and humorous approach, the results of the surveys turned out to be pretty accurate, highlighting the areas of improvements and the areas that the teams felt good about. 
 <a href="https://imgur.com/F3tJqRz"><img src="https://i.imgur.com/F3tJqRzl.png?1" title="source: imgur.com" /></a>
 
 ## Fine-tuning for the cultural fit
 
 To our biggest surprise, as much as the teams in US supported our first experiment with the health checks, the teams in Ireland cringed at it. As it turned out, the language of the response options ("Awesome", "Crappy" or "Meh") which we copied from the original Spotify squad check, didn't really resonate with them. It was the time for us to customize the health check for a cultural fit and learn some [Irish slang](https://theculturetrip.com/europe/ireland/articles/irish-slang-terms-you-need-to-know/)! 
 
-We polled our Dublin team members to find the Irish equivalents of the response options we needed. This was  when I discovered that "**Grand**" is just _"OK_ or _Meh"_ in Dublin; 
+We polled our Dublin team members to find the Irish equivalents of the response options we needed. This was when I discovered that "**Grand**" is just _"OK_ or _Meh"_ in Dublin; 
 
 "**Deadly**" is actually pretty _Good_, even _Excellent_; whereas "**Banjaxed**" is "*Broken, beyond repair*". 
 
@@ -68,7 +67,7 @@ With this fine-tuning we also replaced "Players vs. Pawns" category with "Autono
 	 We decide what to build and how to build it for the best impact."
 
 
-The next version of the health checks was taken by 21 teams in Dublin and New York by October 2017.  For the first time in the HBC Tech history a comprehensive view into the health of our teams across the org was created and provided the insights into some of the systemic issues in organization. 
+The next version of the health checks was taken by 21 teams from Dublin and New York and completed by October 2017.  For the first time in the HBC Tech history a comprehensive view into the health of our teams across the org was created and provided the insights into some of the systemic issues in organization. 
 <a href="https://imgur.com/pN4tawU"><img src="https://i.imgur.com/pN4tawUl.png?2" title="source: imgur.com" /></a>
 
 ## Improving the teams and the organization
@@ -78,13 +77,13 @@ Making things visible was just a first step on our bumpy road towards improvemen
 
 ### Open Space
 
-As I was walking the circle, introducing the group to Open Space, I was a bit nervous. This was another big experiment for HBC.  How will the group take it? What if there would be an awkward silence and nothing would get proposed as topics for our theme "**How do we get better at Speed and Ease of Release?"** 
+As I was walking the circle, introducing the group to Open Space, I was a bit nervous. This was another big experiment for HBC. How will the group take it? What if there would be an awkward silence and nothing would get proposed as topics for our theme "**How do we get better at Speed and Ease of Release?"** 
 
 The magic of Open Space did not disappoint again this time!! The moment an invitation to propose the topics was announced, people jumped from their seats and ran to grab the paper and markers. It was almost like they were finally given the stage and opportunity to talk about their passion! 
 
 <a href="https://imgur.com/Xf5WzSF"><img src="https://i.imgur.com/Xf5WzSFl.jpg?1" title="source: imgur.com" /></a>
 
-We only used four rooms and short twenty minutes time slots. And yet, in less than 3 hours we were able to uncover a ton of ideas, build connections and form "task forces" to continue beyond the Open Space. The equalizing power of a circle, the freedom of choice of where to participate, the five principles and the law of mobility created the space for new ideas to develop and for passion to emerge.
+We only used four rooms and short twenty minutes time slots. And yet, in less than 3 hours we were able to uncover a ton of ideas, build connections and form "task forces" to continue beyond the Open Space. The equalizing power of a circle, freedom of choice where to participate, five principles and the law of mobility created a space for new ideas to develop and passion to emerge
 
 If you haven't tried an Open Space before, I would encourage you to learn more about it, look for an opportunity to experience it at a conference as well as [reach out to me](https://www.linkedin.com/in/danapylayeva/) or other Open Space facilitators with questions. It can really make a difference in your organization!
 
