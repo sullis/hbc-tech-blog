@@ -9,7 +9,7 @@ tags:
 - Healthcheck
 - Agile
 - Teams
-feature-image: <a href="https://imgur.com/LWn5pja"><img src="https://i.imgur.com/LWn5pja.jpg" title="source: imgur.com" /></a>
+feature-image: 2018-07-30-hbc-health-checks/team.jpg
 ---
 
 Over a year ago we began to experiment with new ways of helping our teams in finding their next improvement opportunities. We started with an assumption that while every team is unique, there must be a way to approach a "team health" conversation in a similar fashion across them all. By using a standardized assessment we also expected to find some areas in which organizational improvements would be beneficial. In our quest for a suitable tool, we borrowed, fine-tuned and iterated to finally arrive at the health checks that fit our needs. This blog post is a reflection on the evolution of team health checks in HBC.
@@ -22,8 +22,7 @@ It's worth noting that while the majority of our teams are co-located, it is not
 
 Naturally, our tools have to be flexible enough and work equally well for people "in the room" and for their "accidentally-virtual" colleagues. 
 
-<a href="https://imgur.com/iHzUVEH"><img src="https://i.imgur.com/iHzUVEHl.png" title="source: imgur.com" /></a>
-
+![Kahoot](https://i.imgur.com/iHzUVEHl.png){:.center-image}
 
 While by itself Kahoot! doesn't generate any visual graphs, with a bit of conditional formatting and macros one can easily turn the raw data extracted into something more visually engaging. 
 
@@ -44,14 +43,14 @@ One may argue that team members should feel psychologically safe and be open eno
 
 Gamified format, engaging music, bright colors and fun pictures - these are just a few elements that make this survey fun. Unlike some of the traditional surveys that are taken by each team member in isolation, this one brings the entire team together for a shared experience and laughter. Bonus feature - this shared experience increases the feeling of psychological safety, preparing the team for deep conversations over survey results. 
 
-<a href="https://imgur.com/BSIoBTN"><img src="https://i.imgur.com/BSIoBTNl.png" title="source: imgur.com" /></a>
-
+![Fun](https://i.imgur.com/BSIoBTNl.png){:.center-image}
 
 
 ### Accurate
 
 In spite of a relatively simplistic, fast and humorous approach, the results of the surveys turned out to be pretty accurate, highlighting the areas of improvements and the areas that the teams felt good about. 
-<a href="https://imgur.com/F3tJqRz"><img src="https://i.imgur.com/F3tJqRzl.png?1" title="source: imgur.com" /></a>
+
+![Accurate](https://i.imgur.com/F3tJqRzl.png){:.center-image}
 
 ## Fine-tuning for the cultural fit
 
@@ -67,8 +66,10 @@ With this fine-tuning we also replaced "Players vs. Pawns" category with "Autono
 	 We decide what to build and how to build it for the best impact."
 
 
-The next version of the health checks was taken by 21 teams from Dublin and New York and completed by October 2017.  For the first time in the HBC Tech history a comprehensive view into the health of our teams across the org was created and provided the insights into some of the systemic issues in organization. 
-<a href="https://imgur.com/pN4tawU"><img src="https://i.imgur.com/pN4tawUl.png?2" title="source: imgur.com" /></a>
+The next version of the health checks was taken by 21 teams from Dublin and New York and completed by October 2017.  For the first time in the HBC Tech history a comprehensive view into the health of our teams across the org was created and provided the insights into some of the systemic issues in organization.
+
+![Total](https://i.imgur.com/pN4tawUl.png?2){:.center-image}
+
 
 ## Improving the teams and the organization
 
@@ -81,7 +82,7 @@ As I was walking the circle, introducing the group to Open Space, I was a bit ne
 
 The magic of Open Space did not disappoint again this time!! The moment an invitation to propose the topics was announced, people jumped from their seats and ran to grab the paper and markers. It was almost like they were finally given the stage and opportunity to talk about their passion! 
 
-<a href="https://imgur.com/Xf5WzSF"><img src="https://i.imgur.com/Xf5WzSFl.jpg?1" title="source: imgur.com" /></a>
+![OST](https://i.imgur.com/Xf5WzSFl.jpg?1){:.center-image}
 
 We only used four rooms and short twenty minutes time slots. And yet, in less than 3 hours we were able to uncover a ton of ideas, build connections and form "task forces" to continue beyond the Open Space. The equalizing power of a circle, freedom of choice where to participate, five principles and the law of mobility created a space for new ideas to develop and passion to emerge
 
@@ -106,16 +107,15 @@ How effective are we in creating an environment for our team members to experime
 
 Awesome/Deadly:
 
-<a href="https://imgur.com/rHaQ9RA"><img src="https://i.imgur.com/rHaQ9RAm.png" title="source: imgur.com" /></a>
+----------------------------------------------------|-----------------
+![Awesome/Deadly](https://i.imgur.com/rHaQ9RAm.png) | "I feel supported and encouraged to experiment with different roles. My options are open and clear."
 
-	"I feel supported and encouraged to experiment with different roles. 
-	My options are open and clear."
 
 Crappy/Banjaxed: 
 
-<a href="https://imgur.com/6N6204J"><img src="https://i.imgur.com/6N6204Jm.png" title="source: imgur.com" /></a>
+----------------------------------------------------|-----------------
+![Crappy/Banjaxed](https://i.imgur.com/6N6204Jm.png) | "I feel like I'm stuck in a narrow role, my career options are limited or unclear."
 
-	"I feel like I'm stuck in a narrow role, my career options are limited or unclear."
 
 
 ### Psychological Safety
@@ -124,17 +124,14 @@ Most of you have heard of [Google's Project Aristotle](https://www.nytimes.com/2
 
 Awesome/Deadly:
 
-<a href="https://imgur.com/mkvOUiq"><img src="https://i.imgur.com/mkvOUiqm.png" title="source: imgur.com" /></a>
+----------------------------------------------------|-----------------
+![Awesome/Deadly](https://i.imgur.com/mkvOUiqm.png) | "In my team I can take risk, be myself and speak my mind without fear of negative consequences to my image, status or career." 
 
-    "In my team I can take risk, be myself and speak my mind 
-     without fear of negative consequences to my image, status or career." 
 
 Crappy/Banjaxed: 
 
-<a href="https://imgur.com/2YzGJol"><img src="https://i.imgur.com/2YzGJolm.png" title="source: imgur.com" /></a>
-
-    "I avoid voicing my opinion when it differs from what the team thinks. 
-     It is safer to "go with the flow" in my team."
+----------------------------------------------------|-----------------
+![Crappy/Banjaxed](https://i.imgur.com/2YzGJolm.png)| "I avoid voicing my opinion when it differs from what the team thinks. It is safer to "go with the flow" in my team.
 
 
 ## Side effects from the new health checks
@@ -155,7 +152,7 @@ Hope learning about our experience got you at least curious. As I leave you read
 
 
 1.  Don't overthink it. Pick a tool and give it a try.
-1.  Get the feedback and make the tool relevant. 
-1.  Expand your focus and find new areas for improvement.
-1.  Don't forget to have fun - teams that play together, stay together!
+2.  Get the feedback and make the tool relevant. 
+3.  Expand your focus and find new areas for improvement.
+4.  Don't forget to have fun - teams that play together, stay together!
 
