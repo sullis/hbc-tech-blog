@@ -1,0 +1,2262 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title> Would You Rather be Awesome or Deadly? </title>
+
+        <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Would You Rather be Awesome or Deadly? | HBC Tech</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="Would You Rather be Awesome or Deadly?" />
+<meta name="author" content="Dana Pylayeva" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Reflection on the evolution of team health checks at HBC." />
+<meta property="og:description" content="Reflection on the evolution of team health checks at HBC." />
+<link rel="canonical" href="https://tech.hbc.com/2018-07-30-hbc-health-checks.html" />
+<meta property="og:url" content="https://tech.hbc.com/2018-07-30-hbc-health-checks.html" />
+<meta property="og:site_name" content="HBC Tech" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-07-30T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@Dana Pylayeva" />
+<script type="application/ld+json">
+{"description":"Reflection on the evolution of team health checks at HBC.","author":{"@type":"Person","name":"Dana Pylayeva"},"@type":"BlogPosting","url":"https://tech.hbc.com/2018-07-30-hbc-health-checks.html","headline":"Would You Rather be Awesome or Deadly?","dateModified":"2018-07-30T00:00:00-05:00","datePublished":"2018-07-30T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.hbc.com/2018-07-30-hbc-health-checks.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+        <meta property="og:title" content="Would You Rather be Awesome or Deadly?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tech.hbc.com//2018-07-30-hbc-health-checks.html" />
+<meta property="og:description" content="Over a year ago we began to experiment with new ways of helping our teams in finding their next improvement opportunities. We started with an assumption that..." />
+<meta property="og:image" content="https://tech.hbc.com/assets/images/blog/hbc-tech-logo-tipi.jpg" />
+<meta property="og:image:secure_url" content="https://tech.hbc.com/assets/images/2018-07-30-hbc-health-checks/team.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:alt" content="2018-07-30-hbc-health-checks/team.jpg" />
+
+
+        <link rel="stylesheet" href="https://tech.hbc.com/assets/css/main.css">
+        <link rel="canonical" href="https://tech.hbc.com/2018-07-30-hbc-health-checks.html">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
+
+        <!-- Icons -->
+        <!-- 16x16 -->
+        <link rel="shortcut icon" href="https://tech.hbc.com/assets/images/favicon.ico">
+    </head>
+
+    <body aria-label="Content">
+        <header id="site-header" class="site-header">
+    <div class="site-header__inner">
+    	<a class="site-header__logo" href="/">
+        	<svg class="hbc-tech-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 52">
+        		<use class="hbc-tech-logo__text" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#hbc-tech-logo"></use>
+            </svg>
+    	</a>
+        <nav id="menu" class="navigation">
+    <svg class="navigation__menu-icon" xmlns="http://www.w3.org/2000/svg">
+        <path class="bar bar__top" d="M0,3 L30,3" />
+        <path class="bar bar__cross-1" d="M0,14 L30,14" />
+        <path class="bar bar__cross-2" d="M0,14 L30,14" />
+        <path class="bar bar__bottom" d="M0,25 L30,25" />
+    </svg>
+	<menu class="menu">
+		<ul class="link-list">
+		
+        
+            <li class="link-list__link-item">
+                <a href="https://tech.hbc.com/" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">Insights</span></a>
+            </li>
+        
+            <li class="link-list__link-item">
+                <a href="https://tech.hbc.com/code" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">Code</span></a>
+            </li>
+        
+            <li class="link-list__link-item">
+                <a href="https://tech.hbc.com/about" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">About</span></a>
+            </li>
+        
+            <li class="link-list__link-item">
+                <a href="https://tech.hbc.com/work-here" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">Work Here</span></a>
+            </li>
+        
+	    </ul>
+	</menu>
+</nav>
+
+        <search id="header-search" class="header-search">
+	<form class="header-search__form" action>
+	  <input type="text" class="header-search__input" id="header-search-input" placeholder=" Search" name="query">
+	</form>
+  	<svg id="header-search__toggle" class="header-search__svg" xmlns="http://www.w3.org/2000/svg" >
+		<path id="leftSearch" class="path path--left-half" d="M11.4842576,23.9891168 C5.09608476,23.7189967 0,18.4546255 0,12 C0,5.54951437 4.85419801,0.113423154 12.4763811,0.0114091479"/>
+		<path id="rightSearch" class="path path--right-half" d="M12.5376167,0.0118279089 C18.9155446,0.293025077 24,5.55274344 24,12 C24,18.4701834 17.7604297,24.3112218 11.1896721,23.9909829"/>
+		<path id="handle" class="path path--handle" d="M20.7485408,20.8914207 L26.8571202,27 L20.7485408,20.8914207"/>
+    </svg>
+    <section class="header-search__results" id="header-search__results"></section>
+</search>
+
+    </div>
+</header>
+
+        <section class="content"><article class="article">
+    <header class="article__header article__header--reveal">
+        <h1 class="header-title" title="Would You Rather be Awesome or Deadly?">Would You Rather be Awesome or Deadly?</h1>
+        
+        
+        <img class="hero-image" title="Would You Rather be Awesome or Deadly?" src="https://tech.hbc.com/assets/images/2018-07-30-hbc-health-checks/team.jpg" />
+        
+        
+
+        
+            
+        <div class="article-meta">
+            
+            <a href="https://tech.hbc.com/categories/#Culture" class="article-meta__category">Culture</a>
+            
+        
+        
+        
+            <span class="slug-divider"></span>
+            <span class="article-meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                    <a class="article-meta__author__link" href="https://tech.hbc.com/authors/dana-pylayeva">
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Dana Pylayeva<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                    </a><span class="article-meta__author__job-title">, Agile Coach</span>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+            <span class="article-meta__date">
+                JUL 30, 2018
+            </span>
+        </div>
+    </header>
+    <section class="article__content article__content--reveal">
+        
+        <div class="article__content__read-time"><span class="read-time" title="Estimated read time">
+  
+  
+    <span class="read-time__text-1">9 min</span>
+    <span class="read-time__text-2">Read</span>
+    <span class="read-time__text-3">Time</span>
+  
+</span>
+</div>
+        <div class="article__content__share-buttons"><ul class="share-buttons">
+    <li class="share-buttons__link-item">
+        <a href="https://twitter.com/intent/tweet?text=https://tech.hbc.com//2018-07-30-hbc-health-checks.html" class="share-buttons__link" title="Share on Twitter" target="_blank">
+            <svg class="hbc-svg-icon" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon--twitter" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
+            </svg>
+        </a>
+    </li>
+    <li class="share-buttons__link-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.hbc.com/&source=/2018-07-30-hbc-health-checks.html&title=Would You Rather be Awesome or Deadly?" class="share-buttons__link" title="Share on Linkedin" target="_blank">
+            <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#linkedin" ></use>
+            </svg>
+        </a>
+    </li>
+    <li class="share-buttons__link-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tech.hbc.com//2018-07-30-hbc-health-checks.html" class="share-buttons__link" title="Share on Facebook" target="_blank">
+            <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#facebook" ></use>
+            </svg>
+        </a>
+    </li>
+    <li class="share-buttons__link-item">
+        <a href="https://www.reddit.com/submit?url=https://tech.hbc.com//2018-07-30-hbc-health-checks.html" class="share-buttons__link" title="Share on Reddit" target="_blank">
+            <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#reddit" ></use>
+            </svg>
+        </a>
+    </li>
+</ul>
+</div>
+        <div class="article__content__body"><p>Over a year ago we began to experiment with new ways of helping our teams in finding their next improvement opportunities. We started with an assumption that while every team is unique, there must be a way to approach a “team health” conversation in a similar fashion across them all. By using a standardized assessment we also expected to find some areas in which organizational improvements would be beneficial. In our quest for a suitable tool, we borrowed, fine-tuned and iterated to finally arrive at the health checks that fit our needs. This blog post is a reflection on the evolution of team health checks in HBC.</p>
+
+<h2 id="searching-for-the-right-tool">Searching for the right tool</h2>
+<p>Basic Google search came back with a number of options for measuring team effectiveness. Eliminating paid options and the options described in a very dry corporate language, we ended up looking at the good old <a href="https://labs.spotify.com/2014/09/16/squad-health-check-model/">Spotify Squad Health Check</a> described by Henrik Kniberg and the <a href="http://yuvalyeret.com/using-the-spotify-squad-health-check-beyond-the-squad/">gamified Kahoot! version</a> of it shared by Yuval Yeret. While both authors described the use of these assessments for co-located teams, the Kahoot! version had all the potential to be a good fit for distributed teams as well.</p>
+
+<p>It’s worth noting that while the majority of our teams are co-located, it is not unusual for any of them to have a team member who one day would need to work from home, from a hotel room in a different country or even from a boat!</p>
+
+<p>Naturally, our tools have to be flexible enough and work equally well for people “in the room” and for their “accidentally-virtual” colleagues.</p>
+
+<p><img src="https://i.imgur.com/iHzUVEHl.png" alt="Kahoot" class="center-image" /></p>
+
+<p>While by itself Kahoot! doesn’t generate any visual graphs, with a bit of conditional formatting and macros one can easily turn the raw data extracted into something more visually engaging.</p>
+
+<p>The first round of Kahoot! Health Checks was kicked off with 8 teams in September 2016. Based on their feedback, the following four qualities of this approach stood out the most:</p>
+
+<h3 id="fast">Fast</h3>
+
+<p>Nobody likes meetings. Luckily, using Kahoot! we could shorten the time needed to run health checks to 15 min, including the time to generate a chart. Followed by a focused 15 min mini-retrospective with the participants, in only half an hour we were able to discover and zoom into the biggest problem areas of a team.</p>
+
+<h3 id="anonymous">Anonymous</h3>
+
+<p>One may argue that team members should feel psychologically safe and be open enough to take this survey using their real names. When running this health check, we observed a mix of safety levels. In some teams, the real names were used; for others the ability to use “nicknames” really enabled the openness of their responses. For many team members, though, this feature provided an extra opportunity to have fun and show off their creativity in coming up with funny nicknames.</p>
+
+<h3 id="fun">Fun</h3>
+
+<p>Gamified format, engaging music, bright colors and fun pictures - these are just a few elements that make this survey fun. Unlike some of the traditional surveys that are taken by each team member in isolation, this one brings the entire team together for a shared experience and laughter. Bonus feature - this shared experience increases the feeling of psychological safety, preparing the team for deep conversations over survey results.</p>
+
+<p><img src="https://i.imgur.com/BSIoBTNl.png" alt="Fun" class="center-image" /></p>
+
+<h3 id="accurate">Accurate</h3>
+
+<p>In spite of a relatively simplistic, fast and humorous approach, the results of the surveys turned out to be pretty accurate, highlighting the areas of improvements and the areas that the teams felt good about.</p>
+
+<p><img src="https://i.imgur.com/F3tJqRzl.png" alt="Accurate" class="center-image" /></p>
+
+<h2 id="fine-tuning-for-the-cultural-fit">Fine-tuning for the cultural fit</h2>
+
+<p>To our biggest surprise, as much as the teams in US supported our first experiment with the health checks, the teams in Ireland cringed at it. As it turned out, the language of the response options (“Awesome”, “Crappy” or “Meh”) which we copied from the original Spotify squad check, didn’t really resonate with them. It was the time for us to customize the health check for a cultural fit and learn some <a href="https://theculturetrip.com/europe/ireland/articles/irish-slang-terms-you-need-to-know/">Irish slang</a>!</p>
+
+<p>We polled our Dublin team members to find the Irish equivalents of the response options we needed. This was when I discovered that “<strong>Grand</strong>” is just <em>“OK</em> or <em>Meh”</em> in Dublin;</p>
+
+<p>“<strong>Deadly</strong>” is actually pretty <em>Good</em>, even <em>Excellent</em>; whereas “<strong>Banjaxed</strong>” is “<em>Broken, beyond repair</em>”.</p>
+
+<p>With this fine-tuning we also replaced “Players vs. Pawns” category with “Autonomy”, which in our opinion better reflects the intent of this statement:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"We are in control of our own destiny. 
+ We decide what to build and how to build it for the best impact."
+</code></pre></div></div>
+
+<p>The next version of the health checks was taken by 21 teams from Dublin and New York and completed by October 2017.  For the first time in the HBC Tech history a comprehensive view into the health of our teams across the org was created and provided the insights into some of the systemic issues in organization.</p>
+
+<p><img src="https://i.imgur.com/pN4tawUl.png?2" alt="Total" class="center-image" /></p>
+
+<h2 id="improving-the-teams-and-the-organization">Improving the teams and the organization</h2>
+
+<p>Making things visible was just a first step on our bumpy road towards improvement. Next we ran team-level retrospectives, shared the summary view with the entire tech team and facilitated an <a href="http://www.openspaceworld.com/users_guide.htm">Open Space event</a>.</p>
+
+<h3 id="open-space">Open Space</h3>
+
+<p>As I was walking the circle, introducing the group to Open Space, I was a bit nervous. This was another big experiment for HBC. How will the group take it? What if there would be an awkward silence and nothing would get proposed as topics for our theme “<strong>How do we get better at Speed and Ease of Release?”</strong></p>
+
+<p>The magic of Open Space did not disappoint again this time!! The moment an invitation to propose the topics was announced, people jumped from their seats and ran to grab the paper and markers. It was almost like they were finally given the stage and opportunity to talk about their passion!</p>
+
+<p><img src="https://i.imgur.com/Xf5WzSFl.jpg?1" alt="OST" class="center-image" /></p>
+
+<p>We only used four rooms and short twenty minutes time slots. And yet, in less than 3 hours we were able to uncover a ton of ideas, build connections and form “task forces” to continue beyond the Open Space. The equalizing power of a circle, freedom of choice where to participate, five principles and the law of mobility created a space for new ideas to develop and passion to emerge</p>
+
+<p>If you haven’t tried an Open Space before, I would encourage you to learn more about it, look for an opportunity to experience it at a conference as well as <a href="https://www.linkedin.com/in/danapylayeva/">reach out to me</a> or other Open Space facilitators with questions. It can really make a difference in your organization!</p>
+
+<h3 id="leadership-kanban-board">Leadership Kanban board</h3>
+
+<p>This Open Space brought together people from all levels of our engineering organization. As action items started to develop post-Open Space a number of them ended up on “leadership plate”. To be more precise, on the leadership Kanban board. This was actually pretty cool to experience this level of visibility and observe the real time progress.</p>
+
+<h2 id="iterating-to-make-it-our-own">Iterating to make it our own</h2>
+
+<p>Six month later, we were getting ready for the next round of checks. We wanted to get insights into some of the new issues that were on the top of everyone’s mind at that moment.</p>
+
+<h3 id="path-to-mastery">Path to Mastery</h3>
+
+<p>At that time, organization was in the middle of <a href="https://tech.hbc.com/2018-01-24-career-structure.html">re-defining career structure</a> . With the addition of this new category we were hoping to address the following questions:</p>
+
+<p>How effective are we in creating an environment for our team members to experiment with different roles? Are we enabling <a href="http://www.innolution.com/resources/glossary/t-shaped-skills">T-shaped skills</a> development or boxing team members into narrow roles? Or in the healthcheck terms:</p>
+
+<p>Awesome/Deadly:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://i.imgur.com/rHaQ9RAm.png" alt="Awesome/Deadly" /></td>
+      <td>“I feel supported and encouraged to experiment with different roles. My options are open and clear.”</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Crappy/Banjaxed:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://i.imgur.com/6N6204Jm.png" alt="Crappy/Banjaxed" /></td>
+      <td>“I feel like I’m stuck in a narrow role, my career options are limited or unclear.”</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="psychological-safety">Psychological Safety</h3>
+
+<p>Most of you have heard of <a href="https://www.nytimes.com/2016/02/28/magazine/what-google-learned-from-its-quest-to-build-the-perfect-team.html">Google’s Project Aristotle</a> by now. At HBC we wanted to get some insights, have <em>WE</em> got what it takes? How are our teams doing on Psychological Safety? Is this the area we need to pay attention to? Or in the healthcheck terms:</p>
+
+<p>Awesome/Deadly:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://i.imgur.com/mkvOUiqm.png" alt="Awesome/Deadly" /></td>
+      <td>“In my team I can take risk, be myself and speak my mind without fear of negative consequences to my image, status or career.”</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Crappy/Banjaxed:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://i.imgur.com/2YzGJolm.png" alt="Crappy/Banjaxed" /></td>
+      <td>“I avoid voicing my opinion when it differs from what the team thinks. It is safer to “go with the flow” in my team.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="side-effects-from-the-new-health-checks">Side effects from the new health checks</h2>
+
+<p>As we’ve taken the teams through the new round, we’ve noticed many more “Aha! Moments” in team discussions. 
+Having clear definition for what we consider “Awesome/Deadly” vs. “Crappy/Banjaxed” helped the team members see opportunities in modifying their own actions. Just calling out “Psychological Safety” as one of the categories, helped teams realize the value it has and enabled deeper conversations.</p>
+
+<p>“Path to Mastery” discussion inspired the teams to consider more pairing, organize learning sessions and engage in other intentional T-shaping activities.</p>
+
+<p>Fun fact - a number of the teams realized that they’ve forgotten about the team outings and agreed to schedule one in the immediate future. If nothing else, we’ve made a positive contribution to local economy!</p>
+
+<h2 id="parting-words">Parting words</h2>
+
+<p>I am glad you made it this far! Thank you for reading, it’s been a long one. 
+Hope learning about our experience got you at least curious. As I leave you ready to experiment with <em>YOUR</em> health checks, I’d love you to remember these four points:</p>
+
+<ol>
+  <li>Don’t overthink it. Pick a tool and give it a try.</li>
+  <li>Get the feedback and make the tool relevant.</li>
+  <li>Expand your focus and find new areas for improvement.</li>
+  <li>Don’t forget to have fun - teams that play together, stay together!</li>
+</ol>
+
+</div>
+        <footer class="article__content__footer">
+            
+<div class="article-tags">
+
+    <span class="article-tags__tag">Healthcheck</span><span>,</span>
+    
+
+    <span class="article-tags__tag">Agile</span><span>,</span>
+    
+
+    <span class="article-tags__tag">Teams</span>
+
+</div>
+
+
+            <!-- author bio -->
+<section class="author-bio">
+
+
+	
+
+	
+	<!-- author is a known contributor -->
+		
+		<svg class="author-bio__avatar" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+	        <use class="hbc-svg-icon hbc-svg-icon--avatar__circle" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#circle" ></use>
+	        <use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#head" ></use>
+	        <use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#body" ></use>
+	    </svg>
+		
+
+		
+		<p><a class="author-bio__link" href="https://tech.hbc.com/authors/dana-pylayeva">Dana Pylayeva</a><span class="author-bio__job-title">, Agile Coach</span></p>
+		
+
+		
+		<p class="author-bio__bio">Dana has over seventeen year of diverse experience encompassing robotics, software development and operations as well as agile coaching, facilitation, brain-friendly training and game design. As an Agile Coach at Hudson’s Bay Company, she is leading agile transformation initia...</p>
+		
+
+	
+
+
+</section>
+
+        </footer>
+    </section>
+    <aside class="recirc">
+    <h2 class="header__title">Recent Insights</h2><span class="slug-divider"></span>
+    <a class="header__view-all-link" href="https://tech.hbc.com/categories/index.html">See All</a>
+    <div class="recirc__articles">
+    
+    
+    
+    
+    
+    
+
+    
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+
+    
+    <h1 class="snippet__title">
+    <a href="https://tech.hbc.com/2017-07-27-large-scale-retro.html" class="snippet__title__link" title="How Large Is YOUR Retrospective?">
+        How Large Is YOUR Retrospective?
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
+            
+
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                    <a class="meta__author-link" href="https://tech.hbc.com/authors/dana-pylayeva">
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Dana Pylayeva<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                    </a><span class="meta__author__job-title">, Agile Coach</span>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">JUL 27, 2017</span>
+    
+    </div>
+    
+        <a href="https://tech.hbc.com/2017-07-27-large-scale-retro.html" class="snippet__excerpt__link" title="How Large Is YOUR Retrospective?">
+            <p class="snippet__excerpt">
+            Can you recall the size and length of your typical retrospective?
+If your team operates by The Scrum Guide, your retrospectives likely have less than ten people in one room and last about an hour for a two-weeks Sprint.
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+
+    
+    <h1 class="snippet__title">
+    <a href="https://tech.hbc.com/2017-05-31-self-selection-hbc.html" class="snippet__title__link" title="Let’s run an experiment! Self-selection at HBC Digital">
+        Let’s run an experiment! Self-selection at HBC Digital
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
+            
+
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                    <a class="meta__author-link" href="https://tech.hbc.com/authors/dana-pylayeva">
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Dana Pylayeva<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                    </a><span class="meta__author__job-title">, Agile Coach</span>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">MAY 31, 2017</span>
+    
+    </div>
+    
+        <a href="https://tech.hbc.com/2017-05-31-self-selection-hbc.html" class="snippet__excerpt__link" title="Let’s run an experiment! Self-selection at HBC Digital">
+            <p class="snippet__excerpt">
+            
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+
+    
+    <h1 class="snippet__title">
+    <a href="https://tech.hbc.com/2017-02-14-spotlight-on-devops-p1.html" class="snippet__title__link" title="Don’t just read about DevOps culture, play-test it!">
+        Don’t just read about DevOps culture, play-test it!
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="https://tech.hbc.com/category/culture">culture</a>
+            
+
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                    <a class="meta__author-link" href="https://tech.hbc.com/authors/dana-pylayeva">
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Dana Pylayeva<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                    </a><span class="meta__author__job-title">, Agile Coach</span>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">FEB 14, 2017</span>
+    
+    </div>
+    
+        <a href="https://tech.hbc.com/2017-02-14-spotlight-on-devops-p1.html" class="snippet__excerpt__link" title="Don’t just read about DevOps culture, play-test it!">
+            <p class="snippet__excerpt">
+            Don’t just read about DevOps culture, play-test it!
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+
+    
+    <h1 class="snippet__title">
+    <a href="https://tech.hbc.com/2018-04-12-non-technical-guide-to-posting-to-the-blog.html" class="snippet__title__link" title="A Non-Technical Guide to Posting to the Tech Blog">
+        A Non-Technical Guide to Posting to the Tech Blog
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="https://tech.hbc.com/categories/#Culture">Culture</a>
+            
+
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    <a class="meta__author-link" href="https://tech.hbc.com/authors/jaret-stezelberger">
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Jaret Stezelberger<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    </a><span class="meta__author__job-title">, Front End Engineer</span>
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">APR 12, 2018</span>
+    
+    </div>
+    
+        <a href="https://tech.hbc.com/2018-04-12-non-technical-guide-to-posting-to-the-blog.html" class="snippet__excerpt__link" title="A Non-Technical Guide to Posting to the Tech Blog">
+            <p class="snippet__excerpt">
+            Our tech organization is obviously made up of more than just developers.  Non-developers have great insight from their work too! This post is a nudge to all my fellow colleagues who are also doing amazing work and would like to share, but feel intimitated by the pull request process.
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    </div>
+</aside>
+
+</article>
+
+</section>
+        <footer class="footer">
+	<svg class="est1670" xmlns="http://www.w3.org/2000/svg">
+		<use class="hbc-tech-logo__use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#est1670" ></use>
+	</svg>
+    <section class="footer__links">
+	<ul class="social-links social-links__list">
+    <li class="social-links__list-item">
+        <a class="social-links__link" target="_blank" rel="next" href="https://www.linkedin.com/company/hbc_digital/">
+            <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
+                <use class="linkedin"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#linkedin"></use>
+            </svg>
+        </a>
+    </li>
+    <li class="social-links__list-item">
+        <a class="social-links__link" target="_blank" rel="next" href="https://twitter.com/hbctechteam/">
+            <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
+                <use class="twitter"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
+            </svg>
+        </a>
+    </li>
+    <li class="social-links__list-item">
+        <a class="social-links__link" target="_blank" rel="next" href="https://www.instagram.com/hbcdigital">
+            <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
+                <use class="instagram"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#instagram"></use>
+            </svg>
+        </a>
+    </li>
+</ul>
+
+	<p class="copyright">&copy; 2018 HBC Tech</i></p>
+	</section>
+</footer>
+
+        <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/scrollmagic/ScrollMagic.min.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/fetch.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-106560024-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+
+    </body>
+
+</html>

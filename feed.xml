@@ -1,5 +1,155 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.3">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2018-07-27T11:13:44-05:00</updated><id>https://tech.hbc.com/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
-</subtitle><entry><title>Building A Better Keyboard Navigation</title><link href="https://tech.hbc.com/2018-05-30-ada-accessibility-and-keyboard-navigation.html" rel="alternate" type="text/html" title="Building A Better Keyboard Navigation" /><published>2018-05-30T00:00:00-05:00</published><updated>2018-05-30T00:00:00-05:00</updated><id>https://tech.hbc.com/ada-accessibility-and-keyboard-navigation</id><content type="html" xml:base="https://tech.hbc.com/2018-05-30-ada-accessibility-and-keyboard-navigation.html">&lt;p&gt;The simplest way to understand the importance of web accessibility is to open a web browser, put on a blindfold, and try navigating a website. Despite a small percentage of users with disabilities, their human right to navigate the internet still stands. In this post I’ll share some of my learnings from making our navigation more accessible.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.3">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2018-07-31T15:02:38-05:00</updated><id>https://tech.hbc.com/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+</subtitle><entry><title>Would You Rather be Awesome or Deadly?</title><link href="https://tech.hbc.com/2018-07-30-hbc-health-checks.html" rel="alternate" type="text/html" title="Would You Rather be Awesome or Deadly?" /><published>2018-07-30T00:00:00-05:00</published><updated>2018-07-30T00:00:00-05:00</updated><id>https://tech.hbc.com/hbc-health-checks</id><content type="html" xml:base="https://tech.hbc.com/2018-07-30-hbc-health-checks.html">&lt;p&gt;Over a year ago we began to experiment with new ways of helping our teams in finding their next improvement opportunities. We started with an assumption that while every team is unique, there must be a way to approach a “team health” conversation in a similar fashion across them all. By using a standardized assessment we also expected to find some areas in which organizational improvements would be beneficial. In our quest for a suitable tool, we borrowed, fine-tuned and iterated to finally arrive at the health checks that fit our needs. This blog post is a reflection on the evolution of team health checks in HBC.&lt;/p&gt;
+
+&lt;h2 id=&quot;searching-for-the-right-tool&quot;&gt;Searching for the right tool&lt;/h2&gt;
+&lt;p&gt;Basic Google search came back with a number of options for measuring team effectiveness. Eliminating paid options and the options described in a very dry corporate language, we ended up looking at the good old &lt;a href=&quot;https://labs.spotify.com/2014/09/16/squad-health-check-model/&quot;&gt;Spotify Squad Health Check&lt;/a&gt; described by Henrik Kniberg and the &lt;a href=&quot;http://yuvalyeret.com/using-the-spotify-squad-health-check-beyond-the-squad/&quot;&gt;gamified Kahoot! version&lt;/a&gt; of it shared by Yuval Yeret. While both authors described the use of these assessments for co-located teams, the Kahoot! version had all the potential to be a good fit for distributed teams as well.&lt;/p&gt;
+
+&lt;p&gt;It’s worth noting that while the majority of our teams are co-located, it is not unusual for any of them to have a team member who one day would need to work from home, from a hotel room in a different country or even from a boat!&lt;/p&gt;
+
+&lt;p&gt;Naturally, our tools have to be flexible enough and work equally well for people “in the room” and for their “accidentally-virtual” colleagues.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/iHzUVEHl.png&quot; alt=&quot;Kahoot&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;While by itself Kahoot! doesn’t generate any visual graphs, with a bit of conditional formatting and macros one can easily turn the raw data extracted into something more visually engaging.&lt;/p&gt;
+
+&lt;p&gt;The first round of Kahoot! Health Checks was kicked off with 8 teams in September 2016. Based on their feedback, the following four qualities of this approach stood out the most:&lt;/p&gt;
+
+&lt;h3 id=&quot;fast&quot;&gt;Fast&lt;/h3&gt;
+
+&lt;p&gt;Nobody likes meetings. Luckily, using Kahoot! we could shorten the time needed to run health checks to 15 min, including the time to generate a chart. Followed by a focused 15 min mini-retrospective with the participants, in only half an hour we were able to discover and zoom into the biggest problem areas of a team.&lt;/p&gt;
+
+&lt;h3 id=&quot;anonymous&quot;&gt;Anonymous&lt;/h3&gt;
+
+&lt;p&gt;One may argue that team members should feel psychologically safe and be open enough to take this survey using their real names. When running this health check, we observed a mix of safety levels. In some teams, the real names were used; for others the ability to use “nicknames” really enabled the openness of their responses. For many team members, though, this feature provided an extra opportunity to have fun and show off their creativity in coming up with funny nicknames.&lt;/p&gt;
+
+&lt;h3 id=&quot;fun&quot;&gt;Fun&lt;/h3&gt;
+
+&lt;p&gt;Gamified format, engaging music, bright colors and fun pictures - these are just a few elements that make this survey fun. Unlike some of the traditional surveys that are taken by each team member in isolation, this one brings the entire team together for a shared experience and laughter. Bonus feature - this shared experience increases the feeling of psychological safety, preparing the team for deep conversations over survey results.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/BSIoBTNl.png&quot; alt=&quot;Fun&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;accurate&quot;&gt;Accurate&lt;/h3&gt;
+
+&lt;p&gt;In spite of a relatively simplistic, fast and humorous approach, the results of the surveys turned out to be pretty accurate, highlighting the areas of improvements and the areas that the teams felt good about.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/F3tJqRzl.png&quot; alt=&quot;Accurate&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;fine-tuning-for-the-cultural-fit&quot;&gt;Fine-tuning for the cultural fit&lt;/h2&gt;
+
+&lt;p&gt;To our biggest surprise, as much as the teams in US supported our first experiment with the health checks, the teams in Ireland cringed at it. As it turned out, the language of the response options (“Awesome”, “Crappy” or “Meh”) which we copied from the original Spotify squad check, didn’t really resonate with them. It was the time for us to customize the health check for a cultural fit and learn some &lt;a href=&quot;https://theculturetrip.com/europe/ireland/articles/irish-slang-terms-you-need-to-know/&quot;&gt;Irish slang&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;We polled our Dublin team members to find the Irish equivalents of the response options we needed. This was when I discovered that “&lt;strong&gt;Grand&lt;/strong&gt;” is just &lt;em&gt;“OK&lt;/em&gt; or &lt;em&gt;Meh”&lt;/em&gt; in Dublin;&lt;/p&gt;
+
+&lt;p&gt;“&lt;strong&gt;Deadly&lt;/strong&gt;” is actually pretty &lt;em&gt;Good&lt;/em&gt;, even &lt;em&gt;Excellent&lt;/em&gt;; whereas “&lt;strong&gt;Banjaxed&lt;/strong&gt;” is “&lt;em&gt;Broken, beyond repair&lt;/em&gt;”.&lt;/p&gt;
+
+&lt;p&gt;With this fine-tuning we also replaced “Players vs. Pawns” category with “Autonomy”, which in our opinion better reflects the intent of this statement:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;We are in control of our own destiny. 
+ We decide what to build and how to build it for the best impact.&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The next version of the health checks was taken by 21 teams from Dublin and New York and completed by October 2017.  For the first time in the HBC Tech history a comprehensive view into the health of our teams across the org was created and provided the insights into some of the systemic issues in organization.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/pN4tawUl.png?2&quot; alt=&quot;Total&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;improving-the-teams-and-the-organization&quot;&gt;Improving the teams and the organization&lt;/h2&gt;
+
+&lt;p&gt;Making things visible was just a first step on our bumpy road towards improvement. Next we ran team-level retrospectives, shared the summary view with the entire tech team and facilitated an &lt;a href=&quot;http://www.openspaceworld.com/users_guide.htm&quot;&gt;Open Space event&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;open-space&quot;&gt;Open Space&lt;/h3&gt;
+
+&lt;p&gt;As I was walking the circle, introducing the group to Open Space, I was a bit nervous. This was another big experiment for HBC. How will the group take it? What if there would be an awkward silence and nothing would get proposed as topics for our theme “&lt;strong&gt;How do we get better at Speed and Ease of Release?”&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The magic of Open Space did not disappoint again this time!! The moment an invitation to propose the topics was announced, people jumped from their seats and ran to grab the paper and markers. It was almost like they were finally given the stage and opportunity to talk about their passion!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Xf5WzSFl.jpg?1&quot; alt=&quot;OST&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We only used four rooms and short twenty minutes time slots. And yet, in less than 3 hours we were able to uncover a ton of ideas, build connections and form “task forces” to continue beyond the Open Space. The equalizing power of a circle, freedom of choice where to participate, five principles and the law of mobility created a space for new ideas to develop and passion to emerge&lt;/p&gt;
+
+&lt;p&gt;If you haven’t tried an Open Space before, I would encourage you to learn more about it, look for an opportunity to experience it at a conference as well as &lt;a href=&quot;https://www.linkedin.com/in/danapylayeva/&quot;&gt;reach out to me&lt;/a&gt; or other Open Space facilitators with questions. It can really make a difference in your organization!&lt;/p&gt;
+
+&lt;h3 id=&quot;leadership-kanban-board&quot;&gt;Leadership Kanban board&lt;/h3&gt;
+
+&lt;p&gt;This Open Space brought together people from all levels of our engineering organization. As action items started to develop post-Open Space a number of them ended up on “leadership plate”. To be more precise, on the leadership Kanban board. This was actually pretty cool to experience this level of visibility and observe the real time progress.&lt;/p&gt;
+
+&lt;h2 id=&quot;iterating-to-make-it-our-own&quot;&gt;Iterating to make it our own&lt;/h2&gt;
+
+&lt;p&gt;Six month later, we were getting ready for the next round of checks. We wanted to get insights into some of the new issues that were on the top of everyone’s mind at that moment.&lt;/p&gt;
+
+&lt;h3 id=&quot;path-to-mastery&quot;&gt;Path to Mastery&lt;/h3&gt;
+
+&lt;p&gt;At that time, organization was in the middle of &lt;a href=&quot;https://tech.hbc.com/2018-01-24-career-structure.html&quot;&gt;re-defining career structure&lt;/a&gt; . With the addition of this new category we were hoping to address the following questions:&lt;/p&gt;
+
+&lt;p&gt;How effective are we in creating an environment for our team members to experiment with different roles? Are we enabling &lt;a href=&quot;http://www.innolution.com/resources/glossary/t-shaped-skills&quot;&gt;T-shaped skills&lt;/a&gt; development or boxing team members into narrow roles? Or in the healthcheck terms:&lt;/p&gt;
+
+&lt;p&gt;Awesome/Deadly:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;https://i.imgur.com/rHaQ9RAm.png&quot; alt=&quot;Awesome/Deadly&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;“I feel supported and encouraged to experiment with different roles. My options are open and clear.”&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Crappy/Banjaxed:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;https://i.imgur.com/6N6204Jm.png&quot; alt=&quot;Crappy/Banjaxed&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;“I feel like I’m stuck in a narrow role, my career options are limited or unclear.”&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;psychological-safety&quot;&gt;Psychological Safety&lt;/h3&gt;
+
+&lt;p&gt;Most of you have heard of &lt;a href=&quot;https://www.nytimes.com/2016/02/28/magazine/what-google-learned-from-its-quest-to-build-the-perfect-team.html&quot;&gt;Google’s Project Aristotle&lt;/a&gt; by now. At HBC we wanted to get some insights, have &lt;em&gt;WE&lt;/em&gt; got what it takes? How are our teams doing on Psychological Safety? Is this the area we need to pay attention to? Or in the healthcheck terms:&lt;/p&gt;
+
+&lt;p&gt;Awesome/Deadly:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;https://i.imgur.com/mkvOUiqm.png&quot; alt=&quot;Awesome/Deadly&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;“In my team I can take risk, be myself and speak my mind without fear of negative consequences to my image, status or career.”&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Crappy/Banjaxed:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;https://i.imgur.com/2YzGJolm.png&quot; alt=&quot;Crappy/Banjaxed&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;“I avoid voicing my opinion when it differs from what the team thinks. It is safer to “go with the flow” in my team.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;side-effects-from-the-new-health-checks&quot;&gt;Side effects from the new health checks&lt;/h2&gt;
+
+&lt;p&gt;As we’ve taken the teams through the new round, we’ve noticed many more “Aha! Moments” in team discussions. 
+Having clear definition for what we consider “Awesome/Deadly” vs. “Crappy/Banjaxed” helped the team members see opportunities in modifying their own actions. Just calling out “Psychological Safety” as one of the categories, helped teams realize the value it has and enabled deeper conversations.&lt;/p&gt;
+
+&lt;p&gt;“Path to Mastery” discussion inspired the teams to consider more pairing, organize learning sessions and engage in other intentional T-shaping activities.&lt;/p&gt;
+
+&lt;p&gt;Fun fact - a number of the teams realized that they’ve forgotten about the team outings and agreed to schedule one in the immediate future. If nothing else, we’ve made a positive contribution to local economy!&lt;/p&gt;
+
+&lt;h2 id=&quot;parting-words&quot;&gt;Parting words&lt;/h2&gt;
+
+&lt;p&gt;I am glad you made it this far! Thank you for reading, it’s been a long one. 
+Hope learning about our experience got you at least curious. As I leave you ready to experiment with &lt;em&gt;YOUR&lt;/em&gt; health checks, I’d love you to remember these four points:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Don’t overthink it. Pick a tool and give it a try.&lt;/li&gt;
+  &lt;li&gt;Get the feedback and make the tool relevant.&lt;/li&gt;
+  &lt;li&gt;Expand your focus and find new areas for improvement.&lt;/li&gt;
+  &lt;li&gt;Don’t forget to have fun - teams that play together, stay together!&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Dana Pylayeva</name></author><category term="Healthcheck" /><category term="Agile" /><category term="Teams" /><summary>Over a year ago we began to experiment with new ways of helping our teams in finding their next improvement opportunities. We started with an assumption that while every team is unique, there must be a way to approach a “team health” conversation in a similar fashion across them all. By using a standardized assessment we also expected to find some areas in which organizational improvements would be beneficial. In our quest for a suitable tool, we borrowed, fine-tuned and iterated to finally arrive at the health checks that fit our needs. This blog post is a reflection on the evolution of team health checks in HBC.</summary></entry><entry><title>Building A Better Keyboard Navigation</title><link href="https://tech.hbc.com/2018-05-30-ada-accessibility-and-keyboard-navigation.html" rel="alternate" type="text/html" title="Building A Better Keyboard Navigation" /><published>2018-05-30T00:00:00-05:00</published><updated>2018-05-30T00:00:00-05:00</updated><id>https://tech.hbc.com/ada-accessibility-and-keyboard-navigation</id><content type="html" xml:base="https://tech.hbc.com/2018-05-30-ada-accessibility-and-keyboard-navigation.html">&lt;p&gt;The simplest way to understand the importance of web accessibility is to open a web browser, put on a blindfold, and try navigating a website. Despite a small percentage of users with disabilities, their human right to navigate the internet still stands. In this post I’ll share some of my learnings from making our navigation more accessible.&lt;/p&gt;
 
 &lt;h2 id=&quot;w3c-recommendations-for-accessibility&quot;&gt;W3C Recommendations for Accessibility&lt;/h2&gt;
 &lt;p&gt;Not familiar with this type of work, I referred to &lt;a href=&quot;https://www.w3.org/TR/wai-aria-practices-1.1/#menu&quot;&gt;WAI-ARIA Authoring Practices&lt;/a&gt;, and found the following recommendations helpful. &lt;em&gt;Just in case, WAI stans for “Web Accessibility Initiative”, and ARIA stands for “Accessible Rich Internet Application”.&lt;/em&gt;&lt;/p&gt;
@@ -1167,256 +1317,4 @@ We undertook the decision to overhaul our job orchestration system a few months 
 
 &lt;p&gt;If you want to learn more about the v2 SDK, review my slidedeck or watch Kyle Thomson’s re:invent 2017 presentation.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/sullis/aws-sdk-for-java-version-2-dot-0-albany-ny-january-18-2018&quot;&gt;&lt;img src=&quot;/assets/images/aws-sdk-for-java/AWS_SDK_for_Java-speakerdeck-albany-480.png&quot; alt=&quot;aws-sdk-java-speakerdeck-albany-image&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;https://www.youtube.com/watch?v=byRois3s5Yc&quot;&gt;&lt;img src=&quot;/assets/images/aws-sdk-for-java/aws-sdk-java-version-2_0-kyle-reinvent-youtube-480.png&quot; alt=&quot;aws-reinvent-2017-kyle-thomson-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Sean Sullivan</name></author><category term="aws" /><category term="java" /><category term="scala" /><category term="cloud" /><category term="albany" /><category term="newyork" /><category term="2018" /><summary>The Capital Region AWS User Group met on January 18th at the Nanotech Complex in Albany New York. CommerceHub hosted the meeting at their main office.</summary></entry><entry><title>Career Structure. It doesn’t matter. Until it matters.</title><link href="https://tech.hbc.com/2018-01-24-career-structure.html" rel="alternate" type="text/html" title="Career Structure. It doesn't matter. Until it matters." /><published>2018-01-24T00:00:00-05:00</published><updated>2018-01-24T00:00:00-05:00</updated><id>https://tech.hbc.com/career-structure</id><content type="html" xml:base="https://tech.hbc.com/2018-01-24-career-structure.html">&lt;p&gt;In this article, I’m going to talk about career structure, career development, and career titles in a tech organisation. This post is more about organisational development than it is about technology; however, on the grounds that the health of your architecture and technology choices will be somewhat isomorphic to the health of your organisation, I believe this to be a worthwhile read for any engineering leader. I’m also writing this for anyone who is considering joining HBC Tech, so that they can understand our approach, and the meaning we give to our titles.&lt;/p&gt;
-
-&lt;p&gt;I’ll cover our motivation and need for a career structure, the core principles that drove our solution, and, perhaps most importantly, our experience in transitioning to that solution in a Dunbar-sized technology organisation at HBC Tech.&lt;/p&gt;
-
-&lt;h3 id=&quot;i-dont-care-about-my-title&quot;&gt;“I don’t care about my title.”&lt;/h3&gt;
-&lt;p&gt;Titles are an amazing thing. When I joined Gilt in 2011, I didn’t care about titles; I was happy to shed my shiny ‘Distinguished Engineer’ title from IONA Technologies and join Gilt as a Senior Engineer. It was easy: the general rule was that every engineer at Gilt apart from our CTO was a Senior Engineer, and the democratic, meritocratic, startup culture obviated the need for titles.&lt;/p&gt;
-
-&lt;p&gt;However, over time something interesting happened, not quite to me directly, but to the organisation as a whole. Blips started to appear in the organisational title space - a new hire would arrive as a ‘Principal’, and peers would wonder “what does that mean?”. Or, someone would become a team lead, or Director of Engineering, which begged the question: is that higher than an Engineer, or, somehow equivalent? And then blips started attracting attention from &lt;em&gt;outside&lt;/em&gt; of our organisational radar: our team would see their peers in the industry getting promotions and fancy titles, and wonder were they somehow stagnating in their careers?&lt;/p&gt;
-
-&lt;p&gt;Organisations develop and grow over time; the tech leadership team at Gilt realised in February of 2013 that the organisation needed and wanted a clear career structure, something different from our original loose, startup-y approach. The career structure we landed on at Gilt worked well for us in the subsequent three years. More recently in 2017 we set out to create a career structure for the larger HBC Tech organisation; we wanted to design it carefully so that it would align with our cultural values and learn form our experience. We started with a few principles to guide our thoughts.&lt;/p&gt;
-
-&lt;h3 id=&quot;the-principles&quot;&gt;The principles&lt;/h3&gt;
-
-&lt;p&gt;Here’s what we felt was important:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Meritocracy (or, you &lt;em&gt;earn&lt;/em&gt; your title)&lt;/strong&gt;: No-one is ‘entitled’ to a title: just because you’ve been here a while, doesn’t mean you qualify for a promotion. Ever. We expect you to perform at the next level for sustained period - at least six months - before you can get promoted. A good metric of your success in this regard is that your promotion should be a surprise to &lt;em&gt;nobody&lt;/em&gt;; the only surprise should be a colleague saying “Hey, I thought you were at that level already!”.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Equivalence of Individual Contributors and People Leads&lt;/strong&gt;: We feel strongly about this. We hire talented people who design and build great things, and we wanted to create a career development path that encourages development in the skill that make you great. &lt;em&gt;No one should ever feel that they have to become “a manager” to get promoted&lt;/em&gt;. Equivalence should apply to compensation, but also in day-to-day operations: for example, in our Dublin office we extended our regular “Dublin Leads Meeting” to a “Dublin Leads &amp;amp; Principals Meeting”.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;We want Leaders, not Managers&lt;/strong&gt;: When you have talented individuals, working in small autonomous well-knit teams, you don’t need to manage. We develop our leaders from within: for us, leaders are people who love their craft, but also get a real kick out of leading people: showing the way, setting direction, getting alignment, and making the team successful.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Encourage people to try leadership out, with a route back to Individual Contributor&lt;/strong&gt;: The idea of putting &lt;em&gt;yourself&lt;/em&gt; forward as a team lead is daunting for many individual contributors; some of that may be down to humility (“Why do I think I’m better equipped to lead than everyone else on my team?”), or fear of failure (“What happens if I’m just not good at this?”). Perhaps the biggest fear is the idea of losing your grasp on the skills and talents that make you great as an engineer in the first place. We wanted to create an environment where individual contributors could experiment with leadership roles, and have an avenue back to individual contributor later should they so desire. I must confess: the first time I saw a team lead return to an individual contributor engineering role and be replaced by another more junior team member as lead, I honestly thought it would never work. I was wrong. The original lead (now engineer) and new lead just got stuck in at what they were good at, and the team was great.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;With these principles in place, the question became “What kind of career structure can support this?”&lt;/p&gt;
-
-&lt;h3 id=&quot;what-do-other-organisations-do-about-career-titles&quot;&gt;What do other organisations do about career titles?&lt;/h3&gt;
-
-&lt;p&gt;We triangulated ourselves off our understanding of organisations like Netflix, Facebook and Google, and how they manage their career structures. Organisations don’t often publish their career structure; however, pulling together from a number of sources and contacts, we saw some interesting patterns:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Netflix&lt;/strong&gt;: Netflix operates a very simple structure. Ultimately, every engineer is a Senior Engineer, and there is a separate track for leadership, including Manager, Director, VP.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Google&lt;/strong&gt;: Google has a multi-tier ‘levelled’ system, with individual contributor levels ranging from &lt;em&gt;Level 1: Software Engineer I&lt;/em&gt; to &lt;em&gt;Level 10: Senior Google Fellow&lt;/em&gt;, and a parallel engineering management track that ranges from level 5 to level 10.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Facebook&lt;/strong&gt;: Facebook also has a multi-tier ‘levelled’ system. Engineers range from &lt;em&gt;Level 3 - Software Engineer&lt;/em&gt; up to a &lt;em&gt;Level 9&lt;/em&gt;, with associated &lt;em&gt;Manager&lt;/em&gt; and &lt;em&gt;Director&lt;/em&gt; roles on a parallel track above &lt;em&gt;Level 5&lt;/em&gt;. Anecdotally, once an individual elects into the management track, the intent is that they will remain in that track.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Gilt&lt;/strong&gt;: At Gilt, pre-2013 we had a structure similar to Netflix (see above!), and we found that this structure didn’t give a compelling career prospect for individual contributors in our engineering teams. Ironically, for tech team with a strong startup mentality, we looked to the industry and adopted what outwardly seems to be a fairly &lt;em&gt;traditional&lt;/em&gt; approach. Based on the &lt;a href=&quot;https://radford.aon.com/insights/articles/2015/radford-global-job-leveling&quot;&gt;Radford&lt;/a&gt; methodology, we created a career path and approach that had the following qualities:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;Recognised different levels of ability, impact, contribution, scope and influence across individual contributor and leadership tracks; and,&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Encouraged folk to jump across the Individual Contributor / Leadership boundary as their career develops.&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The roll-out of the approach at Gilt was positive: it became clearer to staff who their peers were, and what ‘the next level’ really looked like. Career development discussions went from the abstract to the concrete. Perhaps the biggest result was that a generation of individual contributors, who had resisted the idea of taking on a leadership role, gave leadership a try &lt;em&gt;and discovered they were good at it&lt;/em&gt;. More-so, on our engineering teams, we developed a culture of ‘leaders-who-code’: we found that engineering leads up to the level of Director and Senior Director continued to make significant impacts in terms on engineering contributions. Result!&lt;/p&gt;
-
-&lt;h3 id=&quot;the-hbc-tech-career-path&quot;&gt;The HBC Tech Career Path&lt;/h3&gt;
-
-&lt;p&gt;After HBC acquired Gilt in 2016, the subsequent merger of the tech teams presented a challenge in terms of career paths: which career structure should we adopt, the existing HBC career structure, or, the Gilt career structure? Rather than just pick one of the existing, we took the opportunity to rethink both, and, landed on a structure loosely modelled on the ideas from Radford, Google and Gilt, as per the table below.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Level&lt;/th&gt;
-      &lt;th&gt;Individual Contributor&lt;/th&gt;
-      &lt;th&gt;Leadership&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;Software Engineer I&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;Software Engineer II&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;3&lt;/td&gt;
-      &lt;td&gt;Software Engineer III&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;4&lt;/td&gt;
-      &lt;td&gt;Senior Engineer&lt;/td&gt;
-      &lt;td&gt;Lead Engineer&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;5&lt;/td&gt;
-      &lt;td&gt;Staff Engineer&lt;/td&gt;
-      &lt;td&gt;Senior Lead Engineer&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;6&lt;/td&gt;
-      &lt;td&gt;Principal Engineer&lt;/td&gt;
-      &lt;td&gt;Director of Engineering&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;7&lt;/td&gt;
-      &lt;td&gt;Distinguished Engineer&lt;/td&gt;
-      &lt;td&gt;Senior Director of Engineering&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;8&lt;/td&gt;
-      &lt;td&gt;Fellow&lt;/td&gt;
-      &lt;td&gt;VP Engineering&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;9&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;SVP Engineering&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;This approach has all the qualities we were looking for: equality of levels, ability to experiment with leadership at the senior level, and supported our culture of valuing leadership and autonomy rather than management and rule.&lt;/p&gt;
-
-&lt;p&gt;For each level, we worked out key indicators of what it means to be at that level. For example:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Level of knowledge&lt;/strong&gt;: how much domain knowledge / expertise is required and expected at a particular level?&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Job complexity&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Supervision&lt;/strong&gt;: how much supervision / hand-holding should we expect the individual to need at a particular level?&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Experience&lt;/strong&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Sphere of influence&lt;/strong&gt;. This is one of my favourite indicators: at early levels, the sphere of influence is really ‘self’. As we get to subsequent levels, we expect individual contributors and leads to influence their teams, department, tech, the wider organisation, and the industry &amp;amp; community.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Team size (for leads)&lt;/strong&gt;. There’s some good rules of thumb in terms of team size:&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Lead Level&lt;/th&gt;
-      &lt;th&gt;Title&lt;/th&gt;
-      &lt;th&gt;Team size&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;4&lt;/td&gt;
-      &lt;td&gt;Lead Engineer&lt;/td&gt;
-      &lt;td&gt;7 ± 2 (a pizza size team)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;5&lt;/td&gt;
-      &lt;td&gt;Senior Lead&lt;/td&gt;
-      &lt;td&gt;10 ± 2 (a large team, or team of teams)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;6&lt;/td&gt;
-      &lt;td&gt;Director&lt;/td&gt;
-      &lt;td&gt;20 ± 4 (a classroom-size team of teams)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;7&lt;/td&gt;
-      &lt;td&gt;Senior Director&lt;/td&gt;
-      &lt;td&gt;25+&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;8&lt;/td&gt;
-      &lt;td&gt;VP Engineering&lt;/td&gt;
-      &lt;td&gt;~80 (e.g. an engineering site / office)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;9&lt;/td&gt;
-      &lt;td&gt;SVP Engineering&lt;/td&gt;
-      &lt;td&gt;~150 (a Dunbar)&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Accountability&lt;/strong&gt;: what are the systems that you own / are responsible for. How critical are they to the business?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;One big learning is that these indicators are only &lt;em&gt;guidelines&lt;/em&gt;. I dislike the idea of career advancement being a box-ticking exercise: there is a qualitative judgement that we as leaders need to apply, and sometimes a candidate’s excellence in one area may make up for a deficiency in another, or, make up for organisational blockers. For example, we once had a Director of Engineering with a small team of four or five reports; you could argue that this Director didn’t have a large enough team to warrant the title. However, when we considered his technical ability, the scope of the role, the level of accountability, and, the fact that we would most likely never have a classroom size team in this area, we felt great about promoting.&lt;/p&gt;
-
-&lt;p&gt;Qualitative judgement of levels is, of course, hard. One idea we found helpful was to look at &lt;em&gt;peer groups&lt;/em&gt;, to ensure that staff at the same level are in the same peer group. If we find that a member of staff ended up grouped with other members who seem at a different level, we re-examine the case to make sure our evaluation has been correct and fair.&lt;/p&gt;
-
-&lt;h3 id=&quot;rolling-out-a-career-path&quot;&gt;Rolling out a Career Path&lt;/h3&gt;
-
-&lt;p&gt;With our new career path in place we then had to figure out how to roll it out. Ultimately, rolling out a new career structure means you may be changing your people’s titles: we want to make sure that we did that in a sensitive and proactive way. For example: if someone’s existing title is ‘Software Engineer’, then the question is what level are they in the new system (I, II, III)? How will someone feel if they think they’re a III, but we think they’re a II?&lt;/p&gt;
-
-&lt;p&gt;We settled on a couple of core ideas to help us make a smooth transition:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;There are no salary or bonus adjustments as part of transitioning to the new structure. No one gets a pay cut, no one gets a pay rise: the focus is on getting the track and level right.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;We apply the level &lt;em&gt;as is&lt;/em&gt;: there are &lt;em&gt;no&lt;/em&gt; promotions as part of the levelling. We didn’t want to use this exercise as a way for folk to canvas for a promotion.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;We involved each individual in the selection of their level, through 1:1s with their current directors and leads. At the end of the exercise, everyone knows their level (1-9) and track (Individual Contributor / Lead), and has been part of the process.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Individuals can adopt their new title publicly if they wish, or retain their current title. Whatever about our internal career titles, we didn’t feel it was right to force people to change their LinkedIn profiles!&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Everyone gets evaluated at their level and track going forward. This is a nice feedback loop back to having individuals involved in the selection of their role! Sure, maybe you did persuade your lead that you’re a Software Engineer III: if so, then you’ll be evaluated against your peers… you better be up to it :)&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;So then, we began the roll out! With a Dunbar-sized subset of the organisation we formulated a simple plan:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Communicate: let everyone know what’s going on! You really can’t communicate enough on these things: despite your best intentions, there will always be someone who “didn’t get the memo” or wasn’t there when you talked about it at an All Hands meeting. Communicate often across multiple channels, and be mindful of people who may not have missed out.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Educate: after the initial communications, we moved to educate our folk in groups of about 20, with a one-hour walkthrough of the career path, where it came from, why it’s important, and backed up with all the materials. This is a nice ‘classroom’ size: big enough to scale the communications, but small enough that folk feel comfortable  talking about the issues, and asking questions.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Get personal: after the education sessions, we ran our 1:1s with folk to settle levels.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Close the loop with HR! In almost every organisation I’ve ever worked for, the system HR uses to store titles and levels has been different from the spreadsheet I’ve been working off. It’s crazy after all this levelling work to think that six months later someone might get an official letter with the &lt;em&gt;wrong title&lt;/em&gt;! As a general rule in life, it’s always good to &lt;em&gt;hammer the nail all the way in&lt;/em&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;its-nice-to-have-a-title-so-then-you-dont-have-to-care-about-it-any-more&quot;&gt;“It’s nice to have a title, so then you don’t have to care about it any more.”&lt;/h3&gt;
-
-&lt;p&gt;The irony of &lt;em&gt;all&lt;/em&gt; of this is that, really, still, I don’t care much about titles! When I was a tech consultant in a previous job we always had this saying: “You’re only ever as good as your last gig.” Likewise, when it comes to titles, there’s no resting on your laurels, proudly shining and polishing your trophy title: you must deliver, every day, for your team and for the organisation. That said, there are a couple of real benefits that we’ve seen from this work:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Having clarity on titles means that any fear, uncertainty, envy, distrust related to previous title confusion is now gone. Everyone knows where they are, and can just get down to work.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Career development conversations just got a whole lot more interesting. Now we can have meaningful conversations with our staff on where they are, where they want to go, and, how they can get there.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;One final piece of advice: title systems and career paths are frameworks that exist to help us; they’re a tool that should enable us, not restrict us or box us in. While we have leaders-who-code (e.g. directors of engineering optimising our caching architecture), we also have coders-who-lead on some of our teams (e.g. principal engineers leading teams working on a technical area like ElasticSearch); and, this is as it should be. We flex the framework to our needs. And, if we find that this framework breaks, we’ll fix it, and perhaps write another post to let you know what we learnt.&lt;/p&gt;</content><author><name>Adrian Trenaman</name></author><category term="culture" /><category term="career path" /><category term="titles" /><summary>In this article, I’m going to talk about career structure, career development, and career titles in a tech organisation. This post is more about organisational development than it is about technology; however, on the grounds that the health of your architecture and technology choices will be somewhat isomorphic to the health of your organisation, I believe this to be a worthwhile read for any engineering leader. I’m also writing this for anyone who is considering joining HBC Tech, so that they can understand our approach, and the meaning we give to our titles.</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/sullis/aws-sdk-for-java-version-2-dot-0-albany-ny-january-18-2018&quot;&gt;&lt;img src=&quot;/assets/images/aws-sdk-for-java/AWS_SDK_for_Java-speakerdeck-albany-480.png&quot; alt=&quot;aws-sdk-java-speakerdeck-albany-image&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;https://www.youtube.com/watch?v=byRois3s5Yc&quot;&gt;&lt;img src=&quot;/assets/images/aws-sdk-for-java/aws-sdk-java-version-2_0-kyle-reinvent-youtube-480.png&quot; alt=&quot;aws-reinvent-2017-kyle-thomson-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Sean Sullivan</name></author><category term="aws" /><category term="java" /><category term="scala" /><category term="cloud" /><category term="albany" /><category term="newyork" /><category term="2018" /><summary>The Capital Region AWS User Group met on January 18th at the Nanotech Complex in Albany New York. CommerceHub hosted the meeting at their main office.</summary></entry></feed>
