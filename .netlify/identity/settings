@@ -1,0 +1,12 @@
+{
+"external": {
+"bitbucket": false,
+"github": true,
+"gitlab": false,
+"google": false,
+"facebook": false,
+"email": true
+},
+"disable_signup": true,
+"autoconfirm": false
+}

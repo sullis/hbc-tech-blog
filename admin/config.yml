@@ -1,6 +1,11 @@
 backend:
   name: git-gateway
   branch: preview # Branch to update (optional; defaults to master)
+  repo: saksdirect/hbc-tech-blog
+  api_root: https://api.github.com
+  site_domain: cms.netlify.com
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
 publish_mode: editorial_workflow
 media_folder: assets/images/uploads
 collections:
@@ -13,14 +18,6 @@ collections:
        - {label: "Name", name: "name", widget: "string"}
        - {label: "Job Title", name: "job-title", widget: "string"}
        - {label: "Mini Bio", name: "mini-bio", widget: "string"}
-
-  - name: "category"
-    label: "Categories"
-    folder: "_category"
-    create: false
-    slug: {{slug}}
-    fields:
-       - {label: "Name", name: "name", widget: "string"}
 
   - name: "Posts" # Used in routes, e.g., /admin/collections/blog
     label: "Posts" # Used in the UI
