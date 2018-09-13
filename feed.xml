@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.3">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2018-07-31T15:02:38-05:00</updated><id>https://tech.hbc.com/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.3">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2018-09-13T16:18:56-05:00</updated><id>https://tech.hbc.com/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
 </subtitle><entry><title>Would You Rather be Awesome or Deadly?</title><link href="https://tech.hbc.com/2018-07-30-hbc-health-checks.html" rel="alternate" type="text/html" title="Would You Rather be Awesome or Deadly?" /><published>2018-07-30T00:00:00-05:00</published><updated>2018-07-30T00:00:00-05:00</updated><id>https://tech.hbc.com/hbc-health-checks</id><content type="html" xml:base="https://tech.hbc.com/2018-07-30-hbc-health-checks.html">&lt;p&gt;Over a year ago we began to experiment with new ways of helping our teams in finding their next improvement opportunities. We started with an assumption that while every team is unique, there must be a way to approach a “team health” conversation in a similar fashion across them all. By using a standardized assessment we also expected to find some areas in which organizational improvements would be beneficial. In our quest for a suitable tool, we borrowed, fine-tuned and iterated to finally arrive at the health checks that fit our needs. This blog post is a reflection on the evolution of team health checks in HBC.&lt;/p&gt;
 
 &lt;h2 id=&quot;searching-for-the-right-tool&quot;&gt;Searching for the right tool&lt;/h2&gt;
@@ -1111,97 +1111,10 @@ We know how many negative items are available to be sampled since we have the si
   &lt;li&gt;how to efficiently sample for many users at a time (variable length number of positive items)&lt;/li&gt;
   &lt;li&gt;at what point (sparsity of our interaction matrix) does our assumption that &lt;code class=&quot;highlighter-rouge&quot;&gt;n_neg_items &amp;gt;&amp;gt; n_pos_items&lt;/code&gt; wreck each implementation&lt;/li&gt;
   &lt;li&gt;how easy is it to modify each implementation to accommodate for custom probability distributions — if we wanted to take item frequency or expose into account&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Jason Tam</name></author><category term="numpy" /><category term="sampling" /><category term="python" /><category term="algorithms" /><summary>Alright, time to have some fun exploring efficient negative sampling implementations in NumPy…</summary></entry><entry><title>The Tech Blog is Dead. Long Live the Tech Blog</title><link href="https://tech.hbc.com/2018-03-21-the-tech-blog-is-dead-long-live-the-tech-blog.html" rel="alternate" type="text/html" title="The Tech Blog is Dead. Long Live the Tech Blog" /><published>2018-03-21T00:00:00-05:00</published><updated>2018-03-21T00:00:00-05:00</updated><id>https://tech.hbc.com/the-tech-blog-is-dead-long-live-the-tech-blog</id><content type="html" xml:base="https://tech.hbc.com/2018-03-21-the-tech-blog-is-dead-long-live-the-tech-blog.html">&lt;h1 id=&quot;the-hbc-tech-blog-you-will-never-find-a-more-wretched-hive-of-tech-and-miscellany&quot;&gt;The HBC Tech Blog: “You will never find a more wretched hive of tech and miscellany.”&lt;/h1&gt;
-
-&lt;p&gt;There’s an urban legend that maintains that your body replaces its cells
-every seven years. It turns out that’s not quite true; yet, the sentiment is
-inspiring, and matches some advice my college professor once offered: every
-seven years or so, &lt;em&gt;reinvent yourself&lt;/em&gt;. We’re excited today to announce that,
-after seven years of tech.gilt.com, we’re reinventing the Gilt Tech Blog:
-welcome, friends, to the &lt;em&gt;HBC Tech Blog&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;You can continue to expect the same mix of insight, fun and tech miscellany
-since our first post on &lt;a href=&quot;http://tech.hbc.com/2011-02-08-tips-for-optimizing-iphone-ipad-applications.html&quot; target=&quot;_blank&quot;&gt;tips of optimising iPhone applications&lt;/a&gt; back in 2011.
-Since then, we’ve enjoyed insights like &lt;a href=&quot;http://tech.hbc.com/2011-03-02-the-rule-of-4.html&quot; target=&quot;_blank&quot;&gt;the rule of four&lt;/a&gt;; &lt;a href=&quot;http://tech.hbc.com/2013-03-26-26-3-13-todays-noon-outage-and-what-were-doing.html&quot; target=&quot;_blank&quot;&gt;contrite
-apologies on unintended outages&lt;/a&gt;; &lt;a href=&quot;http://tech.hbc.com/2017-01-25-perfect-overnight-cold-brew.html&quot; target=&quot;_blank&quot;&gt;notes on how to make the perfect overnight
-cold-brew&lt;/a&gt;; &lt;a href=&quot;http://tech.hbc.com/2014-10-17-haiku-by-the-gilt-tech-team-in-japan.html&quot; target=&quot;_blank&quot;&gt;the art of delivering the weekly tech update via Haiku&lt;/a&gt;; and, the
-infamous &lt;a href=&quot;http://tech.hbc.com/2014-10-29-stilettos-by-state-a-gilt-infographic-while.html&quot; target=&quot;_blank&quot;&gt;infographic of US stiletto heel-size preference by-state&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;We hope you like the new look and new layout; big thanks to our in-house design
-team! Now, if we still have your attention, read on to learn why we bother
-writing a tech blog at all, and how we go about about it.&lt;/p&gt;
-
-&lt;h1 id=&quot;what-makes-a-good-tech-blog-freedom-gateway-drugs-and-raw-desire&quot;&gt;What makes a good tech blog? Freedom, gateway drugs, and raw desire.&lt;/h1&gt;
-
-&lt;p&gt;While our organisation’s cell structure has changed over time, our core DNA
-remains the same: we’ve always taken joy in contributing to the wider tech
-community, be it through speaking, writing or coding in an open and transparent
-way. That said, it’s good to take this opportunity to perform a retrospective
-and ask some key questions: why bother writing a tech blog? How do we know it’s
-working? And, if you’re a tech team considering creating your own blog, how
-should you go about doing it?&lt;/p&gt;
-
-&lt;p&gt;The Gilt Tech Blog started as an experiment in freedom of expression: we granted
-everyone in Gilt Tech access to publish to the blog (then hosted in Tumblr),
-without any need for permission or review. The bet was simple: we’d make it easy
-for the team to publish their thoughts, and trust them to write content that was
-worthwhile and interesting. The public nature of the blog would ensure that
-contributions were accurate, fair, and high-quality. Our engineers had already
-noted that when writing code for open-source projects, the quality of the code
-was always &lt;em&gt;higher&lt;/em&gt; than internal code; we figured the same dynamic would apply
-to our writing. That bet paid off: we’ve had many contributions from across our
-engineering, product, data, UX and product teams of very high quality.&lt;/p&gt;
-
-&lt;p&gt;When we moved the blog to Github Pages, our publication process matured
-to a ‘pull request’ model. Authors write articles using Markdown, and can
-commit ‘gh-pages’ branch to publish immediately, or, seek critical
-review first through Github’s review mechanism. Generally, our approach to
-reviewing either code or content is to give transparent and constructive
-feedback, that the author can choose to ignore or take on board. More often than
-not, the author takes any critique on board, and the quality of the final
-article is better than what one mind alone could produce.&lt;/p&gt;
-
-&lt;p&gt;The combination of distributed editorial freedom and Github Pages makes the
-mechanics of publishing easy. The next challenge is: how do you generate the
-content? Looking back there were a couple of things we did to build blogging
-into the tech culture.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Encourage&lt;/em&gt;: most likely, if you’re still reading, you’ve already got an
-interest in setting up your own blog. That means you have a few ideas
-for your first articles, and an initial seed-group of authors. Get stuck
-in and get your first articles out there.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Celebrate&lt;/em&gt;; as articles get shared, posted and liked, share that feedback with
-your wider tech team. Nothing breeds success like success.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Nudge&lt;/em&gt;: We found that, while a core crew were prolific in their contributions,
-we had a wider group of people in the organisation who had stories to tell but
-couldn’t get over the hurdle of writing that first article. At the time, we had
-a dedicated Tech Evangelist, and one of the great things she did was &lt;em&gt;nudge&lt;/em&gt;
-people. She’d watch out for features releases, new technologies we were dabbling
-in, cultural stories, and off-the-wall observations. Our ‘5@4’ meetings and
-all-hands presentations turned out to be one of the ‘gateway drugs’ to blogging:
-anyone who presented at these meetings had already done the legwork to create a
-narrative around something interesting they were working on. We found that all
-we needed was a little nudge, and a couple of hours work, to turn that gem into
-a blog post.&lt;/p&gt;
-
-&lt;p&gt;In the early days, we used to track the blog using KPIs like number of views,
-number of likes, number of articles per month, etc. We don’t tend to do that
-anymore; still, we do get excited when we see a post getting lots of likes!
-At this stage, the blog runs itself. That’s a great result. Think about it:
-in January of 2018 we had four articles posted &lt;em&gt;without asking, nudging,
-pestering, or cajoling anyone&lt;/em&gt;. It’s pretty much down now to the team’s raw
-desire to share what they’re learning. The blog has become the ultimate,
-authentic, organisational expression of “this is who we are, this is what we
-do.”&lt;/p&gt;
-
-&lt;p&gt;To our authors, thank you. To our readers, thanks for hanging with us, and, we
-hope you continue to enjoy the ride. And, to anyone out there setting up your
-own tech blog, we hope the advice above is helpful in getting started.&lt;/p&gt;</content><author><name>Adrian Trenaman</name></author><category term="blogging" /><category term="culture" /><category term="brand" /><summary>The HBC Tech Blog: “You will never find a more wretched hive of tech and miscellany.”</summary></entry><entry><title>Airing Out A New Job System</title><link href="https://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" rel="alternate" type="text/html" title="Airing Out A New Job System" /><published>2018-03-05T00:00:00-05:00</published><updated>2018-03-05T00:00:00-05:00</updated><id>https://tech.hbc.com/airing-out-a-new-job-system</id><content type="html" xml:base="https://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html">&lt;p&gt;In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow.
+&lt;/ul&gt;</content><author><name>Jason Tam</name></author><category term="numpy" /><category term="sampling" /><category term="python" /><category term="algorithms" /><summary>Alright, time to have some fun exploring efficient negative sampling implementations in NumPy…</summary></entry><entry><title>Airing Out A New Job System</title><link href="https://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" rel="alternate" type="text/html" title="Airing Out A New Job System" /><published>2018-03-05T00:00:00-05:00</published><updated>2018-03-05T00:00:00-05:00</updated><id>https://tech.hbc.com/airing-out-a-new-job-system</id><content type="html" xml:base="https://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html">&lt;p&gt;In this article I’ll be sharing some of the knowledge the Data team at HBC Tech picked up in replacing our old job system with Apache Airflow.
 We undertook the decision to overhaul our job orchestration system a few months ago due to a number of reasons but have now successfully migrated all our data ingestion jobs to the new system.&lt;/p&gt;
 
-&lt;p&gt;Firstly a little bit about our team. The Data Team at Gilt is responsible for constructing, delivering, and supporting all systems and services which enable self-service analytics
+&lt;p&gt;Firstly a little bit about our team. The Data Team at HBC Tech is responsible for constructing, delivering, and supporting all systems and services which enable self-service analytics
 and data science across all banners and all functions at Hudson’s Bay Corp (HBC).
 The scope of responsibilities begins with data ingestion, and ends with supporting our user community of BI tool uses and data scientists.
 These varieties of sources and types of processing lead us to review our job orchestration and I’ll be sharing the challenges involved, attempted solutions and lessons learned.&lt;/p&gt;
@@ -1283,7 +1196,7 @@ The plugin system gives us a nice way of expanding our functionality and hopeful
 &lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
 
 &lt;p&gt;Now that we have our Airflow setup and jobs migrated we are experiencing the full benefits of what airflow has to offer.
-Within a day we were able to create plugins that allow us to integrate with AWS EMR. This allowed the creation of DAG’s that will in the future support the migration of our ELT process to ETL using Spark, a big 2018 and 2019 initiative here at Gilt/HBC.
+Within a day we were able to create plugins that allow us to integrate with AWS EMR. This allowed the creation of DAG’s that will in the future support the migration of our ELT process to ETL using Spark, a big 2018 and 2019 initiative here at HBC Tech.
 We are eagerly awaiting the improved DAG deployment system thats coming to Airflow to improve our deployment process but we feel we are in a good place with it at the moment.&lt;/p&gt;
 
 &lt;p&gt;The Data teams roadmap has multiple exciting challenges to solve from ingestion, transformation to loading.
@@ -1291,7 +1204,7 @@ Having our Airflow setup, we feel we are in a good position now to tackle these 
 
 &lt;p&gt;A big callout to &lt;a href=&quot;https://github.com/dmateusp&quot;&gt;Daniel Mateus Pires&lt;/a&gt; who acted as our go to person in all things Airflow.&lt;/p&gt;
 
-&lt;p&gt;Over the new month or so we are really going to ramp up and if you’re interested in helping us solve these problems, take a look at our careers page &lt;a href=&quot;https://www.linkedin.com/jobs/search/?f_C=167354%2C1453743&amp;amp;locationId=OTHERS.worldwide&quot;&gt;here&lt;/a&gt; and get in touch.&lt;/p&gt;</content><author><name>[&quot;Terry McCartan&quot;]</name></author><category term="airflow" /><category term="aws" /><category term="docker" /><category term="tech" /><category term="data" /><category term="etl" /><category term="scheduling" /><summary>In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow.
+&lt;p&gt;Over the new month or so we are really going to ramp up and if you’re interested in helping us solve these problems, take a look at our careers page &lt;a href=&quot;https://www.linkedin.com/jobs/search/?f_C=167354%2C1453743&amp;amp;locationId=OTHERS.worldwide&quot;&gt;here&lt;/a&gt; and get in touch.&lt;/p&gt;</content><author><name>[&quot;Terry McCartan&quot;]</name></author><category term="airflow" /><category term="aws" /><category term="docker" /><category term="tech" /><category term="data" /><category term="etl" /><category term="scheduling" /><summary>In this article I’ll be sharing some of the knowledge the Data team at HBC Tech picked up in replacing our old job system with Apache Airflow.
 We undertook the decision to overhaul our job orchestration system a few months ago due to a number of reasons but have now successfully migrated all our data ingestion jobs to the new system.</summary></entry><entry><title>AWS SDK for Java, version 2.0</title><link href="https://tech.hbc.com/2018-01-26-aws-sdk-for-java.html" rel="alternate" type="text/html" title="AWS SDK for Java, version 2.0" /><published>2018-01-26T00:00:00-05:00</published><updated>2018-01-26T00:00:00-05:00</updated><id>https://tech.hbc.com/aws-sdk-for-java</id><content type="html" xml:base="https://tech.hbc.com/2018-01-26-aws-sdk-for-java.html">&lt;p&gt;The Capital Region AWS User Group met on January 18th at the &lt;a href=&quot;https://sunypoly.edu/research/albany-nanotech-complex.html&quot;&gt;Nanotech Complex&lt;/a&gt; in Albany New York. &lt;a href=&quot;https://www.commercehub.com/&quot;&gt;CommerceHub&lt;/a&gt; hosted the meeting at their main office.&lt;/p&gt;
 
 &lt;p&gt;The topic of this month’s meetup was the AWS SDK for Java. At HBC, our development teams use the SDK to access AWS services such as DynamoDB, S3, CloudWatch, and SNS. The v1 SDK has been a core building block at HBC since 2014.&lt;/p&gt;
@@ -1317,4 +1230,240 @@ We undertook the decision to overhaul our job orchestration system a few months 
 
 &lt;p&gt;If you want to learn more about the v2 SDK, review my slidedeck or watch Kyle Thomson’s re:invent 2017 presentation.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/sullis/aws-sdk-for-java-version-2-dot-0-albany-ny-january-18-2018&quot;&gt;&lt;img src=&quot;/assets/images/aws-sdk-for-java/AWS_SDK_for_Java-speakerdeck-albany-480.png&quot; alt=&quot;aws-sdk-java-speakerdeck-albany-image&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;https://www.youtube.com/watch?v=byRois3s5Yc&quot;&gt;&lt;img src=&quot;/assets/images/aws-sdk-for-java/aws-sdk-java-version-2_0-kyle-reinvent-youtube-480.png&quot; alt=&quot;aws-reinvent-2017-kyle-thomson-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Sean Sullivan</name></author><category term="aws" /><category term="java" /><category term="scala" /><category term="cloud" /><category term="albany" /><category term="newyork" /><category term="2018" /><summary>The Capital Region AWS User Group met on January 18th at the Nanotech Complex in Albany New York. CommerceHub hosted the meeting at their main office.</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/sullis/aws-sdk-for-java-version-2-dot-0-albany-ny-january-18-2018&quot;&gt;&lt;img src=&quot;/assets/images/aws-sdk-for-java/AWS_SDK_for_Java-speakerdeck-albany-480.png&quot; alt=&quot;aws-sdk-java-speakerdeck-albany-image&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;https://www.youtube.com/watch?v=byRois3s5Yc&quot;&gt;&lt;img src=&quot;/assets/images/aws-sdk-for-java/aws-sdk-java-version-2_0-kyle-reinvent-youtube-480.png&quot; alt=&quot;aws-reinvent-2017-kyle-thomson-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Sean Sullivan</name></author><category term="aws" /><category term="java" /><category term="scala" /><category term="cloud" /><category term="albany" /><category term="newyork" /><category term="2018" /><summary>The Capital Region AWS User Group met on January 18th at the Nanotech Complex in Albany New York. CommerceHub hosted the meeting at their main office.</summary></entry><entry><title>Sundial AWS EMR Integration</title><link href="https://tech.hbc.com/2018-01-16-sundial-aws-emr-integration.html" rel="alternate" type="text/html" title="Sundial AWS EMR Integration" /><published>2018-01-16T00:00:00-05:00</published><updated>2018-01-16T00:00:00-05:00</updated><id>https://tech.hbc.com/sundial-aws-emr-integration</id><content type="html" xml:base="https://tech.hbc.com/2018-01-16-sundial-aws-emr-integration.html">&lt;h1 id=&quot;aws-elastic-map-reduce-on-sundial&quot;&gt;AWS Elastic Map Reduce on Sundial&lt;/h1&gt;
+
+&lt;p&gt;Today I want to talk about a recent improvement we implemented in &lt;a href=&quot;https://github.com/gilt/sundial&quot;&gt;Sundial&lt;/a&gt;, an Open Source product launched by Gilt in early 2016. With &lt;a href=&quot;https://github.com/gilt/sundial/releases/tag/v2.0.0&quot;&gt;Sundial 2.0.0&lt;/a&gt; it’s now possible to schedule AWS Elastic Map Reduce jobs.&lt;/p&gt;
+
+&lt;p&gt;For those of you who are not familiar with it, &lt;a href=&quot;https://github.com/gilt/sundial&quot;&gt;Sundial&lt;/a&gt; is a batch job scheduler, developed by the Gilt Personalization Team, that works with Amazon ECS and Amazon Batch.&lt;/p&gt;
+
+&lt;p&gt;Before jumping into the nitty gritty details, it’s worth taking a deeper dive into the current batch job processing setup in Gilt and the challenges we have recently started to face.&lt;/p&gt;
+
+&lt;p&gt;We will quickly cover the following areas:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;the current batch jobs setup&lt;/li&gt;
+  &lt;li&gt;batch job scalability&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;batch-processing-today&quot;&gt;Batch processing today&lt;/h2&gt;
+
+&lt;p&gt;Every night, the Gilt Aster data warehouse (DW) is locked down in order to update it with the latest data coming from the relevant area of the business. During this lock, Extract-Transform-Load (&lt;a href=&quot;https://www.webopedia.com/TERM/E/ETL.html&quot;&gt;ETL&lt;/a&gt;) suites, or &lt;a href=&quot;https://www.ironsidegroup.com/2015/03/01/_ETL_-vs-elt-whats-the-big-difference/&quot;&gt;ELT as we prefer to call it&lt;/a&gt;, are
+run. 
+When all the jobs complete, the DW gets unlocked and the normal access to Aster is resumed. There are a number of client systems relying on the DW, most relevant are BI tools, i.e &lt;a href=&quot;https://looker.com/&quot;&gt;Looker&lt;/a&gt;, and Sundial.
+Sundial in particular is used in personalization for scheduling additional jobs and to build Machine Learning models. Since there is no synchronization between Aster and Sundial, occasionally when Aster takes longer to complete, Sundial jobs would fail because of the DW being still locked down or data being stale.&lt;/p&gt;
+
+&lt;h2 id=&quot;performance-degradation&quot;&gt;Performance degradation&lt;/h2&gt;
+
+&lt;p&gt;Because Aster is a shared resource, and the number of jobs relying on it is increasing day by day, in the past few weeks we’ve experienced significant performance degradation.
+This issue is particularly amplified at a specific time of the week, when BI reports are generated. The result is that batch jobs and reports are taking longer and longer to complete. 
+This of course affects developers experience and productivity.&lt;/p&gt;
+
+&lt;h2 id=&quot;emr-adoption&quot;&gt;EMR adoption&lt;/h2&gt;
+
+&lt;p&gt;Because of all the nuisances above, there is additional operational time spent to restart failed jobs. Furthermore, when developing a new model, 
+most of the time is spent extracting and massaging data, rather than focusing on the actual job logic.&lt;/p&gt;
+
+&lt;p&gt;It’s easy to understand that Aster wasn’t a good candidate anymore for us and that we needed to migrate to a better and more &lt;a href=&quot;https://en.wikipedia.org/wiki/Elasticity_(cloud_computing)&quot;&gt;elastic&lt;/a&gt; platform.&lt;/p&gt;
+
+&lt;p&gt;The solution we were looking for should:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;work with multiple data formats&lt;/li&gt;
+  &lt;li&gt;be scalable&lt;/li&gt;
+  &lt;li&gt;be owned by the team&lt;/li&gt;
+  &lt;li&gt;be easy to integrate with our scheduling solution&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We didn’t have to look far to find a great candidate to solve our problems: Spark running on &lt;a href=&quot;https://aws.amazon.com/emr/&quot;&gt;AWS EMR (Elastic Map Reduce)&lt;/a&gt;. Amazon EMR provides a managed Hadoop framework that makes it easy, fast, and cost-effective to process vast amounts of data across dynamically scalable Amazon EC2 instances. 
+You can also run other popular distributed frameworks such as Apache Spark, HBase, Presto, and Flink in Amazon EMR, and interact with data in other AWS data stores such as Amazon S3 and Amazon DynamoDB.&lt;/p&gt;
+
+&lt;p&gt;A complete list of open source applications (or components) running on AWS ERM can be found &lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;AWS EMR also offers a nice SDK to spin a new dynamic EMR cluster, run a job and tear down resources &lt;em&gt;on the fly&lt;/em&gt; and a cost per second billing system so to make the whole platform very cost efficient.&lt;/p&gt;
+
+&lt;p&gt;The last two perks of using AWS EMR are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://aws.amazon.com/ec2/spot/&quot;&gt;AWS Spot Instances&lt;/a&gt;: running hardware at a discounted price&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-supported-instance-types.html&quot;&gt;Large variety of hardware&lt;/a&gt;: most of ELT jobs run on commodity hardware, some ML require intensive GPU computation and EMR offers hardware solutions for all of our use cases.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-sundial-emr-integration&quot;&gt;The Sundial EMR Integration&lt;/h2&gt;
+
+&lt;p&gt;Since we were already using Sundial for most of our ETL and ML heavy lifting, we decided to extend the Sundial &lt;code class=&quot;highlighter-rouge&quot;&gt;task_definition&lt;/code&gt; and add a new &lt;code class=&quot;highlighter-rouge&quot;&gt;executable&lt;/code&gt;: the &lt;code class=&quot;highlighter-rouge&quot;&gt;emr_command&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Features we’ve implemented are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;running a Spark EMR job on a pre-existing cluster&lt;/li&gt;
+  &lt;li&gt;running a Spark EMR job on a new created-on-the-fly cluster (and automatic tear down of resources)&lt;/li&gt;
+  &lt;li&gt;choose between &lt;code class=&quot;highlighter-rouge&quot;&gt;on_demand&lt;/code&gt; vs &lt;code class=&quot;highlighter-rouge&quot;&gt;spot&lt;/code&gt; instances&lt;/li&gt;
+  &lt;li&gt;live logs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the next two paragraphs I will go through two Sundial EMR task definition examples: the first is a Spark EMR job running on a pre-existing cluster, the second is the same job but running on a dynamically created cluster instead.&lt;/p&gt;
+
+&lt;h3 id=&quot;running-a-job-on-a-pre-existing-emr-cluster&quot;&gt;Running a job on a pre-existing EMR Cluster&lt;/h3&gt;
+
+&lt;p&gt;Launching an EMR job on a pre-existing cluster is really simple, all that you need are some job details and the &lt;code class=&quot;highlighter-rouge&quot;&gt;cluster_id&lt;/code&gt; where you want the job to run.&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;executable&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr_command&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr_cluster&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;existing_emr_cluster&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cluster_id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;j-123ABC456DEF9&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;job_name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MyJobName1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;region&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;us-east-1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;class&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;com.company.job.spark.core.MainClass&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;s3_jar_path&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;s3://my-spark-job-release-bucket/my-job-spark-v1-0-0.jar&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;spark_conf&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;spark.driver.extraJavaOptions=-Denvironment=production&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;args&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;arg1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;arg2&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;s3_log_details&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;log_group_name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;spark-emr-log-group&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;log_stream_name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;spark-emr-log-stream&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The other properties are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;class&lt;/em&gt;: the fully qualified main class of the job, e.g. “com.company.job.spark.core.MainClass”&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;s3_jar_path&lt;/em&gt;: the s3 path to the job jar file e.g “s3://my-spark-job-release-bucket/my-job-spark-v1-0-0.jar”&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;spark_conf&lt;/em&gt;: this is a &lt;strong&gt;list&lt;/strong&gt; of attributes that you can pass to the spark driver, like memory or Java Opts (as per above example)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;args&lt;/em&gt;: another list of params that will be passed to the &lt;strong&gt;MainClass&lt;/strong&gt; as arguments (as per above example)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;s3_log_details&lt;/em&gt;: Cloudwatch Log Group and Stream names for your job. See &lt;a href=&quot;#emr-logs&quot;&gt;EMR Logs paragraph&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;emr-logs&quot;&gt;EMR Logs&lt;/h4&gt;
+
+&lt;p&gt;One nice feature of Sundial is the possibility of viewing jobs’ live logs. While AWS Elastic Container Service (ECS) and Batch natively offer 
+a way to access live logs, EMR updates logs only every five minutes on S3 and it cannot be used as feed for live logs. Since there isn’t a straightforward way of fixing this, it is developer’s 
+responsibility to implement the code that streams job’s log to &lt;a href=&quot;https://aws.amazon.com/cloudwatch/&quot;&gt;AWS Cloudwatch Logs&lt;/a&gt;. One way of achieving this is via the &lt;a href=&quot;https://github.com/speedwing/log4j-cloudwatch-appender&quot;&gt;log4j-cloudwatch-appender&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The downside of having jobs running on &lt;em&gt;static&lt;/em&gt; AWS EMR clusters is that you will be paying for it even if no jobs are running. For this reason it would be ideal if we could spin up an EMR cluster &lt;em&gt;on-the-fly&lt;/em&gt;, run a Spark job and then dispose all the resources.&lt;/p&gt;
+
+&lt;p&gt;If you want to know more, well, keep reading!&lt;/p&gt;
+
+&lt;h3 id=&quot;running-a-job-on-a-dynamic-emr-cluster&quot;&gt;Running a job on a dynamic EMR Cluster&lt;/h3&gt;
+
+&lt;p&gt;The Sundial Task definition that uses a dynamic cluster is fairly more complex and gives you some fine grained control when provisioning your cluster. 
+At the same time though, if your jobs don’t require very specific configurations (e.g. permissions, aws market type), sensible default options have been provided so to simplify the 
+Task Definition where possible.&lt;/p&gt;
+
+&lt;p&gt;Let’s dig into the different sections of the json template.&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr_cluster&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;new_emr_cluster&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;My Cluster Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;release_label&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr-5.11.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;applications&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Spark&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;s3_log_uri&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;s3://cluster-log-bucket&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;master_instance&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr_instance_type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;m4.large&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;instance_count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;aws_market&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;on_demand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;on_demand&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;core_instance&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr_instance_type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;m4.xlarge&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;instance_count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;aws_market&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;on_demand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;on_demand&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr_service_role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;default_emr_service_role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;EMR_DefaultRole&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr_job_flow_role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;default_emr_job_flow_role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;EMR_EC2_DefaultRole&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ec2_subnet&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;subnet-a123456b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;visible_to_all_users&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The json object name for a &lt;em&gt;dynamic emr cluster&lt;/em&gt; is &lt;code class=&quot;highlighter-rouge&quot;&gt;new_emr_cluster&lt;/code&gt;. It is composed by the following attributes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;name&lt;/em&gt;: The name that will appear on the AWS EMR console&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;release_label&lt;/em&gt;: The EMR version of the cluster to create. Each EMR version maps to specific version of the applications that can run in the EMR cluster. Additional details are available on the &lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html&quot;&gt;AWS EMR components page&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;applications&lt;/em&gt;: The list of applications to launch on the cluster. For a comprehensive list of available applications, visit the &lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html&quot;&gt;AWS EMR components page&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;s3_log_uri&lt;/em&gt;: The s3 bucket where the EMR cluster put their log files. These are both cluster logs as well as &lt;code class=&quot;highlighter-rouge&quot;&gt;stdout&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;stderr&lt;/code&gt; of the EMR job&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;master_instance&lt;/em&gt;: The master node hardware details (see below for more details.)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;core_instance&lt;/em&gt;: The core node hardware details (see below for more details.)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;task_instance&lt;/em&gt;: The task node hardware details (see below for more details.)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;emr_service_role&lt;/em&gt;: The IAM role that Amazon EMR assumes to access AWS resources on your behalf. For more information, see &lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html&quot;&gt;Configure IAM Roles for Amazon EMR&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;emr_job_flow_role&lt;/em&gt;: (Also called instance profile and EC2 role.) Accepts an instance profile that’s associated with the role that you want to use. All EC2 instances in the cluster assume this role. For more information, see &lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-what-is-emr.html&quot;&gt;Create and Use IAM Roles for Amazon EMR&lt;/a&gt; in the Amazon EMR Management Guide&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;ec2_subnet&lt;/em&gt;: The subnet where to spin the EMR cluster. (Optional if the account has only the standard VPC)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;visible_to_all_users&lt;/em&gt;: Indicates whether the instances in the cluster are visible to all IAM users in the AWS account. If you specify true, all IAM users can view and (if they have permissions) manage the instances. If you specify false, only the IAM user that created the cluster can view and manage it&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;master-core-and-task-instances&quot;&gt;Master, core and task instances&lt;/h4&gt;
+
+&lt;p&gt;An EMR cluster is composed by exactly one master instance, at least one core instance and any number of tasks instances.&lt;/p&gt;
+
+&lt;p&gt;A detailed explanation of the different instance types is available in the &lt;a href=&quot;https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-instances.html&quot;&gt;AWS EMR plan instances page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For simplicity I’ll paste a snippet of the AWS official documentation:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;master node: The master node manages the cluster and typically runs master components of distributed applications. For example, the master node runs the YARN ResourceManager service to manage resources for applications, as well as the HDFS NameNode service. It also tracks the status of jobs submitted to the cluster and monitors the health of the instance groups. Because there is only one master node, the instance group or instance fleet consists of a single EC2 instance.&lt;/li&gt;
+    &lt;li&gt;core node: Core nodes are managed by the master node. Core nodes run the Data Node daemon to coordinate data storage as part of the Hadoop Distributed File System (HDFS). They also run the Task Tracker daemon and perform other parallel computation tasks on data that installed applications require.&lt;/li&gt;
+    &lt;li&gt;task node: Task nodes are optional. You can use them to add power to perform parallel computation tasks on data, such as Hadoop MapReduce tasks and Spark executors. Task nodes don’t run the Data Node daemon, nor do they store data in HDFS.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The json below describes configuration details of an EMR master instance:&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;master_instance&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;emr_instance_type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;m4.large&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;instance_count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;aws_market&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;on_demand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;on_demand&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Please note that there can only be exactly one master node, if a different values is specified in the &lt;code class=&quot;highlighter-rouge&quot;&gt;instance_count&lt;/code&gt;, it is ignored. For other instance group types the 
+value &lt;code class=&quot;highlighter-rouge&quot;&gt;instance_count&lt;/code&gt; represents, as the name says, the number of EC2 instances to launch for that instance type.&lt;/p&gt;
+
+&lt;p&gt;Other attributes are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;emr_instance_type&lt;/em&gt;: the EC2 instance type to use when launching the EMR instance&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;aws_market&lt;/em&gt;: the marketplace to provision instances for this group. It can be either &lt;code class=&quot;highlighter-rouge&quot;&gt;on_demand&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;spot&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;An example of a EMR instance using spot is:&lt;/p&gt;
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;aws_market&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;spot&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;bid_price&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.07&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Where &lt;code class=&quot;highlighter-rouge&quot;&gt;bid_price&lt;/code&gt; is the Spot bid price in dollars.&lt;/p&gt;
+
+&lt;h2 id=&quot;limitations&quot;&gt;Limitations&lt;/h2&gt;
+
+&lt;p&gt;Because of some AWS EMR implementation details, Sundial has two major limitations when it comes to EMR job scheduling.&lt;/p&gt;
+
+&lt;p&gt;The first limitation is that Sundial is not able to stop EMR jobs running on pre-existing clusters. Since jobs on the EMR cluster are scheduled via &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; and since 
+AWS did not build any api on top of it, once a job is scheduled on an existing EMR cluster, in order to kill it, it would be required to ssh on the EC2 instance where the master node is running, query &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; so to find out the
+correct application id and issue a yarn kill command. We decided to not implement this feature because it would have greatly over complicated the job definition.
+Jobs running on dynamic cluster are affected by the same issue. We’ve managed to still implement this feature by simply killing the whole EMR cluster.&lt;/p&gt;
+
+&lt;p&gt;The second limitation is about live logs. As previously mentioned live logs are not implemented out of the box. Developers require to stream logs to Cloudwatch Logs and set log group and log name in the task definition.&lt;/p&gt;</content><author><name>Giovanni Gargiulo</name></author><category term="aws" /><category term="data" /><category term="sundial" /><category term="etl" /><category term="scheduling" /><category term="machine learning" /><summary>AWS Elastic Map Reduce on Sundial</summary></entry></feed>
