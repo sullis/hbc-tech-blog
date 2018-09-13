@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded',function() {
             mobileMenu.addEventListener("click", NavEvents.toggleNav, false);
             searchToggle.addEventListener("click", NavEvents.toggleSearch, false);
 
-            // if user hits esc key, close search 
+            // if user hits esc key, close search
             searchInput.addEventListener('keyup', event => {
                 if (event.keyCode === 27) {
                     App.setView("default");
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded',function() {
             } else if (view === "nav") {
                 if (isNavOpen === true) {
                     siteHeader.className += ' ' + 'navigation--open';
-                    
+
                     if(isSearchOpen) { NavEvents.toggleSearch() };
 
                 } else {
@@ -93,21 +93,21 @@ document.addEventListener('DOMContentLoaded',function() {
     };
 
     var Animate = {
-        
+
 
         searchIcon: function() {
 
             var leftSearch = Snap.select('#leftSearch');
             var rightSearch = Snap.select('#rightSearch');
             var searchHandle = Snap.select('#handle');
-            
+
             var leftClosePoints = 'M3.5 3.5 L11.575 11.699 20.26 20.516';
             var rightClosePoints = 'M20.26 3.256L11.848 11.797 3.5 20.272';
             var leftSearchPoints = 'M11.4842576,23.9891168 C5.09608476,23.7189967 0,18.4546255 0,12 C0,5.54951437 4.85419801,0.113423154 12.4763811,0.0114091479';
             var rightSearchPoints = 'M12.5376167,0.0118279089 C18.9155446,0.293025077 24,5.55274344 24,12 C24,18.4701834 17.7604297,24.3112218 11.1896721,23.9909829';
             var searchHandlePoints = 'M20.7485408,20.8914207 L26.8571202,27 L20.7485408,20.8914207';
             var closeHandlePoints = 'M11.575 11.699';
-            
+
             var toClose = function(){
                 leftSearch.animate({ d: leftClosePoints }, 300, mina.easeinout);
                 rightSearch.animate({ d: rightClosePoints }, 300, mina.easeinout);
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded',function() {
                 rightSearch.animate({ d: rightSearchPoints }, 150, mina.easeinout);
                 searchHandle.animate({ d: searchHandlePoints }, 150, mina.easeinout);
             }
-            
+
             if (isSearchOpen) {
                 toClose();
             } else {
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded',function() {
         }
     };
 
-    // the menu icon (only displayed below desktop breakpoints) 
+    // the menu icon (only displayed below desktop breakpoints)
     // and the search icon have listeners that call these functions on click
     var NavEvents = {
 
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded',function() {
         init: function() {
 
             const headerSearch = new jekyllSearch(
-                'https://tech.hbc.com/search.json',
+                '/search.json',
                 '#header-search-input',
                 '#header-search__results'
             );
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded',function() {
     var Utils = {
 
         randomizeArticleHeaderColors: function() {
-            
+
             var colorsArray = [
                 "#00704a",
                 "#b30838",
@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded',function() {
     var LazyLoadArticleSnippets = {
 
         setupScenes: function() {
-            var controller = new ScrollMagic.Controller({globalSceneOptions:{refreshInterval: 0}});               
+            var controller = new ScrollMagic.Controller({globalSceneOptions:{refreshInterval: 0}});
 
             // show articles in article listing
             var articleSnippet = document.querySelectorAll('.snippet')
@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded',function() {
                 .addTo(controller);
         },
 
-        articleAnimationTiming: function() {            
+        articleAnimationTiming: function() {
             this.staggerAnimationDelay(document.querySelectorAll(".share-buttons__link-item"));
             this.staggerAnimationDelay(document.querySelectorAll(".recirc__articles__item"));
         },
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded',function() {
             elmements.forEach(function(element, index){
                 element.style.animationDelay = delay + 'ms';
                 // we only want to stagger what's visible and let scrollmagic triggers take care of the rest.
-                if (index < 3) {                    
+                if (index < 3) {
                     delay += offset;
                 } else {
                     delay = 0;

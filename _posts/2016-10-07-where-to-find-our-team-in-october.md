@@ -2,7 +2,7 @@
 title: "Where to find our team in October"
 author: John Coghlan
 date: '2016-10-07'
-categories: 
+categories:
 - events
 tags:
 - agile
@@ -11,7 +11,7 @@ tags:
 - john coghlan
 ---
 
-Here's where to find Gilt and HBC Digital this month: 
+Here's where to find HBC Tech this month:
 
 * Oct 11 - Dana Pylayeva, Agile Coach, is leading a Product Discovery Game Workshop at the Agile/Lean Practitioners Meetup - [RSVP](https://www.meetup.com/agile-lean-practitioners/events/234297424/)
 * Oct 13 - Sophie Huang, Product Manager, is on the "From Downloads to Daily Active Users" panel at the 🍕🍺📱 (Pizza + Beer + Mobile) Meetup - [RSVP](https://www.meetup.com/Pizza-Beer-Mobile-NYC/events/234006779/)
@@ -20,4 +20,4 @@ Here's where to find Gilt and HBC Digital this month:
 * Oct 25 - We're hosting the Dublin Swift Meetup at our Dublin office. This meetup will feature 3 great speakers including our own Ievgen Salo giving a talk on Advanced Collection in Swift. - [RSVP](http://www.meetup.com/Dublin-Swift-Meetup/events/234931223/)
 * Oct 26 - We're co-hosting the Dublin Scala Users Group with our friends from the Functional Kats Meetup. This Meetup will feature Juan Manuel Serrano on Scala and be held at Workday's Dublin office. - [RSVP](https://www.meetup.com/Dublin-Scala-users-group/events/234798666/)
 
-## See you soon! 
+## See you soon!

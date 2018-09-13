@@ -17,10 +17,10 @@ tags:
 feature-image: airing-out-a-new-job-system/feature-image-airflow.jpg
 ---
 
-In this article I’ll be sharing some of the knowledge the Data team at Gilt picked up in replacing our old job system with Apache Airflow.
+In this article I’ll be sharing some of the knowledge the Data team at HBC Tech picked up in replacing our old job system with Apache Airflow.
 We undertook the decision to overhaul our job orchestration system a few months ago due to a number of reasons but have now successfully migrated all our data ingestion jobs to the new system.
 
-Firstly a little bit about our team. The Data Team at Gilt is responsible for constructing, delivering, and supporting all systems and services which enable self-service analytics
+Firstly a little bit about our team. The Data Team at HBC Tech is responsible for constructing, delivering, and supporting all systems and services which enable self-service analytics
 and data science across all banners and all functions at Hudson's Bay Corp (HBC).
 The scope of responsibilities begins with data ingestion, and ends with supporting our user community of BI tool uses and data scientists.
 These varieties of sources and types of processing lead us to review our job orchestration and I’ll be sharing the challenges involved, attempted solutions and lessons learned.
@@ -100,7 +100,7 @@ This process had its challenges but there is a great community of Airflow users 
 ## Next steps
 
 Now that we have our Airflow setup and jobs migrated we are experiencing the full benefits of what airflow has to offer.
-Within a day we were able to create plugins that allow us to integrate with AWS EMR. This allowed the creation of DAG’s that will in the future support the migration of our ELT process to ETL using Spark, a big 2018 and 2019 initiative here at Gilt/HBC.
+Within a day we were able to create plugins that allow us to integrate with AWS EMR. This allowed the creation of DAG’s that will in the future support the migration of our ELT process to ETL using Spark, a big 2018 and 2019 initiative here at HBC Tech.
 We are eagerly awaiting the improved DAG deployment system thats coming to Airflow to improve our deployment process but we feel we are in a good place with it at the moment.
 
 The Data teams roadmap has multiple exciting challenges to solve from ingestion, transformation to loading.

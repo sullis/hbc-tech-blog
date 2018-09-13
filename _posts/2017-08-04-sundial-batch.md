@@ -2,7 +2,7 @@
 title: "Sundial or AWS Batch, Why not both?"
 author: Kevin O'Riordan
 date: '2017-08-04'
-categories: 
+categories:
 - data science
 tags:
 - batch
@@ -11,7 +11,7 @@ tags:
 - personalization
 ---
 
-About a year ago, we (the Gilt/HBC personalization team) open sourced Sundial ![](https://github.com/gilt/sundial), a batch job orchestration system leveraging [Amazon EC2 Container Service](https://aws.amazon.com/ecs/).
+About a year ago, we (the HBC Tech personalization team) open sourced Sundial ![](https://github.com/saksdirect/sundial), a batch job orchestration system leveraging [Amazon EC2 Container Service](https://aws.amazon.com/ecs/).
 
 <!--more-->
 
@@ -53,8 +53,8 @@ We built Sundial to provide the following features on top of the standard ECS se
 
 ### What we'd love for Batch to do better
   - Make disk space on managed instances configurable.
-   Currently the workaround is to create a custom AMI with the disk space you need if you have jobs that store a lot of data on disk (Not uncommon in a data processing environment). 
-   Gilt has a feature request open with Amazon on this issue.
+   Currently the workaround is to create a custom AMI with the disk space you need if you have jobs that store a lot of data on disk (Not uncommon in a data processing environment).
+   HBC Tech has a feature request open with Amazon on this issue.
 
 
 ### Why not dump Sundial in favour of using Batch directly?
@@ -73,7 +73,7 @@ Sundial still provides features that Batch doesn't provide:
 
 ### What next?
 
- Sundial with AWS Batch backend now works great for the use cases we encounter doing personalization. We may consider enhancements such as Prometheus push gateway integration (to replace the Graphite service we had with ECS and to keep track of metrics over time) and UI enhancements to Sundial. 
+ Sundial with AWS Batch backend now works great for the use cases we encounter doing personalization. We may consider enhancements such as Prometheus push gateway integration (to replace the Graphite service we had with ECS and to keep track of metrics over time) and UI enhancements to Sundial.
 
 In the long term we may consider other open source solutions as maintaining a job system counts as technical debt that
  is a distraction from product focused tasks. The HBC data team, who have very similar requirements to us, have started adopting Airflow (by Airbnb). As part of their adoption, they have contributed to an open source effort to make Airflow support Batch as a backend: <https://github.com/gilt/incubator-airflow/tree/aws_batch>. If it works well, this is a solution we may adopt in the future.
