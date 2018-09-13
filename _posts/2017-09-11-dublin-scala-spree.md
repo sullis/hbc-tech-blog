@@ -15,11 +15,11 @@ image-credit: ~
 image-creditlink: ~
 ---
 
-This Friday the Gilt/HBC Digital Dublin office will be hosting the first ever Dublin Scala Spree, a day-long Scala Open Source Hackathon.
+This Friday the HBC Tech Dublin office will be hosting the first ever Dublin Scala Spree, a day-long Scala Open Source Hackathon.
 The event is organized by the Dublin Scala Usergroup in cooperation with Dublin Functional Kubs and the Scala Center at EPFL in Lausanne, Switzerland.
 <!--more-->
 * __Date & Time:__ Friday, 15th September, 10am - 4pm
-* __Location:__ Gilt/HBC Digital Office, Shelbourne Rd., Dublin 4, Ireland
+* __Location:__ HBC Tech Office, Shelbourne Rd., Dublin 4, Ireland
 * __Sign-Up:__ Please register for the event via the [Dublin Scala Users Group](https://www.meetup.com/Dublin-Scala-users-group/events/242952081)
 * __Organizers:__ Dublin Scala Meetup and Dublin Functional Kubs in cooperation with the Scala Center @ EPFL in Lausanne
 
@@ -34,7 +34,7 @@ expand their skills. And for everyone it's a great opportunity to meet and have 
 For this week's Spree we have the following special guests and their OSS projects:
 * [sbt and zinc](http://www.scala-sbt.org) - Jorge Vicente Cantero [@jvican](https://twitter.com/jvican) ([Scala Center](https://scala.epfl.ch))
 * [API Builder](https://www.apibuilder.io) - Michael Bryzek [@mbryzek](https://twitter.com/mbryzek) ([Flow.io](https://www.flow.io))
-* [Gilt Foundation Classes](https://github.com/gilt?q=gfc) - Gregor Heine [@greheine](https://twitter.com/greheine) ([HBC Digital](http://tech.gilt.com))
+* [HBC Foundation Classes](https://github.com/gilt?q=gfc) - Gregor Heine [@greheine](https://twitter.com/greheine) ([HBC Tech](http://tech.hbc.com))
 
 If you have a Scala open source project that you would like to feature at the Spree, please get in touch with the [Dublin Scala Users Group organizers](https://www.meetup.com/Dublin-Scala-users-group).
 
