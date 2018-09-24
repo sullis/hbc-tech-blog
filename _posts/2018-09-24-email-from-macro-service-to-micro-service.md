@@ -14,6 +14,8 @@ tags:
 - lambda
 - email
 - architecture
+- scala
+- microservices
 ---
 
 Email Engineering recently migrated all transactional emails to CNS v2. This was a slow migration as CNS v1, although, referred to as a micro service was anything but one! We inherited CNS v1 towards the end of last year and started migration to CNS v2 in the beginning of this year. In doing so, we followed what could be labeled as a flavor of [Strangler pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/strangler). In this blog, I will share how we accomplished this task and also provide a detailed view of the new CNS (CNS v2).
