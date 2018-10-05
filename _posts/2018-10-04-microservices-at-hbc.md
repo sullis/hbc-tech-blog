@@ -17,17 +17,16 @@ HBC's commerce platform is constantly evolving to support new business requireme
 
 In September, HBC engineers Fabrizio Fortino and Sean Sullivan gave presentations about the past, present, and future of microservices at the Hudson's Bay Company.
 
-September 27, 2018
-Event Driven Microservices
+## Event Driven Microservices
+Dublin Microservices User Group - September 27, 2018
+
 Fabrizio Fortino ([@fabriziofortino](https://twitter.com/fabriziofortino))
-Dublin Microservices User Group
 
 [![microservices-dublin-image](./assets/images/microservices-at-hbc-2018/event-driven-microservices-hbc-dublin-2018-09-27.png)](https://www.slideshare.net/FabrizioFortino1/event-driven-microservices)
 
 
-September 25, 2018
-Microservices at HBC
+## Microservices at HBC
+Portland Java User Group - September 25, 2018
 Sean Sullivan ([@tinyrobots](https://twitter.com/tinyrobots))
-Portlan Java User Group
 
 [![microservices-portland-image](./assets/images/microservices-at-hbc-2018/microservices-at-hbc-portland-2018-09-25.png)](https://speakerdeck.com/sullis/microservices-portland-oregon-2018-09-25)
