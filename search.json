@@ -1,6 +1,16 @@
 [
     
     {
+        "title": "Microservices at HBC",
+        "date": "OCT 4 2018",
+        "author": "Sean Sullivan",
+        "category": "microservices",
+        "tags": "aws scala java",
+        "excerpt": "HBC’s commerce platform is constantly evolving to support new business requirements. Our platform’s microservice architecture enables engineering teams to rapidly build and deploy new features.",
+        "url": "/2018-10-04-microservices-at-hbc.html"
+    },
+    
+    {
         "title": "Email: from macro-service to micro-service",
         "date": "SEP 24 2018",
         "author": "Kinshuk Varshney",

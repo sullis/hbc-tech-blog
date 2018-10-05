@@ -384,18 +384,18 @@ We know how many negative items are available to be sampled since we have the si
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n_items</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">pos_inds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="c"># raw_samp = np.random.randint(0, n_items - len(pos_inds), size=n_samp)</span>
-<span class="c"># Instead of sampling, see what happens to each possible sampled value</span>
-<span class="n">raw_samp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_items</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">pos_inds</span><span class="p">))</span>
+<span class="c1"># raw_samp = np.random.randint(0, n_items - len(pos_inds), size=n_samp)
+# Instead of sampling, see what happens to each possible sampled value
+</span><span class="n">raw_samp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_items</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">pos_inds</span><span class="p">))</span>
 <span class="n">raw_samp</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
-<span class="c"># Subtract the number of positive items preceding</span>
-<span class="n">pos_inds_adj</span> <span class="o">=</span> <span class="n">pos_inds</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pos_inds</span><span class="p">))</span>
+<span class="c1"># Subtract the number of positive items preceding
+</span><span class="n">pos_inds_adj</span> <span class="o">=</span> <span class="n">pos_inds</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pos_inds</span><span class="p">))</span>
 <span class="n">pos_inds_adj</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
-<span class="c"># Find where each raw sample fits in our adjusted positive indices</span>
-<span class="n">ss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">pos_inds_adj</span><span class="p">,</span> <span class="n">raw_samp</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s">'right'</span><span class="p">)</span>
+<span class="c1"># Find where each raw sample fits in our adjusted positive indices
+</span><span class="n">ss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">pos_inds_adj</span><span class="p">,</span> <span class="n">raw_samp</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s">'right'</span><span class="p">)</span>
 <span class="n">ss</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-<span class="c"># Adjust our raw samples</span>
-<span class="n">neg_inds</span> <span class="o">=</span> <span class="n">raw_samp</span> <span class="o">+</span> <span class="n">ss</span>
+<span class="c1"># Adjust our raw samples
+</span><span class="n">neg_inds</span> <span class="o">=</span> <span class="n">raw_samp</span> <span class="o">+</span> <span class="n">ss</span>
 <span class="n">neg_inds</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
 </code></pre></div></div>
 
@@ -887,6 +887,8 @@ We undertook the decision to overhaul our job orchestration system a few months 
 </section>
 
         </article>
+        
+    
         
     
         

@@ -290,8 +290,8 @@
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">boto3</span>
 
-<span class="c"># A wrappper for the instance termination event we get from AWS</span>
-<span class="k">class</span> <span class="nc">Ec2TerminationEvent</span><span class="p">:</span>
+<span class="c1"># A wrappper for the instance termination event we get from AWS
+</span><span class="k">class</span> <span class="nc">Ec2TerminationEvent</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
         <span class="n">detail</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s">'detail'</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">instance_id</span> <span class="o">=</span> <span class="n">detail</span><span class="p">[</span><span class="s">'EC2InstanceId'</span><span class="p">]</span>
@@ -299,8 +299,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">terminated_at</span> <span class="o">=</span> <span class="n">detail</span><span class="p">[</span><span class="s">'EndTime'</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">is_health_check_failure</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cause</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">'ELB system health check failure.'</span><span class="p">)</span>
         <span class="n">ec2_client</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s">'ec2'</span><span class="p">)</span>
-        <span class="c"># Fetching the instance name</span>
-        <span class="n">instance</span> <span class="o">=</span> <span class="p">(((</span><span class="n">ec2_client</span><span class="o">.</span><span class="n">describe_instances</span><span class="p">(</span><span class="n">InstanceIds</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">instance_id</span><span class="p">])[</span><span class="s">'Reservations'</span><span class="p">])[</span><span class="mi">0</span><span class="p">])[</span><span class="s">'Instances'</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># Fetching the instance name
+</span>        <span class="n">instance</span> <span class="o">=</span> <span class="p">(((</span><span class="n">ec2_client</span><span class="o">.</span><span class="n">describe_instances</span><span class="p">(</span><span class="n">InstanceIds</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">instance_id</span><span class="p">])[</span><span class="s">'Reservations'</span><span class="p">])[</span><span class="mi">0</span><span class="p">])[</span><span class="s">'Instances'</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">instance_tags</span> <span class="o">=</span> <span class="n">instance</span><span class="p">[</span><span class="s">'Tags'</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">instance_name</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="k">for</span> <span class="n">instance_tag</span> <span class="ow">in</span> <span class="n">instance_tags</span><span class="p">:</span>
@@ -309,26 +309,26 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">instance_name</span> <span class="o">=</span> <span class="n">instance_tag</span><span class="p">[</span><span class="s">'Value'</span><span class="p">]</span>
 
 <span class="k">def</span> <span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Received EC2 termination event: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">event</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Received EC2 termination event: {}'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">event</span><span class="p">))</span>
     <span class="n">ec2_termination_event</span> <span class="o">=</span> <span class="n">Ec2TerminationEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ec2_termination_event</span><span class="o">.</span><span class="n">is_health_check_failure</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">'Event for instance {} is a health check failure'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ec2_termination_event</span><span class="o">.</span><span class="n">instance_id</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'Event for instance {} is a health check failure'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">ec2_termination_event</span><span class="o">.</span><span class="n">instance_id</span><span class="p">))</span>
         <span class="n">send_email</span><span class="p">(</span><span class="n">ec2_termination_event</span><span class="p">)</span>
     <span class="k">return</span> <span class="s">'ok'</span>
 
 <span class="k">def</span> <span class="nf">send_email</span><span class="p">(</span><span class="n">ec2_termination_event</span><span class="p">):</span>
     <span class="n">ses_client</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s">'ses'</span><span class="p">)</span>
-    <span class="c"># Simply change the email address below to the one for your</span>
-    <span class="c"># team, for example</span>
-    <span class="n">destination</span> <span class="o">=</span> <span class="p">{</span> <span class="s">'ToAddresses'</span><span class="p">:</span> <span class="p">[</span><span class="s">'your-email-address@your-domain.com'</span><span class="p">]</span> <span class="p">}</span>
-    <span class="n">email_subject</span> <span class="o">=</span> <span class="p">{</span> <span class="s">'Data'</span><span class="p">:</span> <span class="s">'EC2 Instance {} Terminated'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ec2_termination_event</span><span class="o">.</span><span class="n">instance_id</span><span class="p">)</span> <span class="p">}</span>
+    <span class="c1"># Simply change the email address below to the one for your
+</span>    <span class="c1"># team, for example
+</span>    <span class="n">destination</span> <span class="o">=</span> <span class="p">{</span> <span class="s">'ToAddresses'</span><span class="p">:</span> <span class="p">[</span><span class="s">'your-email-address@your-domain.com'</span><span class="p">]</span> <span class="p">}</span>
+    <span class="n">email_subject</span> <span class="o">=</span> <span class="p">{</span> <span class="s">'Data'</span><span class="p">:</span> <span class="s">'EC2 Instance {} Terminated'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">ec2_termination_event</span><span class="o">.</span><span class="n">instance_id</span><span class="p">)</span> <span class="p">}</span>
     <span class="n">email_body</span> <span class="o">=</span> <span class="p">{</span> <span class="s">'Html'</span><span class="p">:</span> <span class="p">{</span> <span class="s">'Data'</span><span class="p">:</span> <span class="n">create_message_text</span><span class="p">(</span><span class="n">ec2_termination_event</span><span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
     <span class="n">email_message</span> <span class="o">=</span> <span class="p">{</span> <span class="s">'Subject'</span><span class="p">:</span> <span class="n">email_subject</span><span class="p">,</span> <span class="s">'Body'</span><span class="p">:</span> <span class="n">email_body</span> <span class="p">}</span>
-    <span class="c"># Also change the email addresses below to the ones applicable</span>
-    <span class="c"># to your case</span>
-    <span class="n">send_email_response</span> <span class="o">=</span> <span class="n">ses_client</span><span class="o">.</span><span class="n">send_email</span><span class="p">(</span><span class="n">Source</span><span class="o">=</span><span class="s">'email-address-to-send-to@your-domain.com'</span><span class="p">,</span> <span class="n">Destination</span><span class="o">=</span><span class="n">destination</span><span class="p">,</span> <span class="n">Message</span><span class="o">=</span><span class="n">email_message</span><span class="p">,</span> <span class="n">ReplyToAddresses</span><span class="o">=</span><span class="p">[</span><span class="s">'your-email-address@your-domain.com'</span><span class="p">])</span>
+    <span class="c1"># Also change the email addresses below to the ones applicable
+</span>    <span class="c1"># to your case
+</span>    <span class="n">send_email_response</span> <span class="o">=</span> <span class="n">ses_client</span><span class="o">.</span><span class="n">send_email</span><span class="p">(</span><span class="n">Source</span><span class="o">=</span><span class="s">'email-address-to-send-to@your-domain.com'</span><span class="p">,</span> <span class="n">Destination</span><span class="o">=</span><span class="n">destination</span><span class="p">,</span> <span class="n">Message</span><span class="o">=</span><span class="n">email_message</span><span class="p">,</span> <span class="n">ReplyToAddresses</span><span class="o">=</span><span class="p">[</span><span class="s">'your-email-address@your-domain.com'</span><span class="p">])</span>
     <span class="n">message_id</span> <span class="o">=</span> <span class="n">send_email_response</span><span class="p">[</span><span class="s">'MessageId'</span><span class="p">]</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Successfully sent email with message id {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message_id</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Successfully sent email with message id {}'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">message_id</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">create_message_text</span><span class="p">(</span><span class="n">ec2_termination_event</span><span class="p">):</span>
     <span class="n">instance_id_line</span> <span class="o">=</span> <span class="s">'&lt;b&gt;Instance&lt;/b&gt;: &lt;a href=</span><span class="se">\"</span><span class="s">https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:search='</span> <span class="o">+</span> <span class="n">ec2_termination_event</span><span class="o">.</span><span class="n">instance_id</span> <span class="o">+</span> <span class="s">';sort=tag:Name</span><span class="se">\"</span><span class="s">&gt;'</span> <span class="o">+</span> <span class="n">ec2_termination_event</span><span class="o">.</span><span class="n">instance_id</span> <span class="o">+</span> <span class="s">'&lt;/a&gt;&lt;br&gt;'</span>
@@ -370,10 +370,10 @@
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">boto3</span>
 <span class="kn">import</span> <span class="nn">httplib</span>
 
-<span class="c"># A wrapper for the deployment successful we receive</span>
-<span class="c"># from CodeDeploy. Extracs the application, deployment</span>
-<span class="c"># group, release version, etc.</span>
-<span class="k">class</span> <span class="nc">CodeDeployEvent</span><span class="p">():</span>
+<span class="c1"># A wrapper for the deployment successful we receive
+# from CodeDeploy. Extracs the application, deployment
+# group, release version, etc.
+</span><span class="k">class</span> <span class="nc">CodeDeployEvent</span><span class="p">():</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
         <span class="n">detail</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s">'detail'</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">application</span> <span class="o">=</span> <span class="n">detail</span><span class="p">[</span><span class="s">'application'</span><span class="p">]</span>
@@ -393,21 +393,21 @@
 
 <span class="k">def</span> <span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="n">code_deploy_event</span> <span class="o">=</span> <span class="n">CodeDeployEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Received success deploy {} for application {} and deployment group {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">code_deploy_event</span><span class="o">.</span><span class="n">deployment_id</span><span class="p">,</span> <span class="n">code_deploy_event</span><span class="o">.</span><span class="n">application</span><span class="p">,</span> <span class="n">code_deploy_event</span><span class="o">.</span><span class="n">deployment_group</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Received success deploy {} for application {} and deployment group {}'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">code_deploy_event</span><span class="o">.</span><span class="n">deployment_id</span><span class="p">,</span> <span class="n">code_deploy_event</span><span class="o">.</span><span class="n">application</span><span class="p">,</span> <span class="n">code_deploy_event</span><span class="o">.</span><span class="n">deployment_group</span><span class="p">))</span>
     <span class="n">send_email</span><span class="p">(</span><span class="n">code_deploy_event</span><span class="p">)</span>
     <span class="k">return</span> <span class="s">'ok'</span>
 
 <span class="k">def</span> <span class="nf">send_email</span><span class="p">(</span><span class="n">code_deploy_event</span><span class="p">):</span>
     <span class="n">ses_client</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s">'ses'</span><span class="p">)</span>
-    <span class="c"># Simply change the email address below to the one for your</span>
-    <span class="c"># team, for example</span>
-    <span class="n">destination</span> <span class="o">=</span> <span class="p">{</span> <span class="s">'ToAddresses'</span><span class="p">:</span> <span class="p">[</span><span class="s">'your-email-address@your-domain.com'</span><span class="p">]</span> <span class="p">}</span>
-    <span class="n">email_subject</span> <span class="o">=</span> <span class="p">{</span> <span class="s">'Data'</span><span class="p">:</span> <span class="s">'Deployment {} Successful'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">code_deploy_event</span><span class="o">.</span><span class="n">deployment_id</span><span class="p">)</span> <span class="p">}</span>
+    <span class="c1"># Simply change the email address below to the one for your
+</span>    <span class="c1"># team, for example
+</span>    <span class="n">destination</span> <span class="o">=</span> <span class="p">{</span> <span class="s">'ToAddresses'</span><span class="p">:</span> <span class="p">[</span><span class="s">'your-email-address@your-domain.com'</span><span class="p">]</span> <span class="p">}</span>
+    <span class="n">email_subject</span> <span class="o">=</span> <span class="p">{</span> <span class="s">'Data'</span><span class="p">:</span> <span class="s">'Deployment {} Successful'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">code_deploy_event</span><span class="o">.</span><span class="n">deployment_id</span><span class="p">)</span> <span class="p">}</span>
     <span class="n">email_body</span> <span class="o">=</span> <span class="p">{</span> <span class="s">'Html'</span><span class="p">:</span> <span class="p">{</span> <span class="s">'Data'</span><span class="p">:</span> <span class="n">create_message_text</span><span class="p">(</span><span class="n">code_deploy_event</span><span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
     <span class="n">email_message</span> <span class="o">=</span> <span class="p">{</span> <span class="s">'Subject'</span><span class="p">:</span> <span class="n">email_subject</span><span class="p">,</span> <span class="s">'Body'</span><span class="p">:</span> <span class="n">email_body</span> <span class="p">}</span>
     <span class="n">send_email_response</span> <span class="o">=</span> <span class="n">ses_client</span><span class="o">.</span><span class="n">send_email</span><span class="p">(</span><span class="n">Source</span><span class="o">=</span><span class="s">'email-address-to-send-to@your-domain.com'</span><span class="p">,</span> <span class="n">Destination</span><span class="o">=</span><span class="n">destination</span><span class="p">,</span> <span class="n">Message</span><span class="o">=</span><span class="n">email_message</span><span class="p">,</span> <span class="n">ReplyToAddresses</span><span class="o">=</span><span class="p">[</span><span class="s">'your-email-address@your-domain.com'</span><span class="p">])</span>
     <span class="n">message_id</span> <span class="o">=</span> <span class="n">send_email_response</span><span class="p">[</span><span class="s">'MessageId'</span><span class="p">]</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Successfully sent email with message id {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message_id</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Successfully sent email with message id {}'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">message_id</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">create_message_text</span><span class="p">(</span><span class="n">code_deploy_event</span><span class="p">):</span>
     <span class="n">deployment_id_line</span> <span class="o">=</span> <span class="s">'&lt;b&gt;Deployment id&lt;/b&gt;: &lt;a href=</span><span class="se">\"</span><span class="s">https://console.aws.amazon.com/codedeploy/home?region=us-east-1#/deployments/'</span> <span class="o">+</span> <span class="n">code_deploy_event</span><span class="o">.</span><span class="n">deployment_id</span> <span class="o">+</span> <span class="s">'</span><span class="se">\"</span><span class="s">&gt;'</span> <span class="o">+</span> <span class="n">code_deploy_event</span><span class="o">.</span><span class="n">deployment_id</span> <span class="o">+</span> <span class="s">'&lt;/a&gt;&lt;br&gt;'</span>
@@ -827,6 +827,8 @@
 </section>
 
         </article>
+        
+    
         
     
         

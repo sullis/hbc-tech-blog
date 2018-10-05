@@ -325,12 +325,12 @@ projects with very little overhead. There’s 3 actors in the Sacred ecosystem: 
 
 <span class="n">name_ingredient</span> <span class="o">=</span> <span class="n">Ingredient</span><span class="p">(</span><span class="s">'name'</span><span class="p">)</span>
 
-<span class="nd">@name_ingredient.config</span>
+<span class="o">@</span><span class="n">name_ingredient</span><span class="o">.</span><span class="n">config</span>
 <span class="k">def</span> <span class="nf">config</span><span class="p">():</span>
     <span class="n">first</span> <span class="o">=</span> <span class="s">"Jane"</span>
     <span class="n">last</span> <span class="o">=</span> <span class="s">"Doe"</span>
 
-<span class="nd">@name_ingredient.capture</span>
+<span class="o">@</span><span class="n">name_ingredient</span><span class="o">.</span><span class="n">capture</span>
 <span class="k">def</span> <span class="nf">fullname</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
     <span class="k">return</span> <span class="s">"Jane"</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="s">"Doe"</span>
 
@@ -343,11 +343,11 @@ projects with very little overhead. There’s 3 actors in the Sacred ecosystem: 
 
 <span class="n">greeting_ex</span> <span class="o">=</span> <span class="n">Experiment</span><span class="p">(</span><span class="s">'greeting_experiment'</span><span class="p">,</span> <span class="n">ingredients</span><span class="o">=</span><span class="p">[</span><span class="n">name_ingredient</span><span class="p">])</span>
 
-<span class="nd">@greeting_ex.config</span>
+<span class="o">@</span><span class="n">greeting_ex</span><span class="o">.</span><span class="n">config</span>
 <span class="k">def</span> <span class="nf">config</span><span class="p">():</span>
     <span class="n">greeting</span> <span class="o">=</span> <span class="s">"Hello"</span>
 
-<span class="nd">@greeting_ex.automain</span>
+<span class="o">@</span><span class="n">greeting_ex</span><span class="o">.</span><span class="n">automain</span>
 <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">greeting</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">greeting</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="n">fullname</span><span class="p">()</span>
 
@@ -799,6 +799,8 @@ We undertook the decision to overhaul our job orchestration system a few months 
 </section>
 
         </article>
+        
+    
         
     
         
