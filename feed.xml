@@ -1,19 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2018-10-04T20:10:37-05:00</updated><id>https://tech.hbc.com/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2018-10-04T20:18:05-05:00</updated><id>https://tech.hbc.com/</id><title>HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
 </subtitle><entry><title>Microservices at HBC</title><link href="https://tech.hbc.com/2018-10-04-microservices-at-hbc.html" rel="alternate" type="text/html" title="Microservices at HBC" /><published>2018-10-04T00:00:00-05:00</published><updated>2018-10-04T00:00:00-05:00</updated><id>https://tech.hbc.com/microservices-at-hbc</id><content type="html" xml:base="https://tech.hbc.com/2018-10-04-microservices-at-hbc.html">&lt;p&gt;HBC’s commerce platform is constantly evolving to support new business requirements. Our platform’s microservice architecture enables engineering teams to rapidly build and deploy new features.&lt;/p&gt;
 
 &lt;p&gt;In September, HBC engineers Fabrizio Fortino and Sean Sullivan gave presentations about the past, present, and future of microservices at the Hudson’s Bay Company.&lt;/p&gt;
 
-&lt;p&gt;September 27, 2018
-Event Driven Microservices
-Fabrizio Fortino (&lt;a href=&quot;https://twitter.com/fabriziofortino&quot;&gt;@fabriziofortino&lt;/a&gt;)
-Dublin Microservices User Group&lt;/p&gt;
+&lt;h2 id=&quot;event-driven-microservices&quot;&gt;Event Driven Microservices&lt;/h2&gt;
+&lt;p&gt;Dublin Microservices User Group - September 27, 2018&lt;/p&gt;
+
+&lt;p&gt;Fabrizio Fortino (&lt;a href=&quot;https://twitter.com/fabriziofortino&quot;&gt;@fabriziofortino&lt;/a&gt;)&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.slideshare.net/FabrizioFortino1/event-driven-microservices&quot;&gt;&lt;img src=&quot;./assets/images/microservices-at-hbc-2018/event-driven-microservices-hbc-dublin-2018-09-27.png&quot; alt=&quot;microservices-dublin-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;September 25, 2018
-Microservices at HBC
-Sean Sullivan (&lt;a href=&quot;https://twitter.com/tinyrobots&quot;&gt;@tinyrobots&lt;/a&gt;)
-Portlan Java User Group&lt;/p&gt;
+&lt;h2 id=&quot;microservices-at-hbc&quot;&gt;Microservices at HBC&lt;/h2&gt;
+&lt;p&gt;Portland Java User Group - September 25, 2018
+Sean Sullivan (&lt;a href=&quot;https://twitter.com/tinyrobots&quot;&gt;@tinyrobots&lt;/a&gt;)&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/sullis/microservices-portland-oregon-2018-09-25&quot;&gt;&lt;img src=&quot;./assets/images/microservices-at-hbc-2018/microservices-at-hbc-portland-2018-09-25.png&quot; alt=&quot;microservices-portland-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Sean Sullivan</name></author><category term="aws" /><category term="scala" /><category term="java" /><category term="kafka" /><category term="cloud" /><category term="microservices" /><category term="2018" /><summary>HBC’s commerce platform is constantly evolving to support new business requirements. Our platform’s microservice architecture enables engineering teams to rapidly build and deploy new features.</summary></entry><entry><title>Email: from macro-service to micro-service</title><link href="https://tech.hbc.com/2018-09-24-email-from-macro-service-to-micro-service.html" rel="alternate" type="text/html" title="Email: from macro-service to micro-service" /><published>2018-09-24T00:00:00-05:00</published><updated>2018-09-24T00:00:00-05:00</updated><id>https://tech.hbc.com/email-from-macro-service-to-micro-service</id><content type="html" xml:base="https://tech.hbc.com/2018-09-24-email-from-macro-service-to-micro-service.html">&lt;p&gt;Email Engineering recently migrated all transactional emails to CNS v2. This was a slow migration as CNS v1, although, referred to as a micro service was anything but one! We inherited CNS v1 towards the end of last year and started migration to CNS v2 in the beginning of this year. In doing so, we followed what could be labeled as a flavor of &lt;a href=&quot;https://docs.microsoft.com/en-us/azure/architecture/patterns/strangler&quot;&gt;Strangler pattern&lt;/a&gt;. In this blog, I will share how we accomplished this task and also provide a detailed view of the new CNS (CNS v2).&lt;/p&gt;
 
