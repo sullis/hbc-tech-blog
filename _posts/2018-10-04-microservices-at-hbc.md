@@ -30,4 +30,4 @@ Portland Java User Group<br/>
 September 25, 2018<br/>
 Sean Sullivan ([@tinyrobots](https://twitter.com/tinyrobots))<br/>
 
-[![microservices-portland-image](./assets/images/microservices-at-hbc-2018/microservices-at-hbc-portland-2018-09-25.png)](https://speakerdeck.com/sullis/microservices-portland-oregon-2018-09-25)
+[![microservices-portland-image](./assets/images/microservices-at-hbc-2018/microservices-at-hbc-portland-2018-09-25-with-border.png)](https://speakerdeck.com/sullis/microservices-portland-oregon-2018-09-25)
