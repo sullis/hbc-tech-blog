@@ -21,3 +21,7 @@ Michele Titolo ([@micheletitolo](https://twitter.com/micheletitolo)) at QCon New
 
 [![Michele Titolo video](https://img.youtube.com/vi/VOlpKO9AbyA/0.jpg)](https://www.youtube.com/watch?v=VOlpKO9AbyA "No microservice is an island")
 
+## Try Catch Blocks for your Distributed System
+Cecilia Deng ([@cicikendiggit](https://twitter.com/cicikendiggit)) at REdeploy 2018
+
+[![Cecilia Deng video](https://img.youtube.com/vi/id9RyN6WWC4/0.jpg)](https://www.youtube.com/watch?v=id9RyN6WWC4 "Try Catch Blocks for your Distributed System")
