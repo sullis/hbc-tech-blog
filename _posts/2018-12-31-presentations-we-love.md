@@ -45,3 +45,8 @@ Evan Chan ([@evanfchan](https://twitter.com/evanfchan)) - Scale By The Bay 2018
 Ewa Gasperowicz and Addy Osmani - Google I/O 2018
 
 [![Ewa Gasperowicz and Addy Osmani video](https://img.youtube.com/vi/Mv-l3-tJgGk/0.jpg)](https://www.youtube.com/watch?v=Mv-l3-tJgGk "Web performance made easy")
+
+## Java API Design Best Practices
+Jonathan Giles ([@jonathangiles](https://twitter.com/jonathangiles)) - Devoxx Poland 2018
+
+[![Jonathan Giles video](https://img.youtube.com/vi/nRNUQS7IkUM/0.jpg)](https://www.youtube.com/watch?v=nRNUQS7IkUM "Java API Design Best Practices")
