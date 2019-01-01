@@ -56,6 +56,11 @@ Julia Evans ([@b0rk](https://twitter.com/b0rk)) - KubeCon Seattle 2018
 
 [![Julia Evans video](https://img.youtube.com/vi/obB2IvCv-K0/0.jpg)](https://www.youtube.com/watch?v=obB2IvCv-K0 "High Reliability Infrastructure Migrations")
 
+## Clouds with Silver Linings: Maximising Learning From Incidents
+Ian Malpass ([@indec](https://twitter.com/indec)) - DevOps Minneapolis August 2018
+
+[![Ian Malpass video](https://img.youtube.com/vi/oJwpyf0qJvo/0.jpg)](https://www.youtube.com/watch?v=oJwpyf0qJvo "Clouds with Silver Linings: Maximising Learning From Incidents")
+
 ## FiloDB: Real-time, In-Memory Time Series at Massive Scale
 Evan Chan ([@evanfchan](https://twitter.com/evanfchan)) - Scale By The Bay 2018
 
