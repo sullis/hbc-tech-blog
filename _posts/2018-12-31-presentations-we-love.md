@@ -61,11 +61,6 @@ Ian Malpass ([@indec](https://twitter.com/indec)) - DevOps Minneapolis August 20
 
 [![Ian Malpass video](https://img.youtube.com/vi/oJwpyf0qJvo/0.jpg)](https://www.youtube.com/watch?v=oJwpyf0qJvo "Clouds with Silver Linings: Maximising Learning From Incidents")
 
-## FiloDB: Real-time, In-Memory Time Series at Massive Scale
-Evan Chan ([@evanfchan](https://twitter.com/evanfchan)) - Scale By The Bay 2018
-
-[![Evan Chan video](https://img.youtube.com/vi/EkIZPZbMoNE/0.jpg)](https://www.youtube.com/watch?v=EkIZPZbMoNE "FiloDB: Real-time, In-Memory Time Series at Massive Scale")
-
 ## Web performance made easy
 Ewa Gasperowicz and Addy Osmani - Google I/O 2018
 
@@ -85,3 +80,8 @@ Clare Liguori ([@clare_liguori](https://twitter.com/clare_liguori)) - AWS re:Inv
 Drew Dennis and Maitreya Ranganath - AWS re:Invent 2018
 
 [![Serverless patterns video](https://img.youtube.com/vi/08AjVGGQaKQ/0.jpg)](https://www.youtube.com/watch?v=08AjVGGQaKQ "Serverless Architectural Patterns and Best Practices")
+
+## FiloDB: Real-time, In-Memory Time Series at Massive Scale
+Evan Chan ([@evanfchan](https://twitter.com/evanfchan)) - Scale By The Bay 2018
+
+[![Evan Chan video](https://img.youtube.com/vi/EkIZPZbMoNE/0.jpg)](https://www.youtube.com/watch?v=EkIZPZbMoNE "FiloDB: Real-time, In-Memory Time Series at Massive Scale")
