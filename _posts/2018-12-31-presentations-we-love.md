@@ -25,3 +25,8 @@ Michele Titolo ([@micheletitolo](https://twitter.com/micheletitolo)) at QCon New
 Cecilia Deng ([@cicikendiggit](https://twitter.com/cicikendiggit)) at REdeploy 2018
 
 [![Cecilia Deng video](https://img.youtube.com/vi/id9RyN6WWC4/0.jpg)](https://www.youtube.com/watch?v=id9RyN6WWC4 "Try Catch Blocks for your Distributed System")
+
+## Building a Social Graph at Nike with Amazon Neptune
+Marc Wangenheim and Aditya Soni at AWS re:Invent 2018
+
+[![Amazon Neptune video](https://img.youtube.com/vi/f7FSpT7jrX4/0.jpg)](https://www.youtube.com/watch?v=f7FSpT7jrX4 "Building a Social Graph at Nike with Amazon Neptune")
