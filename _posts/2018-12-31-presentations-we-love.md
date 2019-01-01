@@ -21,6 +21,11 @@ Michael Bryzek ([@mbryzek](https://twitter.com/mbryzek)) at QCon New York 2018
 
 [![Bryzek video](https://img.youtube.com/vi/j6ow-UemzBc/0.jpg)](https://www.youtube.com/watch?v=j6ow-UemzBc "Design Microservice Architectures the Right Way")
 
+## Closing Loops and Opening Minds: How To Take Control of Systems
+Colm MacCárthaigh ([@colmmacc](https://twitter.com/colmmacc)) at AWS re:Invent 2018
+
+[![Colm AWS video](https://img.youtube.com/vi/O8xLxNje30M/0.jpg)](https://www.youtube.com/watch?v=O8xLxNje30M "Closing Loops and Opening Minds: How To Take Control of Systems")
+
 ## Monoliths, Migrations, and Microservices
 Randy Shoup ([@randyshoup](https://twitter.com/randyshoup)) at Reactive Summit Montreal 2018
 
