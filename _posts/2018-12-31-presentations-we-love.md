@@ -44,12 +44,12 @@ Sean Sullivan ([@tinyrobots](https://twitter.com/tinyrobots)) at Portland Java U
 [![hbc-microservices-image](./assets/images/presentations-we-love-2018/microservices-at-hbc-september-2018-480.png)](https://speakerdeck.com/sullis/microservices-portland-oregon-2018-09-25)
 
 ## The Data Behind DevOps: Becoming a High Performer
-Dr. Nicole Forsgren ([@nicolefv](https://twitter.com/nicolefv)) - DevOps Enterprise Summit London 2018
+Dr. Nicole Forsgren ([@nicolefv](https://twitter.com/nicolefv)) at DevOps Enterprise Summit London 2018
 
 [![Forsgren London video](./assets/images/presentations-we-love-2018/forsgren-the-data-behind-devops-london-2018-480.png)](https://www.youtube.com/watch?v=-OiOUwaRsXk "The Data Behind DevOps: Becoming a High Performer")
 
 ## You only have to change one thing to do the DevOps
-Ken Mugrage ([@kmugrage](https://twitter.com/kmugrage)) - DevopsDays Oslo 2018
+Ken Mugrage ([@kmugrage](https://twitter.com/kmugrage)) at DevopsDays Oslo 2018
 
 [![Mugrage devops video](./assets/images/presentations-we-love-2018/mugrage-devops-oslo-2018-480.png)](https://www.youtube.com/watch?v=MY_nVBL2RPQ "You only have to change one thing to do the DevOps")
 
@@ -74,7 +74,7 @@ Szczepan Faber ([@mockitoguy](https://twitter.com/mockitoguy))
 [![Testing In Production video](https://img.youtube.com/vi/lbO6INBICpQ/0.jpg)](https://www.youtube.com/watch?v=lbO6INBICpQ "Testing in production at LinkedIn")
 
 ## Effective Scala: Reloaded
-Mirco Dotta ([@mircodotta](https://twitter.com/mircodotta))
+Mirco Dotta ([@mircodotta](https://twitter.com/mircodotta)) at Voxxed Zurich 2018
 
 [![Effective Scala: Reloaded video](https://img.youtube.com/vi/pAc-0TmnlcE/0.jpg)](https://www.youtube.com/watch?v=pAc-0TmnlcE "Effective Scala: Reloaded")
 
@@ -84,36 +84,36 @@ Marc Wangenheim and Aditya Soni at AWS re:Invent 2018
 [![Amazon Neptune video](https://img.youtube.com/vi/f7FSpT7jrX4/0.jpg)](https://www.youtube.com/watch?v=f7FSpT7jrX4 "Building a Social Graph at Nike with Amazon Neptune")
 
 ## High Reliability Infrastructure Migrations
-Julia Evans ([@b0rk](https://twitter.com/b0rk)) - KubeCon Seattle 2018
+Julia Evans ([@b0rk](https://twitter.com/b0rk)) at KubeCon Seattle 2018
 
 [![Julia Evans video](https://img.youtube.com/vi/obB2IvCv-K0/0.jpg)](https://www.youtube.com/watch?v=obB2IvCv-K0 "High Reliability Infrastructure Migrations")
 
 ## Clouds with Silver Linings: Maximising Learning From Incidents
-Ian Malpass ([@indec](https://twitter.com/indec)) - DevOps Minneapolis August 2018
+Ian Malpass ([@indec](https://twitter.com/indec)) at DevOps Minneapolis August 2018
 
 [![Ian Malpass video](https://img.youtube.com/vi/oJwpyf0qJvo/0.jpg)](https://www.youtube.com/watch?v=oJwpyf0qJvo "Clouds with Silver Linings: Maximising Learning From Incidents")
 
 ## Web performance made easy
-Ewa Gasperowicz and Addy Osmani - Google I/O 2018
+Ewa Gasperowicz and Addy Osmani at Google I/O 2018
 
 [![Ewa Gasperowicz and Addy Osmani video](https://img.youtube.com/vi/Mv-l3-tJgGk/0.jpg)](https://www.youtube.com/watch?v=Mv-l3-tJgGk "Web performance made easy")
 
 ## Java API Design Best Practices
-Jonathan Giles ([@jonathangiles](https://twitter.com/jonathangiles)) - Devoxx Poland 2018
+Jonathan Giles ([@jonathangiles](https://twitter.com/jonathangiles)) at Devoxx Poland 2018
 
 [![Jonathan Giles video](https://img.youtube.com/vi/nRNUQS7IkUM/0.jpg)](https://www.youtube.com/watch?v=nRNUQS7IkUM "Java API Design Best Practices")
 
 ## CI/CD for Serverless and Containerized Applications
-Clare Liguori ([@clare_liguori](https://twitter.com/clare_liguori)) - AWS re:Invent 2018
+Clare Liguori ([@clare_liguori](https://twitter.com/clare_liguori)) at AWS re:Invent 2018
 
 [![CI/CD video](https://img.youtube.com/vi/01ewawuL-IY/0.jpg)](https://www.youtube.com/watch?v=01ewawuL-IY "CI/CD for Serverless and Containerized Applications")
 
 ## Serverless Architectural Patterns and Best Practices
-Drew Dennis and Maitreya Ranganath - AWS re:Invent 2018
+Drew Dennis and Maitreya Ranganath at AWS re:Invent 2018
 
 [![Serverless patterns video](https://img.youtube.com/vi/08AjVGGQaKQ/0.jpg)](https://www.youtube.com/watch?v=08AjVGGQaKQ "Serverless Architectural Patterns and Best Practices")
 
 ## FiloDB: Real-time, In-Memory Time Series at Massive Scale
-Evan Chan ([@evanfchan](https://twitter.com/evanfchan)) - Scale By The Bay 2018
+Evan Chan ([@evanfchan](https://twitter.com/evanfchan)) at Scale By The Bay 2018
 
 [![Evan Chan video](https://img.youtube.com/vi/EkIZPZbMoNE/0.jpg)](https://www.youtube.com/watch?v=EkIZPZbMoNE "FiloDB: Real-time, In-Memory Time Series at Massive Scale")
