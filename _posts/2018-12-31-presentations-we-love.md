@@ -34,7 +34,7 @@ Randy Shoup ([@randyshoup](https://twitter.com/randyshoup)) at Build Stuff 2018
 ## Microservices at HBC
 Sean Sullivan ([@tinyrobots](https://twitter.com/tinyrobots)) at Portland Java User Group September 2018
 
-[![hbc-microservices-image](./assets/images/presentations-we-love-2018/sean-sullivan-microservices-september-2018-480.png)](https://speakerdeck.com/sullis/microservices-portland-oregon-2018-09-25)
+[![hbc-microservices-image](./assets/images/presentations-we-love-2018/microservices-at-hbc-september-2018-480.png)](https://speakerdeck.com/sullis/microservices-portland-oregon-2018-09-25)
 
 ## The Data Behind DevOps: Becoming a High Performer
 Dr. Nicole Forsgren ([@nicolefv](https://twitter.com/nicolefv)) - DevOps Enterprise Summit London 2018
@@ -59,7 +59,7 @@ Cecilia Deng ([@cicikendiggit](https://twitter.com/cicikendiggit)) at REdeploy 2
 ## AWS SDK for Java 2.0
 Sean Sullivan ([@tinyrobots](https://twitter.com/tinyrobots)) at Portland Java User Group August 2018
 
-[![aws-sdk-java-image](./assets/images/presentations-we-love-2018/sean-sullivan-aws-sdk-java-august-2018-480.png)](https://speakerdeck.com/sullis/aws-sdk-for-java-version-2-dot-0-portland-oregon)
+[![aws-sdk-java-image](./assets/images/presentations-we-love-2018/aws-sdk-java-august-2018-480.png)](https://speakerdeck.com/sullis/aws-sdk-for-java-version-2-dot-0-portland-oregon)
 
 ## Testing in production at LinkedIn
 Szczepan Faber ([@mockitoguy](https://twitter.com/mockitoguy))
