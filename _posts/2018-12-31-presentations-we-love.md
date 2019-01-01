@@ -66,6 +66,11 @@ Szczepan Faber ([@mockitoguy](https://twitter.com/mockitoguy))
 
 [![Testing In Production video](https://img.youtube.com/vi/lbO6INBICpQ/0.jpg)](https://www.youtube.com/watch?v=lbO6INBICpQ "Testing in production at LinkedIn")
 
+## Effective Scala: Reloaded
+Mirco Dotta ([@mircodotta](https://twitter.com/mircodotta))
+
+[![Effective Scala: Reloaded video](https://img.youtube.com/vi/pAc-0TmnlcE/0.jpg)](https://www.youtube.com/watch?v=pAc-0TmnlcE "Effective Scala: Reloaded")
+
 ## Building a Social Graph at Nike with Amazon Neptune
 Marc Wangenheim and Aditya Soni at AWS re:Invent 2018
 
