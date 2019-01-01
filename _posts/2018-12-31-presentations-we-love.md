@@ -9,6 +9,8 @@ tags:
 - qcon
 - aws
 - cloud
+- scala
+- devops
 - 2018
 ---
 
