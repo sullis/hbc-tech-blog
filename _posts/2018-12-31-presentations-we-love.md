@@ -69,7 +69,7 @@ Sean Sullivan ([@tinyrobots](https://twitter.com/tinyrobots)) at Portland Java U
 [![aws-sdk-java-image](./assets/images/presentations-we-love-2018/aws-sdk-java-august-2018-480.png)](https://speakerdeck.com/sullis/aws-sdk-for-java-version-2-dot-0-portland-oregon)
 
 ## Testing in production at LinkedIn
-Szczepan Faber ([@mockitoguy](https://twitter.com/mockitoguy))
+Szczepan Faber ([@mockitoguy](https://twitter.com/mockitoguy)) at Devoxx Poland 2018
 
 [![Testing In Production video](https://img.youtube.com/vi/lbO6INBICpQ/0.jpg)](https://www.youtube.com/watch?v=lbO6INBICpQ "Testing in production at LinkedIn")
 
