@@ -40,3 +40,8 @@ Julia Evans ([@b0rk](https://twitter.com/b0rk)) - KubeCon Seattle 2018
 Evan Chan ([@evanfchan](https://twitter.com/evanfchan)) - Scale By The Bay 2018
 
 [![Evan Chan video](https://img.youtube.com/vi/EkIZPZbMoNE/0.jpg)](https://www.youtube.com/watch?v=EkIZPZbMoNE "FiloDB: Real-time, In-Memory Time Series at Massive Scale")
+
+## Web performance made easy
+Ewa Gasperowicz and Addy Osmani - Google I/O 2018
+
+[![Ewa Gasperowicz and Addy Osmani video](https://img.youtube.com/vi/Mv-l3-tJgGk/0.jpg)](https://www.youtube.com/watch?v=Mv-l3-tJgGk "Web performance made easy")
