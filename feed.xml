@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-01-01T16:27:22-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-01-01T16:29:56-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
 </subtitle><entry><title type="html">Presentations we love: 2018</title><link href="https://tech.hbc.com/2018-12-31-presentations-we-love.html" rel="alternate" type="text/html" title="Presentations we love: 2018" /><published>2018-12-31T00:00:00-05:00</published><updated>2018-12-31T00:00:00-05:00</updated><id>https://tech.hbc.com/presentations-we-love</id><content type="html" xml:base="https://tech.hbc.com/2018-12-31-presentations-we-love.html">&lt;p&gt;2018 was a year of growth and learning at HBC Tech. Our organization embraced new technologies and new ways of building application software.&lt;/p&gt;
 
 &lt;p&gt;As the year comes to an end, let’s recognize some notable technical presentations from 2018.&lt;/p&gt;
@@ -102,6 +102,11 @@
 &lt;p&gt;Jay Kreps (&lt;a href=&quot;https://twitter.com/jaykreps&quot;&gt;@jaykreps&lt;/a&gt;) at Kafka Summit SF 2018&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=HeNegOzjnJY&quot; title=&quot;Kafka and Event-Oriented Architecture&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/HeNegOzjnJY/0.jpg&quot; alt=&quot;Jay Kreps Kafka video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;is-kafka-a-database&quot;&gt;Is Kafka a Database?&lt;/h2&gt;
+&lt;p&gt;Martin Kleppmann (&lt;a href=&quot;https://twitter.com/martinkl&quot;&gt;@martinkl&lt;/a&gt;) at Kafka Summit SF 2018&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=v2RJQELoM6Y&quot; title=&quot;Kafka and Event-Oriented Architecture&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/v2RJQELoM6Y/0.jpg&quot; alt=&quot;Martin Kleppman Kafka video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;filodb-real-time-in-memory-time-series-at-massive-scale&quot;&gt;FiloDB: Real-time, In-Memory Time Series at Massive Scale&lt;/h2&gt;
 &lt;p&gt;Evan Chan (&lt;a href=&quot;https://twitter.com/evanfchan&quot;&gt;@evanfchan&lt;/a&gt;) at Scale By The Bay 2018&lt;/p&gt;
