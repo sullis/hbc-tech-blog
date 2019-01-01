@@ -1,6 +1,10 @@
 language: ruby
 rvm:
 - 2.3.3
+before_install:
+  - gem update --system
+  - gem --version
+  - gem uninstall --all --force jekyll
 install:
 script: jekyll build
 branches:
