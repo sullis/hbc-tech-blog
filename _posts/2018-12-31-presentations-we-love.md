@@ -51,6 +51,11 @@ Jonathan Giles ([@jonathangiles](https://twitter.com/jonathangiles)) - Devoxx Po
 
 [![Jonathan Giles video](https://img.youtube.com/vi/nRNUQS7IkUM/0.jpg)](https://www.youtube.com/watch?v=nRNUQS7IkUM "Java API Design Best Practices")
 
+## CI/CD for Serverless and Containerized Applications
+Clare Liguori ([@clare_liguori](https://twitter.com/clare_liguori)) - AWS re:Invent 2018
+
+[![CI/CD video](https://img.youtube.com/vi/01ewawuL-IY/0.jpg)](https://www.youtube.com/watch?v=01ewawuL-IY "CI/CD for Serverless and Containerized Applications")
+
 ## Serverless Architectural Patterns and Best Practices
 Drew Dennis and Maitreya Ranganath - AWS re:Invent 2018
 
