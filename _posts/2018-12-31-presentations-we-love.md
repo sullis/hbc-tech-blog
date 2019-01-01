@@ -118,6 +118,11 @@ Jay Kreps ([@jaykreps](https://twitter.com/jaykreps)) at Kafka Summit SF 2018
 
 [![Jay Kreps Kafka video](https://img.youtube.com/vi/HeNegOzjnJY/0.jpg)](https://www.youtube.com/watch?v=HeNegOzjnJY "Kafka and Event-Oriented Architecture")
 
+## Is Kafka a Database?
+Martin Kleppmann ([@martinkl](https://twitter.com/martinkl)) at Kafka Summit SF 2018
+
+[![Martin Kleppman Kafka video](https://img.youtube.com/vi/v2RJQELoM6Y/0.jpg)](https://www.youtube.com/watch?v=v2RJQELoM6Y "Kafka and Event-Oriented Architecture")
+
 ## FiloDB: Real-time, In-Memory Time Series at Massive Scale
 Evan Chan ([@evanfchan](https://twitter.com/evanfchan)) at Scale By The Bay 2018
 
