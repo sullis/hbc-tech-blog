@@ -79,7 +79,7 @@ Mirco Dotta ([@mircodotta](https://twitter.com/mircodotta)) at Voxxed Zurich 201
 [![Effective Scala: Reloaded video](https://img.youtube.com/vi/pAc-0TmnlcE/0.jpg)](https://www.youtube.com/watch?v=pAc-0TmnlcE "Effective Scala: Reloaded")
 
 ## Building a Social Graph at Nike with Amazon Neptune
-Marc Wangenheim ([@mwangenh](https://twitter.com/mwangenh)) and Aditya Soni at AWS re:Invent 2018
+Marc Wangenheim ([@mwangenh](https://twitter.com/mwangenh)) and Aditya Soni ([@adityasoni84](https://twitter.com/adityasoni84)) at AWS re:Invent 2018
 
 [![Amazon Neptune video](https://img.youtube.com/vi/f7FSpT7jrX4/0.jpg)](https://www.youtube.com/watch?v=f7FSpT7jrX4 "Building a Social Graph at Nike with Amazon Neptune")
 
