@@ -26,6 +26,11 @@ Randy Shoup ([@randyshoup](https://twitter.com/randyshoup)) at Reactive Summit M
 
 [![Shoup Reactive Summit video](https://img.youtube.com/vi/gOZFmFNl1uk/0.jpg)](https://www.youtube.com/watch?v=gOZFmFNl1uk "Monoliths, Migrations, and Microservices")
 
+## The Data Behind DevOps: Becoming a High Performer
+Dr. Nicole Forsgren ([@nicolefv](https://twitter.com/nicolefv)) - DevOps Enterprise Summit London 2018
+
+[![Forsgren London video](https://img.youtube.com/vi/-OiOUwaRsXk/0.jpg)](https://www.youtube.com/watch?v=-OiOUwaRsXk "The Data Behind DevOps: Becoming a High Performer")
+
 ## No microservice is an island
 Michele Titolo ([@micheletitolo](https://twitter.com/micheletitolo)) at QCon New York 2018
 
