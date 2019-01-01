@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-01-01T00:41:31-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-01-01T00:50:21-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
 </subtitle><entry><title type="html">Presentations we love: 2018</title><link href="https://tech.hbc.com/2018-12-31-presentations-we-love.html" rel="alternate" type="text/html" title="Presentations we love: 2018" /><published>2018-12-31T00:00:00-05:00</published><updated>2018-12-31T00:00:00-05:00</updated><id>https://tech.hbc.com/presentations-we-love</id><content type="html" xml:base="https://tech.hbc.com/2018-12-31-presentations-we-love.html">&lt;p&gt;2018 was a year of growth and learning at HBC Tech. Our organization embraced new technologies and new ways of building application software.&lt;/p&gt;
 
 &lt;p&gt;As the year comes to an end, let’s recognize some notable technical presentations from 2018.&lt;/p&gt;
@@ -29,12 +29,12 @@
 &lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/sullis/microservices-portland-oregon-2018-09-25&quot;&gt;&lt;img src=&quot;./assets/images/presentations-we-love-2018/microservices-at-hbc-september-2018-480.png&quot; alt=&quot;hbc-microservices-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;the-data-behind-devops-becoming-a-high-performer&quot;&gt;The Data Behind DevOps: Becoming a High Performer&lt;/h2&gt;
-&lt;p&gt;Dr. Nicole Forsgren (&lt;a href=&quot;https://twitter.com/nicolefv&quot;&gt;@nicolefv&lt;/a&gt;) - DevOps Enterprise Summit London 2018&lt;/p&gt;
+&lt;p&gt;Dr. Nicole Forsgren (&lt;a href=&quot;https://twitter.com/nicolefv&quot;&gt;@nicolefv&lt;/a&gt;) at DevOps Enterprise Summit London 2018&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=-OiOUwaRsXk&quot; title=&quot;The Data Behind DevOps: Becoming a High Performer&quot;&gt;&lt;img src=&quot;./assets/images/presentations-we-love-2018/forsgren-the-data-behind-devops-london-2018-480.png&quot; alt=&quot;Forsgren London video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;you-only-have-to-change-one-thing-to-do-the-devops&quot;&gt;You only have to change one thing to do the DevOps&lt;/h2&gt;
-&lt;p&gt;Ken Mugrage (&lt;a href=&quot;https://twitter.com/kmugrage&quot;&gt;@kmugrage&lt;/a&gt;) - DevopsDays Oslo 2018&lt;/p&gt;
+&lt;p&gt;Ken Mugrage (&lt;a href=&quot;https://twitter.com/kmugrage&quot;&gt;@kmugrage&lt;/a&gt;) at DevopsDays Oslo 2018&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=MY_nVBL2RPQ&quot; title=&quot;You only have to change one thing to do the DevOps&quot;&gt;&lt;img src=&quot;./assets/images/presentations-we-love-2018/mugrage-devops-oslo-2018-480.png&quot; alt=&quot;Mugrage devops video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
@@ -59,7 +59,7 @@
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=lbO6INBICpQ&quot; title=&quot;Testing in production at LinkedIn&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/lbO6INBICpQ/0.jpg&quot; alt=&quot;Testing In Production video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;effective-scala-reloaded&quot;&gt;Effective Scala: Reloaded&lt;/h2&gt;
-&lt;p&gt;Mirco Dotta (&lt;a href=&quot;https://twitter.com/mircodotta&quot;&gt;@mircodotta&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Mirco Dotta (&lt;a href=&quot;https://twitter.com/mircodotta&quot;&gt;@mircodotta&lt;/a&gt;) at Voxxed Zurich 2018&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=pAc-0TmnlcE&quot; title=&quot;Effective Scala: Reloaded&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/pAc-0TmnlcE/0.jpg&quot; alt=&quot;Effective Scala: Reloaded video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
@@ -69,37 +69,37 @@
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=f7FSpT7jrX4&quot; title=&quot;Building a Social Graph at Nike with Amazon Neptune&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/f7FSpT7jrX4/0.jpg&quot; alt=&quot;Amazon Neptune video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;high-reliability-infrastructure-migrations&quot;&gt;High Reliability Infrastructure Migrations&lt;/h2&gt;
-&lt;p&gt;Julia Evans (&lt;a href=&quot;https://twitter.com/b0rk&quot;&gt;@b0rk&lt;/a&gt;) - KubeCon Seattle 2018&lt;/p&gt;
+&lt;p&gt;Julia Evans (&lt;a href=&quot;https://twitter.com/b0rk&quot;&gt;@b0rk&lt;/a&gt;) at KubeCon Seattle 2018&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=obB2IvCv-K0&quot; title=&quot;High Reliability Infrastructure Migrations&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/obB2IvCv-K0/0.jpg&quot; alt=&quot;Julia Evans video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;clouds-with-silver-linings-maximising-learning-from-incidents&quot;&gt;Clouds with Silver Linings: Maximising Learning From Incidents&lt;/h2&gt;
-&lt;p&gt;Ian Malpass (&lt;a href=&quot;https://twitter.com/indec&quot;&gt;@indec&lt;/a&gt;) - DevOps Minneapolis August 2018&lt;/p&gt;
+&lt;p&gt;Ian Malpass (&lt;a href=&quot;https://twitter.com/indec&quot;&gt;@indec&lt;/a&gt;) at DevOps Minneapolis August 2018&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=oJwpyf0qJvo&quot; title=&quot;Clouds with Silver Linings: Maximising Learning From Incidents&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/oJwpyf0qJvo/0.jpg&quot; alt=&quot;Ian Malpass video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;web-performance-made-easy&quot;&gt;Web performance made easy&lt;/h2&gt;
-&lt;p&gt;Ewa Gasperowicz and Addy Osmani - Google I/O 2018&lt;/p&gt;
+&lt;p&gt;Ewa Gasperowicz and Addy Osmani at Google I/O 2018&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=Mv-l3-tJgGk&quot; title=&quot;Web performance made easy&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/Mv-l3-tJgGk/0.jpg&quot; alt=&quot;Ewa Gasperowicz and Addy Osmani video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;java-api-design-best-practices&quot;&gt;Java API Design Best Practices&lt;/h2&gt;
-&lt;p&gt;Jonathan Giles (&lt;a href=&quot;https://twitter.com/jonathangiles&quot;&gt;@jonathangiles&lt;/a&gt;) - Devoxx Poland 2018&lt;/p&gt;
+&lt;p&gt;Jonathan Giles (&lt;a href=&quot;https://twitter.com/jonathangiles&quot;&gt;@jonathangiles&lt;/a&gt;) at Devoxx Poland 2018&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=nRNUQS7IkUM&quot; title=&quot;Java API Design Best Practices&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/nRNUQS7IkUM/0.jpg&quot; alt=&quot;Jonathan Giles video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;cicd-for-serverless-and-containerized-applications&quot;&gt;CI/CD for Serverless and Containerized Applications&lt;/h2&gt;
-&lt;p&gt;Clare Liguori (&lt;a href=&quot;https://twitter.com/clare_liguori&quot;&gt;@clare_liguori&lt;/a&gt;) - AWS re:Invent 2018&lt;/p&gt;
+&lt;p&gt;Clare Liguori (&lt;a href=&quot;https://twitter.com/clare_liguori&quot;&gt;@clare_liguori&lt;/a&gt;) at AWS re:Invent 2018&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=01ewawuL-IY&quot; title=&quot;CI/CD for Serverless and Containerized Applications&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/01ewawuL-IY/0.jpg&quot; alt=&quot;CI/CD video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;serverless-architectural-patterns-and-best-practices&quot;&gt;Serverless Architectural Patterns and Best Practices&lt;/h2&gt;
-&lt;p&gt;Drew Dennis and Maitreya Ranganath - AWS re:Invent 2018&lt;/p&gt;
+&lt;p&gt;Drew Dennis and Maitreya Ranganath at AWS re:Invent 2018&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=08AjVGGQaKQ&quot; title=&quot;Serverless Architectural Patterns and Best Practices&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/08AjVGGQaKQ/0.jpg&quot; alt=&quot;Serverless patterns video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;filodb-real-time-in-memory-time-series-at-massive-scale&quot;&gt;FiloDB: Real-time, In-Memory Time Series at Massive Scale&lt;/h2&gt;
-&lt;p&gt;Evan Chan (&lt;a href=&quot;https://twitter.com/evanfchan&quot;&gt;@evanfchan&lt;/a&gt;) - Scale By The Bay 2018&lt;/p&gt;
+&lt;p&gt;Evan Chan (&lt;a href=&quot;https://twitter.com/evanfchan&quot;&gt;@evanfchan&lt;/a&gt;) at Scale By The Bay 2018&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=EkIZPZbMoNE&quot; title=&quot;FiloDB: Real-time, In-Memory Time Series at Massive Scale&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/EkIZPZbMoNE/0.jpg&quot; alt=&quot;Evan Chan video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>HBC Tech</name></author><category term="community" /><category term="conferences" /><category term="qcon" /><category term="aws" /><category term="cloud" /><category term="scala" /><category term="devops" /><category term="2018" /><summary type="html">2018 was a year of growth and learning at HBC Tech. Our organization embraced new technologies and new ways of building application software.</summary></entry><entry><title type="html">Microservices at HBC</title><link href="https://tech.hbc.com/2018-10-04-microservices-at-hbc.html" rel="alternate" type="text/html" title="Microservices at HBC" /><published>2018-10-04T00:00:00-05:00</published><updated>2018-10-04T00:00:00-05:00</updated><id>https://tech.hbc.com/microservices-at-hbc</id><content type="html" xml:base="https://tech.hbc.com/2018-10-04-microservices-at-hbc.html">&lt;p&gt;HBC’s commerce platform is constantly evolving to support new business requirements. Our platform’s microservice architecture enables engineering teams to rapidly build and deploy new features.&lt;/p&gt;
 
