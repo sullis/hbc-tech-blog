@@ -26,6 +26,11 @@ Randy Shoup ([@randyshoup](https://twitter.com/randyshoup)) at Reactive Summit M
 
 [![Shoup Reactive Summit video](https://img.youtube.com/vi/gOZFmFNl1uk/0.jpg)](https://www.youtube.com/watch?v=gOZFmFNl1uk "Monoliths, Migrations, and Microservices")
 
+## Scaling Your Architecture with Events and Services
+Randy Shoup ([@randyshoup](https://twitter.com/randyshoup)) at Build Stuff 2018
+
+[![Shoup Build Stuff video](https://img.youtube.com/vi/TuEQG5sUJKY/0.jpg)](https://www.youtube.com/watch?v=TuEQG5sUJKY "Scaling Your Architecture with Events and Services")
+
 ## The Data Behind DevOps: Becoming a High Performer
 Dr. Nicole Forsgren ([@nicolefv](https://twitter.com/nicolefv)) - DevOps Enterprise Summit London 2018
 
