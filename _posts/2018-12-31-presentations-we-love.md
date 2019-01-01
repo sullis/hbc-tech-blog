@@ -16,6 +16,11 @@ tags:
 
 As the year comes to an end, let's recognize some notable technical presentations from 2018.
 
+## Design Microservice Architectures the Right Way
+Michael Bryzek ([@mbryzek](https://twitter.com/mbryzek)) at QCon New York 2018
+
+[![Bryzek video](https://img.youtube.com/vi/j6ow-UemzBc/0.jpg)](https://www.youtube.com/watch?v=j6ow-UemzBc "Design Microservice Architectures the Right Way")
+
 ## No microservice is an island
 Michele Titolo ([@micheletitolo](https://twitter.com/micheletitolo)) at QCon New York 2018
 
