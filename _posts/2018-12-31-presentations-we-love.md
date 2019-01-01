@@ -113,6 +113,11 @@ Drew Dennis and Maitreya Ranganath at AWS re:Invent 2018
 
 [![Serverless patterns video](https://img.youtube.com/vi/08AjVGGQaKQ/0.jpg)](https://www.youtube.com/watch?v=08AjVGGQaKQ "Serverless Architectural Patterns and Best Practices")
 
+## Kafka and Event-Oriented Architecture
+Jay Kreps ([@jaykreps](https://twitter.com/jaykreps)) at Kafka Summit SF 2018
+
+[![Jay Kreps Kafka video](https://img.youtube.com/vi/HeNegOzjnJY/0.jpg)](https://www.youtube.com/watch?v=HeNegOzjnJY "Kafka and Event-Oriented Architecture")
+
 ## FiloDB: Real-time, In-Memory Time Series at Massive Scale
 Evan Chan ([@evanfchan](https://twitter.com/evanfchan)) at Scale By The Bay 2018
 
