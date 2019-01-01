@@ -31,6 +31,11 @@ Dr. Nicole Forsgren ([@nicolefv](https://twitter.com/nicolefv)) - DevOps Enterpr
 
 [![Forsgren London video](https://img.youtube.com/vi/-OiOUwaRsXk/0.jpg)](https://www.youtube.com/watch?v=-OiOUwaRsXk "The Data Behind DevOps: Becoming a High Performer")
 
+## You only have to change one thing to do the DevOps
+Ken Mugrage ([@kmugrage](https://twitter.com/kmugrage)) - DevopsDays Oslo 2018
+
+[![Mugrage devops video](https://img.youtube.com/vi/MY_nVBL2RPQ/0.jpg)](https://www.youtube.com/watch?v=MY_nVBL2RPQ "You only have to change one thing to do the DevOps")
+
 ## No microservice is an island
 Michele Titolo ([@micheletitolo](https://twitter.com/micheletitolo)) at QCon New York 2018
 
