@@ -35,3 +35,8 @@ Marc Wangenheim and Aditya Soni at AWS re:Invent 2018
 Julia Evans ([@b0rk](https://twitter.com/b0rk)) - KubeCon Seattle 2018
 
 [![Julia Evans video](https://img.youtube.com/vi/obB2IvCv-K0/0.jpg)](https://www.youtube.com/watch?v=obB2IvCv-K0 "High Reliability Infrastructure Migrations")
+
+## FiloDB: Real-time, In-Memory Time Series at Massive Scale
+Evan Chan ([@evanfchan](https://twitter.com/evanfchan)) - Scale By The Bay 2018
+
+[![Evan Chan video](https://img.youtube.com/vi/EkIZPZbMoNE/0.jpg)](https://www.youtube.com/watch?v=EkIZPZbMoNE "FiloDB: Real-time, In-Memory Time Series at Massive Scale")
