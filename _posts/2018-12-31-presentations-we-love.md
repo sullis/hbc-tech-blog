@@ -30,3 +30,8 @@ Cecilia Deng ([@cicikendiggit](https://twitter.com/cicikendiggit)) at REdeploy 2
 Marc Wangenheim and Aditya Soni at AWS re:Invent 2018
 
 [![Amazon Neptune video](https://img.youtube.com/vi/f7FSpT7jrX4/0.jpg)](https://www.youtube.com/watch?v=f7FSpT7jrX4 "Building a Social Graph at Nike with Amazon Neptune")
+
+## High Reliability Infrastructure Migrations
+Julia Evans ([@b0rk](https://twitter.com/b0rk)) - KubeCon Seattle 2018
+
+[![Julia Evans video](https://img.youtube.com/vi/obB2IvCv-K0/0.jpg)](https://www.youtube.com/watch?v=obB2IvCv-K0 "High Reliability Infrastructure Migrations")
