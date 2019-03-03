@@ -132,3 +132,8 @@ Evan Chan ([@evanfchan](https://twitter.com/evanfchan)) at Scale By The Bay 2018
 Q Chen ([@coollog](https://twitter.com/coollog)) and Appu Goundan ([@loosebazooka](https://twitter.com/loosebazooka)) at Velocity Conf June 2018
 
 [![Jib video](https://img.youtube.com/vi/H6gR_Cv4yWI/0.jpg)](https://www.youtube.com/watch?v=H6gR_Cv4yWI "Build containers faster with Jib")
+
+## Kubernetes Is A Platform Platform
+Joe Beda ([@jbeda](https://twitter.com/jbeda)) at DevOpsDays Seattle 2018
+
+[![Joe Beda Kubernetes video](https://img.youtube.com/vi/QEu6dpQnJ7A/0.jpg)](https://www.youtube.com/watch?v=QEu6dpQnJ7A "Kubernetes Is A Platform Platform")
