@@ -127,3 +127,8 @@ Martin Kleppmann ([@martinkl](https://twitter.com/martinkl)) at Kafka Summit SF 
 Evan Chan ([@evanfchan](https://twitter.com/evanfchan)) at Scale By The Bay 2018
 
 [![Evan Chan video](https://img.youtube.com/vi/EkIZPZbMoNE/0.jpg)](https://www.youtube.com/watch?v=EkIZPZbMoNE "FiloDB: Real-time, In-Memory Time Series at Massive Scale")
+
+## Build containers faster with Jib
+Q Chen ([@coollog](https://twitter.com/coollog)) and Appu Goundan ([@loosebazooka](https://twitter.com/loosebazooka)) at Velocity Conf June 2018
+
+[![Jib video](https://img.youtube.com/vi/H6gR_Cv4yWI/0.jpg)](https://www.youtube.com/watch?v=H6gR_Cv4yWI "Build containers faster with Jib")
