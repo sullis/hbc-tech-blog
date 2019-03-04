@@ -137,3 +137,8 @@ Q Chen ([@coollog](https://twitter.com/coollog)) and Appu Goundan ([@loosebazook
 Joe Beda ([@jbeda](https://twitter.com/jbeda)) at DevOpsDays Seattle 2018
 
 [![Joe Beda Kubernetes video](https://img.youtube.com/vi/QEu6dpQnJ7A/0.jpg)](https://www.youtube.com/watch?v=QEu6dpQnJ7A "Kubernetes Is A Platform Platform")
+
+## Democratizing Distributed Systems
+Brendan Burns ([@brendandburns](https://twitter.com/brendandburns)) at GOTO Amsterdam 2018
+
+[![Brendan Burns distributed systems video](https://img.youtube.com/vi/20BIsu1qiS0/0.jpg)](https://www.youtube.com/watch?v=20BIsu1qiS0 "Democratizing Distributed Systems")
