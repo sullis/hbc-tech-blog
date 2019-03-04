@@ -147,3 +147,8 @@ Brendan Burns ([@brendandburns](https://twitter.com/brendandburns)) at GOTO Amst
 Jessica Tai ([@jessicamtai](https://twitter.com/jessicamtai)) at QCon San Francisco 2018
 
 [![Jessica Tai AirBnb migration video](https://img.youtube.com/vi/Cy0EoQbS6RY/0.jpg)](https://www.youtube.com/watch?v=Cy0EoQbS6RY "The Great Migration: from Monolith to Service-Oriented")
+
+## Full Cycle Developers at Netflix
+Greg Burrell ([@gburrell_greg](https://twitter.com/gburrell_greg)) at QCon San Francisco 2018
+
+[![Full Cycle Developers video](https://img.youtube.com/vi/8OorWiBfmE0/0.jpg)](https://www.youtube.com/watch?v=8OorWiBfmE0 "Full Cycle Developers at Netflix")
