@@ -142,3 +142,8 @@ Joe Beda ([@jbeda](https://twitter.com/jbeda)) at DevOpsDays Seattle 2018
 Brendan Burns ([@brendandburns](https://twitter.com/brendandburns)) at GOTO Amsterdam 2018
 
 [![Brendan Burns distributed systems video](https://img.youtube.com/vi/20BIsu1qiS0/0.jpg)](https://www.youtube.com/watch?v=20BIsu1qiS0 "Democratizing Distributed Systems")
+
+## The Great Migration: from Monolith to Service-Oriented at AirBnb
+Jessica Tai ([@jessicamtai](https://twitter.com/jessicamtai)) at QCon San Francisco 2018
+
+[![Jessica Tai AirBnb migration video](https://img.youtube.com/vi/Cy0EoQbS6RY/0.jpg)](https://www.youtube.com/watch?v=Cy0EoQbS6RY "The Great Migration: from Monolith to Service-Oriented")
