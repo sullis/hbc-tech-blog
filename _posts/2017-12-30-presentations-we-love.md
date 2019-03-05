@@ -85,3 +85,8 @@ Giovanni Gargiulo ([@giannigar](https://twitter.com/giannigar)) at Promcon 2017 
 Yunong Xiao ([@yunongx](https://twitter.com/yunongx)) at QCon New York 2017
 
 [![Paved PaaS to Microservices at Netflix](http://img.youtube.com/vi/BjKJyWeg88c/0.jpg)](http://www.youtube.com/watch?v=BjKJyWeg88c "Paved PaaS to Microservices at Netflix")
+
+## Distroless Docker: Containerizing Apps, not VMs
+Matthew Moore ([@mattomata](https://twitter.com/mattomata)) at JFrog SwampUp 2017
+
+[![Distroless Docker](http://img.youtube.com/vi/lviLZFciDv4/0.jpg)](http://www.youtube.com/watch?v=lviLZFciDv4 "Distroless Docker: Containerizing Apps, not VMs")
