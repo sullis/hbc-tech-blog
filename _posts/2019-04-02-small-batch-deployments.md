@@ -30,7 +30,7 @@ HBC employs a technique that we call "small batch deployments". Our engineering 
 
 # Small Batch Success
 
-HBC is not the only organization that practices small batch deployments. This approach has proven successful at [Facebook](https://www.youtube.com/watch?v=nEmJ_5UHs1g), [Instagram](https://www.youtube.com/watch?v=XNJ30Vy5xSg), [Flickr](https://www.youtube.com/watch?v=LdOe18KhtT4), [Etsy](https://www.kitchensoap.com/2010/06/24/ops-meta-metrics-velocity-2010-slides/), and [Flow Commerce](https://www.infoq.com/presentations/microservices-arch-infrastructure-cd).
+HBC is not the only organization that practices small batch deployments. This approach has proven successful at [Facebook](https://www.youtube.com/watch?v=nEmJ_5UHs1g), [Instagram](https://www.youtube.com/watch?v=XNJ30Vy5xSg), [Flickr](https://www.youtube.com/watch?v=LdOe18KhtT4), [Etsy](https://codeascraft.com/2010/05/20/quantum-of-deployment/), and [Flow Commerce](https://www.infoq.com/presentations/microservices-arch-infrastructure-cd).
 
 The notion of "small batches" has been discussed in software development literature for over a decade. The following presentation illustrates how prevalent "small batch" has become in the field of software engineering:
 
