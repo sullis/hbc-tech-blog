@@ -18,6 +18,8 @@ Like many organizations, we have improved our systems by adopting [Continuous De
 # Work in small batches
 One of the core [principles](https://continuousdelivery.com/principles/) of Continuous Delivery is "work in small batches". Engineering teams that focus on "small batch" delivery can achieve higher quality and better efficiency.
 
+![principles-of-continuous-delivery](./assets/images/small-batch-deployments/principles-480.png)
+
 # Small Batch Deployments
 
 HBC employs a technique that we call "small batch deployments". Our engineering teams favor small code deployments over large code deployments. The benefits of small deployments are self-evident:
