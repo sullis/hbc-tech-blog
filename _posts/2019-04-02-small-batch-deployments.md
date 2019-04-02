@@ -13,12 +13,10 @@ tags:
 The Hudson's Bay Company is an organization known for challenging the status quo. HBC's engineering group is no different. HBC engineers are constantly looking for ways to improve the speed and quality of the software that runs our business.
 
 # Continuous Delivery
-Like many organizations, we have improved our systems by adopting Continuous Delivery practices. Continuous Delivery isn't a new concept. But it does take time for organizations to embrace all of the principles and to achieve its full potential.
+Like many organizations, we have improved our systems by adopting [Continuous Delivery](https://continuousdelivery.com/) practices. Continuous Delivery isn't a new concept. But it does take time for organizations to embrace all of the principles and to achieve its full potential.
 
 # Work in small batches
-One of the core principles of Continuous Delivery is "work in small batches". Engineering teams that focus on "small batch" delivery can achieve better quality and better efficiency.
-
-https://continuousdelivery.com/principles/
+One of the core [principles](https://continuousdelivery.com/principles/) of Continuous Delivery is "work in small batches". Engineering teams that focus on "small batch" delivery can achieve higher quality and better efficiency.
 
 # Small Batch Deployments
 
@@ -30,7 +28,7 @@ HBC employs a technique that we call "small batch deployments". Our engineering 
 
 # "Small Batch" success
 
-HBC is not the only organization that practices small batch deployments. This approach has proven successful at Facebook, Instagram, Flickr, Etsy, and Flow Commerce.
+HBC is not the only organization that practices small batch deployments. This approach has proven successful at [Facebook](https://www.youtube.com/watch?v=nEmJ_5UHs1g), [Instagram](https://www.youtube.com/watch?v=XNJ30Vy5xSg), [Flickr](https://www.youtube.com/watch?v=LdOe18KhtT4), [Etsy](https://www.kitchensoap.com/2010/06/24/ops-meta-metrics-velocity-2010-slides/), and [Flow Commerce](https://www.infoq.com/presentations/microservices-arch-infrastructure-cd).
 
 [![small-batch-deployments-deck](./assets/images/small-batch-deployments/title-slide-480.png)](https://speakerdeck.com/sullis/small-batch-deployments-2019-04-02)
 
