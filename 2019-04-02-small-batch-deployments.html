@@ -5,32 +5,32 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title> Sundial or AWS Batch, Why not both? </title>
+        <title> Small batch deployments </title>
 
         <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Sundial or AWS Batch, Why not both? | HBC Tech</title>
+<title>Small batch deployments | HBC Tech</title>
 <meta name="generator" content="Jekyll v3.7.4" />
-<meta property="og:title" content="Sundial or AWS Batch, Why not both?" />
-<meta name="author" content="Kevin O'Riordan" />
+<meta property="og:title" content="Small batch deployments" />
+<meta name="author" content="Sean Sullivan" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="About a year ago, we (the HBC Tech personalization team) open sourced Sundial , a batch job orchestration system leveraging Amazon EC2 Container Service." />
-<meta property="og:description" content="About a year ago, we (the HBC Tech personalization team) open sourced Sundial , a batch job orchestration system leveraging Amazon EC2 Container Service." />
-<link rel="canonical" href="https://tech.hbc.com/2017-08-04-sundial-batch.html" />
-<meta property="og:url" content="https://tech.hbc.com/2017-08-04-sundial-batch.html" />
+<meta name="description" content="The Hudson’s Bay Company is an organization known for challenging the status quo. HBC’s engineering group is no different. HBC engineers are constantly looking for ways to improve the speed and quality of the software that runs our business." />
+<meta property="og:description" content="The Hudson’s Bay Company is an organization known for challenging the status quo. HBC’s engineering group is no different. HBC engineers are constantly looking for ways to improve the speed and quality of the software that runs our business." />
+<link rel="canonical" href="https://tech.hbc.com/2019-04-02-small-batch-deployments.html" />
+<meta property="og:url" content="https://tech.hbc.com/2019-04-02-small-batch-deployments.html" />
 <meta property="og:site_name" content="HBC Tech" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2017-08-04T00:00:00-05:00" />
+<meta property="article:published_time" content="2019-04-02T00:00:00-05:00" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@" />
-<meta name="twitter:creator" content="@Kevin O'Riordan" />
+<meta name="twitter:creator" content="@Sean Sullivan" />
 <script type="application/ld+json">
-{"description":"About a year ago, we (the HBC Tech personalization team) open sourced Sundial , a batch job orchestration system leveraging Amazon EC2 Container Service.","author":{"@type":"Person","name":"Kevin O'Riordan"},"@type":"BlogPosting","url":"https://tech.hbc.com/2017-08-04-sundial-batch.html","headline":"Sundial or AWS Batch, Why not both?","dateModified":"2017-08-04T00:00:00-05:00","datePublished":"2017-08-04T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.hbc.com/2017-08-04-sundial-batch.html"},"@context":"http://schema.org"}</script>
+{"description":"The Hudson’s Bay Company is an organization known for challenging the status quo. HBC’s engineering group is no different. HBC engineers are constantly looking for ways to improve the speed and quality of the software that runs our business.","author":{"@type":"Person","name":"Sean Sullivan"},"@type":"BlogPosting","url":"https://tech.hbc.com/2019-04-02-small-batch-deployments.html","headline":"Small batch deployments","dateModified":"2019-04-02T00:00:00-05:00","datePublished":"2019-04-02T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.hbc.com/2019-04-02-small-batch-deployments.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-        <meta property="og:title" content="Sundial or AWS Batch, Why not both?" />
+        <meta property="og:title" content="Small batch deployments" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tech.hbc.com//2017-08-04-sundial-batch.html" />
-<meta property="og:description" content="About a year ago, we (the HBC Tech personalization team) open sourced Sundial , a batch job orchestration system leveraging Amazon EC2 Container Service." />
+<meta property="og:url" content="https://tech.hbc.com//2019-04-02-small-batch-deployments.html" />
+<meta property="og:description" content="The Hudson’s Bay Company is an organization known for challenging the status quo. HBC’s engineering group is no different. HBC engineers are constantly looki..." />
 <meta property="og:image" content="https://tech.hbc.com/assets/images/blog/hbc-tech-logo-tipi.jpg" />
 <meta property="og:image:secure_url" content="https://tech.hbc.com/assets/images/" />
 <meta property="og:image:type" content="image/jpeg" />
@@ -38,7 +38,7 @@
 
 
         <link rel="stylesheet" href="https://tech.hbc.com/assets/css/main.css">
-        <link rel="canonical" href="https://tech.hbc.com/2017-08-04-sundial-batch.html">
+        <link rel="canonical" href="https://tech.hbc.com/2019-04-02-small-batch-deployments.html">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
 
         <!-- Icons -->
@@ -114,7 +114,7 @@
 
         <section class="content"><article class="article">
     <header class="article__header article__header--reveal">
-        <h1 class="header-title" title="Sundial or AWS Batch, Why not both?">Sundial or AWS Batch, Why not both?</h1>
+        <h1 class="header-title" title="Small batch deployments">Small batch deployments</h1>
         
         <span id="no-image-placeholder" class="no-image-placeholder"></span>
         
@@ -123,7 +123,7 @@
             
         <div class="article-meta">
             
-            <a href="https://tech.hbc.com/category/data-science" class="article-meta__category">data science</a>
+            <a href="https://tech.hbc.com/categories/#deployments" class="article-meta__category">deployments</a>
             
         
         
@@ -146,7 +146,7 @@
                 
                     
                 
-                <!-- render the author name regardless if they're a featured author -->Kevin O'Riordan<!-- if author exists in site.authors, close link to author's page -->
+                <!-- render the author name regardless if they're a featured author -->Sean Sullivan<!-- if author exists in site.authors, close link to author's page -->
                 <!-- add author's job title to give article more clout -->
                 
                     
@@ -167,7 +167,7 @@
         
     
             <span class="article-meta__date">
-                AUG 4, 2017
+                APR 2, 2019
             </span>
         </div>
     </header>
@@ -176,7 +176,7 @@
         <div class="article__content__read-time"><span class="read-time" title="Estimated read time">
   
   
-    <span class="read-time__text-1">3 min</span>
+    <span class="read-time__text-1">1 min</span>
     <span class="read-time__text-2">Read</span>
     <span class="read-time__text-3">Time</span>
   
@@ -184,28 +184,28 @@
 </div>
         <div class="article__content__share-buttons"><ul class="share-buttons">
     <li class="share-buttons__link-item">
-        <a href="https://twitter.com/intent/tweet?text=https://tech.hbc.com//2017-08-04-sundial-batch.html" class="share-buttons__link" title="Share on Twitter" target="_blank">
+        <a href="https://twitter.com/intent/tweet?text=https://tech.hbc.com//2019-04-02-small-batch-deployments.html" class="share-buttons__link" title="Share on Twitter" target="_blank">
             <svg class="hbc-svg-icon" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
                 <use class="hbc-svg-icon--twitter" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
             </svg>
         </a>
     </li>
     <li class="share-buttons__link-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.hbc.com/&source=/2017-08-04-sundial-batch.html&title=Sundial or AWS Batch, Why not both?" class="share-buttons__link" title="Share on Linkedin" target="_blank">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.hbc.com/&source=/2019-04-02-small-batch-deployments.html&title=Small batch deployments" class="share-buttons__link" title="Share on Linkedin" target="_blank">
             <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
                 <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#linkedin" ></use>
             </svg>
         </a>
     </li>
     <li class="share-buttons__link-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tech.hbc.com//2017-08-04-sundial-batch.html" class="share-buttons__link" title="Share on Facebook" target="_blank">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tech.hbc.com//2019-04-02-small-batch-deployments.html" class="share-buttons__link" title="Share on Facebook" target="_blank">
             <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
                 <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#facebook" ></use>
             </svg>
         </a>
     </li>
     <li class="share-buttons__link-item">
-        <a href="https://www.reddit.com/submit?url=https://tech.hbc.com//2017-08-04-sundial-batch.html" class="share-buttons__link" title="Share on Reddit" target="_blank">
+        <a href="https://www.reddit.com/submit?url=https://tech.hbc.com//2019-04-02-small-batch-deployments.html" class="share-buttons__link" title="Share on Reddit" target="_blank">
             <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
                 <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#reddit" ></use>
             </svg>
@@ -213,95 +213,52 @@
     </li>
 </ul>
 </div>
-        <div class="article__content__body"><p>About a year ago, we (the HBC Tech personalization team) open sourced Sundial <img src="https://github.com/saksdirect/sundial" alt="" />, a batch job orchestration system leveraging <a href="https://aws.amazon.com/ecs/">Amazon EC2 Container Service</a>.</p>
+        <div class="article__content__body"><p>The Hudson’s Bay Company is an organization known for challenging the status quo. HBC’s engineering group is no different. HBC engineers are constantly looking for ways to improve the speed and quality of the software that runs our business.</p>
 
-<!--more-->
+<h1 id="continuous-delivery">Continuous Delivery</h1>
+<p>Like many organizations, we have improved our systems by adopting <a href="https://continuousdelivery.com/">Continuous Delivery</a> practices. Continuous Delivery isn’t a new concept. But it does take time for organizations to embrace all of the principles and to achieve its full potential.</p>
 
-<p>We built Sundial to provide the following features on top of the standard ECS setup:</p>
+<h1 id="work-in-small-batches">Work in small batches</h1>
+<p>One of the core <a href="https://continuousdelivery.com/principles/">principles</a> of Continuous Delivery is “work in small batches”. Engineering teams that focus on “small batch” delivery can achieve higher quality and better efficiency.</p>
 
+<p><img src="./assets/images/small-batch-deployments/principles-480.png" alt="principles-of-continuous-delivery" /></p>
+
+<h1 id="small-batch-deployments">Small Batch Deployments</h1>
+
+<p>HBC employs a technique that we call “small batch deployments”. Our engineering teams favor small code deployments over large code deployments. The benefits of small deployments are self-evident:</p>
 <ul>
-  <li>Streaming Logs (to Cloudwatch and S3 and live in Sundial UI)</li>
-  <li>Metadata collection (through Graphite and displayed live in Sundial UI)</li>
-  <li>Dependency management between jobs</li>
-  <li>Retry strategies for failed jobs</li>
-  <li>Cron style scheduling for jobs</li>
-  <li>Email status reporting for jobs</li>
-  <li>Pagerduty integration for notifying team members about failing critical jobs</li>
+  <li>small deployments are easier to understand</li>
+  <li>small deployments are easier to review</li>
+  <li>small deployments are easier to test</li>
+  <li>small deployments are easier to rollback</li>
 </ul>
 
-<p><a href="http://i.imgur.com/RUZHLdI.png" title="Sundial DAG">Sundial DAG</a></p>
+<h1 id="small-batch-success">Small Batch Success</h1>
 
-<p>Other solutions available at the time didn’t suit our needs. Solutions we considered included <a href="https://mesos.github.io/chronos/">Chronos</a> which lacked the features we needed and required a Mesos cluster, <a href="https://github.com/spotify/luigi">Spotify Luigi</a> and <a href="http://airbnb.io/projects/airflow/">Airbnb Airflow</a>, which was immature at the time.</p>
+<p>HBC is not the only organization that practices small batch deployments. This approach has proven successful at <a href="https://www.youtube.com/watch?v=nEmJ_5UHs1g">Facebook</a>, <a href="https://www.youtube.com/watch?v=XNJ30Vy5xSg">Instagram</a>, <a href="https://www.youtube.com/watch?v=LdOe18KhtT4">Flickr</a>, <a href="https://www.kitchensoap.com/2010/06/24/ops-meta-metrics-velocity-2010-slides/">Etsy</a>, and <a href="https://www.infoq.com/presentations/microservices-arch-infrastructure-cd">Flow Commerce</a>.</p>
 
-<p>At the time, we chose ECS because we hoped to take advantages of AWS features such as autoscaling in order to save costs
- by scaling the cluster up and down by demand. In practice, this required too much manual effort and moving parts so we lived with a long running cluster
- scaled to handle peak load.</p>
+<p>The notion of “small batches” has been discussed in software development literature for over a decade. The following presentation illustrates how prevalent “small batch” has become in the field of software engineering:</p>
 
-<p>Since then, our needs have grown and we have jobs ranging in size from a couple of hundred MB of memory to 60GB of memory. Having a cluster scaled
- to handle peak load with all these job sizes had become too expensive. Most job failure noise has been due to cluster resources not being available or smaller jobs taking up space on instances meant to be dedicated to bigger jobs. (ECS is weak when it comes to task placement strategies).</p>
+<p><a href="https://speakerdeck.com/sullis/small-batch-deployments-2019-04-02"><img src="./assets/images/small-batch-deployments/title-slide-480.png" alt="small-batch-deployments-deck" /></a></p>
 
-<p>Thankfully AWS have come along with their own enhancements on top of ECS in the form of <a href="https://aws.amazon.com/batch/">AWS Batch</a>.</p>
+<h1 id="final-thoughts">Final thoughts</h1>
 
-<h3 id="what-we-love-about-batch">What we love about Batch</h3>
-
-<ul>
-  <li>Managed compute environment. This means AWS handles scaling up and down the cluster in response to workload.</li>
-  <li>Heterogenous instance types (useful when we have outlier jobs taking large amounts of CPU/memory resources)</li>
-  <li>Spot instances (save over half on on-demand instance costs)</li>
-  <li>Easy integration with Cloudwatch Logs (stdout and stderr captured automatically)</li>
-</ul>
-
-<h3 id="what-sucks">What sucks</h3>
-
-<ul>
-  <li>Not being able to run “linked” containers (We relied on this for metadata service and log upload to S3)</li>
-  <li>Needing a custom AMI to configure extra disk space on the instances.</li>
-</ul>
-
-<h3 id="what-wed-love-for-batch-to-do-better">What we’d love for Batch to do better</h3>
-<ul>
-  <li>Make disk space on managed instances configurable.
-   Currently the workaround is to create a custom AMI with the disk space you need if you have jobs that store a lot of data on disk (Not uncommon in a data processing environment).
-   HBC Tech has a feature request open with Amazon on this issue.</li>
-</ul>
-
-<h3 id="why-not-dump-sundial-in-favour-of-using-batch-directly">Why not dump Sundial in favour of using Batch directly?</h3>
-
-<p>Sundial still provides features that Batch doesn’t provide:</p>
-<ul>
-  <li>Email reporting</li>
-  <li>Pagerduty integration</li>
-  <li>Easy transition, processes can be a mixed workload of jobs running on ECS and Batch.</li>
-  <li>Configurable backoff strategy for job retries.</li>
-  <li>Time limits for jobs. If a job hangs, we can kill and retry after a certain period of time</li>
-  <li>Nice dashboard of processes (At a glance see what’s green and what’s red)</li>
-</ul>
-
-<p><img src="http://i.imgur.com/PAeqBJH.png" alt="alt text" title="Sundial dashboard" /></p>
-
-<p>Sure enough, some of the above can be configured through hooking up lambdas/SNS messages etc. but Sundial gives it to you out of the box.</p>
-
-<h3 id="what-next">What next?</h3>
-
-<p>Sundial with AWS Batch backend now works great for the use cases we encounter doing personalization. We may consider enhancements such as Prometheus push gateway integration (to replace the Graphite service we had with ECS and to keep track of metrics over time) and UI enhancements to Sundial.</p>
-
-<p>In the long term we may consider other open source solutions as maintaining a job system counts as technical debt that
- is a distraction from product focused tasks. The HBC data team, who have very similar requirements to us, have started adopting Airflow (by Airbnb). As part of their adoption, they have contributed to an open source effort to make Airflow support Batch as a backend: <a href="https://github.com/gilt/incubator-airflow/tree/aws_batch">https://github.com/gilt/incubator-airflow/tree/aws_batch</a>. If it works well, this is a solution we may adopt in the future.</p>
+<p>The practice of “small batch deployments” has proven successful at HBC. Our engineering teams have been able to deliver higher quality systems with less risk to the business. This approach benefits both our engineers and our business stakeholders.</p>
 </div>
         <footer class="article__content__footer">
             
 <div class="article-tags">
 
-    <span class="article-tags__tag">batch</span><span>,</span>
+    <span class="article-tags__tag">deployments</span><span>,</span>
     
 
-    <span class="article-tags__tag">aws</span><span>,</span>
+    <span class="article-tags__tag">continuousdelivery</span><span>,</span>
     
 
-    <span class="article-tags__tag">tech</span><span>,</span>
+    <span class="article-tags__tag">devops</span><span>,</span>
     
 
-    <span class="article-tags__tag">personalization</span>
+    <span class="article-tags__tag">2019</span>
 
 </div>
 
@@ -319,7 +276,7 @@
         <use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#head" ></use>
         <use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#body" ></use>
     </svg>
-	<span class="author-bio__name">Kevin O'Riordan</span>
+	<span class="author-bio__name">Sean Sullivan</span>
 	
 
 
@@ -351,8 +308,8 @@
 
     
     <h1 class="snippet__title">
-    <a href="https://tech.hbc.com/2018-05-07-experimental-reproducibility-in-data-science.html" class="snippet__title__link" title="ODSC Workshop on Experimental Reproducibility in Data Science">
-        ODSC Workshop on Experimental Reproducibility in Data Science
+    <a href="https://tech.hbc.com/2018-10-04-microservices-at-hbc.html" class="snippet__title__link" title="Microservices at HBC">
+        Microservices at HBC
     </a>
     </h1>
     <div class="snippet__meta">
@@ -363,7 +320,7 @@
             
 
             
-                <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
+                <a class="meta__category-link" href="https://tech.hbc.com/categories/#microservices">microservices</a>
             
 
             <span class="slug-divider"></span>
@@ -389,39 +346,7 @@
                 
                     
                 
-                <!-- render the author name regardless if they're a featured author -->Karthik Rajasethupathy<!-- if author exists in site.authors, close link to author's page -->
-                <!-- add author's job title to give article more clout -->
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                <span>,</span>
-                
-            
-                
-                <!-- if author exists in site.authors, create link to author's page -->
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                <!-- render the author name regardless if they're a featured author -->Jason Tam<!-- if author exists in site.authors, close link to author's page -->
+                <!-- render the author name regardless if they're a featured author -->Sean Sullivan<!-- if author exists in site.authors, close link to author's page -->
                 <!-- add author's job title to give article more clout -->
                 
                     
@@ -442,16 +367,13 @@
         
     
     
-        <span class="meta__date">MAY 7, 2018</span>
+        <span class="meta__date">OCT 4, 2018</span>
     
     </div>
     
-        <a href="https://tech.hbc.com/2018-05-07-experimental-reproducibility-in-data-science.html" class="snippet__excerpt__link" title="ODSC Workshop on Experimental Reproducibility in Data Science">
+        <a href="https://tech.hbc.com/2018-10-04-microservices-at-hbc.html" class="snippet__excerpt__link" title="Microservices at HBC">
             <p class="snippet__excerpt">
-            On May 2nd, we presented at the Open Data Science Conference in Boston, MA. We demonstrated
-how to build a machine learning project from scratch with Sacred, an open source
-library for experiment tracking, and how to view the results using
-Sacredboard.
+            HBC’s commerce platform is constantly evolving to support new business requirements. Our platform’s microservice architecture enables engineering teams to rapidly build and deploy new features.
 
 
             </p>
@@ -472,8 +394,8 @@ Sacredboard.
 
     
     <h1 class="snippet__title">
-    <a href="https://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html" class="snippet__title__link" title="Negative Sampling (in Numpy)">
-        Negative Sampling (in Numpy)
+    <a href="https://tech.hbc.com/2018-01-26-aws-sdk-for-java.html" class="snippet__title__link" title="AWS SDK for Java, version 2.0">
+        AWS SDK for Java, version 2.0
     </a>
     </h1>
     <div class="snippet__meta">
@@ -484,7 +406,7 @@ Sacredboard.
             
 
             
-                <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
+                <a class="meta__category-link" href="https://tech.hbc.com/categories/#cloud">cloud</a>
             
 
             <span class="slug-divider"></span>
@@ -510,7 +432,7 @@ Sacredboard.
                 
                     
                 
-                <!-- render the author name regardless if they're a featured author -->Jason Tam<!-- if author exists in site.authors, close link to author's page -->
+                <!-- render the author name regardless if they're a featured author -->Sean Sullivan<!-- if author exists in site.authors, close link to author's page -->
                 <!-- add author's job title to give article more clout -->
                 
                     
@@ -531,13 +453,107 @@ Sacredboard.
         
     
     
-        <span class="meta__date">MAR 23, 2018</span>
+        <span class="meta__date">JAN 26, 2018</span>
     
     </div>
     
-        <a href="https://tech.hbc.com/2018-03-23-negative-sampling-in-numpy.html" class="snippet__excerpt__link" title="Negative Sampling (in Numpy)">
+        <a href="https://tech.hbc.com/2018-01-26-aws-sdk-for-java.html" class="snippet__excerpt__link" title="AWS SDK for Java, version 2.0">
             <p class="snippet__excerpt">
-            Alright, time to have some fun exploring efficient negative sampling implementations in NumPy…
+            The Capital Region AWS User Group met on January 18th at the Nanotech Complex in Albany New York. CommerceHub hosted the meeting at their main office.
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+    
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+
+    
+    <h1 class="snippet__title">
+    <a href="https://tech.hbc.com/2018-12-31-presentations-we-love.html" class="snippet__title__link" title="Presentations we love: 2018">
+        Presentations we love: 2018
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="https://tech.hbc.com/categories/#presentations">presentations</a>
+            
+
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    <a class="meta__author-link" href="https://tech.hbc.com/authors/hbc-tech">
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->HBC Tech<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    </a>
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">DEC 31, 2018</span>
+    
+    </div>
+    
+        <a href="https://tech.hbc.com/2018-12-31-presentations-we-love.html" class="snippet__excerpt__link" title="Presentations we love: 2018">
+            <p class="snippet__excerpt">
+            2018 was a year of growth and learning at HBC Tech. Our organization embraced new technologies and new ways of building application software.
 
 
             </p>
@@ -558,8 +574,8 @@ Sacredboard.
 
     
     <h1 class="snippet__title">
-    <a href="https://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" class="snippet__title__link" title="Airing Out A New Job System">
-        Airing Out A New Job System
+    <a href="https://tech.hbc.com/2018-10-04-microservices-at-hbc.html" class="snippet__title__link" title="Microservices at HBC">
+        Microservices at HBC
     </a>
     </h1>
     <div class="snippet__meta">
@@ -570,7 +586,7 @@ Sacredboard.
             
 
             
-                <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
+                <a class="meta__category-link" href="https://tech.hbc.com/categories/#microservices">microservices</a>
             
 
             <span class="slug-divider"></span>
@@ -596,7 +612,7 @@ Sacredboard.
                 
                     
                 
-                <!-- render the author name regardless if they're a featured author -->Terry McCartan<!-- if author exists in site.authors, close link to author's page -->
+                <!-- render the author name regardless if they're a featured author -->Sean Sullivan<!-- if author exists in site.authors, close link to author's page -->
                 <!-- add author's job title to give article more clout -->
                 
                     
@@ -617,14 +633,13 @@ Sacredboard.
         
     
     
-        <span class="meta__date">MAR 5, 2018</span>
+        <span class="meta__date">OCT 4, 2018</span>
     
     </div>
     
-        <a href="https://tech.hbc.com/2018-03-05-airing-out-a-new-job-system.html" class="snippet__excerpt__link" title="Airing Out A New Job System">
+        <a href="https://tech.hbc.com/2018-10-04-microservices-at-hbc.html" class="snippet__excerpt__link" title="Microservices at HBC">
             <p class="snippet__excerpt">
-            In this article I’ll be sharing some of the knowledge the Data team at HBC Tech picked up in replacing our old job system with Apache Airflow.
-We undertook the decision to overhaul our job orchestration system a few months ago due to a number of reasons but have now successfully migrated all our data ingestion jobs to the new system.
+            HBC’s commerce platform is constantly evolving to support new business requirements. Our platform’s microservice architecture enables engineering teams to rapidly build and deploy new features.
 
 
             </p>
@@ -633,104 +648,6 @@ We undertook the decision to overhaul our job orchestration system a few months 
 </section>
 
         </article>
-        
-    
-        
-    
-        
-            
-        <article class="recirc__articles__item">
-            
-
-
-<section class="snippet">
-
-    
-    <h1 class="snippet__title">
-    <a href="https://tech.hbc.com/2017-07-31-tiefvision-2.html" class="snippet__title__link" title="Visually Similar Recommendations">
-        Visually Similar Recommendations
-    </a>
-    </h1>
-    <div class="snippet__meta">
-    
-        
-        
-        
-            
-
-            
-                <a class="meta__category-link" href="https://tech.hbc.com/category/data-science">data science</a>
-            
-
-            <span class="slug-divider"></span>
-        
-    
-
-    
-        
-            <span class="meta__author">
-            
-                
-                <!-- if author exists in site.authors, create link to author's page -->
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                <!-- render the author name regardless if they're a featured author -->Chris Curro<!-- if author exists in site.authors, close link to author's page -->
-                <!-- add author's job title to give article more clout -->
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-            </span>
-            <span class="slug-divider"></span>
-        
-    
-    
-        <span class="meta__date">JUL 31, 2017</span>
-    
-    </div>
-    
-        <a href="https://tech.hbc.com/2017-07-31-tiefvision-2.html" class="snippet__excerpt__link" title="Visually Similar Recommendations">
-            <p class="snippet__excerpt">
-            
-
-
-            </p>
-        </a>
-    
-</section>
-
-        </article>
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
         
     
         

@@ -1,6 +1,16 @@
 [
     
     {
+        "title": "Small batch deployments",
+        "date": "APR 2 2019",
+        "author": "Sean Sullivan",
+        "category": "deployments",
+        "tags": "deployments continuousdelivery devops",
+        "excerpt": "The Hudson’s Bay Company is an organization known for challenging the status quo. HBC’s engineering group is no different. HBC engineers are constantly looking for ways to improve the speed and quality of the software that runs our business.",
+        "url": "/2019-04-02-small-batch-deployments.html"
+    },
+    
+    {
         "title": "Presentations we love: 2018",
         "date": "DEC 31 2018",
         "author": "HBC Tech",
