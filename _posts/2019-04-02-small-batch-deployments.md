@@ -32,7 +32,7 @@ HBC employs a technique that we call "small batch deployments". Our engineering 
 
 HBC is not the only organization that practices small batch deployments. This approach has proven successful at Facebook, Instagram, Flickr, Etsy, and Flow Commerce.
 
-[![small-batch-deployments-deck](./assets/images/small-batch-deployments/small-batch-deployments-480.png)](https://speakerdeck.com/sullis/microservices-portland-oregon-2018-09-25)
+[![small-batch-deployments-deck](./assets/images/small-batch-deployments/title-slide-480.png)](https://speakerdeck.com/sullis/small-batch-deployments-2019-04-02)
 
 # Final thoughts
 
