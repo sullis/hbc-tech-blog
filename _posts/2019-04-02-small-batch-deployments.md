@@ -16,7 +16,7 @@ The Hudson's Bay Company is an organization known for challenging the status quo
 Like many organizations, we have improved our systems by adopting [Continuous Delivery](https://continuousdelivery.com/) practices. Continuous Delivery isn't a new concept. But it does take time for organizations to embrace all of the principles and to achieve its full potential.
 
 # Work in small batches
-One of the core [principles](https://continuousdelivery.com/principles/) of Continuous Delivery is "work in small batches". Engineering teams that focus on "small batch" delivery can achieve higher quality and better efficiency.
+One of the core [principles](https://continuousdelivery.com/principles/) of Continuous Delivery is "work in small batches". Engineering teams that focus on small batch delivery can achieve higher quality and better efficiency.
 
 ![principles-of-continuous-delivery](./assets/images/small-batch-deployments/principles-480.png)
 
