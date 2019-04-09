@@ -1,6 +1,16 @@
 [
     
     {
+        "title": "Make Your Own Serverless CI",
+        "date": "APR 8 2019",
+        "author": "Tom Beute",
+        "category": "infrastructure",
+        "tags": "continuousintegration devops 2019",
+        "excerpt": "Automation is essential to maximizing throughput, especially when it comes to being able to confidently release quality software. I believe that anything you find yourself repeating is a great candidate to automate. In most cases, these repetitive tasks can be represented as simple functions! So that got me thinking… maybe I can leverage AWS Lambda for this– things like pull-request review hooks and automatic package versioning + publishing.",
+        "url": "/2019-04-08-make-your-own-ci.html"
+    },
+    
+    {
         "title": "Small batch deployments",
         "date": "APR 2 2019",
         "author": "Sean Sullivan",

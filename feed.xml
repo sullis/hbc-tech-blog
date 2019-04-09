@@ -1,5 +1,208 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-04-02T17:50:01-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
-</subtitle><entry><title type="html">Small batch deployments</title><link href="https://tech.hbc.com/2019-04-02-small-batch-deployments.html" rel="alternate" type="text/html" title="Small batch deployments" /><published>2019-04-02T00:00:00-05:00</published><updated>2019-04-02T00:00:00-05:00</updated><id>https://tech.hbc.com/small-batch-deployments</id><content type="html" xml:base="https://tech.hbc.com/2019-04-02-small-batch-deployments.html">&lt;p&gt;The Hudson’s Bay Company is an organization known for challenging the status quo. HBC’s engineering group is no different. HBC engineers are constantly looking for ways to improve the speed and quality of the software that runs our business.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-04-09T17:23:19-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+</subtitle><entry><title type="html">Make Your Own Serverless CI</title><link href="https://tech.hbc.com/2019-04-08-make-your-own-ci.html" rel="alternate" type="text/html" title="Make Your Own Serverless CI" /><published>2019-04-08T00:00:00-05:00</published><updated>2019-04-08T00:00:00-05:00</updated><id>https://tech.hbc.com/make-your-own-ci</id><content type="html" xml:base="https://tech.hbc.com/2019-04-08-make-your-own-ci.html">&lt;p&gt;Automation is essential to maximizing throughput, especially when it comes to being able to confidently release quality software. I believe that anything you find yourself repeating is a great candidate to automate. In most cases, these repetitive tasks can be represented as simple functions! So that got me thinking… maybe I can leverage &lt;a href=&quot;https://aws.amazon.com/lambda/&quot;&gt;AWS Lambda&lt;/a&gt; for this– things like pull-request review hooks and automatic package versioning + publishing.&lt;/p&gt;
+
+&lt;p&gt;In many ways, this is like creating a more powerful and customizable version of &lt;a href=&quot;https://aws.amazon.com/codebuild/&quot;&gt;CodeBuild&lt;/a&gt;, &lt;a href=&quot;https://circleci.com&quot;&gt;CircleCI&lt;/a&gt;, or &lt;a href=&quot;https://concourse-ci.org/&quot;&gt;Concourse&lt;/a&gt; from scratch (all of which I’ve drawn inspiration from after using)! Moreover, this serverless solution costs nothing when it’s not in use and it’s much more flexible! Ultimately, this led to the creation of our own GitHub webhook “bot” we call &lt;a href=&quot;https://github.com/hbc-techie&quot;&gt;Techie&lt;/a&gt;. In this post, I want to share how easy it is to create your own extensible bot!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;After we’re done, you’ll have a Techie look-alike that is configurable with it’s own YAML file and able to leave comments on untagged pull requests, perform &lt;a href=&quot;https://www.thoughtworks.com/continuous-integration&quot;&gt;CI&lt;/a&gt; code reviews, and automatically version and publish your npm packages!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Feel free to view the completed source on &lt;a href=&quot;https://github.com/track0x1/lambot&quot;&gt;GitHub&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
+
+&lt;p&gt;For brevity, I’m only going to touch on the main aspects of our bot; you can reference everything else in the repo!&lt;/p&gt;
+
+&lt;p&gt;Here’s how our bot will work:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;img src=&quot;./assets/images/make-your-own-ci/lambot-diagram.png&quot; alt=&quot;lambot-overview&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Lambda receives a request triggered by a GitHub webhook event&lt;/li&gt;
+  &lt;li&gt;Attempt to load and parse our bots config (&lt;code class=&quot;highlighter-rouge&quot;&gt;lambot.yml&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;Run the configured actions&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Let’s get to the code!&lt;/p&gt;
+
+&lt;h2 id=&quot;making-it-configurable&quot;&gt;Making it Configurable&lt;/h2&gt;
+
+&lt;p&gt;I like the simplicity of YAML syntax, so we’ll expect the configuration to look something like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;hooks&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+ &lt;span class=&quot;c1&quot;&gt;# Automatic versioning &amp;amp; publishing&lt;/span&gt;
+ &lt;span class=&quot;na&quot;&gt;semver&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
+ &lt;span class=&quot;c1&quot;&gt;# Prefer labels on pull requests; notify if missing.&lt;/span&gt;
+ &lt;span class=&quot;na&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
+ &lt;span class=&quot;c1&quot;&gt;# Run commands on each push and sends a Github status&lt;/span&gt;
+ &lt;span class=&quot;na&quot;&gt;codereview&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+   &lt;span class=&quot;na&quot;&gt;commands&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;echo Installing node modules...&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;npm i&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;echo Running tests...&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;npm test&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In our lambda function let’s do the following:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Get the configuration, preferably from &lt;em&gt;master&lt;/em&gt; or another predefined branch so we can consider it our config &lt;em&gt;single source of truth&lt;/em&gt;. I’ve also experimented with using the config in the branch where the event is emitted; sometimes that works better!&lt;/li&gt;
+  &lt;li&gt;Parse the configuration and asynchronously run the tasks.&lt;/li&gt;
+  &lt;li&gt;Send a response (success or failure).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;yaml&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'js-yaml'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tasks&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'./tasks'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// An object of supported tasks (functions)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Helper function that attempts to run a task&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;runTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;taskData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Ensure valid task provided&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`Invalid task name of '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;' provided.`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;taskData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// This is our lambda function&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;repoOwner&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;repository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;owner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;login&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;repoName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;repository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// Retrieve lambot.yml&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// If missing, hook failure (lambot.yml is required)&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Else, load and execute tasks&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pendingTasks&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;githubClient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'config'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;repoOwner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;repoName&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;yaml&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;safeLoad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'base64'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hooks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reduce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;acc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// If hook is enabled, attempt to run it and push to pending task queue&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hooks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;acc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;runTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;githubEvent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hooks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}));&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;acc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]))&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;respond&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Missing or invalid lambot.yml.'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// Wait for all tasks to run&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pendingTasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;respond&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Success'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I know this is a lot of code to digest, so let’s recap how this will work:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;We’re expecting a YAML configuration (&lt;code class=&quot;highlighter-rouge&quot;&gt;lambot.yml&lt;/code&gt;) to be present in the repository.&lt;/li&gt;
+  &lt;li&gt;If a configuration is missing we’ll respond with a failure, otherwise, let’s try to run the specified tasks asynchronously (they each return a promise).&lt;/li&gt;
+  &lt;li&gt;Wait for all tasks to run, then send a final response.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Easy enough! Now you might be wondering what a task function looks like… so let’s keep going.&lt;/p&gt;
+
+&lt;h2 id=&quot;creating-tasks&quot;&gt;Creating Tasks&lt;/h2&gt;
+
+&lt;p&gt;You might have noticed our example config includes three hooks… &lt;em&gt;semver&lt;/em&gt;, &lt;em&gt;labels&lt;/em&gt;, and &lt;em&gt;codereview&lt;/em&gt;. Let’s breifly go through how they will work, starting with the simplest– labels.&lt;/p&gt;
+
+&lt;h3 id=&quot;label-task&quot;&gt;Label Task&lt;/h3&gt;
+
+&lt;p&gt;Pull-request labels help us stay organized. The purpose of our label task will be to post a friendly comment on newly opened, unlabeled pull-requests, encouraging the user to add a label.&lt;/p&gt;
+
+&lt;p&gt;Here’s the code:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Newly opened pull-requests without labels will receive a friendly notice&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;labelTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;githubEvent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;githubEvent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'pull_request'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;action&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'opened'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pull_request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;repoName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;repository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;repoOwner&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;repository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;owner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;login&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// Post comment using the GitHub API&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;githubClient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'comment'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;repoOwner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;repoName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;prNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'_Hi :wave:, it&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;s Lambot!_&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;n'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+        &lt;span class=&quot;s1&quot;&gt;'I noticed this pull request has no assigned labels. :cry:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;n'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+        &lt;span class=&quot;s1&quot;&gt;'Please remember to label your pull requests. That helps keep things organized around here. :slightly_smiling_face:'&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;semver-task&quot;&gt;Semver Task&lt;/h3&gt;
+
+&lt;p&gt;Versioning and publishing npm packages can become quite monotonous. That’s when I got the idea… wouldn’t it be great if we could handle that automatically based off the head commit (it includes the title + commit history if you’re squashing commits), and look for &lt;code class=&quot;highlighter-rouge&quot;&gt;[breaking|feature]&lt;/code&gt; (or &lt;code class=&quot;highlighter-rouge&quot;&gt;[ci skip]&lt;/code&gt;). For example, a pull-request with &lt;code class=&quot;highlighter-rouge&quot;&gt;[breaking] Major API changes&lt;/code&gt; would cause our package to increment and publish a major version.&lt;/p&gt;
+
+&lt;p&gt;Now, one challenge when working with Lambda + API Gateway is that your task &lt;a href=&quot;https://docs.aws.amazon.com/apigateway/latest/developerguide/limits.html&quot;&gt;must complete within 30 seconds&lt;/a&gt;. Even if we could install, lint, and test our code in 30 seconds I don’t like the possibility of random timeouts… so this is where we’ll get fancy ✨.​ For tasks that require heavy lifting, we can offload them to AWS ECS– which can run as long as they need, in any environment we want, only when we need them, therefore being cost-effective. Fantastic!&lt;/p&gt;
+
+&lt;p&gt;Here’s what we’ll do:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BOT_NAME&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'lambot'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Automatically version and publish repositories that are npm packages&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;semverTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;githubEvent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Only listen to push events on master (we don't want to version + publish every branch!),&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// ignore commits from our bot (to avoid an infinite loop of versioning + publishing)&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// ignore [ci skip] commits&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;githubEvent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'push'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;head_commit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;username&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BOT_NAME&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;head_commit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;includes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'[ci skip]'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ref&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'refs/heads/master'&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// get_version and push_changes are helper functions baked into our Docker image&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;commands&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'echo &quot;Installing node modules...&quot;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'npm ci'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Determine next version&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'increment=$(get_version)'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Create versioned commit; publish package; push versioned commit &amp;amp; tag&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'echo &quot;Bumping version (type: $increment), publishing, and pushing...&quot;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'npm version $increment'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'npm publish'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'push_changes'&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// Run the semver utility in our custom docker image&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;spawnDockerTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;GIT_REPO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;repository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;clone_url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;GIT_BRANCH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ref&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;DOCKER_COMMANDS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;commands&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'&amp;amp;&amp;amp;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In our semver task, we’ll call &lt;code class=&quot;highlighter-rouge&quot;&gt;spawnDockerTask&lt;/code&gt; (a utility for running a task in ECS) and pass a list of &lt;code class=&quot;highlighter-rouge&quot;&gt;commands&lt;/code&gt; to execute in our container, as well as any additional information our container will need. If the task starts successfully, &lt;code class=&quot;highlighter-rouge&quot;&gt;spawnDockerTask&lt;/code&gt; will return a resolved promise.&lt;/p&gt;
+
+&lt;h2 id=&quot;adding-the-webhook&quot;&gt;Adding the Webhook&lt;/h2&gt;
+
+&lt;p&gt;Finally, we need to setup a repository to use our new bot. This is the easiest part!&lt;/p&gt;
+
+&lt;p&gt;Go to your Github repositories &lt;code class=&quot;highlighter-rouge&quot;&gt;Settings &amp;gt; Webhooks&lt;/code&gt; and add a new webhook with the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Payload URL: &lt;code class=&quot;highlighter-rouge&quot;&gt;https://your-api-gateway-url/webhook&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Content type: &lt;code class=&quot;highlighter-rouge&quot;&gt;application/json&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Secret: &lt;em&gt;your secret&lt;/em&gt; (see: &lt;a href=&quot;https://github.com/track0x1/lambot/blob/e63951a40ac4cdc173c55cade0fb0ede7b31d598/lib/config.js#L5&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;./lib/config.js&lt;/code&gt;&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Events: &lt;code class=&quot;highlighter-rouge&quot;&gt;Send me everything.&lt;/code&gt; (or select only the events you are using)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;wrapping-up&quot;&gt;Wrapping Up&lt;/h2&gt;
+
+&lt;p&gt;Here’s a fun exercise: try implementing the &lt;em&gt;codereview&lt;/em&gt; task yourself. &lt;em&gt;Hint: You’ll need to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;config&lt;/code&gt; property passed to our task function.&lt;/em&gt; With &lt;em&gt;codereview&lt;/em&gt;, the goal is to allow a custom sequence of commands to run on each pushed commit. It’s similar to our &lt;em&gt;semver&lt;/em&gt; task, but it also utilizes the &lt;a href=&quot;https://developer.github.com/v3/repos/statuses/&quot;&gt;status API&lt;/a&gt; to report if the commands pass or fail. Once you do that, you’ll practically have built your own CI tool! How cool is that?!&lt;/p&gt;
+
+&lt;p&gt;Automation is fun and it maximizes productivity; a win-win if you ask me! We also learned about Lambdas, ECS, and the GitHub API. Now you are fully equipped to create your own custom tasks! Feel free to reference the &lt;a href=&quot;https://developer.github.com&quot;&gt;GitHub API&lt;/a&gt; for all the different events you can use. What’s even better is that your bot can run in any repository (as long as it has access and a valid config file)! What else is there to automate? That’s now up to you!&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading.&lt;/p&gt;
+
+&lt;p&gt;&lt;sub&gt;&lt;em&gt;Originally published at &lt;a href=&quot;https://beuteiful.com/blog/make-your-own-serverless-ci/&quot;&gt;beuteiful.com&lt;/a&gt; on April 5, 2019.&lt;/em&gt;&lt;/sub&gt;&lt;/p&gt;</content><author><name>Tom Beute</name></author><category term="continuousintegration" /><category term="devops" /><category term="2019" /><summary type="html">Automation is essential to maximizing throughput, especially when it comes to being able to confidently release quality software. I believe that anything you find yourself repeating is a great candidate to automate. In most cases, these repetitive tasks can be represented as simple functions! So that got me thinking… maybe I can leverage AWS Lambda for this– things like pull-request review hooks and automatic package versioning + publishing.</summary></entry><entry><title type="html">Small batch deployments</title><link href="https://tech.hbc.com/2019-04-02-small-batch-deployments.html" rel="alternate" type="text/html" title="Small batch deployments" /><published>2019-04-02T00:00:00-05:00</published><updated>2019-04-02T00:00:00-05:00</updated><id>https://tech.hbc.com/small-batch-deployments</id><content type="html" xml:base="https://tech.hbc.com/2019-04-02-small-batch-deployments.html">&lt;p&gt;The Hudson’s Bay Company is an organization known for challenging the status quo. HBC’s engineering group is no different. HBC engineers are constantly looking for ways to improve the speed and quality of the software that runs our business.&lt;/p&gt;
 
 &lt;h1 id=&quot;continuous-delivery&quot;&gt;Continuous Delivery&lt;/h1&gt;
 &lt;p&gt;Like many organizations, we have improved our systems by adopting &lt;a href=&quot;https://continuousdelivery.com/&quot;&gt;Continuous Delivery&lt;/a&gt; practices. Continuous Delivery isn’t a new concept. But it does take time for organizations to embrace all of the principles and to achieve its full potential.&lt;/p&gt;
@@ -947,187 +1150,4 @@ tags:
 &lt;hr /&gt;
 
 &lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
-&lt;p&gt;Hopefully, after reading this post, the tech blog has been demystified and the few technical things around markdown conversion and fixing image paths won’t scare you away. If you get stuck, try looking for your answer in the documentation &lt;a href=&quot;https://github.com/saksdirect/hbc-tech-blog/blob/master/docs/contributing.md&quot;&gt;here&lt;/a&gt;. If you need help with Markdown, there are a ton of resources online. &lt;a href=&quot;https://stackedit.io/&quot;&gt;Stack Edit&lt;/a&gt; is your friend.&lt;/p&gt;</content><author><name>[&quot;Jaret Stezelberger&quot;]</name></author><category term="Tech Blog" /><category term="Culture" /><summary type="html">Our tech organization is obviously made up of more than just developers. Non-developers have great insight from their work too! This post is a nudge to all my fellow colleagues who are also doing amazing work and would like to share, but feel intimitated by the pull request process.</summary></entry><entry><title type="html">Brand Alerts V2: Breaking Down a Monolith with AWS</title><link href="https://tech.hbc.com/2018-04-02-brand-alerts-v2-breaking-down-a-monolith-with-aws.html" rel="alternate" type="text/html" title="Brand Alerts V2: Breaking Down a Monolith with AWS" /><published>2018-04-02T00:00:00-05:00</published><updated>2018-04-02T00:00:00-05:00</updated><id>https://tech.hbc.com/brand-alerts-v2-breaking-down-a-monolith-with-aws</id><content type="html" xml:base="https://tech.hbc.com/2018-04-02-brand-alerts-v2-breaking-down-a-monolith-with-aws.html">&lt;p&gt;Recently, team T-Rex worked on the re-architecture of the
-Brand Alerts back end system, a project which we named Brand Alerts V2.
-In this blog, I share our new architecture detailing some of the new AWS
-powered components.&lt;/p&gt;
-
-&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
-
-&lt;p&gt;Brand Alerts V2 breaks down the monolithic architecture of Brand Alerts
-V1, into small, independent micro services. It enhances flexibility and
-extensibility of the system, not to forget, facilitates agile development,
-continuous integration and delivery. It also addresses some of our recent
-pain points- database and thread scheduling issues, resulting at times
-in non delivery of brand alert emails. Our intent was to delegate much
-of the boilerplate work to AWS tools and services, which are built to
-handle these use cases in tried and tested fashion and at scale.&lt;/p&gt;
-
-&lt;h1 id=&quot;what-are-brand-alerts&quot;&gt;What Are Brand Alerts?&lt;/h1&gt;
-
-&lt;p&gt;Before I go any further, let me describe what Brand Alerts are.&lt;/p&gt;
-
-&lt;p&gt;Brand Alerts are emails sent to Gilt members notifying them of an upcoming
-sale on a brand of their liking. A brand alert email is the ideal way to
-beat the crowd and avail deep discounts on high-end fashion
-brands. A typical brand alert email is sent in the evening (usually
-around 6 PM) a day prior to when the brand goes on sale.&lt;/p&gt;
-
-&lt;p&gt;It should also be noted that Brand Alert emails have one of the highest
-click-through rates (among all our triggered emails) and so business is
-always looking to enhance and experiment, in order to squeeze more out
-of these emails.&lt;/p&gt;
-
-&lt;h1 id=&quot;high-level-technical-components&quot;&gt;High Level Technical Components&lt;/h1&gt;
-
-&lt;p&gt;A good first step in system design is to chalk out the various building
-blocks. Here are the high level technical components that constitute the
-Brand Alerts system-&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Front End- for Marketing team to create, visualize brand alert email&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Database- to store a brand alert record (with brands, sales and their relevant info)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Data access layer for the database&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Brand Alerts API- that other components can call to manage or get information on brand alerts&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Generate audience (business logic component)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Render HTML (business logic component)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Send emails (business logic component)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Job scheduler for components 5-7&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;brand-alerts-v1&quot;&gt;Brand Alerts V1&lt;/h1&gt;
-
-&lt;p&gt;Before I introduce the V2 architecture, let me establish a baseline by
-talking about Brand Alerts V1. Here is the architecture diagram (with
-the distribution of aforementioned eight components)-&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;./assets/images/brand-alerts-v2-breaking-down-a-monolith-with-aws/brand-alerts-v1-arch.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The service (&lt;code class=&quot;highlighter-rouge&quot;&gt;svc-email-brand-alert&lt;/code&gt;) is a Scala app based on standard
-core-server-client model. As is evident from the diagram, this
-component is doing a lot of heavy lifting. In addition to holding all the
-business logic on how to generate audience and render HTML, it is also a
-data access layer, an API (client module) and job scheduler (through a
-separate &lt;code class=&quot;highlighter-rouge&quot;&gt;Scheduler&lt;/code&gt; thread using Java’s &lt;code class=&quot;highlighter-rouge&quot;&gt;ExecutionService&lt;/code&gt;).&lt;/p&gt;
-
-&lt;p&gt;Although most of the codebase is located inside one repo, this monolithic
-architecture faces several disadvantages. It is complex, difficult to
-maintain and troubleshoot by new team members, difficult to test in smaller
-pieces and has multiple single points of failure that can bring down the
-whole system.&lt;/p&gt;
-
-&lt;h1 id=&quot;brand-alerts-v2&quot;&gt;Brand Alerts V2&lt;/h1&gt;
-
-&lt;p&gt;Allow me to introduce Brand Alerts V2 with the following architecture
-diagram (again, with markings for the eight technical components)-&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;./assets/images/brand-alerts-v2-breaking-down-a-monolith-with-aws/brand-alerts-v2-arch.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;At first glance, one notices a lot more boxes and arrows. I can assure
-you that this is a good thing. The monolithic service piece of V1 has now
-been broken down into several smaller pieces, each of which is doing one
-or maximum two things and is doing it rather well. These are small, yet
-powerful components with baked in scalability and cohesiveness, being part
-of the AWS family.&lt;/p&gt;
-
-&lt;h1 id=&quot;new-components&quot;&gt;New Components&lt;/h1&gt;
-
-&lt;p&gt;Next, let me elaborate on some of the newly born, super-charged components.&lt;/p&gt;
-
-&lt;h2 id=&quot;brand-alerts-job&quot;&gt;Brand Alerts Job&lt;/h2&gt;
-
-&lt;p&gt;The core component of the brand alerts process is &lt;code class=&quot;highlighter-rouge&quot;&gt;trex-job-brand-alerts&lt;/code&gt;.
-The job is written in Scala and is scheduled via AWS Batch (Sundial) to
-run at a regular interval. No more maintaining our own &lt;code class=&quot;highlighter-rouge&quot;&gt;Scheduler&lt;/code&gt; thread!&lt;/p&gt;
-
-&lt;p&gt;When the job starts, a two step process is triggered. First, an audience
-is generated for each sale/brand in the brand alert. A call is made to
-Affinity API to get users who have an ‘affinity for the brand’. This set
-of users is then filtered based on the user’s subscription to the brand
-alert email and also to preserve his/her brand alert email receive limit
-(cadence check). In the second step, a brand alert event message
-is constructed corresponding to each user in the filtered
-set and is sent to the &lt;code class=&quot;highlighter-rouge&quot;&gt;consumer-email-brand-alert&lt;/code&gt; SQS queue.&lt;/p&gt;
-
-&lt;p&gt;As previously stated, the Brand Alerts job is configured to run via
-&lt;a href=&quot;https://github.com/gilt/sundial&quot;&gt;Sundial&lt;/a&gt;. Sundial, created by Gilt
-engineers, is an open source tool build on top
-of AWS Batch. This tool enhances AWS Batch capabilities by providing
-features such as job scheduling, multi job dependency management,
-job dashboard, etc. All job settings are configurable and reside in
-&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/job-config.template.json&lt;/code&gt;. These include maximum runtime, number of
-retries, PagerDuty alerts (in case of job failure), to name a few.&lt;/p&gt;
-
-&lt;h2 id=&quot;brand-alerts-api&quot;&gt;Brand Alerts API&lt;/h2&gt;
-
-&lt;p&gt;The API for Brand Alerts V2 (&lt;code class=&quot;highlighter-rouge&quot;&gt;api-brand-alert&lt;/code&gt;) is written in Python and
-is an AWS Lambda, built using &lt;a href=&quot;https://github.com/aws/chalice&quot;&gt;Chalice&lt;/a&gt;
-(which also provides a complimentary AWS API Gateway layering in front
-of AWS Lambda).&lt;/p&gt;
-
-&lt;p&gt;AWS Lambda provides a lightweight, “server-less” environment to host the
-API’s endpoints, which are used to manage the lifecycle of a brand alert,
-from creation to deletion. API Gateway, on the other hand, manages the
-lifecycle of the API itself and provides valuable features such as access
-control and traffic monitoring.&lt;/p&gt;
-
-&lt;p&gt;In the root folder of the project, an &lt;code class=&quot;highlighter-rouge&quot;&gt;api.json&lt;/code&gt; file details resources
-and data models of the API and is uploaded to
-&lt;a href=&quot;https://app.apibuilder.io/gilt/api-brand-alert/latest&quot;&gt;API Builder&lt;/a&gt;
-for versioning and client generation.&lt;/p&gt;
-
-&lt;p&gt;This component also acts as the Data Access Layer to the DynamoDB
-database. This ensures that no other component has direct access to the
-database, and that any component that needs to interact with the
-database must go through the API.
-&lt;a href=&quot;http://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html&quot;&gt;Boto3&lt;/a&gt;
-library is used to obtain a Python client for DynamoDB.&lt;/p&gt;
-
-&lt;h2 id=&quot;brand-alerts-consumer&quot;&gt;Brand Alerts Consumer&lt;/h2&gt;
-
-&lt;p&gt;The brand alert event messages sent to &lt;code class=&quot;highlighter-rouge&quot;&gt;consumer-email-brand-alert&lt;/code&gt; queue
-are picked up by &lt;code class=&quot;highlighter-rouge&quot;&gt;BrandAlertConsumer&lt;/code&gt; (in &lt;code class=&quot;highlighter-rouge&quot;&gt;consumer-email&lt;/code&gt;). The consumer
-polls for messages at a configurable interval. On finding a message in
-the queue, the consumer first renders an HTML body from the information
-contained in the message. Subsequently, it creates an object wrapper for
-the HTML body and sends it to &lt;code class=&quot;highlighter-rouge&quot;&gt;email-gateway&lt;/code&gt; (which then sends it to
-our Email Service Provider (ESP), SparkPost, for delivery).&lt;/p&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;consumer-email-brand-alert&lt;/code&gt; queue is an Amazon SQS queue and has an
-associated Dead Letter Queue (DLQ) for message persistence in case of
-failure. This lightweight component is fast, secure, reliable and can
-scale elastically.&lt;/p&gt;
-
-&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
-
-&lt;p&gt;Since its Production launch in early February, Brand Alerts V2 has been
-running smoothly, without fail, every day, in a timely, reliable manner.
-The new architecture has emboldened Business, Product and Tech to
-outline future iterations, packing more features than ever before.&lt;/p&gt;
-
-&lt;p&gt;For the Tech team, this effort was a win on many levels. We were able to
-envision and bring to fruition a micro services architecture, which
-promises to be a step up from its previous iteration in all aspects.
-In the process, through our research and experimentation, we acquired
-knowledge of various AWS tools and other third party libraries.&lt;/p&gt;
-
-&lt;p&gt;Finally, AWS, with its vast set of tools and services, is instrumental
-in building powerful, resilient software. We should invest time and
-resources in finding the right tools for the job; I promise you it is
-well worth the effort.&lt;/p&gt;</content><author><name>Kinshuk Varshney</name></author><category term="aws" /><category term="batch" /><category term="lambda" /><category term="api gateway" /><category term="sqs" /><category term="dynamo" /><category term="sundial" /><category term="trex" /><category term="email" /><category term="architecture" /><summary type="html">Recently, team T-Rex worked on the re-architecture of the Brand Alerts back end system, a project which we named Brand Alerts V2. In this blog, I share our new architecture detailing some of the new AWS powered components.</summary></entry></feed>
+&lt;p&gt;Hopefully, after reading this post, the tech blog has been demystified and the few technical things around markdown conversion and fixing image paths won’t scare you away. If you get stuck, try looking for your answer in the documentation &lt;a href=&quot;https://github.com/saksdirect/hbc-tech-blog/blob/master/docs/contributing.md&quot;&gt;here&lt;/a&gt;. If you need help with Markdown, there are a ton of resources online. &lt;a href=&quot;https://stackedit.io/&quot;&gt;Stack Edit&lt;/a&gt; is your friend.&lt;/p&gt;</content><author><name>[&quot;Jaret Stezelberger&quot;]</name></author><category term="Tech Blog" /><category term="Culture" /><summary type="html">Our tech organization is obviously made up of more than just developers. Non-developers have great insight from their work too! This post is a nudge to all my fellow colleagues who are also doing amazing work and would like to share, but feel intimitated by the pull request process.</summary></entry></feed>

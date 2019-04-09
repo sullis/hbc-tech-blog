@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title> Make Your Own Serverless CI </title>
+
+        <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Make Your Own Serverless CI | HBC Tech</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Make Your Own Serverless CI" />
+<meta name="author" content="Tom Beute" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Automation is essential to maximizing throughput, especially when it comes to being able to confidently release quality software. I believe that anything you find yourself repeating is a great candidate to automate. In most cases, these repetitive tasks can be represented as simple functions! So that got me thinking… maybe I can leverage AWS Lambda for this– things like pull-request review hooks and automatic package versioning + publishing." />
+<meta property="og:description" content="Automation is essential to maximizing throughput, especially when it comes to being able to confidently release quality software. I believe that anything you find yourself repeating is a great candidate to automate. In most cases, these repetitive tasks can be represented as simple functions! So that got me thinking… maybe I can leverage AWS Lambda for this– things like pull-request review hooks and automatic package versioning + publishing." />
+<link rel="canonical" href="https://tech.hbc.com/2019-04-08-make-your-own-ci.html" />
+<meta property="og:url" content="https://tech.hbc.com/2019-04-08-make-your-own-ci.html" />
+<meta property="og:site_name" content="HBC Tech" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-04-08T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@Tom Beute" />
+<script type="application/ld+json">
+{"description":"Automation is essential to maximizing throughput, especially when it comes to being able to confidently release quality software. I believe that anything you find yourself repeating is a great candidate to automate. In most cases, these repetitive tasks can be represented as simple functions! So that got me thinking… maybe I can leverage AWS Lambda for this– things like pull-request review hooks and automatic package versioning + publishing.","author":{"@type":"Person","name":"Tom Beute"},"@type":"BlogPosting","url":"https://tech.hbc.com/2019-04-08-make-your-own-ci.html","headline":"Make Your Own Serverless CI","dateModified":"2019-04-08T00:00:00-05:00","datePublished":"2019-04-08T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.hbc.com/2019-04-08-make-your-own-ci.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+        <meta property="og:title" content="Make Your Own Serverless CI" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tech.hbc.com//2019-04-08-make-your-own-ci.html" />
+<meta property="og:description" content="Automation is essential to maximizing throughput, especially when it comes to being able to confidently release quality software. I believe that anything you..." />
+<meta property="og:image" content="https://tech.hbc.com/assets/images/blog/hbc-tech-logo-tipi.jpg" />
+<meta property="og:image:secure_url" content="https://tech.hbc.com/assets/images/" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:alt" content="" />
+
+
+        <link rel="stylesheet" href="https://tech.hbc.com/assets/css/main.css">
+        <link rel="canonical" href="https://tech.hbc.com/2019-04-08-make-your-own-ci.html">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
+
+        <!-- Icons -->
+        <!-- 16x16 -->
+        <link rel="shortcut icon" href="https://tech.hbc.com/assets/images/favicon.ico">
+    </head>
+
+    <body aria-label="Content">
+        <header id="site-header" class="site-header">
+    <div class="site-header__inner">
+    	<a class="site-header__logo" href="/">
+        	<svg class="hbc-tech-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 52">
+        		<use class="hbc-tech-logo__text" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#hbc-tech-logo"></use>
+            </svg>
+    	</a>
+        <nav id="menu" class="navigation">
+    <svg class="navigation__menu-icon" xmlns="http://www.w3.org/2000/svg">
+        <path class="bar bar__top" d="M0,3 L30,3" />
+        <path class="bar bar__cross-1" d="M0,14 L30,14" />
+        <path class="bar bar__cross-2" d="M0,14 L30,14" />
+        <path class="bar bar__bottom" d="M0,25 L30,25" />
+    </svg>
+	<menu class="menu">
+		<ul class="link-list">
+		
+        
+            <li class="link-list__link-item">
+                <a href="https://tech.hbc.com/" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">Insights</span></a>
+            </li>
+        
+            <li class="link-list__link-item">
+                <a href="https://tech.hbc.com/code" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">Code</span></a>
+            </li>
+        
+            <li class="link-list__link-item">
+                <a href="https://tech.hbc.com/about" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">About</span></a>
+            </li>
+        
+            <li class="link-list__link-item">
+                <a href="https://tech.hbc.com/work-here" class="link-list__link
+            
+            ">
+                <span class="link-list__link-highlight">Work Here</span></a>
+            </li>
+        
+	    </ul>
+	</menu>
+</nav>
+
+        <search id="header-search" class="header-search">
+	<form class="header-search__form" action>
+	  <input type="text" class="header-search__input" id="header-search-input" placeholder=" Search" name="query">
+	</form>
+  	<svg id="header-search__toggle" class="header-search__svg" xmlns="http://www.w3.org/2000/svg" >
+		<path id="leftSearch" class="path path--left-half" d="M11.4842576,23.9891168 C5.09608476,23.7189967 0,18.4546255 0,12 C0,5.54951437 4.85419801,0.113423154 12.4763811,0.0114091479"/>
+		<path id="rightSearch" class="path path--right-half" d="M12.5376167,0.0118279089 C18.9155446,0.293025077 24,5.55274344 24,12 C24,18.4701834 17.7604297,24.3112218 11.1896721,23.9909829"/>
+		<path id="handle" class="path path--handle" d="M20.7485408,20.8914207 L26.8571202,27 L20.7485408,20.8914207"/>
+    </svg>
+    <section class="header-search__results" id="header-search__results"></section>
+</search>
+
+    </div>
+</header>
+
+        <section class="content"><article class="article">
+    <header class="article__header article__header--reveal">
+        <h1 class="header-title" title="Make Your Own Serverless CI">Make Your Own Serverless CI</h1>
+        
+        <span id="no-image-placeholder" class="no-image-placeholder"></span>
+        
+
+        
+            
+        <div class="article-meta">
+            
+            <a href="https://tech.hbc.com/category/infrastructure" class="article-meta__category">infrastructure</a>
+            
+        
+        
+        
+            <span class="slug-divider"></span>
+            <span class="article-meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    <a class="article-meta__author__link" href="https://tech.hbc.com/authors/tom-beute">
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Tom Beute<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    </a><span class="article-meta__author__job-title">, Software Engineer</span>
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+            <span class="article-meta__date">
+                APR 8, 2019
+            </span>
+        </div>
+    </header>
+    <section class="article__content article__content--reveal">
+        
+        <div class="article__content__read-time"><span class="read-time" title="Estimated read time">
+  
+  
+    <span class="read-time__text-1">10 min</span>
+    <span class="read-time__text-2">Read</span>
+    <span class="read-time__text-3">Time</span>
+  
+</span>
+</div>
+        <div class="article__content__share-buttons"><ul class="share-buttons">
+    <li class="share-buttons__link-item">
+        <a href="https://twitter.com/intent/tweet?text=https://tech.hbc.com//2019-04-08-make-your-own-ci.html" class="share-buttons__link" title="Share on Twitter" target="_blank">
+            <svg class="hbc-svg-icon" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon--twitter" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
+            </svg>
+        </a>
+    </li>
+    <li class="share-buttons__link-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tech.hbc.com/&source=/2019-04-08-make-your-own-ci.html&title=Make Your Own Serverless CI" class="share-buttons__link" title="Share on Linkedin" target="_blank">
+            <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#linkedin" ></use>
+            </svg>
+        </a>
+    </li>
+    <li class="share-buttons__link-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tech.hbc.com//2019-04-08-make-your-own-ci.html" class="share-buttons__link" title="Share on Facebook" target="_blank">
+            <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#facebook" ></use>
+            </svg>
+        </a>
+    </li>
+    <li class="share-buttons__link-item">
+        <a href="https://www.reddit.com/submit?url=https://tech.hbc.com//2019-04-08-make-your-own-ci.html" class="share-buttons__link" title="Share on Reddit" target="_blank">
+            <svg height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+                <use class="hbc-svg-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#reddit" ></use>
+            </svg>
+        </a>
+    </li>
+</ul>
+</div>
+        <div class="article__content__body"><p>Automation is essential to maximizing throughput, especially when it comes to being able to confidently release quality software. I believe that anything you find yourself repeating is a great candidate to automate. In most cases, these repetitive tasks can be represented as simple functions! So that got me thinking… maybe I can leverage <a href="https://aws.amazon.com/lambda/">AWS Lambda</a> for this– things like pull-request review hooks and automatic package versioning + publishing.</p>
+
+<p>In many ways, this is like creating a more powerful and customizable version of <a href="https://aws.amazon.com/codebuild/">CodeBuild</a>, <a href="https://circleci.com">CircleCI</a>, or <a href="https://concourse-ci.org/">Concourse</a> from scratch (all of which I’ve drawn inspiration from after using)! Moreover, this serverless solution costs nothing when it’s not in use and it’s much more flexible! Ultimately, this led to the creation of our own GitHub webhook “bot” we call <a href="https://github.com/hbc-techie">Techie</a>. In this post, I want to share how easy it is to create your own extensible bot!</p>
+
+<p><strong>After we’re done, you’ll have a Techie look-alike that is configurable with it’s own YAML file and able to leave comments on untagged pull requests, perform <a href="https://www.thoughtworks.com/continuous-integration">CI</a> code reviews, and automatically version and publish your npm packages!</strong></p>
+
+<p><em>Feel free to view the completed source on <a href="https://github.com/track0x1/lambot">GitHub</a>.</em></p>
+
+<h2 id="overview">Overview</h2>
+
+<p>For brevity, I’m only going to touch on the main aspects of our bot; you can reference everything else in the repo!</p>
+
+<p>Here’s how our bot will work:</p>
+
+<blockquote>
+  <p><img src="./assets/images/make-your-own-ci/lambot-diagram.png" alt="lambot-overview" /></p>
+</blockquote>
+
+<ol>
+  <li>Lambda receives a request triggered by a GitHub webhook event</li>
+  <li>Attempt to load and parse our bots config (<code class="highlighter-rouge">lambot.yml</code>)</li>
+  <li>Run the configured actions</li>
+</ol>
+
+<p>Let’s get to the code!</p>
+
+<h2 id="making-it-configurable">Making it Configurable</h2>
+
+<p>I like the simplicity of YAML syntax, so we’ll expect the configuration to look something like this:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hooks</span><span class="pi">:</span>
+ <span class="c1"># Automatic versioning &amp; publishing</span>
+ <span class="na">semver</span><span class="pi">:</span> <span class="no">true</span>
+ <span class="c1"># Prefer labels on pull requests; notify if missing.</span>
+ <span class="na">labels</span><span class="pi">:</span> <span class="no">true</span>
+ <span class="c1"># Run commands on each push and sends a Github status</span>
+ <span class="na">codereview</span><span class="pi">:</span>
+   <span class="na">commands</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">echo Installing node modules...</span>
+     <span class="pi">-</span> <span class="s">npm i</span>
+     <span class="pi">-</span> <span class="s">echo Running tests...</span>
+     <span class="pi">-</span> <span class="s">npm test</span>
+</code></pre></div></div>
+
+<p>In our lambda function let’s do the following:</p>
+
+<ol>
+  <li>Get the configuration, preferably from <em>master</em> or another predefined branch so we can consider it our config <em>single source of truth</em>. I’ve also experimented with using the config in the branch where the event is emitted; sometimes that works better!</li>
+  <li>Parse the configuration and asynchronously run the tasks.</li>
+  <li>Send a response (success or failure).</li>
+</ol>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">yaml</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'js-yaml'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">tasks</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./tasks'</span><span class="p">);</span> <span class="c1">// An object of supported tasks (functions)</span>
+
+<span class="c1">// Helper function that attempts to run a task</span>
+<span class="kd">function</span> <span class="nx">runTask</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">taskData</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Ensure valid task provided</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">tasks</span><span class="p">[</span><span class="nx">name</span><span class="p">])</span> <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="s2">`Invalid task name of '</span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2">' provided.`</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">tasks</span><span class="p">[</span><span class="nx">name</span><span class="p">].</span><span class="nx">call</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">taskData</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// This is our lambda function</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">repoOwner</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">repository</span><span class="p">.</span><span class="nx">owner</span><span class="p">.</span><span class="nx">login</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">repoName</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">repository</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+
+  <span class="c1">// Retrieve lambot.yml</span>
+  <span class="c1">// If missing, hook failure (lambot.yml is required)</span>
+  <span class="c1">// Else, load and execute tasks</span>
+  <span class="kd">const</span> <span class="nx">pendingTasks</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">githubClient</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'config'</span><span class="p">,</span> <span class="p">{</span> <span class="nx">repoOwner</span><span class="p">,</span> <span class="nx">repoName</span> <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">yaml</span><span class="p">.</span><span class="nx">safeLoad</span><span class="p">(</span><span class="nx">Buffer</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">content</span><span class="p">,</span> <span class="s1">'base64'</span><span class="p">)))</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">config</span><span class="p">)</span> <span class="o">=&gt;</span>
+      <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">hooks</span><span class="p">).</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">hook</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// If hook is enabled, attempt to run it and push to pending task queue</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">hooks</span><span class="p">[</span><span class="nx">hook</span><span class="p">])</span> <span class="p">{</span>
+          <span class="nx">acc</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">runTask</span><span class="p">(</span><span class="nx">hook</span><span class="p">,</span> <span class="p">{</span> <span class="nx">githubEvent</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="na">config</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">hooks</span><span class="p">[</span><span class="nx">hook</span><span class="p">]</span> <span class="p">}));</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">acc</span><span class="p">;</span>
+      <span class="p">},</span> <span class="p">[]))</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">respond</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="s1">'Missing or invalid lambot.yml.'</span><span class="p">));</span>
+      <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="p">})</span>
+
+  <span class="c1">// Wait for all tasks to run</span>
+  <span class="kr">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">pendingTasks</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">respond</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="s1">'Success'</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>I know this is a lot of code to digest, so let’s recap how this will work:</p>
+
+<ol>
+  <li>We’re expecting a YAML configuration (<code class="highlighter-rouge">lambot.yml</code>) to be present in the repository.</li>
+  <li>If a configuration is missing we’ll respond with a failure, otherwise, let’s try to run the specified tasks asynchronously (they each return a promise).</li>
+  <li>Wait for all tasks to run, then send a final response.</li>
+</ol>
+
+<p>Easy enough! Now you might be wondering what a task function looks like… so let’s keep going.</p>
+
+<h2 id="creating-tasks">Creating Tasks</h2>
+
+<p>You might have noticed our example config includes three hooks… <em>semver</em>, <em>labels</em>, and <em>codereview</em>. Let’s breifly go through how they will work, starting with the simplest– labels.</p>
+
+<h3 id="label-task">Label Task</h3>
+
+<p>Pull-request labels help us stay organized. The purpose of our label task will be to post a friendly comment on newly opened, unlabeled pull-requests, encouraging the user to add a label.</p>
+
+<p>Here’s the code:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Newly opened pull-requests without labels will receive a friendly notice</span>
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">labelTask</span><span class="p">({</span> <span class="nx">githubEvent</span><span class="p">,</span> <span class="nx">response</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">githubEvent</span> <span class="o">===</span> <span class="s1">'pull_request'</span> <span class="o">&amp;&amp;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">action</span> <span class="o">===</span> <span class="s1">'opened'</span> <span class="o">&amp;&amp;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">pull_request</span><span class="p">.</span><span class="nx">labels</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">repoName</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">repository</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">repoOwner</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">repository</span><span class="p">.</span><span class="nx">owner</span><span class="p">.</span><span class="nx">login</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">prNumber</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">number</span><span class="p">;</span>
+
+    <span class="c1">// Post comment using the GitHub API</span>
+    <span class="kr">await</span> <span class="nx">githubClient</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'comment'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">repoOwner</span><span class="p">,</span>
+      <span class="nx">repoName</span><span class="p">,</span>
+      <span class="nx">prNumber</span><span class="p">,</span>
+      <span class="na">message</span><span class="p">:</span> <span class="s1">'_Hi :wave:, it</span><span class="se">\'</span><span class="s1">s Lambot!_</span><span class="err">\</span><span class="s1">n</span><span class="err">\</span><span class="s1">n'</span> <span class="o">+</span>
+        <span class="s1">'I noticed this pull request has no assigned labels. :cry:</span><span class="err">\</span><span class="s1">n</span><span class="err">\</span><span class="s1">n'</span> <span class="o">+</span>
+        <span class="s1">'Please remember to label your pull requests. That helps keep things organized around here. :slightly_smiling_face:'</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">();</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="semver-task">Semver Task</h3>
+
+<p>Versioning and publishing npm packages can become quite monotonous. That’s when I got the idea… wouldn’t it be great if we could handle that automatically based off the head commit (it includes the title + commit history if you’re squashing commits), and look for <code class="highlighter-rouge">[breaking|feature]</code> (or <code class="highlighter-rouge">[ci skip]</code>). For example, a pull-request with <code class="highlighter-rouge">[breaking] Major API changes</code> would cause our package to increment and publish a major version.</p>
+
+<p>Now, one challenge when working with Lambda + API Gateway is that your task <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/limits.html">must complete within 30 seconds</a>. Even if we could install, lint, and test our code in 30 seconds I don’t like the possibility of random timeouts… so this is where we’ll get fancy ✨.​ For tasks that require heavy lifting, we can offload them to AWS ECS– which can run as long as they need, in any environment we want, only when we need them, therefore being cost-effective. Fantastic!</p>
+
+<p>Here’s what we’ll do:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">BOT_NAME</span> <span class="o">=</span> <span class="s1">'lambot'</span><span class="p">;</span>
+
+<span class="c1">// Automatically version and publish repositories that are npm packages</span>
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">semverTask</span><span class="p">({</span> <span class="nx">githubEvent</span><span class="p">,</span> <span class="nx">response</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="c1">// Only listen to push events on master (we don't want to version + publish every branch!),</span>
+  <span class="c1">// ignore commits from our bot (to avoid an infinite loop of versioning + publishing)</span>
+  <span class="c1">// ignore [ci skip] commits</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">githubEvent</span> <span class="o">!==</span> <span class="s1">'push'</span> <span class="o">||</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">head_commit</span><span class="p">.</span><span class="nx">author</span><span class="p">.</span><span class="nx">username</span> <span class="o">===</span> <span class="nx">BOT_NAME</span> <span class="o">||</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">head_commit</span><span class="p">.</span><span class="nx">message</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">'[ci skip]'</span><span class="p">)</span> <span class="o">||</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">ref</span> <span class="o">!==</span> <span class="s1">'refs/heads/master'</span>
+  <span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// get_version and push_changes are helper functions baked into our Docker image</span>
+  <span class="kd">const</span> <span class="nx">commands</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">'echo "Installing node modules..."'</span><span class="p">,</span>
+    <span class="s1">'npm ci'</span><span class="p">,</span>
+    <span class="c1">// Determine next version</span>
+    <span class="s1">'increment=$(get_version)'</span><span class="p">,</span>
+    <span class="c1">// Create versioned commit; publish package; push versioned commit &amp; tag</span>
+    <span class="s1">'echo "Bumping version (type: $increment), publishing, and pushing..."'</span><span class="p">,</span>
+    <span class="s1">'npm version $increment'</span><span class="p">,</span>
+    <span class="s1">'npm publish'</span><span class="p">,</span>
+    <span class="s1">'push_changes'</span>
+  <span class="p">];</span>
+
+  <span class="c1">// Run the semver utility in our custom docker image</span>
+  <span class="k">return</span> <span class="nx">spawnDockerTask</span><span class="p">({</span>
+    <span class="na">GIT_REPO</span><span class="p">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">repository</span><span class="p">.</span><span class="nx">clone_url</span><span class="p">,</span>
+    <span class="na">GIT_BRANCH</span><span class="p">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">ref</span><span class="p">,</span>
+    <span class="na">DOCKER_COMMANDS</span><span class="p">:</span> <span class="nx">commands</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">'&amp;&amp;'</span><span class="p">)</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>In our semver task, we’ll call <code class="highlighter-rouge">spawnDockerTask</code> (a utility for running a task in ECS) and pass a list of <code class="highlighter-rouge">commands</code> to execute in our container, as well as any additional information our container will need. If the task starts successfully, <code class="highlighter-rouge">spawnDockerTask</code> will return a resolved promise.</p>
+
+<h2 id="adding-the-webhook">Adding the Webhook</h2>
+
+<p>Finally, we need to setup a repository to use our new bot. This is the easiest part!</p>
+
+<p>Go to your Github repositories <code class="highlighter-rouge">Settings &gt; Webhooks</code> and add a new webhook with the following:</p>
+
+<ul>
+  <li>Payload URL: <code class="highlighter-rouge">https://your-api-gateway-url/webhook</code></li>
+  <li>Content type: <code class="highlighter-rouge">application/json</code></li>
+  <li>Secret: <em>your secret</em> (see: <a href="https://github.com/track0x1/lambot/blob/e63951a40ac4cdc173c55cade0fb0ede7b31d598/lib/config.js#L5"><code class="highlighter-rouge">./lib/config.js</code></a>)</li>
+  <li>Events: <code class="highlighter-rouge">Send me everything.</code> (or select only the events you are using)</li>
+</ul>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>Here’s a fun exercise: try implementing the <em>codereview</em> task yourself. <em>Hint: You’ll need to use the <code class="highlighter-rouge">config</code> property passed to our task function.</em> With <em>codereview</em>, the goal is to allow a custom sequence of commands to run on each pushed commit. It’s similar to our <em>semver</em> task, but it also utilizes the <a href="https://developer.github.com/v3/repos/statuses/">status API</a> to report if the commands pass or fail. Once you do that, you’ll practically have built your own CI tool! How cool is that?!</p>
+
+<p>Automation is fun and it maximizes productivity; a win-win if you ask me! We also learned about Lambdas, ECS, and the GitHub API. Now you are fully equipped to create your own custom tasks! Feel free to reference the <a href="https://developer.github.com">GitHub API</a> for all the different events you can use. What’s even better is that your bot can run in any repository (as long as it has access and a valid config file)! What else is there to automate? That’s now up to you!</p>
+
+<p>Thanks for reading.</p>
+
+<p><sub><em>Originally published at <a href="https://beuteiful.com/blog/make-your-own-serverless-ci/">beuteiful.com</a> on April 5, 2019.</em></sub></p>
+</div>
+        <footer class="article__content__footer">
+            
+<div class="article-tags">
+
+    <span class="article-tags__tag">continuousintegration</span><span>,</span>
+    
+
+    <span class="article-tags__tag">devops</span><span>,</span>
+    
+
+    <span class="article-tags__tag">2019</span>
+
+</div>
+
+
+            <!-- author bio -->
+<section class="author-bio">
+
+
+	
+
+	
+	<!-- author is a known contributor -->
+		
+		<svg class="author-bio__avatar" height="36" width="36" xmlns="http://www.w3.org/2000/svg">
+	        <use class="hbc-svg-icon hbc-svg-icon--avatar__circle" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#circle" ></use>
+	        <use class="hbc-svg-icon hbc-svg-icon--avatar__head" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#head" ></use>
+	        <use class="hbc-svg-icon hbc-svg-icon--avatar__body" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#body" ></use>
+	    </svg>
+		
+
+		
+		<p><a class="author-bio__link" href="https://tech.hbc.com/authors/tom-beute">Tom Beute</a><span class="author-bio__job-title">, Software Engineer</span></p>
+		
+
+		
+		<p class="author-bio__bio">By day, software engineer. By different time of day, barista. By night, do whatever I want- no job.
+</p>
+		
+
+	
+
+
+</section>
+
+        </footer>
+    </section>
+    <aside class="recirc">
+    <h2 class="header__title">Recent Insights</h2><span class="slug-divider"></span>
+    <a class="header__view-all-link" href="https://tech.hbc.com/categories/index.html">See All</a>
+    <div class="recirc__articles">
+    
+    
+    
+    
+    
+    
+
+    
+        
+    
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+
+    
+    <h1 class="snippet__title">
+    <a href="https://tech.hbc.com/2017-05-19-cloudformation-nanoservice.html" class="snippet__title__link" title="CloudFormation Nanoservice">
+        CloudFormation Nanoservice
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
+            
+
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Ryan Martin<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">MAY 19, 2017</span>
+    
+    </div>
+    
+        <a href="https://tech.hbc.com/2017-05-19-cloudformation-nanoservice.html" class="snippet__excerpt__link" title="CloudFormation Nanoservice">
+            <p class="snippet__excerpt">
+            One of the big HBC Digital initiatives for 2017 is “buy online, pickup in store” - somewhat awkwardly nicknamed “BOPIS” internally. This is the option for the customer to, instead of shipping an order to an address, pick it up in a store that has the items in inventory.
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+
+    
+    <h1 class="snippet__title">
+    <a href="https://tech.hbc.com/2017-02-06-sundial-pagerduty-integration.html" class="snippet__title__link" title="Sundial PagerDuty Integration">
+        Sundial PagerDuty Integration
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
+            
+
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    <a class="meta__author-link" href="https://tech.hbc.com/authors/giovanni-gargiulo">
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Giovanni Gargiulo<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    </a><span class="meta__author__job-title">, Staff Engineer</span>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">FEB 6, 2017</span>
+    
+    </div>
+    
+        <a href="https://tech.hbc.com/2017-02-06-sundial-pagerduty-integration.html" class="snippet__excerpt__link" title="Sundial PagerDuty Integration">
+            <p class="snippet__excerpt">
+            Sundial
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+
+    
+    <h1 class="snippet__title">
+    <a href="https://tech.hbc.com/2017-01-25-keep-an-eye-on-your-stack-with-cloudwatch-events-lambda.html" class="snippet__title__link" title="Keeping an Extra Eye on Your Stack with CloudWatch Events">
+        Keeping an Extra Eye on Your Stack with CloudWatch Events
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
+            
+
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Emerson Loureiro<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">JAN 25, 2017</span>
+    
+    </div>
+    
+        <a href="https://tech.hbc.com/2017-01-25-keep-an-eye-on-your-stack-with-cloudwatch-events-lambda.html" class="snippet__excerpt__link" title="Keeping an Extra Eye on Your Stack with CloudWatch Events">
+            <p class="snippet__excerpt">
+            Why an Extra Eye?
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+            
+        <article class="recirc__articles__item">
+            
+
+
+<section class="snippet">
+
+    
+    <h1 class="snippet__title">
+    <a href="https://tech.hbc.com/2016-02-10-codedeploy-notifications.html" class="snippet__title__link" title="Codedeploy Notifications as a Service">
+        Codedeploy Notifications as a Service
+    </a>
+    </h1>
+    <div class="snippet__meta">
+    
+        
+        
+        
+            
+
+            
+                <a class="meta__category-link" href="https://tech.hbc.com/category/infrastructure">infrastructure</a>
+            
+
+            <span class="slug-divider"></span>
+        
+    
+
+    
+        
+            <span class="meta__author">
+            
+                
+                <!-- if author exists in site.authors, create link to author's page -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- render the author name regardless if they're a featured author -->Emerson Loureiro<!-- if author exists in site.authors, close link to author's page -->
+                <!-- add author's job title to give article more clout -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+            </span>
+            <span class="slug-divider"></span>
+        
+    
+    
+        <span class="meta__date">FEB 10, 2016</span>
+    
+    </div>
+    
+        <a href="https://tech.hbc.com/2016-02-10-codedeploy-notifications.html" class="snippet__excerpt__link" title="Codedeploy Notifications as a Service">
+            <p class="snippet__excerpt">
+            After moving our software stack to AWS, some of us here at HBC Tech have started deploying our services to production using AWS’s Codedeploy. Before that, in a not-so-distant past, we used an in-house tool for deployments - IonCannon. One of the things IonCannon provided were deployment notifications. In particular, it would:
+
+
+            </p>
+        </a>
+    
+</section>
+
+        </article>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    </div>
+</aside>
+
+</article>
+
+</section>
+        <footer class="footer">
+	<svg class="est1670" xmlns="http://www.w3.org/2000/svg">
+		<use class="hbc-tech-logo__use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#est1670" ></use>
+	</svg>
+    <section class="footer__links">
+	<ul class="social-links social-links__list">
+    <li class="social-links__list-item">
+        <a class="social-links__link" target="_blank" rel="next" href="https://www.linkedin.com/company/hbc_digital/">
+            <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
+                <use class="linkedin"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#linkedin"></use>
+            </svg>
+        </a>
+    </li>
+    <li class="social-links__list-item">
+        <a class="social-links__link" target="_blank" rel="next" href="https://twitter.com/hbctechteam/">
+            <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
+                <use class="twitter"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#twitter"></use>
+            </svg>
+        </a>
+    </li>
+    <li class="social-links__list-item">
+        <a class="social-links__link" target="_blank" rel="next" href="https://www.instagram.com/hbcdigital">
+            <svg class="social-links__icon" xmlns="http://www.w3.org/2000/svg">
+                <use class="instagram"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://tech.hbc.com/assets/images/hbc-icons.svg#instagram"></use>
+            </svg>
+        </a>
+    </li>
+</ul>
+
+	<p class="copyright">&copy; 2019 HBC Tech</i></p>
+	</section>
+</footer>
+
+        <script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/scrollmagic/ScrollMagic.min.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/fetch.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/jekyll-search-js/search.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/main.js"></script>
+<script type="text/javascript" src="https://tech.hbc.com/assets/js/vendor/snap/snap.svg-min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-106560024-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+<!-- for netlify cms login redirect -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+
+    </body>
+
+</html>
