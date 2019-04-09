@@ -9,11 +9,11 @@ tags:
 - 2019
 ---
 
-Automation is essential to maximizing throughput, especially when it comes to being able to confidently release quality software. I believe that anything you find yourself repeating is a great candidate to automate. In most cases, these repetitive tasks can be represented as simple functions! So that got me thinking… maybe I can leverage [AWS Lambda](https://aws.amazon.com/lambda/) for this– things like pull-request review hooks[1](#note1) and automatic package versioning + publishing. Ultimately, this led to the creation of our own GitHub webhook "bot" we call [Techie](https://github.com/hbc-techie). In this post, I want to share how easy it is to create your own extensible bot!
+Automation is essential to maximizing throughput, especially when it comes to being able to confidently release quality software. I believe that anything you find yourself repeating is a great candidate to automate. In most cases, these repetitive tasks can be represented as simple functions! So that got me thinking… maybe I can leverage [AWS Lambda](https://aws.amazon.com/lambda/) for this– things like pull-request review hooks and automatic package versioning + publishing.
+
+In many ways, this is like creating a more powerful and customizable version of [CodeBuild](https://aws.amazon.com/codebuild/), [CircleCI](https://circleci.com), or [Concourse](https://concourse-ci.org/) from scratch (all of which I've drawn inspiration from after using)! Moreover, this serverless solution costs nothing when it's not in use and it's much more flexible! Ultimately, this led to the creation of our own GitHub webhook "bot" we call [Techie](https://github.com/hbc-techie). In this post, I want to share how easy it is to create your own extensible bot!
 
 **After we're done, you'll have a Techie look-alike that is configurable with it's own YAML file and able to leave comments on untagged pull requests, perform [CI](https://www.thoughtworks.com/continuous-integration) code reviews, and automatically version and publish your npm packages!**
-
-In many ways, this is like creating a more powerful and customizable version of [CodeBuild](https://aws.amazon.com/codebuild/) / [CircleCI](https://circleci.com) / [Concourse](https://concourse-ci.org/) from scratch (all of which I've drawn inspiration from after using)!
 
 *Feel free to view the completed source on [GitHub](https://github.com/track0x1/lambot).*
 
@@ -23,6 +23,8 @@ For brevity, I'm only going to touch on the main aspects of our bot; you can ref
 
 Here's how our bot will work:
 
+> ![lambot-overview](./assets/images/make-your-own-ci/lambot-diagram.png)
+
 1. Lambda receives a request triggered by a GitHub webhook event
 2. Attempt to load and parse our bots config (`lambot.yml`)
 3. Run the configured actions
@@ -31,9 +33,26 @@ Let's get to the code!
 
 ## Making it Configurable
 
-I like the simplicity of YAML syntax (you could use JSON or your config of choice), so in our lambda function let's do the following:
+I like the simplicity of YAML syntax, so we'll expect the configuration to look something like this:
 
-1. Get the configuration; preferably from _master_ (or another predefined branch[2](#note2)) so we can consider it our config single source of truth.
+```yml
+hooks:
+ # Automatic versioning & publishing
+ semver: true
+ # Prefer labels on pull requests; notify if missing.
+ labels: true
+ # Run commands on each push and sends a Github status
+ codereview:
+   commands:
+     - echo Installing node modules...
+     - npm i
+     - echo Running tests...
+     - npm test
+```
+
+In our lambda function let's do the following:
+
+1. Get the configuration, preferably from _master_ or another predefined branch so we can consider it our config _single source of truth_. I've also experimented with using the config in the branch where the event is emitted; sometimes that works better!
 2. Parse the configuration and asynchronously run the tasks.
 3. Send a response (success or failure).
 
@@ -81,23 +100,7 @@ module.exports = async (event, context, callback) => {
 
 I know this is a lot of code to digest, so let's recap how this will work:
 
-1. We're expecting a YAML configuration `lambot.yml` to be present in master. It'll look like this:
-
-   ```yml
-   hooks:
-    # Automatic versioning & publishing
-    semver: true
-    # Prefer labels on pull requests; notify if missing.
-    labels: true
-    # Run commands on each push and sends a Github status
-    codereview:
-      commands:
-        - echo Installing node modules...
-        - npm i
-        - echo Running tests...
-        - npm test
-   ```
-
+1. We're expecting a YAML configuration (`lambot.yml`) to be present in the repository.
 2. If a configuration is missing we'll respond with a failure, otherwise, let's try to run the specified tasks asynchronously (they each return a promise).
 3. Wait for all tasks to run, then send a final response.
 
@@ -140,7 +143,7 @@ async function labelTask({ githubEvent, response }) {
 
 Versioning and publishing npm packages can become quite monotonous. That's when I got the idea… wouldn't it be great if we could handle that automatically based off the head commit (it includes the title + commit history if you're squashing commits), and look for `[breaking|feature]` (or `[ci skip]`). For example, a pull-request with `[breaking] Major API changes` would cause our package to increment and publish a major version.
 
-Now, one challenge when working with Lambda + API Gateway is that your task [must complete within 30 seconds](https://docs.aws.amazon.com/apigateway/latest/developerguide/limits.html). Even if we could install, lint, and test our code in 30 seconds I don't like the possibility of random timeouts… so this is where we'll get fancy ✨.​ For tasks that require heavy lifting, we can offload them to AWS ECS– which can run as long as they need, in any environment we want, only when we need them (*read: save $$$*). Fantastic!
+Now, one challenge when working with Lambda + API Gateway is that your task [must complete within 30 seconds](https://docs.aws.amazon.com/apigateway/latest/developerguide/limits.html). Even if we could install, lint, and test our code in 30 seconds I don't like the possibility of random timeouts… so this is where we'll get fancy ✨.​ For tasks that require heavy lifting, we can offload them to AWS ECS– which can run as long as they need, in any environment we want, only when we need them, therefore being cost-effective. Fantastic!
 
 Here's what we'll do:
 
@@ -202,11 +205,5 @@ Here's a fun exercise: try implementing the _codereview_ task yourself. _Hint: Y
 Automation is fun and it maximizes productivity; a win-win if you ask me! We also learned about Lambdas, ECS, and the GitHub API. Now you are fully equipped to create your own custom tasks! Feel free to reference the [GitHub API](https://developer.github.com) for all the different events you can use. What's even better is that your bot can run in any repository (as long as it has access and a valid config file)! What else is there to automate? That's now up to you!
 
 Thanks for reading.
-
-### Appendix
-
-<a name="note1">1</a> You might be wondering why it seems like we're reinventing the wheel when similar products already exist. I have extensively used Concourse, CircleCI, and AWS CodeBuild– and while each has its pros & cons, our custom functionality still required a few "hacks". Additionally, this serverless solution costs nothing when it's not in use and it's much more flexible!
-
-<a name="note2">2</a> I have also experimented with using the config in the branch where the event is emitted. This is completely up to you!
 
 <sub>_Originally published at [beuteiful.com](https://beuteiful.com/blog/make-your-own-serverless-ci/) on April 5, 2019._</sub>
