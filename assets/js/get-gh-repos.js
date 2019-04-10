@@ -10,10 +10,11 @@ var nonOrg_repo_sources = [
 
 $(document).ready(function() {
   loadRepos(1);
+  console.log("init git repos");
 });
 
 function loadRepos(page) {
-  $.getJSON(GH_API_URI + "/orgs/gilt/repos?per_page=100&page=" + page,
+  $.getJSON(GH_API_URI + "/orgs/saksdirect/repos?per_page=100&page=" + page,
     function(result) {
       if (result && result.length > 0) {
         repos = repos.concat(result);
@@ -30,8 +31,6 @@ function loadRepos(page) {
         $("<div>").text("(" + xhr.responseJSON["message"] + ")").appendTo($("#loading"));
       }
       $("#fallback").removeClass("hidden");
-      //getResponseHeader("X-RateLimit-Remaining"
-      //getResponseHeader("X-RateLimit-Limit")
     });
 }
 
