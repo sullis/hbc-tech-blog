@@ -1,6 +1,16 @@
 [
     
     {
+        "title": "Presentations we love: 2019",
+        "date": "APR 14 2019",
+        "author": "HBC Tech",
+        "category": "presentations",
+        "tags": "community conferences qcon",
+        "excerpt": "This is a list of our favorite presentations from 2019. We will update this list throughout the year.",
+        "url": "/2019-04-14-presentations-we-love.html"
+    },
+    
+    {
         "title": "Make Your Own Serverless CI",
         "date": "APR 8 2019",
         "author": "Tom Beute",
