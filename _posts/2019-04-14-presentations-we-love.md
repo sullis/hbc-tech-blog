@@ -44,11 +44,11 @@ Jay Chandrashekaran and Jim Beyers at Google Cloud Next - April 2019
 [![Target Application Platform video](https://img.youtube.com/vi/cnHfK4MZA2Y/0.jpg)](https://www.youtube.com/watch?v=cnHfK4MZA2Y "Target Application Platform")
 
 ## Applying the Serverless Mindset to Any Tech
-Ben Kehoe ([@ben11kehoe](https://twitter.com/ben11kehoe)) at ServerlessDays Boston March 2019
+Ben Kehoe ([@ben11kehoe](https://twitter.com/ben11kehoe)) at ServerlessDays Boston - March 2019
 [![Applying the Serverless Mindset to Any Tech video](https://img.youtube.com/vi/8Rzv68K8ZOY/0.jpg)](https://www.youtube.com/watch?v=8Rzv68K8ZOY "Applying the Serverless Mindset to Any Tech")
 
 ## How AWS builds Serverless Services Using Serverless
-Chris Munns ([@chrismunns](https://twitter.com/chrismunns)) at ServerlessDays Boston March 2019
+Chris Munns ([@chrismunns](https://twitter.com/chrismunns)) at ServerlessDays Boston - March 2019
 [![How AWS builds Serverless Services Using Serverless video](https://img.youtube.com/vi/CgVq8MGqbng/0.jpg)](https://www.youtube.com/watch?v=CgVq8MGqbng "How AWS builds Serverless Services Using Serverless")
 
 ## DevOps Vs. SRE: Competing Standards or Friends?
