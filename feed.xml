@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-04-14T11:00:44-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-04-14T11:05:42-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
 </subtitle><entry><title type="html">Presentations we love: 2019</title><link href="https://tech.hbc.com/2019-04-14-presentations-we-love.html" rel="alternate" type="text/html" title="Presentations we love: 2019" /><published>2019-04-14T00:00:00-05:00</published><updated>2019-04-14T00:00:00-05:00</updated><id>https://tech.hbc.com/presentations-we-love</id><content type="html" xml:base="https://tech.hbc.com/2019-04-14-presentations-we-love.html">&lt;p&gt;This is a list of our favorite presentations from 2019. We will update this list throughout the year.&lt;/p&gt;
 
 &lt;h2 id=&quot;mature-microservices-and-how-to-operate-them&quot;&gt;Mature Microservices and How to Operate Them&lt;/h2&gt;
@@ -29,11 +29,11 @@
 &lt;a href=&quot;https://www.youtube.com/watch?v=cnHfK4MZA2Y&quot; title=&quot;Target Application Platform&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/cnHfK4MZA2Y/0.jpg&quot; alt=&quot;Target Application Platform video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;applying-the-serverless-mindset-to-any-tech&quot;&gt;Applying the Serverless Mindset to Any Tech&lt;/h2&gt;
-&lt;p&gt;Ben Kehoe (&lt;a href=&quot;https://twitter.com/ben11kehoe&quot;&gt;@ben11kehoe&lt;/a&gt;) at ServerlessDays Boston March 2019
+&lt;p&gt;Ben Kehoe (&lt;a href=&quot;https://twitter.com/ben11kehoe&quot;&gt;@ben11kehoe&lt;/a&gt;) at ServerlessDays Boston - March 2019
 &lt;a href=&quot;https://www.youtube.com/watch?v=8Rzv68K8ZOY&quot; title=&quot;Applying the Serverless Mindset to Any Tech&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/8Rzv68K8ZOY/0.jpg&quot; alt=&quot;Applying the Serverless Mindset to Any Tech video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;how-aws-builds-serverless-services-using-serverless&quot;&gt;How AWS builds Serverless Services Using Serverless&lt;/h2&gt;
-&lt;p&gt;Chris Munns (&lt;a href=&quot;https://twitter.com/chrismunns&quot;&gt;@chrismunns&lt;/a&gt;) at ServerlessDays Boston March 2019
+&lt;p&gt;Chris Munns (&lt;a href=&quot;https://twitter.com/chrismunns&quot;&gt;@chrismunns&lt;/a&gt;) at ServerlessDays Boston - March 2019
 &lt;a href=&quot;https://www.youtube.com/watch?v=CgVq8MGqbng&quot; title=&quot;How AWS builds Serverless Services Using Serverless&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/CgVq8MGqbng/0.jpg&quot; alt=&quot;How AWS builds Serverless Services Using Serverless video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;devops-vs-sre-competing-standards-or-friends&quot;&gt;DevOps Vs. SRE: Competing Standards or Friends?&lt;/h2&gt;
