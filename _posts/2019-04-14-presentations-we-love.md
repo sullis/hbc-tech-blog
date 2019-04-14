@@ -22,7 +22,7 @@ Sarah Wells ([@sarahjwells](https://twitter.com/sarahjwells)) at QCon London 201
 [![Mature Microservices video](./assets/images/presentations-we-love-2019/mature-microservices-qcon-london-2019-480.png)](https://www.infoq.com/presentations/microservices-financial-times "Mature Microservices and How to Operate Them")
 
 ## Building and Scaling High Performing Technology Organizations
-Jez Humble ([@jezhumble](https://twitter.com/jezhumble)) Agile India - March 2019
+Jez Humble ([@jezhumble](https://twitter.com/jezhumble)) at Agile India - March 2019
 
 [![High Performing Technology Organizations video](https://img.youtube.com/vi/8z2Ki9e5OV8/0.jpg)](https://www.youtube.com/watch?v=8z2Ki9e5OV8 "Building and Scaling High Performing Technology Organizations")
 
