@@ -55,6 +55,12 @@ Chris Munns ([@chrismunns](https://twitter.com/chrismunns)) at ServerlessDays Bo
 Seth Vargo ([@sethvargo](https://twitter.com/sethvargo)) at Google Cloud Next - April 2019
 [![devops-vs-sre-video](https://img.youtube.com/vi/0UyrVqBoCAU/0.jpg)](https://www.youtube.com/watch?v=0UyrVqBoCAU "DevOps Vs. SRE: Competing Standards or Friends?")
 
+## Progressive Delivery
+James Governor ([@monkchips](https://twitter.com/monkchips)) at QCon London 2019
+
+[![Progressive Delivery video](./assets/images/presentations-we-love-2019/progressive-delivery-qcon-london-2019-480.png)](https://www.infoq.com/presentations/progressive-delivery "Progressive Delivery")
+
+
 ## How Retailers Prepare for Black Friday on Google Cloud Platform
 Kiran Davuluri, Jimit Ladha, and Andre Fatala at Google Cloud Next - April 2019
 [![prepare-for-black-friday-video](https://img.youtube.com/vi/fbstGbxcni4/0.jpg)](https://www.youtube.com/watch?v=fbstGbxcni4 "How Retailers Prepare for Black Friday on Google Cloud Platform")
