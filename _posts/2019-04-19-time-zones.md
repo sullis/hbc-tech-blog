@@ -70,7 +70,7 @@ Sometimes when dealing with frontend code in different browsers datetime formatt
 
 This one should be a no-brainer in certain industries. For instance television, sports, and other live-streamed events absolutely positively need those time zones included for good user experience.
 
-# Three good rules of thumb (and one funny webcomic)
+# Final thoughts
 
 - If you can, use ISO 8601 with the time zone when communicating between services.
 - When writing database code make sure the DAO is in charge of deciding what time zone to store data in. Don’t rely on upstream systems to translate datetimes into the DAO’s time zone.
