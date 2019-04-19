@@ -44,7 +44,9 @@ For this reason when dealing with RDS systems it’s important to follow the fol
 1. Whenever possible, pass datetimes to the service, module, or ORM that accesses the database with time zones attached. This will assure that no unwarranted assumptions are made between dislocated services.
 2. Set a standard and stick to it for what time zone the database uses.
 
-# Two DateTime Anti-Patterns
+Unfortunately it's probably not in your best interests to include the time zone within the stored records of the database, this is because this would break the pattern SQL was designed to use, and for a legacy database require you do rather complex mass data operations to bring columns up to your new spec. (Daylight Saving Time begins and ends on different days every year, so it's not merely a matter of adding the zone.)
+
+# Three DateTime Anti-Patterns
 
 In this section I’m going to talk about some common errors regarding handling datetimes and how to fix them.
 
@@ -61,6 +63,12 @@ This kind of error can serve to magnify the above error. Suppose you have one se
 And of course, if the client service is ever redeployed in a different time zone this code will now fail not just in winter, but all the time.
 
 In general you should trust your programming language's datetime representation to know what to do to correctly handle time zone conversions or other time difference calculations.
+
+## 3. Time zones were dropped manually.
+
+Sometimes when dealing with frontend code in different browsers datetime formatting can cause unexpected errors. For instance, in most browsers the alternate form of the ISO 8601 standard `YYYY-MM-DDTHH:mm:SS±hhmm` (without the colon) is accepted, but Safari is not one of them. This leads some developers to haphazardly chop out the time zones, reducing the accuracy of data when viewing your webpage internationally.
+
+This one should be a no-brainer in certain industries. For instance television, sports, and other live-streamed events absolutely positively need those time zones included for good user experience.
 
 # Finally, three good rules of thumb and one funny webcomic:
 
