@@ -50,7 +50,7 @@ Unfortunately it's probably not in your best interests to include the time zone 
 
 In this section I’m going to talk about some common errors regarding handling datetimes and how to fix them.
 
-Datetimes [are much more complicated than even I am letting on here](https://www.youtube.com/watch?v=-5wpm-gesOY). But thankfully your friendly neighborhood library methods are here to help. The most complex time zone issues I’ve ever seen have involved multiple of the following sticking points.
+Datetimes [are more complicated](https://www.youtube.com/watch?v=-5wpm-gesOY) than even I am letting on here. But thankfully your friendly neighborhood library methods are here to help. The most complex time zone issues I’ve ever seen have involved multiple of the following sticking points.
 
 ## 1. An assumption was made about the zone of a datetime by one piece of a system that was not made by another
 
