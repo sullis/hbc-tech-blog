@@ -1,5 +1,5 @@
 ---
-title: "How to Deal With Time Zones (if you must)"
+title: "How to Deal With Time Zones in Database and Distributed Systems"
 author: Daniel Kirby
 date: '2019-04-19'
 categories: 'back-end'
@@ -52,11 +52,11 @@ In this section I’m going to talk about some common errors regarding handling 
 
 Datetimes [are much more complicated than even I am letting on here](https://www.youtube.com/watch?v=-5wpm-gesOY). But thankfully your friendly neighborhood library methods are here to help. The most complex time zone issues I’ve ever seen have involved multiple of the following sticking points.
 
-## 1. An assumption was made about the zone of a datetime by one piece of a system that was not made by another.
+## 1. An assumption was made about the zone of a datetime by one piece of a system that was not made by another
 
 These issues can often be spotted with a little back of the envelope knowledge about your local time zone. For instance if you live and work in the North American Eastern Time zone (ET), and you notice that the datetimes in your database are all off by exactly 4 hours (or exactly 5, in the winter) then you might have a datetime being accidentally converted from ET to UTC.
 
-## 2. Time zone conversion was done manually.
+## 2. Time zone conversion was done manually
 
 This kind of error can serve to magnify the above error. Suppose you have one service that is operating in ET and a database that is storing UTC datetimes. You might think it’s sufficient to merely add four hours to the datetime, but this won’t work during the winter when ET switches from UTC-04:00 to UTC-05:00. Dynamically tracking when DST starts and ends adds additional complexity for you, because those dates are set every year (in the United States) by Congress.
 
@@ -64,15 +64,15 @@ And of course, if the client service is ever redeployed in a different time zone
 
 In general you should trust your programming language's datetime representation to know what to do to correctly handle time zone conversions or other time difference calculations.
 
-## 3. Time zones were dropped manually.
+## 3. Time zones were dropped manually
 
 Sometimes when dealing with frontend code in different browsers datetime formatting can cause unexpected errors. For instance, in most browsers the alternate form of the ISO 8601 standard `YYYY-MM-DDTHH:mm:SS±hhmm` (without the colon) is accepted, but Safari is not one of them. This leads some developers to haphazardly chop out the time zones, reducing the accuracy of data when viewing your webpage internationally.
 
 This one should be a no-brainer in certain industries. For instance television, sports, and other live-streamed events absolutely positively need those time zones included for good user experience.
 
-# Finally, three good rules of thumb and one funny webcomic:
+# Three good rules of thumb (and one funny webcomic)
 
-- If you can, use ISO 8601 with the time zone.
+- If you can, use ISO 8601 with the time zone when communicating between services.
 - When writing database code make sure the DAO is in charge of deciding what time zone to store data in. Don’t rely on upstream systems to translate datetimes into the DAO’s time zone.
 - Avoid writing code that manually does time zone conversions, always trust the language library to do this for you rather than broadly assuming you need to apply a specific offset.
 
