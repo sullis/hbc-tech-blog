@@ -52,14 +52,14 @@ Tags are a free-form list. They're not used for navigation currently, but are pa
 #### Predefined Categories
 
 ```
-backend
+back-end
 data-science
 events
 infrastructure
 product
 culture
 design
-frontend
+front-end
 mobile
 ```
 
