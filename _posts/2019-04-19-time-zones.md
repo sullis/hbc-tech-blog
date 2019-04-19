@@ -2,7 +2,8 @@
 title: "How to Deal With Time Zones in Database and Distributed Systems"
 author: Daniel Kirby
 date: '2019-04-19'
-categories: back end
+categories:
+- back end
 tags:
 - time zones
 - microservices
