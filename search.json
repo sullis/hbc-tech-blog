@@ -1,6 +1,16 @@
 [
     
     {
+        "title": "How to Deal With Time Zones in Database and Distributed Systems",
+        "date": "APR 19 2019",
+        "author": "Daniel Kirby",
+        "category": "back-end",
+        "tags": "time zones microservices SQL",
+        "excerpt": "Time zones can be one of the hardest and most confusing sources of technical issues in modern software systems. In this article we’re going to go through some common rules of thumb for dealing with datetimes when architecting those systems.",
+        "url": "/2019-04-19-time-zones.html"
+    },
+    
+    {
         "title": "Presentations we love: 2019",
         "date": "APR 14 2019",
         "author": "HBC Tech",

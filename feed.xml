@@ -1,5 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-04-15T11:35:17-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
-</subtitle><entry><title type="html">Presentations we love: 2019</title><link href="https://tech.hbc.com/2019-04-14-presentations-we-love.html" rel="alternate" type="text/html" title="Presentations we love: 2019" /><published>2019-04-14T00:00:00-05:00</published><updated>2019-04-14T00:00:00-05:00</updated><id>https://tech.hbc.com/presentations-we-love</id><content type="html" xml:base="https://tech.hbc.com/2019-04-14-presentations-we-love.html">&lt;p&gt;This is a list of our favorite presentations from 2019. We will update this list throughout the year.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-04-19T13:12:26-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Gilt, Lord &amp; Taylor and The Bay.
+</subtitle><entry><title type="html">How to Deal With Time Zones in Database and Distributed Systems</title><link href="https://tech.hbc.com/2019-04-19-time-zones.html" rel="alternate" type="text/html" title="How to Deal With Time Zones in Database and Distributed Systems" /><published>2019-04-19T00:00:00-05:00</published><updated>2019-04-19T00:00:00-05:00</updated><id>https://tech.hbc.com/time-zones</id><content type="html" xml:base="https://tech.hbc.com/2019-04-19-time-zones.html">&lt;p&gt;Time zones can be one of the hardest and most confusing sources of technical issues in modern software systems. In this article we’re going to go through some common rules of thumb for dealing with datetimes when architecting those systems.&lt;/p&gt;
+
+&lt;h1 id=&quot;first-a-standard&quot;&gt;First, a standard&lt;/h1&gt;
+
+&lt;p&gt;The standard representation you should use for datetimes by default is ISO 8601. The ISO 8601 standard looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DDTHH:mm:SS±hh:mm&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;For a concrete example, the date and time that Marty McFly went back to the future was:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1955-11-12T22:04:00-08:00&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;There are obvious advantages to this standard. For one, it will natively sort lexicographically in any programming language. For another, it includes the time zone to apply maximum specificity.&lt;/p&gt;
+
+&lt;p&gt;But the most important advantage is that it is a standard, and if you stick to it whenever possible you will find your stack easier to develop as more and more programming languages integrate features to parse and format this standard natively. I’ve worked with ISO datetimes natively in the most recent releases of Python, Java, and JavaScript. It’s particularly nice on the frontend because it guarantees the user will see the appropriate time in their current time zone.&lt;/p&gt;
+
+&lt;p&gt;So, if the ISO 8601 standard is so great, why isn’t it commonly used in databases for its easy lexicographical sorting?&lt;/p&gt;
+
+&lt;h1 id=&quot;why-arent-there-time-zones-in-sql&quot;&gt;Why aren’t there time zones in SQL?&lt;/h1&gt;
+
+&lt;p&gt;Time zones didn’t exist before common usage of railroads for transportation. Prior to the railroad every town and city would maintain its own local time, and travellers would readjust their watches when they arrived in a new place. But by the time railroads criscrossed North America, Europe, and Asia it became necessary to standardize local time across wide swathes of the planet.&lt;/p&gt;
+
+&lt;p&gt;In much the same way that the invention of railroads spurred the invention of time zones, the creation of distributed systems, microservices, and global internet businesses has spurred the adoption of time zone standards in software. However, some technologies were designed without these considerations in mind.&lt;/p&gt;
+
+&lt;p&gt;Before the invention of distributed systems most databases and the servers that ran them were colocal in the same time zone, often on the same computer. So basically, SQL (and often other database systems) broadly assumes that datetimes you give it are in the local time zone of the machine and that the software written to update the database is also in that self-same time zone.&lt;/p&gt;
+
+&lt;p&gt;For this reason when dealing with RDS systems it’s important to follow the following patterns.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Whenever possible, pass datetimes to the service, module, or ORM that accesses the database with time zones attached. This will assure that no unwarranted assumptions are made between dislocated services.&lt;/li&gt;
+  &lt;li&gt;Set a standard and stick to it for what time zone the database uses.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Unfortunately it’s probably not in your best interests to include the time zone within the stored records of the database, this is because this would break the pattern SQL was designed to use, and for a legacy database require you do rather complex mass data operations to bring columns up to your new spec. (Daylight Saving Time begins and ends on different days every year, so it’s not merely a matter of adding the zone.)&lt;/p&gt;
+
+&lt;h1 id=&quot;three-datetime-anti-patterns&quot;&gt;Three DateTime Anti-Patterns&lt;/h1&gt;
+
+&lt;p&gt;In this section I’m going to talk about some common errors regarding handling datetimes and how to fix them.&lt;/p&gt;
+
+&lt;p&gt;Datetimes &lt;a href=&quot;https://www.youtube.com/watch?v=-5wpm-gesOY&quot;&gt;are more complicated&lt;/a&gt; than even I am letting on here. But thankfully your friendly neighborhood library methods are here to help. The most complex time zone issues I’ve ever seen have involved multiple of the following sticking points.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-an-assumption-was-made-about-the-zone-of-a-datetime-by-one-piece-of-a-system-that-was-not-made-by-another&quot;&gt;1. An assumption was made about the zone of a datetime by one piece of a system that was not made by another&lt;/h2&gt;
+
+&lt;p&gt;These issues can often be spotted with a little back of the envelope knowledge about your local time zone. For instance if you live and work in the North American Eastern Time zone (ET), and you notice that the datetimes in your database are all off by exactly 4 hours (or exactly 5, in the winter) then you might have a datetime being accidentally converted from ET to UTC.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-time-zone-conversion-was-done-manually&quot;&gt;2. Time zone conversion was done manually&lt;/h2&gt;
+
+&lt;p&gt;This kind of error can serve to magnify the above error. Suppose you have one service that is operating in ET and a database that is storing UTC datetimes. You might think it’s sufficient to merely add four hours to the datetime, but this won’t work during the winter when ET switches from UTC-04:00 to UTC-05:00. Dynamically tracking when DST starts and ends adds additional complexity for you, because those dates are set every year (in the United States) by Congress.&lt;/p&gt;
+
+&lt;p&gt;And of course, if the client service is ever redeployed in a different time zone this code will now fail not just in winter, but all the time.&lt;/p&gt;
+
+&lt;p&gt;In general you should trust your programming language’s datetime representation to know what to do to correctly handle time zone conversions or other time difference calculations.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-time-zones-were-dropped-manually&quot;&gt;3. Time zones were dropped manually&lt;/h2&gt;
+
+&lt;p&gt;Sometimes when dealing with frontend code in different browsers datetime formatting can cause unexpected errors. For instance, in most browsers the alternate form of the ISO 8601 standard &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DDTHH:mm:SS±hhmm&lt;/code&gt; (without the colon) is accepted, but Safari is not one of them. This leads some developers to haphazardly chop out the time zones, reducing the accuracy of data when viewing your webpage internationally.&lt;/p&gt;
+
+&lt;p&gt;This one should be a no-brainer in certain industries. For instance television, sports, and other live-streamed events absolutely positively need those time zones included for good user experience.&lt;/p&gt;
+
+&lt;h1 id=&quot;final-thoughts&quot;&gt;Final thoughts&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If you can, use ISO 8601 with the time zone when communicating between services.&lt;/li&gt;
+  &lt;li&gt;When writing database code make sure the DAO is in charge of deciding what time zone to store data in. Don’t rely on upstream systems to translate datetimes into the DAO’s time zone.&lt;/li&gt;
+  &lt;li&gt;Avoid writing code that manually does time zone conversions, always trust the language library to do this for you rather than broadly assuming you need to apply a specific offset.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://xkcd.com/1883/&quot;&gt;&lt;img src=&quot;https://imgs.xkcd.com/comics/supervillain_plan.png&quot; alt=&quot;xkcd: Supervillain Plan&quot; class=&quot;center-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Daniel Kirby</name></author><category term="time zones" /><category term="microservices" /><category term="SQL" /><category term="databases" /><summary type="html">Time zones can be one of the hardest and most confusing sources of technical issues in modern software systems. In this article we’re going to go through some common rules of thumb for dealing with datetimes when architecting those systems.</summary></entry><entry><title type="html">Presentations we love: 2019</title><link href="https://tech.hbc.com/2019-04-14-presentations-we-love.html" rel="alternate" type="text/html" title="Presentations we love: 2019" /><published>2019-04-14T00:00:00-05:00</published><updated>2019-04-14T00:00:00-05:00</updated><id>https://tech.hbc.com/presentations-we-love</id><content type="html" xml:base="https://tech.hbc.com/2019-04-14-presentations-we-love.html">&lt;p&gt;This is a list of our favorite presentations from 2019. We will update this list throughout the year.&lt;/p&gt;
 
 &lt;h2 id=&quot;mature-microservices-and-how-to-operate-them&quot;&gt;Mature Microservices and How to Operate Them&lt;/h2&gt;
 &lt;p&gt;Sarah Wells (&lt;a href=&quot;https://twitter.com/sarahjwells&quot;&gt;@sarahjwells&lt;/a&gt;) at QCon London 2019&lt;/p&gt;
@@ -889,176 +956,4 @@ are available here:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/gilt/odsc-2018&quot;&gt;Repository&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/gilt/odsc-2018/blob/master/slides.pdf&quot;&gt;Slides&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>[&quot;Karthik Rajasethupathy&quot;, &quot;Jason Tam&quot;]</name></author><category term="sacred" /><category term="data science" /><category term="python" /><category term="odsc2018" /><category term="workshop" /><category term="conferences" /><summary type="html">On May 2nd, we presented at the Open Data Science Conference in Boston, MA. We demonstrated how to build a machine learning project from scratch with Sacred, an open source library for experiment tracking, and how to view the results using Sacredboard.</summary></entry><entry><title type="html">Why you should volunteer for Smart Futures</title><link href="https://tech.hbc.com/2018-04-20-smart-futures.html" rel="alternate" type="text/html" title="Why you should volunteer for Smart Futures" /><published>2018-04-20T00:00:00-05:00</published><updated>2018-04-20T00:00:00-05:00</updated><id>https://tech.hbc.com/smart-futures</id><content type="html" xml:base="https://tech.hbc.com/2018-04-20-smart-futures.html">&lt;p&gt;Dublin is a great place for volunteering in Tech initiatives !&lt;/p&gt;
-
-&lt;p&gt;Two years ago I started mentoring in a &lt;a href=&quot;https://coderdojo.com/&quot;&gt;CoderDojo&lt;/a&gt;, and, at HBC we recently joined the &lt;a href=&quot;http://www.smartfutures.ie/&quot;&gt;Smart Futures&lt;/a&gt; initiative.&lt;/p&gt;
-
-&lt;p&gt;So, I want to share with you some volunteering tips, lessons learned along the way, and why we joined &lt;a href=&quot;http://www.smartfutures.ie/&quot;&gt;Smart Futures&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id=&quot;how-to-pick-an-initiative&quot;&gt;How to pick an initiative&lt;/h1&gt;
-
-&lt;p&gt;With so many great tech initiatives out there and limited time to contribute, it can be a tough choice for a volunteer to pick one (or a few) initiatives to get involved with.&lt;/p&gt;
-
-&lt;p&gt;Different initiatives target different issues (e.g. diversity, education) and as a volunteer your tasks will vary (e.g. teaching children, presenting to adults, organising events).&lt;/p&gt;
-
-&lt;h2 id=&quot;4-questions-to-ask-yourself&quot;&gt;4 questions to ask yourself&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;answers should be very subjective but I included mine for reference&lt;/em&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;What issues matter the most to me ?&lt;/p&gt;
-
-    &lt;p&gt;Students choosing CS (Computer Science) in college do not have a concrete idea of what CS is.&lt;/p&gt;
-
-    &lt;p&gt;I found that many class-mates were deceived as they had a false and stereotypical expectation of what CS would be. On the other side, many highschool class-mates never even considered CS either (for the same reason) and might have missed a passion!&lt;/p&gt;
-
-    &lt;p&gt;Therefore, I want to educate students about CS to break stereotypes and allow them to make an informed choice.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;How can I address those issues ?&lt;/p&gt;
-
-    &lt;p&gt;I can use my CS knowledge and experience working in Tech to inform students&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Do I have other expectations about my volunteering experience ?&lt;/p&gt;
-
-    &lt;p&gt;I like teaching, explaining to children and presenting in general&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Is there an existing initiative aligning with my goals and expectations ?&lt;/p&gt;
-
-    &lt;p&gt;Yes, at least 2 that I know of: &lt;a href=&quot;https://coderdojo.com/&quot;&gt;CoderDojo&lt;/a&gt; and &lt;a href=&quot;http://www.smartfutures.ie/&quot;&gt;Smart Futures&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;starting-your-own&quot;&gt;Starting your own&lt;/h2&gt;
-
-&lt;p&gt;Joining an existing initiative is great: you get to learn from volunteers with more experience and the overhead of running an association (e.g. paperwork) is done for you.&lt;/p&gt;
-
-&lt;p&gt;But.. depending on where you live / where you work, there might not be an option that suits you. And in the case that you are starting your own: many initiatives make resources available to the public through their website, and you can connect with their community of volunteers through their communication channels (&lt;a href=&quot;https://slack.com/&quot;&gt;Slack&lt;/a&gt; / email).&lt;/p&gt;
-
-&lt;p&gt;Some initiatives like &lt;a href=&quot;https://coderdojo.com/&quot;&gt;CoderDojo&lt;/a&gt; are international initiatives and will help you set up your own coding classes.&lt;/p&gt;
-
-&lt;h1 id=&quot;what-is-smart-futures&quot;&gt;What is Smart Futures&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.smartfutures.ie/&quot;&gt;Smart Futures&lt;/a&gt;’ objective is getting children interested in &lt;a href=&quot;https://en.wikipedia.org/wiki/Science,_technology,_engineering,_and_mathematics&quot;&gt;S.T.E.M&lt;/a&gt; subjects in secondary school and at third level.
-It is coordinated by the &lt;a href=&quot;http://www.sfi.ie/&quot;&gt;Science Foundation Ireland&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;There are two types of events:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;you contacting directly schools or highschools to give talks / presentations / workshops to classes, the format is free&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.smartfutures.ie/&quot;&gt;Smart Futures&lt;/a&gt; asking you to send some volunteers to participate at events they are organising (occasional)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;You have no obligations of frequency, you only have to contact &lt;a href=&quot;http://www.smartfutures.ie/&quot;&gt;Smart Futures&lt;/a&gt; when you give a presentation to a school to help them map what schools are getting visited.&lt;/p&gt;
-
-&lt;h1 id=&quot;why-its-important&quot;&gt;Why it’s important&lt;/h1&gt;
-
-&lt;h2 id=&quot;students-want-to-fit-in&quot;&gt;Students want to fit in&lt;/h2&gt;
-
-&lt;p&gt;In a &lt;a href=&quot;http://www.smartfutures.ie/sites/default/files/resources/STEM%20survey%20results%20infographic%20update.pdf&quot;&gt;survey&lt;/a&gt;, &lt;a href=&quot;http://www.smartfutures.ie/&quot;&gt;Smart Futures&lt;/a&gt; asked 2,000 first year students across Ireland about what influenced them when selecting their college course:
-62% of student said ‘fitting in’ was the main reason for their choice !&lt;/p&gt;
-
-&lt;p&gt;You can help break stereotypes; make students see the vast range of careers in S.T.E.M. There are so many radically different careers in Technology alone it is hard to imagine that someone would not ‘fit in’, but it is also very hard to picture some of those roles as a child (without an awesome volunteer to help).&lt;/p&gt;
-
-&lt;h2 id=&quot;children-need-role-models&quot;&gt;Children need role models&lt;/h2&gt;
-
-&lt;p&gt;Diversity has been a main topic in Tech industry issues related talks in the past few years. &lt;a href=&quot;https://coderdojo.com/&quot;&gt;CoderDojo&lt;/a&gt; have shown in their 2017 &lt;a href=&quot;https://coderdojo.com/news/2018/03/26/coderdojo-annual-survey-results-2017/&quot;&gt;survey&lt;/a&gt; that the percentage of girl students (29%) match the number of girl mentors (29%) and they were left wondering if there was some correlation..&lt;/p&gt;
-
-&lt;p&gt;Children want to identify with their role models; the example above is about gender but we need mentors with all kinds of personalities and backgrounds.&lt;/p&gt;
-
-&lt;h2 id=&quot;going-to-the-schools&quot;&gt;Going to the schools&lt;/h2&gt;
-
-&lt;p&gt;Events and coding classes need to be very well advertised to appeal to children that have no interest in Tech (yet) or ‘non Tech-aware’ parents. Going to the classes you are talking to everyone, including these students! It is truly a unique chance for them.&lt;/p&gt;
-
-&lt;p&gt;To quote the &lt;a href=&quot;http://www.smartfutures.ie/&quot;&gt;Smart Futures&lt;/a&gt; website:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Many students have no access to anyone working in science and technology, or may not know anyone that went to college.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;our-experience&quot;&gt;Our experience&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://ie.linkedin.com/in/jakewhelan&quot;&gt;Jake Whelan&lt;/a&gt; and I have given 2 presentations to classes of ~50 children aged 10-11, here’s some take-aways from  preparing and giving those presentations.&lt;/p&gt;
-
-&lt;h2 id=&quot;presentation-format&quot;&gt;Presentation format&lt;/h2&gt;
-
-&lt;p&gt;The presentation format is not enforced by &lt;a href=&quot;http://www.smartfutures.ie/&quot;&gt;Smart Futures&lt;/a&gt;, although there is an &lt;a href=&quot;http://www.smartfutures.ie/sites/default/files/resources/Sample%20%20Smart%20Futures%20School%20%20Presentation%20Template.pdf&quot;&gt;example&lt;/a&gt; on their website.&lt;/p&gt;
-
-&lt;p&gt;Nonetheless: personalise it to create a format that works for you, make it interactive and adapt the presentation to the age of your audience (a 10 yrs old is probably not interested in eCommerce)&lt;/p&gt;
-
-&lt;h2 id=&quot;should-you-talk-about-your-company-&quot;&gt;Should you talk about your company ?&lt;/h2&gt;
-
-&lt;p&gt;Children want concrete examples, and it is easy to go in details when talking about your daily life.&lt;/p&gt;
-
-&lt;p&gt;However, you need to take your audience into consideration. For example: our roles are linked to online shopping; but a 10-11 yrs old will probably never have purchased anything on an eCommerce website!&lt;/p&gt;
-
-&lt;p&gt;We decided to let the children know they could ask questions about applications unrelated to eCommerce that they use every day (e.g. in these classes Snapchat was very popular).&lt;/p&gt;
-
-&lt;h2 id=&quot;dont-be-shy-show-some-code&quot;&gt;Don’t be shy: show some code!&lt;/h2&gt;
-
-&lt;p&gt;We firmly believe that showing a simple snippet of code, explaining in details pieces of logic, asking the students questions about it and making them guess what specific parts are doing, is key to demystify what application development really is.&lt;/p&gt;
-
-&lt;p&gt;But first you need to introduce the concept of coding itself, so here’s a rough transcript of how we explained it to 10-11 yrs old:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;When talking to a person you use a language to communicate ideas to that person. There are many “human languages”: Irish, English, French..
-But a machine only understands 0s and 1s and it would be very hard for humans to communicate ideas only using 0s and 1s; so, coding languages were created: an intermediate that follows very strict rules for the machine to be able to convert it to 0s and 1s and just like in “human languages”, there are many coding languages: JavaScript, Python, Scala, Java etc..&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Our coding example is a little game, which is based on a very simplified version of &lt;a href=&quot;orteil.dashnet.org/cookieclicker/&quot;&gt;Cookie clicker&lt;/a&gt; (it was very popular among children 1-2 yrs ago).&lt;/p&gt;
-
-&lt;p&gt;A web-page shows a cookie and a number that increments every time you click on the it. We spend as much time as needed an let the children ask all the questions they have in order to understand how the code works.&lt;/p&gt;
-
-&lt;p&gt;2 questions we got:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Do you have to learn all the different languages ?&lt;/p&gt;
-
-    &lt;p&gt;Great occasion to point out that languages are very similar in their structure and follow the same logic&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Why do the words have different colors ?&lt;/p&gt;
-
-    &lt;p&gt;Coding languages follow very specific rules so each word has a role like variables, values, keywords etc.. just like we have verbs, nouns and adverbs! So the text editors we use color the words for us to help differentiate between the different roles.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;It is very encouraging to hear such practical questions being asked (like they could picture themselves coding already!)&lt;/p&gt;
-
-&lt;p&gt;The goal of this little example is not to teach them how to code but to:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;see a very concrete example (write code and see the result on the web page)&lt;/li&gt;
-  &lt;li&gt;demystify code&lt;/li&gt;
-  &lt;li&gt;explain some concepts that are the building blocks of coding, like conditions and variables; which can be used later-on to give concrete explanations about how certain features of the applications they are familiar with, work (at a high level)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;You can find the code for the game on &lt;a href=&quot;https://github.com/jakewhelan/sfi-cookie-clicker/&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;make-some-time-at-the-end&quot;&gt;Make some time at the end&lt;/h2&gt;
-
-&lt;p&gt;We always make sure to leave at least 1/3 of the time for questions at the end. The questions can be about anything!&lt;/p&gt;
-
-&lt;p&gt;You showed code and the children now have a concrete idea of what development is like. What should happen is that they want to tie-up what they just learned with applications they are familiar with.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;e.g. How does a website know my username is already taken when I create an account ?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Children will have a concept of storing files in a computer (which can be used to explain databases), and, thanks to the previous demo they now have an understanding of conditionals and variables ! That is enough to explain many features at a high level.&lt;/p&gt;
-
-&lt;p&gt;This “Ask me anything” session at the end does a good job at shifting the way the students look at applications they use every day: now they do not accept them to be “black-boxes” anymore and look to understand how they work.&lt;/p&gt;
-
-&lt;h2 id=&quot;follow-up&quot;&gt;Follow up&lt;/h2&gt;
-
-&lt;p&gt;Send resources to the teachers after the presentation, you might have sparked interests for programming so make sure they know where to go.&lt;/p&gt;
-
-&lt;p&gt;My favorites are &lt;a href=&quot;https://code.org/&quot;&gt;Code.org&lt;/a&gt; and &lt;a href=&quot;https://scratch.mit.edu/&quot;&gt;Scratch&lt;/a&gt;, but I also recommend children to ask their parents to sign them up for &lt;a href=&quot;https://coderdojo.com/&quot;&gt;CoderDojo&lt;/a&gt; (which is free)&lt;/p&gt;
-
-&lt;h1 id=&quot;how-do-i-get-involved&quot;&gt;How do I get involved&lt;/h1&gt;
-
-&lt;p&gt;You can get involved individually or as a company by contacting &lt;a href=&quot;smartfutures@sfi.ie&quot;&gt;smartfutures@sfi.ie&lt;/a&gt;, you will be invited to a presentation about the initiative and be registered as a volunteer.&lt;/p&gt;
-
-&lt;h1 id=&quot;help-us-find-schools&quot;&gt;Help us find schools&lt;/h1&gt;
-
-&lt;p&gt;If you are a parent, or part of a school council, you can help us by reaching out to teachers/principals who would be interested in having us present to their students (in the Dublin area).&lt;/p&gt;</content><author><name>Daniel Mateus Pires</name></author><category term="stem" /><category term="initiatives" /><category term="children" /><category term="volunteering" /><summary type="html">Dublin is a great place for volunteering in Tech initiatives !</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>[&quot;Karthik Rajasethupathy&quot;, &quot;Jason Tam&quot;]</name></author><category term="sacred" /><category term="data science" /><category term="python" /><category term="odsc2018" /><category term="workshop" /><category term="conferences" /><summary type="html">On May 2nd, we presented at the Open Data Science Conference in Boston, MA. We demonstrated how to build a machine learning project from scratch with Sacred, an open source library for experiment tracking, and how to view the results using Sacredboard.</summary></entry></feed>
