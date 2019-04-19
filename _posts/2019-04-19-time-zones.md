@@ -27,7 +27,7 @@ For a concrete example, the date and time that Marty McFly went back to the futu
 
 There are obvious advantages to this standard. For one, it will natively sort lexicographically in any programming language. For another, it includes the time zone to apply maximum specificity.
 
-But the most important advantage is that it is a standard, and if you stick to it whenever possible you will find your stack easier to develop as more and more programming languages integrate features to parse and format this standard natively. I’ve worked with ISO datetimes natively in the most recent releases of Python, Java, and JavaScript. Indeed it’s particularly nice on frontend because it guarantees the user will see the appropriate time in their current time zone.
+But the most important advantage is that it is a standard, and if you stick to it whenever possible you will find your stack easier to develop as more and more programming languages integrate features to parse and format this standard natively. I’ve worked with ISO datetimes natively in the most recent releases of Python, Java, and JavaScript. It’s particularly nice on the frontend because it guarantees the user will see the appropriate time in their current time zone.
 
 So, if the ISO 8601 standard is so great, why isn’t it commonly used in databases for its easy lexicographical sorting?
 
