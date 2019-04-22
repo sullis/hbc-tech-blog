@@ -152,3 +152,8 @@ Jessica Tai ([@jessicamtai](https://twitter.com/jessicamtai)) at QCon San Franci
 Greg Burrell ([@gburrell_greg](https://twitter.com/gburrell_greg)) at QCon San Francisco 2018
 
 [![Full Cycle Developers video](https://img.youtube.com/vi/8OorWiBfmE0/0.jpg)](https://www.youtube.com/watch?v=8OorWiBfmE0 "Full Cycle Developers at Netflix")
+
+## Why You Need A Software Delivery Machine
+Rod Johnson ([@springrod](https://twitter.com/springrod)) at GOTO Copenhagen 2018
+
+[![Software Delivery video](https://img.youtube.com/vi/obDhNejPM9M/0.jpg)](https://www.youtube.com/watch?v=obDhNejPM9M "Why You Need A Software Delivery Machine")
