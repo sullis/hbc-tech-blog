@@ -64,3 +64,8 @@ James Governor ([@monkchips](https://twitter.com/monkchips)) at QCon London 2019
 ## How Retailers Prepare for Black Friday on Google Cloud Platform
 Kiran Davuluri, Jimit Ladha, and Andre Fatala at Google Cloud Next - April 2019
 [![prepare-for-black-friday-video](https://img.youtube.com/vi/fbstGbxcni4/0.jpg)](https://www.youtube.com/watch?v=fbstGbxcni4 "How Retailers Prepare for Black Friday on Google Cloud Platform")
+
+## Testing in Production at Scale at Uber
+Amit Gud ([@amitgud](https://twitter.com/amitgud)) - SRECon19 Americas - March 25, 2019
+
+[![testing-in-production-uber-video](https://img.youtube.com/vi/nIlFmja65_g/0.jpg)](https://www.youtube.com/watch?v=nIlFmja65_g "Testing in Production at Scale")
