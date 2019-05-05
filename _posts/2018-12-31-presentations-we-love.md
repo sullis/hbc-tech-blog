@@ -157,3 +157,8 @@ Greg Burrell ([@gburrell_greg](https://twitter.com/gburrell_greg)) at QCon San F
 Rod Johnson ([@springrod](https://twitter.com/springrod)) at GOTO Copenhagen 2018
 
 [![Software Delivery video](https://img.youtube.com/vi/obDhNejPM9M/0.jpg)](https://www.youtube.com/watch?v=obDhNejPM9M "Why You Need A Software Delivery Machine")
+
+## Paying Technical Debt at Scale - Migrations at Stripe
+Will Larson ([@lethain](https://twitter.com/lethain)) at QCon San Francisco 2018
+
+[![paying-technical-debt-video](https://img.youtube.com/vi/OFjvJmS_uDo/0.jpg)](https://www.youtube.com/watch?v=OFjvJmS_uDo "Paying Technical Debt at Scale - Migrations at Stripe")
