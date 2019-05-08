@@ -162,3 +162,8 @@ Rod Johnson ([@springrod](https://twitter.com/springrod)) at GOTO Copenhagen 201
 Will Larson ([@lethain](https://twitter.com/lethain)) at QCon San Francisco 2018
 
 [![paying-technical-debt-video](https://img.youtube.com/vi/OFjvJmS_uDo/0.jpg)](https://www.youtube.com/watch?v=OFjvJmS_uDo "Paying Technical Debt at Scale - Migrations at Stripe")
+
+## How AWS Minimizes the Blast Radius of Failures
+Peter Vosshall at AWS Re:Invent 2018
+
+[![blast-radius-video](https://img.youtube.com/vi/swQbA4zub20/0.jpg)](https://www.youtube.com/watch?v=swQbA4zub20 "How AWS Minimizes the Blast Radius of Failures")
