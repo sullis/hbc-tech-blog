@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-05-29T08:13:27-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-05-29T08:20:54-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
 </subtitle><entry><title type="html">Deployments</title><link href="https://tech.hbc.com/2019-05-29-deployments.html" rel="alternate" type="text/html" title="Deployments" /><published>2019-05-29T00:00:00-05:00</published><updated>2019-05-29T00:00:00-05:00</updated><id>https://tech.hbc.com/deployments</id><content type="html" xml:base="https://tech.hbc.com/2019-05-29-deployments.html">&lt;p&gt;At HBC, we use modern engineering practices to manage our e-commerce platform. Our engineers have adopted multiple techniques to ensure that production code deployments go smoothly.&lt;/p&gt;
 
 &lt;p&gt;Here is a list of presentations about deployments that we have found helpful.&lt;/p&gt;
@@ -26,7 +26,7 @@
 &lt;h2 id=&quot;deployments-at-flow-commerce&quot;&gt;Deployments at Flow Commerce&lt;/h2&gt;
 &lt;p&gt;Mike Bryzek (&lt;a href=&quot;https://twitter.com/mbryzek&quot;&gt;@mbryzek&lt;/a&gt;) at NYC Continuous Delivery meetup - June 2016&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=IEaA5AhS&quot; title=&quot;Deployments at Flow Commerce&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/IEaA5AhS/0.jpg&quot; alt=&quot;Deployments at Flow Commerce video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=IEaA5AhS-ZY&quot; title=&quot;Deployments at Flow Commerce&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/IEaA5AhS-ZY/0.jpg&quot; alt=&quot;Deployments at Flow Commerce video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;four-minute-deploys&quot;&gt;Four Minute Deploys&lt;/h2&gt;
 &lt;p&gt;Lei Lopez at SRECon Americas - March 2017&lt;/p&gt;
