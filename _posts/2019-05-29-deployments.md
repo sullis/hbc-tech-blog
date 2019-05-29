@@ -58,3 +58,8 @@ Sebastian Yates at SRECon Americas - March 2017
 Sean Sullivan ([@tinyrobots](https://twitter.com/tinyrobots)) at Seattle Serverless Meetup - February 2019
 
 [![safe-lambda-deployment-slides](./assets/images/deployments-2019/safe-lambda-deployments-seattle-2019-02-21-480.png)](https://speakerdeck.com/sullis/safe-lambda-deployments-seattle-2019-02-21 "Safe Lambda Deployments")
+
+## Deployments Endgame
+Sean Sullivan ([@tinyrobots](https://twitter.com/tinyrobots)) - April 2019
+
+[![deployments-endgame-slides](./assets/images/deployments-2019/deployments-endgame-2019-04-26-480.png)](https://speakerdeck.com/sullis/deployments-endgame-2019-04-26 "Deployments Endgame")
