@@ -59,6 +59,11 @@ Sean Sullivan ([@tinyrobots](https://twitter.com/tinyrobots)) at Seattle Serverl
 
 [![safe-lambda-deployment-slides](./assets/images/deployments-2019/safe-lambda-deployments-seattle-2019-02-21-480.png)](https://speakerdeck.com/sullis/safe-lambda-deployments-seattle-2019-02-21 "Safe Lambda Deployments")
 
+## The Evolution of Continuous Delivery at Scale @ Linkedin
+Jason Toy ([@jastoy](https://www.linkedin.com/in/jastoy/)) at QCon San Francisco - November 2014
+
+[![linkedin-continuous-delivery-presentation](./assets/images/deployments-2019/linkedin-evolution-continuous-delivery-480.png)](https://www.infoq.com/presentations/cd-linkedin/ "The Evolution of Continuous Delivery at Scale @ Linkedin")
+
 ## 10K deploys per day - the Skyscanner journey so far
 Stuart Davidson ([@spedge](https://twitter.com/spedge)) at QCon London - May 2018
 
