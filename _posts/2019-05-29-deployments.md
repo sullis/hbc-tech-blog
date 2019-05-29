@@ -37,7 +37,7 @@ Sean Sullivan ([@tinyrobots](https://twitter.com/tinyrobots)) - May 2019
 ## Deployments at Flow Commerce
 Mike Bryzek ([@mbryzek](https://twitter.com/mbryzek)) at NYC Continuous Delivery meetup - June 2016
 
-[![Deployments at Flow Commerce video](https://img.youtube.com/vi/IEaA5AhS/0.jpg)](https://www.youtube.com/watch?v=IEaA5AhS "Deployments at Flow Commerce")
+[![Deployments at Flow Commerce video](https://img.youtube.com/vi/IEaA5AhS-ZY/0.jpg)](https://www.youtube.com/watch?v=IEaA5AhS-ZY "Deployments at Flow Commerce")
 
 ## Four Minute Deploys
 Lei Lopez at SRECon Americas - March 2017
