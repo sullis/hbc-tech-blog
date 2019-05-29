@@ -1,5 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-05-28T23:37:36-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
-</subtitle><entry><title type="html">How to Deal With Time Zones in Database and Distributed Systems</title><link href="https://tech.hbc.com/2019-04-19-time-zones.html" rel="alternate" type="text/html" title="How to Deal With Time Zones in Database and Distributed Systems" /><published>2019-04-19T00:00:00-05:00</published><updated>2019-04-19T00:00:00-05:00</updated><id>https://tech.hbc.com/time-zones</id><content type="html" xml:base="https://tech.hbc.com/2019-04-19-time-zones.html">&lt;p&gt;Time zones can be one of the hardest and most confusing sources of technical issues in modern software systems. In this article we’re going to go through some common rules of thumb for dealing with datetimes when architecting those systems.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-05-29T08:13:27-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
+</subtitle><entry><title type="html">Deployments</title><link href="https://tech.hbc.com/2019-05-29-deployments.html" rel="alternate" type="text/html" title="Deployments" /><published>2019-05-29T00:00:00-05:00</published><updated>2019-05-29T00:00:00-05:00</updated><id>https://tech.hbc.com/deployments</id><content type="html" xml:base="https://tech.hbc.com/2019-05-29-deployments.html">&lt;p&gt;At HBC, we use modern engineering practices to manage our e-commerce platform. Our engineers have adopted multiple techniques to ensure that production code deployments go smoothly.&lt;/p&gt;
+
+&lt;p&gt;Here is a list of presentations about deployments that we have found helpful.&lt;/p&gt;
+
+&lt;h2 id=&quot;disband-the-deployment-army&quot;&gt;Disband the Deployment Army&lt;/h2&gt;
+&lt;p&gt;Michael T. Nygard (&lt;a href=&quot;https://twitter.com/mtnygard&quot;&gt;@mtnygard&lt;/a&gt;) at GOTO Aarhus - October 2012&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=Luskg9ES9qI&quot; title=&quot;Disband the Deployment Army&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/Luskg9ES9qI/0.jpg&quot; alt=&quot;Disband the Deployment Army video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;10-deploys-per-day-dev-and-ops-cooperation-at-flickr&quot;&gt;10+ Deploys Per Day: Dev and Ops Cooperation at Flickr&lt;/h2&gt;
+&lt;p&gt;John Allspaw (&lt;a href=&quot;https://twitter.com/allspaw&quot;&gt;@allspaw&lt;/a&gt;) and Paul Hammond (&lt;a href=&quot;https://twitter.com/ph&quot;&gt;@ph&lt;/a&gt;) at Velocity conference - June 2009&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=LdOe18KhtT4&quot; title=&quot;10+ Deploys Per Day: Dev and Ops Cooperation at Flickr&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/LdOe18KhtT4/0.jpg&quot; alt=&quot;flickr-allspaw-hammond-video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;deployment-patterns-for-devops-and-continuous-delivery&quot;&gt;Deployment patterns for DevOps and Continuous Delivery&lt;/h2&gt;
+&lt;p&gt;Danilo Sato (&lt;a href=&quot;https://twitter.com/dtsato&quot;&gt;@dtsato&lt;/a&gt;) at DevOps Singapore - May 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=eBRspUcDCTc&quot; title=&quot;Deployment patterns for DevOps and Continuous Delivery&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/eBRspUcDCTc/0.jpg&quot; alt=&quot;Deployment patterns video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;small-batch-deployments&quot;&gt;Small Batch Deployments&lt;/h2&gt;
+&lt;p&gt;Sean Sullivan (&lt;a href=&quot;https://twitter.com/tinyrobots&quot;&gt;@tinyrobots&lt;/a&gt;) - May 2019&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/sullis/small-batch-deployments-2019-05-17&quot; title=&quot;Small Batch Deployments&quot;&gt;&lt;img src=&quot;./assets/images/deployments-2019/small-batch-deployments-2019-05-17-480.png&quot; alt=&quot;small-batch-deployments-slides&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;deployments-at-flow-commerce&quot;&gt;Deployments at Flow Commerce&lt;/h2&gt;
+&lt;p&gt;Mike Bryzek (&lt;a href=&quot;https://twitter.com/mbryzek&quot;&gt;@mbryzek&lt;/a&gt;) at NYC Continuous Delivery meetup - June 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=IEaA5AhS&quot; title=&quot;Deployments at Flow Commerce&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/IEaA5AhS/0.jpg&quot; alt=&quot;Deployments at Flow Commerce video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;four-minute-deploys&quot;&gt;Four Minute Deploys&lt;/h2&gt;
+&lt;p&gt;Lei Lopez at SRECon Americas - March 2017&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=Vt82CWplMzk&quot; title=&quot;Four Minute Deploys&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/Vt82CWplMzk/0.jpg&quot; alt=&quot;Four Minute Deploys video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;ten-deployments-per-day&quot;&gt;Ten Deployments Per Day&lt;/h2&gt;
+&lt;p&gt;Sean Sullivan (&lt;a href=&quot;https://twitter.com/tinyrobots&quot;&gt;@tinyrobots&lt;/a&gt;) - March 2019&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/sullis/ten-deployments-per-day-2019-03-21&quot; title=&quot;Ten Deployments Per Day&quot;&gt;&lt;img src=&quot;./assets/images/deployments-2019/ten-deployments-2019-03-21-480.png&quot; alt=&quot;ten-deployments-slides&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;deployment-automation-at-uber&quot;&gt;Deployment Automation at Uber&lt;/h2&gt;
+&lt;p&gt;Sebastian Yates at SRECon Americas - March 2017&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=4A4SLk1PRvg&quot; title=&quot;Deployment Automation at Uber&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/4A4SLk1PRvg/0.jpg&quot; alt=&quot;Deployment Automation at Uber video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;safe-lambda-deployments&quot;&gt;Safe Lambda Deployments&lt;/h2&gt;
+&lt;p&gt;Sean Sullivan (&lt;a href=&quot;https://twitter.com/tinyrobots&quot;&gt;@tinyrobots&lt;/a&gt;) at Seattle Serverless Meetup - February 2019&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/sullis/safe-lambda-deployments-seattle-2019-02-21&quot; title=&quot;Safe Lambda Deployments&quot;&gt;&lt;img src=&quot;./assets/images/deployments-2019/safe-lambda-deployments-seattle-2019-02-21-480.png&quot; alt=&quot;safe-lambda-deployment-slides&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>HBC Tech</name></author><category term="deployments" /><category term="devops" /><category term="continuousdelivery" /><category term="2019" /><summary type="html">At HBC, we use modern engineering practices to manage our e-commerce platform. Our engineers have adopted multiple techniques to ensure that production code deployments go smoothly.</summary></entry><entry><title type="html">How to Deal With Time Zones in Database and Distributed Systems</title><link href="https://tech.hbc.com/2019-04-19-time-zones.html" rel="alternate" type="text/html" title="How to Deal With Time Zones in Database and Distributed Systems" /><published>2019-04-19T00:00:00-05:00</published><updated>2019-04-19T00:00:00-05:00</updated><id>https://tech.hbc.com/time-zones</id><content type="html" xml:base="https://tech.hbc.com/2019-04-19-time-zones.html">&lt;p&gt;Time zones can be one of the hardest and most confusing sources of technical issues in modern software systems. In this article we’re going to go through some common rules of thumb for dealing with datetimes when architecting those systems.&lt;/p&gt;
 
 &lt;h1 id=&quot;first-a-standard&quot;&gt;First, a standard&lt;/h1&gt;
 
@@ -844,141 +891,4 @@ and &lt;a href=&quot;https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_general_w
   &lt;li&gt;Limit the number of key presses required to get to a specific part of the page&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;So, if you’re updating your site’s navigation, hopefully what we’ve shared from our experience will help you make your nav more accessible to users who rely on a keyboard to surf the web.&lt;/p&gt;</content><author><name>[&quot;Jaret Stezelberger&quot;]</name></author><category term="WAI-ARIA" /><category term="Accessibility" /><category term="Navigation" /><category term="ADA" /><category term="Javascript" /><summary type="html">The simplest way to understand the importance of web accessibility is to open a web browser, put on a blindfold, and try navigating a website. Despite a small percentage of users with disabilities, their human right to navigate the internet still stands. In this post I’ll share some of my learnings from making our navigation more accessible.</summary></entry><entry><title type="html">ODSC Workshop on Experimental Reproducibility in Data Science</title><link href="https://tech.hbc.com/2018-05-07-experimental-reproducibility-in-data-science.html" rel="alternate" type="text/html" title="ODSC Workshop on Experimental Reproducibility in Data Science" /><published>2018-05-07T00:00:00-05:00</published><updated>2018-05-07T00:00:00-05:00</updated><id>https://tech.hbc.com/experimental-reproducibility-in-data-science</id><content type="html" xml:base="https://tech.hbc.com/2018-05-07-experimental-reproducibility-in-data-science.html">&lt;p&gt;On May 2nd, we presented at the &lt;a href=&quot;https://odsc.com/boston&quot;&gt;Open Data Science Conference&lt;/a&gt; in Boston, MA. We demonstrated
-how to build a machine learning project from scratch with &lt;a href=&quot;https://github.com/IDSIA/sacred&quot;&gt;Sacred&lt;/a&gt;, an open source
-library for experiment tracking, and how to view the results using
-&lt;a href=&quot;https://github.com/chovanecm/sacredboard&quot;&gt;Sacredboard&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id=&quot;workshop-abstract&quot;&gt;Workshop Abstract&lt;/h1&gt;
-
-&lt;p&gt;There are ways to incorporate experimental reproducibility into machine learning projects that are clean and lightweight.
-In this introductory level workshop, we demonstrate how to use Sacred to motivate reproducible research and
-experiment monitoring in machine learning. We discuss how this enables any data scientist to provide a solution
-(a model or set of predictions) to any problem, compare their solution to previous models results on the same test
-data, and select the best model for production. Finally, we provide examples of machine learning problems in retail
-and demonstrate how data scientists can easily work across multiple problems.&lt;/p&gt;
-
-&lt;h1 id=&quot;what-is-experimental-reproducibility&quot;&gt;What is Experimental Reproducibility&lt;/h1&gt;
-
-&lt;p&gt;Specifying the inputs, contexts, and steps involved in producing a result such that one can execute those
-instructions &lt;em&gt;and&lt;/em&gt; produce the same result.&lt;/p&gt;
-
-&lt;h1 id=&quot;machine-learning-is-experiments&quot;&gt;Machine Learning is Experiments&lt;/h1&gt;
-
-&lt;p&gt;You might be thinking, what is the connection between machine learning and experiments? Well, every time we build a
-model, we’re making hypotheses on which data to use for training and testing, pre-processing steps to apply, features
-and/or architectures to engineer, and learning algorithm(s) to use that will best fit our training data and generalize
-to unseen data.&lt;/p&gt;
-
-&lt;p&gt;Additionally, we’re running these experiments from dynamic and (sometimes) complex code bases, on computing environments
-with a whole another host of specifications.&lt;/p&gt;
-
-&lt;p&gt;So, while we are not working in a wetlab, we’re definitely running experiments and making many decisions that should
-be recorded!&lt;/p&gt;
-
-&lt;h1 id=&quot;why-do-we-need-an-approach-to-this&quot;&gt;Why do we need an approach to this&lt;/h1&gt;
-
-&lt;p&gt;Adhoc efforts at tracking experiments are &lt;strong&gt;incomplete&lt;/strong&gt;, and &lt;strong&gt;messy&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Incomplete&lt;/strong&gt;: It becomes very hard to annotate everything that we want to track: the version of the code we’re
-running; logging the config that we’re using for a particular run of an experiment (from the steps used for
-preprocessing to the hyperparameters used in the model); the specifications of the host where the experiment is run;
-and so on…&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Messy&lt;/strong&gt;: We want this information to be logged in such a way that we can easily add new parameters to track (without
-having to change a lot of code) and search through experiments that we’ve already tried. Looking through pages of a
-notebook, or scanning excel sheets stored in various folders is not an efficient and desirable way to do this.&lt;/p&gt;
-
-&lt;h1 id=&quot;what-should-we-track-to-make-machine-learning-reproducible&quot;&gt;What should we track to make Machine Learning reproducible?&lt;/h1&gt;
-
-&lt;p&gt;We suggest tracking the following:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Version Control: What is the git hash of the repository when we run the experiment? Is the code that was run in a
-&lt;em&gt;dirty&lt;/em&gt; state (some local changes)? To take this a step further, can we just store the source code that we ran?&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Config: This might include (but is not limited to) which data is loaded for training/testing, preprocessing steps,
-learning algorithms, hyperparameters, etc&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Seed: Set/store a global seed so that any functions that have some randomness yield consistent results.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Results: Store the performance of each run so that we can compare different experimental runs
-and select the best model. For certain models, we may also want to track its performance for each training
-step.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;enter-sacred&quot;&gt;Enter Sacred&lt;/h1&gt;
-
-&lt;p&gt;Sacred makes this possible. Sacred is a tool that is designed to introduce experimental reproducibility into
-projects with very little overhead. There’s 3 actors in the Sacred ecosystem: &lt;strong&gt;Ingredients&lt;/strong&gt;, &lt;strong&gt;Experiments&lt;/strong&gt;, and
-&lt;strong&gt;Observers&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;We can define &lt;strong&gt;Ingredients&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Sacred&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Ingredient&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;name_ingredient&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Ingredient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;nd&quot;&gt;@name_ingredient.config&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Jane&quot;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Doe&quot;&lt;/span&gt;
-
-&lt;span class=&quot;nd&quot;&gt;@name_ingredient.capture&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fullname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Jane&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Doe&quot;&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;We can define an &lt;strong&gt;Experiment&lt;/strong&gt; that uses Ingredients to produce some outcome that we wish to record:&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Sacred&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Experiment&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;my_ingredients&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name_ingredient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fullname&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;greeting_ex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Experiment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'greeting_experiment'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ingredients&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name_ingredient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-
-&lt;span class=&quot;nd&quot;&gt;@greeting_ex.config&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;greeting&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello&quot;&lt;/span&gt;
-
-&lt;span class=&quot;nd&quot;&gt;@greeting_ex.automain&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;greeting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;greeting&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;, &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fullname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Finally, we can run this experiment from the command line with an &lt;strong&gt;Observer&lt;/strong&gt; (e.g. a mongo server), which will record
-everything we have explicitly indicated that we wish to track (any parameter defined in a function with an
-&lt;code class=&quot;highlighter-rouge&quot;&gt;@Ingredient.config&lt;/code&gt; decorator), along with what Sacred implicitly tracks (source code, version control info, seed,
-host info, etc). Assuming the experiment code above is written in a file called &lt;code class=&quot;highlighter-rouge&quot;&gt;greeting_experiment.py&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python greeting_experiment.py &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; sacred
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;-m sacred&lt;/code&gt; parameter specifies that the observer should record everything to the sacred db in a local mongo
-instance. Sacred has a powerful command line tool in which we can modify the values of parameters before an experiment
-run.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python greeting_experiment.py &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; sacred with greeting_experiment.greeting&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Goodbye
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This will return the result &lt;code class=&quot;highlighter-rouge&quot;&gt;Goodbye, Jane Doe&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Sacred is an extremely lightweight and powerful tool - we urge you to check out
-&lt;a href=&quot;https://github.com/IDSIA/sacred&quot;&gt;Sacred&lt;/a&gt;, and our presentation materials for more examples of how to use Sacred in
-machine learning with a variety of examples including hyperparmater optimization and model blending.&lt;/p&gt;
-
-&lt;h2 id=&quot;materials&quot;&gt;Materials&lt;/h2&gt;
-
-&lt;p&gt;Examples using Sacred to do reproducible machine learning on &lt;a href=&quot;https://www.kaggle.com/c/titanic&quot;&gt;titanic survivorship&lt;/a&gt;
-are available here:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/gilt/odsc-2018&quot;&gt;Repository&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/gilt/odsc-2018/blob/master/slides.pdf&quot;&gt;Slides&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>[&quot;Karthik Rajasethupathy&quot;, &quot;Jason Tam&quot;]</name></author><category term="sacred" /><category term="data science" /><category term="python" /><category term="odsc2018" /><category term="workshop" /><category term="conferences" /><summary type="html">On May 2nd, we presented at the Open Data Science Conference in Boston, MA. We demonstrated how to build a machine learning project from scratch with Sacred, an open source library for experiment tracking, and how to view the results using Sacredboard.</summary></entry></feed>
+&lt;p&gt;So, if you’re updating your site’s navigation, hopefully what we’ve shared from our experience will help you make your nav more accessible to users who rely on a keyboard to surf the web.&lt;/p&gt;</content><author><name>[&quot;Jaret Stezelberger&quot;]</name></author><category term="WAI-ARIA" /><category term="Accessibility" /><category term="Navigation" /><category term="ADA" /><category term="Javascript" /><summary type="html">The simplest way to understand the importance of web accessibility is to open a web browser, put on a blindfold, and try navigating a website. Despite a small percentage of users with disabilities, their human right to navigate the internet still stands. In this post I’ll share some of my learnings from making our navigation more accessible.</summary></entry></feed>

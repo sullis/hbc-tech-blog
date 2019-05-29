@@ -1,6 +1,16 @@
 [
     
     {
+        "title": "Deployments",
+        "date": "MAY 29 2019",
+        "author": "HBC Tech",
+        "category": "presentations",
+        "tags": "deployments devops continuousdelivery",
+        "excerpt": "At HBC, we use modern engineering practices to manage our e-commerce platform. Our engineers have adopted multiple techniques to ensure that production code deployments go smoothly.",
+        "url": "/2019-05-29-deployments.html"
+    },
+    
+    {
         "title": "How to Deal With Time Zones in Database and Distributed Systems",
         "date": "APR 19 2019",
         "author": "Daniel Kirby",
