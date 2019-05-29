@@ -59,10 +59,10 @@ Sean Sullivan ([@tinyrobots](https://twitter.com/tinyrobots)) at Seattle Serverl
 
 [![safe-lambda-deployment-slides](./assets/images/deployments-2019/safe-lambda-deployments-seattle-2019-02-21-480.png)](https://speakerdeck.com/sullis/safe-lambda-deployments-seattle-2019-02-21 "Safe Lambda Deployments")
 
-## 10K deploys per day at Skyscanner
+## 10K deploys per day - the Skyscanner journey so far
 Stuart Davidson ([@spedge](https://twitter.com/spedge)) at QCon London - May 2018
 
-[![10k-deploys-slides](./assets/images/deployments-2019/skyscanner-10k-deploys-per-day-480.png)](https://www.infoq.com/presentations/12k-deployments-day "10K deploys per day at Skyscanner")
+[![10k-deploys-slides](./assets/images/deployments-2019/skyscanner-10k-deploys-per-day-480.png)](https://www.infoq.com/presentations/12k-deployments-day "10K deploys per day - the Skyscanner journey so far")
 
 ## Deployments Endgame
 Sean Sullivan ([@tinyrobots](https://twitter.com/tinyrobots)) - April 2019
