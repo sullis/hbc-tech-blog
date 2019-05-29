@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-05-29T12:00:55-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-05-29T12:06:23-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
 </subtitle><entry><title type="html">Deployments</title><link href="https://tech.hbc.com/2019-05-29-deployments.html" rel="alternate" type="text/html" title="Deployments" /><published>2019-05-29T00:00:00-05:00</published><updated>2019-05-29T00:00:00-05:00</updated><id>https://tech.hbc.com/deployments</id><content type="html" xml:base="https://tech.hbc.com/2019-05-29-deployments.html">&lt;p&gt;At HBC, we use modern engineering practices to manage our e-commerce platform. Our engineers have adopted multiple techniques to ensure that production code deployments go smoothly.&lt;/p&gt;
 
 &lt;p&gt;Here is a list of presentations about deployments that we have found helpful.&lt;/p&gt;
@@ -48,10 +48,10 @@
 
 &lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/sullis/safe-lambda-deployments-seattle-2019-02-21&quot; title=&quot;Safe Lambda Deployments&quot;&gt;&lt;img src=&quot;./assets/images/deployments-2019/safe-lambda-deployments-seattle-2019-02-21-480.png&quot; alt=&quot;safe-lambda-deployment-slides&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;10k-deploys-per-day-at-skyscanner&quot;&gt;10K deploys per day at Skyscanner&lt;/h2&gt;
+&lt;h2 id=&quot;10k-deploys-per-day---the-skyscanner-journey-so-far&quot;&gt;10K deploys per day - the Skyscanner journey so far&lt;/h2&gt;
 &lt;p&gt;Stuart Davidson (&lt;a href=&quot;https://twitter.com/spedge&quot;&gt;@spedge&lt;/a&gt;) at QCon London - May 2018&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://www.infoq.com/presentations/12k-deployments-day&quot; title=&quot;10K deploys per day at Skyscanner&quot;&gt;&lt;img src=&quot;./assets/images/deployments-2019/skyscanner-10k-deploys-per-day-480.png&quot; alt=&quot;10k-deploys-slides&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.infoq.com/presentations/12k-deployments-day&quot; title=&quot;10K deploys per day - the Skyscanner journey so far&quot;&gt;&lt;img src=&quot;./assets/images/deployments-2019/skyscanner-10k-deploys-per-day-480.png&quot; alt=&quot;10k-deploys-slides&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;deployments-endgame&quot;&gt;Deployments Endgame&lt;/h2&gt;
 &lt;p&gt;Sean Sullivan (&lt;a href=&quot;https://twitter.com/tinyrobots&quot;&gt;@tinyrobots&lt;/a&gt;) - April 2019&lt;/p&gt;
