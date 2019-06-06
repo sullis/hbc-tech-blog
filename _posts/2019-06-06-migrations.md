@@ -40,6 +40,11 @@ Phil Whelan ([@philwhln](https://twitter.com/philwhln)) at Bench Engineering - J
 
 [![bench-engineering-blog](./assets/images/migrations-2019/bench-activemq-aws-migration-480.png)](https://medium.com/bench-engineering/from-activemq-to-amazon-mq-why-and-how-we-moved-to-awss-managed-solution-afeba3ea7e23 "Bench Engineering: From ActiveMQ To Amazon MQ")
 
+## High Reliability Infrastructure Migrations
+Julia Evans ([@b0rk](https://twitter.com/b0rk)) at KubeCon Seattle 2018
+
+[![Julia Evans video](https://img.youtube.com/vi/obB2IvCv-K0/0.jpg)](https://www.youtube.com/watch?v=obB2IvCv-K0 "High Reliability Infrastructure Migrations")
+
 ## Monoliths, Migrations, and Microservices
 Randy Shoup ([@randyshoup](https://twitter.com/randyshoup)) at Reactive Summit Montreal 2018
 
