@@ -49,3 +49,8 @@ Julia Evans ([@b0rk](https://twitter.com/b0rk)) at KubeCon Seattle 2018
 Randy Shoup ([@randyshoup](https://twitter.com/randyshoup)) at Reactive Summit Montreal 2018
 
 [![Shoup Reactive Summit video](https://img.youtube.com/vi/gOZFmFNl1uk/0.jpg)](https://www.youtube.com/watch?v=gOZFmFNl1uk "Monoliths, Migrations, and Microservices")
+
+## Dropbox migration to gRPC
+Ruslan Nigmatullin and Alexey Ivanov at Dropbox Engineering - January 2019
+
+[![dropbox-engineering-blog](./assets/images/migrations-2019/dropbox-migration-grpc-480.png)](https://blogs.dropbox.com/tech/2019/01/courier-dropbox-migration-to-grpc/ "Dropbox migration to gRPC")
