@@ -1,6 +1,6 @@
 ---
 title: "Deployments"
-author: HBC Tech
+author: Sean Sullivan
 date: '2019-05-29'
 categories: 'presentations'
 tags:
