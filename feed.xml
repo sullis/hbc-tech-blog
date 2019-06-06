@@ -1,5 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-06-06T10:49:18-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
-</subtitle><entry><title type="html">Deployments</title><link href="https://tech.hbc.com/2019-05-29-deployments.html" rel="alternate" type="text/html" title="Deployments" /><published>2019-05-29T00:00:00-05:00</published><updated>2019-05-29T00:00:00-05:00</updated><id>https://tech.hbc.com/deployments</id><content type="html" xml:base="https://tech.hbc.com/2019-05-29-deployments.html">&lt;p&gt;At HBC, we use modern engineering practices to manage our e-commerce platform. Our engineers have adopted multiple techniques to ensure that production code deployments go smoothly.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-06-06T10:54:05-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
+</subtitle><entry><title type="html">Migrations</title><link href="https://tech.hbc.com/2019-06-06-migrations.html" rel="alternate" type="text/html" title="Migrations" /><published>2019-06-06T00:00:00-05:00</published><updated>2019-06-06T00:00:00-05:00</updated><id>https://tech.hbc.com/migrations</id><content type="html" xml:base="https://tech.hbc.com/2019-06-06-migrations.html">&lt;p&gt;At HBC, we are always looking for ways to improve the digital experience for our customers. We strive to improve the customer experience as well as reduce operational cost. Like many large organizations, we have a significant investment in our digital platform. Over the past five years, we have completed multiple system migrations. This has reduced complexity and allowed our organization to focus on future opportunities.&lt;/p&gt;
+
+&lt;p&gt;Here is a list of presentations about system migrations that we have found helpful.&lt;/p&gt;
+
+&lt;h2 id=&quot;paying-technical-debt-at-scale-migrations--stripe&quot;&gt;Paying Technical Debt at Scale: Migrations @ Stripe&lt;/h2&gt;
+&lt;p&gt;Will Larson (&lt;a href=&quot;https://twitter.com/lethain&quot;&gt;@lethain&lt;/a&gt;) at QCon San Francisco - November 2018&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=OFjvJmS_uDo&quot; title=&quot;Paying Technical Debt at Scale: Migrations @ Stripe&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/OFjvJmS_uDo/0.jpg&quot; alt=&quot;tech debt at scale migrations at stripe video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;spotifys-journey-to-the-cloud&quot;&gt;Spotify’s Journey to the Cloud&lt;/h2&gt;
+&lt;p&gt;Spotify Engineering - Google Cloud Next 2018&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=5aBORQim-KM&quot; title=&quot;Spotify's Journey to the Cloud&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/5aBORQim-KM/0.jpg&quot; alt=&quot;spotify google cloud video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-great-migration-from-monolith-to-service-oriented-at-airbnb&quot;&gt;The Great Migration: from Monolith to Service-Oriented at Airbnb&lt;/h2&gt;
+&lt;p&gt;Jessica Tai (&lt;a href=&quot;https://twitter.com/jessicamtai&quot;&gt;@jessicamtai&lt;/a&gt;) at QCon San Francisco - November 2018&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=Cy0EoQbS6RY&quot; title=&quot;The Great Migration at Airbnb&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/Cy0EoQbS6RY/0.jpg&quot; alt=&quot;the great migration at airbnb video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;from-activemq-to-amazon-mq--why-and-how-we-moved-to-awss-managed-solution&quot;&gt;From ActiveMQ To Amazon MQ : Why And How We Moved To AWS’s Managed Solution&lt;/h2&gt;
+&lt;p&gt;Phil Whelan (&lt;a href=&quot;https://twitter.com/philwhln&quot;&gt;@philwhln&lt;/a&gt;) at Bench Engineering - January 2019&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://medium.com/bench-engineering/from-activemq-to-amazon-mq-why-and-how-we-moved-to-awss-managed-solution-afeba3ea7e23&quot; title=&quot;Bench Engineering: From ActiveMQ To Amazon MQ&quot;&gt;&lt;img src=&quot;./assets/images/migrations-2019/bench-activemq-aws-migration-480.png&quot; alt=&quot;bench-engineering-blog&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Sean Sullivan</name></author><category term="migrations" /><category term="microservices" /><category term="devops" /><category term="continuousdelivery" /><category term="2019" /><summary type="html">At HBC, we are always looking for ways to improve the digital experience for our customers. We strive to improve the customer experience as well as reduce operational cost. Like many large organizations, we have a significant investment in our digital platform. Over the past five years, we have completed multiple system migrations. This has reduced complexity and allowed our organization to focus on future opportunities.</summary></entry><entry><title type="html">Deployments</title><link href="https://tech.hbc.com/2019-05-29-deployments.html" rel="alternate" type="text/html" title="Deployments" /><published>2019-05-29T00:00:00-05:00</published><updated>2019-05-29T00:00:00-05:00</updated><id>https://tech.hbc.com/deployments</id><content type="html" xml:base="https://tech.hbc.com/2019-05-29-deployments.html">&lt;p&gt;At HBC, we use modern engineering practices to manage our e-commerce platform. Our engineers have adopted multiple techniques to ensure that production code deployments go smoothly.&lt;/p&gt;
 
 &lt;p&gt;Here is a list of presentations about deployments that we have found helpful.&lt;/p&gt;
 
@@ -783,127 +805,4 @@ Hope learning about our experience got you at least curious. As I leave you read
   &lt;li&gt;Get the feedback and make the tool relevant.&lt;/li&gt;
   &lt;li&gt;Expand your focus and find new areas for improvement.&lt;/li&gt;
   &lt;li&gt;Don’t forget to have fun - teams that play together, stay together!&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Dana Pylayeva</name></author><category term="Healthcheck" /><category term="Agile" /><category term="Teams" /><summary type="html">Over a year ago we began to experiment with new ways of helping our teams in finding their next improvement opportunities. We started with an assumption that while every team is unique, there must be a way to approach a “team health” conversation in a similar fashion across them all. By using a standardized assessment we also expected to find some areas in which organizational improvements would be beneficial. In our quest for a suitable tool, we borrowed, fine-tuned and iterated to finally arrive at the health checks that fit our needs. This blog post is a reflection on the evolution of team health checks in HBC.</summary></entry><entry><title type="html">Building A Better Keyboard Navigation</title><link href="https://tech.hbc.com/2018-05-30-ada-accessibility-and-keyboard-navigation.html" rel="alternate" type="text/html" title="Building A Better Keyboard Navigation" /><published>2018-05-30T00:00:00-05:00</published><updated>2018-05-30T00:00:00-05:00</updated><id>https://tech.hbc.com/ada-accessibility-and-keyboard-navigation</id><content type="html" xml:base="https://tech.hbc.com/2018-05-30-ada-accessibility-and-keyboard-navigation.html">&lt;p&gt;The simplest way to understand the importance of web accessibility is to open a web browser, put on a blindfold, and try navigating a website. Despite a small percentage of users with disabilities, their human right to navigate the internet still stands. In this post I’ll share some of my learnings from making our navigation more accessible.&lt;/p&gt;
-
-&lt;h2 id=&quot;w3c-recommendations-for-accessibility&quot;&gt;W3C Recommendations for Accessibility&lt;/h2&gt;
-&lt;p&gt;Not familiar with this type of work, I referred to &lt;a href=&quot;https://www.w3.org/TR/wai-aria-practices-1.1/#menu&quot;&gt;WAI-ARIA Authoring Practices&lt;/a&gt;, and found the following recommendations helpful. &lt;em&gt;Just in case, WAI stans for “Web Accessibility Initiative”, and ARIA stands for “Accessible Rich Internet Application”.&lt;/em&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Leverage WAI-ARIA Roles, States, and Properties&lt;/li&gt;
-  &lt;li&gt;Manage Focus Inside Composite Elements&lt;/li&gt;
-  &lt;li&gt;All Components Need To Be Reachable Via The Keyboard&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;1-leverage-roles-states--properties&quot;&gt;1. Leverage Roles, States, &amp;amp; Properties&lt;/h3&gt;
-&lt;p&gt;Landmark roles are defined by many of the &lt;a href=&quot;https://www.w3.org/TR/2017/NOTE-wai-aria-practices-1.1-20171214/examples/landmarks/HTML5.html&quot;&gt;HTML5 elements&lt;/a&gt;. For example, the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;nav&amp;gt;&lt;/code&gt; element gets the aria role &lt;code class=&quot;highlighter-rouge&quot;&gt;navigation&lt;/code&gt;, by default. These default roles aid assistive technologies used to browse web pages, but to make our markup more accessible, we need to also utilize aria states.&lt;/p&gt;
-
-&lt;p&gt;Aria states like &lt;code class=&quot;highlighter-rouge&quot;&gt;aria-haspopup&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;aria-expanded&lt;/code&gt; are what every screen reader dreams of. Using &lt;code class=&quot;highlighter-rouge&quot;&gt;aria-haspopup&lt;/code&gt; lets screen readers know there’s a submenu available. The &lt;code class=&quot;highlighter-rouge&quot;&gt;aria-expanded&lt;/code&gt; attribute will indicate to a screen reader that a menu is expanded or callapsed, it’s also great for applying UI changes with CSS, ie; opening and closing flyout menus that are being interacted with.&lt;/p&gt;
-
-&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.nav_link&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;aria-expanded&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:hover&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;When testing with screen readers, there were some less than useful audio feedback around the number of items in a popup menu. The screen reader didn’t make it completely clear how many items were being displayed in a submenu. This was caused by various levels of nested &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; elements. Stuck with our existing HTML markup for now, changing the role of each anchor element from &lt;code class=&quot;highlighter-rouge&quot;&gt;link&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;menuitem&lt;/code&gt; produced more relevant audio feedback. I raised the idea of ditching the traditional navigation &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; markup in favor of a &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;span&amp;gt;&lt;/code&gt; containing a bunch of &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;a&amp;gt;&lt;/code&gt; elements. Given everything has the correct aria attributes, I didn’t forsee any issues, but it seems the internet still favors &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; for nav structures.&lt;/p&gt;
-
-&lt;h3 id=&quot;2-manage-the-focus-ring-own-it-dont-hide-it&quot;&gt;2. Manage the Focus Ring. (own it, don’t hide it)&lt;/h3&gt;
-&lt;p&gt;Not every element on a page needs to be in the “tab order”, but all interactive elements should be focusable through scripting. It’s obviously not a good idea to manually set the ‘tab-index’ property, but setting it to ‘-1’ allows us to focus that element with javascript. Regardless if it’s a focusable elemement by default. Changing &lt;code class=&quot;highlighter-rouge&quot;&gt;tab-index&lt;/code&gt; from -1 to 0, or using the “Roving Tab Index”, is a great way to manage the focus ring and tab sequence. This also helps isolate parts of a form or a page into focusable groups, minimizing the number of tab stops to navigate. The other way is using the &lt;code class=&quot;highlighter-rouge&quot;&gt;aria-activedescendant&lt;/code&gt;, but the benefit of &lt;code class=&quot;highlighter-rouge&quot;&gt;tab-index&lt;/code&gt; is the user agent will scroll to bring the element into view if it’s not.&lt;/p&gt;
-
-&lt;p&gt;WAI-ARIA Authoring Practices recommends the tab sequence should include only one focusable element of a composite UI component. Or, the element that is to be included in the tab sequence has tabindex of “0” and all other focusable elements contained in the composite component have tabindex of “-1”. For example, a nav item in a menu bar. Once a composite component contains focus, the menu bar in this case, pressing the enter key will shift focus to the first element inside of it and keys other than Tab and Shift + Tab will move focus among its focusable elements. See the section on “expected keyboard navigation” below.&lt;/p&gt;
-
-&lt;p&gt;The important thing to highlight here, is that this technique removes unneccesary elements from the natural tab sequence, simplifying the user experience for keyboard users by not focusing every single element while tabing through a page. Instead, users can tab from component to component, choosing to dive deeper or move on. This creates a more efficient navigation and limits the number of key presses required to get to a specific part of the page. If a user is using a mouth stick to type, this is extemely helpful.&lt;/p&gt;
-
-&lt;p&gt;You can learn more about this technique in &lt;a href=&quot;https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_general_between&quot;&gt;5.5 Keyboard Navigation Between Components (The Tab Sequence)&lt;/a&gt;
-and &lt;a href=&quot;https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_general_within&quot;&gt;5.6 Keyboard Navigation Inside Components&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;3-create-expected-keyboard-navigation&quot;&gt;3. Create Expected Keyboard Navigation&lt;/h3&gt;
-&lt;p&gt;When the user decides to dive deeper into a composite component, there are some standard key strokes and expected functionality. Some of these may not be familiar to mouse users, but are to users relying on the keyboard. W3C specifies the following keys and actions when developing a keyboard interface. A few have optional recommendations, but specify that it’s up to the author to decide. Bottom line here is to maintain a consistent functionality across your application and its composite components. Also, making sure to move the focus ring in an expected direction or location.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Key&lt;/th&gt;
-      &lt;th&gt;Action&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Space or Enter&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Opens the submenu and places focus on its first item.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Down Arrow&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Opens its submenu and places focus on the first item in the submenu.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Up Arrow&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Moves focus to the previous item, optionally wrapping from the first to the last.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Right Arrow&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Moves focus to the next item, optionally wrapping from the last to the first.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Left Arrow&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Moves focus to the previous item, optionally wrapping from the last to the first.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Home&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Moves focus to the first item in the current menu or menubar.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;End&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Moves focus to the last item in the current menu or menubar.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Any key&lt;/strong&gt; that corresponds to a printable character&lt;/td&gt;
-      &lt;td&gt;Moves focus to the next menu item in the current menu whose label begins with that printable character.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Escape&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Closes the menu that contains focus and return focus to the element or context&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Tab&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Moves focus to the next element in the tab sequence, and if the item that had focus is not in a menubar, closes its menu and all open parent menu containers.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Shift + Tab&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Moves focus to the previous element in the tab sequence, and if the item that had focus is not in a menubar, closes its menu and all open parent menu containers.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;For the full spec on keyboard navigation, you can refer to the W3C spec &lt;a href=&quot;https://www.w3.org/TR/wai-aria-practices-1.1/#keyboard-interaction-11&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;implementation-tid-bits&quot;&gt;Implementation Tid Bits&lt;/h3&gt;
-&lt;p&gt;We started with the example scripts that W3C provides in their &lt;a href=&quot;https://www.w3.org/TR/wai-aria-practices-1.1/examples/menubar/menubar-1/menubar-1.html&quot;&gt;menubar demos&lt;/a&gt;. These are free to use, fairly simple to follow and made a great starting point. The main class is applied during the React lifecycle at &lt;code class=&quot;highlighter-rouge&quot;&gt;componentDidMount()&lt;/code&gt; and passed our navigation &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;ul&amp;gt;&lt;/code&gt;. It simply traverses the DOM for &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;ul&amp;gt;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;li&amp;gt;&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;a&amp;gt;&lt;/code&gt; elements setting the appropriate states and attributes for each. We added a data-column attribute to our react template to help traverse back up the dom tree to easily provide users with the ability to navigate between columns using the left and right arrow keys.&lt;/p&gt;
-
-&lt;p&gt;Below is a quick screen capture demonstrating the roving tab index technique.&lt;/p&gt;
-&lt;video width=&quot;100%&quot; autoplay=&quot;true&quot; loop=&quot;true&quot; name=&quot;keyboard navigation demo&quot; src=&quot;./assets/images/ada-keyboard-navigation/keyboard-navigation-demo.mov&quot; style=&quot;margin-top: 40px; border-bottom: solid 1px #ccc;&quot;&gt;&lt;/video&gt;
-
-&lt;h3 id=&quot;challenges&quot;&gt;Challenges&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;In our submenus, few links in our small breakpoint menu are hidden from our large breakpoint. We needed a &lt;code class=&quot;highlighter-rouge&quot;&gt;setTimeout()&lt;/code&gt; to put a break in the order of operations so the browser would parse the CSS and then apply our keyboard navigation code. This allowed us to use ‘getComputedStyle()’ to skip over any elements that had &lt;code class=&quot;highlighter-rouge&quot;&gt;display: none;&lt;/code&gt;. Otherwise, the hidden elements broke our tab sequence because the script indexed the hidden anchor elements in the DOM. Because they were hidden there was nothing to focus next in the tab order.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Another &lt;code class=&quot;highlighter-rouge&quot;&gt;setTimeout()&lt;/code&gt; was needed to properly focus the first item when a submenu was opened. This was because of our “fancy” transition on the submenu &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;opacity: 0&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;opactiy: 1&lt;/code&gt;. A similar problem again, focusing an item isn’t possible if it’s hidden, so we needed to pause our script to let that transition to run, allow the browser to render the changes and report them back, allowing javascript to get the latest, updated styles.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Having 2 actions for each nav item, one for the category landing page, and the other for the popup. This isn’t apparent when using a mouse and having the hover effect, but with just a keyboard, it needs to be clear to the user that there are 2 options. For now, we’ve styled the element with a down arrow when it’s in focus, gave the element a role of &lt;code class=&quot;highlighter-rouge&quot;&gt;link&lt;/code&gt;, and an attribute of &lt;code class=&quot;highlighter-rouge&quot;&gt;aria-haspopup&lt;/code&gt;. This provides visual and audio feedback. Optionally, and perhaps a future improvement would be to create a second element to focus and control the popup menu, separating it from the link to the category page. The W3C provides their own guidance on this &lt;a href=&quot;https://www.w3.org/WAI/tutorials/menus/flyout/#flyoutnavkbbtn&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Smaller breakpoints still need to be included and we have to go back and work on this. It’s possible a user may have a bluetooth keyboard connected to a tablet.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;conclusions--next-steps&quot;&gt;Conclusions &amp;amp; Next Steps&lt;/h3&gt;
-&lt;p&gt;It’s fairly easy to make your site’s navigation more keyboard friendly and there are some great resources from the Web Accessibility Initiative that will help you do it. Going through this exercise exposed a few areas we could apply this same logic and improve our site’s overall accessibility. This work also highlighted the need to internally communicate this perspective in our &lt;a href=&quot;https://styleguide.hbc.com&quot;&gt;styleguide&lt;/a&gt; so our design and development teams can make sure we build things in an accessible way. We’ll be launching our new header for &lt;a href=&quot;thebay.com&quot;&gt;thebay.com&lt;/a&gt; in the coming months and eventually to all our sites.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Web Accessibility is a human right&lt;/li&gt;
-  &lt;li&gt;Create efficient keyboard navigation patterns&lt;/li&gt;
-  &lt;li&gt;Limit the number of key presses required to get to a specific part of the page&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;So, if you’re updating your site’s navigation, hopefully what we’ve shared from our experience will help you make your nav more accessible to users who rely on a keyboard to surf the web.&lt;/p&gt;</content><author><name>[&quot;Jaret Stezelberger&quot;]</name></author><category term="WAI-ARIA" /><category term="Accessibility" /><category term="Navigation" /><category term="ADA" /><category term="Javascript" /><summary type="html">The simplest way to understand the importance of web accessibility is to open a web browser, put on a blindfold, and try navigating a website. Despite a small percentage of users with disabilities, their human right to navigate the internet still stands. In this post I’ll share some of my learnings from making our navigation more accessible.</summary></entry></feed>
+&lt;/ol&gt;</content><author><name>Dana Pylayeva</name></author><category term="Healthcheck" /><category term="Agile" /><category term="Teams" /><summary type="html">Over a year ago we began to experiment with new ways of helping our teams in finding their next improvement opportunities. We started with an assumption that while every team is unique, there must be a way to approach a “team health” conversation in a similar fashion across them all. By using a standardized assessment we also expected to find some areas in which organizational improvements would be beneficial. In our quest for a suitable tool, we borrowed, fine-tuned and iterated to finally arrive at the health checks that fit our needs. This blog post is a reflection on the evolution of team health checks in HBC.</summary></entry></feed>

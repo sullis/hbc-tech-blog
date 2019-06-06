@@ -1,6 +1,16 @@
 [
     
     {
+        "title": "Migrations",
+        "date": "JUN 6 2019",
+        "author": "Sean Sullivan",
+        "category": "presentations",
+        "tags": "migrations microservices devops",
+        "excerpt": "At HBC, we are always looking for ways to improve the digital experience for our customers. We strive to improve the customer experience as well as reduce operational cost. Like many large organizations, we have a significant investment in our digital platform. Over the past five years, we have completed multiple system migrations. This has reduced complexity and allowed our organization to focus on future opportunities.",
+        "url": "/2019-06-06-migrations.html"
+    },
+    
+    {
         "title": "Deployments",
         "date": "MAY 29 2019",
         "author": "HBC Tech",
