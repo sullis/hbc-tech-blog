@@ -30,7 +30,17 @@ Jessica Tai ([@jessicamtai](https://twitter.com/jessicamtai)) at QCon San Franci
 
 [![the great migration at airbnb video](https://img.youtube.com/vi/Cy0EoQbS6RY/0.jpg)](https://www.youtube.com/watch?v=Cy0EoQbS6RY "The Great Migration at Airbnb")
 
+## Microservices at HBC
+Sean Sullivan ([@tinyrobots](https://twitter.com/tinyrobots)) at Portland Java User Group September 2018
+
+[![hbc-microservices-image](./assets/images/presentations-we-love-2018/microservices-at-hbc-september-2018-480.png)](https://speakerdeck.com/sullis/microservices-portland-oregon-2018-09-25)
+
 ## From ActiveMQ To Amazon MQ : Why And How We Moved To AWS’s Managed Solution
 Phil Whelan ([@philwhln](https://twitter.com/philwhln)) at Bench Engineering - January 2019
 
 [![bench-engineering-blog](./assets/images/migrations-2019/bench-activemq-aws-migration-480.png)](https://medium.com/bench-engineering/from-activemq-to-amazon-mq-why-and-how-we-moved-to-awss-managed-solution-afeba3ea7e23 "Bench Engineering: From ActiveMQ To Amazon MQ")
+
+## Monoliths, Migrations, and Microservices
+Randy Shoup ([@randyshoup](https://twitter.com/randyshoup)) at Reactive Summit Montreal 2018
+
+[![Shoup Reactive Summit video](https://img.youtube.com/vi/gOZFmFNl1uk/0.jpg)](https://www.youtube.com/watch?v=gOZFmFNl1uk "Monoliths, Migrations, and Microservices")
