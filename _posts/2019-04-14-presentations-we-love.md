@@ -26,6 +26,13 @@ Adrian Cockcroft ([@adrianco](https://twitter.com/adrianco)) at CraftConf - May 
 
 [![Speeding Up Innovation video](https://img.youtube.com/vi/rnygCAvVBj8/0.jpg)](https://www.youtube.com/watch?v=rnygCAvVBj8 "Speeding Up Innovation")
 
+## Cultivating Production Excellence
+Liz Fong-Jones ([@lizthegrey](https://twitter.com/lizthegrey)) at QCon London 2019
+
+[![production-excellence-qcon-london](./assets/images/presentations-we-love-2019/Cultivating_Production_Excellence_qcon_london_2019-480.png)](https://www.infoq.com/presentations/complex-distributed-systems "Cultivating Production Excellence")
+
+([slides](https://qconlondon.com/system/files/presentation-slides/cultivating_production_excellence.pdf))
+
 ## Building and Scaling High Performing Technology Organizations
 Jez Humble ([@jezhumble](https://twitter.com/jezhumble)) at Agile India - March 2019
 
