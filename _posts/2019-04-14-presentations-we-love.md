@@ -75,6 +75,11 @@ Aaron Suggs ([@ktheory](https://twitter.com/ktheory)) - PaymentsFn - April 17, 2
 
 [![glossier-black-friday-video](https://img.youtube.com/vi/Jy_-l3v9zsY/0.jpg)](https://www.youtube.com/watch?v=Jy_-l3v9zsY "Surviving Black Friday")
 
+## Platforms at Twilio: Unlocking Developer Effectiveness
+Justin Kitagawa ([@justinmkitagawa](https://twitter.com/justinmkitagawa)) at CraftConf - May 2019
+
+[![twilio-platform-video](https://img.youtube.com/vi/BIkDeTEdbSo/0.jpg)](https://www.youtube.com/watch?v=BIkDeTEdbSo "Platforms at Twilio: Unlocking Developer Effectiveness")
+
 ## Cultivating Architecture
 Birgitta Böckeler ([@birgitta410](https://twitter.com/birgitta410)) and Martin Fowler ([@martinfowler](https://twitter.com/martinfowler)) at CraftConf - May 2019
 
