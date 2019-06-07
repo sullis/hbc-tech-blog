@@ -51,6 +51,11 @@ Sean Sullivan ([@tinyrobots](https://twitter.com/tinyrobots)) at Seattle Serverl
 Martin Fowler ([@martinfowler](https://twitter.com/martinfowler)) at Etsy Engineering speaker series - February 2019
 [![Software Design in the 21st Century video](https://img.youtube.com/vi/6wDoopbtEqk/0.jpg)](https://www.youtube.com/watch?v=6wDoopbtEqk "Software Design in the 21st Century")
 
+## Etsy: Migrating a Monolith to the Cloud
+Keyur Govande ([@keyurdg](https://twitter.com/keyurdg)) at SREcon19 Americas - March 2019
+
+[![etsy-migration-to-google-cloud-video](https://img.youtube.com/vi/d5mzY_sFmDQ/0.jpg)](https://www.youtube.com/watch?v=d5mzY_sFmDQ "Etsy: Migrating a Monolith to the Cloud")
+
 ## Target's Application Platform
 Jay Chandrashekaran and Jim Beyers at Google Cloud Next - April 2019
 [![Target Application Platform video](https://img.youtube.com/vi/cnHfK4MZA2Y/0.jpg)](https://www.youtube.com/watch?v=cnHfK4MZA2Y "Target Application Platform")
