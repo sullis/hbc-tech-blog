@@ -21,6 +21,11 @@ Sarah Wells ([@sarahjwells](https://twitter.com/sarahjwells)) at QCon London 201
 
 [![Mature Microservices video](./assets/images/presentations-we-love-2019/mature-microservices-qcon-london-2019-480.png)](https://www.infoq.com/presentations/microservices-financial-times "Mature Microservices and How to Operate Them")
 
+## Speeding Up Innovation
+Adrian Cockcroft ([@adrianco](https://twitter.com/adrianco)) at CraftConf - May 2019
+
+[![Speeding Up Innovation video](https://img.youtube.com/vi/rnygCAvVBj8/0.jpg)](https://www.youtube.com/watch?v=rnygCAvVBj8 "Speeding Up Innovation")
+
 ## Building and Scaling High Performing Technology Organizations
 Jez Humble ([@jezhumble](https://twitter.com/jezhumble)) at Agile India - March 2019
 
