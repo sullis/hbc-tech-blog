@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-06-07T12:29:10-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-06-07T12:32:26-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
 </subtitle><entry><title type="html">Migrations</title><link href="https://tech.hbc.com/2019-06-06-migrations.html" rel="alternate" type="text/html" title="Migrations" /><published>2019-06-06T00:00:00-05:00</published><updated>2019-06-06T00:00:00-05:00</updated><id>https://tech.hbc.com/migrations</id><content type="html" xml:base="https://tech.hbc.com/2019-06-06-migrations.html">&lt;p&gt;At HBC, we are always looking for ways to improve the digital experience for our customers. We strive to improve the customer experience as well as reduce operational cost. Like many large organizations, we have a significant investment in our digital platform. Over the past five years, we have completed multiple system migrations. This has reduced complexity and allowed our organization to focus on future opportunities.&lt;/p&gt;
 
 &lt;p&gt;Here is a list of presentations about system migrations that we have found helpful.&lt;/p&gt;
@@ -235,6 +235,10 @@
 &lt;h2 id=&quot;devops-vs-sre-competing-standards-or-friends&quot;&gt;DevOps Vs. SRE: Competing Standards or Friends?&lt;/h2&gt;
 &lt;p&gt;Seth Vargo (&lt;a href=&quot;https://twitter.com/sethvargo&quot;&gt;@sethvargo&lt;/a&gt;) at Google Cloud Next - April 2019
 &lt;a href=&quot;https://www.youtube.com/watch?v=0UyrVqBoCAU&quot; title=&quot;DevOps Vs. SRE: Competing Standards or Friends?&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/0UyrVqBoCAU/0.jpg&quot; alt=&quot;devops-vs-sre-video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;modern-continuous-delivery&quot;&gt;Modern Continuous Delivery&lt;/h2&gt;
+&lt;p&gt;Ken Mugrage (&lt;a href=&quot;https://twitter.com/kmugrage&quot;&gt;@kmugrage&lt;/a&gt;) at DevOpsDays Copenhagen - April 2019
+&lt;a href=&quot;https://www.youtube.com/watch?v=Gq8RStjdhoQ&quot; title=&quot;Modern Continuous Delivery&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/Gq8RStjdhoQ/0.jpg&quot; alt=&quot;mugrage-delivery-video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;progressive-delivery&quot;&gt;Progressive Delivery&lt;/h2&gt;
 &lt;p&gt;James Governor (&lt;a href=&quot;https://twitter.com/monkchips&quot;&gt;@monkchips&lt;/a&gt;) at QCon London 2019&lt;/p&gt;
