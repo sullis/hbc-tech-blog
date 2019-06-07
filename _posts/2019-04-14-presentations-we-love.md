@@ -80,6 +80,11 @@ Justin Kitagawa ([@justinmkitagawa](https://twitter.com/justinmkitagawa)) at Cra
 
 [![twilio-platform-video](https://img.youtube.com/vi/BIkDeTEdbSo/0.jpg)](https://www.youtube.com/watch?v=BIkDeTEdbSo "Platforms at Twilio: Unlocking Developer Effectiveness")
 
+## Moving Fast at Scale
+Randy Shoup ([@randyshoup](https://twitter.com/randyshoup)) at CraftConf - May 2019
+
+[![moving-fast-video](https://img.youtube.com/vi/t-sIaw4kHqI/0.jpg)](https://www.youtube.com/watch?v=t-sIaw4kHqI "Moving Fast at Scale")
+
 ## Cultivating Architecture
 Birgitta Böckeler ([@birgitta410](https://twitter.com/birgitta410)) and Martin Fowler ([@martinfowler](https://twitter.com/martinfowler)) at CraftConf - May 2019
 
