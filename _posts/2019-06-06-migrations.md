@@ -59,3 +59,8 @@ Ruslan Nigmatullin and Alexey Ivanov at Dropbox Engineering - January 2019
 Soeren Walls and Sergio Felix at Google Cloud Next 2019
 
 [![google-next-2019-microservices-video](https://img.youtube.com/vi/_azoxefUs_Y/0.jpg)](https://www.youtube.com/watch?v=_azoxefUs_Y "Migrating a Monolithic Application to Microservices")
+
+## Lessons Learned from Our Main Database Migrations at Facebook
+Yoshinori Matsunobu ([@yoshinorim](https://github.com/yoshinorim)) at SREcon18 Americas - March 2018
+
+[![facebook-database-video](https://img.youtube.com/vi/OjXLxhBWmyY/0.jpg)](https://www.youtube.com/watch?v=OjXLxhBWmyY "Lessons Learned from Our Main Database Migrations at Facebook")
