@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-06-07T12:16:01-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-06-07T12:17:08-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
 </subtitle><entry><title type="html">Migrations</title><link href="https://tech.hbc.com/2019-06-06-migrations.html" rel="alternate" type="text/html" title="Migrations" /><published>2019-06-06T00:00:00-05:00</published><updated>2019-06-06T00:00:00-05:00</updated><id>https://tech.hbc.com/migrations</id><content type="html" xml:base="https://tech.hbc.com/2019-06-06-migrations.html">&lt;p&gt;At HBC, we are always looking for ways to improve the digital experience for our customers. We strive to improve the customer experience as well as reduce operational cost. Like many large organizations, we have a significant investment in our digital platform. Over the past five years, we have completed multiple system migrations. This has reduced complexity and allowed our organization to focus on future opportunities.&lt;/p&gt;
 
 &lt;p&gt;Here is a list of presentations about system migrations that we have found helpful.&lt;/p&gt;
@@ -241,14 +241,14 @@
 
 &lt;p&gt;&lt;a href=&quot;https://www.infoq.com/presentations/progressive-delivery&quot; title=&quot;Progressive Delivery&quot;&gt;&lt;img src=&quot;./assets/images/presentations-we-love-2019/progressive-delivery-qcon-london-2019-480.png&quot; alt=&quot;Progressive Delivery video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;how-retailers-prepare-for-black-friday-on-google-cloud-platform&quot;&gt;How Retailers Prepare for Black Friday on Google Cloud Platform&lt;/h2&gt;
-&lt;p&gt;Kiran Davuluri, Jimit Ladha, and Andre Fatala at Google Cloud Next - April 2019
-&lt;a href=&quot;https://www.youtube.com/watch?v=fbstGbxcni4&quot; title=&quot;How Retailers Prepare for Black Friday on Google Cloud Platform&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/fbstGbxcni4/0.jpg&quot; alt=&quot;prepare-for-black-friday-video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
 &lt;h2 id=&quot;testing-in-production-at-scale-at-uber&quot;&gt;Testing in Production at Scale at Uber&lt;/h2&gt;
 &lt;p&gt;Amit Gud (&lt;a href=&quot;https://twitter.com/amitgud&quot;&gt;@amitgud&lt;/a&gt;) - SRECon19 Americas - March 25, 2019&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=nIlFmja65_g&quot; title=&quot;Testing in Production at Scale&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/nIlFmja65_g/0.jpg&quot; alt=&quot;testing-in-production-uber-video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;how-retailers-prepare-for-black-friday-on-google-cloud-platform&quot;&gt;How Retailers Prepare for Black Friday on Google Cloud Platform&lt;/h2&gt;
+&lt;p&gt;Kiran Davuluri, Jimit Ladha, and Andre Fatala at Google Cloud Next - April 2019
+&lt;a href=&quot;https://www.youtube.com/watch?v=fbstGbxcni4&quot; title=&quot;How Retailers Prepare for Black Friday on Google Cloud Platform&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/fbstGbxcni4/0.jpg&quot; alt=&quot;prepare-for-black-friday-video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;surviving-black-friday-tales-from-an-e-commerce-engineer-at-glossier&quot;&gt;Surviving Black Friday: tales From an e-commerce engineer at Glossier&lt;/h2&gt;
 &lt;p&gt;Aaron Suggs (&lt;a href=&quot;https://twitter.com/ktheory&quot;&gt;@ktheory&lt;/a&gt;) - PaymentsFn - April 17, 2019&lt;/p&gt;
