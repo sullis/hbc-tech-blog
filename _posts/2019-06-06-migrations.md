@@ -54,3 +54,8 @@ Randy Shoup ([@randyshoup](https://twitter.com/randyshoup)) at Reactive Summit M
 Ruslan Nigmatullin and Alexey Ivanov at Dropbox Engineering - January 2019
 
 [![dropbox-engineering-blog](./assets/images/migrations-2019/dropbox-migration-grpc-480.png)](https://blogs.dropbox.com/tech/2019/01/courier-dropbox-migration-to-grpc/ "Dropbox migration to gRPC")
+
+## Migrating a Monolithic Application to Microservices at Google
+Soeren Walls and Sergio Felix at Google Cloud Next 2019
+
+[![google-next-2019-microservices-video](https://img.youtube.com/vi/_azoxefUs_Y/0.jpg)](https://www.youtube.com/watch?v=_azoxefUs_Y "Migrating a Monolithic Application to Microservices")
