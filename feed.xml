@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-06-07T12:17:08-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-06-07T12:22:59-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
 </subtitle><entry><title type="html">Migrations</title><link href="https://tech.hbc.com/2019-06-06-migrations.html" rel="alternate" type="text/html" title="Migrations" /><published>2019-06-06T00:00:00-05:00</published><updated>2019-06-06T00:00:00-05:00</updated><id>https://tech.hbc.com/migrations</id><content type="html" xml:base="https://tech.hbc.com/2019-06-06-migrations.html">&lt;p&gt;At HBC, we are always looking for ways to improve the digital experience for our customers. We strive to improve the customer experience as well as reduce operational cost. Like many large organizations, we have a significant investment in our digital platform. Over the past five years, we have completed multiple system migrations. This has reduced complexity and allowed our organization to focus on future opportunities.&lt;/p&gt;
 
 &lt;p&gt;Here is a list of presentations about system migrations that we have found helpful.&lt;/p&gt;
@@ -254,6 +254,11 @@
 &lt;p&gt;Aaron Suggs (&lt;a href=&quot;https://twitter.com/ktheory&quot;&gt;@ktheory&lt;/a&gt;) - PaymentsFn - April 17, 2019&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=Jy_-l3v9zsY&quot; title=&quot;Surviving Black Friday&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/Jy_-l3v9zsY/0.jpg&quot; alt=&quot;glossier-black-friday-video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;platforms-at-twilio-unlocking-developer-effectiveness&quot;&gt;Platforms at Twilio: Unlocking Developer Effectiveness&lt;/h2&gt;
+&lt;p&gt;Justin Kitagawa (&lt;a href=&quot;https://twitter.com/justinmkitagawa&quot;&gt;@justinmkitagawa&lt;/a&gt;) at CraftConf - May 2019&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=BIkDeTEdbSo&quot; title=&quot;Platforms at Twilio: Unlocking Developer Effectiveness&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/BIkDeTEdbSo/0.jpg&quot; alt=&quot;twilio-platform-video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;cultivating-architecture&quot;&gt;Cultivating Architecture&lt;/h2&gt;
 &lt;p&gt;Birgitta Böckeler (&lt;a href=&quot;https://twitter.com/birgitta410&quot;&gt;@birgitta410&lt;/a&gt;) and Martin Fowler (&lt;a href=&quot;https://twitter.com/martinfowler&quot;&gt;@martinfowler&lt;/a&gt;) at CraftConf - May 2019&lt;/p&gt;
