@@ -55,6 +55,10 @@ Chris Munns ([@chrismunns](https://twitter.com/chrismunns)) at ServerlessDays Bo
 Seth Vargo ([@sethvargo](https://twitter.com/sethvargo)) at Google Cloud Next - April 2019
 [![devops-vs-sre-video](https://img.youtube.com/vi/0UyrVqBoCAU/0.jpg)](https://www.youtube.com/watch?v=0UyrVqBoCAU "DevOps Vs. SRE: Competing Standards or Friends?")
 
+## Modern Continuous Delivery
+Ken Mugrage ([@kmugrage](https://twitter.com/kmugrage)) at DevOpsDays Copenhagen - April 2019
+[![mugrage-delivery-video](https://img.youtube.com/vi/Gq8RStjdhoQ/0.jpg)](https://www.youtube.com/watch?v=Gq8RStjdhoQ "Modern Continuous Delivery")
+
 ## Progressive Delivery
 James Governor ([@monkchips](https://twitter.com/monkchips)) at QCon London 2019
 
