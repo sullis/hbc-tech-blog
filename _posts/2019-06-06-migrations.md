@@ -65,6 +65,11 @@ Yoshinori Matsunobu ([@yoshinorim](https://github.com/yoshinorim)) at SREcon18 A
 
 [![facebook-database-video](https://img.youtube.com/vi/OjXLxhBWmyY/0.jpg)](https://www.youtube.com/watch?v=OjXLxhBWmyY "Lessons Learned from Our Main Database Migrations at Facebook")
 
+## Soundcloud: Migrations under Production Load - How to Switch Your Database without Disrupting Service
+Vilde Opsal ([@thevildebeast](https://twitter.com/thevildebeast)) at SREcon18 EMEA - August 2018
+
+[![soundcloud-migration-video](https://img.youtube.com/vi/ZMxakAXB-nE/0.jpg)](https://www.youtube.com/watch?v=ZMxakAXB-nE "Soundcloud: Migrations under Production Load - How to Switch Your Database without Disrupting Service")
+
 ## Dropbox migration to gRPC
 Ruslan Nigmatullin and Alexey Ivanov at Dropbox Engineering - January 2019
 
