@@ -74,3 +74,10 @@ Amit Gud ([@amitgud](https://twitter.com/amitgud)) - SRECon19 Americas - March 2
 Aaron Suggs ([@ktheory](https://twitter.com/ktheory)) - PaymentsFn - April 17, 2019
 
 [![glossier-black-friday-video](https://img.youtube.com/vi/Jy_-l3v9zsY/0.jpg)](https://www.youtube.com/watch?v=Jy_-l3v9zsY "Surviving Black Friday")
+
+## Cultivating Architecture
+Birgitta Böckeler ([@birgitta410](https://twitter.com/birgitta410)) and Martin Fowler ([@martinfowler](https://twitter.com/martinfowler)) at CraftConf - May 2019
+
+[![cultivating-architecture-video](https://img.youtube.com/vi/MZnrxjw602E/0.jpg)](https://www.youtube.com/watch?v=MZnrxjw602E "Cultivating Architecture")
+
+([slides](https://speakerdeck.com/birgitta410/cultivating-architecture))
