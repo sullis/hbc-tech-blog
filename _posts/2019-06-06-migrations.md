@@ -50,10 +50,10 @@ Randy Shoup ([@randyshoup](https://twitter.com/randyshoup)) at Reactive Summit M
 
 [![Shoup Reactive Summit video](https://img.youtube.com/vi/gOZFmFNl1uk/0.jpg)](https://www.youtube.com/watch?v=gOZFmFNl1uk "Monoliths, Migrations, and Microservices")
 
-## Dropbox migration to gRPC
-Ruslan Nigmatullin and Alexey Ivanov at Dropbox Engineering - January 2019
+## Etsy: Migrating a Monolith to the Cloud
+Keyur Govande ([@keyurdg](https://twitter.com/keyurdg)) at SREcon19 Americas - March 2019
 
-[![dropbox-engineering-blog](./assets/images/migrations-2019/dropbox-migration-grpc-480.png)](https://blogs.dropbox.com/tech/2019/01/courier-dropbox-migration-to-grpc/ "Dropbox migration to gRPC")
+[![etsy-migration-to-google-cloud-video](https://img.youtube.com/vi/d5mzY_sFmDQ/0.jpg)](https://www.youtube.com/watch?v=d5mzY_sFmDQ "Etsy: Migrating a Monolith to the Cloud")
 
 ## Migrating a Monolithic Application to Microservices at Google
 Soeren Walls and Sergio Felix at Google Cloud Next 2019
@@ -64,3 +64,8 @@ Soeren Walls and Sergio Felix at Google Cloud Next 2019
 Yoshinori Matsunobu ([@yoshinorim](https://github.com/yoshinorim)) at SREcon18 Americas - March 2018
 
 [![facebook-database-video](https://img.youtube.com/vi/OjXLxhBWmyY/0.jpg)](https://www.youtube.com/watch?v=OjXLxhBWmyY "Lessons Learned from Our Main Database Migrations at Facebook")
+
+## Dropbox migration to gRPC
+Ruslan Nigmatullin and Alexey Ivanov at Dropbox Engineering - January 2019
+
+[![dropbox-engineering-blog](./assets/images/migrations-2019/dropbox-migration-grpc-480.png)](https://blogs.dropbox.com/tech/2019/01/courier-dropbox-migration-to-grpc/ "Dropbox migration to gRPC")
