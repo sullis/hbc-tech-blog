@@ -70,6 +70,11 @@ Vilde Opsal ([@thevildebeast](https://twitter.com/thevildebeast)) at SREcon18 EM
 
 [![soundcloud-migration-video](https://img.youtube.com/vi/ZMxakAXB-nE/0.jpg)](https://www.youtube.com/watch?v=ZMxakAXB-nE "Soundcloud: Migrations under Production Load - How to Switch Your Database without Disrupting Service")
 
+## Spotify: The Story of Why We Migrate to gRPC
+Matthias Grüter ([@mattgruter](https://twitter.com/mattgruter)) at CloudNativeCon Europe - May 2019
+
+[![spotify-grpc-migration-video](https://img.youtube.com/vi/fMq3IpPE3TU/0.jpg)](https://www.youtube.com/watch?v=fMq3IpPE3TU "Spotify: The Story of Why We Migrate to gRPC")
+
 ## Dropbox migration to gRPC
 Ruslan Nigmatullin and Alexey Ivanov at Dropbox Engineering - January 2019
 
