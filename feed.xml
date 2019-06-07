@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-06-07T12:45:13-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-06-07T12:50:52-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
 </subtitle><entry><title type="html">Migrations</title><link href="https://tech.hbc.com/2019-06-06-migrations.html" rel="alternate" type="text/html" title="Migrations" /><published>2019-06-06T00:00:00-05:00</published><updated>2019-06-06T00:00:00-05:00</updated><id>https://tech.hbc.com/migrations</id><content type="html" xml:base="https://tech.hbc.com/2019-06-06-migrations.html">&lt;p&gt;At HBC, we are always looking for ways to improve the digital experience for our customers. We strive to improve the customer experience as well as reduce operational cost. Like many large organizations, we have a significant investment in our digital platform. Over the past five years, we have completed multiple system migrations. This has reduced complexity and allowed our organization to focus on future opportunities.&lt;/p&gt;
 
 &lt;p&gt;Here is a list of presentations about system migrations that we have found helpful.&lt;/p&gt;
@@ -206,6 +206,13 @@
 &lt;p&gt;Adrian Cockcroft (&lt;a href=&quot;https://twitter.com/adrianco&quot;&gt;@adrianco&lt;/a&gt;) at CraftConf - May 2019&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=rnygCAvVBj8&quot; title=&quot;Speeding Up Innovation&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/rnygCAvVBj8/0.jpg&quot; alt=&quot;Speeding Up Innovation video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;cultivating-production-excellence&quot;&gt;Cultivating Production Excellence&lt;/h2&gt;
+&lt;p&gt;Liz Fong-Jones (&lt;a href=&quot;https://twitter.com/lizthegrey&quot;&gt;@lizthegrey&lt;/a&gt;) at QCon London 2019&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.infoq.com/presentations/complex-distributed-systems&quot; title=&quot;Cultivating Production Excellence&quot;&gt;&lt;img src=&quot;./assets/images/presentations-we-love-2019/Cultivating_Production_Excellence_qcon_london_2019-480.png&quot; alt=&quot;production-excellence-qcon-london&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;(&lt;a href=&quot;https://qconlondon.com/system/files/presentation-slides/cultivating_production_excellence.pdf&quot;&gt;slides&lt;/a&gt;)&lt;/p&gt;
 
 &lt;h2 id=&quot;building-and-scaling-high-performing-technology-organizations&quot;&gt;Building and Scaling High Performing Technology Organizations&lt;/h2&gt;
 &lt;p&gt;Jez Humble (&lt;a href=&quot;https://twitter.com/jezhumble&quot;&gt;@jezhumble&lt;/a&gt;) at Agile India - March 2019&lt;/p&gt;
