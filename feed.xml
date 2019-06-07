@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-06-07T09:42:14-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-06-07T09:47:55-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
 </subtitle><entry><title type="html">Migrations</title><link href="https://tech.hbc.com/2019-06-06-migrations.html" rel="alternate" type="text/html" title="Migrations" /><published>2019-06-06T00:00:00-05:00</published><updated>2019-06-06T00:00:00-05:00</updated><id>https://tech.hbc.com/migrations</id><content type="html" xml:base="https://tech.hbc.com/2019-06-06-migrations.html">&lt;p&gt;At HBC, we are always looking for ways to improve the digital experience for our customers. We strive to improve the customer experience as well as reduce operational cost. Like many large organizations, we have a significant investment in our digital platform. Over the past five years, we have completed multiple system migrations. This has reduced complexity and allowed our organization to focus on future opportunities.&lt;/p&gt;
 
 &lt;p&gt;Here is a list of presentations about system migrations that we have found helpful.&lt;/p&gt;
@@ -52,6 +52,11 @@
 &lt;p&gt;Yoshinori Matsunobu (&lt;a href=&quot;https://github.com/yoshinorim&quot;&gt;@yoshinorim&lt;/a&gt;) at SREcon18 Americas - March 2018&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=OjXLxhBWmyY&quot; title=&quot;Lessons Learned from Our Main Database Migrations at Facebook&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/OjXLxhBWmyY/0.jpg&quot; alt=&quot;facebook-database-video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;soundcloud-migrations-under-production-load---how-to-switch-your-database-without-disrupting-service&quot;&gt;Soundcloud: Migrations under Production Load - How to Switch Your Database without Disrupting Service&lt;/h2&gt;
+&lt;p&gt;Vilde Opsal (&lt;a href=&quot;https://twitter.com/thevildebeast&quot;&gt;@thevildebeast&lt;/a&gt;) at SREcon18 EMEA - August 2018&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=ZMxakAXB-nE&quot; title=&quot;Soundcloud: Migrations under Production Load - How to Switch Your Database without Disrupting Service&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/ZMxakAXB-nE/0.jpg&quot; alt=&quot;soundcloud-migration-video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;dropbox-migration-to-grpc&quot;&gt;Dropbox migration to gRPC&lt;/h2&gt;
 &lt;p&gt;Ruslan Nigmatullin and Alexey Ivanov at Dropbox Engineering - January 2019&lt;/p&gt;
