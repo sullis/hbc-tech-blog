@@ -86,6 +86,12 @@ Yunong Xiao ([@yunongx](https://twitter.com/yunongx)) at QCon New York 2017
 
 [![Paved PaaS to Microservices at Netflix](http://img.youtube.com/vi/BjKJyWeg88c/0.jpg)](http://www.youtube.com/watch?v=BjKJyWeg88c "Paved PaaS to Microservices at Netflix")
 
+## Productivity Engineering at Netflix
+Sangeeta Narayanan ([@sangeetan](https://twitter.com/sangeetan)) and Mike McGarr ([@sonofgarr](https://twitter.com/sonofgarr)) at Productivity Engineering Silicon Valley Meetup - December 2017
+
+[![Productivity Engineering at Netflix](http://img.youtube.com/vi/u4MADwJbxpw/0.jpg)](http://www.youtube.com/watch?v=u4MADwJbxpw "Productivity Engineering at Netflix")
+
+
 ## Distroless Docker: Containerizing Apps, not VMs
 Matthew Moore ([@mattomata](https://twitter.com/mattomata)) at JFrog SwampUp 2017
 
