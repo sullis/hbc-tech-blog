@@ -182,3 +182,8 @@ Peter Vosshall ([@petervosshall](https://twitter.com/petervosshall)) at AWS Re:I
 Thomas Limoncelli ([@yesthattom](https://twitter.com/yesthattom)) at DevOpsDays NYC 2018
 
 [![limoncelli-devops-video](https://img.youtube.com/vi/3uVdRpjn8iA/0.jpg)](https://www.youtube.com/watch?v=3uVdRpjn8iA "Stealing The Best Ideas From DevOps")
+
+## Productivity Engineering at Google
+Michael Bachman at Productivity Engineering Silicon Valley meetup - April 2018
+
+[![Productivity Engineering at Google](https://img.youtube.com/vi/ETtRxDEYeF4/0.jpg)](https://www.youtube.com/watch?v=ETtRxDEYeF4 "Productivity Engineering at Google")
