@@ -167,3 +167,8 @@ Will Larson ([@lethain](https://twitter.com/lethain)) at QCon San Francisco 2018
 Peter Vosshall ([@petervosshall](https://twitter.com/petervosshall)) at AWS Re:Invent 2018
 
 [![blast-radius-video](https://img.youtube.com/vi/swQbA4zub20/0.jpg)](https://www.youtube.com/watch?v=swQbA4zub20 "How AWS Minimizes the Blast Radius of Failures")
+
+## Stealing The Best Ideas From DevOps
+Thomas Limoncelli ([@yesthattom](https://twitter.com/yesthattom)) at DevOpsDays NYC 2018
+
+[![limoncelli-devops-video](https://img.youtube.com/vi/3uVdRpjn8iA/0.jpg)](https://www.youtube.com/watch?v=3uVdRpjn8iA "Stealing The Best Ideas From DevOps")
