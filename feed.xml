@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-06-07T20:04:27-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-06-07T20:15:45-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
 </subtitle><entry><title type="html">Migrations</title><link href="https://tech.hbc.com/2019-06-06-migrations.html" rel="alternate" type="text/html" title="Migrations" /><published>2019-06-06T00:00:00-05:00</published><updated>2019-06-06T00:00:00-05:00</updated><id>https://tech.hbc.com/migrations</id><content type="html" xml:base="https://tech.hbc.com/2019-06-06-migrations.html">&lt;p&gt;At HBC, we are always looking for ways to improve the digital experience for our customers. We strive to improve the customer experience as well as reduce operational cost. Like many large organizations, we have a significant investment in our digital platform. Over the past five years, we have completed multiple system migrations. This has reduced complexity and allowed our organization to focus on future opportunities.&lt;/p&gt;
 
 &lt;p&gt;Here is a list of presentations about system migrations that we have found helpful.&lt;/p&gt;
@@ -231,6 +231,11 @@
 &lt;h2 id=&quot;software-design-in-the-21st-century&quot;&gt;Software Design in the 21st Century&lt;/h2&gt;
 &lt;p&gt;Martin Fowler (&lt;a href=&quot;https://twitter.com/martinfowler&quot;&gt;@martinfowler&lt;/a&gt;) at Etsy Engineering speaker series - February 2019
 &lt;a href=&quot;https://www.youtube.com/watch?v=6wDoopbtEqk&quot; title=&quot;Software Design in the 21st Century&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/6wDoopbtEqk/0.jpg&quot; alt=&quot;Software Design in the 21st Century video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-aws-billing-machine-and-optimizing-cloud-costs-at-stripe&quot;&gt;The AWS Billing Machine and Optimizing Cloud Costs at Stripe&lt;/h2&gt;
+&lt;p&gt;Ryan Lopopolo (&lt;a href=&quot;https://github.com/lopopolo&quot;&gt;@lopopolo&lt;/a&gt;) at DevOpsDays Seattle 2019&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=QBpP3KpdM9c&quot; title=&quot;The AWS Billing Machine and Optimizing Cloud Costs at Stripe&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/QBpP3KpdM9c/0.jpg&quot; alt=&quot;stripe-aws-billing-video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;etsy-migrating-a-monolith-to-the-cloud&quot;&gt;Etsy: Migrating a Monolith to the Cloud&lt;/h2&gt;
 &lt;p&gt;Keyur Govande (&lt;a href=&quot;https://twitter.com/keyurdg&quot;&gt;@keyurdg&lt;/a&gt;) at SREcon19 Americas - March 2019&lt;/p&gt;
