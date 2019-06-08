@@ -158,6 +158,11 @@ Greg Burrell ([@gburrell_greg](https://twitter.com/gburrell_greg)) at QCon San F
 
 [![Full Cycle Developers video](https://img.youtube.com/vi/8OorWiBfmE0/0.jpg)](https://www.youtube.com/watch?v=8OorWiBfmE0 "Full Cycle Developers at Netflix")
 
+## Taming polyglot development using Docker at Netflix
+Nadav Cohen ([@nadavc](https://twitter.com/nadavc)) at Productivity Engineering Silicon Valley meetup - February 2018
+
+[![Taming polyglot development using Docker at Netflix](https://img.youtube.com/vi/rkVdDD7gOd0/0.jpg)](https://www.youtube.com/watch?v=rkVdDD7gOd0 "Taming polyglot development using Docker at Netflix")
+
 ## Why You Need A Software Delivery Machine
 Rod Johnson ([@springrod](https://twitter.com/springrod)) at GOTO Copenhagen 2018
 
