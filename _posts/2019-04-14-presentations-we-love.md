@@ -51,6 +51,11 @@ Sean Sullivan ([@tinyrobots](https://twitter.com/tinyrobots)) at Seattle Serverl
 Martin Fowler ([@martinfowler](https://twitter.com/martinfowler)) at Etsy Engineering speaker series - February 2019
 [![Software Design in the 21st Century video](https://img.youtube.com/vi/6wDoopbtEqk/0.jpg)](https://www.youtube.com/watch?v=6wDoopbtEqk "Software Design in the 21st Century")
 
+## The AWS Billing Machine and Optimizing Cloud Costs at Stripe
+Ryan Lopopolo ([@lopopolo](https://github.com/lopopolo)) at DevOpsDays Seattle 2019
+
+[![stripe-aws-billing-video](https://img.youtube.com/vi/QBpP3KpdM9c/0.jpg)](https://www.youtube.com/watch?v=QBpP3KpdM9c "The AWS Billing Machine and Optimizing Cloud Costs at Stripe")
+
 ## Etsy: Migrating a Monolith to the Cloud
 Keyur Govande ([@keyurdg](https://twitter.com/keyurdg)) at SREcon19 Americas - March 2019
 
