@@ -59,6 +59,17 @@ Sean Sullivan ([@tinyrobots](https://twitter.com/tinyrobots)) at Seattle Serverl
 
 [![safe-lambda-deployment-slides](./assets/images/deployments-2019/safe-lambda-deployments-seattle-2019-02-21-480.png)](https://speakerdeck.com/sullis/safe-lambda-deployments-seattle-2019-02-21 "Safe Lambda Deployments")
 
+## How Intuit Does Canary and Blue Green Deployments with a Kubernetes Controller
+Daniel Thomson and Alex Matyushentsev at KubeCon Europe 2019
+
+[![How Intuit Does Canary and Blue Green Deployments with a Kubernetes Controller video](https://img.youtube.com/vi/yeVkTTO9nOA/0.jpg)](https://www.youtube.com/watch?v=yeVkTTO9nOA "How Intuit Does Canary and Blue Green Deployments with a Kubernetes Controller")
+
+## Front-end Application Deployment Patterns
+Ross Kukulinski ([@rosskukulinski](https://twitter.com/rosskukulinski)) at KubeCon North America 2018
+
+[![Front-end Application Deployment Patterns video](https://img.youtube.com/vi/yeVkTTO9nOA/0.jpg)](https://www.youtube.com/watch?v=yeVkTTO9nOA "Front-end Application Deployment Patterns")
+
+
 ## The Evolution of Continuous Delivery at Scale @ Linkedin
 Jason Toy ([@jastoy](https://www.linkedin.com/in/jastoy/)) at QCon San Francisco - November 2014
 
