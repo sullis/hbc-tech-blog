@@ -69,6 +69,10 @@ Ross Kukulinski ([@rosskukulinski](https://twitter.com/rosskukulinski)) at KubeC
 
 [![Front-end Application Deployment Patterns video](https://img.youtube.com/vi/Iih80xqpHcM/0.jpg)](https://www.youtube.com/watch?v=Iih80xqpHcM "Front-end Application Deployment Patterns")
 
+## I deploy on Fridays (and maybe you should too)
+Michiel Rook ([@michieltcs](https://twitter.com/michieltcs)) at DevOpsCon - December 2018
+
+[![deploy on Fridays video](https://img.youtube.com/vi/cEKKf_XFkxg/0.jpg)](https://www.youtube.com/watch?v=cEKKf_XFkxg "I deploy on Fridays")
 
 ## The Evolution of Continuous Delivery at Scale @ Linkedin
 Jason Toy ([@jastoy](https://www.linkedin.com/in/jastoy/)) at QCon San Francisco - November 2014
