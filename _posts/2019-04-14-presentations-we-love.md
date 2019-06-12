@@ -117,3 +117,8 @@ Birgitta Böckeler ([@birgitta410](https://twitter.com/birgitta410)) and Martin 
 [![cultivating-architecture-video](https://img.youtube.com/vi/MZnrxjw602E/0.jpg)](https://www.youtube.com/watch?v=MZnrxjw602E "Cultivating Architecture")
 
 ([slides](https://speakerdeck.com/birgitta410/cultivating-architecture))
+
+## Database Schema Migrations with Zero Downtime
+Michiel Rook ([@michieltcs](https://twitter.com/michieltcs)) at DevOpsDays Copenhagen - April 2019
+
+[![database-schema-migration-video](https://img.youtube.com/vi/RUIUUZehGgI/0.jpg)](https://www.youtube.com/watch?v=RUIUUZehGgI "Database Schema Migrations with Zero Downtime")
