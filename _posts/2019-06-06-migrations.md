@@ -79,3 +79,8 @@ Matthias Grüter ([@mattgruter](https://twitter.com/mattgruter)) at CloudNativeC
 Ruslan Nigmatullin and Alexey Ivanov at Dropbox Engineering - January 2019
 
 [![dropbox-engineering-blog](./assets/images/migrations-2019/dropbox-migration-grpc-480.png)](https://blogs.dropbox.com/tech/2019/01/courier-dropbox-migration-to-grpc/ "Dropbox migration to gRPC")
+
+## Database Schema Migrations with Zero Downtime
+Michiel Rook ([@michieltcs](https://twitter.com/michieltcs)) at DevOpsDays Copenhagen - April 2019
+
+[![database-schema-migration-video](https://img.youtube.com/vi/RUIUUZehGgI/0.jpg)](https://www.youtube.com/watch?v=RUIUUZehGgI "Database Schema Migrations with Zero Downtime")
