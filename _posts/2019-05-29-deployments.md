@@ -67,7 +67,7 @@ Daniel Thomson and Alex Matyushentsev at KubeCon Europe 2019
 ## Front-end Application Deployment Patterns
 Ross Kukulinski ([@rosskukulinski](https://twitter.com/rosskukulinski)) at KubeCon North America 2018
 
-[![Front-end Application Deployment Patterns video](https://img.youtube.com/vi/yeVkTTO9nOA/0.jpg)](https://www.youtube.com/watch?v=yeVkTTO9nOA "Front-end Application Deployment Patterns")
+[![Front-end Application Deployment Patterns video](https://img.youtube.com/vi/Iih80xqpHcM/0.jpg)](https://www.youtube.com/watch?v=Iih80xqpHcM "Front-end Application Deployment Patterns")
 
 
 ## The Evolution of Continuous Delivery at Scale @ Linkedin
