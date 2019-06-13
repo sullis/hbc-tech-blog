@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-06-13T00:47:54-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://tech.hbc.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tech.hbc.com/" rel="alternate" type="text/html" /><updated>2019-06-13T00:50:26-05:00</updated><id>https://tech.hbc.com/feed.xml</id><title type="html">HBC Tech</title><subtitle>We power the website and mobile experiences for Saks,  Saks Off Fifth, Lord &amp; Taylor and The Bay.
 </subtitle><entry><title type="html">Migrations</title><link href="https://tech.hbc.com/2019-06-06-migrations.html" rel="alternate" type="text/html" title="Migrations" /><published>2019-06-06T00:00:00-05:00</published><updated>2019-06-06T00:00:00-05:00</updated><id>https://tech.hbc.com/migrations</id><content type="html" xml:base="https://tech.hbc.com/2019-06-06-migrations.html">&lt;p&gt;At HBC, we are always looking for ways to improve the digital experience for our customers. We strive to improve the customer experience as well as reduce operational cost. Like many large organizations, we have a significant investment in our digital platform. Over the past five years, we have completed multiple system migrations. This has reduced complexity and allowed our organization to focus on future opportunities.&lt;/p&gt;
 
 &lt;p&gt;Here is a list of presentations about system migrations that we have found helpful.&lt;/p&gt;
@@ -322,6 +322,11 @@
 &lt;p&gt;Michiel Rook (&lt;a href=&quot;https://twitter.com/michieltcs&quot;&gt;@michieltcs&lt;/a&gt;) at DevOpsDays Copenhagen - April 2019&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=RUIUUZehGgI&quot; title=&quot;Database Schema Migrations with Zero Downtime&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/RUIUUZehGgI/0.jpg&quot; alt=&quot;database-schema-migration-video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;observability-superpowers-for-developers&quot;&gt;Observability: Superpowers for Developers&lt;/h2&gt;
+&lt;p&gt;Christine Yen (&lt;a href=&quot;https://twitter.com/cyen&quot;&gt;@cyen&lt;/a&gt;) at Monitorama PDX - June 2019&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://vimeo.com/341142053&quot; title=&quot;Observability: Superpowers for Developers&quot;&gt;&lt;img src=&quot;./assets/images/presentations-we-love-2019/Monitorama_PDX_2019_Christine_Yen-480.png&quot; alt=&quot;yen-monitorama-video&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;taking-human-performance-seriously-in-software&quot;&gt;Taking Human Performance Seriously In Software&lt;/h2&gt;
 &lt;p&gt;John Allspaw (&lt;a href=&quot;https://twitter.com/allspaw&quot;&gt;@allspaw&lt;/a&gt;) at Monitorama PDX - June 2019&lt;/p&gt;
