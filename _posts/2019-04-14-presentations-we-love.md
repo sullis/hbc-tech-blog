@@ -96,7 +96,7 @@ Amit Gud ([@amitgud](https://twitter.com/amitgud)) - SRECon19 Americas - March 2
 Kiran Davuluri, Jimit Ladha, and Andre Fatala at Google Cloud Next - April 2019
 [![prepare-for-black-friday-video](https://img.youtube.com/vi/fbstGbxcni4/0.jpg)](https://www.youtube.com/watch?v=fbstGbxcni4 "How Retailers Prepare for Black Friday on Google Cloud Platform")
 
-## Surviving Black Friday: tales From an e-commerce engineer at Glossier
+## Surviving Black Friday: tales from an e-commerce engineer at Glossier
 Aaron Suggs ([@ktheory](https://twitter.com/ktheory)) - PaymentsFn - April 17, 2019
 
 [![glossier-black-friday-video](https://img.youtube.com/vi/Jy_-l3v9zsY/0.jpg)](https://www.youtube.com/watch?v=Jy_-l3v9zsY "Surviving Black Friday")
