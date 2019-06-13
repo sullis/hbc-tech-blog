@@ -123,6 +123,11 @@ Michiel Rook ([@michieltcs](https://twitter.com/michieltcs)) at DevOpsDays Copen
 
 [![database-schema-migration-video](https://img.youtube.com/vi/RUIUUZehGgI/0.jpg)](https://www.youtube.com/watch?v=RUIUUZehGgI "Database Schema Migrations with Zero Downtime")
 
+## Observability: Superpowers for Developers
+Christine Yen ([@cyen](https://twitter.com/cyen)) at Monitorama PDX - June 2019
+
+[![yen-monitorama-video](./assets/images/presentations-we-love-2019/Monitorama_PDX_2019_Christine_Yen-480.png)](https://vimeo.com/341142053 "Observability: Superpowers for Developers")
+
 ## Taking Human Performance Seriously In Software
 John Allspaw ([@allspaw](https://twitter.com/allspaw)) at Monitorama PDX - June 2019
 
