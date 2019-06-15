@@ -134,6 +134,6 @@ John Allspaw ([@allspaw](https://twitter.com/allspaw)) at Monitorama PDX - June 
 [![allspaw-monitorama-video](./assets/images/presentations-we-love-2019/Monitorama_PDX_2019_John_Allspaw-480.png)](https://vimeo.com/341144396 "Taking Human Performance Seriously In Software")
 
 ## Integration Testing with Docker and Testcontainers
-Kevin Wittek ([@Kiview](https://twitter.com/Kiview)) at JEEConf - April 2019
+Kevin Wittek ([@kiview](https://twitter.com/kiview)) at JEEConf - April 2019
 
 [![testcontainers-video](https://img.youtube.com/vi/Qk6weD3h26A/0.jpg)](https://www.youtube.com/watch?v=Qk6weD3h26A "Integration Testing with Docker and Testcontainers")
