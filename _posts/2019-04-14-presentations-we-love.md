@@ -137,3 +137,10 @@ John Allspaw ([@allspaw](https://twitter.com/allspaw)) at Monitorama PDX - June 
 Kevin Wittek ([@kiview](https://twitter.com/kiview)) at JEEConf - April 2019
 
 [![testcontainers-video](https://img.youtube.com/vi/Qk6weD3h26A/0.jpg)](https://www.youtube.com/watch?v=Qk6weD3h26A "Integration Testing with Docker and Testcontainers")
+
+## Scala Error Management: Future vs ZIO
+John De Goes ([@jdegoes](https://twitter.com/jdegoes)) at Dublin Scala User Group - May 2019
+
+[![scala-zio-video](https://img.youtube.com/vi/mGxcaQs3JWI/0.jpg)](https://www.youtube.com/watch?v=mGxcaQs3JWI "Scala Error Management: Future vs ZIO")
+
+([slides](https://www.slideshare.net/jdegoes/error-management-future-vs-zio))
