@@ -38,6 +38,11 @@ Randy Shoup ([@randyshoup](https://twitter.com/randyshoup)) at Build Stuff 2018
 
 [![Shoup Build Stuff video](https://img.youtube.com/vi/TuEQG5sUJKY/0.jpg)](https://www.youtube.com/watch?v=TuEQG5sUJKY "Scaling Your Architecture with Events and Services")
 
+## Attitude Determines Altitude - Engineering Yourself
+Randy Shoup ([@randyshoup](https://twitter.com/randyshoup)) at YOW! Conference 2018
+
+[![Shoup Attitude Determines Altitude video](https://img.youtube.com/vi/0d716tXoWn4/0.jpg)](https://www.youtube.com/watch?v=0d716tXoWn4 "Attitude Determines Altitude - Engineering Yourself")
+
 ## Microservices at HBC
 Sean Sullivan ([@tinyrobots](https://twitter.com/tinyrobots)) at Portland Java User Group September 2018
 
