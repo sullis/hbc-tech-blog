@@ -202,3 +202,8 @@ Sid Anand ([@r39132](https://twitter.com/r39132)) at YOW! Conference 2018
 Ben Mackie ([@bdmackie](https://twitter.com/bdmackie)) at YOW! CTO Summit 2018
 
 [![Velocity at scale video](https://img.youtube.com/vi/b-xRHOW4sEI/0.jpg)](https://www.youtube.com/watch?v=b-xRHOW4sEI "Velocity at scale - principles to live by")
+
+## Working at Netflix
+Brendan Gregg ([@brendangregg](https://twitter.com/brendangregg)) at YOW! CTO Summit 2018
+
+[![Working at Netflix video](https://img.youtube.com/vi/EjFxLvv9_ao/0.jpg)](https://www.youtube.com/watch?v=EjFxLvv9_ao "Working at Netflix")
