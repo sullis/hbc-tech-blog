@@ -187,3 +187,8 @@ Thomas Limoncelli ([@yesthattom](https://twitter.com/yesthattom)) at DevOpsDays 
 Michael Bachman at Productivity Engineering Silicon Valley meetup - April 2018
 
 [![Productivity Engineering at Google](https://img.youtube.com/vi/ETtRxDEYeF4/0.jpg)](https://www.youtube.com/watch?v=ETtRxDEYeF4 "Productivity Engineering at Google")
+
+## Big Data, Fast Data @ Paypal
+Sid Anand ([@r39132](https://twitter.com/r39132)) at YOW! Conference 2018
+
+[![Big Data, Fast Data @ Paypal](https://img.youtube.com/vi/tiBirKquHBo/0.jpg)](https://www.youtube.com/watch?v=tiBirKquHBo "Big Data, Fast Data @ Paypal")
