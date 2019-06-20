@@ -84,3 +84,8 @@ Ruslan Nigmatullin and Alexey Ivanov at Dropbox Engineering - January 2019
 Michiel Rook ([@michieltcs](https://twitter.com/michieltcs)) at DevOpsDays Copenhagen - April 2019
 
 [![database-schema-migration-video](https://img.youtube.com/vi/RUIUUZehGgI/0.jpg)](https://www.youtube.com/watch?v=RUIUUZehGgI "Database Schema Migrations with Zero Downtime")
+
+## Building Resilience in Production Migrations at Netflix
+Sangeeta Handa ([@smhanda](https://twitter.com/smhanda)) at QCon San Francisco 2018
+
+[![Building Resilience in Production Migrations video](./assets/images/migrations-2019/netflix-migration-resilience-480.png)](https://www.infoq.com/presentations/netflix-migration-resilience/ "Building Resilience in Production Migrations")
