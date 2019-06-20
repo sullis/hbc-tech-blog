@@ -217,3 +217,8 @@ Adriaan Moors ([@adriaanm](https://twitter.com/adriaanm)) and Martin Odersky ([@
 Rob Norris ([@tpolecat](https://twitter.com/tpolecat)) at Scala Days New York 2018
 
 [![Functional Programming with Effects video](https://img.youtube.com/vi/30q6BkBv5MY/0.jpg)](https://www.youtube.com/watch?v=30q6BkBv5MY "Functional Programming with Effects")
+
+## Cats Effect: The IO Monad for Scala
+Gabriel Volpe ([@volpegabriel87](https://twitter.com/volpegabriel87)) at ScalaIO FR 2018
+
+[![Cats Effect: The IO Monad for Scala video](https://img.youtube.com/vi/8_TWM2t97r4/0.jpg)](https://www.youtube.com/watch?v=8_TWM2t97r4 "Cats Effect: The IO Monad for Scala")
