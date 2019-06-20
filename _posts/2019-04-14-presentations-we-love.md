@@ -144,3 +144,10 @@ John De Goes ([@jdegoes](https://twitter.com/jdegoes)) at Dublin Scala User Grou
 [![scala-zio-video](https://img.youtube.com/vi/mGxcaQs3JWI/0.jpg)](https://www.youtube.com/watch?v=mGxcaQs3JWI "Scala Error Management: Future vs ZIO")
 
 ([slides](https://www.slideshare.net/jdegoes/error-management-future-vs-zio))
+
+## A Tour of Scala 3
+Martin Odersky ([@odersky](https://twitter.com/odersky)) at Scala Days Lausanne 2019
+
+[![Scala 3 video](./assets/images/presentations-we-love-2019/a-tour-of-scala3-480.png)](https://portal.klewel.com/watch/webcast/scala-days-2019/talk/2/ "A Tour of Scala 3")
+
+([slides](https://www.slideshare.net/Odersky/a-tour-of-scala-3))
