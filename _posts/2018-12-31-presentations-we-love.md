@@ -207,3 +207,8 @@ Ben Mackie ([@bdmackie](https://twitter.com/bdmackie)) at YOW! CTO Summit 2018
 Brendan Gregg ([@brendangregg](https://twitter.com/brendangregg)) at YOW! CTO Summit 2018
 
 [![Working at Netflix video](https://img.youtube.com/vi/EjFxLvv9_ao/0.jpg)](https://www.youtube.com/watch?v=EjFxLvv9_ao "Working at Netflix")
+
+## Preparing for Scala 3
+Adriaan Moors ([@adriaanm](https://twitter.com/adriaanm)) and Martin Odersky ([@odersky](https://twitter.com/odersky)) at Scala Days New York 2018
+
+[![Preparing for Scala 3 video](https://img.youtube.com/vi/nKZsHZIcReA/0.jpg)](https://www.youtube.com/watch?v=nKZsHZIcReA "Preparing for Scala 3")
