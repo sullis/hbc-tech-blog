@@ -212,3 +212,8 @@ Brendan Gregg ([@brendangregg](https://twitter.com/brendangregg)) at YOW! CTO Su
 Adriaan Moors ([@adriaanm](https://twitter.com/adriaanm)) and Martin Odersky ([@odersky](https://twitter.com/odersky)) at Scala Days New York 2018
 
 [![Preparing for Scala 3 video](https://img.youtube.com/vi/nKZsHZIcReA/0.jpg)](https://www.youtube.com/watch?v=nKZsHZIcReA "Preparing for Scala 3")
+
+## Functional Programming with Effects
+Rob Norris ([@tpolecat](https://twitter.com/tpolecat)) at Scala Days New York 2018
+
+[![Functional Programming with Effects video](https://img.youtube.com/vi/30q6BkBv5MY/0.jpg)](https://www.youtube.com/watch?v=30q6BkBv5MY "Functional Programming with Effects")
