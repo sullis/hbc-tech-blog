@@ -222,3 +222,8 @@ Rob Norris ([@tpolecat](https://twitter.com/tpolecat)) at Scala Days New York 20
 Gabriel Volpe ([@volpegabriel87](https://twitter.com/volpegabriel87)) at ScalaIO FR 2018
 
 [![Cats Effect: The IO Monad for Scala video](https://img.youtube.com/vi/8_TWM2t97r4/0.jpg)](https://www.youtube.com/watch?v=8_TWM2t97r4 "Cats Effect: The IO Monad for Scala")
+
+## From Fast-Data to a Key Operational Technology for the Enterprise
+Colin Breck ([@breckcs](https://twitter.com/breckcs)) at Reactive Summit 2018
+
+[![From Fast-Data to a Key Operational Technology for the Enterprise video](https://img.youtube.com/vi/Ifaqjop1gzU/0.jpg)](https://www.youtube.com/watch?v=Ifaqjop1gzU "From Fast-Data to a Key Operational Technology for the Enterprise")
