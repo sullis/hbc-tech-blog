@@ -96,3 +96,8 @@ Sangeeta Narayanan ([@sangeetan](https://twitter.com/sangeetan)) and Mike McGarr
 Matthew Moore ([@mattomata](https://twitter.com/mattomata)) at JFrog SwampUp 2017
 
 [![Distroless Docker](http://img.youtube.com/vi/lviLZFciDv4/0.jpg)](http://www.youtube.com/watch?v=lviLZFciDv4 "Distroless Docker: Containerizing Apps, not VMs")
+
+## Shopify's Architecture to handle 80K RPS Celebrity Sales
+Simon Eskildsen ([@sirupsen](https://twitter.com/sirupsen)) at GOTO Copenhagen 2017
+
+[![Shopify's Architecture video](http://img.youtube.com/vi/N8NWDHgWA28/0.jpg)](http://www.youtube.com/watch?v=N8NWDHgWA28 "Shopify's Architecture to handle 80K RPS Celebrity Sales")
