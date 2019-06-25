@@ -89,3 +89,8 @@ Michiel Rook ([@michieltcs](https://twitter.com/michieltcs)) at DevOpsDays Copen
 Sangeeta Handa ([@smhanda](https://twitter.com/smhanda)) at QCon San Francisco 2018
 
 [![Building Resilience in Production Migrations video](./assets/images/migrations-2019/netflix-migration-resilience-480.png)](https://www.infoq.com/presentations/netflix-migration-resilience/ "Building Resilience in Production Migrations")
+
+## Kubernetes Application Migrations: How Shopify Moves Stateful Applications Between Clusters and Regions
+Ian Quick ([@ianquick](https://ca.linkedin.com/in/ianquick)) at Systems @Scale 2018
+
+[![Kubernetes Application Migrations Shopify video](./assets/images/migrations-2019/Kubernetes_Application_Migrations_How_Shopify_Moves_Stateful_Applications-480.png)](https://atscaleconference.com/videos/systems-scale-2018-kubernetes-application-migrations-how-shopify-moves-stateful-applications-between-clusters-and-regions/ "Kubernetes Application Migrations: How Shopify Moves Stateful Applications Between Clusters and Regions")
