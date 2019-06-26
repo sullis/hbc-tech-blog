@@ -151,3 +151,8 @@ Martin Odersky ([@odersky](https://twitter.com/odersky)) at Scala Days Lausanne 
 [![Scala 3 video](./assets/images/presentations-we-love-2019/a-tour-of-scala3-480.png)](https://portal.klewel.com/watch/webcast/scala-days-2019/talk/2/ "A Tour of Scala 3")
 
 ([slides](https://www.slideshare.net/Odersky/a-tour-of-scala-3))
+
+## Deconstructing the Monolith at Shopify
+Kirsten Westeinde ([@kmkwesteinde](https://twitter.com/kmkwesteinde)) at Shopify Unite - June 2019
+
+[![monolith-shopify-video](https://img.youtube.com/vi/ISYKx8sa53g/0.jpg)](https://www.youtube.com/watch?v=ISYKx8sa53g "Deconstructing the Monolith")
