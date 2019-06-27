@@ -161,3 +161,10 @@ Kirsten Westeinde ([@kmkwesteinde](https://twitter.com/kmkwesteinde)) at Shopify
 Baron Schwartz ([@xaprb](https://twitter.com/xaprb)) at Percona Live - May 2019
 
 [![Bringing DevOps to the Database video](https://img.youtube.com/vi/wWxhAh4_F8w/0.jpg)](https://www.youtube.com/watch?v=wWxhAh4_F8w "Bringing DevOps to the Database")
+
+## Optimizing Database Performance and Efficiency
+Baron Schwartz ([@xaprb](https://twitter.com/xaprb)) at Percona Live - May 2019
+
+[![Optimizing Database Performance and Efficiency video](https://img.youtube.com/vi/B8wCflNEPJ8/0.jpg)](https://www.youtube.com/watch?v=B8wCflNEPJ8 "Optimizing Database Performance and Efficiency")
+
+([slides](https://www.xaprb.com/talks/percona-live-2019-optimizing-database-performance-efficiency/))
