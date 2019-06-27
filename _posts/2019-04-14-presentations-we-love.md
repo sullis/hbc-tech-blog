@@ -156,3 +156,8 @@ Martin Odersky ([@odersky](https://twitter.com/odersky)) at Scala Days Lausanne 
 Kirsten Westeinde ([@kmkwesteinde](https://twitter.com/kmkwesteinde)) at Shopify Unite - June 2019
 
 [![monolith-shopify-video](https://img.youtube.com/vi/ISYKx8sa53g/0.jpg)](https://www.youtube.com/watch?v=ISYKx8sa53g "Deconstructing the Monolith")
+
+## Bringing DevOps to the Database
+Baron Schwartz ([@xaprb](https://twitter.com/xaprb)) at Percona Live - May 2019
+
+[![Bringing DevOps to the Database video](https://img.youtube.com/vi/wWxhAh4_F8w/0.jpg)](https://www.youtube.com/watch?v=wWxhAh4_F8w "Bringing DevOps to the Database")
