@@ -162,6 +162,8 @@ Baron Schwartz ([@xaprb](https://twitter.com/xaprb)) at Percona Live - May 2019
 
 [![Bringing DevOps to the Database video](https://img.youtube.com/vi/wWxhAh4_F8w/0.jpg)](https://www.youtube.com/watch?v=wWxhAh4_F8w "Bringing DevOps to the Database")
 
+([slides](https://www.xaprb.com/talks/percona-live-2019-bringing-devops-to-the-database/))
+
 ## Optimizing Database Performance and Efficiency
 Baron Schwartz ([@xaprb](https://twitter.com/xaprb)) at Percona Live - May 2019
 
