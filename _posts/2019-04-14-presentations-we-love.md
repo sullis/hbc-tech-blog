@@ -170,3 +170,8 @@ Baron Schwartz ([@xaprb](https://twitter.com/xaprb)) at Percona Live - May 2019
 [![Optimizing Database Performance and Efficiency video](https://img.youtube.com/vi/B8wCflNEPJ8/0.jpg)](https://www.youtube.com/watch?v=B8wCflNEPJ8 "Optimizing Database Performance and Efficiency")
 
 ([slides](https://www.xaprb.com/talks/percona-live-2019-optimizing-database-performance-efficiency/))
+
+## Develop Hundreds of Kubernetes Services at Scale with Airbnb
+Melanie Cebula ([@MelanieCebula](https://twitter.com/MelanieCebula)) at QCon London 2019
+
+[![Develop Hundreds of Kubernetes Services at Scale with Airbnb video](https://img.youtube.com/vi/DhuEc-IHrzo/0.jpg)](https://www.youtube.com/watch?v=DhuEc-IHrzo "Develop Hundreds of Kubernetes Services at Scale with Airbnb")
