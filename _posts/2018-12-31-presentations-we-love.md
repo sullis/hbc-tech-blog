@@ -227,3 +227,10 @@ Gabriel Volpe ([@volpegabriel87](https://twitter.com/volpegabriel87)) at ScalaIO
 Colin Breck ([@breckcs](https://twitter.com/breckcs)) at Reactive Summit 2018
 
 [![From Fast-Data to a Key Operational Technology for the Enterprise video](https://img.youtube.com/vi/Ifaqjop1gzU/0.jpg)](https://www.youtube.com/watch?v=Ifaqjop1gzU "From Fast-Data to a Key Operational Technology for the Enterprise")
+
+## DevOps at Uber
+Kiran Bondalapati ([@bondlog](https://twitter.com/bondlog)) at Code-Conf 2018
+
+[![DevOps at Uber video](https://img.youtube.com/vi/WDLPytojmck/0.jpg)](https://www.youtube.com/watch?v=WDLPytojmck "DevOps at Uber")
+
+([slides](https://www.slideshare.net/secret/BlSXxmVNBOHDOo))
