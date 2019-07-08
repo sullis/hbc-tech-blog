@@ -234,3 +234,8 @@ Kiran Bondalapati ([@bondlog](https://twitter.com/bondlog)) at Code-Conf 2018
 [![DevOps at Uber video](https://img.youtube.com/vi/WDLPytojmck/0.jpg)](https://www.youtube.com/watch?v=WDLPytojmck "DevOps at Uber")
 
 ([slides](https://www.slideshare.net/secret/BlSXxmVNBOHDOo))
+
+## Enabling Microservices at Apple
+Scott Mitchell ([@scott_mitch_](https://twitter.com/scott_mitch_)) at Devoxx Belgium 2018
+
+[![Enabling Microservices at Apple video](https://img.youtube.com/vi/Ms8vriZ6ieU/0.jpg)](https://www.youtube.com/watch?v=Ms8vriZ6ieU "Enabling Microservices at Apple")
