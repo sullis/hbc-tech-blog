@@ -175,3 +175,8 @@ Baron Schwartz ([@xaprb](https://twitter.com/xaprb)) at Percona Live - May 2019
 Melanie Cebula ([@MelanieCebula](https://twitter.com/MelanieCebula)) at QCon London 2019
 
 [![Develop Hundreds of Kubernetes Services at Scale with Airbnb video](https://img.youtube.com/vi/DhuEc-IHrzo/0.jpg)](https://www.youtube.com/watch?v=DhuEc-IHrzo "Develop Hundreds of Kubernetes Services at Scale with Airbnb")
+
+## Docker and Java
+Mohammed Aboullaite ([@laytoun](https://twitter.com/laytoun)) at Voxxed Days Singapore 2019
+
+[![Docker and Java video](https://img.youtube.com/vi/ZVWqjp5QgxU/0.jpg)](https://www.youtube.com/watch?v=ZVWqjp5QgxU "Docker and Java")
