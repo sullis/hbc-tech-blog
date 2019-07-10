@@ -88,3 +88,8 @@ Stuart Davidson ([@spedge](https://twitter.com/spedge)) at QCon London - May 201
 Sean Sullivan ([@tinyrobots](https://twitter.com/tinyrobots)) - April 2019
 
 [![deployments-endgame-slides](./assets/images/deployments-2019/deployments-endgame-2019-04-26-480.png)](https://speakerdeck.com/sullis/deployments-endgame-2019-04-26 "Deployments Endgame")
+
+## Continuous Deployment at Facebook Scale
+Boris Grubic and Fangfei Zhou - Systems @ Scale 2019
+
+[![facebook-2019-slides](./assets/images/deployments-2019/Systems__Scale_2019__Continuous_Deployment_at_Facebook_Scale-480.png)](https://atscaleconference.com/videos/systems-scale-2019-continuous-deployment-at-facebook-scale/ "Continuous Deployment at Facebook Scale")
