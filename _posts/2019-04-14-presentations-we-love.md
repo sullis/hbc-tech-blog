@@ -152,6 +152,12 @@ Martin Odersky ([@odersky](https://twitter.com/odersky)) at Scala Days Lausanne 
 
 ([slides](https://www.slideshare.net/Odersky/a-tour-of-scala-3))
 
+## Scala Best Practices
+Nicolas Rinaudo ([@NicolasRinaudo](https://twitter.com/NicolasRinaudo)) at Scala Days Lausanne 2019
+
+[![scala-best-practices-video](https://img.youtube.com/vi/DGa58FfiMqc/0.jpg)](https://www.youtube.com/watch?v=DGa58FfiMqc "Scala Best Practices")
+
+
 ## Deconstructing the Monolith at Shopify
 Kirsten Westeinde ([@kmkwesteinde](https://twitter.com/kmkwesteinde)) at Shopify Unite - June 2019
 
