@@ -186,3 +186,8 @@ Melanie Cebula ([@MelanieCebula](https://twitter.com/MelanieCebula)) at QCon Lon
 Mohammed Aboullaite ([@laytoun](https://twitter.com/laytoun)) at Voxxed Days Singapore 2019
 
 [![Docker and Java video](https://img.youtube.com/vi/ZVWqjp5QgxU/0.jpg)](https://www.youtube.com/watch?v=ZVWqjp5QgxU "Docker and Java")
+
+## Reliable processing in a streaming payment system at Uber
+Emilee Urbanek ([@_urbs_](https://twitter.com/_urbs_)) and Manas Kelshikar at MoneyCon 2019
+
+[![streaming payments video](https://img.youtube.com/vi/5TD8m7w1xE0/0.jpg)](https://www.youtube.com/watch?v=5TD8m7w1xE0 "Reliable processing in a streaming payment system at Uber")
