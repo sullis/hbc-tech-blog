@@ -201,3 +201,8 @@ Sophie Behr and John Chew at MoneyCon 2019
 Kirill Sapchuk and Evgeny Skarbovsky at MoneyCon 2019
 
 [![Dropbox payments platform video](https://img.youtube.com/vi/cARulgmUtW8/0.jpg)](https://www.youtube.com/watch?v=cARulgmUtW8 "Evolution of Revenue Optimization at Dropbox")
+
+## Payment Transaction Routing at LinkedIn
+Tim Tan ([@tim-tan](https://www.linkedin.com/in/tim-tan/)) at MoneyCon 2019
+
+[![Payment Transaction Routing at LinkedIn video](https://img.youtube.com/vi/afs6CnU6qtk/0.jpg)](https://www.youtube.com/watch?v=afs6CnU6qtk "Payment Transaction Routing at LinkedIn")
