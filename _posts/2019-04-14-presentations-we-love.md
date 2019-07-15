@@ -216,3 +216,8 @@ Anthony Bishopric ([@sentiental](https://twitter.com/sentiental)) at MoneyCon 20
 Kasia Trapszo and Remi Duvergey at MoneyCon 2019
 
 [![Payment Network Tokens at Netflix video](https://img.youtube.com/vi/QP7jJPsROBI/0.jpg)](https://www.youtube.com/watch?v=QP7jJPsROBI "Payment Network Tokens at Netflix")
+
+## Streaming Your Shared Ride at Lyft
+Thomas Weise ([@thweise](https://twitter.com/thweise)) at Berlin Buzzwords 2019
+
+[![Streaming Your Shared Ride video](https://img.youtube.com/vi/2R0RXRH2eD4/0.jpg)](https://www.youtube.com/watch?v=2R0RXRH2eD4 "Streaming Your Shared Ride at Lyft")
