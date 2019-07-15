@@ -196,3 +196,8 @@ Emilee Urbanek ([@_urbs_](https://twitter.com/_urbs_)) and Manas Kelshikar at Mo
 Sophie Behr and John Chew at MoneyCon 2019
 
 [![AirBnb payments video](https://img.youtube.com/vi/_jxADGmbBgE/0.jpg)](https://www.youtube.com/watch?v=_jxADGmbBgE "Payments as a service at AirBnb")
+
+## Evolution of Revenue Optimization at Dropbox
+Kirill Sapchuk and Evgeny Skarbovsky at MoneyCon 2019
+
+[![Dropbox payments platform video](https://img.youtube.com/vi/cARulgmUtW8/0.jpg)](https://www.youtube.com/watch?v=cARulgmUtW8 "Evolution of Revenue Optimization at Dropbox")
