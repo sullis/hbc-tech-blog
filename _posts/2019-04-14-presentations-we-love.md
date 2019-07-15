@@ -191,3 +191,8 @@ Mohammed Aboullaite ([@laytoun](https://twitter.com/laytoun)) at Voxxed Days Sin
 Emilee Urbanek ([@_urbs_](https://twitter.com/_urbs_)) and Manas Kelshikar at MoneyCon 2019
 
 [![streaming payments video](https://img.youtube.com/vi/5TD8m7w1xE0/0.jpg)](https://www.youtube.com/watch?v=5TD8m7w1xE0 "Reliable processing in a streaming payment system at Uber")
+
+## Payments as a service at AirBnb
+Sophie Behr and John Chew at MoneyCon 2019
+
+[![AirBnb payments video](https://img.youtube.com/vi/_jxADGmbBgE/0.jpg)](https://www.youtube.com/watch?v=_jxADGmbBgE "Payments as a service at AirBnb")
