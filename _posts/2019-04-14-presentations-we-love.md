@@ -206,3 +206,8 @@ Kirill Sapchuk and Evgeny Skarbovsky at MoneyCon 2019
 Tim Tan ([@tim-tan](https://www.linkedin.com/in/tim-tan/)) at MoneyCon 2019
 
 [![Payment Transaction Routing at LinkedIn video](https://img.youtube.com/vi/afs6CnU6qtk/0.jpg)](https://www.youtube.com/watch?v=afs6CnU6qtk "Payment Transaction Routing at LinkedIn")
+
+## Books: Scalable, Flexible, and Immutable Storage of Square's Financials
+Anthony Bishopric ([@sentiental](https://twitter.com/sentiental)) at MoneyCon 2019
+
+[![Immutable Storage of Square's Financials video](https://img.youtube.com/vi/I_Pt_i3ntGw/0.jpg)](https://www.youtube.com/watch?v=I_Pt_i3ntGw "Books: Scalable, Flexible, and Immutable Storage of Square's Financials")
