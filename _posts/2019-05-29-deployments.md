@@ -93,3 +93,8 @@ Sean Sullivan ([@tinyrobots](https://twitter.com/tinyrobots)) - April 2019
 Boris Grubic and Fangfei Zhou - Systems @ Scale 2019
 
 [![facebook-2019-slides](./assets/images/deployments-2019/Systems__Scale_2019__Continuous_Deployment_at_Facebook_Scale-480.png)](https://atscaleconference.com/videos/systems-scale-2019-continuous-deployment-at-facebook-scale/ "Continuous Deployment at Facebook Scale")
+
+## Releasing the World's Largest Python Site Every 7 Minutes (deployments at Instagram)
+Perry Randall at SREcon19 Asia/Pacific 2019
+
+[![Releasing the World's Largest Python Site Every 7 Minutes video](https://img.youtube.com/vi/WtT2ksuNDaI/0.jpg)](https://www.youtube.com/watch?v=WtT2ksuNDaI "Releasing the World's Largest Python Site Every 7 Minutes")
