@@ -221,3 +221,8 @@ Kasia Trapszo and Remi Duvergey at MoneyCon 2019
 Thomas Weise ([@thweise](https://twitter.com/thweise)) at Berlin Buzzwords 2019
 
 [![Streaming Your Shared Ride video](https://img.youtube.com/vi/2R0RXRH2eD4/0.jpg)](https://www.youtube.com/watch?v=2R0RXRH2eD4 "Streaming Your Shared Ride at Lyft")
+
+## Releasing the World's Largest Python Site Every 7 Minutes (deployments at Instagram)
+Perry Randall at SREcon19 Asia/Pacific 2019
+
+[![Releasing the World's Largest Python Site Every 7 Minutes video](https://img.youtube.com/vi/WtT2ksuNDaI/0.jpg)](https://www.youtube.com/watch?v=WtT2ksuNDaI "Releasing the World's Largest Python Site Every 7 Minutes")
