@@ -239,3 +239,8 @@ Kiran Bondalapati ([@bondlog](https://twitter.com/bondlog)) at Code-Conf 2018
 Scott Mitchell ([@scott_mitch_](https://twitter.com/scott_mitch_)) at Devoxx Belgium 2018
 
 [![Enabling Microservices at Apple video](https://img.youtube.com/vi/Ms8vriZ6ieU/0.jpg)](https://www.youtube.com/watch?v=Ms8vriZ6ieU "Enabling Microservices at Apple")
+
+## Strings are evil: methods to hide the use of primitive types
+Noel Welsh ([@noelwelsh](https://twitter.com/noelwelsh)) and Adam Rosien ([@arosien](https://twitter.com/arosien)) at ScalaDays Berlin 2018
+
+[![Strings are evil video](https://img.youtube.com/vi/w7FuQiSi48w/0.jpg)](https://www.youtube.com/watch?v=w7FuQiSi48w "Strings are evil")
