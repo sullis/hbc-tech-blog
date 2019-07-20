@@ -98,3 +98,8 @@ Boris Grubic and Fangfei Zhou - Systems @ Scale 2019
 Perry Randall at SREcon19 Asia/Pacific 2019
 
 [![Releasing the World's Largest Python Site Every 7 Minutes video](https://img.youtube.com/vi/WtT2ksuNDaI/0.jpg)](https://www.youtube.com/watch?v=WtT2ksuNDaI "Releasing the World's Largest Python Site Every 7 Minutes")
+
+## Spinnaker in Production: Lessons Learned from the Trenches at Netflix
+Cameron Fieber ([@cfieber](https://twitter.com/cfieber)) at Spinnaker Summit 2018
+
+[![Spinnaker production video](https://img.youtube.com/vi/Cqk2QkYDlx8/0.jpg)](https://www.youtube.com/watch?v=Cqk2QkYDlx8 "Spinnaker in Production: Lessons Learned from the Trenches at Netflix")
