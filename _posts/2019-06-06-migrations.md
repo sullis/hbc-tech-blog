@@ -94,3 +94,8 @@ Sangeeta Handa ([@smhanda](https://twitter.com/smhanda)) at QCon San Francisco 2
 Ian Quick ([@ianquick](https://ca.linkedin.com/in/ianquick)) at Systems @Scale 2018
 
 [![Kubernetes Application Migrations Shopify video](./assets/images/migrations-2019/Kubernetes_Application_Migrations_How_Shopify_Moves_Stateful_Applications-480.png)](https://atscaleconference.com/videos/systems-scale-2018-kubernetes-application-migrations-how-shopify-moves-stateful-applications-between-clusters-and-regions/ "Kubernetes Application Migrations: How Shopify Moves Stateful Applications Between Clusters and Regions")
+
+## Migrating Monolithic Applications with the Strangler Pattern
+Kenneth Jackson, Harsha Sharma, and Christopher Marsh-Bourdon at AWS Summit New York - July 2019
+
+[![Migrating Monolithic Applications video](https://img.youtube.com/vi/E2dnSg-IHdo/0.jpg)](https://www.youtube.com/watch?v=E2dnSg-IHdo "Migrating Monolithic Applications with the Strangler Pattern")
