@@ -63,6 +63,11 @@ Michele Titolo ([@micheletitolo](https://twitter.com/micheletitolo)) at QCon New
 
 [![Michele Titolo video](https://img.youtube.com/vi/VOlpKO9AbyA/0.jpg)](https://www.youtube.com/watch?v=VOlpKO9AbyA "No microservice is an island")
 
+## Lyft's Envoy: Embracing a Service Mesh
+Matt Klein ([@mattklein123](https://twitter.com/mattklein123)) at QCon New York 2018
+
+[![Lyft Envoy video](https://img.youtube.com/vi/55yi4MMVBi4/0.jpg)](https://www.youtube.com/watch?v=55yi4MMVBi4 "Lyft's Envoy: Embracing a Service Mesh")
+
 ## Try Catch Blocks for your Distributed System
 Cecilia Deng ([@cicikendiggit](https://twitter.com/cicikendiggit)) at REdeploy 2018
 
