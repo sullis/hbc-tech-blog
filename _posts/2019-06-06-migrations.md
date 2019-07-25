@@ -65,6 +65,11 @@ Yoshinori Matsunobu ([@yoshinorim](https://github.com/yoshinorim)) at SREcon18 A
 
 [![facebook-database-video](https://img.youtube.com/vi/OjXLxhBWmyY/0.jpg)](https://www.youtube.com/watch?v=OjXLxhBWmyY "Lessons Learned from Our Main Database Migrations at Facebook")
 
+## Evolving Legacy Systems into Kubernetes at Lyft
+Lita Cho and Jose Nino at KubeCon North America 2018
+
+[![lyft kubernetes video](https://img.youtube.com/vi/xQxIoy50Mzo/0.jpg)](https://www.youtube.com/watch?v=xQxIoy50Mzo "Evolving Legacy Systems into Kubernetes at Lyft")
+
 ## Soundcloud: Migrations under Production Load - How to Switch Your Database without Disrupting Service
 Vilde Opsal ([@thevildebeast](https://twitter.com/thevildebeast)) at SREcon18 EMEA - August 2018
 
