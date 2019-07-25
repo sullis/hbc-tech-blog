@@ -66,7 +66,7 @@ Yoshinori Matsunobu ([@yoshinorim](https://github.com/yoshinorim)) at SREcon18 A
 [![facebook-database-video](https://img.youtube.com/vi/OjXLxhBWmyY/0.jpg)](https://www.youtube.com/watch?v=OjXLxhBWmyY "Lessons Learned from Our Main Database Migrations at Facebook")
 
 ## Evolving Legacy Systems into Kubernetes at Lyft
-Lita Cho and Jose Nino at KubeCon North America 2018
+Lita Cho ([@litacho](https://twitter.com/litacho)) and Jose Nino ([@junr03](https://twitter.com/junr03)) at KubeCon North America 2018
 
 [![lyft kubernetes video](https://img.youtube.com/vi/xQxIoy50Mzo/0.jpg)](https://www.youtube.com/watch?v=xQxIoy50Mzo "Evolving Legacy Systems into Kubernetes at Lyft")
 
