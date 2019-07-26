@@ -25,12 +25,12 @@ Neependra Khare ([@neependra](https://twitter.com/neependra)) and Karthik Gaekwa
 [![Noobernetes 101 video](https://img.youtube.com/vi/pzY55PPrtI8/0.jpg)](https://www.youtube.com/watch?v=pzY55PPrtI8 "Noobernetes 101: Top 10 Questions We Get From New Kubernetes Users")
 
 ## Kubernetes Design Principles
-Saad Ali at KubeCon North American 2018
+Saad Ali ([@the_saad_ali](https://twitter.com/the_saad_ali)) at KubeCon North American 2018
 
 [![Kubernetes Design Principles video](https://img.youtube.com/vi/ZuIQurh_kDk/0.jpg)](https://www.youtube.com/watch?v=ZuIQurh_kDk "Kubernetes Design Principles")
 
 ## How Atlassian Built Our Own Kube Clusters and Why You Shouldn’t Do the Same
-Nick Young at KubeCon North American 2018
+Nick Young ([@youngnick](https://twitter.com/youngnick)) at KubeCon North American 2018
 
 [![Kubernetes Atlassian video](https://img.youtube.com/vi/Ol_NYLQP5ec/0.jpg)](https://www.youtube.com/watch?v=Ol_NYLQP5ec "How Atlassian Built Our Own Kube Clusters and Why You Shouldn’t Do the Same")
 
