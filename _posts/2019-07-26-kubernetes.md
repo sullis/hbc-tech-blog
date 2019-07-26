@@ -42,7 +42,7 @@ Meaghan Kjelland and Karan Goel at KubeCon North American 2018
 ## Kubernetes: Crossing the Chasm
 Ian Crosby ([@iandcrosby](https://twitter.com/iandcrosby)) at GOTO Amsterdam 2018
 
-[![Ian Crosby Kubernetes video](https://img.youtube.com/vi/QEu6dpQnJ7A/0.jpg)](https://www.youtube.com/watch?v=QEu6dpQnJ7A "Kubernetes: Crossing the Chasm")
+[![Ian Crosby Kubernetes video](https://img.youtube.com/vi/j9h66mchXi0/0.jpg)](https://www.youtube.com/watch?v=j9h66mchXi0 "Kubernetes: Crossing the Chasm")
 
 ## Kubernetes Operability Tooling
 Bridget Kromhout ([@bridgetkromhout](https://twitter.com/bridgetkromhout)) and Brendan Burns ([@brendanburns](https://twitter.com/brendanburns)) at DevOpsDays Seattle 2019
