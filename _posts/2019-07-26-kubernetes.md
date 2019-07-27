@@ -59,6 +59,11 @@ Lita Cho ([@litacho](https://twitter.com/litacho)) and Jose Nino ([@junr03](http
 
 [![lyft kubernetes video](https://img.youtube.com/vi/xQxIoy50Mzo/0.jpg)](https://www.youtube.com/watch?v=xQxIoy50Mzo "Evolving Legacy Systems into Kubernetes at Lyft")
 
+## Mastering Kubernetes on AWS
+Yaniv Donenfeld ([@ydonfeld](https://twitter.com/ydonfeld)) at AWS re:Invent 2018
+
+[![Mastering Kubernetes on AWS video](https://img.youtube.com/vi/8OPkt93WyPA/0.jpg)](https://www.youtube.com/watch?v=8OPkt93WyPA "Mastering Kubernetes on AWS")
+
 ## How Intuit Does Canary and Blue Green Deployments with a Kubernetes Controller
 Daniel Thomson and Alex Matyushentsev at KubeCon Europe 2019
 
