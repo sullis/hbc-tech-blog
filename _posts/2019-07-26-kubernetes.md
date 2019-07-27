@@ -64,10 +64,10 @@ Yaniv Donenfeld ([@ydonfeld](https://twitter.com/ydonfeld)) at AWS re:Invent 201
 
 [![Mastering Kubernetes on AWS video](https://img.youtube.com/vi/8OPkt93WyPA/0.jpg)](https://www.youtube.com/watch?v=8OPkt93WyPA "Mastering Kubernetes on AWS")
 
-## Deep Dive on Amazon EKS
+## Deep Dive into Amazon EKS
 Brandon Chavis and Eswar Bala ([@bala_eswar](https://twitter.com/bala_eswar)) at AWS re:Invent 2018
 
-[![Deep Dive on Amazon EKS video](https://img.youtube.com/vi/EDaGpxZ6Qi0/0.jpg)](https://www.youtube.com/watch?v=EDaGpxZ6Qi0 "Deep Dive on Amazon EKS")
+[![Deep Dive Amazon EKS video](https://img.youtube.com/vi/EDaGpxZ6Qi0/0.jpg)](https://www.youtube.com/watch?v=EDaGpxZ6Qi0 "Deep Dive into Amazon EKS")
 
 ## How Intuit Does Canary and Blue Green Deployments with a Kubernetes Controller
 Daniel Thomson and Alex Matyushentsev at KubeCon Europe 2019
