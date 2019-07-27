@@ -74,7 +74,7 @@ Ian Quick ([@ianquick](https://ca.linkedin.com/in/ianquick)) at Systems @Scale 2
 
 [![Kubernetes Application Migrations Shopify video](./assets/images/migrations-2019/Kubernetes_Application_Migrations_How_Shopify_Moves_Stateful_Applications-480.png)](https://atscaleconference.com/videos/systems-scale-2018-kubernetes-application-migrations-how-shopify-moves-stateful-applications-between-clusters-and-regions/ "Kubernetes Application Migrations: How Shopify Moves Stateful Applications Between Clusters and Regions")
 
-## Akka and Kubernetes: A Symbiotic Love Story
-Hugh McKee ([@mckeeh3](https://twitter.com/mckeeh3)) - Lightbend webinar July 2019
+## Streamlining Kubernetes Application CI/CD with Bazel
+Gregg Donovan ([@greggdonovan](https://twitter.com/greggdonovan)) and Chris Love ([@chrislovecnm](https://twitter.com/chrislovecnm)) - KubeCon Europe 2019
 
-[![akka kubernetes video](https://img.youtube.com/vi/BcTORFoYCGY/0.jpg)](https://www.youtube.com/watch?v=BcTORFoYCGY "Akka and Kubernetes: A Symbiotic Love Story")
+[![bazel kubernetes video](https://img.youtube.com/vi/DTvXa-iqrfA/0.jpg)](https://www.youtube.com/watch?v=DTvXa-iqrfA "Streamlining Kubernetes Application CI/CD with Bazel")
