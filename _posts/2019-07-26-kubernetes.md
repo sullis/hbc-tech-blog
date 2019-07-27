@@ -10,7 +10,7 @@ tags:
 - 2019
 ---
 
-At HBC, our production applications run in Docker containers on a public cloud. Over the past 18 months, Kubernetes has emerged as a core building block for distributed systems. All major cloud platforms (AWS, Google, Microsoft) now offer Kubernetes-as-a-service. Our engineering team is excited about the potential of Kubernetes for our production environment.
+HBC's production applications run in Docker containers on a public cloud. Over the past 18 months, Kubernetes has emerged as a core building block for distributed systems. All major cloud platforms (AWS, Google, Microsoft) now offer Kubernetes-as-a-service. Our engineering team is excited about the potential of Kubernetes for our production environment.
 
 Here is a list of presentations about Kubernetes that we have found educational.
 
