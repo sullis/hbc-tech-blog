@@ -19,11 +19,6 @@ Joe Beda ([@jbeda](https://twitter.com/jbeda)) at DevOpsDays Seattle 2018
 
 [![Joe Beda Kubernetes video](https://img.youtube.com/vi/QEu6dpQnJ7A/0.jpg)](https://www.youtube.com/watch?v=QEu6dpQnJ7A "Kubernetes Is A Platform Platform")
 
-## Noobernetes 101: Top 10 Questions We Get From New Kubernetes Users
-Neependra Khare ([@neependra](https://twitter.com/neependra)) and Karthik Gaekwad ([@iteration1](https://twitter.com/iteration1)) at Kubernetes Day India 2019
-
-[![Noobernetes 101 video](https://img.youtube.com/vi/pzY55PPrtI8/0.jpg)](https://www.youtube.com/watch?v=pzY55PPrtI8 "Noobernetes 101: Top 10 Questions We Get From New Kubernetes Users")
-
 ## Kubernetes Design Principles
 Saad Ali ([@the_saad_ali](https://twitter.com/the_saad_ali)) at KubeCon North American 2018
 
@@ -78,3 +73,8 @@ Ian Quick ([@ianquick](https://ca.linkedin.com/in/ianquick)) at Systems @Scale 2
 Gregg Donovan ([@greggdonovan](https://twitter.com/greggdonovan)) and Chris Love ([@chrislovecnm](https://twitter.com/chrislovecnm)) - KubeCon Europe 2019
 
 [![bazel kubernetes video](https://img.youtube.com/vi/DTvXa-iqrfA/0.jpg)](https://www.youtube.com/watch?v=DTvXa-iqrfA "Streamlining Kubernetes Application CI/CD with Bazel")
+
+## Noobernetes 101: Top 10 Questions We Get From New Kubernetes Users
+Neependra Khare ([@neependra](https://twitter.com/neependra)) and Karthik Gaekwad ([@iteration1](https://twitter.com/iteration1)) at Kubernetes Day India 2019
+
+[![Noobernetes 101 video](https://img.youtube.com/vi/pzY55PPrtI8/0.jpg)](https://www.youtube.com/watch?v=pzY55PPrtI8 "Noobernetes 101: Top 10 Questions We Get From New Kubernetes Users")
