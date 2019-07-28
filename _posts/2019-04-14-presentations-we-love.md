@@ -182,6 +182,11 @@ Melanie Cebula ([@MelanieCebula](https://twitter.com/MelanieCebula)) at QCon Lon
 
 [![Develop Hundreds of Kubernetes Services at Scale with Airbnb video](https://img.youtube.com/vi/DhuEc-IHrzo/0.jpg)](https://www.youtube.com/watch?v=DhuEc-IHrzo "Develop Hundreds of Kubernetes Services at Scale with Airbnb")
 
+## Adopting TypeScript at Scale (AirBnb)
+Brie Bunge ([@briebunge](https://twitter.com/briebunge)) at JSConf Hawaii 2019
+
+[![Adopting TypeScript video](https://img.youtube.com/vi/P-J9Eg7hJwE/0.jpg)](https://www.youtube.com/watch?v=P-J9Eg7hJwE "Adopting TypeScript at Scale (AirBnb)")
+
 ## Docker and Java
 Mohammed Aboullaite ([@laytoun](https://twitter.com/laytoun)) at Voxxed Days Singapore 2019
 
