@@ -21,6 +21,12 @@ Sarah Wells ([@sarahjwells](https://twitter.com/sarahjwells)) at QCon London 201
 
 [![Mature Microservices video](./assets/images/presentations-we-love-2019/mature-microservices-qcon-london-2019-480.png)](https://www.infoq.com/presentations/microservices-financial-times "Mature Microservices and How to Operate Them")
 
+## PID Loops and the Art of Keeping Systems Stable
+Colm MacCárthaigh ([@colmmacc](https://twitter.com/colmmacc)) at QCon New York 2019
+
+[![PID Loops video](./assets/images/presentations-we-love-2019/pid-loops-qcon-new-york-2019-480.png)](https://www.infoq.com/presentations/pid-loops/ "PID Loops and the Art of Keeping Systems Stable")
+
+
 ## Speeding Up Innovation
 Adrian Cockcroft ([@adrianco](https://twitter.com/adrianco)) at CraftConf - May 2019
 
