@@ -237,3 +237,8 @@ Thomas Weise ([@thweise](https://twitter.com/thweise)) at Berlin Buzzwords 2019
 Perry Randall at SREcon19 Asia/Pacific 2019
 
 [![Releasing the World's Largest Python Site Every 7 Minutes video](https://img.youtube.com/vi/WtT2ksuNDaI/0.jpg)](https://www.youtube.com/watch?v=WtT2ksuNDaI "Releasing the World's Largest Python Site Every 7 Minutes")
+
+## Kubernetes As Code
+Joe Duffy ([@funcofjoe](https://twitter.com/funcofjoe)) at New York Kubernetes Meetup June 2019
+
+[![Kubernetes As Code video](https://img.youtube.com/vi/TuE5Z4VTCuE/0.jpg)](https://www.youtube.com/watch?v=TuE5Z4VTCuE "Kubernetes As Code")
