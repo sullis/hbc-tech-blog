@@ -44,6 +44,11 @@ Bridget Kromhout ([@bridgetkromhout](https://twitter.com/bridgetkromhout)) and B
 
 [![Kubernetes Operability Tooling video](https://img.youtube.com/vi/rlgyL839bls/0.jpg)](https://www.youtube.com/watch?v=rlgyL839bls "Kubernetes Operability Tooling")
 
+## Kubernetes As Code
+Joe Duffy ([@funcofjoe](https://twitter.com/funcofjoe)) at New York Kubernetes Meetup June 2019
+
+[![Kubernetes As Code video](https://img.youtube.com/vi/TuE5Z4VTCuE/0.jpg)](https://www.youtube.com/watch?v=TuE5Z4VTCuE "Kubernetes As Code")
+
 ## Kubernetes for Java Developers
 Arun Gupta ([@arungupta](https://twitter.com/arungupta)) at Kubernetes Day India 2019
 
