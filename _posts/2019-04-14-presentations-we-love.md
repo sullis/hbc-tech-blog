@@ -98,6 +98,12 @@ Amit Gud ([@amitgud](https://twitter.com/amitgud)) - SRECon19 Americas - March 2
 
 [![testing-in-production-uber-video](https://img.youtube.com/vi/nIlFmja65_g/0.jpg)](https://www.youtube.com/watch?v=nIlFmja65_g "Testing in Production at Scale")
 
+## Driving Technology Transformation at WeWork
+Hugo Haas ([@whugoh](https://twitter.com/whugoh)) at QCon New York 2019
+
+[![Technology Transformation at WeWork video](./assets/images/presentations-we-love-2019/driving_technology_transformation_at_wework-qcon-ny-2019-480.png)](https://www.infoq.com/presentations/wework-platform-technology/ "Driving Technology Transformation at WeWork")
+
+
 ## How Retailers Prepare for Black Friday on Google Cloud Platform
 Kiran Davuluri, Jimit Ladha, and Andre Fatala at Google Cloud Next - April 2019
 [![prepare-for-black-friday-video](https://img.youtube.com/vi/fbstGbxcni4/0.jpg)](https://www.youtube.com/watch?v=fbstGbxcni4 "How Retailers Prepare for Black Friday on Google Cloud Platform")
