@@ -253,3 +253,5 @@ Joe Duffy ([@funcofjoe](https://twitter.com/funcofjoe)) at New York Kubernetes M
 Christie Wilson ([@bobcatwilson](https://twitter.com/bobcatwilson)) and James Rawlings ([@jdrawlings](https://twitter.com/jdrawlings)) at QCon London 2019
 
 [![QCon Jenkins X video](https://img.youtube.com/vi/sUkvpzr9du8/0.jpg)](https://www.youtube.com/watch?v=sUkvpzr9du8 "Cloud Native CI/CD with Jenkins X and Tekton Pipelines")
+
+([slides](https://www.slideshare.net/InfoQ/cloud-native-cicd-with-jenkins-x-and-knative-pipelines))
