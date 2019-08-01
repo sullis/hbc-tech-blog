@@ -248,3 +248,8 @@ Perry Randall at SREcon19 Asia/Pacific 2019
 Joe Duffy ([@funcofjoe](https://twitter.com/funcofjoe)) at New York Kubernetes Meetup June 2019
 
 [![Kubernetes As Code video](https://img.youtube.com/vi/TuE5Z4VTCuE/0.jpg)](https://www.youtube.com/watch?v=TuE5Z4VTCuE "Kubernetes As Code")
+
+## Cloud Native CI/CD with Jenkins X and Knative Pipelines
+Christie Wilson ([@bobcatwilson](https://twitter.com/bobcatwilson)) and James Rawlings ([@jdrawlings](https://twitter.com/jdrawlings)) at QCon London 2019
+
+[![QCon Jenkins X video](https://img.youtube.com/vi/sUkvpzr9du8/0.jpg)](https://www.youtube.com/watch?v=sUkvpzr9du8 "Cloud Native CI/CD with Jenkins X and Knative Pipelines")
