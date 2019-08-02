@@ -108,8 +108,3 @@ Cameron Fieber ([@cfieber](https://twitter.com/cfieber)) at Spinnaker Summit 201
 Vic Iglesias, Benjamin Good, and Karl Isenberg at Google Cloud Next 2019
 
 [![CI/CD Across Multiple Environments video](https://img.youtube.com/vi/rt287-94Pq4/0.jpg)](https://www.youtube.com/watch?v=rt287-94Pq4 "CI/CD Across Multiple Environments")
-
-## Tekton project showcase
-Christie Wilson ([@bobcatwilson](https://twitter.com/bobcatwilson)) and Jason Hall at Continuous Delivery Summit 2019
-
-[![Tekton project showcase video](https://img.youtube.com/vi/V0LpYdnTpsg/0.jpg)](https://www.youtube.com/watch?v=V0LpYdnTpsg "Tekton project showcase")
