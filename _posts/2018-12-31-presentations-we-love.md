@@ -87,6 +87,7 @@ Szczepan Faber ([@mockitoguy](https://twitter.com/mockitoguy)) at Devoxx Poland 
 Rich Archbold ([@rich_archbold](https://twitter.com/rich_archbold)) at DevOpsDays Galway 2018
 
 [![Run Less Software video](https://img.youtube.com/vi/FHvT5_yGry0/0.jpg)](https://www.youtube.com/watch?v=FHvT5_yGry0 "Run Less Software")
+([slides](https://www.slideshare.net/GillianGormley/run-less-software-rich-archbold-intercom))
 
 ## Effective Scala: Reloaded
 Mirco Dotta ([@mircodotta](https://twitter.com/mircodotta)) at Voxxed Zurich 2018
