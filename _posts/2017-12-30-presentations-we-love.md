@@ -101,3 +101,8 @@ Matthew Moore ([@mattomata](https://twitter.com/mattomata)) at JFrog SwampUp 201
 Simon Eskildsen ([@sirupsen](https://twitter.com/sirupsen)) at GOTO Copenhagen 2017
 
 [![Shopify's Architecture video](http://img.youtube.com/vi/N8NWDHgWA28/0.jpg)](http://www.youtube.com/watch?v=N8NWDHgWA28 "Shopify's Architecture to handle 80K RPS Celebrity Sales")
+
+## Simplifying Omni-Channel Retail at Scale
+Aaron Strey ([@strey203](https://twitter.com/strey203)) at Kafka Summit NYC 2017
+
+[![Omni-Channel Retail at Scale video](http://img.youtube.com/vi/JLO83v6JdbM/0.jpg)](http://www.youtube.com/watch?v=JLO83v6JdbM  "Simplifying Omni-Channel Retail at Scale")
