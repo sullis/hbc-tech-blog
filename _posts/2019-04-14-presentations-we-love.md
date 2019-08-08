@@ -123,6 +123,11 @@ Randy Shoup ([@randyshoup](https://twitter.com/randyshoup)) at CraftConf - May 2
 
 [![moving-fast-video](https://img.youtube.com/vi/t-sIaw4kHqI/0.jpg)](https://www.youtube.com/watch?v=t-sIaw4kHqI "Moving Fast at Scale")
 
+## Scaling your Architecture with Services and Events
+Randy Shoup ([@randyshoup](https://twitter.com/randyshoup)) at GeeCON 2019
+
+[![randy-shoup-scaling-video](https://img.youtube.com/vi/zVJSTMD6zg0/0.jpg)](https://www.youtube.com/watch?v=zVJSTMD6zg0 "Scaling your Architecture with Services and Events")
+
 ## Cultivating Architecture
 Birgitta Böckeler ([@birgitta410](https://twitter.com/birgitta410)) and Martin Fowler ([@martinfowler](https://twitter.com/martinfowler)) at CraftConf - May 2019
 
