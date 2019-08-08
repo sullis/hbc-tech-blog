@@ -83,6 +83,11 @@ Szczepan Faber ([@mockitoguy](https://twitter.com/mockitoguy)) at Devoxx Poland 
 
 [![Testing In Production video](https://img.youtube.com/vi/lbO6INBICpQ/0.jpg)](https://www.youtube.com/watch?v=lbO6INBICpQ "Testing in production at LinkedIn")
 
+## Run Less Software
+Rich Archbold ([@rich_archbold](https://twitter.com/rich_archbold)) at DevOpsDays Galway 2018
+
+[![Run Less Software video](https://img.youtube.com/vi/FHvT5_yGry0/0.jpg)](https://www.youtube.com/watch?v=FHvT5_yGry0 "Run Less Software")
+
 ## Effective Scala: Reloaded
 Mirco Dotta ([@mircodotta](https://twitter.com/mircodotta)) at Voxxed Zurich 2018
 
